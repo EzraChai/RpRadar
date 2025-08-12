@@ -1,49 +1,237 @@
 [
-  { "route_id": "30000019", "route_long_name": "401" },
-  { "route_id": "30000051", "route_long_name": "CAT" },
-  { "route_id": "30000009", "route_long_name": "206" },
-  { "route_id": "30000006", "route_long_name": "202" },
-  { "route_id": "30000040", "route_long_name": "708" },
-  { "route_id": "30000089", "route_long_name": "613" },
-  { "route_id": "30000038", "route_long_name": "703" },
-  { "route_id": "30000048", "route_long_name": "11" },
-  { "route_id": "30000001", "route_long_name": "101" },
-  { "route_id": "30000007", "route_long_name": "203" },
-  { "route_id": "30000021", "route_long_name": "403" },
-  { "route_id": "30000117", "route_long_name": "CT14" },
-  { "route_id": "30000100", "route_long_name": "CT13" },
-  { "route_id": "30000020", "route_long_name": "401E" },
-  { "route_id": "30000010", "route_long_name": "301" },
-  { "route_id": "30000014", "route_long_name": "304" },
-  { "route_id": "30000005", "route_long_name": "201" },
-  { "route_id": "30000012", "route_long_name": "302" },
-  { "route_id": "30000018", "route_long_name": "308" },
-  { "route_id": "30000034", "route_long_name": "610" },
-  { "route_id": "30000119", "route_long_name": "T310" },
-  { "route_id": "30000026", "route_long_name": "601" },
-  { "route_id": "30000028", "route_long_name": "604" },
-  { "route_id": "30000041", "route_long_name": "709" },
-  { "route_id": "30000024", "route_long_name": "502" },
-  { "route_id": "30000065", "route_long_name": "706" },
-  { "route_id": "30000013", "route_long_name": "303" },
-  { "route_id": "30000042", "route_long_name": "801" },
-  { "route_id": "30000008", "route_long_name": "204" },
-  { "route_id": "30000022", "route_long_name": "404" },
-  { "route_id": "30000049", "route_long_name": "12" },
-  { "route_id": "30000032", "route_long_name": "606" },
-  { "route_id": "30000016", "route_long_name": "306" },
-  { "route_id": "30000037", "route_long_name": "702" },
-  { "route_id": "30000031", "route_long_name": "605" },
-  { "route_id": "30000046", "route_long_name": "EB60" },
-  { "route_id": "30000043", "route_long_name": "802" },
-  { "route_id": "30000003", "route_long_name": "103" },
-  { "route_id": "30000045", "route_long_name": "EB80" },
-  { "route_id": "30000002", "route_long_name": "102" },
-  { "route_id": "30000004", "route_long_name": "104" },
-  { "route_id": "30000104", "route_long_name": "C13C" },
-  { "route_id": "30000036", "route_long_name": "701" },
-  { "route_id": "30000050", "route_long_name": "13" },
-  { "route_id": "30000027", "route_long_name": "603" },
-  { "route_id": "30000039", "route_long_name": "707" },
-  { "route_id": "30000103", "route_long_name": "C13A" }
+  {
+    "route_id": "30000001",
+    "route_code": "101",
+    "route_name": "JETI - TELUK BAHANG"
+  },
+  {
+    "route_id": "30000002",
+    "route_code": "102",
+    "route_name": "AIRPORT-TELUK BAHANG"
+  },
+  {
+    "route_id": "30000003",
+    "route_code": "103",
+    "route_name": "KOMTAR-PULAU TIKUS-KOMTAR"
+  },
+  {
+    "route_id": "30000004",
+    "route_code": "104",
+    "route_name": "TG.BUNGAH-KOMTAR"
+  },
+  {
+    "route_id": "30000048",
+    "route_code": "11",
+    "route_name": "JETI - BATU LANCHANG"
+  },
+  {
+    "route_id": "30000049",
+    "route_code": "12",
+    "route_name": "JETI - BANDAR SRI PINANG"
+  },
+  {
+    "route_id": "30000050",
+    "route_code": "13",
+    "route_name": "PAYA TERUBONG - LOTUS"
+  },
+  {
+    "route_id": "30000005",
+    "route_code": "201",
+    "route_name": "JETI - PAYA TERUBONG "
+  },
+  {
+    "route_id": "30000006",
+    "route_code": "202",
+    "route_name": "PAYA TERUBONG - JETI"
+  },
+  {
+    "route_id": "30000007",
+    "route_code": "203",
+    "route_name": "AIR ITAM - JETI"
+  },
+  {
+    "route_id": "30000008",
+    "route_code": "204",
+    "route_name": "JETI- BKT.BENDERA"
+  },
+  {
+    "route_id": "30000009",
+    "route_code": "206",
+    "route_name": "JETI - TESCO"
+  },
+  {
+    "route_id": "30000010",
+    "route_code": "301",
+    "route_name": "JETI - RELAU"
+  },
+  {
+    "route_id": "30000012",
+    "route_code": "302",
+    "route_name": "BATU MAUNG - JETI"
+  },
+  {
+    "route_id": "30000013",
+    "route_code": "303",
+    "route_name": "JETI - BUKIT GEDUNG"
+  },
+  {
+    "route_id": "30000014",
+    "route_code": "304",
+    "route_name": "BKT.GEDUNG - GURNEY"
+  },
+  {
+    "route_id": "30000016",
+    "route_code": "306",
+    "route_name": "HOSPITAL- AIRPORT"
+  },
+  {
+    "route_id": "30000018",
+    "route_code": "308",
+    "route_name": "SG.NIBONG - GERTAK SANGGUL"
+  },
+  {
+    "route_id": "30000019",
+    "route_code": "401",
+    "route_name": "TELUK KUMBAR - JETI"
+  },
+  {
+    "route_id": "30000020",
+    "route_code": "401E",
+    "route_name": "BLK.PULAU - JETI (EKS)"
+  },
+  {
+    "route_id": "30000021",
+    "route_code": "403",
+    "route_name": "BLK.PULAU - P.BETONG"
+  },
+  {
+    "route_id": "30000022",
+    "route_code": "404",
+    "route_name": "BLK.PULAU - P.ACHEH"
+  },
+  {
+    "route_id": "30000024",
+    "route_code": "502",
+    "route_name": "BALIK PULAU - JETI"
+  },
+  {
+    "route_id": "30000026",
+    "route_code": "601",
+    "route_name": "P.SENTRAL - KEPALA BATAS"
+  },
+  {
+    "route_id": "30000027",
+    "route_code": "603",
+    "route_name": "PENANG SENTRAL - KUALA MUDA"
+  },
+  {
+    "route_id": "30000028",
+    "route_code": "604",
+    "route_name": "P.SENTRAL - DESA MURNI"
+  },
+  {
+    "route_id": "30000031",
+    "route_code": "605",
+    "route_name": "PENANG SENTRAL - PEKAN DARAT"
+  },
+  {
+    "route_id": "30000032",
+    "route_code": "606",
+    "route_name": "KEPALA BATAS - BM"
+  },
+  {
+    "route_id": "30000034",
+    "route_code": "610",
+    "route_name": "KEPALA BATAS - TASEK GELUGOR"
+  },
+  {
+    "route_id": "30000089",
+    "route_code": "613",
+    "route_name": "PADANG SERAI - PENANG SENTRAL"
+  },
+  {
+    "route_id": "30000036",
+    "route_code": "701",
+    "route_name": "PENANG SENTRAL - BM"
+  },
+  {
+    "route_id": "30000037",
+    "route_code": "702",
+    "route_name": "P.SENTRAL - BM"
+  },
+  {
+    "route_id": "30000038",
+    "route_code": "703",
+    "route_name": "SEBERANG JAYA - PENANG SENTRAL"
+  },
+  {
+    "route_id": "30000065",
+    "route_code": "706",
+    "route_name": "P.SENTRAL-TMN.PELANGI"
+  },
+  {
+    "route_id": "30000039",
+    "route_code": "707",
+    "route_name": "TMN.PELANGI - BM"
+  },
+  {
+    "route_id": "30000040",
+    "route_code": "708",
+    "route_name": "JUNJUNG - BM"
+  },
+  {
+    "route_id": "30000041",
+    "route_code": "709",
+    "route_name": "MACHANG BUBOK - PENANG SENTRAL"
+  },
+  {
+    "route_id": "30000042",
+    "route_code": "801",
+    "route_name": "P.SENTRAL - NIBONG TEBAL"
+  },
+  {
+    "route_id": "30000043",
+    "route_code": "802",
+    "route_name": "BM - NIBONG TEBAL"
+  },
+  {
+    "route_id": "30000103",
+    "route_code": "C13A",
+    "route_name": "FIZ 1. 2 & 3 - SUNWAY"
+  },
+  {
+    "route_id": "30000104",
+    "route_code": "C13C",
+    "route_name": "FIZ 4 & BLIP - SUNWAY"
+  },
+  {
+    "route_id": "30000051",
+    "route_code": "CAT",
+    "route_name": "PENANG FREE CAT BUS"
+  },
+  {
+    "route_id": "30000100",
+    "route_code": "CT13",
+    "route_name": "CAT BRIDGE : SUNWAY S.JAYA - BAYAN BARU"
+  },
+  {
+    "route_id": "30000117",
+    "route_code": "CT14",
+    "route_name": "KOMTAR - BUKIT MERTAJAM"
+  },
+  {
+    "route_id": "30000046",
+    "route_code": "EB60",
+    "route_name": "B'WORTH - SG.PETANI"
+  },
+  {
+    "route_id": "30000045",
+    "route_code": "EB80",
+    "route_name": "B'WORTH-PARIT BUNTAR"
+  },
+  {
+    "route_id": "30000119",
+    "route_code": "T310",
+    "route_name": "BUKIT JAMBUL - QUEENSBAY MALL"
+  }
 ]
