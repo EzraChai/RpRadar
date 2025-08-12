@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 // import "./App.css";
 import "leaflet/dist/leaflet.css";
 import { useSearchParams } from "react-router";
