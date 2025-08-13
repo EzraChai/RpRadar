@@ -1,17 +1,14 @@
 import { MapContainer, Polyline, TileLayer, useMap } from "react-leaflet";
 import { Polyline as LeafletPolyline } from "leaflet";
-// import "./App.css";
 import "leaflet/dist/leaflet.css";
 import { useSearchParams } from "react-router";
 import { useEffect, useRef } from "react";
 // import { transit_realtime } from "gtfs-realtime-bindings";
 import Shapes from "@/assets/shapes.json";
 import type { LatLngExpression } from "leaflet";
-import { useTheme } from "./theme-provider";
 
 function App() {
   const [searchParams] = useSearchParams();
-  const theme = useTheme();
 
   const filteredShape = Shapes.features.filter(
     (feature) => feature.properties.shape_id === searchParams.get("shape_id")
@@ -73,7 +70,9 @@ function App() {
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
           }
           url={`https://{s}.basemaps.cartocdn.com/${
-            theme.theme === "dark" ? "dark_all" : "voyager"
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark_all"
+              : "rastertiles/voyager"
           }/{z}/{x}/{y}{r}.png`}
         />
         <FitBoundsToPolyline positions={positions} />
