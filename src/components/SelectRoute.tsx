@@ -61,10 +61,11 @@ function RouteCard({
     route_id: string;
     route_code: string;
     route_name: string;
+    shape_id: string;
   };
 }) {
   return (
-    <NavLink to={`/map?code=${line.route_code}`} end>
+    <NavLink to={`/map?code=${line.route_code}&shape_id=${line.shape_id}`} end>
       <div className="bg-white border dark:bg-neutral-900 rounded-2xl p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800">
         <div className="flex justify-between items-center gap-4">
           <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
