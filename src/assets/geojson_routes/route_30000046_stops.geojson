@@ -1,0 +1,277 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49054749999999,
+          5.6402774
+        ]
+      },
+      "properties": {
+        "stop_id": 12002981,
+        "stop_code": "MDP0857",
+        "stop_name": "Terminal UTC Ukir Square",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49056999999999,
+          5.64269
+        ]
+      },
+      "properties": {
+        "stop_id": 12000856,
+        "stop_code": "MDP0856",
+        "stop_name": "Stesen KTM",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48807,
+          5.6397699999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12001291,
+        "stop_code": "MFP1291",
+        "stop_name": "(M2) Terminal Jalan Petri",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48814,
+          5.636909999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12000597,
+        "stop_code": "MCC0597",
+        "stop_name": "Central Square",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48289,
+          5.63274
+        ]
+      },
+      "properties": {
+        "stop_id": 12000134,
+        "stop_code": "M0Y0134",
+        "stop_name": "MSU",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48063,
+          5.62901
+        ]
+      },
+      "properties": {
+        "stop_id": 12000132,
+        "stop_code": "M0Y0132",
+        "stop_name": "Pejabat Pos Bakar Arang",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4788,
+          5.62447
+        ]
+      },
+      "properties": {
+        "stop_id": 12000131,
+        "stop_code": "M0Y0131",
+        "stop_name": "SMK Che Tom",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47648000000001,
+          5.62188
+        ]
+      },
+      "properties": {
+        "stop_id": 12000129,
+        "stop_code": "M0Y0129",
+        "stop_name": "Tesco Bakar Arang",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47372,
+          5.61914
+        ]
+      },
+      "properties": {
+        "stop_id": 12000126,
+        "stop_code": "M0Y0126",
+        "stop_name": "Peladang Sg.Petani",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4193436,
+          5.458735099999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12002979,
+        "stop_code": "PLH0001",
+        "stop_name": "CP1",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3770532,
+          5.4314919
+        ]
+      },
+      "properties": {
+        "stop_id": 12002980,
+        "stop_code": "PLH0002",
+        "stop_name": "CP2",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3653495,
+          5.3948602
+        ]
+      },
+      "properties": {
+        "stop_id": 12002322,
+        "stop_code": "MEM0973",
+        "stop_name": "(M1) Penang Sentral",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47349,
+          5.6192400000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12000127,
+        "stop_code": "M0Y0127",
+        "stop_name": "Peladang Sg.Petani",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47610999999999,
+          5.62185
+        ]
+      },
+      "properties": {
+        "stop_id": 12000128,
+        "stop_code": "M0Y0128",
+        "stop_name": "Tesco Bakar Arang",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47829,
+          5.6241900000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12000130,
+        "stop_code": "M0Y0130",
+        "stop_name": "Longwan",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48248000000001,
+          5.6323099999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12000133,
+        "stop_code": "M0Y0133",
+        "stop_name": "DSOP Sungai Petani",
+        "route_id": "30000046"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48702,
+          5.63629
+        ]
+      },
+      "properties": {
+        "stop_id": 12000596,
+        "stop_code": "MCC0596",
+        "stop_name": "Central Square",
+        "route_id": "30000046"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1205 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.2398239,
+          5.351447900000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12002115,
+        "stop_code": "IIG1885",
+        "stop_name": "Terminal Bas Balik Pulau",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.23510999999999,
+          5.35078
+        ]
+      },
+      "properties": {
+        "stop_id": 12000140,
+        "stop_code": "I0Z0140",
+        "stop_name": "Pekan Kongsi",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.23312,
+          5.35091
+        ]
+      },
+      "properties": {
+        "stop_id": 12001567,
+        "stop_code": "IHA1567",
+        "stop_name": "Hospital Balik Pulau",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.23135,
+          5.35195
+        ]
+      },
+      "properties": {
+        "stop_id": 12001568,
+        "stop_code": "IHA1568",
+        "stop_name": "Taman Impian",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.22922,
+          5.35418
+        ]
+      },
+      "properties": {
+        "stop_id": 12001572,
+        "stop_code": "IHA1572",
+        "stop_name": "Taman Poket Jalan Chai",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.22721999999999,
+          5.35651
+        ]
+      },
+      "properties": {
+        "stop_id": 12001573,
+        "stop_code": "IHA1573",
+        "stop_name": "Pejabat Agama Daerah",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.22451,
+          5.35885
+        ]
+      },
+      "properties": {
+        "stop_id": 12001575,
+        "stop_code": "IHA1575",
+        "stop_name": "SK Titi Teras",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.22315986,
+          5.35991737
+        ]
+      },
+      "properties": {
+        "stop_id": 12002225,
+        "stop_code": "IKY2114",
+        "stop_name": "Dewan JKKP Titi Teras",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.22057,
+          5.36216
+        ]
+      },
+      "properties": {
+        "stop_id": 12001579,
+        "stop_code": "IHA1579",
+        "stop_name": "(M1) Balai Bomba Air Putih",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21804,
+          5.36428
+        ]
+      },
+      "properties": {
+        "stop_id": 12001582,
+        "stop_code": "IHA1582",
+        "stop_name": "Pejabat Kesihatan Barat Daya",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21685,
+          5.367482
+        ]
+      },
+      "properties": {
+        "stop_id": 12001599,
+        "stop_code": "IHD1599",
+        "stop_name": "Taman Manggis Indah",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21644,
+          5.370830000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12001478,
+        "stop_code": "IGU1478",
+        "stop_name": "Simpang Bandar Baru Air Putih",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21994000000001,
+          5.3727800000000006
+        ]
+      },
+      "properties": {
+        "stop_id": 12001480,
+        "stop_code": "IGU1480",
+        "stop_name": "(M2) Bandar Baru Air Putih 1",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21986,
+          5.3720099999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12001479,
+        "stop_code": "IGU1479",
+        "stop_name": "(M3) Bandar Baru Air Putih 2",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21582,
+          5.37137
+        ]
+      },
+      "properties": {
+        "stop_id": 12001602,
+        "stop_code": "IHD1602",
+        "stop_name": "Permatang Pasir",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21514,
+          5.37387
+        ]
+      },
+      "properties": {
+        "stop_id": 12001604,
+        "stop_code": "IHD1604",
+        "stop_name": "Taman Mutiara",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21433,
+          5.37743
+        ]
+      },
+      "properties": {
+        "stop_id": 12001608,
+        "stop_code": "IHD1608",
+        "stop_name": "Kraf Batik Sungai Rusa",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.2140788,
+          5.3786614
+        ]
+      },
+      "properties": {
+        "stop_id": 12002277,
+        "stop_code": "ICV2031",
+        "stop_name": "Jalan Sungai Rusa 2",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.2139988,
+          5.3803934
+        ]
+      },
+      "properties": {
+        "stop_id": 12002276,
+        "stop_code": "ICV1030",
+        "stop_name": "Jalan Sungai Rusa 1",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.2138,
+          5.382619999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12001611,
+        "stop_code": "IHD1611",
+        "stop_name": "Masjid Jamek Sungai Rusa",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21305,
+          5.384957
+        ]
+      },
+      "properties": {
+        "stop_id": 12001614,
+        "stop_code": "IHD1614",
+        "stop_name": "Sekolah Agama Sungai Rusa",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.212326,
+          5.386691000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12001616,
+        "stop_code": "IHD1616",
+        "stop_name": "Kampung Sungai Rusa",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21018000000001,
+          5.3921
+        ]
+      },
+      "properties": {
+        "stop_id": 12001620,
+        "stop_code": "IHD1620",
+        "stop_name": "Madrasah Tahfiz - Irfanratul",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20900999999999,
+          5.39312
+        ]
+      },
+      "properties": {
+        "stop_id": 12000763,
+        "stop_code": "ICX0763",
+        "stop_name": "Jalan Kuala Sg. Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20311,
+          5.39314
+        ]
+      },
+      "properties": {
+        "stop_id": 12000764,
+        "stop_code": "ICX0764",
+        "stop_name": "Taman Jelita",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20108,
+          5.393269999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12000766,
+        "stop_code": "ICX0766",
+        "stop_name": "Pekan Kuala Sg. Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.19598,
+          5.39048
+        ]
+      },
+      "properties": {
+        "stop_id": 12000762,
+        "stop_code": "ICX0762",
+        "stop_name": "Kuala Sg. Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.19389,
+          5.38857
+        ]
+      },
+      "properties": {
+        "stop_id": 12000761,
+        "stop_code": "ICX0761",
+        "stop_name": "Surau Al Hidayah",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.1957,
+          5.3905400000000006
+        ]
+      },
+      "properties": {
+        "stop_id": 12002273,
+        "stop_code": "ICV1028",
+        "stop_name": "Kuala Sg.Pinang 1",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.19928,
+          5.39091
+        ]
+      },
+      "properties": {
+        "stop_id": 12002274,
+        "stop_code": "ICV1029",
+        "stop_name": "Kuala Sg.Pinang 2",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20184,
+          5.39328
+        ]
+      },
+      "properties": {
+        "stop_id": 12000767,
+        "stop_code": "ICX0767",
+        "stop_name": "SJK Yu Chye",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20988,
+          5.39316
+        ]
+      },
+      "properties": {
+        "stop_id": 12000765,
+        "stop_code": "ICX0765",
+        "stop_name": "Balai Polis Sg. Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21104,
+          5.3941300000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12001622,
+        "stop_code": "IHD1622",
+        "stop_name": "Klinik Desa Sg. Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21195959999999,
+          5.395931200000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12002272,
+        "stop_code": "ICV1016",
+        "stop_name": "Kampung Sungai Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21313,
+          5.397880000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12001626,
+        "stop_code": "IHD1626",
+        "stop_name": "SK Sungai Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21339,
+          5.39901
+        ]
+      },
+      "properties": {
+        "stop_id": 12000974,
+        "stop_code": "IEN0974",
+        "stop_name": "Pasar Sg. Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.2111,
+          5.39993
+        ]
+      },
+      "properties": {
+        "stop_id": 12000976,
+        "stop_code": "IEN0976",
+        "stop_name": "Kem PLKN Sg. Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20902,
+          5.4004199999999996
+        ]
+      },
+      "properties": {
+        "stop_id": 12000979,
+        "stop_code": "IEN0979",
+        "stop_name": "Jalan Haji Hamid Senawi",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20657,
+          5.40142
+        ]
+      },
+      "properties": {
+        "stop_id": 12000980,
+        "stop_code": "IEN0980",
+        "stop_name": "Jalan Haji Abd. Ghani Taib",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20456,
+          5.4017599999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12002275,
+        "stop_code": "ICV2030",
+        "stop_name": "Surau Haji Hashim",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20106,
+          5.403519999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12000983,
+        "stop_code": "IEN0983",
+        "stop_name": "Kampung Bukit Kecil",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.19785,
+          5.40989
+        ]
+      },
+      "properties": {
+        "stop_id": 12000984,
+        "stop_code": "IEN0984",
+        "stop_name": "Pulaza Balik Pulau",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.19651999999999,
+          5.4116800000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12000985,
+        "stop_code": "IEN0985",
+        "stop_name": "Pusat Falak Sheik Tahir",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.19726999999999,
+          5.41632
+        ]
+      },
+      "properties": {
+        "stop_id": 12000986,
+        "stop_code": "IEN0986",
+        "stop_name": "Hub Pantai Acheh",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.19654,
+          5.41162
+        ]
+      },
+      "properties": {
+        "stop_id": 12000989,
+        "stop_code": "IEN0989",
+        "stop_name": "Pusat Falak Sheik Tahir",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.1987,
+          5.4090300000000004
+        ]
+      },
+      "properties": {
+        "stop_id": 12000988,
+        "stop_code": "IEN0988",
+        "stop_name": "Pulaza Balik Pulau",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20045999999999,
+          5.40369
+        ]
+      },
+      "properties": {
+        "stop_id": 12000987,
+        "stop_code": "IEN0987",
+        "stop_name": "Kampung Bukit Kecil",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.2048,
+          5.40179
+        ]
+      },
+      "properties": {
+        "stop_id": 12000982,
+        "stop_code": "IEN0982",
+        "stop_name": "Surau Haji Hashim",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20661,
+          5.40147
+        ]
+      },
+      "properties": {
+        "stop_id": 12000981,
+        "stop_code": "IEN0981",
+        "stop_name": "Jalan Haji Abd. Ghani Taib",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.20934,
+          5.40036
+        ]
+      },
+      "properties": {
+        "stop_id": 12000978,
+        "stop_code": "IEN0978",
+        "stop_name": "Jalan Haji Hamid Senawi",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21115,
+          5.39998
+        ]
+      },
+      "properties": {
+        "stop_id": 12000977,
+        "stop_code": "IEN0977",
+        "stop_name": "Kem PLKN Sg.Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21344,
+          5.39905
+        ]
+      },
+      "properties": {
+        "stop_id": 12000975,
+        "stop_code": "IEN0975",
+        "stop_name": "SRJK Sin Min",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21291,
+          5.39725
+        ]
+      },
+      "properties": {
+        "stop_id": 12001625,
+        "stop_code": "IHD1625",
+        "stop_name": "SK Sungai Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21213,
+          5.396028
+        ]
+      },
+      "properties": {
+        "stop_id": 12001623,
+        "stop_code": "IHD1623",
+        "stop_name": "Kampung Sungai Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21106999999999,
+          5.39409
+        ]
+      },
+      "properties": {
+        "stop_id": 12001621,
+        "stop_code": "IHD1621",
+        "stop_name": "Klinik Desa Sg. Pinang",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21046,
+          5.39123
+        ]
+      },
+      "properties": {
+        "stop_id": 12001619,
+        "stop_code": "IHD1619",
+        "stop_name": "Madrasah Tahfiz - Irfanratul",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21226,
+          5.38703
+        ]
+      },
+      "properties": {
+        "stop_id": 12001618,
+        "stop_code": "IHD1618",
+        "stop_name": "Kampung Sungai Rusa",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21324,
+          5.38467
+        ]
+      },
+      "properties": {
+        "stop_id": 12001613,
+        "stop_code": "IHD1613",
+        "stop_name": "Sekolah Agama Sungai Rusa",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21384,
+          5.38282
+        ]
+      },
+      "properties": {
+        "stop_id": 12001612,
+        "stop_code": "IHD1612",
+        "stop_name": "Masjid Jamek Sungai Rusa",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21415,
+          5.380380000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12001610,
+        "stop_code": "IHD1610",
+        "stop_name": "Jalan Sungai Rusa 1",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21449,
+          5.3771
+        ]
+      },
+      "properties": {
+        "stop_id": 12001607,
+        "stop_code": "IHD1607",
+        "stop_name": "Kraf Batik Sungai Rusa",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21500400000001,
+          5.37505
+        ]
+      },
+      "properties": {
+        "stop_id": 12001606,
+        "stop_code": "IHD1606",
+        "stop_name": "Taman Sungai Rusa",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21531999999999,
+          5.37352
+        ]
+      },
+      "properties": {
+        "stop_id": 12001603,
+        "stop_code": "IHD1603",
+        "stop_name": "Taman Mutiara",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.2159,
+          5.3712
+        ]
+      },
+      "properties": {
+        "stop_id": 12001601,
+        "stop_code": "IHD1601",
+        "stop_name": "Permatang Pasir",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21644,
+          5.36966
+        ]
+      },
+      "properties": {
+        "stop_id": 12001600,
+        "stop_code": "IHD1600",
+        "stop_name": "Kampung Permatang Pasir",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21696,
+          5.3665199999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12001597,
+        "stop_code": "IHD1597",
+        "stop_name": "Taman Manggis Indah",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.21857,
+          5.36391
+        ]
+      },
+      "properties": {
+        "stop_id": 12001580,
+        "stop_code": "IHA1580",
+        "stop_name": "Pejabat Kesihatan Barat Daya",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.22091999999999,
+          5.36203
+        ]
+      },
+      "properties": {
+        "stop_id": 12001578,
+        "stop_code": "IHA1578",
+        "stop_name": "(M3) Balai Bomba Air Putih",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.22276,
+          5.3602
+        ]
+      },
+      "properties": {
+        "stop_id": 12001577,
+        "stop_code": "IHA1577",
+        "stop_name": "Dewan JKKK Titi Teras",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.22462,
+          5.35886
+        ]
+      },
+      "properties": {
+        "stop_id": 12001576,
+        "stop_code": "IHA1576",
+        "stop_name": "SK Titi Teras",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.22716,
+          5.35669
+        ]
+      },
+      "properties": {
+        "stop_id": 12001574,
+        "stop_code": "IHA1574",
+        "stop_name": "Pejabat Agama Daerah",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.22939000000001,
+          5.35406
+        ]
+      },
+      "properties": {
+        "stop_id": 12001570,
+        "stop_code": "IHA1570",
+        "stop_name": "Taman Poket Jalan Chai",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.23124,
+          5.35206
+        ]
+      },
+      "properties": {
+        "stop_id": 12001569,
+        "stop_code": "IHA1569",
+        "stop_name": "Taman Impian",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.23408,
+          5.3506599999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12001566,
+        "stop_code": "IHA1566",
+        "stop_name": "Pejabat Daerah dan Tanah",
+        "route_id": "30000022"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.23708,
+          5.3512699999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12001886,
+        "stop_code": "IIG1886",
+        "stop_name": "SRJK Chong Teik",
+        "route_id": "30000022"
+      }
+    }
+  ]
+}
