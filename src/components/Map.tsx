@@ -70,7 +70,7 @@ function App() {
             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
           }
           url={`https://{s}.basemaps.cartocdn.com/${
-            window.matchMedia("(prefers-color-scheme: dark)").matches
+            window.document.documentElement.classList.contains("dark")
               ? "dark_all"
               : "rastertiles/voyager"
           }/{z}/{x}/{y}{r}.png`}
