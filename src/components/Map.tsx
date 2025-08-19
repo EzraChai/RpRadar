@@ -20,6 +20,8 @@ import { Card, CardTitle } from "./ui/card";
 function App() {
   const { id } = useParams();
   const route = routes.find((r) => r.route_id === id);
+  const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
+
   const [direction, setDirection] = useState(0);
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
 
@@ -29,7 +31,6 @@ function App() {
         feature.properties.shape_id === route?.directions[direction].shape_id
     );
     if (filteredShape.length) {
-      console.log(filteredShape);
       setPositions(
         filteredShape[0].geometry.coordinates as unknown as LatLngExpression[][]
       );
@@ -50,6 +51,84 @@ function App() {
         <Button variant={"ghost"} onClick={zoomOut}>
           -
         </Button>
+      </Card>
+    );
+  }
+
+  function StopsCard() {
+    const map = useMap();
+
+    return (
+      <Card
+        onMouseEnter={() => {
+          map.scrollWheelZoom.disable();
+          map.dragging.disable();
+        }}
+        onMouseLeave={() => {
+          map.scrollWheelZoom.enable();
+          map.dragging.enable();
+        }}
+        className="absolute z-[1000] w-1/6 scroll-smooth bottom-4 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 left-4 p-4 shadow-md h-1/2 overflow-y-auto"
+      >
+        <CardTitle className="space-y-2">
+          <h2 className="font-bold flex items-center gap-4">
+            <div className="text-md font-bold border-2 px-2 border-red-500 rounded-xl">
+              {route?.route_short_name}
+            </div>
+            <div>
+              <h4 className="font-semibold text-balance text-base">
+                {route?.directions[direction].route_long_name}
+              </h4>
+            </div>
+          </h2>
+          {route?.directions.length === 2 && (
+            <Button
+              variant={"outline"}
+              className="bg-white w-full"
+              onClick={() =>
+                setDirection((prev) => {
+                  if (route?.directions.length == 2) {
+                    return prev === 1 ? 0 : 1;
+                  }
+                  return 0;
+                })
+              }
+            >
+              Change Direction
+            </Button>
+          )}
+        </CardTitle>
+
+        <ul className="overflow-y-scroll">
+          {route?.directions[direction].stops.map((stop, idx) => (
+            <div key={stop.stop_id} className="flex items-start relative ">
+              {/* Bullet */}
+              <div className="flex flex-col items-center mr-2">
+                <div className="w-3 h-3 rounded-full bg-blue-600 z-10"></div>
+                {/* Vertical line */}
+                {idx < route?.directions[direction].stops.length - 1 && (
+                  <div className=" h-6 w-1 bg-blue-500"></div>
+                )}
+              </div>
+              {/* Stop Name */}
+              <Button
+                variant={"ghost"}
+                onClick={() => {
+                  const marker = markerRefs.current[stop.stop_id];
+                  if (marker) {
+                    if (!marker.isPopupOpen()) {
+                      marker.openPopup();
+                    }
+                    map.flyTo([stop.lat, stop.lon], 16, { animate: true });
+                  }
+                }}
+                className="text-sm font-medium -mt-1"
+              >
+                {stop.stop_name}
+              </Button>
+            </div>
+          ))}
+        </ul>
       </Card>
     );
   }
@@ -76,6 +155,10 @@ function App() {
           positions.length &&
           route.directions[direction].stops.map((stop) => (
             <CircleMarker
+              ref={(ref) => {
+                markerRefs.current[stop.stop_id] = ref;
+              }}
+              key={stop.stop_id}
               radius={6}
               center={[stop.lat, stop.lon]}
               pathOptions={{
@@ -92,11 +175,7 @@ function App() {
                 <div className="border border-white dark:border-neutral-500  bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
                   {stop.stop_name}
                 </div>
-                <div className=""></div>
               </Popup>
-              {/* <Popup>
-                  <p className=" font-semibold">{stop.stop_name}</p>
-                </Popup> */}
             </CircleMarker>
           ))}
       </>
@@ -163,6 +242,7 @@ function App() {
           {positions.length && <FitBoundsToPolyline color={"blue"} />}
 
           <CustomZoomControls />
+          <StopsCard />
         </MapContainer>
         <Card className="absolute z-[1000] pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
           <div className="flex justify-between items-center gap-4">
@@ -179,56 +259,6 @@ function App() {
               {route?.route_short_name}
             </div>
           </div>
-        </Card>
-        <Card className="absolute z-[1000] w-1/6 scroll-smooth bottom-4 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 left-4 p-4 shadow-md h-1/2 overflow-y-auto">
-          <CardTitle className="space-y-2">
-            <h2 className="font-bold flex items-center gap-4">
-              <div className="text-md font-bold border-2 px-2 border-red-500 rounded-xl">
-                {route?.route_short_name}
-              </div>
-              <div>
-                <h4 className="font-semibold text-balance text-base">
-                  {route?.directions[direction].route_long_name}
-                </h4>
-              </div>
-            </h2>
-            {route?.directions.length === 2 && (
-              <Button
-                variant={"outline"}
-                className="bg-white w-full"
-                onClick={() =>
-                  setDirection((prev) => {
-                    if (route?.directions.length == 2) {
-                      return prev === 1 ? 0 : 1;
-                    }
-                    return 0;
-                  })
-                }
-              >
-                Change Direction
-              </Button>
-            )}
-          </CardTitle>
-
-          <ul className="overflow-y-scroll">
-            {route?.directions[direction].stops.map((stop, idx) => (
-              <div key={stop.stop_id} className="flex items-start relative ">
-                {/* Bullet */}
-                <div className="flex flex-col items-center mr-2">
-                  <div className="w-3 h-3 rounded-full bg-blue-600 z-10"></div>
-                  {/* Vertical line */}
-                  {idx < route?.directions[direction].stops.length - 1 && (
-                    <div className=" h-6 w-1 bg-blue-500"></div>
-                  )}
-                </div>
-
-                {/* Stop Name */}
-                <span className="text-sm font-medium -mt-1">
-                  {stop.stop_name}
-                </span>
-              </div>
-            ))}
-          </ul>
         </Card>
       </div>
     </>
