@@ -14,7 +14,7 @@ import Shapes from "@/assets/shapes.json";
 import routes from "@/assets/routes_with_directions.json";
 import type { LatLngExpression } from "leaflet";
 import { Button } from "./ui/button";
-import { Card } from "./ui/card";
+import { Card, CardTitle } from "./ui/card";
 
 function App() {
   const { id } = useParams();
@@ -150,24 +150,35 @@ function App() {
           </div>
         </Card>
         <Card className="absolute z-[1000] w-1/6 scroll-smooth bottom-4 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 left-4 p-4 shadow-md h-1/2 overflow-y-auto">
-          <div className=""></div>
-          <h2 className="font-bold mb-2">Stops</h2>
-          {route?.directions.length === 2 && (
-            <Button
-              variant={"outline"}
-              className="bg-white"
-              onClick={() =>
-                setDirection((prev) => {
-                  if (route?.directions.length == 2) {
-                    return prev === 1 ? 0 : 1;
-                  }
-                  return 0;
-                })
-              }
-            >
-              Change Direction
-            </Button>
-          )}
+          <CardTitle className="space-y-2">
+            <h2 className="font-bold flex items-center gap-4">
+              <div className="text-md font-bold border-2 px-2 border-red-500 rounded-xl">
+                {route?.route_short_name}
+              </div>
+              <div>
+                <h4 className="font-semibold text-balance text-base">
+                  {route?.directions[direction].route_long_name}
+                </h4>
+              </div>
+            </h2>
+            {route?.directions.length === 2 && (
+              <Button
+                variant={"outline"}
+                className="bg-white w-full"
+                onClick={() =>
+                  setDirection((prev) => {
+                    if (route?.directions.length == 2) {
+                      return prev === 1 ? 0 : 1;
+                    }
+                    return 0;
+                  })
+                }
+              >
+                Change Direction
+              </Button>
+            )}
+          </CardTitle>
+
           <ul className="overflow-y-scroll">
             {route?.directions[direction].stops.map((stop, idx) => (
               <div key={stop.stop_id} className="flex items-start relative ">
@@ -186,11 +197,6 @@ function App() {
                 </span>
               </div>
             ))}
-            {/* {stops.map((stop, idx) => (
-              <li key={idx} className="mb-1">
-                {stop.name}
-              </li>
-            ))} */}
           </ul>
         </Card>
       </div>
