@@ -1,0 +1,901 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3653495,
+          5.3948602
+        ]
+      },
+      "properties": {
+        "stop_id": 12002322,
+        "stop_code": "MEM0973",
+        "stop_name": "(M1) Penang Sentral",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.36851999999999,
+          5.39717
+        ]
+      },
+      "properties": {
+        "stop_id": 12000910,
+        "stop_code": "MEA0910",
+        "stop_name": "SMK Convent Butterworth",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.37189000000001,
+          5.3985
+        ]
+      },
+      "properties": {
+        "stop_id": 12000913,
+        "stop_code": "MEA0913",
+        "stop_name": "Taman Mewah",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.37676,
+          5.40036
+        ]
+      },
+      "properties": {
+        "stop_id": 12000396,
+        "stop_code": "MBA0396",
+        "stop_name": "Stor TNB",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.37983,
+          5.40153
+        ]
+      },
+      "properties": {
+        "stop_id": 12000397,
+        "stop_code": "MBA0397",
+        "stop_name": "Pusat Perniagaan Chain Ferry",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.38273000000001,
+          5.40255
+        ]
+      },
+      "properties": {
+        "stop_id": 12000398,
+        "stop_code": "MBA0398",
+        "stop_name": "Pusat Perniagaan Chain Ferry II",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.38924,
+          5.39042
+        ]
+      },
+      "properties": {
+        "stop_id": 12000395,
+        "stop_code": "MBA0395",
+        "stop_name": "Taman Chai Leng I",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.38871,
+          5.38813
+        ]
+      },
+      "properties": {
+        "stop_id": 12000394,
+        "stop_code": "MBA0394",
+        "stop_name": "Taman Chai Leng II",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.38968,
+          5.38361
+        ]
+      },
+      "properties": {
+        "stop_id": 12000192,
+        "stop_code": "MAA0192",
+        "stop_name": "Taman Chai Leng",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.39278,
+          5.38194
+        ]
+      },
+      "properties": {
+        "stop_id": 12000191,
+        "stop_code": "MAA0191",
+        "stop_name": "Kompleks Chai Leng Park",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.39794,
+          5.37879
+        ]
+      },
+      "properties": {
+        "stop_id": 12001067,
+        "stop_code": "MEW1067",
+        "stop_name": "(M2) Megamall - Pacific",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.41006,
+          5.37271
+        ]
+      },
+      "properties": {
+        "stop_id": 12000189,
+        "stop_code": "MAA0189",
+        "stop_name": "Masjid Jamek Kampung Setol",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.41258,
+          5.37137
+        ]
+      },
+      "properties": {
+        "stop_id": 12000188,
+        "stop_code": "MAA0188",
+        "stop_name": "Medan Perniagaan Pauh Jaya",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.41549,
+          5.36975
+        ]
+      },
+      "properties": {
+        "stop_id": 12000187,
+        "stop_code": "MAA0187",
+        "stop_name": "(M3) Mydin Mall",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.41703000000001,
+          5.36897
+        ]
+      },
+      "properties": {
+        "stop_id": 12000186,
+        "stop_code": "MAA0186",
+        "stop_name": "Kampung Jalan Baru",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.41932,
+          5.36774
+        ]
+      },
+      "properties": {
+        "stop_id": 12000185,
+        "stop_code": "MAA0185",
+        "stop_name": "Masjid Jalan Baru",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.428157,
+          5.364658
+        ]
+      },
+      "properties": {
+        "stop_id": 12002350,
+        "stop_code": "ICT0092",
+        "stop_name": "Masjid Permatang Batu",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43153000000001,
+          5.36439
+        ]
+      },
+      "properties": {
+        "stop_id": 12001099,
+        "stop_code": "MFB1099",
+        "stop_name": "Permatang Batu",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43456,
+          5.36494
+        ]
+      },
+      "properties": {
+        "stop_id": 12001100,
+        "stop_code": "MFB1100",
+        "stop_name": "Pusat Perniagaan Perda",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43406359999999,
+          5.366708900000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12002969,
+        "stop_code": "JPB0001",
+        "stop_name": "Jalan Perda Barat I",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4322504,
+          5.3677931
+        ]
+      },
+      "properties": {
+        "stop_id": 12002970,
+        "stop_code": "JPB0002",
+        "stop_name": "Jalan Perda Barat II",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43394,
+          5.36985
+        ]
+      },
+      "properties": {
+        "stop_id": 12001094,
+        "stop_code": "MFA1094",
+        "stop_name": "Pejabat MPSP",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.436851,
+          5.368551999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12002345,
+        "stop_code": "ICT0082",
+        "stop_name": "TM Point Perda",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.435744,
+          5.366926
+        ]
+      },
+      "properties": {
+        "stop_id": 12002346,
+        "stop_code": "ICT0083",
+        "stop_name": "Bank Rakyat Perda",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44489,
+          5.36862
+        ]
+      },
+      "properties": {
+        "stop_id": 12001216,
+        "stop_code": "MFI1216",
+        "stop_name": "Pusat Perniagaan Permatang Rawa",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44688000000001,
+          5.36891
+        ]
+      },
+      "properties": {
+        "stop_id": 12001218,
+        "stop_code": "MFI1218",
+        "stop_name": "SMK Permatang Rawa",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4496,
+          5.36903
+        ]
+      },
+      "properties": {
+        "stop_id": 12001219,
+        "stop_code": "MFI1219",
+        "stop_name": "Petronas Permatang Rawa",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45274,
+          5.36889
+        ]
+      },
+      "properties": {
+        "stop_id": 12001217,
+        "stop_code": "MFI1217",
+        "stop_name": "Permatang Rawa",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45774,
+          5.368530000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12001215,
+        "stop_code": "MFI1215",
+        "stop_name": "Sunway Wellesley",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.460003,
+          5.366679
+        ]
+      },
+      "properties": {
+        "stop_id": 12002343,
+        "stop_code": "ICT0080",
+        "stop_name": "PBA Bukit Mertajam",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.462624,
+          5.3657975
+        ]
+      },
+      "properties": {
+        "stop_id": 12002201,
+        "stop_code": "MOO0056",
+        "stop_name": "(M1) The Summit",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45826,
+          5.3666
+        ]
+      },
+      "properties": {
+        "stop_id": 12000907,
+        "stop_code": "MDZ0907",
+        "stop_name": "Plaza Utama",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.455235,
+          5.368673
+        ]
+      },
+      "properties": {
+        "stop_id": 12002320,
+        "stop_code": "ICT0057",
+        "stop_name": "Sunway Wellesley",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45022,
+          5.36892
+        ]
+      },
+      "properties": {
+        "stop_id": 12001221,
+        "stop_code": "MFI1221",
+        "stop_name": "Kampung Permatang Rawa",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.448113,
+          5.368924
+        ]
+      },
+      "properties": {
+        "stop_id": 12003015,
+        "stop_code": "ICT0A81",
+        "stop_name": "KTM Bukit Mertajam",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44541,
+          5.3686
+        ]
+      },
+      "properties": {
+        "stop_id": 12001220,
+        "stop_code": "MFI1220",
+        "stop_name": "Caltex Permatang Rawa",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.441,
+          5.3695
+        ]
+      },
+      "properties": {
+        "stop_id": 12001092,
+        "stop_code": "MEZ1092",
+        "stop_name": "Perda Timur",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43951,
+          5.3714
+        ]
+      },
+      "properties": {
+        "stop_id": 12001098,
+        "stop_code": "MFA1098",
+        "stop_name": "Perda Utama",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43189,
+          5.36426
+        ]
+      },
+      "properties": {
+        "stop_id": 12001101,
+        "stop_code": "MFB1101",
+        "stop_name": "Permatang Batu",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4297,
+          5.36447
+        ]
+      },
+      "properties": {
+        "stop_id": 12001102,
+        "stop_code": "MFB1102",
+        "stop_name": "Petron Permatang Batu",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.426927,
+          5.36458
+        ]
+      },
+      "properties": {
+        "stop_id": 12002347,
+        "stop_code": "ICT0084",
+        "stop_name": "Allagapas",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.42163000000001,
+          5.36632
+        ]
+      },
+      "properties": {
+        "stop_id": 12000183,
+        "stop_code": "MAA0183",
+        "stop_name": "Taman Bunga Raya",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4194,
+          5.36751
+        ]
+      },
+      "properties": {
+        "stop_id": 12000184,
+        "stop_code": "MAA0184",
+        "stop_name": "SK Jalan Baru",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.41516999999999,
+          5.36972
+        ]
+      },
+      "properties": {
+        "stop_id": 12000177,
+        "stop_code": "MAA0177",
+        "stop_name": "(M2) Mydin Mall",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.41305,
+          5.3709
+        ]
+      },
+      "properties": {
+        "stop_id": 12000178,
+        "stop_code": "MAA0178",
+        "stop_name": "Kampung Setol",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.409622,
+          5.372746
+        ]
+      },
+      "properties": {
+        "stop_id": 12002348,
+        "stop_code": "ICT0090",
+        "stop_name": "Masjid Kampung Setol",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.39541,
+          5.380380000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000179,
+        "stop_code": "MAA0179",
+        "stop_name": "Kuil Sri Muniswara",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.39312,
+          5.381530000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000180,
+        "stop_code": "MAA0180",
+        "stop_name": "Padang Kilat",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.38879,
+          5.38858
+        ]
+      },
+      "properties": {
+        "stop_id": 12000389,
+        "stop_code": "MBA0389",
+        "stop_name": "Public Bank Inderawasih",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.38898,
+          5.39072
+        ]
+      },
+      "properties": {
+        "stop_id": 12000390,
+        "stop_code": "MBA0390",
+        "stop_name": "Taman Inderawasih",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.38308,
+          5.40244
+        ]
+      },
+      "properties": {
+        "stop_id": 12000393,
+        "stop_code": "MBA0393",
+        "stop_name": "Pusat Perniagaan Chain Ferry II",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.37952,
+          5.40128
+        ]
+      },
+      "properties": {
+        "stop_id": 12000392,
+        "stop_code": "MBA0392",
+        "stop_name": "Pusat Perniagaan Chain Ferry I",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.37832,
+          5.40078
+        ]
+      },
+      "properties": {
+        "stop_id": 12000391,
+        "stop_code": "MBA0391",
+        "stop_name": "Taman Limbungan Chain Ferry",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.376499,
+          5.400066000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12002349,
+        "stop_code": "ICT0091",
+        "stop_name": "Econsave ChainFerry",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.37133,
+          5.39815
+        ]
+      },
+      "properties": {
+        "stop_id": 12000911,
+        "stop_code": "MEA0911",
+        "stop_name": "Harbour Place",
+        "route_id": "30000036"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.36834,
+          5.39697
+        ]
+      },
+      "properties": {
+        "stop_id": 12000909,
+        "stop_code": "MEA0909",
+        "stop_name": "SMK Convent Butterworth",
+        "route_id": "30000036"
+      }
+    }
+  ]
+}

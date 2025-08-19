@@ -1,0 +1,965 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49468,
+          5.48172
+        ]
+      },
+      "properties": {
+        "stop_id": 12000486,
+        "stop_code": "MBM0486",
+        "stop_name": "Kompleks Tasek Gelugor",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49436999999999,
+          5.48184
+        ]
+      },
+      "properties": {
+        "stop_id": 12000508,
+        "stop_code": "MBM0508",
+        "stop_name": "Pejabat Pos Tasek Gelugor",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49185,
+          5.48305
+        ]
+      },
+      "properties": {
+        "stop_id": 12000488,
+        "stop_code": "MBM0488",
+        "stop_name": "SK Tasek Gelugor",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.491119,
+          5.4846900000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12002566,
+        "stop_code": "ICT8300",
+        "stop_name": "Klinik Kesihatan Tasek Gelugor",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49512,
+          5.487509999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12001871,
+        "stop_code": "MIE1871",
+        "stop_name": "Taman Sepadu",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49723,
+          5.489344
+        ]
+      },
+      "properties": {
+        "stop_id": 12002996,
+        "stop_code": "MIE1881",
+        "stop_name": "Taman Tasek Gelugor Utama",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49778,
+          5.491105
+        ]
+      },
+      "properties": {
+        "stop_id": 12002997,
+        "stop_code": "MIE1882",
+        "stop_name": "Taman Tasek Gelugor Utama II",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49866999999999,
+          5.494029
+        ]
+      },
+      "properties": {
+        "stop_id": 12002998,
+        "stop_code": "MIE1883",
+        "stop_name": "Taman Tasek Gelugor Utama III",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49956999999999,
+          5.4966029999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12002999,
+        "stop_code": "MIE1884",
+        "stop_name": "Taman Tasek Gelugor Utama IV",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.50160509999999,
+          5.5026399
+        ]
+      },
+      "properties": {
+        "stop_id": 12002569,
+        "stop_code": "ICT8304",
+        "stop_name": "MIdtown PERDA",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.50464000000001,
+          5.5109
+        ]
+      },
+      "properties": {
+        "stop_id": 12001852,
+        "stop_code": "MIE1852",
+        "stop_name": "Taman Perda Indah",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.50601999999999,
+          5.51461
+        ]
+      },
+      "properties": {
+        "stop_id": 12001872,
+        "stop_code": "MIE1872",
+        "stop_name": "Taman Sri Menderung",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.5064,
+          5.518669999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12001873,
+        "stop_code": "MIE1873",
+        "stop_name": "Masjid Kubang Menderung",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.502778,
+          5.521622
+        ]
+      },
+      "properties": {
+        "stop_id": 12002567,
+        "stop_code": "ICT8301",
+        "stop_name": "Kampung Pokok Jenerih I",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.50013,
+          5.52133
+        ]
+      },
+      "properties": {
+        "stop_id": 12001875,
+        "stop_code": "MIE1875",
+        "stop_name": "Kampung Pokok Jenerih",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49356,
+          5.51994
+        ]
+      },
+      "properties": {
+        "stop_id": 12002090,
+        "stop_code": "MKR2090",
+        "stop_name": "Bertam Putra 4",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49075,
+          5.51699
+        ]
+      },
+      "properties": {
+        "stop_id": 12002087,
+        "stop_code": "MKR2087",
+        "stop_name": "Bertam Putra 3",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.485954,
+          5.517558999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12002568,
+        "stop_code": "ICT8302",
+        "stop_name": "(M3) Taman Bertam Putra",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4811417,
+          5.5181192
+        ]
+      },
+      "properties": {
+        "stop_id": 12002949,
+        "stop_code": "MFH1302",
+        "stop_name": "Bertam Putra 3",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47723909999999,
+          5.5178069
+        ]
+      },
+      "properties": {
+        "stop_id": 12002952,
+        "stop_code": "MFH1305",
+        "stop_name": "Pasaraya Mydin Bertam",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47277,
+          5.519430000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12001863,
+        "stop_code": "MIE1863",
+        "stop_name": "MRSM Kepala Batas",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.46866949999999,
+          5.5189257000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12002966,
+        "stop_code": "MIE1861",
+        "stop_name": "SMK Sains Kepala Batas",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4621857,
+          5.518196
+        ]
+      },
+      "properties": {
+        "stop_id": 12002967,
+        "stop_code": "MIE1859",
+        "stop_name": "Kolej Jururawat",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45221,
+          5.51812
+        ]
+      },
+      "properties": {
+        "stop_id": 12001856,
+        "stop_code": "MIE1856",
+        "stop_name": "Kayangan",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45015620000001,
+          5.5166832999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12002576,
+        "stop_code": "ICT8311",
+        "stop_name": "Sunshine Bertam II",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44977,
+          5.51561
+        ]
+      },
+      "properties": {
+        "stop_id": 12002075,
+        "stop_code": "MKM2075",
+        "stop_name": "Sunshine Bertam",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44816999999999,
+          5.51553
+        ]
+      },
+      "properties": {
+        "stop_id": 12002074,
+        "stop_code": "MKM2074",
+        "stop_name": "Bertam Walk",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4457,
+          5.5153300000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12002072,
+        "stop_code": "MKM2072",
+        "stop_name": "MPC",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4439,
+          5.51601
+        ]
+      },
+      "properties": {
+        "stop_id": 12001923,
+        "stop_code": "MIQ1923",
+        "stop_name": "Tesco Kepala Batas",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43655,
+          5.51499
+        ]
+      },
+      "properties": {
+        "stop_id": 12000255,
+        "stop_code": "MAI0255",
+        "stop_name": "Pejabat Tanah Kepala Batas",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43966999999999,
+          5.51394
+        ]
+      },
+      "properties": {
+        "stop_id": 12000253,
+        "stop_code": "MAI0253",
+        "stop_name": "IPD Seberang Prai Utara",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43768,
+          5.51273
+        ]
+      },
+      "properties": {
+        "stop_id": 12000251,
+        "stop_code": "MAI0251",
+        "stop_name": "Hospital Kepala Batas",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43542,
+          5.51392
+        ]
+      },
+      "properties": {
+        "stop_id": 12000250,
+        "stop_code": "MAI0250",
+        "stop_name": "Pejabat Tanah",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43176,
+          5.5154
+        ]
+      },
+      "properties": {
+        "stop_id": 12001284,
+        "stop_code": "MFL1284",
+        "stop_name": "Kompleks Dato Kailan",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43453120000001,
+          5.5100614000000006
+        ]
+      },
+      "properties": {
+        "stop_id": 12002118,
+        "stop_code": "MBI0476",
+        "stop_name": "Taman Bertam Ria",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43711,
+          5.51283
+        ]
+      },
+      "properties": {
+        "stop_id": 12000252,
+        "stop_code": "MAI0252",
+        "stop_name": "Hospital Kepala Batas",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4395871,
+          5.5140447
+        ]
+      },
+      "properties": {
+        "stop_id": 12002119,
+        "stop_code": "MAI0254",
+        "stop_name": "IPD Seberang Prai Utara",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44413,
+          5.51602
+        ]
+      },
+      "properties": {
+        "stop_id": 12001924,
+        "stop_code": "MIQ1924",
+        "stop_name": "Tesco Kepala Batas",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4457,
+          5.51543
+        ]
+      },
+      "properties": {
+        "stop_id": 12002073,
+        "stop_code": "MKM2073",
+        "stop_name": "MPC",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44924,
+          5.51591
+        ]
+      },
+      "properties": {
+        "stop_id": 12000402,
+        "stop_code": "MBC0402",
+        "stop_name": "Sunshine Bertam",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44866999999999,
+          5.5181
+        ]
+      },
+      "properties": {
+        "stop_id": 12001855,
+        "stop_code": "MIE1855",
+        "stop_name": "Kiosk Bertam",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45284000000001,
+          5.51841
+        ]
+      },
+      "properties": {
+        "stop_id": 12001857,
+        "stop_code": "MIE1857",
+        "stop_name": "Kayangan",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.46468,
+          5.51905
+        ]
+      },
+      "properties": {
+        "stop_id": 12001860,
+        "stop_code": "MIE1860",
+        "stop_name": "Masjid Abdullah Fahim",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.46866,
+          5.51931
+        ]
+      },
+      "properties": {
+        "stop_id": 12001862,
+        "stop_code": "MIE1862",
+        "stop_name": "(M1) SMK Sains Kepala Batas",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47281,
+          5.51963
+        ]
+      },
+      "properties": {
+        "stop_id": 12001864,
+        "stop_code": "MIE1864",
+        "stop_name": "MRSM Kepala Batas",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.477164,
+          5.5180364
+        ]
+      },
+      "properties": {
+        "stop_id": 12002951,
+        "stop_code": "MFH1304",
+        "stop_name": "Pusat Penjaja Bandar Putra Bertam",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4811202,
+          5.518487599999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12002950,
+        "stop_code": "MFH1303",
+        "stop_name": "Pusat Penjaja Bandar Putra Bertam",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48601500000001,
+          5.517612000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12002089,
+        "stop_code": "MKR2089",
+        "stop_name": "Bertam Putra 1",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.490746,
+          5.517096
+        ]
+      },
+      "properties": {
+        "stop_id": 12002088,
+        "stop_code": "MKR2088",
+        "stop_name": "Bertam Putra 2",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.493445,
+          5.519909999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12002572,
+        "stop_code": "ICT8307",
+        "stop_name": "Bertam Putra 3",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.5006,
+          5.52158
+        ]
+      },
+      "properties": {
+        "stop_id": 12001869,
+        "stop_code": "MIE1869",
+        "stop_name": "Kampung Pokok Jenerih",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.502889,
+          5.521623
+        ]
+      },
+      "properties": {
+        "stop_id": 12002573,
+        "stop_code": "ICT8308",
+        "stop_name": "Kampung Pokok Jenerih I",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.50645,
+          5.5185699999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12001858,
+        "stop_code": "MIE1858",
+        "stop_name": "Masjid Kubang Menerong",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.50583,
+          5.513803
+        ]
+      },
+      "properties": {
+        "stop_id": 12001853,
+        "stop_code": "MIE1853",
+        "stop_name": "Taman Seri Menerong",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.50480999999999,
+          5.510836
+        ]
+      },
+      "properties": {
+        "stop_id": 12001851,
+        "stop_code": "MIE1851",
+        "stop_name": "Taman Perda Indah",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.501664,
+          5.502243
+        ]
+      },
+      "properties": {
+        "stop_id": 12002574,
+        "stop_code": "ICT8309",
+        "stop_name": "Midtown PERDA",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49801,
+          5.49094
+        ]
+      },
+      "properties": {
+        "stop_id": 12002995,
+        "stop_code": "MIE1880",
+        "stop_name": "Taman Sepadu Jaya",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49526,
+          5.487509999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12001849,
+        "stop_code": "MIE1849",
+        "stop_name": "(M2) Taman Sepadu",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49110879999999,
+          5.4845511
+        ]
+      },
+      "properties": {
+        "stop_id": 12003000,
+        "stop_code": "MIE1885",
+        "stop_name": "Klinik Kesihatan Tasek Gelugor",
+        "route_id": "30000034"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49216,
+          5.48298
+        ]
+      },
+      "properties": {
+        "stop_id": 12000487,
+        "stop_code": "MBM0487",
+        "stop_name": "SK Tasek Gelugor",
+        "route_id": "30000034"
+      }
+    }
+  ]
+}

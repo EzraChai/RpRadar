@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import routes from "@/assets/routes.json";
+import routes from "@/assets/routes_with_shapes.json";
 import { ModeToggle } from "./mode-toggle";
 import { NavLink } from "react-router";
 
@@ -23,7 +23,7 @@ export default function SelectRoute() {
     }, 300); // wait 300ms after user stops typing
 
     return () => clearTimeout(handler); //
-  }, [search, routes]);
+  }, [search]);
 
   return (
     <div className="bg-background max-w-xl mx-auto">
@@ -47,7 +47,7 @@ export default function SelectRoute() {
       </div>
       <div className="mt-12 flex flex-col gap-4">
         {filteredRoutes.map((line) => (
-          <RouteCard line={line} />
+          <RouteCard key={line.route_id} line={line} />
         ))}
       </div>
     </div>
@@ -61,11 +61,14 @@ function RouteCard({
     route_id: string;
     route_code: string;
     route_name: string;
-    shape_id: string;
+    shape_ids: string[];
   };
 }) {
   return (
-    <NavLink to={`/map?code=${line.route_code}&shape_id=${line.shape_id}`} end>
+    <NavLink
+      to={`/maps/${line.route_id}?shape_id0=${line.shape_ids[0]}&shape_id1=${line.shape_ids[1]}`}
+      end
+    >
       <div className="bg-white border dark:bg-neutral-900 rounded-2xl p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800">
         <div className="flex justify-between items-center gap-4">
           <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">

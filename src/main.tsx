@@ -12,7 +12,7 @@ createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SelectRoute />} />
-          <Route index path="/map" element={<Map />} />
+          <Route index path="/maps/:id" element={<Map />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

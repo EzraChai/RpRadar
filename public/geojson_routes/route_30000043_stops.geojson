@@ -1,0 +1,1765 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.462624,
+          5.3657975
+        ]
+      },
+      "properties": {
+        "stop_id": 12002201,
+        "stop_code": "MOO0056",
+        "stop_name": "(M1) The Summit",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45313,
+          5.3643
+        ]
+      },
+      "properties": {
+        "stop_id": 12000954,
+        "stop_code": "MEI0954",
+        "stop_name": "Masjid Sungai Rambai",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44968,
+          5.364730000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000955,
+        "stop_code": "MEI0955",
+        "stop_name": "Padang Lalang",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44823000000001,
+          5.36508
+        ]
+      },
+      "properties": {
+        "stop_id": 12000956,
+        "stop_code": "MEI0956",
+        "stop_name": "Masjid Padang Lalang",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4464,
+          5.3652
+        ]
+      },
+      "properties": {
+        "stop_id": 12000957,
+        "stop_code": "MEI0957",
+        "stop_name": "Pusat Perniagaan Padang Lalang",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44327,
+          5.36532
+        ]
+      },
+      "properties": {
+        "stop_id": 12000958,
+        "stop_code": "MEI0958",
+        "stop_name": "Taman Desa Damai",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43733,
+          5.36085
+        ]
+      },
+      "properties": {
+        "stop_id": 12000703,
+        "stop_code": "MCP0703",
+        "stop_name": "Masjid Permatang Kebun Sireh",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43630999999999,
+          5.35775
+        ]
+      },
+      "properties": {
+        "stop_id": 12000702,
+        "stop_code": "MCP0702",
+        "stop_name": "SK Kebun Sireh",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.434163,
+          5.35246
+        ]
+      },
+      "properties": {
+        "stop_id": 12002323,
+        "stop_code": "ICT0060",
+        "stop_name": "Taman Limau Manis",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43389,
+          5.349819999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12000352,
+        "stop_code": "MAW0352",
+        "stop_name": "Petronas Bukit Tengah",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43484000000001,
+          5.34661
+        ]
+      },
+      "properties": {
+        "stop_id": 12000351,
+        "stop_code": "MAW0351",
+        "stop_name": "Balai Polis Bukit Tengah",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43884,
+          5.340330000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000350,
+        "stop_code": "MAW0350",
+        "stop_name": "(M3) Kilang Leader Steel",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44261,
+          5.336880000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000349,
+        "stop_code": "MAW0349",
+        "stop_name": "DB Schenker",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.447696,
+          5.330213
+        ]
+      },
+      "properties": {
+        "stop_id": 12002324,
+        "stop_code": "ICT0061",
+        "stop_name": "Petron Bukit Minyak",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44798,
+          5.32642
+        ]
+      },
+      "properties": {
+        "stop_id": 12000337,
+        "stop_code": "MAU0337",
+        "stop_name": "Klinik Kesihatan Bukit Minyak",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44852,
+          5.32445
+        ]
+      },
+      "properties": {
+        "stop_id": 12000336,
+        "stop_code": "MAU0336",
+        "stop_name": "Taman Pulasan Bukit Minyak",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.452924,
+          5.32153
+        ]
+      },
+      "properties": {
+        "stop_id": 12002325,
+        "stop_code": "ICT0062",
+        "stop_name": "Leeden Hercules",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45774,
+          5.3190599999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12000331,
+        "stop_code": "MAU0331",
+        "stop_name": "Kampung Permatang Tok Subuh",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.46169,
+          5.31616
+        ]
+      },
+      "properties": {
+        "stop_id": 12000329,
+        "stop_code": "MAU0329",
+        "stop_name": "Taman Markisah",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.46412,
+          5.31311
+        ]
+      },
+      "properties": {
+        "stop_id": 12000327,
+        "stop_code": "MAU0327",
+        "stop_name": "Taman Sukun Indah",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4664,
+          5.31038
+        ]
+      },
+      "properties": {
+        "stop_id": 12001279,
+        "stop_code": "MFK1279",
+        "stop_name": "Taman Sukun",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47027,
+          5.30628
+        ]
+      },
+      "properties": {
+        "stop_id": 12001276,
+        "stop_code": "MFK1276",
+        "stop_name": "Taman Industri Ringan",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47229200000001,
+          5.304322
+        ]
+      },
+      "properties": {
+        "stop_id": 12002326,
+        "stop_code": "ICT0063",
+        "stop_name": "Essex",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47737,
+          5.30021
+        ]
+      },
+      "properties": {
+        "stop_id": 12001273,
+        "stop_code": "MFK1273",
+        "stop_name": "SRJK Permatang Tinggi",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47923,
+          5.295154
+        ]
+      },
+      "properties": {
+        "stop_id": 12002327,
+        "stop_code": "ICT0064",
+        "stop_name": "Taman Permatang Tinggi Indah",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47824399999999,
+          5.289013
+        ]
+      },
+      "properties": {
+        "stop_id": 12002328,
+        "stop_code": "ICT0065",
+        "stop_name": "Shell Simpang Empat",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.476674,
+          5.282946
+        ]
+      },
+      "properties": {
+        "stop_id": 12002329,
+        "stop_code": "ICT0066",
+        "stop_name": "Masjid Simpang Empat",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47689,
+          5.2792
+        ]
+      },
+      "properties": {
+        "stop_id": 12001264,
+        "stop_code": "MFK1264",
+        "stop_name": "SMK Simpang Empat",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47706,
+          5.275869999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12001262,
+        "stop_code": "MFK1262",
+        "stop_name": "Taman Tiong Mas",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47683,
+          5.271780000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12001260,
+        "stop_code": "MFK1260",
+        "stop_name": "Taman Tempua",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47668,
+          5.26949
+        ]
+      },
+      "properties": {
+        "stop_id": 12001259,
+        "stop_code": "MFK1259",
+        "stop_name": "Taman Belibis",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.476,
+          5.2682199999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12001258,
+        "stop_code": "MFK1258",
+        "stop_name": "Taman Tangling",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47425,
+          5.2649300000000006
+        ]
+      },
+      "properties": {
+        "stop_id": 12001256,
+        "stop_code": "MFK1256",
+        "stop_name": "Menara Kerjaya Simpang Empat",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.472897,
+          5.261616
+        ]
+      },
+      "properties": {
+        "stop_id": 12002330,
+        "stop_code": "ICT0067",
+        "stop_name": "Balai Bomba Sungai Bakap",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4724,
+          5.256390000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000284,
+        "stop_code": "MAM0284",
+        "stop_name": "Kilang Silitech",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.475252,
+          5.250563
+        ]
+      },
+      "properties": {
+        "stop_id": 12002331,
+        "stop_code": "ICT0068",
+        "stop_name": "Premium Outlet",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48026999999999,
+          5.24596
+        ]
+      },
+      "properties": {
+        "stop_id": 12000281,
+        "stop_code": "MAM0281",
+        "stop_name": "SJK Tamil Valdor",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4844,
+          5.2419199999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12000279,
+        "stop_code": "MAM0279",
+        "stop_name": "Taman Rebana",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4893,
+          5.23714
+        ]
+      },
+      "properties": {
+        "stop_id": 12001484,
+        "stop_code": "MGV1484",
+        "stop_name": "Lean Teik Trading",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49107,
+          5.23365
+        ]
+      },
+      "properties": {
+        "stop_id": 12001487,
+        "stop_code": "MGV1487",
+        "stop_name": "Taman Sri Aman",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49233000000001,
+          5.23077
+        ]
+      },
+      "properties": {
+        "stop_id": 12001485,
+        "stop_code": "MGV1485",
+        "stop_name": "Taman Gamelan",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49545,
+          5.22485
+        ]
+      },
+      "properties": {
+        "stop_id": 12000277,
+        "stop_code": "MAL0277",
+        "stop_name": "Taman Jelatik",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49725,
+          5.221830000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000276,
+        "stop_code": "MAL0276",
+        "stop_name": "Masjid Lama Sungai Bakap",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49815,
+          5.21959
+        ]
+      },
+      "properties": {
+        "stop_id": 12000275,
+        "stop_code": "MAL0275",
+        "stop_name": "Hospital Sungai Bakap",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49754,
+          5.2171400000000006
+        ]
+      },
+      "properties": {
+        "stop_id": 12000274,
+        "stop_code": "MAL0274",
+        "stop_name": "Kinik Kesihatan Sungai Bakap",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49722,
+          5.21248
+        ]
+      },
+      "properties": {
+        "stop_id": 12001483,
+        "stop_code": "MGV1483",
+        "stop_name": "Perkampungan Jawi",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.497725,
+          5.207808999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12002332,
+        "stop_code": "ICT0069",
+        "stop_name": "JKR Jawi",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49492,
+          5.20034
+        ]
+      },
+      "properties": {
+        "stop_id": 12000925,
+        "stop_code": "MEB0925",
+        "stop_name": "Taman Jawi Jaya",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49322,
+          5.19728
+        ]
+      },
+      "properties": {
+        "stop_id": 12000924,
+        "stop_code": "MEB0924",
+        "stop_name": "SK Jawi",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49091999999999,
+          5.19303
+        ]
+      },
+      "properties": {
+        "stop_id": 12000921,
+        "stop_code": "MEB0921",
+        "stop_name": "Taman Jawi Ria",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48657,
+          5.18508
+        ]
+      },
+      "properties": {
+        "stop_id": 12000920,
+        "stop_code": "MEB0920",
+        "stop_name": "Taman Sintar",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.484135,
+          5.1806410000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12002333,
+        "stop_code": "ICT0070",
+        "stop_name": "Teck Land Motors",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48228,
+          5.177230000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000917,
+        "stop_code": "MEB0917",
+        "stop_name": "Balai Polis Lama Bukit Panchor",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4783,
+          5.16784
+        ]
+      },
+      "properties": {
+        "stop_id": 12002107,
+        "stop_code": "M002107",
+        "stop_name": "Hub Nibong Tebal",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48184,
+          5.1769099999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12000916,
+        "stop_code": "MEB0916",
+        "stop_name": "Pasaraya C-MART",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48394,
+          5.18075
+        ]
+      },
+      "properties": {
+        "stop_id": 12000918,
+        "stop_code": "MEB0918",
+        "stop_name": "Super-Rider Motor Sdn Bhd",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48602,
+          5.18444
+        ]
+      },
+      "properties": {
+        "stop_id": 12000919,
+        "stop_code": "MEB0919",
+        "stop_name": "(M2) Residensi Merbok",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.491577,
+          5.194506
+        ]
+      },
+      "properties": {
+        "stop_id": 12002334,
+        "stop_code": "ICT0071",
+        "stop_name": "Masjid Daerah Jawi",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.493,
+          5.19716
+        ]
+      },
+      "properties": {
+        "stop_id": 12000923,
+        "stop_code": "MEB0923",
+        "stop_name": "IPD Seberang Perai Selatan",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.495,
+          5.20078
+        ]
+      },
+      "properties": {
+        "stop_id": 12000926,
+        "stop_code": "MEB0926",
+        "stop_name": "Taman Jawi Jaya",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49716,
+          5.20528
+        ]
+      },
+      "properties": {
+        "stop_id": 12001481,
+        "stop_code": "MGV1481",
+        "stop_name": "Pusat Perniagaan Jawi Jaya",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49705,
+          5.21173
+        ]
+      },
+      "properties": {
+        "stop_id": 12001482,
+        "stop_code": "MGV1482",
+        "stop_name": "Perkampungan Jawi",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49724,
+          5.21584
+        ]
+      },
+      "properties": {
+        "stop_id": 12000273,
+        "stop_code": "MAL0273",
+        "stop_name": "Balai Polis Sungai Bakap",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49792099999999,
+          5.218885
+        ]
+      },
+      "properties": {
+        "stop_id": 12002335,
+        "stop_code": "ICT0072",
+        "stop_name": "Hospital Sungai Bakap",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.497324,
+          5.221641
+        ]
+      },
+      "properties": {
+        "stop_id": 12002336,
+        "stop_code": "ICT0073",
+        "stop_name": "Masjid Lama Sungai Bakap",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49551,
+          5.22461
+        ]
+      },
+      "properties": {
+        "stop_id": 12000272,
+        "stop_code": "MAL0272",
+        "stop_name": "Taman Jelatik",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49231999999999,
+          5.2304900000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12000278,
+        "stop_code": "MAL0278",
+        "stop_name": "Taman Penyu",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.49107,
+          5.2334
+        ]
+      },
+      "properties": {
+        "stop_id": 12001486,
+        "stop_code": "MGV1486",
+        "stop_name": "(M2) Taman Seri Aman",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48366999999999,
+          5.24258
+        ]
+      },
+      "properties": {
+        "stop_id": 12001488,
+        "stop_code": "MGV1488",
+        "stop_name": "Taman Rebana",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.48186,
+          5.24421
+        ]
+      },
+      "properties": {
+        "stop_id": 12000280,
+        "stop_code": "MAM0280",
+        "stop_name": "Kawasan Perindustrian Valdor",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.474559,
+          5.251126999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12002337,
+        "stop_code": "ICT0074",
+        "stop_name": "Oriental Polymer",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4723,
+          5.25611
+        ]
+      },
+      "properties": {
+        "stop_id": 12000283,
+        "stop_code": "MAM0283",
+        "stop_name": "Silitech",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.472864,
+          5.262094
+        ]
+      },
+      "properties": {
+        "stop_id": 12002338,
+        "stop_code": "ICT0075",
+        "stop_name": "RTC Jalan Simpang Empat",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47411,
+          5.26508
+        ]
+      },
+      "properties": {
+        "stop_id": 12001257,
+        "stop_code": "MFK1257",
+        "stop_name": "Taman IKS Perda",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47570999999999,
+          5.26818
+        ]
+      },
+      "properties": {
+        "stop_id": 12001253,
+        "stop_code": "MFK1253",
+        "stop_name": "Taman Perdana",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47677,
+          5.27208
+        ]
+      },
+      "properties": {
+        "stop_id": 12001261,
+        "stop_code": "MFK1261",
+        "stop_name": "Taman Cegar",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47686999999999,
+          5.27778
+        ]
+      },
+      "properties": {
+        "stop_id": 12001263,
+        "stop_code": "MFK1263",
+        "stop_name": "SMK Simpang Empat",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47659,
+          5.2836
+        ]
+      },
+      "properties": {
+        "stop_id": 12001254,
+        "stop_code": "MFK1254",
+        "stop_name": "Balai Polis Simpang Empat",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47731,
+          5.28653
+        ]
+      },
+      "properties": {
+        "stop_id": 12001266,
+        "stop_code": "MFK1266",
+        "stop_name": "Kg. Baru Simpang Empat",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47867,
+          5.29097
+        ]
+      },
+      "properties": {
+        "stop_id": 12001268,
+        "stop_code": "MFK1268",
+        "stop_name": "Pusat Perniagaan Simpang Empat",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47903000000001,
+          5.29524
+        ]
+      },
+      "properties": {
+        "stop_id": 12001270,
+        "stop_code": "MFK1270",
+        "stop_name": "Taman Permatang Tinggi Indah",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47861,
+          5.29726
+        ]
+      },
+      "properties": {
+        "stop_id": 12001271,
+        "stop_code": "MFK1271",
+        "stop_name": "Taman Perwira",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47754,
+          5.29968
+        ]
+      },
+      "properties": {
+        "stop_id": 12001272,
+        "stop_code": "MFK1272",
+        "stop_name": "SRJK Permatang Tinggi",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.47298,
+          5.30354
+        ]
+      },
+      "properties": {
+        "stop_id": 12001274,
+        "stop_code": "MFK1274",
+        "stop_name": "Taman Perusahaan Usaha Jaya",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4714,
+          5.30505
+        ]
+      },
+      "properties": {
+        "stop_id": 12001275,
+        "stop_code": "MFK1275",
+        "stop_name": "MDC Kuari",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4694,
+          5.30701
+        ]
+      },
+      "properties": {
+        "stop_id": 12001277,
+        "stop_code": "MFK1277",
+        "stop_name": "Kawasan Perusahaan Permatang Tinggi",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.46632,
+          5.3103
+        ]
+      },
+      "properties": {
+        "stop_id": 12001278,
+        "stop_code": "MFK1278",
+        "stop_name": "Taman Sukun",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.46295,
+          5.31439
+        ]
+      },
+      "properties": {
+        "stop_id": 12000328,
+        "stop_code": "MAU0328",
+        "stop_name": "Taman Sukun Indah",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.46007,
+          5.31745
+        ]
+      },
+      "properties": {
+        "stop_id": 12000330,
+        "stop_code": "MAU0330",
+        "stop_name": "Taman Markisah",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45676,
+          5.31957
+        ]
+      },
+      "properties": {
+        "stop_id": 12000332,
+        "stop_code": "MAU0332",
+        "stop_name": "Asia Machinery",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45284000000001,
+          5.32134
+        ]
+      },
+      "properties": {
+        "stop_id": 12000333,
+        "stop_code": "MAU0333",
+        "stop_name": "Taman Perindustrian Bukit Minyak 2",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45151,
+          5.32183
+        ]
+      },
+      "properties": {
+        "stop_id": 12000334,
+        "stop_code": "MAU0334",
+        "stop_name": "Taman Perindustrian Bukit Minyak",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44896999999999,
+          5.32336
+        ]
+      },
+      "properties": {
+        "stop_id": 12000335,
+        "stop_code": "MAU0335",
+        "stop_name": "Pusat Perniagaan Juru Jaya",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44779,
+          5.32721
+        ]
+      },
+      "properties": {
+        "stop_id": 12000323,
+        "stop_code": "MAU0323",
+        "stop_name": "Klinik Kesihatan Bukit Minyak",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44755,
+          5.3289
+        ]
+      },
+      "properties": {
+        "stop_id": 12000324,
+        "stop_code": "MAU0324",
+        "stop_name": "Taman Bukit Minyak",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4447,
+          5.33479
+        ]
+      },
+      "properties": {
+        "stop_id": 12000342,
+        "stop_code": "MAW0342",
+        "stop_name": "Makmal Veterinar",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44294000000001,
+          5.33632
+        ]
+      },
+      "properties": {
+        "stop_id": 12000343,
+        "stop_code": "MAW0343",
+        "stop_name": "Pejabat Veterinar",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43800999999999,
+          5.34077
+        ]
+      },
+      "properties": {
+        "stop_id": 12000344,
+        "stop_code": "MAW0344",
+        "stop_name": "Kampung Bersatu",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.4347,
+          5.34774
+        ]
+      },
+      "properties": {
+        "stop_id": 12000345,
+        "stop_code": "MAW0345",
+        "stop_name": "Balai Polis Bukit Tengah",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.435063,
+          5.353937999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12002339,
+        "stop_code": "ICT0076",
+        "stop_name": "Kampung Tengah Kebun Sireh",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.436352,
+          5.358292
+        ]
+      },
+      "properties": {
+        "stop_id": 12002340,
+        "stop_code": "ICT0077",
+        "stop_name": "SK Kebun Sireh",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.43723,
+          5.36103
+        ]
+      },
+      "properties": {
+        "stop_id": 12000704,
+        "stop_code": "MCP0704",
+        "stop_name": "Masjid Permatang Kampung Sireh",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.439053,
+          5.36421
+        ]
+      },
+      "properties": {
+        "stop_id": 12002341,
+        "stop_code": "ICT0078",
+        "stop_name": "Kampung Gambir",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44286,
+          5.36565
+        ]
+      },
+      "properties": {
+        "stop_id": 12000960,
+        "stop_code": "MEI0960",
+        "stop_name": "Pusat Perniagaan Padang Lalang",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44659300000001,
+          5.365346
+        ]
+      },
+      "properties": {
+        "stop_id": 12002342,
+        "stop_code": "ICT0079",
+        "stop_name": "Kampung Padang Lalang",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.44748,
+          5.36529
+        ]
+      },
+      "properties": {
+        "stop_id": 12000961,
+        "stop_code": "MEI0961",
+        "stop_name": "KTM BM",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45317,
+          5.36436
+        ]
+      },
+      "properties": {
+        "stop_id": 12001596,
+        "stop_code": "MHC1596",
+        "stop_name": "Masjid Sungai Rambai",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45875,
+          5.36519
+        ]
+      },
+      "properties": {
+        "stop_id": 12000906,
+        "stop_code": "MDZ0906",
+        "stop_name": "Kamdar",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.45826,
+          5.3666
+        ]
+      },
+      "properties": {
+        "stop_id": 12000907,
+        "stop_code": "MDZ0907",
+        "stop_name": "Plaza Utama",
+        "route_id": "30000043"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.460003,
+          5.366679
+        ]
+      },
+      "properties": {
+        "stop_id": 12002343,
+        "stop_code": "ICT0080",
+        "stop_name": "PBA Bukit Mertajam",
+        "route_id": "30000043"
+      }
+    }
+  ]
+}

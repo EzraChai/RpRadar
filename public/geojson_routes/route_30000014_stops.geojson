@@ -1,0 +1,2069 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28442,
+          5.321734999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12000888,
+        "stop_code": "IDT0888",
+        "stop_name": "Hub Pasaraya Giant",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28499000000001,
+          5.31841
+        ]
+      },
+      "properties": {
+        "stop_id": 12000877,
+        "stop_code": "IDT0877",
+        "stop_name": "Pangsapuri Mayang",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28243,
+          5.317419999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12002083,
+        "stop_code": "IKP2083",
+        "stop_name": "Taman Gedung Heights I",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28004,
+          5.31727
+        ]
+      },
+      "properties": {
+        "stop_id": 12002081,
+        "stop_code": "IKP2081",
+        "stop_name": "Taman Gedung Heights II",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.281049,
+          5.31643
+        ]
+      },
+      "properties": {
+        "stop_id": 12002315,
+        "stop_code": "ICT0048",
+        "stop_name": "Gedung Height III",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.282016,
+          5.316179
+        ]
+      },
+      "properties": {
+        "stop_id": 12002316,
+        "stop_code": "ICT0049",
+        "stop_name": "Gedung Height IV",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28407,
+          5.31614
+        ]
+      },
+      "properties": {
+        "stop_id": 12000876,
+        "stop_code": "IDT0876",
+        "stop_name": "Astaka Bukit Gedung",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28491,
+          5.31838
+        ]
+      },
+      "properties": {
+        "stop_id": 12002317,
+        "stop_code": "ICT0050",
+        "stop_name": "Pangsapuri Mayang",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28571,
+          5.32071
+        ]
+      },
+      "properties": {
+        "stop_id": 12000879,
+        "stop_code": "IDT0879",
+        "stop_name": "Pasaraya Giant",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28688000000001,
+          5.323671
+        ]
+      },
+      "properties": {
+        "stop_id": 12000882,
+        "stop_code": "IDT0882",
+        "stop_name": "Masjid Bayan Baru",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.2875,
+          5.325499
+        ]
+      },
+      "properties": {
+        "stop_id": 12000885,
+        "stop_code": "IDT0885",
+        "stop_name": "Sunshine Square",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28667,
+          5.32686
+        ]
+      },
+      "properties": {
+        "stop_id": 12000847,
+        "stop_code": "IDN0847",
+        "stop_name": "KFC Jalan Mahsuri",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.2843,
+          5.32693
+        ]
+      },
+      "properties": {
+        "stop_id": 12000848,
+        "stop_code": "IDN0848",
+        "stop_name": "Mayang Mall",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28050999999999,
+          5.32736
+        ]
+      },
+      "properties": {
+        "stop_id": 12000851,
+        "stop_code": "IDN0851",
+        "stop_name": "(M2) Spice",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.27883,
+          5.32963
+        ]
+      },
+      "properties": {
+        "stop_id": 12001837,
+        "stop_code": "IID1837",
+        "stop_name": "Setia Welcome Center",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.281425,
+          5.331169
+        ]
+      },
+      "properties": {
+        "stop_id": 12001840,
+        "stop_code": "IID1840",
+        "stop_name": "SRJK Min Sin",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28419,
+          5.33199
+        ]
+      },
+      "properties": {
+        "stop_id": 12001842,
+        "stop_code": "IID1842",
+        "stop_name": "Bukit Jambul Golf Club",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28684,
+          5.3326
+        ]
+      },
+      "properties": {
+        "stop_id": 12001845,
+        "stop_code": "IID1845",
+        "stop_name": "Masjid Sungai Nibong Kecil",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29074,
+          5.3327029999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12001847,
+        "stop_code": "IID1847",
+        "stop_name": "Kompleks Bukit Jambul",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.298996,
+          5.330701
+        ]
+      },
+      "properties": {
+        "stop_id": 12001955,
+        "stop_code": "IJE1955",
+        "stop_name": "Krystal Point Corporate Park",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30790999999999,
+          5.331947
+        ]
+      },
+      "properties": {
+        "stop_id": 12002059,
+        "stop_code": "IKJ2059",
+        "stop_name": "Queensbay Mall",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30833,
+          5.33694
+        ]
+      },
+      "properties": {
+        "stop_id": 12002062,
+        "stop_code": "IKJ2062",
+        "stop_name": "Bay Garden",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3029,
+          5.34052
+        ]
+      },
+      "properties": {
+        "stop_id": 12000079,
+        "stop_code": "I0R0079",
+        "stop_name": "Taman Pantai Jerejak",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29952,
+          5.342442
+        ]
+      },
+      "properties": {
+        "stop_id": 12001492,
+        "stop_code": "IGX1492",
+        "stop_name": "Terminal Ekspress Sg Nibong",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29739000000001,
+          5.34373
+        ]
+      },
+      "properties": {
+        "stop_id": 12001494,
+        "stop_code": "IGX1494",
+        "stop_name": "SJKC Phor Tay",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29564,
+          5.34654
+        ]
+      },
+      "properties": {
+        "stop_id": 12001497,
+        "stop_code": "IGX1497",
+        "stop_name": "SRJK Keong Hoe",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29788,
+          5.35118
+        ]
+      },
+      "properties": {
+        "stop_id": 12001500,
+        "stop_code": "IGX1500",
+        "stop_name": "Tesco Sungai Dua",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29911,
+          5.35216
+        ]
+      },
+      "properties": {
+        "stop_id": 12001502,
+        "stop_code": "IGX1502",
+        "stop_name": "Apartmen Desa Universiti",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30185,
+          5.352876999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12001504,
+        "stop_code": "IGX1504",
+        "stop_name": "USM",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30793,
+          5.35418
+        ]
+      },
+      "properties": {
+        "stop_id": 12001448,
+        "stop_code": "IGR1448",
+        "stop_name": "Jejantas Batu Uban",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31049,
+          5.35994
+        ]
+      },
+      "properties": {
+        "stop_id": 12001450,
+        "stop_code": "IGR1450",
+        "stop_name": "Padang Bola USM",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31097,
+          5.36497
+        ]
+      },
+      "properties": {
+        "stop_id": 12001452,
+        "stop_code": "IGR1452",
+        "stop_name": "SK Sg. Gelugor",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31005,
+          5.3697099999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12001455,
+        "stop_code": "IGR1455",
+        "stop_name": "Maybank Gelugor",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30903,
+          5.3727800000000006
+        ]
+      },
+      "properties": {
+        "stop_id": 12001457,
+        "stop_code": "IGR1457",
+        "stop_name": "KTM Motor",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30803,
+          5.37671
+        ]
+      },
+      "properties": {
+        "stop_id": 12001459,
+        "stop_code": "IGR1459",
+        "stop_name": "Recsam",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30514000000001,
+          5.3855900000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12000860,
+        "stop_code": "IDS0860",
+        "stop_name": "Shell Green Lane",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30334,
+          5.3891279999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12000865,
+        "stop_code": "IDS0865",
+        "stop_name": "Gembira Parade",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3026,
+          5.39285
+        ]
+      },
+      "properties": {
+        "stop_id": 12000866,
+        "stop_code": "IDS0866",
+        "stop_name": "Hospital Lam Wah Ee",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30341,
+          5.396780000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000868,
+        "stop_code": "IDS0868",
+        "stop_name": "SMK Convent Green Lane",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30395,
+          5.40146
+        ]
+      },
+      "properties": {
+        "stop_id": 12000871,
+        "stop_code": "IDS0871",
+        "stop_name": "McDonald Green Lane",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3037,
+          5.403490000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000873,
+        "stop_code": "IDS0873",
+        "stop_name": "SMK Penang Free",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30213,
+          5.413209999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12001367,
+        "stop_code": "IGA1367",
+        "stop_name": "Pejabat Agama Islam",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30466,
+          5.41869
+        ]
+      },
+      "properties": {
+        "stop_id": 12001368,
+        "stop_code": "IGA1368",
+        "stop_name": "Heritage Club",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30614,
+          5.42288
+        ]
+      },
+      "properties": {
+        "stop_id": 12000839,
+        "stop_code": "IDJ0839",
+        "stop_name": "St. Christoper School",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3085,
+          5.422867
+        ]
+      },
+      "properties": {
+        "stop_id": 12000838,
+        "stop_code": "IDJ0838",
+        "stop_name": "Kolej Disted-Stamford",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31149,
+          5.4223
+        ]
+      },
+      "properties": {
+        "stop_id": 12000835,
+        "stop_code": "IDJ0835",
+        "stop_name": "Buddhist Society",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31155,
+          5.42026
+        ]
+      },
+      "properties": {
+        "stop_id": 12001355,
+        "stop_code": "IFV1355",
+        "stop_name": "(M2) SK Jalan Residensi",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31062800000001,
+          5.417962999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12003627,
+        "stop_code": "IFV1356",
+        "stop_name": "Hospital Pulau Pinang",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31017,
+          5.41561
+        ]
+      },
+      "properties": {
+        "stop_id": 12001894,
+        "stop_code": "IIK1894",
+        "stop_name": "Hospital P.Pinang II",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31312,
+          5.41364
+        ]
+      },
+      "properties": {
+        "stop_id": 12000460,
+        "stop_code": "IBF0460",
+        "stop_name": "Penjara P.Pinang(Hospital)",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.317986,
+          5.412893
+        ]
+      },
+      "properties": {
+        "stop_id": 12000455,
+        "stop_code": "IBF0455",
+        "stop_name": "Padang Brown",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32112,
+          5.412389
+        ]
+      },
+      "properties": {
+        "stop_id": 12000445,
+        "stop_code": "IBF0445",
+        "stop_name": "Kampung Makam",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32437,
+          5.412776999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12000453,
+        "stop_code": "IBF0453",
+        "stop_name": "Pasar Jalan Kuantan",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3262,
+          5.41332
+        ]
+      },
+      "properties": {
+        "stop_id": 12000459,
+        "stop_code": "IBF0459",
+        "stop_name": "Penang Times Square",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32789,
+          5.41384
+        ]
+      },
+      "properties": {
+        "stop_id": 12000462,
+        "stop_code": "IBF0462",
+        "stop_name": "Pasaraya Gama",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32899,
+          5.41513
+        ]
+      },
+      "properties": {
+        "stop_id": 12001060,
+        "stop_code": "IEV1060",
+        "stop_name": "Komtar Utara",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32823,
+          5.41825
+        ]
+      },
+      "properties": {
+        "stop_id": 12000356,
+        "stop_code": "IAX0356",
+        "stop_name": "TM Point",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32521,
+          5.42085
+        ]
+      },
+      "properties": {
+        "stop_id": 12000357,
+        "stop_code": "IAX0357",
+        "stop_name": "Penang Plaza",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32365,
+          5.42197
+        ]
+      },
+      "properties": {
+        "stop_id": 12000358,
+        "stop_code": "IAX0358",
+        "stop_name": "SK Pykett Methodist",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.320533,
+          5.424169
+        ]
+      },
+      "properties": {
+        "stop_id": 12003016,
+        "stop_code": "IAX0372",
+        "stop_name": "1926 Heritage Hotel",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3191,
+          5.42517
+        ]
+      },
+      "properties": {
+        "stop_id": 12000360,
+        "stop_code": "IAX0360",
+        "stop_name": "Chinese Recreation Club",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31952,
+          5.427282
+        ]
+      },
+      "properties": {
+        "stop_id": 12000972,
+        "stop_code": "IEL0972",
+        "stop_name": "Gleneagles II",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31974,
+          5.42875
+        ]
+      },
+      "properties": {
+        "stop_id": 12000718,
+        "stop_code": "ICR0718",
+        "stop_name": "Sri Pangkor Kondominium",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31879,
+          5.429469999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12000719,
+        "stop_code": "ICR0719",
+        "stop_name": "Gurney Hotel",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31715,
+          5.4303
+        ]
+      },
+      "properties": {
+        "stop_id": 12000720,
+        "stop_code": "ICR0720",
+        "stop_name": "Evergreen Hotel",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31622,
+          5.4307300000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12000721,
+        "stop_code": "ICR0721",
+        "stop_name": "Masjid Jamek Al Munawer",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31533,
+          5.4313
+        ]
+      },
+      "properties": {
+        "stop_id": 12000722,
+        "stop_code": "ICR0722",
+        "stop_name": "Flat Kelawei",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31404,
+          5.4320900000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12000723,
+        "stop_code": "ICR0723",
+        "stop_name": "Sleeping Buddha",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31219,
+          5.43341
+        ]
+      },
+      "properties": {
+        "stop_id": 12000724,
+        "stop_code": "ICR0724",
+        "stop_name": "Pangsapuri Festival",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31057,
+          5.43463
+        ]
+      },
+      "properties": {
+        "stop_id": 12000726,
+        "stop_code": "ICR0726",
+        "stop_name": "Gurney Paragon",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30881,
+          5.43594
+        ]
+      },
+      "properties": {
+        "stop_id": 12000727,
+        "stop_code": "ICR0727",
+        "stop_name": "Gurney Plaza",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30738000000001,
+          5.439603
+        ]
+      },
+      "properties": {
+        "stop_id": 12000105,
+        "stop_code": "I0V0105",
+        "stop_name": "Jalan Bagan Jermal(Gurney)",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30551,
+          5.437126999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12000102,
+        "stop_code": "I0V0102",
+        "stop_name": "SMJK Phor Tay",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30415,
+          5.43559
+        ]
+      },
+      "properties": {
+        "stop_id": 12000101,
+        "stop_code": "I0V0101",
+        "stop_name": "Sekolah St. Nicholas",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30376,
+          5.43375
+        ]
+      },
+      "properties": {
+        "stop_id": 12000371,
+        "stop_code": "IAX0371",
+        "stop_name": "(M1) Hospital Adventist",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30629,
+          5.43289
+        ]
+      },
+      "properties": {
+        "stop_id": 12000369,
+        "stop_code": "IAX0369",
+        "stop_name": "Midlands One Stop Centre",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30824,
+          5.43267
+        ]
+      },
+      "properties": {
+        "stop_id": 12000368,
+        "stop_code": "IAX0368",
+        "stop_name": "SMK/SK Convent Pulau Tikus",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31017,
+          5.43251
+        ]
+      },
+      "properties": {
+        "stop_id": 12000367,
+        "stop_code": "IAX0367",
+        "stop_name": "Belissa Row",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.313353,
+          5.429089
+        ]
+      },
+      "properties": {
+        "stop_id": 12003626,
+        "stop_code": "IAY0001",
+        "stop_name": "Wisma Perkeso",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31058,
+          5.42851
+        ]
+      },
+      "properties": {
+        "stop_id": 12000388,
+        "stop_code": "IAZ0388",
+        "stop_name": "Apartment Villa Indah",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31718000000001,
+          5.422586
+        ]
+      },
+      "properties": {
+        "stop_id": 12001085,
+        "stop_code": "IEX1085",
+        "stop_name": "Kem Wataniah 509",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31727,
+          5.420856
+        ]
+      },
+      "properties": {
+        "stop_id": 12001082,
+        "stop_code": "IEX1082",
+        "stop_name": "Pangsapuri Sri Pinang",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3182,
+          5.4191199999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12000833,
+        "stop_code": "IDJ0833",
+        "stop_name": "Hospital Loh Guan Lye",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32038,
+          5.418019999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12000832,
+        "stop_code": "IDJ0832",
+        "stop_name": "Tropicana Hotel",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32225,
+          5.41718
+        ]
+      },
+      "properties": {
+        "stop_id": 12000831,
+        "stop_code": "IDJ0831",
+        "stop_name": "Hotel Red Rock",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32443,
+          5.41614
+        ]
+      },
+      "properties": {
+        "stop_id": 12000829,
+        "stop_code": "IDJ0829",
+        "stop_name": "Nasi Kandar Pelita",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32774,
+          5.414540000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12000828,
+        "stop_code": "IDJ0828",
+        "stop_name": "Masjid Simpang Enam",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.33031319999999,
+          5.4141808
+        ]
+      },
+      "properties": {
+        "stop_id": 12002116,
+        "stop_code": "IFW1356",
+        "stop_name": "Terminal Komtar",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3281,
+          5.413819
+        ]
+      },
+      "properties": {
+        "stop_id": 12000461,
+        "stop_code": "IBF0461",
+        "stop_name": "Pasaraya Gama",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32621,
+          5.4131540000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12000456,
+        "stop_code": "IBF0456",
+        "stop_name": "Penang Times Square",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32366999999999,
+          5.41218
+        ]
+      },
+      "properties": {
+        "stop_id": 12000443,
+        "stop_code": "IBF0443",
+        "stop_name": "Pasar Jalan Kuantan",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.32089,
+          5.4122699999999995
+        ]
+      },
+      "properties": {
+        "stop_id": 12002112,
+        "stop_code": "IBF0446",
+        "stop_name": "Kampung Makam",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31805,
+          5.4127
+        ]
+      },
+      "properties": {
+        "stop_id": 12000449,
+        "stop_code": "IBF0449",
+        "stop_name": "SMK/SK Convent Dato Keramat",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31458,
+          5.41324
+        ]
+      },
+      "properties": {
+        "stop_id": 12000458,
+        "stop_code": "IBF0458",
+        "stop_name": "Stadium Bandaraya",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31130999999999,
+          5.41355
+        ]
+      },
+      "properties": {
+        "stop_id": 12000077,
+        "stop_code": "I0Q0077",
+        "stop_name": "Masjid Jamek Sheikh Yusof(Hospital)",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30957,
+          5.41246
+        ]
+      },
+      "properties": {
+        "stop_id": 12000076,
+        "stop_code": "I0Q0076",
+        "stop_name": "Dhoby Ghaut",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30745,
+          5.41031
+        ]
+      },
+      "properties": {
+        "stop_id": 12000075,
+        "stop_code": "I0Q0075",
+        "stop_name": "SMK Sri Mutiara",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30364,
+          5.40803
+        ]
+      },
+      "properties": {
+        "stop_id": 12000072,
+        "stop_code": "I0Q0072",
+        "stop_name": "Han Chiang College",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30405,
+          5.40292
+        ]
+      },
+      "properties": {
+        "stop_id": 12000872,
+        "stop_code": "IDS0872",
+        "stop_name": "SMK Penang Free",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30418,
+          5.401269999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12000870,
+        "stop_code": "IDS0870",
+        "stop_name": "Restoran McDonald",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30376,
+          5.39722
+        ]
+      },
+      "properties": {
+        "stop_id": 12000869,
+        "stop_code": "IDS0869",
+        "stop_name": "SMK Convent Green Lane",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30303,
+          5.39392
+        ]
+      },
+      "properties": {
+        "stop_id": 12000867,
+        "stop_code": "IDS0867",
+        "stop_name": "Hospital Lam Wah Ee",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30366,
+          5.38894
+        ]
+      },
+      "properties": {
+        "stop_id": 12000862,
+        "stop_code": "IDS0862",
+        "stop_name": "Persatuan Kanak - Kanak Sepastik",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30492,
+          5.38664
+        ]
+      },
+      "properties": {
+        "stop_id": 12000861,
+        "stop_code": "IDS0861",
+        "stop_name": "Shell Jalan Masjid Negeri",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3084,
+          5.37593
+        ]
+      },
+      "properties": {
+        "stop_id": 12001458,
+        "stop_code": "IGR1458",
+        "stop_name": "(M2) RECSAM",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30944000000001,
+          5.37239
+        ]
+      },
+      "properties": {
+        "stop_id": 12001456,
+        "stop_code": "IGR1456",
+        "stop_name": "Astaka Gelugor",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31026,
+          5.36943
+        ]
+      },
+      "properties": {
+        "stop_id": 12001454,
+        "stop_code": "IGR1454",
+        "stop_name": "BSN Gelugor",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31078000000001,
+          5.366709999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12001453,
+        "stop_code": "IGR1453",
+        "stop_name": "Restoran Kampung Ku",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.31125,
+          5.363169999999999
+        ]
+      },
+      "properties": {
+        "stop_id": 12001451,
+        "stop_code": "IGR1451",
+        "stop_name": "SK Sungai Gelugor",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3054,
+          5.354289
+        ]
+      },
+      "properties": {
+        "stop_id": 12003137,
+        "stop_code": "IDX1507",
+        "stop_name": "Jalan Sungai Dua II",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30315,
+          5.35307
+        ]
+      },
+      "properties": {
+        "stop_id": 12001505,
+        "stop_code": "IGX1505",
+        "stop_name": "USM",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29904,
+          5.3520199999999996
+        ]
+      },
+      "properties": {
+        "stop_id": 12001501,
+        "stop_code": "IGX1501",
+        "stop_name": "Restoran Nasi Kandar Pelita",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29694,
+          5.35025
+        ]
+      },
+      "properties": {
+        "stop_id": 12001499,
+        "stop_code": "IGX1499",
+        "stop_name": "Tesco Sungai Dua",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29575,
+          5.34655
+        ]
+      },
+      "properties": {
+        "stop_id": 12001498,
+        "stop_code": "IGX1498",
+        "stop_name": "SRJK Keong Hoe",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29753000000001,
+          5.34375
+        ]
+      },
+      "properties": {
+        "stop_id": 12001495,
+        "stop_code": "IGX1495",
+        "stop_name": "Klinik Kesihatan Sg Dua",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29930999999999,
+          5.34278
+        ]
+      },
+      "properties": {
+        "stop_id": 12001493,
+        "stop_code": "IGX1493",
+        "stop_name": "Kampung Dua Bukit",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.3003478,
+          5.342838700000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12002139,
+        "stop_code": "IGR2127",
+        "stop_name": "Terminal Bas Ekspres Sg Nibong",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30331,
+          5.340268
+        ]
+      },
+      "properties": {
+        "stop_id": 12000078,
+        "stop_code": "I0R0078",
+        "stop_name": "Taman Pantai Jerejak",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.30844,
+          5.33692
+        ]
+      },
+      "properties": {
+        "stop_id": 12002303,
+        "stop_code": "ICT0031",
+        "stop_name": "KWSP Queensbay",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.297092,
+          5.33108
+        ]
+      },
+      "properties": {
+        "stop_id": 12002483,
+        "stop_code": "ICT0500",
+        "stop_name": "Krystal Point Corporate Park",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.29099000000001,
+          5.33242
+        ]
+      },
+      "properties": {
+        "stop_id": 12001843,
+        "stop_code": "IID1843",
+        "stop_name": "Kompleks Bukit Jambul II",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28696,
+          5.33245
+        ]
+      },
+      "properties": {
+        "stop_id": 12001844,
+        "stop_code": "IID1844",
+        "stop_name": "Masjid Al- Ittifaq",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28465,
+          5.331930000000001
+        ]
+      },
+      "properties": {
+        "stop_id": 12001841,
+        "stop_code": "IID1841",
+        "stop_name": "Sungai Nibong Kecil",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28059,
+          5.33071
+        ]
+      },
+      "properties": {
+        "stop_id": 12001838,
+        "stop_code": "IID1838",
+        "stop_name": "SPICE",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.27905,
+          5.32785
+        ]
+      },
+      "properties": {
+        "stop_id": 12000852,
+        "stop_code": "IDN0852",
+        "stop_name": "SPICE Canopy",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28524,
+          5.32716
+        ]
+      },
+      "properties": {
+        "stop_id": 12000850,
+        "stop_code": "IDN0850",
+        "stop_name": "I Avenue",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28769,
+          5.3255300000000005
+        ]
+      },
+      "properties": {
+        "stop_id": 12000887,
+        "stop_code": "IDT0887",
+        "stop_name": "Sunshine Square",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.28599,
+          5.32101
+        ]
+      },
+      "properties": {
+        "stop_id": 12000880,
+        "stop_code": "IDT0880",
+        "stop_name": "Pasaraya Giant",
+        "route_id": "30000014"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          100.27995,
+          5.317312
+        ]
+      },
+      "properties": {
+        "stop_id": 12002082,
+        "stop_code": "IKP2082",
+        "stop_name": "Taman Gedung Heights II",
+        "route_id": "30000014"
+      }
+    }
+  ]
+}
