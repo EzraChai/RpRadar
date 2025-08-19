@@ -3,9 +3,10 @@ import {
   Polyline,
   TileLayer,
   useMap,
-  GeoJSON,
+  CircleMarker,
+  Popup,
 } from "react-leaflet";
-import { Polyline as LeafletPolyline, circleMarker } from "leaflet";
+import { Polyline as LeafletPolyline } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
@@ -19,7 +20,6 @@ import { Card, CardTitle } from "./ui/card";
 function App() {
   const { id } = useParams();
   const route = routes.find((r) => r.route_id === id);
-  const stops = useFindStops(id);
   const [direction, setDirection] = useState(0);
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
 
@@ -43,7 +43,7 @@ function App() {
     const zoomOut = () => map.zoomOut();
 
     return (
-      <Card className="absolute p-0 gap-0 top-4 left-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+      <Card className="absolute p-0 gap-0 top-4 right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
         <Button variant={"ghost"} onClick={zoomIn}>
           +
         </Button>
@@ -66,13 +66,43 @@ function App() {
     }, [map]);
 
     return (
-      <Polyline
-        ref={polylineRef}
-        pathOptions={{ color: color }}
-        positions={positions}
-      ></Polyline>
+      <>
+        <Polyline
+          ref={polylineRef}
+          pathOptions={{ color: color }}
+          positions={positions}
+        />
+        {route?.directions[direction].stops.length &&
+          positions.length &&
+          route.directions[direction].stops.map((stop) => (
+            <CircleMarker
+              radius={6}
+              center={[stop.lat, stop.lon]}
+              pathOptions={{
+                color: "blue",
+                fillColor: "white",
+                fillOpacity: 1,
+              }}
+              eventHandlers={{
+                click: () =>
+                  map.setView([stop.lat, stop.lon], 16, { animate: true }),
+              }}
+            >
+              <Popup maxWidth={500} offset={[0, 10]} closeButton={false}>
+                <div className="border border-white dark:border-neutral-500  bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
+                  {stop.stop_name}
+                </div>
+                <div className=""></div>
+              </Popup>
+              {/* <Popup>
+                  <p className=" font-semibold">{stop.stop_name}</p>
+                </Popup> */}
+            </CircleMarker>
+          ))}
+      </>
     );
   }
+
   // useEffect(() => {
   //   async function loadData() {
   //     const res = await fetch(
@@ -111,8 +141,7 @@ function App() {
                 : "rastertiles/voyager"
             }/{z}/{x}/{y}{r}.png`}
           />
-          {positions.length && <FitBoundsToPolyline color={"blue"} />}
-          {stops && (
+          {/* {stops && (
             <GeoJSON
               data={stops}
               pointToLayer={(feature, latlng) =>
@@ -130,7 +159,9 @@ function App() {
                 layer.bindPopup(`<b>${stop_name}</b><br/>Code: ${stop_code}`);
               }}
             />
-          )}
+          )} */}
+          {positions.length && <FitBoundsToPolyline color={"blue"} />}
+
           <CustomZoomControls />
         </MapContainer>
         <Card className="absolute z-[1000] pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
@@ -205,22 +236,3 @@ function App() {
 }
 
 export default App;
-
-function useFindStops(id: string | undefined) {
-  const [routesData, setRoutesData] = useState();
-
-  useEffect(() => {
-    if (!id) {
-      return;
-    }
-
-    try {
-      fetch(`/geojson_routes/route_${id}_stops.geojson`)
-        .then((res) => res.json())
-        .then(setRoutesData);
-    } catch {
-      /* empty */
-    }
-  }, [id]);
-  return routesData;
-}

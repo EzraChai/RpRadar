@@ -152,6 +152,34 @@ body {
   height: 100vh;
   width: 100%;
 }
+.leaflet-tooltip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.leaflet-tooltip::before,
+.leaflet-tooltip::after {
+  display: none !important; /* remove the little arrow */
+}
+
+.leaflet-popup-tip-container {
+  display: none !important; /* remove the little arrow */
+}
+
+.leaflet-popup .leaflet-zoom-animated {
+  left: 0 !important;
+  bottom: 0 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  justify-content: first baseline !important;
+}
 
 @layer base {
   * {
