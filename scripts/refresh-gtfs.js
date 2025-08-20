@@ -3,7 +3,7 @@ import unzipper from "unzipper";
 import csv from "csv-parser";
 
 const GTFS_URL =
-  "GET https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-penang"; // replace with your feed
+  "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-penang"; // replace with your feed
 const OUTPUT_FILE = "data/trips.json";
 
 async function refreshGTFS() {
