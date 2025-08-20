@@ -10,7 +10,7 @@ import { Polyline as LeafletPolyline } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useSearchParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
-// import { transit_realtime } from "gtfs-realtime-bindings";
+import { transit_realtime } from "gtfs-realtime-bindings";
 import Shapes from "@/assets/shapes.json";
 import routes from "@/assets/routes_with_directions.json";
 import type { LatLngExpression } from "leaflet";
@@ -175,12 +175,12 @@ function App() {
         />
         {route?.directions[direction].stops.length &&
           positions.length &&
-          route.directions[direction].stops.map((stop) => (
+          route.directions[direction].stops.map((stop, idx) => (
             <CircleMarker
               ref={(ref) => {
                 markerRefs.current[stop.stop_id] = ref;
               }}
-              key={stop.stop_id}
+              key={idx}
               radius={6}
               center={[stop.lat, stop.lon]}
               pathOptions={{
@@ -204,23 +204,23 @@ function App() {
     );
   }
 
-  // useEffect(() => {
-  //   async function loadData() {
-  //     const res = await fetch(
-  //       "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
-  //     );
-  //     const buffer = await res.arrayBuffer();
-  //     const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
-  //     feed.entity.forEach((entity) => {
-  //       if (entity.vehicle) {
-  //         console.log(entity.vehicle.position?.latitude);
-  //       }
-  //     });
-  //   }
-  //   loadData();
-  //   const interval = setInterval(loadData, 30_000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    async function loadData() {
+      const res = await fetch(
+        "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
+      );
+      const buffer = await res.arrayBuffer();
+      const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
+      feed.entity.forEach((entity) => {
+        if (entity.vehicle) {
+          console.log(entity);
+        }
+      });
+    }
+    loadData();
+    const interval = setInterval(loadData, 20_000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>

@@ -110,6 +110,7 @@ export function AppSidebar() {
                 <div className="pt-2 flex flex-col gap-2">
                   {savedRoutes.map((route) => (
                     <Link
+                      key={route?.route_id}
                       className=" flex items-center gap-2"
                       to={`/?id=${route?.route_id}`}
                     >

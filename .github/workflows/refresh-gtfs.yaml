@@ -1,0 +1,33 @@
+name: Refresh GTFS Data
+
+on:
+  schedule:
+    - cron: "0 0 1 * *" # every month on the 1st at 00:00 UTC
+  workflow_dispatch: # allow manual trigger from GitHub Actions tab
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Refresh GTFS
+        run: node scripts/refresh-gtfs.js
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/trips.json
+          git commit -m "Refresh GTFS data [skip ci]" || echo "No changes"
+          git push
