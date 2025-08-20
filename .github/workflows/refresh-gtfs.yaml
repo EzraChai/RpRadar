@@ -2,7 +2,7 @@ name: Refresh GTFS Data
 
 on:
   schedule:
-    - cron: "0 0 1 * *" # every month on the 1st at 00:00 UTC
+    - cron: "0 16 * * 6" # Every Saturday 16:00 UTC = Sunday 00:00 MYT
   workflow_dispatch: # allow manual trigger from GitHub Actions tab
 
 jobs:
