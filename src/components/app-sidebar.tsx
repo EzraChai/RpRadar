@@ -12,9 +12,11 @@ import { useMap } from "react-leaflet";
 import { ModeToggle } from "./mode-toggle";
 import { Search, X } from "lucide-react";
 import { Button } from "./ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { useState } from "react";
+import { Card, CardHeader, CardTitle } from "./ui/card";
+import { useEffect, useState } from "react";
 import { Input } from "./ui/input";
+import { NavLink } from "react-router";
+import routes from "@/assets/routes_with_shapes.json";
 
 export function AppSidebar() {
   const map = useMap();
@@ -83,7 +85,24 @@ function SearchSideBar({
   setOpenSearch: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const map = useMap();
+  const [search, setSearch] = useState("");
+  const [filteredRoutes, setFilteredRoutes] = useState(routes); // initial list
 
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      const term = search.trim().toLowerCase();
+
+      const results = routes.filter(
+        (bus) =>
+          bus.route_code.toLowerCase().includes(term) ||
+          bus.route_name.toLowerCase().includes(term)
+      );
+
+      setFilteredRoutes(results);
+    }, 300); // wait 300ms after user stops typing
+
+    return () => clearTimeout(handler); //
+  }, [search]);
   return (
     <Card
       hidden={!openSearch}
@@ -97,11 +116,11 @@ function SearchSideBar({
         map.dragging.enable();
         map.doubleClickZoom.enable();
       }}
-      className={` absolute w-96 h-full z-[999] left-52 ${
+      className={`absolute w-96 h-full z-[999] left-52 ${
         collapsed && "left-16"
-      } duration-200 ease-linear top-0 transform bottom-4 border border-l-0 border-y-0 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-none shadow-md`}
+      } duration-200 ease-linear top-0 transform bottom-4 border border-l-0 border-y-0 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-0 py-2 rounded-none shadow-md`}
     >
-      <CardHeader className="px-0 flex justify-between items-center w-full">
+      <CardHeader className="px-2 flex justify-between items-center w-full">
         <CardTitle className="pl-4 text-2xl font-semibold">Search</CardTitle>
         <Button
           onClick={() => setOpenSearch(false)}
@@ -111,9 +130,59 @@ function SearchSideBar({
           <X />
         </Button>
       </CardHeader>
-      <CardContent className="w-full">
-        <Input />
-      </CardContent>
+      <div className="px-4 relative w-full">
+        <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+        <Input
+          className="pl-10 pr-2 py-2 h-12 !text-lg bg-neutral-50 dark:!bg-neutral-900"
+          placeholder="Search Routes"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+
+      <div className="px-4 h-screen overflow-x-clip overflow-y-auto">
+        {filteredRoutes.map((line, index) => (
+          <RouteCard
+            key={line.route_id}
+            index={index}
+            length={filteredRoutes.length - 1}
+            line={line}
+          />
+        ))}
+      </div>
     </Card>
+  );
+}
+
+function RouteCard({
+  line,
+  index,
+  length,
+}: {
+  line: {
+    route_id: string;
+    route_code: string;
+    route_name: string;
+    shape_ids: string[];
+  };
+  index: number;
+  length: number;
+}) {
+  return (
+    <NavLink className={"flex justify-center"} to={`/?id=${line.route_id}`} end>
+      <Button
+        className={`w-full overflow-hidden border-b dark:border-neutral-600 flex justify-between items-center rounded-none py-10 bg-neutral-50 dark:bg-neutral-900
+          ${index === 0 && "rounded-t-3xl"}
+         ${index === length && "rounded-b-3xl mb-4 border-b-0"}`}
+        variant={"ghost"}
+      >
+        <p className="text-sm pr-4  whitespace-normal text-left break-words dark:text-neutral-50 text-neutral-900">
+          {line.route_name}
+        </p>
+        <div className="w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+          {line.route_code}
+        </div>
+      </Button>
+    </NavLink>
   );
 }

@@ -246,25 +246,6 @@ function App() {
             />
           )}
 
-          {/* {stops && (
-            <GeoJSON
-              data={stops}
-              pointToLayer={(feature, latlng) =>
-                circleMarker(latlng, {
-                  radius: 6,
-                  fillColor: "#2196F3",
-                  color: "#fff",
-                  weight: 1,
-                  opacity: 1,
-                  fillOpacity: 0.9,
-                })
-              }
-              onEachFeature={(feature, layer) => {
-                const { stop_name, stop_code } = feature.properties;
-                layer.bindPopup(`<b>${stop_name}</b><br/>Code: ${stop_code}`);
-              }}
-            />
-          )} */}
           {positions.length && <FitBoundsToPolyline color={"blue"} />}
 
           <CustomZoomControls />
