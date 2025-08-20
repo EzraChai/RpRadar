@@ -18,11 +18,13 @@ import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
+import { Star } from "lucide-react";
 
 function App() {
   const [searchParams] = useSearchParams();
   const route = routes.find((r) => r.route_id === searchParams.get("id"));
   const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
+  const starredRoutes = useStarredRoutes();
 
   const [direction, setDirection] = useState(0);
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
@@ -48,10 +50,10 @@ function App() {
 
     return (
       <Card className="absolute overflow-hidden p-0 gap-0 top-4 right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
-        <Button variant={"ghost"} onClick={zoomIn}>
+        <Button className="rounded-none" variant={"ghost"} onClick={zoomIn}>
           +
         </Button>
-        <Button variant={"ghost"} onClick={zoomOut}>
+        <Button className="rounded-none" variant={"ghost"} onClick={zoomOut}>
           -
         </Button>{" "}
       </Card>
@@ -60,80 +62,96 @@ function App() {
 
   function StopsCard() {
     const map = useMap();
-
-    return (
-      <Card
-        onMouseEnter={() => {
-          map.scrollWheelZoom.disable();
-          map.dragging.disable();
-        }}
-        onMouseLeave={() => {
-          map.scrollWheelZoom.enable();
-          map.dragging.enable();
-        }}
-        className="absolute z-[1000] py-0 overflow-hidden gap-0 max-w-1/6 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
-      >
-        <CardTitle className="space-y-2 px-6 py-6">
-          <h2 className="font-bold flex items-center gap-4">
-            <div className="text-md font-bold border-2 px-2 border-red-500 rounded-xl">
-              {route?.route_short_name}
-            </div>
-            <div>
-              <h4 className="font-semibold text-balance text-base">
-                {route?.directions[direction].route_long_name}
-              </h4>
-            </div>
-          </h2>
-          {route?.directions.length === 2 && (
-            <Button
-              variant={"outline"}
-              className="bg-white w-full"
-              onClick={() =>
-                setDirection((prev) => {
-                  if (route?.directions.length == 2) {
-                    return prev === 1 ? 0 : 1;
-                  }
-                  return 0;
-                })
-              }
-            >
-              Change Direction
-            </Button>
-          )}
-        </CardTitle>
-
-        <div className="ml-2 overflow-y-auto h-full overflow-x-clip ">
-          {route?.directions[direction].stops.map((stop, idx) => (
-            <div key={stop.stop_id} className="flex lative w-full ">
-              {/* Bullet */}
-              <div className="flex flex-col items-center mr-1">
-                <div className="w-3 h-3 rounded-full bg-blue-600 z-10"></div>
-                {/* Vertical line */}
-                {idx < route?.directions[direction].stops.length - 1 && (
-                  <div className=" h-6 w-1 bg-blue-500"></div>
-                )}
+    if (route)
+      return (
+        <Card
+          onMouseEnter={() => {
+            map.scrollWheelZoom.disable();
+            map.dragging.disable();
+          }}
+          onMouseLeave={() => {
+            map.scrollWheelZoom.enable();
+            map.dragging.enable();
+          }}
+          className="absolute z-[1000] py-0 overflow-hidden gap-0 max-w-1/6 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
+        >
+          <CardTitle className="space-y-2 px-6 py-6">
+            <h2 className="font-bold flex justify-between items-center gap-4">
+              <div className="text-md flex justify-center items-center font-bold border-2 w-12 h-6 py-1 px-2 border-red-500 rounded-xl">
+                {route?.route_short_name}
               </div>
-              {/* Stop Name */}
+              <div>
+                <h4 className="font-semibold text-balance text-base">
+                  {route?.directions[direction].route_long_name}
+                </h4>
+              </div>
+              <Star
+                fill={
+                  starredRoutes.starred.includes(route.route_id || "")
+                    ? "oklch(79.5% 0.184 86.047)"
+                    : "none"
+                }
+                onClick={() => starredRoutes.toggle(route.route_id || "")}
+                className={`w-4 h-4 ${
+                  starredRoutes.starred.includes(route.route_id || "") &&
+                  "text-yellow-500 "
+                }`}
+              />
+            </h2>
+            {route?.directions.length === 2 && (
               <Button
-                variant={"ghost"}
-                onClick={() => {
-                  const marker = markerRefs.current[stop.stop_id];
-                  if (marker) {
-                    if (!marker.isPopupOpen()) {
-                      marker.openPopup();
+                variant={"outline"}
+                className="bg-white w-full"
+                onClick={() =>
+                  setDirection((prev) => {
+                    if (route?.directions.length == 2) {
+                      return prev === 1 ? 0 : 1;
                     }
-                    map.flyTo([stop.lat, stop.lon], 16, { animate: true });
-                  }
-                }}
-                className="text-sm font-medium rounded-none mx-1 -mt-3 justify-start w-full text-left whitespace-normal break-words"
+                    return 0;
+                  })
+                }
               >
-                {stop.stop_name}
+                Change Direction
               </Button>
-            </div>
-          ))}
-        </div>
-      </Card>
-    );
+            )}
+          </CardTitle>
+
+          <div className="ml-2 overflow-y-auto h-full overflow-x-clip ">
+            {route?.directions[direction].stops.map((stop, idx) => (
+              <div
+                key={stop.stop_id}
+                className={`${idx === 0 && "mt-2"} flex lative w-full `}
+              >
+                {/* Bullet */}
+                <div className="flex flex-col items-center mr-1">
+                  <div className="w-3 h-3 rounded-full bg-blue-600 z-10"></div>
+                  {/* Vertical line */}
+                  {idx < route?.directions[direction].stops.length - 1 && (
+                    <div className=" h-6 w-1 bg-blue-500"></div>
+                  )}
+                </div>
+                {/* Stop Name */}
+                <Button
+                  variant={"ghost"}
+                  onClick={() => {
+                    const marker = markerRefs.current[stop.stop_id];
+                    if (marker) {
+                      if (!marker.isPopupOpen()) {
+                        marker.openPopup();
+                      }
+                      map.flyTo([stop.lat, stop.lon], 16, { animate: true });
+                    }
+                  }}
+                  className="text-sm font-medium rounded-none mx-1 -mt-3 justify-start w-full text-left whitespace-normal break-words"
+                >
+                  {stop.stop_name}
+                </Button>
+              </div>
+            ))}
+          </div>
+        </Card>
+      );
+    return null;
   }
 
   function FitBoundsToPolyline({ color }: { color: string }) {
@@ -275,3 +293,27 @@ function App() {
 }
 
 export default App;
+
+function useStarredRoutes() {
+  const [starred, setStarred] = useState<string[]>([]);
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("starredRoutes") || "[]");
+    setStarred(saved);
+  }, []);
+
+  const toggle = (routeId: string) => {
+    setStarred((prev) => {
+      let updated;
+      if (prev.includes(routeId)) {
+        updated = prev.filter((id) => id !== routeId);
+      } else {
+        updated = [...prev, routeId];
+      }
+      localStorage.setItem("starredRoutes", JSON.stringify(updated));
+      return updated;
+    });
+  };
+
+  return { starred, toggle };
+}

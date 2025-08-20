@@ -176,7 +176,7 @@ function RouteCard({
          ${index === length && "rounded-b-3xl mb-4 border-b-0"}`}
         variant={"ghost"}
       >
-        <p className="text-sm pr-4  whitespace-normal text-left break-words dark:text-neutral-50 text-neutral-900">
+        <p className="text-sm pr-4 whitespace-normal text-left break-words dark:text-neutral-50 text-neutral-900">
           {line.route_name}
         </p>
         <div className="w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
