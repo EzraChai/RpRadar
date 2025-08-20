@@ -16,6 +16,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --map-background: oklch(1 0 0);
   --radius: 0.65rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -51,6 +52,7 @@
 }
 
 .dark {
+  --map-background: oklch(0.1 0 0);
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.21 0.006 285.885);
@@ -180,7 +182,9 @@ body {
   border-radius: 0 !important;
   justify-content: first baseline !important;
 }
-
+#map {
+  background-color: var(--map-background) !important;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;

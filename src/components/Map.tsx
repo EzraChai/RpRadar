@@ -16,6 +16,8 @@ import routes from "@/assets/routes_with_directions.json";
 import type { LatLngExpression } from "leaflet";
 import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
+import { AppSidebar } from "./app-sidebar";
+import { useTheme } from "./theme-provider";
 
 function App() {
   const { id } = useParams();
@@ -24,6 +26,7 @@ function App() {
 
   const [direction, setDirection] = useState(0);
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const filteredShape = Shapes.features.filter(
@@ -50,7 +53,7 @@ function App() {
         </Button>
         <Button variant={"ghost"} onClick={zoomOut}>
           -
-        </Button>
+        </Button>{" "}
       </Card>
     );
   }
@@ -68,9 +71,9 @@ function App() {
           map.scrollWheelZoom.enable();
           map.dragging.enable();
         }}
-        className="absolute z-[1000] w-1/6 scroll-smooth bottom-4 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 left-4 p-4 shadow-md h-1/2 overflow-y-auto"
+        className="absolute z-[1000] py-0 overflow-hidden gap-0 max-w-1/6 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
       >
-        <CardTitle className="space-y-2">
+        <CardTitle className="space-y-2 px-6 py-6">
           <h2 className="font-bold flex items-center gap-4">
             <div className="text-md font-bold border-2 px-2 border-red-500 rounded-xl">
               {route?.route_short_name}
@@ -99,11 +102,11 @@ function App() {
           )}
         </CardTitle>
 
-        <ul className="overflow-y-scroll">
+        <div className="ml-2 overflow-y-auto h-full overflow-x-clip ">
           {route?.directions[direction].stops.map((stop, idx) => (
-            <div key={stop.stop_id} className="flex items-start relative ">
+            <div key={stop.stop_id} className="flex lative w-full ">
               {/* Bullet */}
-              <div className="flex flex-col items-center mr-2">
+              <div className="flex flex-col items-center mr-1">
                 <div className="w-3 h-3 rounded-full bg-blue-600 z-10"></div>
                 {/* Vertical line */}
                 {idx < route?.directions[direction].stops.length - 1 && (
@@ -122,13 +125,13 @@ function App() {
                     map.flyTo([stop.lat, stop.lon], 16, { animate: true });
                   }
                 }}
-                className="text-sm font-medium -mt-1"
+                className="text-sm font-medium rounded-none mx-1 -mt-3 justify-start w-full text-left whitespace-normal break-words"
               >
                 {stop.stop_name}
               </Button>
             </div>
           ))}
-        </ul>
+        </div>
       </Card>
     );
   }
@@ -204,22 +207,45 @@ function App() {
     <>
       <div className="relative w-full h-screen">
         <MapContainer
+          id="map"
           zoomControl={false}
           center={[5.4164, 100.3327]}
           zoom={13.5}
           scrollWheelZoom={true}
-          className="w-full h-screen"
+          className="w-full h-screen "
         >
-          <TileLayer
-            attribution={
-              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
-            }
-            url={`https://{s}.basemaps.cartocdn.com/${
-              window.document.documentElement.classList.contains("dark")
-                ? "dark_all"
-                : "rastertiles/voyager"
-            }/{z}/{x}/{y}{r}.png`}
-          />
+          <AppSidebar />
+
+          {theme === "dark" ? (
+            <TileLayer
+              key={theme}
+              attribution={
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+              }
+              url={`https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png`}
+            />
+          ) : theme == "light" ? (
+            <TileLayer
+              key={theme}
+              attribution={
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+              }
+              url={`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`}
+            />
+          ) : (
+            <TileLayer
+              key={theme}
+              attribution={
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+              }
+              url={`https://{s}.basemaps.cartocdn.com/${
+                window.matchMedia("(prefers-color-scheme: dark)").matches
+                  ? "dark_all"
+                  : "rastertiles/voyager"
+              }/{z}/{x}/{y}{r}.png`}
+            />
+          )}
+
           {/* {stops && (
             <GeoJSON
               data={stops}

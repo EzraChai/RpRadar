@@ -5,16 +5,19 @@ import "./index.css";
 import Map from "./components/Map.tsx";
 import SelectRoute from "./components/SelectRoute.tsx";
 import { ThemeProvider } from "./components/theme-provider.tsx";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<SelectRoute />} />
-          <Route index path="/maps/:id" element={<Map />} />
-        </Routes>
-      </BrowserRouter>
+      <SidebarProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<SelectRoute />} />
+            <Route index path="/maps/:id" element={<Map />} />
+          </Routes>
+        </BrowserRouter>
+      </SidebarProvider>
     </ThemeProvider>
   </StrictMode>
 );
