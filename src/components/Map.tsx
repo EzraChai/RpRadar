@@ -19,6 +19,7 @@ import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
 import { Star } from "lucide-react";
+import { useStarredRoutes } from "@/hooks/use-starred-routes";
 
 function App() {
   const [searchParams] = useSearchParams();
@@ -119,7 +120,7 @@ function App() {
           <div className="ml-2 overflow-y-auto h-full overflow-x-clip ">
             {route?.directions[direction].stops.map((stop, idx) => (
               <div
-                key={stop.stop_id}
+                key={idx}
                 className={`${idx === 0 && "mt-2"} flex lative w-full `}
               >
                 {/* Bullet */}
@@ -293,27 +294,3 @@ function App() {
 }
 
 export default App;
-
-function useStarredRoutes() {
-  const [starred, setStarred] = useState<string[]>([]);
-
-  useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("starredRoutes") || "[]");
-    setStarred(saved);
-  }, []);
-
-  const toggle = (routeId: string) => {
-    setStarred((prev) => {
-      let updated;
-      if (prev.includes(routeId)) {
-        updated = prev.filter((id) => id !== routeId);
-      } else {
-        updated = [...prev, routeId];
-      }
-      localStorage.setItem("starredRoutes", JSON.stringify(updated));
-      return updated;
-    });
-  };
-
-  return { starred, toggle };
-}

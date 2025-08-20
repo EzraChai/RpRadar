@@ -13,15 +13,34 @@ import { ModeToggle } from "./mode-toggle";
 import { Search, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardHeader, CardTitle } from "./ui/card";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Input } from "./ui/input";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import routes from "@/assets/routes_with_shapes.json";
+import { useStarredRoutes } from "@/hooks/use-starred-routes";
 
 export function AppSidebar() {
   const map = useMap();
   const [openSearch, setOpenSearch] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
+  const [savedRoutes, setSavedRoutes] = useState<
+    (
+      | {
+          route_id: string;
+          route_code: string;
+          route_name: string;
+          shape_ids: string[];
+        }
+      | undefined
+    )[]
+  >([]);
+
+  const { starred } = useStarredRoutes();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setSavedRoutes(starred.map((s) => routes.find((r) => r.route_id === s)));
+  }, [starred]);
   return (
     <>
       <Sidebar
@@ -45,21 +64,76 @@ export function AppSidebar() {
             <p className="text-lg font-medium  text-nowrap overflow-hidden group-data-[collapsible=icon]:hidden">
               Rapid Penang
             </p>
-            <SidebarTrigger onClick={() => setCollapsed((prev) => !prev)} />
+            <SidebarTrigger
+              className="hover:cursor-pointer"
+              onClick={() => setCollapsed((prev) => !prev)}
+            />
           </SidebarHeader>
           <SidebarContent>
             <SidebarGroup>
               <SidebarMenuItem>
-                <SidebarMenuButton onClick={() => setOpenSearch(true)} asChild>
-                  <div className="flex ">
-                    <Search className="w-24 h-24" />
+                <SidebarMenuButton
+                  className={`hover:cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-700 `}
+                  onClick={() => {
+                    setOpenSearch((prev) => !prev && true);
+                    setTimeout(() => {
+                      if (inputRef.current) {
+                        inputRef.current.focus(); // 👈 focus input when icon clicked
+                      }
+                    }, 0);
+                  }}
+                  asChild
+                >
+                  <div
+                    className={`w-8 h-8 flex ${
+                      openSearch
+                        ? "bg-neutral-50 dark:bg-neutral-700"
+                        : "bg-transparent"
+                    }`}
+                  >
+                    <Search
+                      className={`w-4 h-4  ${
+                        openSearch ? "text-white" : "text-black dark:text-white"
+                      }`}
+                    />
                     <span className="text-xl">Search</span>
                   </div>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarGroup>
 
-            <SidebarGroup />
+            {savedRoutes.length > 0 && (
+              <SidebarGroup>
+                <div
+                  className={`mt-4 h-4 w-full text-neutral-500 dark:text-neutral-400 text-nowrap `}
+                >
+                  <p className={`${collapsed ? "hidden" : "block"}`}>
+                    Saved Routes
+                  </p>
+                </div>
+                <div className="pt-2 flex flex-col gap-2">
+                  {savedRoutes.map((route) => (
+                    <Link
+                      className=" flex items-center gap-2"
+                      to={`/?id=${route?.route_id}`}
+                    >
+                      <Button
+                        variant={"ghost"}
+                        key={route?.route_id}
+                        className=" text-[10px]  cursor-pointer flex justify-center items-center font-bold border-2 w-8 h-5 py-1 px-2 border-red-500 rounded-xl"
+                      >
+                        <p className="text-black  dark:text-white">
+                          {route?.route_code}
+                        </p>
+                      </Button>
+                      <p className="dark:text-white text-black truncate ">
+                        {route?.route_name}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </SidebarGroup>
+            )}
           </SidebarContent>
           <SidebarFooter className="flex items-end">
             <ModeToggle />
@@ -70,6 +144,7 @@ export function AppSidebar() {
         collapsed={collapsed}
         openSearch={openSearch}
         setOpenSearch={setOpenSearch}
+        inputRef={inputRef}
       />
     </>
   );
@@ -79,10 +154,12 @@ function SearchSideBar({
   collapsed,
   openSearch,
   setOpenSearch,
+  inputRef,
 }: {
   collapsed: boolean;
   openSearch: boolean;
   setOpenSearch: React.Dispatch<React.SetStateAction<boolean>>;
+  inputRef: React.RefObject<HTMLInputElement | null>;
 }) {
   const map = useMap();
   const [search, setSearch] = useState("");
@@ -123,6 +200,7 @@ function SearchSideBar({
       <CardHeader className="px-2 flex justify-between items-center w-full">
         <CardTitle className="pl-4 text-2xl font-semibold">Search</CardTitle>
         <Button
+          className="rounded-full hover:bg-neutral-50 dark:hover:bg-neutral-700 cursor-pointer"
           onClick={() => setOpenSearch(false)}
           size={"lg"}
           variant={"ghost"}
@@ -131,8 +209,9 @@ function SearchSideBar({
         </Button>
       </CardHeader>
       <div className="px-4 relative w-full">
-        <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+        <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
         <Input
+          ref={inputRef}
           className="pl-10 pr-2 py-2 h-12 !text-lg bg-neutral-50 dark:!bg-neutral-900"
           placeholder="Search Routes"
           value={search}
@@ -169,9 +248,9 @@ function RouteCard({
   length: number;
 }) {
   return (
-    <NavLink className={"flex justify-center"} to={`/?id=${line.route_id}`} end>
+    <NavLink className={"flex justify-center"} to={`/?id=${line.route_id}`}>
       <Button
-        className={`w-full overflow-hidden border-b dark:border-neutral-600 flex justify-between items-center rounded-none py-10 bg-neutral-50 dark:bg-neutral-900
+        className={`w-full dark:hover:bg-neutral-700 cursor-pointer overflow-hidden border-b dark:border-neutral-600 flex justify-between items-center rounded-none py-10 bg-neutral-50 dark:bg-neutral-900
           ${index === 0 && "rounded-t-3xl"}
          ${index === length && "rounded-b-3xl mb-4 border-b-0"}`}
         variant={"ghost"}
