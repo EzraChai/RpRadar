@@ -66,7 +66,7 @@ function RouteCard({
 }) {
   return (
     <NavLink
-      to={`/maps/${line.route_id}?shape_id0=${line.shape_ids[0]}&shape_id1=${line.shape_ids[1]}`}
+      to={`/maps/?route_id=${line.route_id}&shape_id0=${line.shape_ids[0]}&shape_id1=${line.shape_ids[1]}`}
       end
     >
       <div className="bg-white border dark:bg-neutral-900 rounded-2xl p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800">

@@ -8,7 +8,7 @@ import {
 } from "react-leaflet";
 import { Polyline as LeafletPolyline } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useParams } from "react-router";
+import { useSearchParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
 // import { transit_realtime } from "gtfs-realtime-bindings";
 import Shapes from "@/assets/shapes.json";
@@ -20,8 +20,8 @@ import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
 
 function App() {
-  const { id } = useParams();
-  const route = routes.find((r) => r.route_id === id);
+  const [searchParams] = useSearchParams();
+  const route = routes.find((r) => r.route_id === searchParams.get("id"));
   const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
 
   const [direction, setDirection] = useState(0);
@@ -47,7 +47,7 @@ function App() {
     const zoomOut = () => map.zoomOut();
 
     return (
-      <Card className="absolute p-0 gap-0 top-4 right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+      <Card className="absolute overflow-hidden p-0 gap-0 top-4 right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
         <Button variant={"ghost"} onClick={zoomIn}>
           +
         </Button>
@@ -268,24 +268,26 @@ function App() {
           {positions.length && <FitBoundsToPolyline color={"blue"} />}
 
           <CustomZoomControls />
-          <StopsCard />
-        </MapContainer>
-        <Card className="absolute z-[1000] pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
-          <div className="flex justify-between items-center gap-4">
-            <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
-              {route?.route_short_name}
-            </div>
+          {route && <StopsCard />}
+          {route && (
+            <Card className="absolute z-[1000] pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
+              <div className="flex justify-between items-center gap-4">
+                <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
+                  {route?.route_short_name}
+                </div>
 
-            <div>
-              <h4 className="font-semibold">
-                {route?.directions[direction].route_long_name}
-              </h4>
-            </div>
-            <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
-              {route?.route_short_name}
-            </div>
-          </div>
-        </Card>
+                <div>
+                  <h4 className="font-semibold">
+                    {route?.directions[direction].route_long_name}
+                  </h4>
+                </div>
+                <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
+                  {route?.route_short_name}
+                </div>
+              </div>
+            </Card>
+          )}
+        </MapContainer>
       </div>
     </>
   );
