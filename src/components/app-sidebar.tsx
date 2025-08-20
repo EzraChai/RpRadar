@@ -91,11 +91,7 @@ export function AppSidebar() {
                         : "bg-transparent"
                     }`}
                   >
-                    <Search
-                      className={`w-4 h-4  ${
-                        openSearch ? "text-white" : "text-black dark:text-white"
-                      }`}
-                    />
+                    <Search className={"w-4 h-4 text-black dark:text-white"} />
                     <span className="text-xl">Search</span>
                   </div>
                 </SidebarMenuButton>
@@ -135,7 +131,7 @@ export function AppSidebar() {
               </SidebarGroup>
             )}
           </SidebarContent>
-          <SidebarFooter className="flex items-end">
+          <SidebarFooter className="flex w-full items-end justify-around">
             <ModeToggle />
           </SidebarFooter>
         </div>

@@ -143,7 +143,7 @@ function App() {
                       map.flyTo([stop.lat, stop.lon], 16, { animate: true });
                     }
                   }}
-                  className="text-sm font-medium rounded-none mx-1 -mt-3 justify-start w-full text-left whitespace-normal break-words"
+                  className="cursor-pointer text-sm font-medium rounded-none mx-1 -mt-3 justify-start w-full text-left whitespace-normal break-words"
                 >
                   {stop.stop_name}
                 </Button>
@@ -238,9 +238,6 @@ function App() {
           {theme === "dark" ? (
             <TileLayer
               key={theme}
-              attribution={
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
-              }
               url={`https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png`}
             />
           ) : theme == "light" ? (
