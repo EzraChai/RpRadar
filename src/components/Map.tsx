@@ -5,6 +5,7 @@ import {
   useMap,
   CircleMarker,
   Popup,
+  Marker,
 } from "react-leaflet";
 import { Polyline as LeafletPolyline } from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -20,13 +21,13 @@ import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
 import { Star } from "lucide-react";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
+import Directions from "@/../data/trips.json";
 
 function App() {
   const [searchParams] = useSearchParams();
   const route = routes.find((r) => r.route_id === searchParams.get("id"));
   const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
   const starredRoutes = useStarredRoutes();
-
   const [direction, setDirection] = useState(0);
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
   const { theme } = useTheme();
@@ -34,7 +35,9 @@ function App() {
   useEffect(() => {
     const filteredShape = Shapes.features.filter(
       (feature) =>
-        feature.properties.shape_id === route?.directions[direction].shape_id
+        feature.properties.shape_id ===
+        route?.directions.filter((d) => d.direction_id === direction)[0]
+          .shape_id
     );
     if (filteredShape.length) {
       setPositions(
@@ -83,7 +86,11 @@ function App() {
               </div>
               <div>
                 <h4 className="font-semibold text-balance text-base">
-                  {route?.directions[direction].route_long_name}
+                  {
+                    route?.directions.filter(
+                      (d) => d.direction_id === direction
+                    )[0].route_long_name
+                  }
                 </h4>
               </div>
               <Star
@@ -118,37 +125,41 @@ function App() {
           </CardTitle>
 
           <div className="ml-2 overflow-y-auto h-full overflow-x-clip ">
-            {route?.directions[direction].stops.map((stop, idx) => (
-              <div
-                key={idx}
-                className={`${idx === 0 && "mt-2"} flex lative w-full `}
-              >
-                {/* Bullet */}
-                <div className="flex flex-col items-center mr-1">
-                  <div className="w-3 h-3 rounded-full bg-blue-600 z-10"></div>
-                  {/* Vertical line */}
-                  {idx < route?.directions[direction].stops.length - 1 && (
-                    <div className=" h-6 w-1 bg-blue-500"></div>
-                  )}
-                </div>
-                {/* Stop Name */}
-                <Button
-                  variant={"ghost"}
-                  onClick={() => {
-                    const marker = markerRefs.current[stop.stop_id];
-                    if (marker) {
-                      if (!marker.isPopupOpen()) {
-                        marker.openPopup();
-                      }
-                      map.flyTo([stop.lat, stop.lon], 16, { animate: true });
-                    }
-                  }}
-                  className="cursor-pointer text-sm font-medium rounded-none mx-1 -mt-3 justify-start w-full text-left whitespace-normal break-words"
+            {route?.directions
+              .filter((d) => d.direction_id === direction)[0]
+              .stops.map((stop, idx) => (
+                <div
+                  key={idx}
+                  className={`${idx === 0 && "mt-2"} flex lative w-full `}
                 >
-                  {stop.stop_name}
-                </Button>
-              </div>
-            ))}
+                  {/* Bullet */}
+                  <div className="flex flex-col items-center mr-1">
+                    <div className="w-3 h-3 rounded-full bg-blue-600 z-10"></div>
+                    {/* Vertical line */}
+                    {idx <
+                      route?.directions.filter(
+                        (d) => d.direction_id === direction
+                      )[0].stops.length -
+                        1 && <div className=" h-6 w-1 bg-blue-500"></div>}
+                  </div>
+                  {/* Stop Name */}
+                  <Button
+                    variant={"ghost"}
+                    onClick={() => {
+                      const marker = markerRefs.current[stop.stop_id];
+                      if (marker) {
+                        if (!marker.isPopupOpen()) {
+                          marker.openPopup();
+                        }
+                        map.flyTo([stop.lat, stop.lon], 16, { animate: true });
+                      }
+                    }}
+                    className="cursor-pointer text-sm font-medium rounded-none mx-1 -mt-3 justify-start w-full text-left whitespace-normal break-words"
+                  >
+                    {stop.stop_name}
+                  </Button>
+                </div>
+              ))}
           </div>
         </Card>
       );
@@ -157,10 +168,10 @@ function App() {
 
   function FitBoundsToPolyline({ color }: { color: string }) {
     const map = useMap();
-    const polylineRef = useRef<LeafletPolyline>(null);
+    const polylineRef = useRef<LeafletPolyline | null>(null);
 
     useEffect(() => {
-      if (polylineRef.current) {
+      if (polylineRef.current && positions.length > 0) {
         const bounds = polylineRef.current.getBounds();
         map.fitBounds(bounds); // Adjust the map view to fit the polyline
       }
@@ -170,57 +181,42 @@ function App() {
       <>
         <Polyline
           ref={polylineRef}
-          pathOptions={{ color: color }}
+          pathOptions={{ color: color, weight: 5 }}
           positions={positions}
         />
-        {route?.directions[direction].stops.length &&
+        {route?.directions.filter((d) => d.direction_id === direction)[0].stops
+          .length &&
           positions.length &&
-          route.directions[direction].stops.map((stop, idx) => (
-            <CircleMarker
-              ref={(ref) => {
-                markerRefs.current[stop.stop_id] = ref;
-              }}
-              key={idx}
-              radius={6}
-              center={[stop.lat, stop.lon]}
-              pathOptions={{
-                color: "blue",
-                fillColor: "white",
-                fillOpacity: 1,
-              }}
-              eventHandlers={{
-                click: () =>
-                  map.setView([stop.lat, stop.lon], 16, { animate: true }),
-              }}
-            >
-              <Popup maxWidth={500} offset={[0, 10]} closeButton={false}>
-                <div className="border border-white dark:border-neutral-500  bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
-                  {stop.stop_name}
-                </div>
-              </Popup>
-            </CircleMarker>
-          ))}
+          route.directions
+            .filter((d) => d.direction_id === direction)[0]
+            .stops.map((stop, idx) => (
+              <CircleMarker
+                ref={(ref) => {
+                  markerRefs.current[stop.stop_id] = ref;
+                }}
+                key={idx}
+                radius={6}
+                center={[stop.lat, stop.lon]}
+                pathOptions={{
+                  color: "blue",
+                  fillColor: "white",
+                  fillOpacity: 1,
+                }}
+                eventHandlers={{
+                  click: () =>
+                    map.setView([stop.lat, stop.lon], 16, { animate: true }),
+                }}
+              >
+                <Popup maxWidth={500} offset={[0, 10]} closeButton={false}>
+                  <div className="border border-white dark:border-neutral-500  bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
+                    {stop.stop_name}
+                  </div>
+                </Popup>
+              </CircleMarker>
+            ))}
       </>
     );
   }
-
-  useEffect(() => {
-    async function loadData() {
-      const res = await fetch(
-        "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
-      );
-      const buffer = await res.arrayBuffer();
-      const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
-      feed.entity.forEach((entity) => {
-        if (entity.vehicle) {
-          console.log(entity);
-        }
-      });
-    }
-    loadData();
-    const interval = setInterval(loadData, 20_000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <>
@@ -264,6 +260,8 @@ function App() {
 
           {positions.length && <FitBoundsToPolyline color={"blue"} />}
 
+          <VehiclesMarker direction={direction} route={route} />
+
           <CustomZoomControls />
           {route && <StopsCard />}
           {route && (
@@ -275,7 +273,12 @@ function App() {
 
                 <div>
                   <h4 className="font-semibold">
-                    {route?.directions[direction].route_long_name}
+                    {
+                      route.directions.filter(
+                        (d) => d.direction_id === direction
+                      )[0].route_long_name
+                    }
+                    {/* {route?.directions[direction].route_long_name} */}
                   </h4>
                 </div>
                 <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
@@ -291,3 +294,114 @@ function App() {
 }
 
 export default App;
+
+function VehiclesMarker({
+  direction,
+  route,
+}: {
+  direction: number;
+  route:
+    | {
+        route_id: string;
+        route_short_name: string;
+        directions: {
+          direction_id: number;
+          shape_id: string;
+          route_long_name: string;
+          stops: {
+            stop_id: string;
+            stop_name: string;
+            lat: number;
+            lon: number;
+          }[];
+        }[];
+      }
+    | undefined;
+}) {
+  const [vehicles, setVehicles] = useState<
+    { data: transit_realtime.IVehiclePosition }[]
+  >([]);
+
+  useEffect(() => {
+    async function loadData() {
+      const res = await fetch(
+        "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
+      );
+      const buffer = await res.arrayBuffer();
+      const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
+      const vehicleData: {
+        data: transit_realtime.IVehiclePosition;
+      }[] = [];
+      feed.entity.forEach((entity) => {
+        if (entity.vehicle) {
+          vehicleData.push({
+            data: entity.vehicle,
+          });
+        }
+      });
+      setVehicles(vehicleData);
+      // console.log(vehicleData);
+    }
+    loadData();
+    const interval = setInterval(loadData, 20_000);
+    return () => {
+      clearInterval(interval);
+      setVehicles([]);
+    };
+  }, []);
+
+  if (!vehicles) {
+    return null;
+  }
+
+  // const busIcon = (bearing: number) =>
+  //   divIcon({
+  //     className: "",
+  //     html: `<div style="transform: rotate(${bearing}deg);">
+  //            🚍
+  //          </div>`,
+  //     iconSize: [30, 30],
+  //     iconAnchor: [15, 15],
+  //   });
+
+  // console.log(vehicles);
+  const vehicleForThisRoute = vehicles.filter(
+    (v) => v.data.trip?.routeId === route?.route_short_name
+  );
+  const directionsLocation: {
+    0: { data: transit_realtime.IVehiclePosition }[];
+    1: { data: transit_realtime.IVehiclePosition }[];
+  } = {
+    0: [],
+    1: [],
+  };
+
+  vehicleForThisRoute.forEach((v) => {
+    const directions = Directions.find(
+      (d) => d.trip_id === v.data.trip?.tripId
+    );
+    if (directions !== undefined) {
+      const dirNum = Number(directions.direction_id);
+      if (dirNum === 0 || dirNum === 1) {
+        directionsLocation[dirNum].push(v);
+      }
+    }
+  });
+
+  return (
+    <>
+      {directionsLocation[direction as 0 | 1].map((v, idx) => (
+        <Marker
+          key={v.data.vehicle?.id || idx}
+          position={
+            typeof v.data.position?.latitude === "number" &&
+            typeof v.data.position?.longitude === "number"
+              ? [v.data.position.latitude, v.data.position.longitude]
+              : [0, 0]
+          }
+          // icon={direction === 0 ? busIcon(0) : undefined}
+        />
+      ))}
+    </>
+  );
+}
