@@ -61,9 +61,13 @@ export function AppSidebar() {
       >
         <div className="w-full flex flex-col flex-between">
           <SidebarHeader className=" flex justify-between flex-row items-center w-full">
-            <p className="text-lg font-medium  text-nowrap overflow-hidden group-data-[collapsible=icon]:hidden">
-              Rapid Penang
-            </p>
+            <img
+              className={`w-36 h-6 transform bg-white/80 backdrop-blur-lg transition-opacity rounded-lg object-cover crop ${
+                collapsed ? "hidden" : "block"
+              }`}
+              src="/logo.png"
+              alt="Logo of Rapid Penang"
+            />
             <SidebarTrigger
               className="hover:cursor-pointer"
               onClick={() => setCollapsed((prev) => !prev)}

@@ -400,7 +400,17 @@ function VehiclesMarker({
               : [0, 0]
           }
           // icon={direction === 0 ? busIcon(0) : undefined}
-        />
+        >
+          <Popup maxWidth={500} offset={[0, 20]} closeButton={false}>
+            <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
+              <p className="text-lg font-semibold">
+                {v.data.vehicle?.licensePlate}
+              </p>
+              <p className="mt-4">Route: {v.data.trip?.routeId}</p>
+              <p>Speed: {v.data.position?.speed}km/h</p>
+            </div>
+          </Popup>
+        </Marker>
       ))}
     </>
   );
