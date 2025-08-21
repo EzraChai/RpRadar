@@ -22,6 +22,8 @@ import { useTheme } from "./theme-provider";
 import { Star } from "lucide-react";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import Directions from "@/../data/trips.json";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { DrawerMobile } from "./DrawerMobile";
 
 function App() {
   const [searchParams] = useSearchParams();
@@ -31,18 +33,26 @@ function App() {
   const [direction, setDirection] = useState(0);
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
   const { theme } = useTheme();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    const filteredShape = Shapes.features.filter(
-      (feature) =>
-        feature.properties.shape_id ===
-        route?.directions.filter((d) => d.direction_id === direction)[0]
-          .shape_id
-    );
-    if (filteredShape.length) {
-      setPositions(
-        filteredShape[0].geometry.coordinates as unknown as LatLngExpression[][]
+    if (searchParams.get("id")) {
+      const filteredShape = Shapes.features.filter(
+        (feature) =>
+          feature.properties.shape_id ===
+          route?.directions.filter((d) => d.direction_id === direction)[0]
+            .shape_id
       );
+      if (filteredShape.length) {
+        setPositions(
+          filteredShape[0].geometry
+            .coordinates as unknown as LatLngExpression[][]
+        );
+      }
+    } else {
+      if (isMobile) {
+        setPositions([]);
+      }
     }
   }, [direction, route?.directions]);
 
@@ -207,7 +217,12 @@ function App() {
                     map.setView([stop.lat, stop.lon], 16, { animate: true }),
                 }}
               >
-                <Popup maxWidth={500} offset={[0, 10]} closeButton={false}>
+                <Popup
+                  className=" pointer-events-none"
+                  maxWidth={500}
+                  offset={[0, 10]}
+                  closeButton={false}
+                >
                   <div className="border border-white dark:border-neutral-500  bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
                     {stop.stop_name}
                   </div>
@@ -220,16 +235,24 @@ function App() {
 
   return (
     <>
-      <div className="relative w-full h-screen">
+      <div className=" w-full max-h-dvh">
         <MapContainer
           id="map"
           zoomControl={false}
           center={[5.4164, 100.3327]}
           zoom={13.5}
           scrollWheelZoom={true}
-          className="w-full h-screen "
+          className="w-full h-dvh "
         >
-          <AppSidebar />
+          {isMobile && (
+            <DrawerMobile
+              markerRefs={markerRefs}
+              setDirection={setDirection}
+              direction={direction}
+              route={route}
+            />
+          )}
+          {!isMobile && <AppSidebar />}
 
           {theme === "dark" ? (
             <TileLayer
@@ -266,8 +289,8 @@ function App() {
           <VehiclesMarker direction={direction} route={route} />
 
           <CustomZoomControls />
-          {route && <StopsCard />}
-          {route && (
+          {!isMobile && route && <StopsCard />}
+          {!isMobile && route && (
             <Card className="absolute z-[1000] pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
               <div className="flex justify-between items-center gap-4">
                 <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
@@ -324,32 +347,32 @@ function VehiclesMarker({
     { data: transit_realtime.IVehiclePosition }[]
   >([]);
 
-  useEffect(() => {
-    async function loadData() {
-      const res = await fetch(
-        "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
-      );
-      const buffer = await res.arrayBuffer();
-      const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
-      const vehicleData: {
-        data: transit_realtime.IVehiclePosition;
-      }[] = [];
-      feed.entity.forEach((entity) => {
-        if (entity.vehicle) {
-          vehicleData.push({
-            data: entity.vehicle,
-          });
-        }
-      });
-      setVehicles(vehicleData);
-    }
-    loadData();
-    const interval = setInterval(loadData, 20_000);
-    return () => {
-      clearInterval(interval);
-      setVehicles([]);
-    };
-  }, []);
+  // useEffect(() => {
+  //   async function loadData() {
+  //     const res = await fetch(
+  //       "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
+  //     );
+  //     const buffer = await res.arrayBuffer();
+  //     const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
+  //     const vehicleData: {
+  //       data: transit_realtime.IVehiclePosition;
+  //     }[] = [];
+  //     feed.entity.forEach((entity) => {
+  //       if (entity.vehicle) {
+  //         vehicleData.push({
+  //           data: entity.vehicle,
+  //         });
+  //       }
+  //     });
+  //     setVehicles(vehicleData);
+  //   }
+  //   loadData();
+  //   const interval = setInterval(loadData, 20_000);
+  //   return () => {
+  //     clearInterval(interval);
+  //     setVehicles([]);
+  //   };
+  // }, []);
 
   if (!vehicles) {
     return null;
@@ -408,7 +431,12 @@ function VehiclesMarker({
           }
           icon={busIcon(v.data.position?.bearing || 0)}
         >
-          <Popup maxWidth={500} offset={[0, 0]} closeButton={false}>
+          <Popup
+            maxWidth={500}
+            offset={[0, 0]}
+            className=" pointer-events-none"
+            closeButton={false}
+          >
             <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
               <p className="text-lg font-semibold">
                 {v.data.vehicle?.licensePlate}
