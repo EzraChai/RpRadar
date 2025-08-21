@@ -117,6 +117,7 @@ export function AppSidebar() {
                       key={route?.route_id}
                       className=" flex items-center gap-2"
                       to={`/?id=${route?.route_id}`}
+                      preventScrollReset
                     >
                       <Button
                         variant={"ghost"}

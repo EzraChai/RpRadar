@@ -333,9 +333,6 @@ function VehiclesMarker({
       }[] = [];
       feed.entity.forEach((entity) => {
         if (entity.vehicle) {
-          if (entity.vehicle.trip?.routeId === "CAT") {
-            console.log(entity);
-          }
           vehicleData.push({
             data: entity.vehicle,
           });
@@ -365,7 +362,6 @@ function VehiclesMarker({
       iconAnchor: [15, 45],
     });
 
-  // console.log(vehicles);
   const vehicleForThisRoute = vehicles.filter(
     (v) => v.data.trip?.routeId === route?.route_short_name
   );
@@ -376,7 +372,6 @@ function VehiclesMarker({
     0: [],
     1: [],
   };
-  console.log(vehicleForThisRoute);
 
   vehicleForThisRoute.forEach((v) => {
     const directions = Directions.find(

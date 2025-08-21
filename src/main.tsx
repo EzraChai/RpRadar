@@ -15,7 +15,6 @@ createRoot(document.getElementById("root")!).render(
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Map />} />
-              {/* <Route index path="/maps/:id" element={<Map />} /> */}
             </Routes>
           </BrowserRouter>
         </StarredRoutesProvider>
