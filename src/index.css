@@ -148,6 +148,7 @@
 
 body {
   letter-spacing: var(--tracking-normal);
+  overscroll-behavior-y: contain; /* or none */
 }
 
 .leaflet-popup-content p {
@@ -164,6 +165,10 @@ body {
 .leaflet-control-attribution a {
   color: var(--foreground) !important;
   text-decoration: underline !important;
+}
+
+.scrollable {
+  overscroll-behavior: contain !important; /* or none */
 }
 
 .leaflet-container {

@@ -1,5 +1,5 @@
 import { Search, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Drawer } from "vaul";
 import { Input } from "./ui/input";
 import routes from "@/assets/routes_with_shapes.json";
@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 import type { CircleMarker } from "leaflet";
 import { useMap } from "react-leaflet";
 
-const snapPoints = [0.2, 0.7, 0.95];
+const SNAP_POINTS = [0.2, 0.5, 1];
 
 export function DrawerMobile({
   markerRefs,
@@ -41,11 +41,80 @@ export function DrawerMobile({
       }
     | undefined;
 }) {
-  const [snap, setSnap] = useState<number | string | null>(snapPoints[0]);
+  const [snap, setSnap] = useState<number | string | null>(SNAP_POINTS[0]);
   const [search, setSearch] = useState("");
   const map = useMap();
 
   const [filteredRoutes, setFilteredRoutes] = useState(routes); // initial list
+  const activeScrollRef = useRef<HTMLDivElement>(null);
+  const list2Ref = useRef<HTMLDivElement>(null);
+  const list1Ref = useRef<HTMLDivElement>(null);
+
+  const touchStartY = useRef<number | null>(null);
+  const dragOffset = useRef<number>(0);
+  const isDragging = useRef(false);
+
+  // Track finger start
+  const handleTouchStart =
+    (ref: React.RefObject<HTMLDivElement | null>) => (e: React.TouchEvent) => {
+      activeScrollRef.current = ref.current;
+      touchStartY.current = e.touches[0].clientY;
+      dragOffset.current = 0;
+      isDragging.current = false;
+    };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!activeScrollRef.current || touchStartY.current === null) return;
+
+    const dy = e.touches[0].clientY - touchStartY.current;
+    const scrollTop = activeScrollRef.current.scrollTop;
+    const scrollHeight = activeScrollRef.current.scrollHeight;
+    const clientHeight = activeScrollRef.current.clientHeight;
+
+    const atTop = scrollTop <= 0;
+    const atBottom = scrollTop + clientHeight >= scrollHeight;
+
+    if ((atTop && dy > 0) || (atBottom && dy < 0)) {
+      e.preventDefault();
+      e.stopPropagation();
+      isDragging.current = true;
+      dragOffset.current = dy;
+
+      const currentIndex =
+        typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
+      if (dy > 50 && currentIndex > 0 && atTop) {
+        setSnap(SNAP_POINTS[currentIndex - 1]);
+        touchStartY.current = e.touches[0].clientY;
+      } else if (
+        dy < -50 &&
+        currentIndex < SNAP_POINTS.length - 1 &&
+        atBottom
+      ) {
+        setSnap(SNAP_POINTS[currentIndex + 1]);
+        touchStartY.current = e.touches[0].clientY;
+      }
+    } else {
+      isDragging.current = false;
+      dragOffset.current = 0;
+    }
+  };
+
+  const handleTouchEnd: React.TouchEventHandler<HTMLDivElement> = () => {
+    if (!isDragging.current) return;
+
+    const currentIndex =
+      typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
+    const dy = dragOffset.current;
+
+    // Snap to nearest point on release
+    if (dy > 50 && currentIndex > 0) setSnap(SNAP_POINTS[currentIndex - 1]);
+    else if (dy < -50 && currentIndex < SNAP_POINTS.length - 1)
+      setSnap(SNAP_POINTS[currentIndex + 1]);
+
+    dragOffset.current = 0;
+    touchStartY.current = null;
+    isDragging.current = false;
+  };
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -68,7 +137,7 @@ export function DrawerMobile({
       repositionInputs={false}
       open
       dismissible={false}
-      snapPoints={snapPoints}
+      snapPoints={SNAP_POINTS}
       activeSnapPoint={snap}
       setActiveSnapPoint={setSnap}
       modal={false}
@@ -82,8 +151,13 @@ export function DrawerMobile({
             <Drawer.Handle />
             {route ? (
               <div
-                onPointerDownCapture={(e) => e.stopPropagation()}
-                className="overflow-y-auto "
+                ref={list1Ref}
+                onTouchStart={handleTouchStart(list1Ref)}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+                onTouchCancel={handleTouchEnd}
+                // onPointerDownCapture={(e) => e.stopPropagation()}
+                className="overflow-y-auto overscroll-contain "
               >
                 <div className="p-2 py-0 flex justify-between items-center">
                   <div className="border-2 border-red-500 rounded-lg px-2">
@@ -118,10 +192,10 @@ export function DrawerMobile({
                     </Button>
                   )}
                   <div
-                    className={`mt-4 ml-2 h-full overflow-y-auto overflow-x-clip ${
-                      snap === snapPoints[2] && "max-h-[78dvh]"
+                    className={`mt-4 ml-2 overflow-y-auto overflow-x-clip ${
+                      snap === SNAP_POINTS[2] && "max-h-[78dvh]"
                     }
-                  ${snap === snapPoints[1] && "max-h-[50dvh]"}
+                  ${snap === SNAP_POINTS[1] && "max-h-[50dvh]"}
                   `}
                   >
                     {route?.directions
@@ -158,6 +232,7 @@ export function DrawerMobile({
                                 map.flyTo([stop.lat, stop.lon], 16, {
                                   animate: true,
                                 });
+                                setSnap(SNAP_POINTS[0]);
                               }
                             }}
                             className="cursor-pointer text-sm font-medium rounded-none mx-1 -mt-3 justify-start w-full text-left whitespace-normal break-words"
@@ -190,28 +265,25 @@ export function DrawerMobile({
                   </div>
                 </Drawer.Title>
                 <div
-                  className="py-1 text-black "
-                  onPointerDownCapture={(e) => e.stopPropagation()}
+                  ref={list2Ref}
+                  onTouchStart={handleTouchStart(list2Ref)}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                  className="py-1 text-black overflow-y-auto overscroll-contain"
                 >
                   <div className="px-4 relative ">
                     <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
                     <Input
                       onFocus={() => {
-                        if (snap === snapPoints[0]) setSnap(snapPoints[1]);
+                        if (snap === SNAP_POINTS[0]) setSnap(SNAP_POINTS[1]);
                       }}
-                      className="pl-10 pr-2 py-2 h-12 text-white !text-lg bg-neutral-50 dark:!bg-neutral-900"
+                      className="mb-3 pl-10 pr-2 py-2 h-12 text-white !text-lg bg-neutral-50 dark:!bg-neutral-900"
                       placeholder="Search Routes"
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
                     />
                   </div>
-                  <div
-                    className={`p-4 pt-6  overflow-y-auto ${
-                      snap === snapPoints[2] && "max-h-[78dvh]"
-                    }
-                  ${snap === snapPoints[1] && "max-h-[50dvh]"}
-                  `}
-                  >
+                  <div className={`p-4 pt-3 overflow-y-auto max-h-[80dvh]`}>
                     {filteredRoutes.map((r, idx) => (
                       <RouteCard
                         key={idx}
@@ -231,46 +303,3 @@ export function DrawerMobile({
     </Drawer.Root>
   );
 }
-
-// function MobileDrawer() {
-//   const [search, setSearch] = useState("");
-//   const [filteredRoutes, setFilteredRoutes] = useState(routes); // initial list
-
-//   useEffect(() => {
-//     const handler = setTimeout(() => {
-//       const term = search.trim().toLowerCase();
-
-//       const results = routes.filter(
-//         (bus) =>
-//           bus.route_code.toLowerCase().includes(term) ||
-//           bus.route_name.toLowerCase().includes(term)
-//       );
-
-//       setFilteredRoutes(results);
-//     }, 300); // wait 300ms after user stops typing
-
-//     return () => clearTimeout(handler); //
-//   }, [search]);
-
-//   return (
-//     <div className="px-4 relative ">
-//       <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
-//       <Input
-//         className="pl-10 pr-2 py-2 h-12 !text-lg bg-neutral-50 dark:!bg-neutral-900"
-//         placeholder="Search Routes"
-//         value={search}
-//         onChange={(e) => setSearch(e.target.value)}
-//       />
-//       <div className="px-4 h-screen overflow-x-clip overflow-y-auto">
-//         {filteredRoutes.map((line, index) => (
-//           <RouteCard
-//             key={line.route_id}
-//             index={index}
-//             length={filteredRoutes.length - 1}
-//             line={line}
-//           />
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
