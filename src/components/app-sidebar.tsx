@@ -61,21 +61,24 @@ export function AppSidebar() {
       >
         <div className="w-full flex flex-col flex-between">
           <SidebarHeader className=" flex justify-between flex-row items-center w-full">
-            <div className="flex flex-row gap-1 items-center justify-center">
+            <div
+              className={`flex flex-row gap-1 items-center justify-center ${
+                collapsed ? "hidden" : "block"
+              }`}
+            >
               <img
-                className="w-10 h-10 object-cover rounded-2xl"
+                className={`w-8 h-8 object-cover rounded-2xl ${
+                  collapsed ? "hidden" : "block"
+                }`}
                 src="/RpRadar.png"
                 alt="logo of RPRadar"
               />
 
-              {/* <img
-                className={`w-36 h-6 transform bg-white/80 backdrop-blur-lg transition-opacity rounded-lg object-cover crop ${
+              <h2
+                className={`font-bold font-serif text-lg whitespace-nowrap ${
                   collapsed ? "hidden" : "block"
                 }`}
-                src="/logo.png"
-                alt="Logo of Rapid Penang"
-              /> */}
-              <h2 className="font-bold font-serif text-lg whitespace-nowrap">
+              >
                 <span className="text-red-600 dark:text-red-500">Rp</span>
                 Radar
               </h2>
@@ -150,7 +153,21 @@ export function AppSidebar() {
               </SidebarGroup>
             )}
           </SidebarContent>
-          <SidebarFooter className="flex w-full items-end justify-around">
+          <SidebarFooter className="flex flex-row w-full items-center justify-between ">
+            <p
+              className={`text-xs text-neutral-400 ${
+                collapsed ? "hidden" : "block"
+              }`}
+            >
+              Made with ❤️ by <br />
+              <a
+                className=" !text-neutral-300  hover:underline underline-offset-2"
+                target="_blank"
+                href="https://dub.sh/ezrachai"
+              >
+                ezrachai
+              </a>
+            </p>
             <ModeToggle />
           </SidebarFooter>
         </div>

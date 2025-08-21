@@ -154,6 +154,17 @@ body {
   margin: 0 !important;
   padding: 0 !important;
 }
+.leaflet-control-attribution {
+  margin-bottom: 8px !important;
+  margin-right: 10px !important;
+  background: none !important;
+  color: var(--foreground) !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--foreground) !important;
+  text-decoration: underline !important;
+}
 
 .leaflet-container {
   height: 100vh;
