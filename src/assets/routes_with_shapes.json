@@ -3,417 +3,282 @@
     "route_id": "30000001",
     "route_code": "101",
     "route_name": "JETI - TELUK BAHANG",
-    "shape_ids": [
-      "1000000756",
-      "1000000962"
-    ]
+    "shape_ids": ["1000000756", "1000000962"]
   },
   {
     "route_id": "30000002",
     "route_code": "102",
     "route_name": "TLK.BAHANG- AIRPORT",
-    "shape_ids": [
-      "1000000867",
-      "1000000866"
-    ]
+    "shape_ids": ["1000000867", "1000000866"]
   },
   {
     "route_id": "30000003",
     "route_code": "103",
     "route_name": "KOMTAR-PULAU TIKUS-KOMTAR",
-    "shape_ids": [
-      "1000000963"
-    ]
+    "shape_ids": ["1000000963"]
   },
   {
     "route_id": "30000004",
     "route_code": "104",
     "route_name": "TG.BUNGAH-KOMTAR",
-    "shape_ids": [
-      "1000000870",
-      "1000000964"
-    ]
+    "shape_ids": ["1000000870", "1000000964"]
   },
   {
     "route_id": "30000005",
     "route_code": "201",
     "route_name": "JETI - PAYA TERUBONG",
-    "shape_ids": [
-      "1000000977",
-      "1000001015"
-    ]
+    "shape_ids": ["1000000977"]
   },
   {
     "route_id": "30000006",
     "route_code": "202",
     "route_name": "JETI - PAYA TERUBONG",
-    "shape_ids": [
-      "1000000979",
-      "1000000980"
-    ]
+    "shape_ids": ["1000000979", "1000000980"]
   },
   {
     "route_id": "30000007",
     "route_code": "203",
     "route_name": "AIR ITAM - JETI",
-    "shape_ids": [
-      "1000000982",
-      "1000001005"
-    ]
+    "shape_ids": ["1000000982", "1000001005"]
   },
   {
     "route_id": "30000008",
     "route_code": "204",
     "route_name": "JETI- BKT.BENDERA",
-    "shape_ids": [
-      "1000000984",
-      "1000000983"
-    ]
+    "shape_ids": ["1000000984", "1000000983"]
   },
   {
     "route_id": "30000009",
     "route_code": "206",
     "route_name": "TESCO - JETI",
-    "shape_ids": [
-      "1000000985",
-      "1000000986"
-    ]
+    "shape_ids": ["1000000985", "1000000986"]
   },
   {
     "route_id": "30000010",
     "route_code": "301",
     "route_name": "JETI - RELAU",
-    "shape_ids": [
-      "1000000886",
-      "1000000996"
-    ]
+    "shape_ids": ["1000000886", "1000000996"]
   },
   {
     "route_id": "30000012",
     "route_code": "302",
     "route_name": "JETI - BATU MAUNG",
-    "shape_ids": [
-      "1000000889",
-      "1000000888"
-    ]
+    "shape_ids": ["1000000889", "1000000888"]
   },
   {
     "route_id": "30000013",
     "route_code": "303",
     "route_name": "JETI - BUKIT GEDUNG",
-    "shape_ids": [
-      "1000000890",
-      "1000000997"
-    ]
+    "shape_ids": ["1000000890", "1000000997"]
   },
   {
     "route_id": "30000014",
     "route_code": "304",
     "route_name": "GURNEY- BKT.GEDUNG",
-    "shape_ids": [
-      "1000001009",
-      "1000001008"
-    ]
+    "shape_ids": ["1000001009", "1000001008"]
   },
   {
     "route_id": "30000016",
     "route_code": "306",
     "route_name": "AIRPORT- HOSPITAL",
-    "shape_ids": [
-      "1000001007",
-      "1000001010"
-    ]
+    "shape_ids": ["1000001007", "1000001010"]
   },
   {
     "route_id": "30000018",
     "route_code": "308",
     "route_name": "SG.NIBONG - GERTAK SANGGUL",
-    "shape_ids": [
-      "1000000033",
-      "1000000999"
-    ]
+    "shape_ids": ["1000000033", "1000000999"]
   },
   {
     "route_id": "30000019",
     "route_code": "401",
     "route_name": "TELUK KUMBAR - JETI",
-    "shape_ids": [
-      "1000000989",
-      "1000000897"
-    ]
+    "shape_ids": ["1000000989", "1000000897"]
   },
   {
     "route_id": "30000020",
     "route_code": "401E",
     "route_name": "BLK.PULAU - JETI (EKS)",
-    "shape_ids": [
-      "1000001028",
-      "1000001027"
-    ]
+    "shape_ids": ["1000001028", "1000001027"]
   },
   {
     "route_id": "30000021",
     "route_code": "403",
     "route_name": "BLK.PULAU - P.BETONG",
-    "shape_ids": [
-      "1000000900"
-    ]
+    "shape_ids": ["1000000900"]
   },
   {
     "route_id": "30000022",
     "route_code": "404",
     "route_name": "BLK.PULAU - P.ACHEH",
-    "shape_ids": [
-      "1000000901"
-    ]
+    "shape_ids": ["1000000901"]
   },
   {
     "route_id": "30000024",
     "route_code": "502",
     "route_name": "JETI - BALIK PULAU",
-    "shape_ids": [
-      "1000000975",
-      "1000000974"
-    ]
+    "shape_ids": ["1000000975", "1000000974"]
   },
   {
     "route_id": "30000026",
     "route_code": "601",
     "route_name": "P.SENTRAL - KEPALA BATAS",
-    "shape_ids": [
-      "1000000902",
-      "1000000903"
-    ]
+    "shape_ids": ["1000000902", "1000000903"]
   },
   {
     "route_id": "30000027",
     "route_code": "603",
     "route_name": "KUALA MUDA - PENANG SENTRAL",
-    "shape_ids": [
-      "1000000905",
-      "1000000904"
-    ]
+    "shape_ids": ["1000000905", "1000000904"]
   },
   {
     "route_id": "30000028",
     "route_code": "604",
     "route_name": "DESA MURNI - P.SENTRAL",
-    "shape_ids": [
-      "1000000906",
-      "1000000907"
-    ]
+    "shape_ids": ["1000000906", "1000000907"]
   },
   {
     "route_id": "30000031",
     "route_code": "605",
     "route_name": "PEKAN DARAT - PENANG SENTRAL",
-    "shape_ids": [
-      "1000000908",
-      "1000000909"
-    ]
+    "shape_ids": ["1000000908", "1000000909"]
   },
   {
     "route_id": "30000032",
     "route_code": "606",
     "route_name": "KEPALA BATAS - BM",
-    "shape_ids": [
-      "1000000910",
-      "1000000911"
-    ]
+    "shape_ids": ["1000000910", "1000000911"]
   },
   {
     "route_id": "30000034",
     "route_code": "610",
     "route_name": "TASEK GELUGOR - KEPALA BATAS",
-    "shape_ids": [
-      "1000000913",
-      "1000000912"
-    ]
+    "shape_ids": ["1000000913", "1000000912"]
   },
   {
     "route_id": "30000036",
     "route_code": "701",
     "route_name": "BM - P.SENTRAL",
-    "shape_ids": [
-      "1000000916",
-      "1000000917"
-    ]
+    "shape_ids": ["1000000916", "1000000917"]
   },
   {
     "route_id": "30000037",
     "route_code": "702",
     "route_name": "P.SENTRAL - BM",
-    "shape_ids": [
-      "1000000919",
-      "1000000918"
-    ]
+    "shape_ids": ["1000000919", "1000000918"]
   },
   {
     "route_id": "30000038",
     "route_code": "703",
     "route_name": "PG SENTRAL - SEBERANG JAYA",
-    "shape_ids": [
-      "1000000921",
-      "1000000920"
-    ]
+    "shape_ids": ["1000000921", "1000000920"]
   },
   {
     "route_id": "30000039",
     "route_code": "707",
     "route_name": "TMN.PELANGI - BM",
-    "shape_ids": [
-      "1000000924",
-      "1000000925"
-    ]
+    "shape_ids": ["1000000924", "1000000925"]
   },
   {
     "route_id": "30000040",
     "route_code": "708",
     "route_name": "JUNJUNG - BM",
-    "shape_ids": [
-      "1000000927",
-      "1000001030"
-    ]
+    "shape_ids": ["1000000927", "1000001030"]
   },
   {
     "route_id": "30000041",
     "route_code": "709",
     "route_name": "MACHANG BUBOK - PENANG SENTRAL",
-    "shape_ids": [
-      "1000000928",
-      "1000000929"
-    ]
+    "shape_ids": ["1000000928", "1000000929"]
   },
   {
     "route_id": "30000042",
     "route_code": "801",
     "route_name": "NIBONG TEBAL - P.SENTRAL",
-    "shape_ids": [
-      "1000000932",
-      "1000000933"
-    ]
+    "shape_ids": ["1000000932", "1000000933"]
   },
   {
     "route_id": "30000043",
     "route_code": "802",
     "route_name": "NIBONG TEBAL - BM",
-    "shape_ids": [
-      "1000000934",
-      "1000000935"
-    ]
+    "shape_ids": ["1000000934", "1000000935"]
   },
   {
     "route_id": "30000045",
     "route_code": "EB80",
     "route_name": "PARIT BUNTAR-B'WORTH",
-    "shape_ids": [
-      "1000000938",
-      "1000000937"
-    ]
+    "shape_ids": ["1000000938", "1000000937"]
   },
   {
     "route_id": "30000046",
     "route_code": "EB60",
     "route_name": "B'WORTH - SG.PETANI",
-    "shape_ids": [
-      "1000001031",
-      "1000001032"
-    ]
+    "shape_ids": ["1000001031", "1000001032"]
   },
   {
     "route_id": "30000048",
     "route_code": "11",
     "route_name": "BATU LANCHANG - JETI",
-    "shape_ids": [
-      "1000000971",
-      "1000000972"
-    ]
+    "shape_ids": ["1000000971", "1000000972"]
   },
   {
     "route_id": "30000049",
     "route_code": "12",
     "route_name": "JETI - BANDAR SRI PINANG",
-    "shape_ids": [
-      "1000000973"
-    ]
+    "shape_ids": ["1000000973"]
   },
   {
     "route_id": "30000050",
     "route_code": "13",
     "route_name": "PAYA TERUBONG - LOTUS",
-    "shape_ids": [
-      "1000000097",
-      "1000001003"
-    ]
+    "shape_ids": ["1000000097", "1000001003"]
   },
   {
     "route_id": "30000051",
     "route_code": "CAT",
     "route_name": "PENANG FREE CAT BUS",
-    "shape_ids": [
-      "1000001029"
-    ]
+    "shape_ids": ["1000001029"]
   },
   {
     "route_id": "30000065",
     "route_code": "706",
     "route_name": "P.SENTRAL-TMN.PELANGI",
-    "shape_ids": [
-      "1000000923",
-      "1000000922"
-    ]
+    "shape_ids": ["1000000923", "1000000922"]
   },
   {
     "route_id": "30000089",
     "route_code": "613",
     "route_name": "PENANG SENTRAL - PADANG SERAI",
-    "shape_ids": [
-      "1000000915",
-      "1000000914"
-    ]
+    "shape_ids": ["1000000915", "1000000914"]
   },
   {
     "route_id": "30000100",
     "route_code": "CT13",
     "route_name": "CAT BRIDGE : SUNWAY S.JAYA - BAYAN BARU",
-    "shape_ids": [
-      "1000000945",
-      "1000000942"
-    ]
+    "shape_ids": ["1000000945", "1000000942"]
   },
   {
     "route_id": "30000103",
     "route_code": "C13A",
     "route_name": "FIZ 1. 2 & 3 - SUNWAY",
-    "shape_ids": [
-      "1000000950",
-      "1000000949"
-    ]
+    "shape_ids": ["1000000950", "1000000949"]
   },
   {
     "route_id": "30000117",
     "route_code": "CT14",
     "route_name": "BUKIT MERTAJAM - KOMTAR",
-    "shape_ids": [
-      "1000000939",
-      "1000000940"
-    ]
+    "shape_ids": ["1000000939", "1000000940"]
   },
   {
     "route_id": "30000119",
     "route_code": "T310",
     "route_name": "BUKIT JAMBUL - QUEENSBAY MALL",
-    "shape_ids": [
-      "1000000995"
-    ]
+    "shape_ids": ["1000000995"]
   },
   {
     "route_id": "30000104",
     "route_code": "C13C",
     "route_name": "SUNWAY - FIZ 4 & BLIP",
-    "shape_ids": [
-      "1000000947",
-      "1000000948"
-    ]
+    "shape_ids": ["1000000947", "1000000948"]
   }
 ]

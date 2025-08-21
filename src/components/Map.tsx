@@ -278,7 +278,6 @@ function App() {
                         (d) => d.direction_id === direction
                       )[0].route_long_name
                     }
-                    {/* {route?.directions[direction].route_long_name} */}
                   </h4>
                 </div>
                 <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
@@ -334,13 +333,15 @@ function VehiclesMarker({
       }[] = [];
       feed.entity.forEach((entity) => {
         if (entity.vehicle) {
+          if (entity.vehicle.trip?.routeId === "CAT") {
+            console.log(entity);
+          }
           vehicleData.push({
             data: entity.vehicle,
           });
         }
       });
       setVehicles(vehicleData);
-      // console.log(vehicleData);
     }
     loadData();
     const interval = setInterval(loadData, 20_000);
@@ -375,12 +376,20 @@ function VehiclesMarker({
     0: [],
     1: [],
   };
+  console.log(vehicleForThisRoute);
 
   vehicleForThisRoute.forEach((v) => {
     const directions = Directions.find(
       (d) => d.trip_id === v.data.trip?.tripId
     );
-    if (directions !== undefined) {
+    if (
+      v.data.trip?.routeId === "CAT" ||
+      v.data.trip?.routeId === "T310" ||
+      v.data.trip?.routeId === "103" ||
+      v.data.trip?.routeId === "201"
+    ) {
+      directionsLocation[0].push(v);
+    } else if (directions !== undefined) {
       const dirNum = Number(directions.direction_id);
       if (dirNum === 0 || dirNum === 1) {
         directionsLocation[dirNum].push(v);
