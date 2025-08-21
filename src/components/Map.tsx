@@ -347,32 +347,32 @@ function VehiclesMarker({
     { data: transit_realtime.IVehiclePosition }[]
   >([]);
 
-  // useEffect(() => {
-  //   async function loadData() {
-  //     const res = await fetch(
-  //       "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
-  //     );
-  //     const buffer = await res.arrayBuffer();
-  //     const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
-  //     const vehicleData: {
-  //       data: transit_realtime.IVehiclePosition;
-  //     }[] = [];
-  //     feed.entity.forEach((entity) => {
-  //       if (entity.vehicle) {
-  //         vehicleData.push({
-  //           data: entity.vehicle,
-  //         });
-  //       }
-  //     });
-  //     setVehicles(vehicleData);
-  //   }
-  //   loadData();
-  //   const interval = setInterval(loadData, 20_000);
-  //   return () => {
-  //     clearInterval(interval);
-  //     setVehicles([]);
-  //   };
-  // }, []);
+  useEffect(() => {
+    async function loadData() {
+      const res = await fetch(
+        "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
+      );
+      const buffer = await res.arrayBuffer();
+      const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
+      const vehicleData: {
+        data: transit_realtime.IVehiclePosition;
+      }[] = [];
+      feed.entity.forEach((entity) => {
+        if (entity.vehicle) {
+          vehicleData.push({
+            data: entity.vehicle,
+          });
+        }
+      });
+      setVehicles(vehicleData);
+    }
+    loadData();
+    const interval = setInterval(loadData, 20_000);
+    return () => {
+      clearInterval(interval);
+      setVehicles([]);
+    };
+  }, []);
 
   if (!vehicles) {
     return null;
