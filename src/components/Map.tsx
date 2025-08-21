@@ -7,7 +7,7 @@ import {
   Popup,
   Marker,
 } from "react-leaflet";
-import { Polyline as LeafletPolyline } from "leaflet";
+import { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useSearchParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
@@ -354,15 +354,15 @@ function VehiclesMarker({
     return null;
   }
 
-  // const busIcon = (bearing: number) =>
-  //   divIcon({
-  //     className: "",
-  //     html: `<div style="transform: rotate(${bearing}deg);">
-  //            🚍
-  //          </div>`,
-  //     iconSize: [30, 30],
-  //     iconAnchor: [15, 15],
-  //   });
+  const busIcon = (bearing: number) =>
+    divIcon({
+      className: "",
+      html: `<div style="transform: rotate(${bearing}deg);">
+          <img src="/bus.png" alt="bus icon" style="width: 100%; height: 100%;"/>
+           </div>`,
+      iconSize: [30, 30],
+      iconAnchor: [15, 45],
+    });
 
   // console.log(vehicles);
   const vehicleForThisRoute = vehicles.filter(
@@ -399,9 +399,9 @@ function VehiclesMarker({
               ? [v.data.position.latitude, v.data.position.longitude]
               : [0, 0]
           }
-          // icon={direction === 0 ? busIcon(0) : undefined}
+          icon={busIcon(v.data.position?.bearing || 0)}
         >
-          <Popup maxWidth={500} offset={[0, 20]} closeButton={false}>
+          <Popup maxWidth={500} offset={[0, 0]} closeButton={false}>
             <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
               <p className="text-lg font-semibold">
                 {v.data.vehicle?.licensePlate}
