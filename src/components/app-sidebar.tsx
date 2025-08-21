@@ -89,7 +89,7 @@ export function AppSidebar() {
               onClick={() => setCollapsed((prev) => !prev)}
             />
           </SidebarHeader>
-          <SidebarContent>
+          <SidebarContent className="overflow-hidden">
             <SidebarGroup>
               <SidebarMenuItem>
                 <SidebarMenuButton
@@ -153,22 +153,26 @@ export function AppSidebar() {
               </SidebarGroup>
             )}
           </SidebarContent>
-          <SidebarFooter className="flex flex-row w-full items-center justify-between ">
-            <p
-              className={`text-xs text-neutral-400 ${
-                collapsed ? "hidden" : "block"
-              }`}
-            >
-              Made with ❤️ by <br />
-              <a
-                className=" !text-neutral-300  hover:underline underline-offset-2"
-                target="_blank"
-                href="https://dub.sh/ezrachai"
+          <SidebarFooter>
+            <div className="flex justify-end">
+              <ModeToggle />
+            </div>
+            <div className=" flex justify-center w-full h-[16px]">
+              <p
+                className={`  whitespace-nowrap overflow-hiddentext-xs text-neutral-400 ${
+                  collapsed ? "hidden " : "block "
+                }`}
               >
-                ezrachai
-              </a>
-            </p>
-            <ModeToggle />
+                Made with ❤️ by
+                <a
+                  className="ml-1 !dark:text-neutral-300 !text-neutral-500 hover:underline underline-offset-2"
+                  target="_blank"
+                  href="https://dub.sh/ezrachai"
+                >
+                  ezrachai
+                </a>
+              </p>
+            </div>
           </SidebarFooter>
         </div>
       </Sidebar>
