@@ -61,13 +61,26 @@ export function AppSidebar() {
       >
         <div className="w-full flex flex-col flex-between">
           <SidebarHeader className=" flex justify-between flex-row items-center w-full">
-            <img
-              className={`w-36 h-6 transform bg-white/80 backdrop-blur-lg transition-opacity rounded-lg object-cover crop ${
-                collapsed ? "hidden" : "block"
-              }`}
-              src="/logo.png"
-              alt="Logo of Rapid Penang"
-            />
+            <div className="flex flex-row gap-1 items-center justify-center">
+              <img
+                className="w-10 h-10 object-cover rounded-2xl"
+                src="/RpRadar.png"
+                alt="logo of RPRadar"
+              />
+
+              {/* <img
+                className={`w-36 h-6 transform bg-white/80 backdrop-blur-lg transition-opacity rounded-lg object-cover crop ${
+                  collapsed ? "hidden" : "block"
+                }`}
+                src="/logo.png"
+                alt="Logo of Rapid Penang"
+              /> */}
+              <h2 className="font-bold font-serif text-lg whitespace-nowrap">
+                <span className="text-red-600 dark:text-red-500">Rp</span>
+                Radar
+              </h2>
+            </div>
+
             <SidebarTrigger
               className="hover:cursor-pointer"
               onClick={() => setCollapsed((prev) => !prev)}
