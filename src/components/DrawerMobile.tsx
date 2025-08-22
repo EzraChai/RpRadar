@@ -160,7 +160,7 @@ export function DrawerMobile({
                 className="overflow-y-auto overscroll-contain "
               >
                 <div className="p-2 py-0 flex justify-between items-center">
-                  <div className="border-2 border-red-500 rounded-lg px-2">
+                  <div className="border-2 font-semibold border-red-500 rounded-lg px-2">
                     {route?.route_short_name}
                   </div>
                   <DialogTitle className=" w-full p-2 font-bold text-xl">
@@ -277,7 +277,7 @@ export function DrawerMobile({
                       onFocus={() => {
                         if (snap === SNAP_POINTS[0]) setSnap(SNAP_POINTS[1]);
                       }}
-                      className="mb-3 pl-10 pr-2 py-2 h-12 text-white !text-lg bg-neutral-50 dark:!bg-neutral-900"
+                      className="mb-3 pl-10 pr-2 py-2 h-12 dark:text-white !text-lg bg-neutral-50 dark:!bg-neutral-900"
                       placeholder="Search Routes"
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
