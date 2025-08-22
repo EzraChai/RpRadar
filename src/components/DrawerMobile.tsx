@@ -156,7 +156,6 @@ export function DrawerMobile({
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
                 onTouchCancel={handleTouchEnd}
-                // onPointerDownCapture={(e) => e.stopPropagation()}
                 className="overflow-y-auto overscroll-contain "
               >
                 <div className="p-2 py-0 flex justify-between items-center">

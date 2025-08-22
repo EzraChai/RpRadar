@@ -54,7 +54,7 @@ function App() {
         setPositions([]);
       }
     }
-  }, [direction, route?.directions]);
+  }, [direction, isMobile, route?.directions, searchParams]);
 
   function CustomZoomControls() {
     const map = useMap();
@@ -382,10 +382,12 @@ function VehiclesMarker({
     divIcon({
       className: "",
       html: `<div style="transform: rotate(${bearing}deg);">
-          <img src="/bus.png" alt="bus icon" style="width: 100%; height: 100%;"/>
+          <img src="/bus-drawing${
+            bearing > 180 ? "-2" : ""
+          }.png" alt="bus icon" style="width: 100%; height: 100%;"/>
            </div>`,
-      iconSize: [30, 30],
-      iconAnchor: [15, 45],
+      iconSize: [100, 100],
+      iconAnchor: [45, 45],
     });
 
   const vehicleForThisRoute = vehicles.filter(
