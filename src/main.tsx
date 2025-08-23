@@ -6,7 +6,6 @@ import Map from "./components/Map.tsx";
 import { ThemeProvider } from "./components/theme-provider.tsx";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { StarredRoutesProvider } from "./hooks/use-starred-routes.tsx";
-import { Analytics } from "@vercel/analytics/next";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -21,6 +20,5 @@ createRoot(document.getElementById("root")!).render(
         </StarredRoutesProvider>
       </SidebarProvider>
     </ThemeProvider>
-    <Analytics />
   </StrictMode>
 );
