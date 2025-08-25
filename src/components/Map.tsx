@@ -254,21 +254,15 @@ function App() {
           )}
           {!isMobile && <AppSidebar />}
 
-          {theme === "dark" ? (
+          {theme === "dark" || theme === "light" ? (
             <TileLayer
               key={theme}
               attribution={
                 '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
               }
-              url={`https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png`}
-            />
-          ) : theme == "light" ? (
-            <TileLayer
-              key={theme}
-              attribution={
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
-              }
-              url={`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`}
+              url={`https://{s}.basemaps.cartocdn.com/${
+                theme === "dark" ? "dark_all" : "rastertiles/voyager"
+              }/{z}/{x}/{y}{r}.png`}
             />
           ) : (
             <TileLayer
@@ -382,9 +376,9 @@ function VehiclesMarker({
     divIcon({
       className: "",
       html: `<div style="transform: rotate(${bearing}deg);">
-          <img src="/bus-drawing${
-            bearing > 180 ? "-2" : ""
-          }.png" alt="bus icon" style="width: 100%; height: 100%;"/>
+          <img src="${
+            bearing > 180 ? "/bus-drawing-2.png" : "/bus-drawing.png"
+          }" alt="bus icon" style="width: 100%; height: 100%;"/>
            </div>`,
       iconSize: [100, 100],
       iconAnchor: [45, 45],
