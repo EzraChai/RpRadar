@@ -53,7 +53,6 @@ async function refreshGTFS() {
         if (stop_sequence === "1") {
           const { route_id, direction_id } =
             trips.find((t) => t.trip_id === trip_id) || {};
-          if (!route_id || !direction) return; // skip if trip not found
           const key = `${route_id}_${direction_id}`;
           if (!departures[key]) {
             departures[key] = {
