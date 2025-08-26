@@ -43,23 +43,34 @@ async function refreshGTFS() {
 
   console.log(`Saved ${trips.length} trips to ${OUTPUT_FILE}`);
 
-  const schedule = {};
+  // Find first stop departure per trip
+  const firstDepartures = {};
   await new Promise((resolve, reject) => {
     stopsFile
       .stream()
       .pipe(csv())
       .on("data", (row) => {
-        const { trip_id, stop_id, departure_time } = row;
-        if (!schedule[trip_id]) schedule[trip_id] = [];
-        schedule[trip_id].push({ stop_id, departure_time });
+        const { trip_id, departure_time, stop_sequence } = row;
+        if (stop_sequence === "1") {
+          // first stop only
+          const { route_id, direction_id } = trips[trip_id];
+          const key = `${route_id}_${direction_id}`;
+          if (!firstDepartures[key]) {
+            firstDepartures[key] = departure_time;
+          } else {
+            // Keep earliest time in case multiple trips
+            if (departure_time < firstDepartures[key])
+              firstDepartures[key] = departure_time;
+          }
+        }
       })
       .on("end", resolve)
       .on("error", reject);
   });
 
   fs.mkdirSync("data", { recursive: true });
-  fs.writeFileSync(OUTPUT_FILE_2, JSON.stringify(schedule, null, 2));
-  console.log(`Saved to ${OUTPUT_FILE_2}`);
+  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(firstDepartures, null, 2));
+  console.log(`Saved first departures to ${OUTPUT_FILE}`);
 }
 
 refreshGTFS().catch((err) => {
