@@ -43,8 +43,7 @@ async function refreshGTFS() {
 
   console.log(`Saved ${trips.length} trips to ${OUTPUT_FILE}`);
 
-  // Find first stop departure per trip
-  const firstDepartures = {};
+  const departures = {};
   await new Promise((resolve, reject) => {
     stopsFile
       .stream()
@@ -52,25 +51,37 @@ async function refreshGTFS() {
       .on("data", (row) => {
         const { trip_id, departure_time, stop_sequence } = row;
         if (stop_sequence === "1") {
-          // first stop only
           const { route_id, direction_id } = trips[trip_id];
           const key = `${route_id}_${direction_id}`;
-          if (!firstDepartures[key]) {
-            firstDepartures[key] = departure_time;
-          } else {
-            // Keep earliest time in case multiple trips
-            if (departure_time < firstDepartures[key])
-              firstDepartures[key] = departure_time;
+          if (!departures[key]) {
+            departures[key] = {
+              route_id,
+              direction_id: Number(direction_id),
+              departure_times: [],
+            };
           }
+          departures[key].departure_times.push(departure_time);
         }
       })
       .on("end", resolve)
       .on("error", reject);
   });
 
+  // Convert departures object → array grouped by route
+  const result = Object.values(
+    Object.values(departures).reduce(
+      (acc, { route_id, direction_id, departure_times }) => {
+        if (!acc[route_id]) acc[route_id] = { route_id, directions: [] };
+        acc[route_id].directions.push({ direction_id, departure_times });
+        return acc;
+      },
+      {}
+    )
+  );
+
   fs.mkdirSync("data", { recursive: true });
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(firstDepartures, null, 2));
-  console.log(`Saved first departures to ${OUTPUT_FILE}`);
+  fs.writeFileSync(OUTPUT_FILE_2, JSON.stringify(result, null, 2));
+  console.log(`Saved route departures to ${OUTPUT_FILE_2}`);
 }
 
 refreshGTFS().catch((err) => {
