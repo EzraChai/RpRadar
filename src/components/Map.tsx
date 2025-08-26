@@ -107,7 +107,7 @@ function App() {
             map.scrollWheelZoom.enable();
             map.dragging.enable();
           }}
-          className="absolute z-[1000] py-0 overflow-hidden gap-0 max-w-1/5 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
+          className="absolute z-[1000] py-0 overflow-hidden gap-0 w-1/6 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
         >
           <CardTitle className="space-y-2 px-6 py-6">
             <h2 className="font-bold flex justify-between items-center gap-2">
