@@ -5,7 +5,7 @@ import csv from "csv-parser";
 const GTFS_URL =
   "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-penang"; // replace with your feed
 const OUTPUT_FILE = "data/trips.json";
-const OUTPUT_FILE_2 = "data/schedule.json"; // Not used in this script but defined
+const OUTPUT_FILE_2 = "data/schedule.json";
 
 async function refreshGTFS() {
   console.log("Downloading GTFS feed...");
@@ -57,8 +57,9 @@ async function refreshGTFS() {
       .on("error", reject);
   });
 
+  fs.mkdirSync("data", { recursive: true });
   fs.writeFileSync(OUTPUT_FILE_2, JSON.stringify(schedule, null, 2));
-  console.log(`Saved schedule to ${OUTPUT_FILE_2}`);
+  console.log(`Saved to ${OUTPUT_FILE_2}`);
 }
 
 refreshGTFS().catch((err) => {
