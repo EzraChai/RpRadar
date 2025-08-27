@@ -108,11 +108,11 @@ export function DrawerMobile({
 
       const currentIndex =
         typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
-      if (dy > 50 && currentIndex > 0 && atTop) {
+      if (dy > 200 && currentIndex > 0 && atTop) {
         setSnap(SNAP_POINTS[currentIndex - 1]);
         touchStartY.current = e.touches[0].clientY;
       } else if (
-        dy < -50 &&
+        dy < -200 &&
         currentIndex < SNAP_POINTS.length - 1 &&
         atBottom
       ) {
