@@ -9,6 +9,14 @@ import { Link } from "react-router";
 import { Button } from "./ui/button";
 import type { CircleMarker } from "leaflet";
 import { useMap } from "react-leaflet";
+import { getMalaysiaDate, hasCurrentTimePassed, nextBusTime } from "./Map";
+import { Card } from "./ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "./ui/collapsible";
+import Schedule from "@/../data/schedule.json";
 
 const SNAP_POINTS = [0.2, 0.5, 1];
 
@@ -201,43 +209,89 @@ export function DrawerMobile({
                       .filter((d) => d.direction_id === direction)[0]
                       .stops.map((stop, idx) => (
                         <div
-                          onPointerDownCapture={(e) => e.stopPropagation()}
                           key={idx}
                           className={`${
                             idx === 0 && "mt-2"
-                          } flex lative w-full `}
+                          } flex relative w-full `}
                         >
                           {/* Bullet */}
-                          <div className="flex flex-col items-center mr-1">
-                            <div className="w-3 h-3 rounded-full bg-blue-600 z-10"></div>
+                          <div className="flex w-3 flex-col items-center mr-1">
+                            <div className="w-3 h-3 absolute rounded-full bg-blue-600 z-10"></div>
                             {/* Vertical line */}
                             {idx <
                               route?.directions.filter(
                                 (d) => d.direction_id === direction
                               )[0].stops.length -
                                 1 && (
-                              <div className=" h-6 w-1 bg-blue-500"></div>
+                              <div className=" h-full w-1 bg-blue-500"></div>
                             )}
                           </div>
                           {/* Stop Name */}
-                          <Button
-                            variant={"ghost"}
-                            onClick={() => {
-                              const marker = markerRefs.current[stop.stop_id];
-                              if (marker) {
-                                if (!marker.isPopupOpen()) {
-                                  marker.openPopup();
+                          <div className="w-full">
+                            <Button
+                              variant={"ghost"}
+                              onClick={() => {
+                                const marker = markerRefs.current[stop.stop_id];
+                                if (marker) {
+                                  if (!marker.isPopupOpen()) {
+                                    marker.openPopup();
+                                  }
+                                  map.flyTo([stop.lat, stop.lon], 16, {
+                                    animate: true,
+                                  });
                                 }
-                                map.flyTo([stop.lat, stop.lon], 16, {
-                                  animate: true,
-                                });
-                                setSnap(SNAP_POINTS[0]);
-                              }
-                            }}
-                            className="cursor-pointer text-sm font-medium rounded-none mx-1 -mt-3 justify-start w-full text-left whitespace-normal break-words"
-                          >
-                            {stop.stop_name}
-                          </Button>
+                              }}
+                              className="cursor-pointer m-2 !hover:bg-transparent  text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal break-words"
+                            >
+                              <p>{stop.stop_name}</p>
+                            </Button>
+                            {idx === 0 && Schedule && (
+                              <Collapsible className="px-6 mb-4">
+                                <CollapsibleTrigger asChild>
+                                  <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
+                                    Next bus will depart at{" "}
+                                    {nextBusTime(
+                                      Schedule.find(
+                                        (s) => s.route_id === route.route_id
+                                      )
+                                        ?.directions.filter(
+                                          (d) => d.direction_id === direction
+                                        )[0]
+                                        .dates.find(
+                                          (d) => d.date === getMalaysiaDate()
+                                        )?.times
+                                    )}
+                                  </Card>
+                                </CollapsibleTrigger>
+                                <CollapsibleContent>
+                                  <div className="mt-2">Scheduled</div>
+                                  <div className="grid grid-cols-6 self-center ">
+                                    {Schedule.find(
+                                      (s) => s.route_id === route.route_id
+                                    )
+                                      ?.directions.filter(
+                                        (d) => d.direction_id === direction
+                                      )[0]
+                                      .dates.find(
+                                        (d) => d.date === getMalaysiaDate()
+                                      )
+                                      ?.times.map((t, idx) => (
+                                        <div
+                                          key={idx}
+                                          className={`${
+                                            hasCurrentTimePassed(t)
+                                              ? "dark:text-neutral-500 text-neutral-400"
+                                              : "dark:text-white text-black"
+                                          } px-2`}
+                                        >
+                                          {t.substring(0, 5)}
+                                        </div>
+                                      ))}
+                                  </div>
+                                </CollapsibleContent>
+                              </Collapsible>
+                            )}
+                          </div>
                         </div>
                       ))}
                   </div>

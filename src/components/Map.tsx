@@ -512,7 +512,7 @@ function VehiclesMarker({
   );
 }
 
-function hasCurrentTimePassed(time: string): boolean {
+export function hasCurrentTimePassed(time: string): boolean {
   const currentTime = getCurrentTime();
   for (let i = 0; i < 5; i++) {
     if (currentTime[i] === time[i]) {
@@ -526,7 +526,7 @@ function hasCurrentTimePassed(time: string): boolean {
   return false;
 }
 
-function nextBusTime(times: string[] | undefined) {
+export function nextBusTime(times: string[] | undefined) {
   if (times === undefined) {
     return null;
   }
@@ -548,7 +548,7 @@ function getCurrentTime() {
   return formatter.format(new Date());
 }
 
-function getMalaysiaDate() {
+export function getMalaysiaDate() {
   const formatter = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Kuala_Lumpur",
     year: "numeric",
