@@ -330,10 +330,16 @@ export function DrawerMobile({
                       onFocus={() => {
                         if (snap === SNAP_POINTS[0]) setSnap(SNAP_POINTS[1]);
                       }}
-                      className="mb-3 pl-10 pr-2 py-2 h-12 dark:text-white !text-lg bg-neutral-50 dark:!bg-neutral-900"
+                      className="mb-3 pl-10 pr-10 py-2 h-12 dark:text-white !text-lg bg-neutral-50 dark:!bg-neutral-900"
                       placeholder="Search Routes"
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
+                    />
+                    <X
+                      onClick={() => setSearch("")}
+                      className={`${
+                        search ? "text-gray-100" : "text-gray-500"
+                      } absolute right-8 top-1/2 -translate-y-1/2  w-4 h-4`}
                     />
                   </div>
                   <div className={`p-4 pt-3 overflow-y-auto max-h-[80dvh]`}>
