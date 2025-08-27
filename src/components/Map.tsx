@@ -300,7 +300,7 @@ function App() {
 
   return (
     <>
-      <div className=" w-full max-h-dvh">
+      <div className=" w-full max-h-dvh overflow-hidden">
         <MapContainer
           id="map"
           zoomControl={false}
