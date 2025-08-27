@@ -1,69 +1,96 @@
-# React + TypeScript + Vite
+# 🚀 RpRadar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+[Live Demo](https://rpradar.vercel.app) |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</div>
 
-## Expanding the ESLint configuration
+## 📖 Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+RpRadar is a modern web application that provides users with an intuitive interface for real-time visualization of Rapid Penang buses. Powered by the GTFS Realtime API from data.gov.my, it enables users to efficiently track bus locations and routes.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Features
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **🚌 Real-Time Bus Tracking**  
+  View the live location of Rapid Penang buses on an interactive map.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **📍 Route Visualization**  
+  Explore complete bus routes and stops for better trip planning.
+
+- **🔎 Bus Search & Filtering**  
+  Quickly find buses by route number, destination, or stop.
+
+- **📅 Schedule Integration**  
+  Compare live bus positions with planned schedules for better time management.
+
+- **📱 Cross-Device Experience**  
+  Optimized for desktop, tablet, and mobile devices.
+
+- **⚡ High Performance**  
+  Built with modern web technologies for fast loading and smooth interaction.
+
+- **🌐 Open Data Integration**  
+  Powered by the [GTFS Realtime API](https://developer.data.gov.my/realtime-api/gtfs-realtime) from data.gov.my.
+
+- **🎨 Dark Mode Support**
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js (version >=16.0.0) (Inferred from typical React/Vite setup)
+- npm or yarn (For package management)
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/EzraChai/RpRadar.git
+   cd RpRadar
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser:**
+   Visit `http://localhost:5173` (Inferred from typical Vite port)
+
+## 📁 Project Structure
+
+```
+RpRadar/
+├── public/            # Static assets
+├── src/               # Source code
+│   └── ...           # React components and application logic
+├── index.html         # Main HTML file
+├── package.json       # Project dependencies and scripts
+├── tsconfig.app.json  # TypeScript configuration for the app
+├── tsconfig.json      # Base TypeScript configuration
+├── tsconfig.node.json # TypeScript configuration for Node.js
+├── vite.config.ts     # Vite configuration
+├── deno.lock         # Deno lockfile (Unexpected, may be a leftover)
+└── ...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Deployment
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The project is deployed to Vercel: [https://rpradar.vercel.app](https://rpradar.vercel.app)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+<div align="center">
+
+**⭐ Star this repo if you find it helpful!**
+
+Made with ❤️ by EzraChai
+
+</div>
