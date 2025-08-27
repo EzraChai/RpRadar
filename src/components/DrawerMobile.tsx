@@ -379,7 +379,7 @@ export function DrawerMobile({
                     <div className="px-4">
                       {filteredRoutes.length === routes.length && (
                         <>
-                          {savedRoutes && (
+                          {savedRoutes.length !== 0 && (
                             <>
                               <p className="text-sm dark:text-white text-black px-4 pb-2">
                                 Saved Routes
