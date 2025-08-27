@@ -343,7 +343,7 @@ function App() {
             />
           )}
 
-          {positions.length && <FitBoundsToPolyline color={"blue"} />}
+          {positions.length !== 0 && <FitBoundsToPolyline color={"blue"} />}
 
           <VehiclesMarker direction={direction} route={route} />
 
