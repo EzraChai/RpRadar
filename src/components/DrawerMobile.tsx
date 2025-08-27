@@ -188,7 +188,7 @@ export function DrawerMobile({
                   <div className="border-2 font-semibold border-red-500 rounded-lg px-2">
                     {route?.route_short_name}
                   </div>
-                  <DialogTitle className=" w-full p-2 font-bold text-xl">
+                  <DialogTitle className=" w-full p-2 font-bold text-lg">
                     {
                       route?.directions.filter(
                         (d) => d.direction_id === direction
