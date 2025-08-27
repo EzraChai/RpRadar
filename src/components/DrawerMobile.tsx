@@ -379,35 +379,39 @@ export function DrawerMobile({
                     <div className="px-4">
                       {filteredRoutes.length === routes.length && (
                         <>
-                          <p className="dark:text-white text-black px-4 pb-2">
-                            Saved Routes
-                          </p>
-                          {savedRoutes.map((route, index) => (
-                            <Link
-                              key={route?.route_id}
-                              className=" flex items-center gap-2"
-                              to={`/?id=${route?.route_id}`}
-                              preventScrollReset
-                            >
-                              <Button
-                                className={`w-full dark:hover:bg-neutral-700 cursor-pointer overflow-hidden border-b dark:border-neutral-600 flex justify-between items-center rounded-none py-10 bg-neutral-50 dark:bg-neutral-900
+                          {savedRoutes && (
+                            <>
+                              <p className="text-sm dark:text-white text-black px-4 pb-2">
+                                Saved Routes
+                              </p>
+                              {savedRoutes.map((route, index) => (
+                                <Link
+                                  key={route?.route_id}
+                                  className=" flex items-center gap-2"
+                                  to={`/?id=${route?.route_id}`}
+                                  preventScrollReset
+                                >
+                                  <Button
+                                    className={`w-full dark:hover:bg-neutral-700 cursor-pointer overflow-hidden border-b dark:border-neutral-600 flex justify-between items-center rounded-none py-10 bg-neutral-50 dark:bg-neutral-900
                           ${index === 0 && "rounded-t-3xl"}
                           ${
                             index === savedRoutes.length - 1 &&
                             "rounded-b-3xl mb-4 border-b-0"
                           }`}
-                                variant={"ghost"}
-                                key={route?.route_id}
-                              >
-                                <p className="text-black  dark:text-white">
-                                  {route?.route_name}
-                                </p>
-                                <div className="w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
-                                  {route?.route_code}
-                                </div>
-                              </Button>
-                            </Link>
-                          ))}
+                                    variant={"ghost"}
+                                    key={route?.route_id}
+                                  >
+                                    <p className="text-black  dark:text-white">
+                                      {route?.route_name}
+                                    </p>
+                                    <div className="w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+                                      {route?.route_code}
+                                    </div>
+                                  </Button>
+                                </Link>
+                              ))}
+                            </>
+                          )}
                         </>
                       )}
                     </div>
