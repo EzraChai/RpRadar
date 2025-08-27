@@ -133,8 +133,8 @@ export function DrawerMobile({
     const dy = dragOffset.current;
 
     // Snap to nearest point on release
-    if (dy > 100 && currentIndex > 0) setSnap(SNAP_POINTS[currentIndex - 1]);
-    else if (dy < -100 && currentIndex < SNAP_POINTS.length - 1)
+    if (dy > 50 && currentIndex > 0) setSnap(SNAP_POINTS[currentIndex - 1]);
+    else if (dy < -50 && currentIndex < SNAP_POINTS.length - 1)
       setSnap(SNAP_POINTS[currentIndex + 1]);
 
     dragOffset.current = 0;
@@ -188,7 +188,7 @@ export function DrawerMobile({
                   <div className="border-2 font-semibold border-red-500 rounded-lg px-2">
                     {route?.route_short_name}
                   </div>
-                  <DialogTitle className=" w-full p-2 font-bold text-lg">
+                  <DialogTitle className=" w-full p-2 font-bold text-xl">
                     {
                       route?.directions.filter(
                         (d) => d.direction_id === direction
@@ -298,7 +298,7 @@ export function DrawerMobile({
                                 </CollapsibleTrigger>
                                 <CollapsibleContent>
                                   <div className="mt-2">Scheduled</div>
-                                  <div className="grid grid-cols-6 self-center ">
+                                  <div className="grid grid-cols-6 self-center text-xs">
                                     {Schedule.find(
                                       (s) => s.route_id === route.route_id
                                     )
