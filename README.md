@@ -1,6 +1,6 @@
 # 🚀 RpRadar
 
-[Live Demo](https://rpradar.vercel.app) |
+[Live Demo](https://rpradar.vercel.app)
 
 ## 📖 Overview
 
@@ -84,7 +84,7 @@ The project is deployed to Vercel: [https://rpradar.vercel.app](https://rpradar.
 
 <div align="center">
 
-**⭐ Star this repo if you find it helpful!**
+**⭐ Star this repo if you find it cool!**
 
 Made with ❤️ by EzraChai
 
