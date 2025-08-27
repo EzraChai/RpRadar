@@ -194,7 +194,7 @@ function App() {
                     {idx === 0 && Schedule && (
                       <Collapsible className="px-6 mb-4">
                         <CollapsibleTrigger asChild>
-                          <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent font-semibold justify-center items-center h-12">
+                          <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
                             Next bus will depart at{" "}
                             {nextBusTime(
                               Schedule.find(
@@ -221,8 +221,8 @@ function App() {
                                   key={idx}
                                   className={`${
                                     hasCurrentTimePassed(t)
-                                      ? "text-neutral-500"
-                                      : "text-white"
+                                      ? "dark:text-neutral-500 text-neutral-400"
+                                      : "dark:text-white text-black"
                                   } px-2`}
                                 >
                                   {t.substring(0, 5)}
