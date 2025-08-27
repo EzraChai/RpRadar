@@ -125,23 +125,6 @@ export function DrawerMobile({
     }
   };
 
-  const handleTouchEnd: React.TouchEventHandler<HTMLDivElement> = () => {
-    if (!isDragging.current) return;
-
-    const currentIndex =
-      typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
-    const dy = dragOffset.current;
-
-    // Snap to nearest point on release
-    if (dy > 50 && currentIndex > 0) setSnap(SNAP_POINTS[currentIndex - 1]);
-    else if (dy < -50 && currentIndex < SNAP_POINTS.length - 1)
-      setSnap(SNAP_POINTS[currentIndex + 1]);
-
-    dragOffset.current = 0;
-    touchStartY.current = null;
-    isDragging.current = false;
-  };
-
   useEffect(() => {
     const handler = setTimeout(() => {
       const term = search.trim().toLowerCase();
@@ -180,8 +163,8 @@ export function DrawerMobile({
                 ref={list1Ref}
                 onTouchStart={handleTouchStart(list1Ref)}
                 onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-                onTouchCancel={handleTouchEnd}
+                // onTouchEnd={handleTouchEnd}
+                // onTouchCancel={handleTouchEnd}
                 className="overflow-y-auto overscroll-contain "
               >
                 <div className="p-2 py-0 flex justify-between items-center">
@@ -354,7 +337,6 @@ export function DrawerMobile({
                   ref={list2Ref}
                   onTouchStart={handleTouchStart(list2Ref)}
                   onTouchMove={handleTouchMove}
-                  onTouchEnd={handleTouchEnd}
                   className="py-1 text-black overflow-y-auto overscroll-contain"
                 >
                   <div className="px-4 relative ">
