@@ -1,10 +1,6 @@
 # 🚀 RpRadar
 
-<div align="center">
-
 [Live Demo](https://rpradar.vercel.app) |
-
-</div>
 
 ## 📖 Overview
 
@@ -79,7 +75,6 @@ RpRadar/
 ├── tsconfig.json      # Base TypeScript configuration
 ├── tsconfig.node.json # TypeScript configuration for Node.js
 ├── vite.config.ts     # Vite configuration
-├── deno.lock         # Deno lockfile (Unexpected, may be a leftover)
 └── ...
 ```
 
