@@ -133,8 +133,8 @@ export function DrawerMobile({
     const dy = dragOffset.current;
 
     // Snap to nearest point on release
-    if (dy > 50 && currentIndex > 0) setSnap(SNAP_POINTS[currentIndex - 1]);
-    else if (dy < -50 && currentIndex < SNAP_POINTS.length - 1)
+    if (dy > 100 && currentIndex > 0) setSnap(SNAP_POINTS[currentIndex - 1]);
+    else if (dy < -100 && currentIndex < SNAP_POINTS.length - 1)
       setSnap(SNAP_POINTS[currentIndex + 1]);
 
     dragOffset.current = 0;
