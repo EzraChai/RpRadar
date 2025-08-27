@@ -1,4 +1,4 @@
-import { Search, X } from "lucide-react";
+import { Search, Star, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Drawer } from "vaul";
 import { Input } from "./ui/input";
@@ -17,6 +17,7 @@ import {
   CollapsibleTrigger,
 } from "./ui/collapsible";
 import Schedule from "@/../data/schedule.json";
+import { useStarredRoutes } from "@/hooks/use-starred-routes";
 
 const SNAP_POINTS = [0.2, 0.5, 1];
 
@@ -52,6 +53,23 @@ export function DrawerMobile({
   const [snap, setSnap] = useState<number | string | null>(SNAP_POINTS[0]);
   const [search, setSearch] = useState("");
   const map = useMap();
+  const [savedRoutes, setSavedRoutes] = useState<
+    (
+      | {
+          route_id: string;
+          route_code: string;
+          route_name: string;
+          shape_ids: string[];
+        }
+      | undefined
+    )[]
+  >([]);
+
+  const { starred, toggle } = useStarredRoutes();
+
+  useEffect(() => {
+    setSavedRoutes(starred.map((s) => routes.find((r) => r.route_id === s)));
+  }, [starred]);
 
   const [filteredRoutes, setFilteredRoutes] = useState(routes); // initial list
   const activeScrollRef = useRef<HTMLDivElement>(null);
@@ -177,6 +195,21 @@ export function DrawerMobile({
                       )[0].route_long_name
                     }
                   </DialogTitle>
+
+                  <Star
+                    onClick={() => toggle(route.route_id || "")}
+                    size={24}
+                    fill={
+                      starred.includes(route.route_id || "")
+                        ? "oklch(79.5% 0.184 86.047)"
+                        : "none"
+                    }
+                    className={`mr-2 ${
+                      starred.includes(route.route_id || "") &&
+                      "text-yellow-500 "
+                    }`}
+                  />
+
                   <Link to={"/"} className="p-2 hover:bg-white/10 rounded-full">
                     <X size={24} />
                   </Link>
@@ -342,16 +375,53 @@ export function DrawerMobile({
                       } absolute right-8 top-1/2 -translate-y-1/2  w-4 h-4`}
                     />
                   </div>
-                  <div className={`p-4 pt-3 overflow-y-auto max-h-[80dvh]`}>
-                    {filteredRoutes.map((r, idx) => (
-                      <RouteCard
-                        key={idx}
-                        setSnap={setSnap}
-                        line={r}
-                        length={filteredRoutes.length}
-                        index={idx}
-                      />
-                    ))}
+                  <div className="mt-4 overflow-y-auto max-h-[84dvh]">
+                    <div className="px-4">
+                      {filteredRoutes.length === routes.length && (
+                        <>
+                          <p className="dark:text-white text-black px-4 pb-2">
+                            Saved Routes
+                          </p>
+                          {savedRoutes.map((route, index) => (
+                            <Link
+                              key={route?.route_id}
+                              className=" flex items-center gap-2"
+                              to={`/?id=${route?.route_id}`}
+                              preventScrollReset
+                            >
+                              <Button
+                                className={`w-full dark:hover:bg-neutral-700 cursor-pointer overflow-hidden border-b dark:border-neutral-600 flex justify-between items-center rounded-none py-10 bg-neutral-50 dark:bg-neutral-900
+                          ${index === 0 && "rounded-t-3xl"}
+                          ${
+                            index === savedRoutes.length - 1 &&
+                            "rounded-b-3xl mb-4 border-b-0"
+                          }`}
+                                variant={"ghost"}
+                                key={route?.route_id}
+                              >
+                                <p className="text-black  dark:text-white">
+                                  {route?.route_name}
+                                </p>
+                                <div className="w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+                                  {route?.route_code}
+                                </div>
+                              </Button>
+                            </Link>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                    <div className={`p-4 pt-3 `}>
+                      {filteredRoutes.map((r, idx) => (
+                        <RouteCard
+                          key={idx}
+                          setSnap={setSnap}
+                          line={r}
+                          length={filteredRoutes.length}
+                          index={idx}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </>
