@@ -350,12 +350,14 @@ export function DrawerMobile({
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
                     />
-                    <X
-                      onClick={() => setSearch("")}
-                      className={`${
-                        search ? "text-gray-100" : "text-gray-500"
-                      } absolute right-8 top-1/2 -translate-y-1/2  w-4 h-4`}
-                    />
+                    {search.length !== 0 && (
+                      <X
+                        onClick={() => setSearch("")}
+                        className={`${
+                          search ? "text-gray-100" : "text-gray-500"
+                        } absolute right-8 top-1/2 -translate-y-1/2  w-4 h-4`}
+                      />
+                    )}
                   </div>
                   <div className="mt-4 overflow-y-auto max-h-[84dvh]">
                     <div className="px-4">
