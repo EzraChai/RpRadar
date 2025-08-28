@@ -530,11 +530,12 @@ export function nextBusTime(times: string[] | undefined) {
   if (times === undefined) {
     return null;
   }
-
-  return times[times.findIndex((t) => !hasCurrentTimePassed(t))]?.substring(
-    0,
-    5
-  );
+  const nextTime = times[times.findIndex((t) => !hasCurrentTimePassed(t))];
+  if (nextTime) {
+    return nextTime.substring(0, 5);
+  } else {
+    return times[0].substring(0, 5);
+  }
 }
 
 function getCurrentTime() {
