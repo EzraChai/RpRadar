@@ -531,7 +531,7 @@ export function nextBusTime(times: string[] | undefined) {
     return null;
   }
 
-  return times[times.findIndex((t) => !hasCurrentTimePassed(t))].substring(
+  return times[times.findIndex((t) => !hasCurrentTimePassed(t))]?.substring(
     0,
     5
   );
