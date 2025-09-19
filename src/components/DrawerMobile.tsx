@@ -100,7 +100,7 @@ export function DrawerMobile({
     const scrollTop = activeScrollRef.current.scrollTop;
     const scrollHeight = activeScrollRef.current.scrollHeight;
     const clientHeight = activeScrollRef.current.clientHeight;
-    const SCROLL_THRESHOLD = 300;
+    const SCROLL_THRESHOLD = 100;
 
     const atTop = scrollTop <= 0;
     const atBottom = scrollTop + clientHeight >= scrollHeight;
