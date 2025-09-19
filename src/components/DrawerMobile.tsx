@@ -9,7 +9,11 @@ import { Link } from "react-router";
 import { Button } from "./ui/button";
 import type { CircleMarker } from "leaflet";
 import { useMap } from "react-leaflet";
-import { getMalaysiaDate, hasCurrentTimePassed, nextBusTime } from "./Map";
+import {
+  getMalaysiaDate,
+  hasCurrentTimePassed,
+  nextBusTime,
+} from "@/lib/utils";
 import { Card } from "./ui/card";
 import {
   Collapsible,
@@ -96,6 +100,7 @@ export function DrawerMobile({
     const scrollTop = activeScrollRef.current.scrollTop;
     const scrollHeight = activeScrollRef.current.scrollHeight;
     const clientHeight = activeScrollRef.current.clientHeight;
+    const SCROLL_THRESHOLD = 300;
 
     const atTop = scrollTop <= 0;
     const atBottom = scrollTop + clientHeight >= scrollHeight;
@@ -108,11 +113,11 @@ export function DrawerMobile({
 
       const currentIndex =
         typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
-      if (dy > 200 && currentIndex > 0 && atTop) {
+      if (dy > SCROLL_THRESHOLD && currentIndex > 0 && atTop) {
         setSnap(SNAP_POINTS[currentIndex - 1]);
         touchStartY.current = e.touches[0].clientY;
       } else if (
-        dy < -200 &&
+        dy < SCROLL_THRESHOLD * -1 &&
         currentIndex < SNAP_POINTS.length - 1 &&
         atBottom
       ) {
@@ -163,8 +168,6 @@ export function DrawerMobile({
                 ref={list1Ref}
                 onTouchStart={handleTouchStart(list1Ref)}
                 onTouchMove={handleTouchMove}
-                // onTouchEnd={handleTouchEnd}
-                // onTouchCancel={handleTouchEnd}
                 className="overflow-y-auto overscroll-contain "
               >
                 <div className="p-2 py-0 flex justify-between items-center">
