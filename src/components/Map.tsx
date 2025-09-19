@@ -10,7 +10,7 @@ import {
 import { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useSearchParams } from "react-router";
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
 import Shapes from "@/assets/shapes.json";
 import routes from "@/assets/routes_with_directions.json";
@@ -97,7 +97,7 @@ function App() {
     );
   }
 
-  function StopsCard() {
+  const StopsCard = memo(() => {
     const map = useMap();
     if (route)
       return (
@@ -244,7 +244,7 @@ function App() {
         </Card>
       );
     return null;
-  }
+  });
 
   function FitBoundsToPolyline({ color }: { color: string }) {
     const map = useMap();
