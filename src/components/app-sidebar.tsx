@@ -271,6 +271,7 @@ function SearchSideBar({
             index={index}
             length={filteredRoutes.length}
             line={line}
+            setOpenSearch={setOpenSearch}
           />
         ))}
       </div>
@@ -283,6 +284,7 @@ export function RouteCard({
   index,
   length,
   setSnap,
+  setOpenSearch,
 }: {
   line: {
     route_id: string;
@@ -293,6 +295,7 @@ export function RouteCard({
   index: number;
   length: number;
   setSnap?: React.Dispatch<React.SetStateAction<string | number | null>>;
+  setOpenSearch?: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
     <NavLink
@@ -300,6 +303,11 @@ export function RouteCard({
         if (typeof setSnap === "function") {
           setSnap(0.2);
           scrollTo();
+        }
+        if (typeof setOpenSearch === "function") {
+          setTimeout(() => {
+            setOpenSearch(false);
+          }, 50);
         }
       }}
       className={"flex justify-center"}

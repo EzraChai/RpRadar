@@ -156,6 +156,7 @@ body {
   padding: 0 !important;
 }
 .leaflet-control-attribution {
+  opacity: 50% !important;
   margin-bottom: 8px !important;
   margin-right: 10px !important;
   background: none !important;
