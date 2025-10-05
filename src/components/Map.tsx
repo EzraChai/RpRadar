@@ -10,7 +10,7 @@ import {
 import { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useSearchParams } from "react-router";
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState, type MouseEvent } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
 import Shapes from "@/assets/shapes.json";
 import routes from "@/assets/routes_with_directions.json";
@@ -388,7 +388,8 @@ export default App;
 function UserCurrentLocation() {
   const map = useMap();
 
-  const getLocation = () => {
+  const getLocation = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
     map.locate({ setView: true, maxZoom: 16 });
   };
   return (
@@ -409,7 +410,7 @@ function UserCurrentLocation() {
         <Button
           className="rounded-none"
           variant={"ghost"}
-          onClick={getLocation}
+          onClick={(e) => getLocation(e)}
         >
           <LocateFixed />
         </Button>
