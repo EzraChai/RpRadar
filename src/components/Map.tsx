@@ -43,6 +43,7 @@ function App() {
   const starredRoutes = useStarredRoutes();
   const [direction, setDirection] = useState(0);
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
+  const [position, setPosition] = useState<LatLngExpression | null>(null);
   const { theme } = useTheme();
   const isMobile = useIsMobile();
 
@@ -368,10 +369,21 @@ function App() {
 
           {positions.length !== 0 && <FitBoundsToPolyline color={"blue"} />}
 
+          {position && (
+            <CircleMarker
+              pathOptions={{
+                color: "white",
+                fillColor: "blue",
+                fillOpacity: 1,
+              }}
+              radius={10}
+              center={position}
+            ></CircleMarker>
+          )}
           <VehiclesMarker direction={direction} route={route} />
 
           <CustomZoomControls />
-          <UserCurrentLocation />
+          <UserCurrentLocation setPosition={setPosition} />
           {!isMobile && route && <StopsCard />}
           {!isMobile && route && (
             <Card className="absolute z-[500] pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
@@ -403,7 +415,11 @@ function App() {
 
 export default App;
 
-function UserCurrentLocation() {
+function UserCurrentLocation({
+  setPosition,
+}: {
+  setPosition: (pos: LatLngExpression) => void;
+}) {
   const map = useMap();
 
   const getLocation = () => {
@@ -416,6 +432,18 @@ function UserCurrentLocation() {
       enableHighAccuracy: true,
     });
   };
+
+  useEffect(() => {
+    const onLocationFound = (e: { latlng: LatLngExpression }) => {
+      setPosition(e.latlng);
+    };
+
+    map.on("locationfound", onLocationFound);
+
+    return () => {
+      map.off("locationfound", onLocationFound);
+    };
+  }, [map, setPosition]);
 
   return (
     <div className="">
