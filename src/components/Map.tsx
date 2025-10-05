@@ -376,7 +376,7 @@ function App() {
                 fillColor: "blue",
                 fillOpacity: 1,
               }}
-              radius={10}
+              radius={8}
               center={position}
             ></CircleMarker>
           )}
