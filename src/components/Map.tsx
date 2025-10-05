@@ -426,7 +426,7 @@ function UserCurrentLocation({
     map.stopLocate(); // stops any previous locate
 
     map.locate({
-      setView: true,
+      setView: false,
       maxZoom: 16,
       watch: true,
       enableHighAccuracy: true,
@@ -436,6 +436,7 @@ function UserCurrentLocation({
   useEffect(() => {
     const onLocationFound = (e: { latlng: LatLngExpression }) => {
       setPosition(e.latlng);
+      map.flyTo(e.latlng, map.getZoom(), { animate: true });
     };
 
     map.on("locationfound", onLocationFound);
