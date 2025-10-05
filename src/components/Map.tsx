@@ -442,7 +442,7 @@ function UserCurrentLocation({
     return () => {
       map.off("locationfound", onLocationFound);
     };
-  }, [map, setPosition]);
+  }, [setPosition]);
 
   return (
     <div className="">
