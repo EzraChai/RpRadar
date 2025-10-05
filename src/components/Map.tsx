@@ -388,7 +388,9 @@ export default App;
 function UserCurrentLocation() {
   const map = useMap();
 
-  const getLocation = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const getLocation = (
+    e: MouseEvent<HTMLButtonElement, MouseEvent<Element, MouseEvent>>
+  ) => {
     e.stopPropagation();
     map.locate({ setView: true, maxZoom: 16 });
   };
