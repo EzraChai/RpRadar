@@ -407,8 +407,16 @@ function UserCurrentLocation() {
   const map = useMap();
 
   const getLocation = () => {
-    map.locate({ setView: true, maxZoom: 16 });
+    map.stopLocate(); // stops any previous locate
+
+    map.locate({
+      setView: true,
+      maxZoom: 16,
+      watch: false,
+      enableHighAccuracy: true,
+    });
   };
+
   return (
     <div className="">
       <Card
