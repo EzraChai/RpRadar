@@ -388,10 +388,7 @@ export default App;
 function UserCurrentLocation() {
   const map = useMap();
 
-  const getLocation = (
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  ) => {
-    e.stopPropagation();
+  const getLocation = () => {
     map.locate({ setView: true, maxZoom: 16 });
   };
   return (
@@ -413,8 +410,8 @@ function UserCurrentLocation() {
           className="rounded-none"
           variant={"ghost"}
           onClick={(e) => {
-            e.stopPropagation(); // Important
-            getLocation(e);
+            e.stopPropagation();
+            getLocation();
           }}
         >
           <LocateFixed />
