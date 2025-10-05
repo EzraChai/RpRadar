@@ -94,36 +94,32 @@ export function AppSidebar() {
                 onClick={() => setCollapsed((prev) => !prev)}
               />
             </SidebarHeader>
-            <SidebarContent className="overflow-hidden">
-              <SidebarGroup>
-                <SidebarMenuItem>
-                  <SidebarMenuButton
-                    className={`hover:cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-700 `}
-                    onClick={() => {
-                      setOpenSearch((prev) => !prev && true);
-                      setTimeout(() => {
-                        if (inputRef.current) {
-                          inputRef.current.focus(); // 👈 focus input when icon clicked
-                        }
-                      }, 0);
-                    }}
-                    asChild
+            <SidebarContent>
+              <SidebarMenuItem className="mt-1">
+                <SidebarMenuButton
+                  className={`hover:cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-700 `}
+                  onClick={() => {
+                    setOpenSearch((prev) => !prev && true);
+                    setTimeout(() => {
+                      if (inputRef.current) {
+                        inputRef.current.focus(); // 👈 focus input when icon clicked
+                      }
+                    }, 0);
+                  }}
+                  asChild
+                >
+                  <div
+                    className={`w-8 h-8 flex ${
+                      openSearch
+                        ? "bg-neutral-50 dark:bg-neutral-700"
+                        : "bg-transparent"
+                    }`}
                   >
-                    <div
-                      className={`w-8 h-8 flex ${
-                        openSearch
-                          ? "bg-neutral-50 dark:bg-neutral-700"
-                          : "bg-transparent"
-                      }`}
-                    >
-                      <Search
-                        className={"w-4 h-4 text-black dark:text-white"}
-                      />
-                      <span className="text-xl">Search</span>
-                    </div>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarGroup>
+                    <Search className={"w-4 h-4 text-black dark:text-white"} />
+                    <span className="text-xl">Search</span>
+                  </div>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
 
               {savedRoutes.length > 0 && (
                 <SidebarGroup>
