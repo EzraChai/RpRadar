@@ -87,10 +87,30 @@ function App() {
         }}
         className="absolute overflow-hidden p-0 gap-0 top-4 right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
       >
-        <Button className="rounded-none" variant={"ghost"} onClick={zoomIn}>
+        <Button
+          style={{
+            touchAction: "none",
+          }}
+          className="rounded-none"
+          variant={"ghost"}
+          onClick={(e) => {
+            e.stopPropagation();
+            zoomOut();
+          }}
+        >
           <Plus />
         </Button>
-        <Button className="rounded-none" variant={"ghost"} onClick={zoomOut}>
+        <Button
+          style={{
+            touchAction: "none",
+          }}
+          className="rounded-none"
+          variant={"ghost"}
+          onClick={(e) => {
+            e.stopPropagation();
+            zoomOut();
+          }}
+        >
           <Minus />
         </Button>{" "}
       </Card>
@@ -401,6 +421,9 @@ function UserCurrentLocation() {
         onMouseLeave={() => {
           map.doubleClickZoom.enable();
           map.scrollWheelZoom.enable();
+        }}
+        style={{
+          touchAction: "none",
         }}
         className="absolute overflow-hidden p-0 gap-0 top-26 right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
       >
