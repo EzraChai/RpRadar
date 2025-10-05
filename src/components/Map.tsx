@@ -426,9 +426,8 @@ function UserCurrentLocation({
     map.stopLocate(); // stops any previous locate
 
     map.locate({
-      setView: false,
+      setView: true,
       maxZoom: 16,
-      watch: true,
       enableHighAccuracy: true,
     });
   };
