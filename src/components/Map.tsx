@@ -436,7 +436,6 @@ function UserCurrentLocation({
   useEffect(() => {
     const onLocationFound = (e: { latlng: LatLngExpression }) => {
       setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom(), { animate: true });
     };
 
     map.on("locationfound", onLocationFound);
