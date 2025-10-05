@@ -428,7 +428,7 @@ function UserCurrentLocation({
     map.locate({
       setView: true,
       maxZoom: 16,
-      watch: false,
+      watch: true,
       enableHighAccuracy: true,
     });
   };
