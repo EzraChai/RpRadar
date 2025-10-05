@@ -108,7 +108,7 @@ function App() {
             map.dragging.disable();
           }}
           onMouseLeave={() => {
-            map.doubleClickZoom.disable();
+            map.doubleClickZoom.enable();
             map.scrollWheelZoom.enable();
             map.dragging.enable();
           }}
@@ -403,7 +403,7 @@ function UserCurrentLocation() {
           map.dragging.disable();
         }}
         onMouseLeave={() => {
-          map.doubleClickZoom.disable();
+          map.doubleClickZoom.enable();
           map.scrollWheelZoom.enable();
           map.dragging.enable();
         }}
@@ -412,7 +412,10 @@ function UserCurrentLocation() {
         <Button
           className="rounded-none"
           variant={"ghost"}
-          onClick={(e) => getLocation(e)}
+          onClick={(e) => {
+            e.stopPropagation(); // Important
+            getLocation(e);
+          }}
         >
           <LocateFixed />
         </Button>
