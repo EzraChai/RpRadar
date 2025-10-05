@@ -95,7 +95,7 @@ function App() {
           variant={"ghost"}
           onClick={(e) => {
             e.stopPropagation();
-            zoomOut();
+            zoomIn();
           }}
         >
           <Plus />
