@@ -78,12 +78,10 @@ function App() {
         onMouseEnter={() => {
           map.doubleClickZoom.disable();
           map.scrollWheelZoom.disable();
-          map.dragging.disable();
         }}
         onMouseLeave={() => {
           map.doubleClickZoom.disable();
           map.scrollWheelZoom.enable();
-          map.dragging.enable();
         }}
         className="absolute overflow-hidden p-0 gap-0 top-4 right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
       >
