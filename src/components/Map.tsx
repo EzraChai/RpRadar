@@ -10,7 +10,7 @@ import {
 import { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useSearchParams } from "react-router";
-import { memo, useEffect, useRef, useState, type MouseEvent } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
 import Shapes from "@/assets/shapes.json";
 import routes from "@/assets/routes_with_directions.json";
@@ -397,12 +397,10 @@ function UserCurrentLocation() {
         onMouseEnter={() => {
           map.doubleClickZoom.disable();
           map.scrollWheelZoom.disable();
-          map.dragging.disable();
         }}
         onMouseLeave={() => {
           map.doubleClickZoom.enable();
           map.scrollWheelZoom.enable();
-          map.dragging.enable();
         }}
         className="absolute overflow-hidden p-0 gap-0 top-26 right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
       >
