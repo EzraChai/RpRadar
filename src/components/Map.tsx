@@ -9,6 +9,7 @@ import {
 } from "react-leaflet";
 import { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 import { useSearchParams } from "react-router";
 import { memo, useEffect, useRef, useState } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
@@ -370,23 +371,10 @@ function App() {
           )}
 
           {positions.length !== 0 && <FitBoundsToPolyline color={"blue"} />}
-
-          {/* {position && (
-            <CircleMarker
-              pathOptions={{
-                color: "white",
-                fillColor: "blue",
-                fillOpacity: 1,
-              }}
-              radius={8}
-              center={position}
-            ></CircleMarker>
-          )} */}
           <VehiclesMarker direction={direction} route={route} />
 
           <CustomZoomControls />
           <UserLocation />
-          {/* <UserCurrentLocation setPosition={setPosition} /> */}
           {!isMobile && route && <StopsCard />}
           {!isMobile && route && (
             <Card className="absolute z-[500] pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
@@ -424,7 +412,7 @@ function UserLocation() {
   if (!map) return null;
   if (!LocateControl) return null;
   document.querySelector(".leaflet-control-locate")?.remove();
-  new LocateControl({
+  const lc = new LocateControl({
     position: "topright",
     showPopup: false,
     locateOptions: {
@@ -436,68 +424,14 @@ function UserLocation() {
     },
   }).addTo(map);
 
+  const button = lc.getContainer();
+  if (button) {
+    L.DomEvent.on(button, "click", L.DomEvent.stopPropagation);
+    L.DomEvent.on(button, "mousedown", L.DomEvent.stopPropagation); // optional
+  }
+
   return null;
 }
-
-// function UserCurrentLocation({
-//   setPosition,
-// }: {
-//   setPosition: (pos: LatLngExpression) => void;
-// }) {
-//   const map = useMap();
-
-//   const getLocation = () => {
-//     map.stopLocate(); // stops any previous locate
-
-//     map.locate({
-//       watch: true,
-//       setView: false,
-//       enableHighAccuracy: true,
-//     });
-//   };
-
-//   useEffect(() => {
-//     const onLocationFound = (e: { latlng: LatLngExpression }) => {
-//       setPosition(e.latlng);
-//     };
-
-//     map.on("locationfound", onLocationFound);
-
-//     return () => {
-//       map.off("locationfound", onLocationFound);
-//     };
-//   }, [map, setPosition]);
-
-//   return (
-//     <div className="">
-//       <Card
-//         onMouseEnter={() => {
-//           map.doubleClickZoom.disable();
-//           map.scrollWheelZoom.disable();
-//         }}
-//         onMouseLeave={() => {
-//           map.doubleClickZoom.enable();
-//           map.scrollWheelZoom.enable();
-//         }}
-//         style={{
-//           touchAction: "none",
-//         }}
-//         className="absolute overflow-hidden p-0 gap-0 top-26 right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
-//       >
-//         <Button
-//           className="rounded-none"
-//           variant={"ghost"}
-//           onClick={(e) => {
-//             e.stopPropagation();
-//             getLocation();
-//           }}
-//         >
-//           <LocateFixed />
-//         </Button>
-//       </Card>
-//     </div>
-//   );
-// }
 
 function VehiclesMarker({
   direction,
