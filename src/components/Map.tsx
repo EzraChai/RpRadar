@@ -20,7 +20,8 @@ import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
 import { Minus, Plus, Star } from "lucide-react";
-// import {LocateFixed} from "lucide-react";
+import { LocateControl } from "leaflet.locatecontrol";
+import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import Directions from "@/../data/trips.json";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -384,6 +385,7 @@ function App() {
           <VehiclesMarker direction={direction} route={route} />
 
           <CustomZoomControls />
+          <UserLocation />
           {/* <UserCurrentLocation setPosition={setPosition} /> */}
           {!isMobile && route && <StopsCard />}
           {!isMobile && route && (
@@ -415,6 +417,27 @@ function App() {
 }
 
 export default App;
+
+function UserLocation() {
+  const map = useMap();
+
+  if (!map) return null;
+  if (!LocateControl) return null;
+  document.querySelector(".leaflet-control-locate")?.remove();
+  new LocateControl({
+    position: "topright",
+    showPopup: false,
+    locateOptions: {
+      enableHighAccuracy: true,
+      watch: true,
+    },
+    strings: {
+      title: "My Position",
+    },
+  }).addTo(map);
+
+  return null;
+}
 
 // function UserCurrentLocation({
 //   setPosition,
