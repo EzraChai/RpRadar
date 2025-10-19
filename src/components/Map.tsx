@@ -20,7 +20,7 @@ import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
-import { Minus, Plus, Star } from "lucide-react";
+import { Info, Minus, Plus, Star } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
 import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
@@ -38,6 +38,9 @@ import {
   hasCurrentTimePassed,
   nextBusTime,
 } from "@/lib/utils";
+import { ModeToggle } from "./mode-toggle";
+import { Dialog, DialogDescription, DialogTrigger } from "./ui/dialog";
+import { DialogContent, DialogTitle } from "@radix-ui/react-dialog";
 
 function App() {
   const [searchParams] = useSearchParams();
@@ -46,7 +49,6 @@ function App() {
   const starredRoutes = useStarredRoutes();
   const [direction, setDirection] = useState(0);
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
-  // const [position, setPosition] = useState<LatLngExpression | null>(null);
   const { theme } = useTheme();
   const isMobile = useIsMobile();
 
@@ -374,7 +376,81 @@ function App() {
           <VehiclesMarker direction={direction} route={route} />
 
           <CustomZoomControls />
+          {isMobile && (
+            <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-25 mr-[1px] right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+              <ModeToggle />
+            </Card>
+          )}
           <UserLocation />
+
+          {isMobile && (
+            <Dialog>
+              <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-48 mr-[1px] right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+                <DialogTrigger asChild>
+                  <Button
+                    style={{
+                      touchAction: "none",
+                    }}
+                    className="rounded-none"
+                    variant={"ghost"}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
+                    <Info />
+                  </Button>
+                </DialogTrigger>
+              </Card>
+              <DialogContent className=" w-sm mx-auto absolute z-[1002] top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+                <DialogTitle className="text-center mb-4 text-xl font-bold">
+                  <div>Donation</div>
+                </DialogTitle>
+                <DialogDescription className="text-justify">
+                  Hello guyss! If you find RpRadar useful and would love to
+                  support, please consider helping{" "}
+                  <a
+                    href="https://www.rumahcharis.org.my/index.html"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline underline-offset-2"
+                  >
+                    Rumah Charis
+                  </a>
+                  , a non-profit Christian organisation comprising of two Homes
+                  – a Home for the Children and a Home for the Aged.
+                  <br />
+                  <br />
+                  <div className="flex gap-4">
+                    <div className="">
+                      <div className="rounded-xl overflow-hidden">
+                        <img
+                          className=" "
+                          src={"/qr1.png"}
+                          alt="RUMAH CHARIS CHILDREN HOME QR Code"
+                        />
+                      </div>
+
+                      <p className="mt-4 text-center">
+                        RUMAH CHARIS CHILDREN HOME
+                      </p>
+                    </div>
+                    <div className="">
+                      <div className="rounded-xl  overflow-hidden">
+                        <img
+                          className=""
+                          src={"/qr2.png"}
+                          alt="RUMAH CHARIS OLD FOLK HOME QR Code"
+                        />
+                      </div>
+                      <p className="mt-4 text-center">
+                        RUMAH CHARIS OLD FOLK HOME
+                      </p>
+                    </div>
+                  </div>
+                </DialogDescription>
+              </DialogContent>
+            </Dialog>
+          )}
           {!isMobile && route && <StopsCard />}
           {!isMobile && route && (
             <Card className="absolute z-[500] pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">

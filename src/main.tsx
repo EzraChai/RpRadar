@@ -9,7 +9,7 @@ import { StarredRoutesProvider } from "./hooks/use-starred-routes.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <SidebarProvider>
         <StarredRoutesProvider>
           <BrowserRouter>

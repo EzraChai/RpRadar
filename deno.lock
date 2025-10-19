@@ -2666,6 +2666,7 @@
         "npm:eslint@^9.33.0",
         "npm:globals@^16.3.0",
         "npm:gtfs-realtime-bindings@^1.1.1",
+        "npm:leaflet.locatecontrol@~0.85.1",
         "npm:leaflet@^1.9.4",
         "npm:lucide-react@0.540",
         "npm:react-dom@^19.1.1",
