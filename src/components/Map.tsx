@@ -39,12 +39,7 @@ import {
   nextBusTime,
 } from "@/lib/utils";
 import { ModeToggle } from "./mode-toggle";
-import {
-  Dialog,
-  DialogClose,
-  DialogDescription,
-  DialogTrigger,
-} from "./ui/dialog";
+import { Dialog, DialogDescription, DialogTrigger } from "./ui/dialog";
 import { DialogContent, DialogTitle } from "@radix-ui/react-dialog";
 
 function App() {
@@ -121,7 +116,7 @@ function App() {
           }}
         >
           <Minus />
-        </Button>{" "}
+        </Button>
       </Card>
     );
   }
