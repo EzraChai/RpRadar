@@ -6,6 +6,7 @@
   "orientation": "portrait",
   "lang": "en-US",
   "background_color": "#030303",
+  "theme_color": "#030303",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
