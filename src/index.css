@@ -220,7 +220,7 @@ body {
 }
 
 .leaflet-top {
-  @apply !top-34;
+  @apply !top-34 lg:!top-24;
 }
 .leaflet-right {
   @apply !right-[7px];
