@@ -39,7 +39,12 @@ import {
   nextBusTime,
 } from "@/lib/utils";
 import { ModeToggle } from "./mode-toggle";
-import { Dialog, DialogDescription, DialogTrigger } from "./ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogDescription,
+  DialogTrigger,
+} from "./ui/dialog";
 import { DialogContent, DialogTitle } from "@radix-ui/react-dialog";
 
 function App() {
@@ -401,7 +406,7 @@ function App() {
                   </Button>
                 </DialogTrigger>
               </Card>
-              <DialogContent className=" w-sm mx-auto absolute z-[1002] top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+              <DialogContent className=" w-xs mx-auto absolute z-[1002] top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
                 <DialogTitle className="text-center mb-4 text-xl font-bold">
                   <div>Donation</div>
                 </DialogTitle>
