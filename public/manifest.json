@@ -1,6 +1,6 @@
 {
-  "name": "RPRadar",
-  "short_name": "RPRadar",
+  "name": "RpRadar",
+  "short_name": "RpRadar",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
