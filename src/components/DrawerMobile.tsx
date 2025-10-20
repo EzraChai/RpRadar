@@ -9,6 +9,7 @@ import { Link } from "react-router";
 import { Button } from "./ui/button";
 import type { CircleMarker } from "leaflet";
 import { useMap } from "react-leaflet";
+import RpRadarIcon from "@/assets/RpRadar.png";
 import {
   getMalaysiaDate,
   hasCurrentTimePassed,
@@ -323,8 +324,8 @@ export function DrawerMobile({
                     className={`flex flex-row gap-1 items-center  pt-2 px-4 `}
                   >
                     <img
-                      className={`w-6 h-6 object-cover rounded-2xl`}
-                      src="/RpRadar.png"
+                      className={`w-7 h-7 object-cover rounded-lg border border-white dark:border-neutral-500`}
+                      src={RpRadarIcon}
                       alt="logo of RPRadar"
                     />
 

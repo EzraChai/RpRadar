@@ -19,6 +19,7 @@ import { Link, NavLink } from "react-router";
 import routes from "@/assets/routes_with_shapes.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import { useIsMobile } from "@/hooks/use-mobile";
+import RpRadarIcon from "@/assets/RpRadar.png";
 
 export function AppSidebar() {
   const map = useMap();
@@ -72,10 +73,10 @@ export function AppSidebar() {
                 }`}
               >
                 <img
-                  className={`w-8 h-8 object-cover rounded-2xl ${
+                  className={`w-8 h-8 object-cover border border-white dark:border-neutral-500 rounded-lg ${
                     collapsed ? "hidden" : "block"
                   }`}
-                  src="/RpRadar.png"
+                  src={RpRadarIcon}
                   alt="logo of RPRadar"
                 />
 
