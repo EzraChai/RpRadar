@@ -20,7 +20,7 @@ import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
-import { Info, Minus, Plus, Star } from "lucide-react";
+import { Minus, Plus, Star } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
 import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
@@ -39,8 +39,8 @@ import {
   nextBusTime,
 } from "@/lib/utils";
 import { ModeToggle } from "./mode-toggle";
-import { Dialog, DialogDescription, DialogTrigger } from "./ui/dialog";
-import { DialogContent, DialogTitle } from "@radix-ui/react-dialog";
+// import { Dialog, DialogDescription, DialogTrigger } from "./ui/dialog";
+// import { DialogContent, DialogTitle } from "@radix-ui/react-dialog";
 
 function App() {
   const [searchParams] = useSearchParams();
