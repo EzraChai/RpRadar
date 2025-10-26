@@ -24,7 +24,7 @@ import {
 import Schedule from "@/../data/schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 
-const SNAP_POINTS = [0.21, 0.5, 1];
+const SNAP_POINTS = [0.22, 0.5, 1];
 
 export function DrawerMobile({
   markerRefs,
