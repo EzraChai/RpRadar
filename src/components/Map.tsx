@@ -154,13 +154,13 @@ function App() {
                     : "none"
                 }
                 onClick={() => starredRoutes.toggle(route.route_id || "")}
-                className={`w-4 h-4 ${
+                className={`w-4 h-4 cursor-pointer ${
                   starredRoutes.starred.includes(route.route_id || "") &&
                   "text-yellow-500 "
                 }`}
               />
-              <Link to={"/"} className="text-white">
-                <X color={"white"} className="w-5 h-5" />
+              <Link to={"/"}>
+                <X className="w-5 h-5 text-black dark:text-white" />
               </Link>
             </div>
           </div>
