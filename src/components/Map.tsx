@@ -317,7 +317,7 @@ function App() {
                   offset={[0, 10]}
                   closeButton={false}
                 >
-                  <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
+                  <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
                     {stop.stop_name.trim()}
                   </div>
                 </Popup>
@@ -336,7 +336,7 @@ function App() {
           center={[5.4164, 100.3327]}
           zoom={13.5}
           scrollWheelZoom={true}
-          className="w-full h-dvh "
+          className="w-full h-dvh"
         >
           {isMobile && (
             <DrawerMobile
