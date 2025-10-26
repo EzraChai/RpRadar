@@ -325,7 +325,7 @@ function App() {
                 <Popup
                   className="pointer-events-none"
                   maxWidth={500}
-                  offset={[0, 10]}
+                  offset={[0, 8]}
                   closeButton={false}
                 >
                   <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
@@ -635,7 +635,7 @@ function VehiclesMarker({
         >
           <Popup
             maxWidth={500}
-            offset={[0, 10]}
+            offset={[0, 8]}
             className="pointer-events-none"
             closeButton={false}
           >

@@ -388,7 +388,7 @@ export function DrawerMobile({
                                     className={`w-full dark:hover:bg-neutral-700 cursor-pointer overflow-hidden border-b dark:border-neutral-600 flex justify-between items-center rounded-none py-10 bg-neutral-50 dark:bg-neutral-900
                                       ${index === 0 && "rounded-t-3xl"}
                                     ${
-                                      index === length - 1 &&
+                                      index === savedRoutes.length - 1 &&
                                       "rounded-b-3xl mb-4 border-b-0"
                                     }`}
                                     variant={"ghost"}
