@@ -312,13 +312,13 @@ function App() {
                 }}
               >
                 <Popup
-                  className=" pointer-events-none"
+                  className="pointer-events-none"
                   maxWidth={500}
                   offset={[0, 10]}
                   closeButton={false}
                 >
-                  <div className="border border-white dark:border-neutral-500  bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
-                    {stop.stop_name}
+                  <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
+                    {stop.stop_name.trim()}
                   </div>
                 </Popup>
               </CircleMarker>
@@ -383,7 +383,7 @@ function App() {
           )}
           <UserLocation />
 
-          {isMobile && (
+          {/* {isMobile && (
             <Dialog>
               <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-[190px] mr-[1px] right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
                 <DialogTrigger asChild>
@@ -450,7 +450,7 @@ function App() {
                 </DialogDescription>
               </DialogContent>
             </Dialog>
-          )}
+          )} */}
           {!isMobile && route && <StopsCard />}
           {!isMobile && route && (
             <Card className="absolute z-[500] pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
