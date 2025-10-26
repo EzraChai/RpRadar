@@ -340,7 +340,7 @@ function App() {
 
   return (
     <>
-      <div className=" w-full max-h-dvh overflow-hidden">
+      <div className="w-full max-h-dvh overflow-hidden">
         <MapContainer
           id="map"
           zoomControl={false}
@@ -388,7 +388,7 @@ function App() {
 
           <CustomZoomControls />
           {isMobile && (
-            <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-25 mr-[1px] right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+            <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-[99px] mr-[1px] right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
               <ModeToggle />
             </Card>
           )}

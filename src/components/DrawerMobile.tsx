@@ -185,9 +185,9 @@ export function DrawerMobile({
                           ? "oklch(79.5% 0.184 86.047)"
                           : "none"
                       }
-                      className={` ${
+                      className={`${
                         starred.includes(route.route_id || "") &&
-                        "text-yellow-500 "
+                        "text-yellow-500"
                       }`}
                     />
 
