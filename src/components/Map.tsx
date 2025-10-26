@@ -10,8 +10,8 @@ import {
 import { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { useSearchParams } from "react-router";
-import { memo, useEffect, useRef, useState } from "react";
+import { Link, useSearchParams } from "react-router";
+import { useEffect, useRef, useState } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
 import Shapes from "@/assets/shapes.json";
 import routes from "@/assets/routes_with_directions.json";
@@ -20,7 +20,7 @@ import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
-import { Minus, Plus, Star } from "lucide-react";
+import { Minus, Plus, Star, X } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
 import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
@@ -53,6 +53,10 @@ function App() {
   const isMobile = useIsMobile();
 
   useEffect(() => {
+    if (searchParams.get("id") === null) {
+      setPositions([]);
+      return;
+    }
     if (searchParams.get("id")) {
       const filteredShape = Shapes.features.filter(
         (feature) =>
@@ -121,7 +125,7 @@ function App() {
     );
   }
 
-  const StopsCard = memo(() => {
+  const StopsCard = () => {
     const map = useMap();
     if (route)
       return (
@@ -138,20 +142,11 @@ function App() {
           }}
           className="absolute z-[1000] py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
         >
-          <CardTitle className="space-y-2 px-6 py-6">
-            <h2 className="font-bold flex justify-between items-center gap-2">
-              <div className="text-md flex justify-center items-center font-bold border-2 w-12 h-6 py-1 px-2 border-red-500 rounded-xl">
-                {route?.route_short_name}
-              </div>
-              <div>
-                <h4 className="font-semibold text-balance text-base">
-                  {
-                    route?.directions.filter(
-                      (d) => d.direction_id === direction
-                    )[0].route_long_name
-                  }
-                </h4>
-              </div>
+          <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
+            <div className="w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+              {route?.route_short_name}
+            </div>
+            <div className="flex items-center gap-3">
               <Star
                 fill={
                   starredRoutes.starred.includes(route.route_id || "")
@@ -164,7 +159,23 @@ function App() {
                   "text-yellow-500 "
                 }`}
               />
-            </h2>
+              <Link to={"/"} className="text-white">
+                <X color={"white"} className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+
+          <CardTitle className="space-y-2 px-6 pb-6">
+            <div className="flex justify-between items-center gap-2">
+              <h4 className="font-semibold text-balance text-xl">
+                {
+                  route?.directions.filter(
+                    (d) => d.direction_id === direction
+                  )[0].route_long_name
+                }
+              </h4>
+            </div>
+
             {route?.directions.length === 2 && (
               <Button
                 variant={"outline"}
@@ -218,7 +229,7 @@ function App() {
                       }}
                       className="cursor-pointer m-2 !hover:bg-transparent  text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal break-words"
                     >
-                      <p>{stop.stop_name}</p>
+                      <p>{stop.stop_name.trim()}</p>
                     </Button>
                     {idx === 0 && Schedule && (
                       <Collapsible className="px-6 mb-4">
@@ -268,7 +279,7 @@ function App() {
         </Card>
       );
     return null;
-  });
+  };
 
   function FitBoundsToPolyline({ color }: { color: string }) {
     const map = useMap();

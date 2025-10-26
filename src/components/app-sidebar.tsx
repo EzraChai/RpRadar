@@ -142,7 +142,7 @@ export function AppSidebar() {
                         <Button
                           variant={"ghost"}
                           key={route?.route_id}
-                          className=" text-[10px]  cursor-pointer flex justify-center items-center font-bold border-2 w-8 h-5 py-1 px-2 border-red-500 rounded-xl"
+                          className=" text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-8 h-5 py-1 px-2 border-red-500 rounded-xl"
                         >
                           <p className="text-black  dark:text-white">
                             {route?.route_code}
@@ -320,7 +320,7 @@ export function RouteCard({
         <p className="text-sm pr-4 whitespace-normal text-left break-words dark:text-neutral-50 text-neutral-900">
           {line.route_name}
         </p>
-        <div className="w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+        <div className="min-w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
           {line.route_code}
         </div>
       </Button>
