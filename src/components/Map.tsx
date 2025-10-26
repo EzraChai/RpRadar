@@ -595,7 +595,7 @@ function VehiclesMarker({
   );
   const directionsLocation: {
     0: { data: transit_realtime.IVehiclePosition }[];
-    1: { data: transit_realtime.IVehiclePosition }[];
+    1: { data?: transit_realtime.IVehiclePosition }[];
   } = {
     0: [],
     1: [],
@@ -623,31 +623,35 @@ function VehiclesMarker({
   return (
     <>
       {directionsLocation[direction as 0 | 1].map((v, idx) => (
-        <Marker
-          key={v.data.vehicle?.id || idx}
-          position={
-            typeof v.data.position?.latitude === "number" &&
-            typeof v.data.position?.longitude === "number"
-              ? [v.data.position.latitude, v.data.position.longitude]
-              : [0, 0]
-          }
-          icon={busIcon(v.data.position?.bearing || 0)}
-        >
-          <Popup
-            maxWidth={500}
-            offset={[0, 8]}
-            className="pointer-events-none"
-            closeButton={false}
-          >
-            <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
-              <p className="text-lg font-semibold">
-                {v.data.vehicle?.licensePlate}
-              </p>
-              <p className="mt-4">Route: {v.data.trip?.routeId}</p>
-              <p>Speed: {v.data.position?.speed}km/h</p>
-            </div>
-          </Popup>
-        </Marker>
+        <>
+          {v.data && (
+            <Marker
+              key={v.data?.vehicle?.id || idx}
+              position={
+                typeof v.data.position?.latitude === "number" &&
+                typeof v.data.position?.longitude === "number"
+                  ? [v.data.position.latitude, v.data.position.longitude]
+                  : [0, 0]
+              }
+              icon={busIcon(v.data.position?.bearing || 0)}
+            >
+              <Popup
+                maxWidth={500}
+                offset={[0, 8]}
+                className="pointer-events-none"
+                closeButton={false}
+              >
+                <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
+                  <p className="text-lg font-semibold">
+                    {v.data.vehicle?.licensePlate}
+                  </p>
+                  <p className="mt-4">Route: {v.data.trip?.routeId}</p>
+                  <p>Speed: {v.data.position?.speed}km/h</p>
+                </div>
+              </Popup>
+            </Marker>
+          )}
+        </>
       ))}
     </>
   );
