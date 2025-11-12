@@ -8,7 +8,6 @@ import {
   Marker,
 } from "react-leaflet";
 import { divIcon, Polyline as LeafletPolyline } from "leaflet";
-import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { Link, useSearchParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
@@ -22,7 +21,6 @@ import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
 import { Minus, Plus, Star, X } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
-import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import Directions from "@/../data/trips.json";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -39,6 +37,8 @@ import {
   nextBusTime,
 } from "@/lib/utils";
 import { ModeToggle } from "./mode-toggle";
+import "leaflet/dist/leaflet.css";
+import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
 
 function App() {
   const [searchParams] = useSearchParams();
