@@ -39,8 +39,6 @@ import {
   nextBusTime,
 } from "@/lib/utils";
 import { ModeToggle } from "./mode-toggle";
-// import { Dialog, DialogDescription, DialogTrigger } from "./ui/dialog";
-// import { DialogContent, DialogTitle } from "@radix-ui/react-dialog";
 
 function App() {
   const [searchParams] = useSearchParams();
@@ -93,7 +91,7 @@ function App() {
           map.doubleClickZoom.disable();
           map.scrollWheelZoom.enable();
         }}
-        className="absolute overflow-hidden p-0 gap-0 top-4 right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
+        className="absolute overflow-hidden p-0 gap-0 top-4 right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
       >
         <Button
           style={{
@@ -140,7 +138,7 @@ function App() {
             map.scrollWheelZoom.enable();
             map.dragging.enable();
           }}
-          className="absolute z-[1000] py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
+          className="absolute z-1000 py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
         >
           <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
             <div className="w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
@@ -227,7 +225,7 @@ function App() {
                           });
                         }
                       }}
-                      className="cursor-pointer m-2 !hover:bg-transparent  text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal break-words"
+                      className="cursor-pointer m-2 !hover:bg-transparent  text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
                     >
                       <p>{stop.stop_name.trim()}</p>
                     </Button>
@@ -388,83 +386,14 @@ function App() {
 
           <CustomZoomControls />
           {isMobile && (
-            <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-[99px] mr-[1px] right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+            <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-[99px] mr-px right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
               <ModeToggle />
             </Card>
           )}
           <UserLocation />
-
-          {/* {isMobile && (
-            <Dialog>
-              <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-[190px] mr-[1px] right-4 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
-                <DialogTrigger asChild>
-                  <Button
-                    style={{
-                      touchAction: "none",
-                    }}
-                    className="rounded-none"
-                    variant={"ghost"}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                    }}
-                  >
-                    <Info />
-                  </Button>
-                </DialogTrigger>
-              </Card>
-              <DialogContent className=" w-xs mx-auto absolute z-[1002] top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-4 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
-                <DialogTitle className="text-center mb-4 text-xl font-bold">
-                  <div>Donation</div>
-                </DialogTitle>
-                <DialogDescription className="text-justify">
-                  Hello guyss! If you find RpRadar useful and would love to
-                  support, please consider helping{" "}
-                  <a
-                    href="https://www.rumahcharis.org.my/index.html"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="underline underline-offset-2"
-                  >
-                    Rumah Charis
-                  </a>
-                  , a non-profit Christian organisation comprising of two Homes
-                  – a Home for the Children and a Home for the Aged.
-                  <br />
-                  <br />
-                  <div className="flex gap-4">
-                    <div className="">
-                      <div className="rounded-xl overflow-hidden">
-                        <img
-                          className=" "
-                          src={"/qr1.png"}
-                          alt="RUMAH CHARIS CHILDREN HOME QR Code"
-                        />
-                      </div>
-
-                      <p className="mt-4 text-center">
-                        RUMAH CHARIS CHILDREN HOME
-                      </p>
-                    </div>
-                    <div className="">
-                      <div className="rounded-xl  overflow-hidden">
-                        <img
-                          className=""
-                          src={"/qr2.png"}
-                          alt="RUMAH CHARIS OLD FOLK HOME QR Code"
-                        />
-                      </div>
-                      <p className="mt-4 text-center">
-                        RUMAH CHARIS OLD FOLK HOME
-                      </p>
-                    </div>
-                  </div>
-                </DialogDescription>
-              </DialogContent>
-            </Dialog>
-          )} */}
           {!isMobile && route && <StopsCard />}
           {!isMobile && route && (
-            <Card className="absolute z-[500] pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
+            <Card className="absolute z-500 pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
               <div className="flex justify-between items-center gap-4">
                 <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
                   {route?.route_short_name}
