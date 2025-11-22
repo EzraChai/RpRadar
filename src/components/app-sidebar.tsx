@@ -60,7 +60,7 @@ export function AppSidebar() {
             map.dragging.enable();
             map.doubleClickZoom.enable();
           }}
-          className=" overflow-hidden w-52 h-full z-[1000] left-0 top-0 transform bottom-4 border border-l-0 border-y-0 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-none shadow-md "
+          className=" overflow-hidden w-52 h-full z-1000 left-0 top-0 transform bottom-4 border border-l-0 border-y-0 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-none shadow-md "
           side="left"
           variant="floating"
           collapsible="icon"
@@ -161,7 +161,7 @@ export function AppSidebar() {
               <div className="flex justify-end">
                 <ModeToggle />
               </div>
-              <div className=" flex justify-center w-full h-[16px]">
+              <div className=" flex justify-center w-full h-4">
                 <p
                   className={`  whitespace-nowrap overflow-hiddentext-xs text-neutral-400 ${
                     collapsed ? "hidden " : "block "
@@ -169,7 +169,7 @@ export function AppSidebar() {
                 >
                   Made with ❤️ by
                   <a
-                    className="ml-1 !dark:text-neutral-300 !text-neutral-500 hover:underline underline-offset-2"
+                    className="ml-1 !dark:text-neutral-300 text-neutral-500! hover:underline underline-offset-2"
                     target="_blank"
                     href="https://dub.sh/ezrachai"
                   >
@@ -235,7 +235,7 @@ function SearchSideBar({
         map.dragging.enable();
         map.doubleClickZoom.enable();
       }}
-      className={`absolute w-96 h-full z-[999] left-52 ${
+      className={`absolute w-96 h-full z-999 left-52 ${
         collapsed && "left-16"
       } duration-200 ease-linear top-0 transform bottom-4 border border-l-0 border-y-0 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-0 py-2 rounded-none shadow-md`}
     >
@@ -254,7 +254,7 @@ function SearchSideBar({
         <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
         <Input
           ref={inputRef}
-          className="pl-10 pr-2 py-2 h-12 !text-lg bg-neutral-50 dark:!bg-neutral-900"
+          className="pl-10 pr-2 py-2 h-12 text-lg! bg-neutral-50 dark:bg-neutral-900!"
           placeholder="Search Routes"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -317,7 +317,7 @@ export function RouteCard({
          ${index === length - 1 && "rounded-b-3xl mb-4 border-b-0"}`}
         variant={"ghost"}
       >
-        <p className="text-sm pr-4 whitespace-normal text-left break-words dark:text-neutral-50 text-neutral-900">
+        <p className="text-sm pr-4 whitespace-normal text-left wrap-break-word dark:text-neutral-50 text-neutral-900">
           {line.route_name}
         </p>
         <div className="min-w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
