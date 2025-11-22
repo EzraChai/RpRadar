@@ -403,11 +403,9 @@ function App() {
 
                 <div>
                   <h4 className="font-semibold">
-                    {
-                      route.directions.filter(
-                        (d) => d.direction_id === direction
-                      )[0].route_long_name
-                    }
+                    {route.directions?.filter(
+                      (d) => d.direction_id === direction
+                    )[0]?.route_long_name || ""}
                   </h4>
                 </div>
                 <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
