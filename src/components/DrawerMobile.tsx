@@ -284,7 +284,8 @@ export function DrawerMobile({
                                         )[0]
                                         .dates.find(
                                           (d) => d.date === getMalaysiaDate()
-                                        )?.times
+                                        )
+                                        ?.times.flatMap((t) => t.time) || []
                                     )}
                                   </Card>
                                 </CollapsibleTrigger>
@@ -304,12 +305,12 @@ export function DrawerMobile({
                                         <div
                                           key={idx}
                                           className={`${
-                                            hasCurrentTimePassed(t)
+                                            hasCurrentTimePassed(t.time)
                                               ? "dark:text-neutral-500 text-neutral-400"
                                               : "dark:text-white text-black"
                                           } px-2`}
                                         >
-                                          {t.substring(0, 5)}
+                                          {t.time.substring(0, 5)}
                                         </div>
                                       ))}
                                   </div>

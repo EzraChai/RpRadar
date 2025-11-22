@@ -5,6 +5,29 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export function isT310HeadingQueensbay(time: string): boolean {
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Kuala_Lumpur",
+    hour12: false,
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const currentTimeSubtractWith40Minutes = formatter.format(
+    new Date(Date.now() - 35 * 60000)
+  ); // minus 40 minutes, "HH:MM"
+  for (let i = 0; i < 5; i++) {
+    if (currentTimeSubtractWith40Minutes[i] === time[i]) {
+      continue;
+    } else if (currentTimeSubtractWith40Minutes[i] > time[i]) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+  return true;
+}
+
 export function hasCurrentTimePassed(time: string): boolean {
   const currentTime = getCurrentTime();
   for (let i = 0; i < 5; i++) {
@@ -31,7 +54,7 @@ export function nextBusTime(times: string[] | undefined) {
   }
 }
 
-function getCurrentTime() {
+export function getCurrentTime() {
   const formatter = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Kuala_Lumpur",
     hour12: false,

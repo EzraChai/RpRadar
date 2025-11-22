@@ -119,7 +119,7 @@ async function refreshGTFS() {
           const trip = trips.find((t) => t.trip_id === row.trip_id);
           if (!trip) return;
 
-          const { route_id, direction_id, service_id } = trip;
+          const { route_id, direction_id, service_id, trip_id } = trip;
           const dates = serviceDates[service_id];
           if (!dates) return;
 
@@ -134,7 +134,11 @@ async function refreshGTFS() {
 
           for (const date of dates) {
             if (!departures[key].dates[date]) departures[key].dates[date] = [];
-            departures[key].dates[date].push(row.departure_time);
+            // store both time and trip_id
+            departures[key].dates[date].push({
+              time: row.departure_time,
+              trip_id,
+            });
           }
         }
       })
@@ -151,7 +155,7 @@ async function refreshGTFS() {
         const dateObjects = Object.entries(dates).map(([date, times]) => ({
           date,
           times: times.sort(
-            (a, b) => parseTimeToSeconds(a) - parseTimeToSeconds(b)
+            (a, b) => parseTimeToSeconds(a.time) - parseTimeToSeconds(b.time)
           ),
         }));
 

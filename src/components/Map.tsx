@@ -34,6 +34,7 @@ import {
 import {
   getMalaysiaDate,
   hasCurrentTimePassed,
+  isT310HeadingQueensbay,
   nextBusTime,
 } from "@/lib/utils";
 import { ModeToggle } from "./mode-toggle";
@@ -242,7 +243,7 @@ function App() {
                                   (d) => d.direction_id === direction
                                 )[0]
                                 .dates.find((d) => d.date === getMalaysiaDate())
-                                ?.times
+                                ?.times.flatMap((t) => t.time) || []
                             )}
                           </Card>
                         </CollapsibleTrigger>
@@ -258,12 +259,12 @@ function App() {
                                 <div
                                   key={idx}
                                   className={`${
-                                    hasCurrentTimePassed(t)
+                                    hasCurrentTimePassed(t.time)
                                       ? "dark:text-neutral-500 text-neutral-400"
                                       : "dark:text-white text-black"
                                   } px-2`}
                                 >
-                                  {t.substring(0, 5)}
+                                  {t.time.substring(0, 5)}
                                 </div>
                               ))}
                           </div>
@@ -580,6 +581,41 @@ function VehiclesMarker({
                   </p>
                   <p className="mt-4">Route: {v.data.trip?.routeId}</p>
                   <p>Speed: {v.data.position?.speed}km/h</p>
+                  {v.data.trip?.routeId === "T310" &&
+                    typeof v.data.position?.latitude === "number" &&
+                    v.data.position.latitude >= 5.353 && (
+                      <p>
+                        {"Trip Start: "}
+                        {Schedule.find((s) => s.route_id === route?.route_id)
+                          ?.directions.filter(
+                            (d) => d.direction_id === direction
+                          )[0]
+                          .dates.find((d) => d.date === getMalaysiaDate())
+                          ?.times.find(
+                            (d) => d.trip_id === v.data?.trip?.tripId
+                          )
+                          ?.time.substring(0, 5)}
+                      </p>
+                    )}
+                  {v.data.trip?.routeId === "T310" &&
+                    typeof v.data.position?.latitude === "number" &&
+                    v.data.position.latitude >= 5.353 && (
+                      <p>
+                        {"Heading: "}
+                        {isT310HeadingQueensbay(
+                          Schedule.find((s) => s.route_id === route?.route_id)
+                            ?.directions.filter(
+                              (d) => d.direction_id === direction
+                            )[0]
+                            .dates.find((d) => d.date === getMalaysiaDate())
+                            ?.times.find(
+                              (d) => d.trip_id === v.data?.trip?.tripId
+                            )?.time || "00:00"
+                        )
+                          ? "Queensbay Mall"
+                          : "Padang Kawad"}
+                      </p>
+                    )}
                 </div>
               </Popup>
             </Marker>
