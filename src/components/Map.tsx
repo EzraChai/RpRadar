@@ -32,7 +32,8 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import {
-  getMalaysiaDate,
+  getCurrentDate,
+  getCurrentDateEvenAfter12,
   hasCurrentTimePassed,
   isT310HeadingQueensbay,
   nextBusTime,
@@ -242,7 +243,7 @@ function App() {
                                 ?.directions.filter(
                                   (d) => d.direction_id === direction
                                 )[0]
-                                .dates.find((d) => d.date === getMalaysiaDate())
+                                .dates.find((d) => d.date === getCurrentDate())
                                 ?.times.flatMap((t) => t.time) || []
                             )}
                           </Card>
@@ -254,7 +255,7 @@ function App() {
                               ?.directions.filter(
                                 (d) => d.direction_id === direction
                               )[0]
-                              .dates.find((d) => d.date === getMalaysiaDate())
+                              .dates.find((d) => d.date === getCurrentDate())
                               ?.times.map((t, idx) => (
                                 <div
                                   key={idx}
@@ -553,7 +554,11 @@ function VehiclesMarker({
       }
     });
   }, [route?.route_short_name, vehicles]);
-
+  console.log(
+    Schedule.find((s) => s.route_id === route?.route_id)
+      ?.directions.filter((d) => d.direction_id === direction)[0]
+      .dates.find((d) => d.date === getCurrentDate())
+  );
   return (
     <>
       {directionsLocation[direction as 0 | 1].map((v, idx) => (
@@ -582,14 +587,14 @@ function VehiclesMarker({
                   <p className="mt-4">Route: {v.data.trip?.routeId}</p>
                   <p>Speed: {v.data.position?.speed}km/h</p>
                   <p>
-                    {"Trip Start: "}
+                    {"Departure: "}
                     {Schedule.find((s) => s.route_id === route?.route_id)
                       ?.directions.filter(
                         (d) => d.direction_id === direction
                       )[0]
-                      .dates.find((d) => d.date === getMalaysiaDate())
+                      .dates.find((d) => d.date === getCurrentDateEvenAfter12())
                       ?.times.find((d) => d.trip_id === v.data?.trip?.tripId)
-                      ?.time.substring(0, 5)}
+                      ?.time.substring(0, 5) || ""}
                   </p>
                   {v.data.trip?.routeId === "T310" &&
                     typeof v.data.position?.latitude === "number" &&
@@ -601,10 +606,12 @@ function VehiclesMarker({
                             ?.directions.filter(
                               (d) => d.direction_id === direction
                             )[0]
-                            .dates.find((d) => d.date === getMalaysiaDate())
+                            .dates.find(
+                              (d) => d.date === getCurrentDateEvenAfter12()
+                            )
                             ?.times.find(
                               (d) => d.trip_id === v.data?.trip?.tripId
-                            )?.time || "00:00"
+                            )?.time || ""
                         )
                           ? "Queensbay Mall"
                           : "Padang Kawad"}

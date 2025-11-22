@@ -10,11 +10,7 @@ import { Button } from "./ui/button";
 import type { CircleMarker } from "leaflet";
 import { useMap } from "react-leaflet";
 import RpRadarIcon from "@/assets/RpRadar.png";
-import {
-  getMalaysiaDate,
-  hasCurrentTimePassed,
-  nextBusTime,
-} from "@/lib/utils";
+import { getCurrentDate, hasCurrentTimePassed, nextBusTime } from "@/lib/utils";
 import { Card } from "./ui/card";
 import {
   Collapsible,
@@ -283,7 +279,7 @@ export function DrawerMobile({
                                           (d) => d.direction_id === direction
                                         )[0]
                                         .dates.find(
-                                          (d) => d.date === getMalaysiaDate()
+                                          (d) => d.date === getCurrentDate()
                                         )
                                         ?.times.flatMap((t) => t.time) || []
                                     )}
@@ -299,7 +295,7 @@ export function DrawerMobile({
                                         (d) => d.direction_id === direction
                                       )[0]
                                       .dates.find(
-                                        (d) => d.date === getMalaysiaDate()
+                                        (d) => d.date === getCurrentDate()
                                       )
                                       ?.times.map((t, idx) => (
                                         <div

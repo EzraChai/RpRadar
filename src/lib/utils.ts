@@ -65,7 +65,7 @@ export function getCurrentTime() {
   return formatter.format(new Date());
 }
 
-export function getMalaysiaDate() {
+export function getCurrentDateEvenAfter12() {
   const formatter = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Kuala_Lumpur",
     year: "numeric",
@@ -74,6 +74,36 @@ export function getMalaysiaDate() {
   });
 
   // output like "2025-08-26"
+  const now = new Date();
+  const timeFormatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Kuala_Lumpur",
+    hour12: false,
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const [hh, mm] = timeFormatter
+    .format(now)
+    .split(":")
+    .map((v) => parseInt(v, 10));
+  const totalMinutes = hh * 60 + mm;
+  const dateToFormat =
+    totalMinutes > 0 && totalMinutes < 120
+      ? new Date(now.getTime() - 24 * 60 * 60 * 1000)
+      : now;
+
+  const parts = formatter.format(dateToFormat);
+  return parts.replace(/-/g, ""); // → "20250826"
+}
+
+export function getCurrentDate() {
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Kuala_Lumpur",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+
   const parts = formatter.format(new Date());
   return parts.replace(/-/g, ""); // → "20250826"
 }
