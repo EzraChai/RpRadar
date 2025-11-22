@@ -550,9 +550,8 @@ function VehiclesMarker({
           }));
         }
       }
-      console.log(directionsLocation);
     });
-  }, [route?.route_short_name, vehicles]);
+  }, [route?.route_short_name, directionsLocation, vehicles]);
 
   return (
     <>
