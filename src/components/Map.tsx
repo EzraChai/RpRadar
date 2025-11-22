@@ -476,7 +476,13 @@ function VehiclesMarker({
     { data: transit_realtime.IVehiclePosition }[]
   >([]);
 
+  const [directionsLocation, setDirectionsLocation] = useState<{
+    0: { data: transit_realtime.IVehiclePosition }[];
+    1: { data?: transit_realtime.IVehiclePosition }[];
+  }>({ 0: [], 1: [] });
+
   useEffect(() => {
+    setVehicles([]);
     async function loadData() {
       const res = await fetch(
         "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
@@ -496,16 +502,12 @@ function VehiclesMarker({
       setVehicles(vehicleData);
     }
     loadData();
-    const interval = setInterval(loadData, 20_000);
+    const interval = setInterval(loadData, 15000); // Refresh every 15 seconds
     return () => {
       clearInterval(interval);
       setVehicles([]);
     };
   }, []);
-
-  if (!vehicles) {
-    return null;
-  }
 
   const busIcon = (bearing: number) =>
     divIcon({
@@ -519,35 +521,38 @@ function VehiclesMarker({
       iconAnchor: [45, 45],
     });
 
-  const vehicleForThisRoute = vehicles.filter(
-    (v) => v.data.trip?.routeId === route?.route_short_name
-  );
-  const directionsLocation: {
-    0: { data: transit_realtime.IVehiclePosition }[];
-    1: { data?: transit_realtime.IVehiclePosition }[];
-  } = {
-    0: [],
-    1: [],
-  };
-
-  vehicleForThisRoute.forEach((v) => {
-    const directions = Directions.find(
-      (d) => d.trip_id === v.data.trip?.tripId
+  useEffect(() => {
+    setDirectionsLocation({ 0: [], 1: [] });
+    const vehicleForThisRoute = vehicles.filter(
+      (v) => v.data.trip?.routeId === route?.route_short_name
     );
-    if (
-      v.data.trip?.routeId === "CAT" ||
-      v.data.trip?.routeId === "T310" ||
-      v.data.trip?.routeId === "103" ||
-      v.data.trip?.routeId === "201"
-    ) {
-      directionsLocation[0].push(v);
-    } else if (directions !== undefined) {
-      const dirNum = Number(directions.direction_id);
-      if (dirNum === 0 || dirNum === 1) {
-        directionsLocation[dirNum].push(v);
+
+    vehicleForThisRoute.forEach((v) => {
+      const directions = Directions.find(
+        (d) => d.trip_id === v.data.trip?.tripId
+      );
+      if (
+        v.data.trip?.routeId === "CAT" ||
+        v.data.trip?.routeId === "T310" ||
+        v.data.trip?.routeId === "103" ||
+        v.data.trip?.routeId === "201"
+      ) {
+        setDirectionsLocation((prev) => ({
+          0: [...prev[0], v],
+          1: [...prev[1]],
+        }));
+      } else if (directions !== undefined) {
+        const dirNum = Number(directions.direction_id);
+        if (dirNum === 0 || dirNum === 1) {
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [dirNum]: [...prev[dirNum], v],
+          }));
+        }
       }
-    }
-  });
+      console.log(directionsLocation);
+    });
+  }, [route?.route_short_name, vehicles]);
 
   return (
     <>
