@@ -13,13 +13,13 @@ export function isT310HeadingQueensbay(time: string): boolean {
     minute: "2-digit",
   });
 
-  const currentTimeSubtractWith40Minutes = formatter.format(
+  const currentTimeSubtractWith35Minutes = formatter.format(
     new Date(Date.now() - 35 * 60000)
-  ); // minus 40 minutes, "HH:MM"
+  ); // minus 35 minutes, "HH:MM"
   for (let i = 0; i < 5; i++) {
-    if (currentTimeSubtractWith40Minutes[i] === time[i]) {
+    if (currentTimeSubtractWith35Minutes[i] === time[i]) {
       continue;
-    } else if (currentTimeSubtractWith40Minutes[i] > time[i]) {
+    } else if (currentTimeSubtractWith35Minutes[i] > time[i]) {
       return false;
     } else {
       return true;
