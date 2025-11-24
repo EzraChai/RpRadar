@@ -482,7 +482,6 @@ function VehiclesMarker({
   }>({ 0: [], 1: [] });
 
   useEffect(() => {
-    setVehicles([]);
     async function loadData() {
       const res = await fetch(
         "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
@@ -499,6 +498,7 @@ function VehiclesMarker({
           });
         }
       });
+      setVehicles([]);
       setVehicles(vehicleData);
     }
     loadData();
@@ -531,12 +531,7 @@ function VehiclesMarker({
       const directions = Directions.find(
         (d) => d.trip_id === v.data.trip?.tripId
       );
-      if (
-        v.data.trip?.routeId === "CAT" ||
-        v.data.trip?.routeId === "T310" ||
-        v.data.trip?.routeId === "103" ||
-        v.data.trip?.routeId === "201"
-      ) {
+      if (directions === undefined && route?.directions.length === 1) {
         setDirectionsLocation((prev) => ({
           0: [...prev[0], v],
           1: [...prev[1]],
@@ -551,12 +546,7 @@ function VehiclesMarker({
         }
       }
     });
-  }, [route?.route_short_name, vehicles]);
-  console.log(
-    Schedule.find((s) => s.route_id === route?.route_id)
-      ?.directions.filter((d) => d.direction_id === direction)[0]
-      .dates.find((d) => d.date === getCurrentDate())
-  );
+  }, [route?.route_short_name, route?.directions.length, vehicles]);
   return (
     <>
       {directionsLocation[direction as 0 | 1].map((v, idx) => (
