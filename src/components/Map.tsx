@@ -600,7 +600,7 @@ function VehiclesMarker({
         <>
           {v.data && (
             <Marker
-              key={idx}
+              key={v.data.vehicle?.licensePlate || idx}
               position={
                 typeof v.data.position?.latitude === "number" &&
                 typeof v.data.position?.longitude === "number"
