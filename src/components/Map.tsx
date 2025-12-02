@@ -54,6 +54,7 @@ function App() {
 
   useEffect(() => {
     if (searchParams.get("id") === null) {
+      setDirection(0);
       setPositions([]);
       return;
     }
@@ -72,6 +73,7 @@ function App() {
       }
     } else {
       if (isMobile) {
+        setDirection(0);
         setPositions([]);
       }
     }
@@ -290,7 +292,52 @@ function App() {
         const bounds = polylineRef.current.getBounds();
         map.fitBounds(bounds); // Adjust the map view to fit the polyline
       }
-    }, [map]);
+    }, [map, positions]);
+
+    if (route?.directions.length === 0) return null;
+    if (route?.directions.length === 1) {
+      setDirection(0);
+      return (
+        <>
+          <Polyline
+            ref={polylineRef}
+            pathOptions={{ color: color, weight: 5 }}
+            positions={positions}
+          />
+          {positions.length &&
+            route.directions[0].stops.map((stop, idx) => (
+              <CircleMarker
+                ref={(ref) => {
+                  markerRefs.current[stop.stop_id] = ref;
+                }}
+                key={idx}
+                radius={6}
+                center={[stop.lat, stop.lon]}
+                pathOptions={{
+                  color: "blue",
+                  fillColor: "white",
+                  fillOpacity: 1,
+                }}
+                eventHandlers={{
+                  click: () =>
+                    map.setView([stop.lat, stop.lon], 16, { animate: true }),
+                }}
+              >
+                <Popup
+                  className="pointer-events-none"
+                  maxWidth={500}
+                  offset={[0, 8]}
+                  closeButton={false}
+                >
+                  <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
+                    {stop.stop_name.trim()}
+                  </div>
+                </Popup>
+              </CircleMarker>
+            ))}
+        </>
+      );
+    }
 
     return (
       <>
@@ -553,7 +600,7 @@ function VehiclesMarker({
         <>
           {v.data && (
             <Marker
-              key={v.data?.vehicle?.id || idx}
+              key={idx}
               position={
                 typeof v.data.position?.latitude === "number" &&
                 typeof v.data.position?.longitude === "number"
