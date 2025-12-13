@@ -851,7 +851,7 @@
           },
           {
             "stop_id": "12000831",
-            "stop_name": "Hotel Red Rock",
+            "stop_name": "Ayam Garam Macalister",
             "lat": 5.41718,
             "lon": 100.32225
           },
@@ -2835,7 +2835,7 @@
           },
           {
             "stop_id": "12000831",
-            "stop_name": "Hotel Red Rock",
+            "stop_name": "Ayam Garam Macalister",
             "lat": 5.41718,
             "lon": 100.32225
           },
@@ -3298,7 +3298,7 @@
           },
           {
             "stop_id": "12000831",
-            "stop_name": "Hotel Red Rock",
+            "stop_name": "Ayam Garam Macalister",
             "lat": 5.41718,
             "lon": 100.32225
           },
@@ -5537,6 +5537,313 @@
             "lon": 100.34177820000001
           }
         ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "1000000976",
+        "route_long_name": "JETI - PAYA TERUBONG",
+        "stops": [
+          {
+            "stop_id": "12002114",
+            "stop_name": "(M1) JETTY B",
+            "lat": 5.4137915,
+            "lon": 100.34177820000001
+          },
+          {
+            "stop_id": "12000007",
+            "stop_name": "Container Hotel",
+            "lat": 5.41415,
+            "lon": 100.34042
+          },
+          {
+            "stop_id": "12001916",
+            "stop_name": "Restoran Kapitan",
+            "lat": 5.41602,
+            "lon": 100.33892
+          },
+          {
+            "stop_id": "12001918",
+            "stop_name": "Masjid Kapitan Keling",
+            "lat": 5.417451,
+            "lon": 100.33745
+          },
+          {
+            "stop_id": "12001920",
+            "stop_name": "Love Lane",
+            "lat": 5.418401,
+            "lon": 100.33614
+          },
+          {
+            "stop_id": "12001922",
+            "stop_name": "Banana Boutique",
+            "lat": 5.419522,
+            "lon": 100.33361
+          },
+          {
+            "stop_id": "12001064",
+            "stop_name": "Penang Road",
+            "lat": 5.41925,
+            "lon": 100.33199
+          },
+          {
+            "stop_id": "12001061",
+            "stop_name": "Pasar Chowrasta",
+            "lat": 5.418131,
+            "lon": 100.331245
+          },
+          {
+            "stop_id": "12002116",
+            "stop_name": "Terminal Komtar",
+            "lat": 5.4141808,
+            "lon": 100.33031319999999
+          },
+          {
+            "stop_id": "12000461",
+            "stop_name": "Pasaraya Gama",
+            "lat": 5.413819,
+            "lon": 100.3281
+          },
+          {
+            "stop_id": "12000456",
+            "stop_name": "Penang Times Square",
+            "lat": 5.4131540000000005,
+            "lon": 100.32621
+          },
+          {
+            "stop_id": "12000443",
+            "stop_name": "Pasar Jalan Kuantan",
+            "lat": 5.41218,
+            "lon": 100.32366999999999
+          },
+          {
+            "stop_id": "12002112",
+            "stop_name": "Kampung Makam",
+            "lat": 5.4122699999999995,
+            "lon": 100.32089
+          },
+          {
+            "stop_id": "12000449",
+            "stop_name": "SMK/SK Convent Dato Keramat",
+            "lat": 5.4127,
+            "lon": 100.31805
+          },
+          {
+            "stop_id": "12000458",
+            "stop_name": "Stadium Bandaraya",
+            "lat": 5.41324,
+            "lon": 100.31458
+          },
+          {
+            "stop_id": "12000077",
+            "stop_name": "Masjid Jamek Sheikh Yusof(Hospital)",
+            "lat": 5.41355,
+            "lon": 100.31130999999999
+          },
+          {
+            "stop_id": "12000076",
+            "stop_name": "Dhoby Ghaut",
+            "lat": 5.41246,
+            "lon": 100.30957
+          },
+          {
+            "stop_id": "12000075",
+            "stop_name": "SMK Sri Mutiara",
+            "lat": 5.41031,
+            "lon": 100.30745
+          },
+          {
+            "stop_id": "12000072",
+            "stop_name": "Han Chiang College",
+            "lat": 5.40803,
+            "lon": 100.30364
+          },
+          {
+            "stop_id": "12000070",
+            "stop_name": "Masjid Negeri P.Pinang(Hentian Transit)",
+            "lat": 5.40765,
+            "lon": 100.29972
+          },
+          {
+            "stop_id": "12000069",
+            "stop_name": "Pasar Kampung Baru",
+            "lat": 5.40612,
+            "lon": 100.29637
+          },
+          {
+            "stop_id": "12000962",
+            "stop_name": "Apartmen Rifle Court",
+            "lat": 5.40678,
+            "lon": 100.29602
+          },
+          {
+            "stop_id": "12000964",
+            "stop_name": "Villa Sri Melati Apartment",
+            "lat": 5.4073,
+            "lon": 100.29462
+          },
+          {
+            "stop_id": "12000966",
+            "stop_name": "PBA",
+            "lat": 5.4088199999999995,
+            "lon": 100.29326999999999
+          },
+          {
+            "stop_id": "12000968",
+            "stop_name": "SK Padang Tembak",
+            "lat": 5.41019,
+            "lon": 100.29205
+          },
+          {
+            "stop_id": "12001378",
+            "stop_name": "Flat Padang Tembak",
+            "lat": 5.41046,
+            "lon": 100.29009
+          },
+          {
+            "stop_id": "12001376",
+            "stop_name": "Jalan Sempadan",
+            "lat": 5.40766,
+            "lon": 100.28867
+          },
+          {
+            "stop_id": "12001375",
+            "stop_name": "Pejabat Pos Padang Tembak",
+            "lat": 5.4069400000000005,
+            "lon": 100.2884
+          },
+          {
+            "stop_id": "12001374",
+            "stop_name": "Nasi Kandar Salam",
+            "lat": 5.405191,
+            "lon": 100.28876
+          },
+          {
+            "stop_id": "12000060",
+            "stop_name": "Public Bank Air Putih",
+            "lat": 5.40431,
+            "lon": 100.28701
+          },
+          {
+            "stop_id": "12000064",
+            "stop_name": "Maybank Air Itam",
+            "lat": 5.40482,
+            "lon": 100.28426999999999
+          },
+          {
+            "stop_id": "12000062",
+            "stop_name": "SRJK Kong Min Pusat",
+            "lat": 5.40454,
+            "lon": 100.28109
+          },
+          {
+            "stop_id": "12000058",
+            "stop_name": "Pejabat Pos Ayer Itam",
+            "lat": 5.4038,
+            "lon": 100.27982
+          },
+          {
+            "stop_id": "12000057",
+            "stop_name": "Pekan Air Itam",
+            "lat": 5.40182,
+            "lon": 100.27837
+          },
+          {
+            "stop_id": "12001036",
+            "stop_name": "Klinik Desa Paya Terubong.",
+            "lat": 5.39799,
+            "lon": 100.27734
+          },
+          {
+            "stop_id": "12002289",
+            "stop_name": "SRJK Kong Min",
+            "lat": 5.39503,
+            "lon": 100.27676
+          },
+          {
+            "stop_id": "12001031",
+            "stop_name": "Desa Permata",
+            "lat": 5.39341,
+            "lon": 100.27625
+          },
+          {
+            "stop_id": "12001028",
+            "stop_name": "Ruby Court",
+            "lat": 5.39133,
+            "lon": 100.27552
+          },
+          {
+            "stop_id": "12001027",
+            "stop_name": "Pangsapuri Wisma Indah",
+            "lat": 5.38804,
+            "lon": 100.27461
+          },
+          {
+            "stop_id": "12001025",
+            "stop_name": "JKR Paya Terubong",
+            "lat": 5.38604,
+            "lon": 100.27467
+          },
+          {
+            "stop_id": "12001022",
+            "stop_name": "Paya Terubong Cemetery",
+            "lat": 5.38044,
+            "lon": 100.27504
+          },
+          {
+            "stop_id": "12002290",
+            "stop_name": "Pekan Paya Terubong",
+            "lat": 5.3787,
+            "lon": 100.27488000000001
+          },
+          {
+            "stop_id": "12001021",
+            "stop_name": "Oriental Garden",
+            "lat": 5.3757,
+            "lon": 100.27586
+          },
+          {
+            "stop_id": "12001019",
+            "stop_name": "Surau Al Muttaqin",
+            "lat": 5.37176,
+            "lon": 100.27534
+          },
+          {
+            "stop_id": "12002102",
+            "stop_name": "(M2) Tingkat Paya Terubong4",
+            "lat": 5.36975,
+            "lon": 100.27547
+          },
+          {
+            "stop_id": "12002099",
+            "stop_name": "Tingkat Paya Terubong 2 - 1",
+            "lat": 5.37092,
+            "lon": 100.2774
+          },
+          {
+            "stop_id": "12002100",
+            "stop_name": "Tingkat Paya Terubong 2 - 2",
+            "lat": 5.37184,
+            "lon": 100.27757
+          },
+          {
+            "stop_id": "12002101",
+            "stop_name": "Tingkat Paya Terubong 2 - 3",
+            "lat": 5.37357,
+            "lon": 100.27785
+          },
+          {
+            "stop_id": "12001019",
+            "stop_name": "Surau Al Muttaqin",
+            "lat": 5.37176,
+            "lon": 100.27534
+          },
+          {
+            "stop_id": "12001018",
+            "stop_name": "(M1) Hub Paya Terubong - Petronas",
+            "lat": 5.371595,
+            "lon": 100.274925
+          }
+        ]
       }
     ]
   },
@@ -6521,7 +6828,7 @@
       },
       {
         "direction_id": 0,
-        "shape_id": "1000000999",
+        "shape_id": "1000000895",
         "route_long_name": "SG.NIBONG - GERTAK SANGGUL",
         "stops": [
           {
@@ -6555,10 +6862,10 @@
             "lon": 100.30504659999998
           },
           {
-            "stop_id": "12003137",
-            "stop_name": "Jalan Sungai Dua II",
-            "lat": 5.354289,
-            "lon": 100.3054
+            "stop_id": "12002990",
+            "stop_name": "Jalan Sungai Dua",
+            "lat": 5.3540041,
+            "lon": 100.30608459999999
           },
           {
             "stop_id": "12001505",
@@ -8393,7 +8700,7 @@
       },
       {
         "direction_id": 0,
-        "shape_id": "1000000996",
+        "shape_id": "1000000994",
         "route_long_name": "JETI - RELAU",
         "stops": [
           {
@@ -8577,10 +8884,10 @@
             "lon": 100.31125
           },
           {
-            "stop_id": "12003137",
-            "stop_name": "Jalan Sungai Dua II",
-            "lat": 5.354289,
-            "lon": 100.3054
+            "stop_id": "12002990",
+            "stop_name": "Jalan Sungai Dua",
+            "lat": 5.3540041,
+            "lon": 100.30608459999999
           },
           {
             "stop_id": "12001505",
@@ -9998,7 +10305,7 @@
           },
           {
             "stop_id": "12000831",
-            "stop_name": "Hotel Red Rock",
+            "stop_name": "Ayam Garam Macalister",
             "lat": 5.41718,
             "lon": 100.32225
           },
@@ -11671,8 +11978,321 @@
     "route_short_name": "401E",
     "directions": [
       {
+        "direction_id": 0,
+        "shape_id": "1000000899",
+        "route_long_name": "JETI - BLK.PULAU (EKS)",
+        "stops": [
+          {
+            "stop_id": "12002113",
+            "stop_name": "(M1) JETTY A",
+            "lat": 5.414174,
+            "lon": 100.3422281
+          },
+          {
+            "stop_id": "12000003",
+            "stop_name": "Flat Lebuh Noordin",
+            "lat": 5.41115,
+            "lon": 100.33395
+          },
+          {
+            "stop_id": "12002116",
+            "stop_name": "Terminal Komtar",
+            "lat": 5.4141808,
+            "lon": 100.33031319999999
+          },
+          {
+            "stop_id": "12000474",
+            "stop_name": "Komtar Timur",
+            "lat": 5.414579,
+            "lon": 100.33229
+          },
+          {
+            "stop_id": "12001987",
+            "stop_name": "Flat Macallum",
+            "lat": 5.40704,
+            "lon": 100.33189
+          },
+          {
+            "stop_id": "12001986",
+            "stop_name": "Mutiara Height",
+            "lat": 5.3882639999999995,
+            "lon": 100.31889
+          },
+          {
+            "stop_id": "12001984",
+            "stop_name": "Jabatan Laut Wilayah Utara",
+            "lat": 5.37344,
+            "lon": 100.31519
+          },
+          {
+            "stop_id": "12001982",
+            "stop_name": "The Light",
+            "lat": 5.36838,
+            "lon": 100.31424
+          },
+          {
+            "stop_id": "12001981",
+            "stop_name": "Batu Uban Highway",
+            "lat": 5.351251,
+            "lon": 100.30986
+          },
+          {
+            "stop_id": "12002068",
+            "stop_name": "Jeti Pulau Jerejak",
+            "lat": 5.34299,
+            "lon": 100.31141
+          },
+          {
+            "stop_id": "12002064",
+            "stop_name": "Gold Coast Kondominium",
+            "lat": 5.339738,
+            "lon": 100.30965
+          },
+          {
+            "stop_id": "12002303",
+            "stop_name": "KWSP Queensbay",
+            "lat": 5.33692,
+            "lon": 100.30844
+          },
+          {
+            "stop_id": "12002059",
+            "stop_name": "Queensbay Mall",
+            "lat": 5.331947,
+            "lon": 100.30790999999999
+          },
+          {
+            "stop_id": "12002483",
+            "stop_name": "Krystal Point Corporate Park",
+            "lat": 5.33108,
+            "lon": 100.297092
+          },
+          {
+            "stop_id": "12001843",
+            "stop_name": "Kompleks Bukit Jambul II",
+            "lat": 5.33242,
+            "lon": 100.29099000000001
+          },
+          {
+            "stop_id": "12001844",
+            "stop_name": "Masjid Al- Ittifaq",
+            "lat": 5.33245,
+            "lon": 100.28696
+          },
+          {
+            "stop_id": "12001841",
+            "stop_name": "Sungai Nibong Kecil",
+            "lat": 5.331930000000001,
+            "lon": 100.28465
+          },
+          {
+            "stop_id": "12001838",
+            "stop_name": "SPICE",
+            "lat": 5.33071,
+            "lon": 100.28059
+          },
+          {
+            "stop_id": "12000852",
+            "stop_name": "SPICE Canopy",
+            "lat": 5.32785,
+            "lon": 100.27905
+          },
+          {
+            "stop_id": "12000850",
+            "stop_name": "I Avenue",
+            "lat": 5.32716,
+            "lon": 100.28524
+          },
+          {
+            "stop_id": "12000887",
+            "stop_name": "Sunshine Square",
+            "lat": 5.3255300000000005,
+            "lon": 100.28769
+          },
+          {
+            "stop_id": "12000880",
+            "stop_name": "Pasaraya Giant",
+            "lat": 5.32101,
+            "lon": 100.28599
+          },
+          {
+            "stop_id": "12001801",
+            "stop_name": "Jalan Tengah",
+            "lat": 5.3190599999999995,
+            "lon": 100.28724
+          },
+          {
+            "stop_id": "12001426",
+            "stop_name": "Snake Temple",
+            "lat": 5.31388,
+            "lon": 100.28609
+          },
+          {
+            "stop_id": "12001424",
+            "stop_name": "Kilang Clarion",
+            "lat": 5.30821,
+            "lon": 100.28236
+          },
+          {
+            "stop_id": "12001420",
+            "stop_name": "Sungai Tiram",
+            "lat": 5.30216,
+            "lon": 100.2761
+          },
+          {
+            "stop_id": "12001419",
+            "stop_name": "Chung Shan Chinese School",
+            "lat": 5.29816,
+            "lon": 100.27025
+          },
+          {
+            "stop_id": "12002211",
+            "stop_name": "(M1) Lapangan Terbang Antarabangsa Pulau Pinang",
+            "lat": 5.292606,
+            "lon": 100.2648269
+          },
+          {
+            "stop_id": "12002254",
+            "stop_name": "Apartment Bayan Permai",
+            "lat": 5.29525,
+            "lon": 100.26250999999999
+          },
+          {
+            "stop_id": "12002255",
+            "stop_name": "Pekan Bayan Lepas",
+            "lat": 5.29411,
+            "lon": 100.25771999999999
+          },
+          {
+            "stop_id": "12002305",
+            "stop_name": "Saujana Height",
+            "lat": 5.291580000000001,
+            "lon": 100.25035
+          },
+          {
+            "stop_id": "12002306",
+            "stop_name": "Teluk Kumbar Height",
+            "lat": 5.28865,
+            "lon": 100.2473
+          },
+          {
+            "stop_id": "12001771",
+            "stop_name": "Masjid Sungai Batu",
+            "lat": 5.28632,
+            "lon": 100.241
+          },
+          {
+            "stop_id": "12001772",
+            "stop_name": "Flat Taman Emas Sungai Batu",
+            "lat": 5.2864,
+            "lon": 100.23682
+          },
+          {
+            "stop_id": "12002307",
+            "stop_name": "Pekan Teluk Kumbar",
+            "lat": 5.28745,
+            "lon": 100.23263
+          },
+          {
+            "stop_id": "12001782",
+            "stop_name": "SK Teluk Kumbar",
+            "lat": 5.29114,
+            "lon": 100.23249
+          },
+          {
+            "stop_id": "12002553",
+            "stop_name": "Bandar Baru Perda",
+            "lat": 5.293231,
+            "lon": 100.23228
+          },
+          {
+            "stop_id": "12001784",
+            "stop_name": "Hentian Kampung Bukit",
+            "lat": 5.29606,
+            "lon": 100.23228
+          },
+          {
+            "stop_id": "12001787",
+            "stop_name": "PUSPAKOM",
+            "lat": 5.30122,
+            "lon": 100.23174
+          },
+          {
+            "stop_id": "12002635",
+            "stop_name": "Bukit Genting",
+            "lat": 5.3156147,
+            "lon": 100.2258985
+          },
+          {
+            "stop_id": "12000141",
+            "stop_name": "Hub Pekan Genting",
+            "lat": 5.33336,
+            "lon": 100.21667
+          },
+          {
+            "stop_id": "12000143",
+            "stop_name": "SMK Pondok Upeh Balik Pulau",
+            "lat": 5.33659,
+            "lon": 100.22010999999999
+          },
+          {
+            "stop_id": "12000145",
+            "stop_name": "Masjid Daerah Balik Pulau",
+            "lat": 5.33861,
+            "lon": 100.2222
+          },
+          {
+            "stop_id": "12000146",
+            "stop_name": "IPD Barat Daya",
+            "lat": 5.34166,
+            "lon": 100.2254
+          },
+          {
+            "stop_id": "12000148",
+            "stop_name": "Taman Seri Indah",
+            "lat": 5.34345,
+            "lon": 100.22733000000001
+          },
+          {
+            "stop_id": "12002280",
+            "stop_name": "SK Kongsi",
+            "lat": 5.34657,
+            "lon": 100.2305
+          },
+          {
+            "stop_id": "12000138",
+            "stop_name": "Masjid Kongsi",
+            "lat": 5.348116,
+            "lon": 100.2321
+          },
+          {
+            "stop_id": "12000150",
+            "stop_name": "Pejabat Pos Balik Pulau",
+            "lat": 5.34925,
+            "lon": 100.23331
+          },
+          {
+            "stop_id": "12002281",
+            "stop_name": "AADK Pekan Kongsi",
+            "lat": 5.35041,
+            "lon": 100.23451
+          },
+          {
+            "stop_id": "12001886",
+            "stop_name": "SRJK Chong Teik",
+            "lat": 5.3512699999999995,
+            "lon": 100.23708
+          },
+          {
+            "stop_id": "12002115",
+            "stop_name": "Terminal Bas Balik Pulau",
+            "lat": 5.351447900000001,
+            "lon": 100.2398239
+          }
+        ]
+      },
+      {
         "direction_id": 1,
-        "shape_id": "1000001027",
+        "shape_id": "1000000988",
         "route_long_name": "BLK.PULAU - JETI (EKS)",
         "stops": [
           {
@@ -11982,6 +12602,12 @@
             "lon": 100.30986999999999
           },
           {
+            "stop_id": "12001983",
+            "stop_name": "The Light",
+            "lat": 5.3688,
+            "lon": 100.3139
+          },
+          {
             "stop_id": "12001988",
             "stop_name": "Tesco Tunku Kudin",
             "lat": 5.37429,
@@ -12010,6 +12636,18 @@
             "stop_name": "Komtar",
             "lat": 5.41378,
             "lon": 100.33094
+          },
+          {
+            "stop_id": "12001060",
+            "stop_name": "Komtar Utara",
+            "lat": 5.41513,
+            "lon": 100.32899
+          },
+          {
+            "stop_id": "12000474",
+            "stop_name": "Komtar Timur",
+            "lat": 5.414579,
+            "lon": 100.33229
           },
           {
             "stop_id": "12002056",
@@ -12052,313 +12690,6 @@
             "stop_name": "(M1) JETTY A",
             "lat": 5.414174,
             "lon": 100.3422281
-          }
-        ]
-      },
-      {
-        "direction_id": 0,
-        "shape_id": "1000001028",
-        "route_long_name": "JETI - BLK.PULAU (EKS)",
-        "stops": [
-          {
-            "stop_id": "12002113",
-            "stop_name": "(M1) JETTY A",
-            "lat": 5.414174,
-            "lon": 100.3422281
-          },
-          {
-            "stop_id": "12000003",
-            "stop_name": "Flat Lebuh Noordin",
-            "lat": 5.41115,
-            "lon": 100.33395
-          },
-          {
-            "stop_id": "12002116",
-            "stop_name": "Terminal Komtar",
-            "lat": 5.4141808,
-            "lon": 100.33031319999999
-          },
-          {
-            "stop_id": "12000474",
-            "stop_name": "Komtar Timur",
-            "lat": 5.414579,
-            "lon": 100.33229
-          },
-          {
-            "stop_id": "12001987",
-            "stop_name": "Flat Macallum",
-            "lat": 5.40704,
-            "lon": 100.33189
-          },
-          {
-            "stop_id": "12001986",
-            "stop_name": "Mutiara Height",
-            "lat": 5.3882639999999995,
-            "lon": 100.31889
-          },
-          {
-            "stop_id": "12001984",
-            "stop_name": "Jabatan Laut Wilayah Utara",
-            "lat": 5.37344,
-            "lon": 100.31519
-          },
-          {
-            "stop_id": "12001981",
-            "stop_name": "Batu Uban Highway",
-            "lat": 5.351251,
-            "lon": 100.30986
-          },
-          {
-            "stop_id": "12002068",
-            "stop_name": "Jeti Pulau Jerejak",
-            "lat": 5.34299,
-            "lon": 100.31141
-          },
-          {
-            "stop_id": "12002064",
-            "stop_name": "Gold Coast Kondominium",
-            "lat": 5.339738,
-            "lon": 100.30965
-          },
-          {
-            "stop_id": "12002303",
-            "stop_name": "KWSP Queensbay",
-            "lat": 5.33692,
-            "lon": 100.30844
-          },
-          {
-            "stop_id": "12002059",
-            "stop_name": "Queensbay Mall",
-            "lat": 5.331947,
-            "lon": 100.30790999999999
-          },
-          {
-            "stop_id": "12002483",
-            "stop_name": "Krystal Point Corporate Park",
-            "lat": 5.33108,
-            "lon": 100.297092
-          },
-          {
-            "stop_id": "12001843",
-            "stop_name": "Kompleks Bukit Jambul II",
-            "lat": 5.33242,
-            "lon": 100.29099000000001
-          },
-          {
-            "stop_id": "12001844",
-            "stop_name": "Masjid Al- Ittifaq",
-            "lat": 5.33245,
-            "lon": 100.28696
-          },
-          {
-            "stop_id": "12001841",
-            "stop_name": "Sungai Nibong Kecil",
-            "lat": 5.331930000000001,
-            "lon": 100.28465
-          },
-          {
-            "stop_id": "12001838",
-            "stop_name": "SPICE",
-            "lat": 5.33071,
-            "lon": 100.28059
-          },
-          {
-            "stop_id": "12000852",
-            "stop_name": "SPICE Canopy",
-            "lat": 5.32785,
-            "lon": 100.27905
-          },
-          {
-            "stop_id": "12000850",
-            "stop_name": "I Avenue",
-            "lat": 5.32716,
-            "lon": 100.28524
-          },
-          {
-            "stop_id": "12000887",
-            "stop_name": "Sunshine Square",
-            "lat": 5.3255300000000005,
-            "lon": 100.28769
-          },
-          {
-            "stop_id": "12000880",
-            "stop_name": "Pasaraya Giant",
-            "lat": 5.32101,
-            "lon": 100.28599
-          },
-          {
-            "stop_id": "12001801",
-            "stop_name": "Jalan Tengah",
-            "lat": 5.3190599999999995,
-            "lon": 100.28724
-          },
-          {
-            "stop_id": "12001426",
-            "stop_name": "Snake Temple",
-            "lat": 5.31388,
-            "lon": 100.28609
-          },
-          {
-            "stop_id": "12001424",
-            "stop_name": "Kilang Clarion",
-            "lat": 5.30821,
-            "lon": 100.28236
-          },
-          {
-            "stop_id": "12001420",
-            "stop_name": "Sungai Tiram",
-            "lat": 5.30216,
-            "lon": 100.2761
-          },
-          {
-            "stop_id": "12001419",
-            "stop_name": "Chung Shan Chinese School",
-            "lat": 5.29816,
-            "lon": 100.27025
-          },
-          {
-            "stop_id": "12002211",
-            "stop_name": "(M1) Lapangan Terbang Antarabangsa Pulau Pinang",
-            "lat": 5.292606,
-            "lon": 100.2648269
-          },
-          {
-            "stop_id": "12002254",
-            "stop_name": "Apartment Bayan Permai",
-            "lat": 5.29525,
-            "lon": 100.26250999999999
-          },
-          {
-            "stop_id": "12002255",
-            "stop_name": "Pekan Bayan Lepas",
-            "lat": 5.29411,
-            "lon": 100.25771999999999
-          },
-          {
-            "stop_id": "12002305",
-            "stop_name": "Saujana Height",
-            "lat": 5.291580000000001,
-            "lon": 100.25035
-          },
-          {
-            "stop_id": "12002306",
-            "stop_name": "Teluk Kumbar Height",
-            "lat": 5.28865,
-            "lon": 100.2473
-          },
-          {
-            "stop_id": "12001771",
-            "stop_name": "Masjid Sungai Batu",
-            "lat": 5.28632,
-            "lon": 100.241
-          },
-          {
-            "stop_id": "12001772",
-            "stop_name": "Flat Taman Emas Sungai Batu",
-            "lat": 5.2864,
-            "lon": 100.23682
-          },
-          {
-            "stop_id": "12002307",
-            "stop_name": "Pekan Teluk Kumbar",
-            "lat": 5.28745,
-            "lon": 100.23263
-          },
-          {
-            "stop_id": "12001782",
-            "stop_name": "SK Teluk Kumbar",
-            "lat": 5.29114,
-            "lon": 100.23249
-          },
-          {
-            "stop_id": "12002553",
-            "stop_name": "Bandar Baru Perda",
-            "lat": 5.293231,
-            "lon": 100.23228
-          },
-          {
-            "stop_id": "12001784",
-            "stop_name": "Hentian Kampung Bukit",
-            "lat": 5.29606,
-            "lon": 100.23228
-          },
-          {
-            "stop_id": "12001787",
-            "stop_name": "PUSPAKOM",
-            "lat": 5.30122,
-            "lon": 100.23174
-          },
-          {
-            "stop_id": "12002635",
-            "stop_name": "Bukit Genting",
-            "lat": 5.3156147,
-            "lon": 100.2258985
-          },
-          {
-            "stop_id": "12000141",
-            "stop_name": "Hub Pekan Genting",
-            "lat": 5.33336,
-            "lon": 100.21667
-          },
-          {
-            "stop_id": "12000143",
-            "stop_name": "SMK Pondok Upeh Balik Pulau",
-            "lat": 5.33659,
-            "lon": 100.22010999999999
-          },
-          {
-            "stop_id": "12000145",
-            "stop_name": "Masjid Daerah Balik Pulau",
-            "lat": 5.33861,
-            "lon": 100.2222
-          },
-          {
-            "stop_id": "12000146",
-            "stop_name": "IPD Barat Daya",
-            "lat": 5.34166,
-            "lon": 100.2254
-          },
-          {
-            "stop_id": "12000148",
-            "stop_name": "Taman Seri Indah",
-            "lat": 5.34345,
-            "lon": 100.22733000000001
-          },
-          {
-            "stop_id": "12002280",
-            "stop_name": "SK Kongsi",
-            "lat": 5.34657,
-            "lon": 100.2305
-          },
-          {
-            "stop_id": "12000138",
-            "stop_name": "Masjid Kongsi",
-            "lat": 5.348116,
-            "lon": 100.2321
-          },
-          {
-            "stop_id": "12000150",
-            "stop_name": "Pejabat Pos Balik Pulau",
-            "lat": 5.34925,
-            "lon": 100.23331
-          },
-          {
-            "stop_id": "12002281",
-            "stop_name": "AADK Pekan Kongsi",
-            "lat": 5.35041,
-            "lon": 100.23451
-          },
-          {
-            "stop_id": "12001886",
-            "stop_name": "SRJK Chong Teik",
-            "lat": 5.3512699999999995,
-            "lon": 100.23708
-          },
-          {
-            "stop_id": "12002115",
-            "stop_name": "Terminal Bas Balik Pulau",
-            "lat": 5.351447900000001,
-            "lon": 100.2398239
           }
         ]
       }
@@ -16490,7 +16821,7 @@
     "directions": [
       {
         "direction_id": 1,
-        "shape_id": "1000001030",
+        "shape_id": "1000000926",
         "route_long_name": "JUNJUNG - BM",
         "stops": [
           {
@@ -16710,10 +17041,10 @@
             "lon": 100.48397
           },
           {
-            "stop_id": "12002584",
+            "stop_id": "12002588",
             "stop_name": "Taman Selesa",
-            "lat": 5.329199,
-            "lon": 100.481967
+            "lat": 5.3292507,
+            "lon": 100.4820585
           },
           {
             "stop_id": "12000045",
@@ -19348,7 +19679,7 @@
     "directions": [
       {
         "direction_id": 0,
-        "shape_id": "1000001029",
+        "shape_id": "1000001033",
         "route_long_name": "PENANG FREE CAT BUS",
         "stops": [
           {
@@ -19356,12 +19687,6 @@
             "stop_name": "Jetty",
             "lat": 5.414445300000001,
             "lon": 100.3420128
-          },
-          {
-            "stop_id": "12001944",
-            "stop_name": "Bank OCBC",
-            "lat": 5.4168400000000005,
-            "lon": 100.34156999999999
           },
           {
             "stop_id": "12001943",
@@ -20655,7 +20980,7 @@
     "directions": [
       {
         "direction_id": 1,
-        "shape_id": "1000001031",
+        "shape_id": "1000000931",
         "route_long_name": "SG.PETANI - B'WORTH",
         "stops": [
           {
@@ -20669,6 +20994,12 @@
             "stop_name": "Stesen KTM",
             "lat": 5.64269,
             "lon": 100.49056999999999
+          },
+          {
+            "stop_id": "12000541",
+            "stop_name": "Pusat Bandar",
+            "lat": 5.64414,
+            "lon": 100.48924
           },
           {
             "stop_id": "12001291",
@@ -20734,7 +21065,7 @@
       },
       {
         "direction_id": 0,
-        "shape_id": "1000001032",
+        "shape_id": "1000000930",
         "route_long_name": "B'WORTH - SG.PETANI",
         "stops": [
           {
@@ -20778,6 +21109,12 @@
             "stop_name": "(M2) Terminal Jalan Petri",
             "lat": 5.6397699999999995,
             "lon": 100.48807
+          },
+          {
+            "stop_id": "12002502",
+            "stop_name": "Dataran Jam Besar Sg.Petani",
+            "lat": 5.643604,
+            "lon": 100.488968
           },
           {
             "stop_id": "12002981",
@@ -22871,163 +23208,6 @@
     "route_short_name": "703",
     "directions": [
       {
-        "direction_id": 0,
-        "shape_id": "1000000920",
-        "route_long_name": "PG SENTRAL - SEBERANG JAYA",
-        "stops": [
-          {
-            "stop_id": "12002322",
-            "stop_name": "(M1) Penang Sentral",
-            "lat": 5.3948602,
-            "lon": 100.3653495
-          },
-          {
-            "stop_id": "12000910",
-            "stop_name": "SMK Convent Butterworth",
-            "lat": 5.39717,
-            "lon": 100.36851999999999
-          },
-          {
-            "stop_id": "12000913",
-            "stop_name": "Taman Mewah",
-            "lat": 5.3985,
-            "lon": 100.37189000000001
-          },
-          {
-            "stop_id": "12000396",
-            "stop_name": "Stor TNB",
-            "lat": 5.40036,
-            "lon": 100.37676
-          },
-          {
-            "stop_id": "12000397",
-            "stop_name": "Pusat Perniagaan Chain Ferry",
-            "lat": 5.40153,
-            "lon": 100.37983
-          },
-          {
-            "stop_id": "12000398",
-            "stop_name": "Pusat Perniagaan Chain Ferry II",
-            "lat": 5.40255,
-            "lon": 100.38273000000001
-          },
-          {
-            "stop_id": "12000395",
-            "stop_name": "Taman Chai Leng I",
-            "lat": 5.39042,
-            "lon": 100.38924
-          },
-          {
-            "stop_id": "12000394",
-            "stop_name": "Taman Chai Leng II",
-            "lat": 5.38813,
-            "lon": 100.38871
-          },
-          {
-            "stop_id": "12000192",
-            "stop_name": "Taman Chai Leng",
-            "lat": 5.38361,
-            "lon": 100.38968
-          },
-          {
-            "stop_id": "12000191",
-            "stop_name": "Kompleks Chai Leng Park",
-            "lat": 5.38194,
-            "lon": 100.39278
-          },
-          {
-            "stop_id": "12000190",
-            "stop_name": "(M3) GEM Megamall",
-            "lat": 5.38052,
-            "lon": 100.39569
-          },
-          {
-            "stop_id": "12001067",
-            "stop_name": "(M2) Megamall - Pacific",
-            "lat": 5.37879,
-            "lon": 100.39794
-          },
-          {
-            "stop_id": "12001877",
-            "stop_name": "Masjid Seberang Jaya",
-            "lat": 5.38675,
-            "lon": 100.40491
-          },
-          {
-            "stop_id": "12001878",
-            "stop_name": "Pangsapuri B3",
-            "lat": 5.390969999999999,
-            "lon": 100.40536
-          },
-          {
-            "stop_id": "12001880",
-            "stop_name": "Pangsapuri A1",
-            "lat": 5.39331,
-            "lon": 100.40557
-          },
-          {
-            "stop_id": "12001995",
-            "stop_name": "Pangsapuri RPKN",
-            "lat": 5.39495,
-            "lon": 100.40434
-          },
-          {
-            "stop_id": "12002020",
-            "stop_name": "Pangsapuri D18",
-            "lat": 5.39595,
-            "lon": 100.40404000000001
-          },
-          {
-            "stop_id": "12001953",
-            "stop_name": "Kastam Seberang Jaya",
-            "lat": 5.39465,
-            "lon": 100.4
-          },
-          {
-            "stop_id": "12002647",
-            "stop_name": "(M2) Pasar Seberang Jaya",
-            "lat": 5.3950938,
-            "lon": 100.39699540000001
-          },
-          {
-            "stop_id": "12002989",
-            "stop_name": "Sunway Carnival Mall",
-            "lat": 5.398755,
-            "lon": 100.398741
-          },
-          {
-            "stop_id": "12001830",
-            "stop_name": "Prudential",
-            "lat": 5.39674,
-            "lon": 100.39963
-          },
-          {
-            "stop_id": "12002647",
-            "stop_name": "(M2) Pasar Seberang Jaya",
-            "lat": 5.3950938,
-            "lon": 100.39699540000001
-          },
-          {
-            "stop_id": "12001994",
-            "stop_name": "Taman Sembilang",
-            "lat": 5.403,
-            "lon": 100.39864
-          },
-          {
-            "stop_id": "12002091",
-            "stop_name": "Dewan JKKK",
-            "lat": 5.40415,
-            "lon": 100.40063
-          },
-          {
-            "stop_id": "12002093",
-            "stop_name": "Tesco Extra",
-            "lat": 5.40595,
-            "lon": 100.40420999999999
-          }
-        ]
-      },
-      {
         "direction_id": 1,
         "shape_id": "1000000921",
         "route_long_name": "SEBERANG JAYA - PENANG SENTRAL",
@@ -23235,6 +23415,163 @@
             "stop_name": "(M1) Penang Sentral",
             "lat": 5.3948602,
             "lon": 100.3653495
+          }
+        ]
+      },
+      {
+        "direction_id": 0,
+        "shape_id": "1000000920",
+        "route_long_name": "PG SENTRAL - SEBERANG JAYA",
+        "stops": [
+          {
+            "stop_id": "12002322",
+            "stop_name": "(M1) Penang Sentral",
+            "lat": 5.3948602,
+            "lon": 100.3653495
+          },
+          {
+            "stop_id": "12000910",
+            "stop_name": "SMK Convent Butterworth",
+            "lat": 5.39717,
+            "lon": 100.36851999999999
+          },
+          {
+            "stop_id": "12000913",
+            "stop_name": "Taman Mewah",
+            "lat": 5.3985,
+            "lon": 100.37189000000001
+          },
+          {
+            "stop_id": "12000396",
+            "stop_name": "Stor TNB",
+            "lat": 5.40036,
+            "lon": 100.37676
+          },
+          {
+            "stop_id": "12000397",
+            "stop_name": "Pusat Perniagaan Chain Ferry",
+            "lat": 5.40153,
+            "lon": 100.37983
+          },
+          {
+            "stop_id": "12000398",
+            "stop_name": "Pusat Perniagaan Chain Ferry II",
+            "lat": 5.40255,
+            "lon": 100.38273000000001
+          },
+          {
+            "stop_id": "12000395",
+            "stop_name": "Taman Chai Leng I",
+            "lat": 5.39042,
+            "lon": 100.38924
+          },
+          {
+            "stop_id": "12000394",
+            "stop_name": "Taman Chai Leng II",
+            "lat": 5.38813,
+            "lon": 100.38871
+          },
+          {
+            "stop_id": "12000192",
+            "stop_name": "Taman Chai Leng",
+            "lat": 5.38361,
+            "lon": 100.38968
+          },
+          {
+            "stop_id": "12000191",
+            "stop_name": "Kompleks Chai Leng Park",
+            "lat": 5.38194,
+            "lon": 100.39278
+          },
+          {
+            "stop_id": "12000190",
+            "stop_name": "(M3) GEM Megamall",
+            "lat": 5.38052,
+            "lon": 100.39569
+          },
+          {
+            "stop_id": "12001067",
+            "stop_name": "(M2) Megamall - Pacific",
+            "lat": 5.37879,
+            "lon": 100.39794
+          },
+          {
+            "stop_id": "12001877",
+            "stop_name": "Masjid Seberang Jaya",
+            "lat": 5.38675,
+            "lon": 100.40491
+          },
+          {
+            "stop_id": "12001878",
+            "stop_name": "Pangsapuri B3",
+            "lat": 5.390969999999999,
+            "lon": 100.40536
+          },
+          {
+            "stop_id": "12001880",
+            "stop_name": "Pangsapuri A1",
+            "lat": 5.39331,
+            "lon": 100.40557
+          },
+          {
+            "stop_id": "12001995",
+            "stop_name": "Pangsapuri RPKN",
+            "lat": 5.39495,
+            "lon": 100.40434
+          },
+          {
+            "stop_id": "12002020",
+            "stop_name": "Pangsapuri D18",
+            "lat": 5.39595,
+            "lon": 100.40404000000001
+          },
+          {
+            "stop_id": "12001953",
+            "stop_name": "Kastam Seberang Jaya",
+            "lat": 5.39465,
+            "lon": 100.4
+          },
+          {
+            "stop_id": "12002647",
+            "stop_name": "(M2) Pasar Seberang Jaya",
+            "lat": 5.3950938,
+            "lon": 100.39699540000001
+          },
+          {
+            "stop_id": "12002989",
+            "stop_name": "Sunway Carnival Mall",
+            "lat": 5.398755,
+            "lon": 100.398741
+          },
+          {
+            "stop_id": "12001830",
+            "stop_name": "Prudential",
+            "lat": 5.39674,
+            "lon": 100.39963
+          },
+          {
+            "stop_id": "12002647",
+            "stop_name": "(M2) Pasar Seberang Jaya",
+            "lat": 5.3950938,
+            "lon": 100.39699540000001
+          },
+          {
+            "stop_id": "12001994",
+            "stop_name": "Taman Sembilang",
+            "lat": 5.403,
+            "lon": 100.39864
+          },
+          {
+            "stop_id": "12002091",
+            "stop_name": "Dewan JKKK",
+            "lat": 5.40415,
+            "lon": 100.40063
+          },
+          {
+            "stop_id": "12002093",
+            "stop_name": "Tesco Extra",
+            "lat": 5.40595,
+            "lon": 100.40420999999999
           }
         ]
       }
@@ -23890,8 +24227,8 @@
     "directions": [
       {
         "direction_id": 0,
-        "shape_id": "1000000943",
-        "route_long_name": "CAT BRIDGE - FIZ 1.2.3",
+        "shape_id": "1000000945",
+        "route_long_name": "CAT BRIDGE : SUNWAY S.JAYA - BAYAN BARU",
         "stops": [
           {
             "stop_id": "12002530",
@@ -23996,174 +24333,6 @@
             "lon": 100.28050999999999
           },
           {
-            "stop_id": "12000882",
-            "stop_name": "Masjid Bayan Baru",
-            "lat": 5.323671,
-            "lon": 100.28688000000001
-          },
-          {
-            "stop_id": "12000885",
-            "stop_name": "Sunshine Square",
-            "lat": 5.325499,
-            "lon": 100.2875
-          },
-          {
-            "stop_id": "12000849",
-            "stop_name": "Jalan Mahsuri",
-            "lat": 5.32695,
-            "lon": 100.28878
-          },
-          {
-            "stop_id": "12001933",
-            "stop_name": "Mapa Glove",
-            "lat": 5.327569,
-            "lon": 100.29807
-          },
-          {
-            "stop_id": "12000014",
-            "stop_name": "GUH Holdings",
-            "lat": 5.328583,
-            "lon": 100.30004
-          },
-          {
-            "stop_id": "12000013",
-            "stop_name": "Intel PG12",
-            "lat": 5.328467,
-            "lon": 100.30004
-          },
-          {
-            "stop_id": "12001931",
-            "stop_name": "Intel",
-            "lat": 5.3272639999999996,
-            "lon": 100.29819
-          },
-          {
-            "stop_id": "12001930",
-            "stop_name": "ISO Tech",
-            "lat": 5.323867,
-            "lon": 100.29717
-          },
-          {
-            "stop_id": "12002094",
-            "stop_name": "AMD",
-            "lat": 5.322736,
-            "lon": 100.29578000000001
-          },
-          {
-            "stop_id": "12002011",
-            "stop_name": "Western Digital",
-            "lat": 5.322353,
-            "lon": 100.29368000000001
-          },
-          {
-            "stop_id": "12002095",
-            "stop_name": "TPC (M) Sdn. Bhd.",
-            "lat": 5.321028,
-            "lon": 100.29422
-          },
-          {
-            "stop_id": "12001961",
-            "stop_name": "Knowles Electronics",
-            "lat": 5.312894,
-            "lon": 100.298615
-          },
-          {
-            "stop_id": "12001963",
-            "stop_name": "Cincaria Sdn. Bhd",
-            "lat": 5.314344,
-            "lon": 100.29616
-          },
-          {
-            "stop_id": "12001965",
-            "stop_name": "Plexus Riverside",
-            "lat": 5.3169,
-            "lon": 100.2962
-          },
-          {
-            "stop_id": "12001967",
-            "stop_name": "UTIC Service",
-            "lat": 5.318922,
-            "lon": 100.29341
-          },
-          {
-            "stop_id": "12001968",
-            "stop_name": "PSDC",
-            "lat": 5.320034,
-            "lon": 100.29091
-          },
-          {
-            "stop_id": "12001426",
-            "stop_name": "Snake Temple",
-            "lat": 5.31388,
-            "lon": 100.28609
-          },
-          {
-            "stop_id": "12001424",
-            "stop_name": "Kilang Clarion",
-            "lat": 5.30821,
-            "lon": 100.28236
-          },
-          {
-            "stop_id": "12000874",
-            "stop_name": "Dynacraft Industries",
-            "lat": 5.305075,
-            "lon": 100.27721
-          },
-          {
-            "stop_id": "12000875",
-            "stop_name": "Towa (M) Sdn. Bhd.",
-            "lat": 5.306497,
-            "lon": 100.27693000000001
-          },
-          {
-            "stop_id": "12001952",
-            "stop_name": "B. Braun",
-            "lat": 5.312558,
-            "lon": 100.28348000000001
-          },
-          {
-            "stop_id": "12001950",
-            "stop_name": "Renesas",
-            "lat": 5.311275,
-            "lon": 100.28414000000001
-          },
-          {
-            "stop_id": "12001949",
-            "stop_name": "B. Braun 2",
-            "lat": 5.309194000000001,
-            "lon": 100.28263000000001
-          },
-          {
-            "stop_id": "12002043",
-            "stop_name": "B. Braun Medical",
-            "lat": 5.309883,
-            "lon": 100.28114000000001
-          },
-          {
-            "stop_id": "12002044",
-            "stop_name": "Plexus Hillside",
-            "lat": 5.312353,
-            "lon": 100.2828
-          },
-          {
-            "stop_id": "12000876",
-            "stop_name": "Astaka Bukit Gedung",
-            "lat": 5.31614,
-            "lon": 100.28407
-          },
-          {
-            "stop_id": "12002317",
-            "stop_name": "Pangsapuri Mayang",
-            "lat": 5.31838,
-            "lon": 100.28491
-          },
-          {
-            "stop_id": "12001803",
-            "stop_name": "SMK Raja Tun uda",
-            "lat": 5.32036,
-            "lon": 100.28318
-          },
-          {
             "stop_id": "12002974",
             "stop_name": "Terminal Bas Bayan Baru",
             "lat": 5.3269589999999996,
@@ -24223,988 +24392,6 @@
             "stop_name": "Krystal Point Corporate Park",
             "lat": 5.330701,
             "lon": 100.298996
-          },
-          {
-            "stop_id": "12002059",
-            "stop_name": "Queensbay Mall",
-            "lat": 5.331947,
-            "lon": 100.30790999999999
-          },
-          {
-            "stop_id": "12002063",
-            "stop_name": "Bay Garden",
-            "lat": 5.336976,
-            "lon": 100.308266
-          },
-          {
-            "stop_id": "12002066",
-            "stop_name": "Putra Place",
-            "lat": 5.339915,
-            "lon": 100.30946
-          },
-          {
-            "stop_id": "12002069",
-            "stop_name": "Jeti Pulau Jerejak",
-            "lat": 5.34301,
-            "lon": 100.31121999999999
-          },
-          {
-            "stop_id": "12001989",
-            "stop_name": "E-Park Kondominium",
-            "lat": 5.352093,
-            "lon": 100.30986999999999
-          },
-          {
-            "stop_id": "12002109",
-            "stop_name": "Jambatan Pulau Pinang",
-            "lat": 5.356566,
-            "lon": 100.39229
-          },
-          {
-            "stop_id": "12001067",
-            "stop_name": "(M2) Megamall - Pacific",
-            "lat": 5.37879,
-            "lon": 100.39794
-          },
-          {
-            "stop_id": "12001877",
-            "stop_name": "Masjid Seberang Jaya",
-            "lat": 5.38675,
-            "lon": 100.40491
-          },
-          {
-            "stop_id": "12001878",
-            "stop_name": "Pangsapuri B3",
-            "lat": 5.390969999999999,
-            "lon": 100.40536
-          },
-          {
-            "stop_id": "12001880",
-            "stop_name": "Pangsapuri A1",
-            "lat": 5.39331,
-            "lon": 100.40557
-          },
-          {
-            "stop_id": "12001830",
-            "stop_name": "Prudential",
-            "lat": 5.39674,
-            "lon": 100.39963
-          },
-          {
-            "stop_id": "12002530",
-            "stop_name": "Hotel Blanket",
-            "lat": 5.3948529999999995,
-            "lon": 100.40001
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "route_id": "30000103",
-    "route_short_name": "C13A",
-    "directions": [
-      {
-        "direction_id": 0,
-        "shape_id": "1000000949",
-        "route_long_name": "SUNWAY S.JAYA - FIZ 1. 2 & 3",
-        "stops": [
-          {
-            "stop_id": "12002530",
-            "stop_name": "Hotel Blanket",
-            "lat": 5.3948529999999995,
-            "lon": 100.40001
-          },
-          {
-            "stop_id": "12001809",
-            "stop_name": "Pasar Awam",
-            "lat": 5.3929800000000006,
-            "lon": 100.4016
-          },
-          {
-            "stop_id": "12001388",
-            "stop_name": "SP Arena",
-            "lat": 5.38636,
-            "lon": 100.40236
-          },
-          {
-            "stop_id": "12002994",
-            "stop_name": "Taman Tun Hussein Onn",
-            "lat": 5.3861454,
-            "lon": 100.4057448
-          },
-          {
-            "stop_id": "12001067",
-            "stop_name": "(M2) Megamall - Pacific",
-            "lat": 5.37879,
-            "lon": 100.39794
-          },
-          {
-            "stop_id": "12002108",
-            "stop_name": "Jambatan Pulau Pinang",
-            "lat": 5.355802,
-            "lon": 100.39232
-          },
-          {
-            "stop_id": "12001981",
-            "stop_name": "Batu Uban Highway",
-            "lat": 5.351251,
-            "lon": 100.30986
-          },
-          {
-            "stop_id": "12002068",
-            "stop_name": "Jeti Pulau Jerejak",
-            "lat": 5.34299,
-            "lon": 100.31141
-          },
-          {
-            "stop_id": "12002064",
-            "stop_name": "Gold Coast Kondominium",
-            "lat": 5.339738,
-            "lon": 100.30965
-          },
-          {
-            "stop_id": "12002303",
-            "stop_name": "KWSP Queensbay",
-            "lat": 5.33692,
-            "lon": 100.30844
-          },
-          {
-            "stop_id": "12002060",
-            "stop_name": "Hadapan Queensbay Mall",
-            "lat": 5.332325,
-            "lon": 100.30773
-          },
-          {
-            "stop_id": "12000607",
-            "stop_name": "Broadcom",
-            "lat": 5.3234580000000005,
-            "lon": 100.30109
-          },
-          {
-            "stop_id": "12000608",
-            "stop_name": "Esquel Group",
-            "lat": 5.323992,
-            "lon": 100.29932
-          },
-          {
-            "stop_id": "12001930",
-            "stop_name": "ISO Tech",
-            "lat": 5.323867,
-            "lon": 100.29717
-          },
-          {
-            "stop_id": "12002094",
-            "stop_name": "AMD",
-            "lat": 5.322736,
-            "lon": 100.29578000000001
-          },
-          {
-            "stop_id": "12002011",
-            "stop_name": "Western Digital",
-            "lat": 5.322353,
-            "lon": 100.29368000000001
-          },
-          {
-            "stop_id": "12002095",
-            "stop_name": "TPC (M) Sdn. Bhd.",
-            "lat": 5.321028,
-            "lon": 100.29422
-          },
-          {
-            "stop_id": "12001933",
-            "stop_name": "Mapa Glove",
-            "lat": 5.327569,
-            "lon": 100.29807
-          },
-          {
-            "stop_id": "12000014",
-            "stop_name": "GUH Holdings",
-            "lat": 5.328583,
-            "lon": 100.30004
-          },
-          {
-            "stop_id": "12000013",
-            "stop_name": "Intel PG12",
-            "lat": 5.328467,
-            "lon": 100.30004
-          },
-          {
-            "stop_id": "12001931",
-            "stop_name": "Intel",
-            "lat": 5.3272639999999996,
-            "lon": 100.29819
-          },
-          {
-            "stop_id": "12001961",
-            "stop_name": "Knowles Electronics",
-            "lat": 5.312894,
-            "lon": 100.298615
-          },
-          {
-            "stop_id": "12001963",
-            "stop_name": "Cincaria Sdn. Bhd",
-            "lat": 5.314344,
-            "lon": 100.29616
-          },
-          {
-            "stop_id": "12001965",
-            "stop_name": "Plexus Riverside",
-            "lat": 5.3169,
-            "lon": 100.2962
-          },
-          {
-            "stop_id": "12001967",
-            "stop_name": "UTIC Service",
-            "lat": 5.318922,
-            "lon": 100.29341
-          },
-          {
-            "stop_id": "12001968",
-            "stop_name": "PSDC",
-            "lat": 5.320034,
-            "lon": 100.29091
-          },
-          {
-            "stop_id": "12001426",
-            "stop_name": "Snake Temple",
-            "lat": 5.31388,
-            "lon": 100.28609
-          },
-          {
-            "stop_id": "12001424",
-            "stop_name": "Kilang Clarion",
-            "lat": 5.30821,
-            "lon": 100.28236
-          },
-          {
-            "stop_id": "12000874",
-            "stop_name": "Dynacraft Industries",
-            "lat": 5.305075,
-            "lon": 100.27721
-          },
-          {
-            "stop_id": "12000875",
-            "stop_name": "Towa (M) Sdn. Bhd.",
-            "lat": 5.306497,
-            "lon": 100.27693000000001
-          },
-          {
-            "stop_id": "12001952",
-            "stop_name": "B. Braun",
-            "lat": 5.312558,
-            "lon": 100.28348000000001
-          },
-          {
-            "stop_id": "12001950",
-            "stop_name": "Renesas",
-            "lat": 5.311275,
-            "lon": 100.28414000000001
-          },
-          {
-            "stop_id": "12002043",
-            "stop_name": "B. Braun Medical",
-            "lat": 5.309883,
-            "lon": 100.28114000000001
-          },
-          {
-            "stop_id": "12002044",
-            "stop_name": "Plexus Hillside",
-            "lat": 5.312353,
-            "lon": 100.2828
-          },
-          {
-            "stop_id": "12000876",
-            "stop_name": "Astaka Bukit Gedung",
-            "lat": 5.31614,
-            "lon": 100.28407
-          },
-          {
-            "stop_id": "12002317",
-            "stop_name": "Pangsapuri Mayang",
-            "lat": 5.31838,
-            "lon": 100.28491
-          },
-          {
-            "stop_id": "12001803",
-            "stop_name": "SMK Raja Tun uda",
-            "lat": 5.32036,
-            "lon": 100.28318
-          },
-          {
-            "stop_id": "12000851",
-            "stop_name": "(M2) Spice",
-            "lat": 5.32736,
-            "lon": 100.28050999999999
-          },
-          {
-            "stop_id": "12002974",
-            "stop_name": "Terminal Bas Bayan Baru",
-            "lat": 5.3269589999999996,
-            "lon": 100.2803228
-          }
-        ]
-      },
-      {
-        "direction_id": 1,
-        "shape_id": "1000000950",
-        "route_long_name": "FIZ 1. 2 & 3 - SUNWAY",
-        "stops": [
-          {
-            "stop_id": "12002974",
-            "stop_name": "Terminal Bas Bayan Baru",
-            "lat": 5.3269589999999996,
-            "lon": 100.2803228
-          },
-          {
-            "stop_id": "12000851",
-            "stop_name": "(M2) Spice",
-            "lat": 5.32736,
-            "lon": 100.28050999999999
-          },
-          {
-            "stop_id": "12001933",
-            "stop_name": "Mapa Glove",
-            "lat": 5.327569,
-            "lon": 100.29807
-          },
-          {
-            "stop_id": "12000014",
-            "stop_name": "GUH Holdings",
-            "lat": 5.328583,
-            "lon": 100.30004
-          },
-          {
-            "stop_id": "12000013",
-            "stop_name": "Intel PG12",
-            "lat": 5.328467,
-            "lon": 100.30004
-          },
-          {
-            "stop_id": "12001931",
-            "stop_name": "Intel",
-            "lat": 5.3272639999999996,
-            "lon": 100.29819
-          },
-          {
-            "stop_id": "12002094",
-            "stop_name": "AMD",
-            "lat": 5.322736,
-            "lon": 100.29578000000001
-          },
-          {
-            "stop_id": "12002011",
-            "stop_name": "Western Digital",
-            "lat": 5.322353,
-            "lon": 100.29368000000001
-          },
-          {
-            "stop_id": "12002095",
-            "stop_name": "TPC (M) Sdn. Bhd.",
-            "lat": 5.321028,
-            "lon": 100.29422
-          },
-          {
-            "stop_id": "12001961",
-            "stop_name": "Knowles Electronics",
-            "lat": 5.312894,
-            "lon": 100.298615
-          },
-          {
-            "stop_id": "12001963",
-            "stop_name": "Cincaria Sdn. Bhd",
-            "lat": 5.314344,
-            "lon": 100.29616
-          },
-          {
-            "stop_id": "12001965",
-            "stop_name": "Plexus Riverside",
-            "lat": 5.3169,
-            "lon": 100.2962
-          },
-          {
-            "stop_id": "12001967",
-            "stop_name": "UTIC Service",
-            "lat": 5.318922,
-            "lon": 100.29341
-          },
-          {
-            "stop_id": "12001968",
-            "stop_name": "PSDC",
-            "lat": 5.320034,
-            "lon": 100.29091
-          },
-          {
-            "stop_id": "12001426",
-            "stop_name": "Snake Temple",
-            "lat": 5.31388,
-            "lon": 100.28609
-          },
-          {
-            "stop_id": "12001424",
-            "stop_name": "Kilang Clarion",
-            "lat": 5.30821,
-            "lon": 100.28236
-          },
-          {
-            "stop_id": "12000874",
-            "stop_name": "Dynacraft Industries",
-            "lat": 5.305075,
-            "lon": 100.27721
-          },
-          {
-            "stop_id": "12000875",
-            "stop_name": "Towa (M) Sdn. Bhd.",
-            "lat": 5.306497,
-            "lon": 100.27693000000001
-          },
-          {
-            "stop_id": "12001952",
-            "stop_name": "B. Braun",
-            "lat": 5.312558,
-            "lon": 100.28348000000001
-          },
-          {
-            "stop_id": "12001951",
-            "stop_name": "Renesas",
-            "lat": 5.3113150000000005,
-            "lon": 100.28407
-          },
-          {
-            "stop_id": "12002043",
-            "stop_name": "B. Braun Medical",
-            "lat": 5.309883,
-            "lon": 100.28114000000001
-          },
-          {
-            "stop_id": "12002044",
-            "stop_name": "Plexus Hillside",
-            "lat": 5.312353,
-            "lon": 100.2828
-          },
-          {
-            "stop_id": "12000876",
-            "stop_name": "Astaka Bukit Gedung",
-            "lat": 5.31614,
-            "lon": 100.28407
-          },
-          {
-            "stop_id": "12002317",
-            "stop_name": "Pangsapuri Mayang",
-            "lat": 5.31838,
-            "lon": 100.28491
-          },
-          {
-            "stop_id": "12000879",
-            "stop_name": "Pasaraya Giant",
-            "lat": 5.32071,
-            "lon": 100.28571
-          },
-          {
-            "stop_id": "12000882",
-            "stop_name": "Masjid Bayan Baru",
-            "lat": 5.323671,
-            "lon": 100.28688000000001
-          },
-          {
-            "stop_id": "12000885",
-            "stop_name": "Sunshine Square",
-            "lat": 5.325499,
-            "lon": 100.2875
-          },
-          {
-            "stop_id": "12000849",
-            "stop_name": "Jalan Mahsuri",
-            "lat": 5.32695,
-            "lon": 100.28878
-          },
-          {
-            "stop_id": "12001432",
-            "stop_name": "Taman Mahsuri",
-            "lat": 5.32846,
-            "lon": 100.29335999999999
-          },
-          {
-            "stop_id": "12001955",
-            "stop_name": "Krystal Point Corporate Park",
-            "lat": 5.330701,
-            "lon": 100.298996
-          },
-          {
-            "stop_id": "12002059",
-            "stop_name": "Queensbay Mall",
-            "lat": 5.331947,
-            "lon": 100.30790999999999
-          },
-          {
-            "stop_id": "12002063",
-            "stop_name": "Bay Garden",
-            "lat": 5.336976,
-            "lon": 100.308266
-          },
-          {
-            "stop_id": "12002066",
-            "stop_name": "Putra Place",
-            "lat": 5.339915,
-            "lon": 100.30946
-          },
-          {
-            "stop_id": "12002069",
-            "stop_name": "Jeti Pulau Jerejak",
-            "lat": 5.34301,
-            "lon": 100.31121999999999
-          },
-          {
-            "stop_id": "12001989",
-            "stop_name": "E-Park Kondominium",
-            "lat": 5.352093,
-            "lon": 100.30986999999999
-          },
-          {
-            "stop_id": "12002109",
-            "stop_name": "Jambatan Pulau Pinang",
-            "lat": 5.356566,
-            "lon": 100.39229
-          },
-          {
-            "stop_id": "12001067",
-            "stop_name": "(M2) Megamall - Pacific",
-            "lat": 5.37879,
-            "lon": 100.39794
-          },
-          {
-            "stop_id": "12001877",
-            "stop_name": "Masjid Seberang Jaya",
-            "lat": 5.38675,
-            "lon": 100.40491
-          },
-          {
-            "stop_id": "12001878",
-            "stop_name": "Pangsapuri B3",
-            "lat": 5.390969999999999,
-            "lon": 100.40536
-          },
-          {
-            "stop_id": "12001880",
-            "stop_name": "Pangsapuri A1",
-            "lat": 5.39331,
-            "lon": 100.40557
-          },
-          {
-            "stop_id": "12001830",
-            "stop_name": "Prudential",
-            "lat": 5.39674,
-            "lon": 100.39963
-          },
-          {
-            "stop_id": "12002530",
-            "stop_name": "Hotel Blanket",
-            "lat": 5.3948529999999995,
-            "lon": 100.40001
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "route_id": "30000104",
-    "route_short_name": "C13C",
-    "directions": [
-      {
-        "direction_id": 0,
-        "shape_id": "1000000947",
-        "route_long_name": "SUNWAY - FIZ 4 & BLIP",
-        "stops": [
-          {
-            "stop_id": "12002530",
-            "stop_name": "Hotel Blanket",
-            "lat": 5.3948529999999995,
-            "lon": 100.40001
-          },
-          {
-            "stop_id": "12001809",
-            "stop_name": "Pasar Awam",
-            "lat": 5.3929800000000006,
-            "lon": 100.4016
-          },
-          {
-            "stop_id": "12001388",
-            "stop_name": "SP Arena",
-            "lat": 5.38636,
-            "lon": 100.40236
-          },
-          {
-            "stop_id": "12002994",
-            "stop_name": "Taman Tun Hussein Onn",
-            "lat": 5.3861454,
-            "lon": 100.4057448
-          },
-          {
-            "stop_id": "12001067",
-            "stop_name": "(M2) Megamall - Pacific",
-            "lat": 5.37879,
-            "lon": 100.39794
-          },
-          {
-            "stop_id": "12002108",
-            "stop_name": "Jambatan Pulau Pinang",
-            "lat": 5.355802,
-            "lon": 100.39232
-          },
-          {
-            "stop_id": "12001981",
-            "stop_name": "Batu Uban Highway",
-            "lat": 5.351251,
-            "lon": 100.30986
-          },
-          {
-            "stop_id": "12002068",
-            "stop_name": "Jeti Pulau Jerejak",
-            "lat": 5.34299,
-            "lon": 100.31141
-          },
-          {
-            "stop_id": "12002064",
-            "stop_name": "Gold Coast Kondominium",
-            "lat": 5.339738,
-            "lon": 100.30965
-          },
-          {
-            "stop_id": "12002303",
-            "stop_name": "KWSP Queensbay",
-            "lat": 5.33692,
-            "lon": 100.30844
-          },
-          {
-            "stop_id": "12002060",
-            "stop_name": "Hadapan Queensbay Mall",
-            "lat": 5.332325,
-            "lon": 100.30773
-          },
-          {
-            "stop_id": "12000025",
-            "stop_name": "Venture Electronics",
-            "lat": 5.301667,
-            "lon": 100.29406999999999
-          },
-          {
-            "stop_id": "12002004",
-            "stop_name": "Kobe Precision Technology",
-            "lat": 5.302061,
-            "lon": 100.291214
-          },
-          {
-            "stop_id": "12002005",
-            "stop_name": "Kingdee Southeast Asia",
-            "lat": 5.299992,
-            "lon": 100.28868
-          },
-          {
-            "stop_id": "12002006",
-            "stop_name": "K.K Chong Engineering",
-            "lat": 5.300322,
-            "lon": 100.286674
-          },
-          {
-            "stop_id": "12002008",
-            "stop_name": "ER Mekatron",
-            "lat": 5.298094,
-            "lon": 100.28541
-          },
-          {
-            "stop_id": "12002007",
-            "stop_name": "SAM Engineering & Equipment",
-            "lat": 5.29565,
-            "lon": 100.28665
-          },
-          {
-            "stop_id": "12002070",
-            "stop_name": "AT Engineering",
-            "lat": 5.294347,
-            "lon": 100.28719
-          },
-          {
-            "stop_id": "12002050",
-            "stop_name": "Pentamaster",
-            "lat": 5.295761,
-            "lon": 100.28863
-          },
-          {
-            "stop_id": "12002052",
-            "stop_name": "Advantest Engineering",
-            "lat": 5.298522,
-            "lon": 100.29016999999999
-          },
-          {
-            "stop_id": "12002051",
-            "stop_name": "Motorola",
-            "lat": 5.297999999999999,
-            "lon": 100.29276999999999
-          },
-          {
-            "stop_id": "12002049",
-            "stop_name": "Mini Circuits",
-            "lat": 5.294636,
-            "lon": 100.29098499999999
-          },
-          {
-            "stop_id": "12002010",
-            "stop_name": "Elsoft Research",
-            "lat": 5.292789,
-            "lon": 100.28856
-          },
-          {
-            "stop_id": "12002009",
-            "stop_name": "Microlead",
-            "lat": 5.291417,
-            "lon": 100.28671999999999
-          },
-          {
-            "stop_id": "12002003",
-            "stop_name": "MOX",
-            "lat": 5.292808,
-            "lon": 100.285736
-          },
-          {
-            "stop_id": "12000026",
-            "stop_name": "Jabil Circuit",
-            "lat": 5.304328,
-            "lon": 100.29144000000001
-          },
-          {
-            "stop_id": "12000029",
-            "stop_name": "SAM Engineering",
-            "lat": 5.304917,
-            "lon": 100.29403
-          },
-          {
-            "stop_id": "12000030",
-            "stop_name": "Brady Technology",
-            "lat": 5.305717,
-            "lon": 100.29559
-          },
-          {
-            "stop_id": "12000028",
-            "stop_name": "ASE",
-            "lat": 5.308572,
-            "lon": 100.29408000000001
-          },
-          {
-            "stop_id": "12000027",
-            "stop_name": "Dell",
-            "lat": 5.307167,
-            "lon": 100.29253
-          },
-          {
-            "stop_id": "12000607",
-            "stop_name": "Broadcom",
-            "lat": 5.3234580000000005,
-            "lon": 100.30109
-          },
-          {
-            "stop_id": "12000608",
-            "stop_name": "Esquel Group",
-            "lat": 5.323992,
-            "lon": 100.29932
-          },
-          {
-            "stop_id": "12000609",
-            "stop_name": "Fastron",
-            "lat": 5.3249889999999995,
-            "lon": 100.29604
-          },
-          {
-            "stop_id": "12000846",
-            "stop_name": "Jalan Mahsuri",
-            "lat": 5.32677,
-            "lon": 100.28886
-          },
-          {
-            "stop_id": "12000847",
-            "stop_name": "KFC Jalan Mahsuri",
-            "lat": 5.32686,
-            "lon": 100.28667
-          },
-          {
-            "stop_id": "12000848",
-            "stop_name": "Mayang Mall",
-            "lat": 5.32693,
-            "lon": 100.2843
-          },
-          {
-            "stop_id": "12000851",
-            "stop_name": "(M2) Spice",
-            "lat": 5.32736,
-            "lon": 100.28050999999999
-          },
-          {
-            "stop_id": "12002974",
-            "stop_name": "Terminal Bas Bayan Baru",
-            "lat": 5.3269589999999996,
-            "lon": 100.2803228
-          }
-        ]
-      },
-      {
-        "direction_id": 1,
-        "shape_id": "1000000948",
-        "route_long_name": "FIZ 4 & BLIP - SUNWAY",
-        "stops": [
-          {
-            "stop_id": "12002974",
-            "stop_name": "Terminal Bas Bayan Baru",
-            "lat": 5.3269589999999996,
-            "lon": 100.2803228
-          },
-          {
-            "stop_id": "12000882",
-            "stop_name": "Masjid Bayan Baru",
-            "lat": 5.323671,
-            "lon": 100.28688000000001
-          },
-          {
-            "stop_id": "12000885",
-            "stop_name": "Sunshine Square",
-            "lat": 5.325499,
-            "lon": 100.2875
-          },
-          {
-            "stop_id": "12000849",
-            "stop_name": "Jalan Mahsuri",
-            "lat": 5.32695,
-            "lon": 100.28878
-          },
-          {
-            "stop_id": "12000025",
-            "stop_name": "Venture Electronics",
-            "lat": 5.301667,
-            "lon": 100.29406999999999
-          },
-          {
-            "stop_id": "12002004",
-            "stop_name": "Kobe Precision Technology",
-            "lat": 5.302061,
-            "lon": 100.291214
-          },
-          {
-            "stop_id": "12002005",
-            "stop_name": "Kingdee Southeast Asia",
-            "lat": 5.299992,
-            "lon": 100.28868
-          },
-          {
-            "stop_id": "12002006",
-            "stop_name": "K.K Chong Engineering",
-            "lat": 5.300322,
-            "lon": 100.286674
-          },
-          {
-            "stop_id": "12002008",
-            "stop_name": "ER Mekatron",
-            "lat": 5.298094,
-            "lon": 100.28541
-          },
-          {
-            "stop_id": "12002007",
-            "stop_name": "SAM Engineering & Equipment",
-            "lat": 5.29565,
-            "lon": 100.28665
-          },
-          {
-            "stop_id": "12002070",
-            "stop_name": "AT Engineering",
-            "lat": 5.294347,
-            "lon": 100.28719
-          },
-          {
-            "stop_id": "12002050",
-            "stop_name": "Pentamaster",
-            "lat": 5.295761,
-            "lon": 100.28863
-          },
-          {
-            "stop_id": "12002052",
-            "stop_name": "Advantest Engineering",
-            "lat": 5.298522,
-            "lon": 100.29016999999999
-          },
-          {
-            "stop_id": "12002051",
-            "stop_name": "Motorola",
-            "lat": 5.297999999999999,
-            "lon": 100.29276999999999
-          },
-          {
-            "stop_id": "12002049",
-            "stop_name": "Mini Circuits",
-            "lat": 5.294636,
-            "lon": 100.29098499999999
-          },
-          {
-            "stop_id": "12002010",
-            "stop_name": "Elsoft Research",
-            "lat": 5.292789,
-            "lon": 100.28856
-          },
-          {
-            "stop_id": "12002009",
-            "stop_name": "Microlead",
-            "lat": 5.291417,
-            "lon": 100.28671999999999
-          },
-          {
-            "stop_id": "12002003",
-            "stop_name": "MOX",
-            "lat": 5.292808,
-            "lon": 100.285736
-          },
-          {
-            "stop_id": "12000026",
-            "stop_name": "Jabil Circuit",
-            "lat": 5.304328,
-            "lon": 100.29144000000001
-          },
-          {
-            "stop_id": "12000029",
-            "stop_name": "SAM Engineering",
-            "lat": 5.304917,
-            "lon": 100.29403
-          },
-          {
-            "stop_id": "12000030",
-            "stop_name": "Brady Technology",
-            "lat": 5.305717,
-            "lon": 100.29559
-          },
-          {
-            "stop_id": "12000028",
-            "stop_name": "ASE",
-            "lat": 5.308572,
-            "lon": 100.29408000000001
-          },
-          {
-            "stop_id": "12000027",
-            "stop_name": "Dell",
-            "lat": 5.307167,
-            "lon": 100.29253
-          },
-          {
-            "stop_id": "12002068",
-            "stop_name": "Jeti Pulau Jerejak",
-            "lat": 5.34299,
-            "lon": 100.31141
-          },
-          {
-            "stop_id": "12002064",
-            "stop_name": "Gold Coast Kondominium",
-            "lat": 5.339738,
-            "lon": 100.30965
-          },
-          {
-            "stop_id": "12002303",
-            "stop_name": "KWSP Queensbay",
-            "lat": 5.33692,
-            "lon": 100.30844
           },
           {
             "stop_id": "12002059",
@@ -26631,6 +25818,988 @@
             "stop_name": "(M1) The Summit",
             "lat": 5.3657975,
             "lon": 100.462624
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30000103",
+    "route_short_name": "C13A",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "1000000949",
+        "route_long_name": "SUNWAY S.JAYA - FIZ 1. 2 & 3",
+        "stops": [
+          {
+            "stop_id": "12002530",
+            "stop_name": "Hotel Blanket",
+            "lat": 5.3948529999999995,
+            "lon": 100.40001
+          },
+          {
+            "stop_id": "12001809",
+            "stop_name": "Pasar Awam",
+            "lat": 5.3929800000000006,
+            "lon": 100.4016
+          },
+          {
+            "stop_id": "12001388",
+            "stop_name": "SP Arena",
+            "lat": 5.38636,
+            "lon": 100.40236
+          },
+          {
+            "stop_id": "12002994",
+            "stop_name": "Taman Tun Hussein Onn",
+            "lat": 5.3861454,
+            "lon": 100.4057448
+          },
+          {
+            "stop_id": "12001067",
+            "stop_name": "(M2) Megamall - Pacific",
+            "lat": 5.37879,
+            "lon": 100.39794
+          },
+          {
+            "stop_id": "12002108",
+            "stop_name": "Jambatan Pulau Pinang",
+            "lat": 5.355802,
+            "lon": 100.39232
+          },
+          {
+            "stop_id": "12001981",
+            "stop_name": "Batu Uban Highway",
+            "lat": 5.351251,
+            "lon": 100.30986
+          },
+          {
+            "stop_id": "12002068",
+            "stop_name": "Jeti Pulau Jerejak",
+            "lat": 5.34299,
+            "lon": 100.31141
+          },
+          {
+            "stop_id": "12002064",
+            "stop_name": "Gold Coast Kondominium",
+            "lat": 5.339738,
+            "lon": 100.30965
+          },
+          {
+            "stop_id": "12002303",
+            "stop_name": "KWSP Queensbay",
+            "lat": 5.33692,
+            "lon": 100.30844
+          },
+          {
+            "stop_id": "12002060",
+            "stop_name": "Hadapan Queensbay Mall",
+            "lat": 5.332325,
+            "lon": 100.30773
+          },
+          {
+            "stop_id": "12000607",
+            "stop_name": "Broadcom",
+            "lat": 5.3234580000000005,
+            "lon": 100.30109
+          },
+          {
+            "stop_id": "12000608",
+            "stop_name": "Esquel Group",
+            "lat": 5.323992,
+            "lon": 100.29932
+          },
+          {
+            "stop_id": "12001930",
+            "stop_name": "ISO Tech",
+            "lat": 5.323867,
+            "lon": 100.29717
+          },
+          {
+            "stop_id": "12002094",
+            "stop_name": "AMD",
+            "lat": 5.322736,
+            "lon": 100.29578000000001
+          },
+          {
+            "stop_id": "12002011",
+            "stop_name": "Western Digital",
+            "lat": 5.322353,
+            "lon": 100.29368000000001
+          },
+          {
+            "stop_id": "12002095",
+            "stop_name": "TPC (M) Sdn. Bhd.",
+            "lat": 5.321028,
+            "lon": 100.29422
+          },
+          {
+            "stop_id": "12001933",
+            "stop_name": "Mapa Glove",
+            "lat": 5.327569,
+            "lon": 100.29807
+          },
+          {
+            "stop_id": "12000014",
+            "stop_name": "GUH Holdings",
+            "lat": 5.328583,
+            "lon": 100.30004
+          },
+          {
+            "stop_id": "12000013",
+            "stop_name": "Intel PG12",
+            "lat": 5.328467,
+            "lon": 100.30004
+          },
+          {
+            "stop_id": "12001931",
+            "stop_name": "Intel",
+            "lat": 5.3272639999999996,
+            "lon": 100.29819
+          },
+          {
+            "stop_id": "12001961",
+            "stop_name": "Knowles Electronics",
+            "lat": 5.312894,
+            "lon": 100.298615
+          },
+          {
+            "stop_id": "12001963",
+            "stop_name": "Cincaria Sdn. Bhd",
+            "lat": 5.314344,
+            "lon": 100.29616
+          },
+          {
+            "stop_id": "12001965",
+            "stop_name": "Plexus Riverside",
+            "lat": 5.3169,
+            "lon": 100.2962
+          },
+          {
+            "stop_id": "12001967",
+            "stop_name": "UTIC Service",
+            "lat": 5.318922,
+            "lon": 100.29341
+          },
+          {
+            "stop_id": "12001968",
+            "stop_name": "PSDC",
+            "lat": 5.320034,
+            "lon": 100.29091
+          },
+          {
+            "stop_id": "12001426",
+            "stop_name": "Snake Temple",
+            "lat": 5.31388,
+            "lon": 100.28609
+          },
+          {
+            "stop_id": "12001424",
+            "stop_name": "Kilang Clarion",
+            "lat": 5.30821,
+            "lon": 100.28236
+          },
+          {
+            "stop_id": "12000874",
+            "stop_name": "Dynacraft Industries",
+            "lat": 5.305075,
+            "lon": 100.27721
+          },
+          {
+            "stop_id": "12000875",
+            "stop_name": "Towa (M) Sdn. Bhd.",
+            "lat": 5.306497,
+            "lon": 100.27693000000001
+          },
+          {
+            "stop_id": "12001952",
+            "stop_name": "B. Braun",
+            "lat": 5.312558,
+            "lon": 100.28348000000001
+          },
+          {
+            "stop_id": "12001950",
+            "stop_name": "Renesas",
+            "lat": 5.311275,
+            "lon": 100.28414000000001
+          },
+          {
+            "stop_id": "12002043",
+            "stop_name": "B. Braun Medical",
+            "lat": 5.309883,
+            "lon": 100.28114000000001
+          },
+          {
+            "stop_id": "12002044",
+            "stop_name": "Plexus Hillside",
+            "lat": 5.312353,
+            "lon": 100.2828
+          },
+          {
+            "stop_id": "12000876",
+            "stop_name": "Astaka Bukit Gedung",
+            "lat": 5.31614,
+            "lon": 100.28407
+          },
+          {
+            "stop_id": "12002317",
+            "stop_name": "Pangsapuri Mayang",
+            "lat": 5.31838,
+            "lon": 100.28491
+          },
+          {
+            "stop_id": "12001803",
+            "stop_name": "SMK Raja Tun uda",
+            "lat": 5.32036,
+            "lon": 100.28318
+          },
+          {
+            "stop_id": "12000851",
+            "stop_name": "(M2) Spice",
+            "lat": 5.32736,
+            "lon": 100.28050999999999
+          },
+          {
+            "stop_id": "12002974",
+            "stop_name": "Terminal Bas Bayan Baru",
+            "lat": 5.3269589999999996,
+            "lon": 100.2803228
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "1000000950",
+        "route_long_name": "FIZ 1. 2 & 3 - SUNWAY",
+        "stops": [
+          {
+            "stop_id": "12002974",
+            "stop_name": "Terminal Bas Bayan Baru",
+            "lat": 5.3269589999999996,
+            "lon": 100.2803228
+          },
+          {
+            "stop_id": "12000851",
+            "stop_name": "(M2) Spice",
+            "lat": 5.32736,
+            "lon": 100.28050999999999
+          },
+          {
+            "stop_id": "12001933",
+            "stop_name": "Mapa Glove",
+            "lat": 5.327569,
+            "lon": 100.29807
+          },
+          {
+            "stop_id": "12000014",
+            "stop_name": "GUH Holdings",
+            "lat": 5.328583,
+            "lon": 100.30004
+          },
+          {
+            "stop_id": "12000013",
+            "stop_name": "Intel PG12",
+            "lat": 5.328467,
+            "lon": 100.30004
+          },
+          {
+            "stop_id": "12001931",
+            "stop_name": "Intel",
+            "lat": 5.3272639999999996,
+            "lon": 100.29819
+          },
+          {
+            "stop_id": "12002094",
+            "stop_name": "AMD",
+            "lat": 5.322736,
+            "lon": 100.29578000000001
+          },
+          {
+            "stop_id": "12002011",
+            "stop_name": "Western Digital",
+            "lat": 5.322353,
+            "lon": 100.29368000000001
+          },
+          {
+            "stop_id": "12002095",
+            "stop_name": "TPC (M) Sdn. Bhd.",
+            "lat": 5.321028,
+            "lon": 100.29422
+          },
+          {
+            "stop_id": "12001961",
+            "stop_name": "Knowles Electronics",
+            "lat": 5.312894,
+            "lon": 100.298615
+          },
+          {
+            "stop_id": "12001963",
+            "stop_name": "Cincaria Sdn. Bhd",
+            "lat": 5.314344,
+            "lon": 100.29616
+          },
+          {
+            "stop_id": "12001965",
+            "stop_name": "Plexus Riverside",
+            "lat": 5.3169,
+            "lon": 100.2962
+          },
+          {
+            "stop_id": "12001967",
+            "stop_name": "UTIC Service",
+            "lat": 5.318922,
+            "lon": 100.29341
+          },
+          {
+            "stop_id": "12001968",
+            "stop_name": "PSDC",
+            "lat": 5.320034,
+            "lon": 100.29091
+          },
+          {
+            "stop_id": "12001426",
+            "stop_name": "Snake Temple",
+            "lat": 5.31388,
+            "lon": 100.28609
+          },
+          {
+            "stop_id": "12001424",
+            "stop_name": "Kilang Clarion",
+            "lat": 5.30821,
+            "lon": 100.28236
+          },
+          {
+            "stop_id": "12000874",
+            "stop_name": "Dynacraft Industries",
+            "lat": 5.305075,
+            "lon": 100.27721
+          },
+          {
+            "stop_id": "12000875",
+            "stop_name": "Towa (M) Sdn. Bhd.",
+            "lat": 5.306497,
+            "lon": 100.27693000000001
+          },
+          {
+            "stop_id": "12001952",
+            "stop_name": "B. Braun",
+            "lat": 5.312558,
+            "lon": 100.28348000000001
+          },
+          {
+            "stop_id": "12001951",
+            "stop_name": "Renesas",
+            "lat": 5.3113150000000005,
+            "lon": 100.28407
+          },
+          {
+            "stop_id": "12002043",
+            "stop_name": "B. Braun Medical",
+            "lat": 5.309883,
+            "lon": 100.28114000000001
+          },
+          {
+            "stop_id": "12002044",
+            "stop_name": "Plexus Hillside",
+            "lat": 5.312353,
+            "lon": 100.2828
+          },
+          {
+            "stop_id": "12000876",
+            "stop_name": "Astaka Bukit Gedung",
+            "lat": 5.31614,
+            "lon": 100.28407
+          },
+          {
+            "stop_id": "12002317",
+            "stop_name": "Pangsapuri Mayang",
+            "lat": 5.31838,
+            "lon": 100.28491
+          },
+          {
+            "stop_id": "12000879",
+            "stop_name": "Pasaraya Giant",
+            "lat": 5.32071,
+            "lon": 100.28571
+          },
+          {
+            "stop_id": "12000882",
+            "stop_name": "Masjid Bayan Baru",
+            "lat": 5.323671,
+            "lon": 100.28688000000001
+          },
+          {
+            "stop_id": "12000885",
+            "stop_name": "Sunshine Square",
+            "lat": 5.325499,
+            "lon": 100.2875
+          },
+          {
+            "stop_id": "12000849",
+            "stop_name": "Jalan Mahsuri",
+            "lat": 5.32695,
+            "lon": 100.28878
+          },
+          {
+            "stop_id": "12001432",
+            "stop_name": "Taman Mahsuri",
+            "lat": 5.32846,
+            "lon": 100.29335999999999
+          },
+          {
+            "stop_id": "12001955",
+            "stop_name": "Krystal Point Corporate Park",
+            "lat": 5.330701,
+            "lon": 100.298996
+          },
+          {
+            "stop_id": "12002059",
+            "stop_name": "Queensbay Mall",
+            "lat": 5.331947,
+            "lon": 100.30790999999999
+          },
+          {
+            "stop_id": "12002063",
+            "stop_name": "Bay Garden",
+            "lat": 5.336976,
+            "lon": 100.308266
+          },
+          {
+            "stop_id": "12002066",
+            "stop_name": "Putra Place",
+            "lat": 5.339915,
+            "lon": 100.30946
+          },
+          {
+            "stop_id": "12002069",
+            "stop_name": "Jeti Pulau Jerejak",
+            "lat": 5.34301,
+            "lon": 100.31121999999999
+          },
+          {
+            "stop_id": "12001989",
+            "stop_name": "E-Park Kondominium",
+            "lat": 5.352093,
+            "lon": 100.30986999999999
+          },
+          {
+            "stop_id": "12002109",
+            "stop_name": "Jambatan Pulau Pinang",
+            "lat": 5.356566,
+            "lon": 100.39229
+          },
+          {
+            "stop_id": "12001067",
+            "stop_name": "(M2) Megamall - Pacific",
+            "lat": 5.37879,
+            "lon": 100.39794
+          },
+          {
+            "stop_id": "12001877",
+            "stop_name": "Masjid Seberang Jaya",
+            "lat": 5.38675,
+            "lon": 100.40491
+          },
+          {
+            "stop_id": "12001878",
+            "stop_name": "Pangsapuri B3",
+            "lat": 5.390969999999999,
+            "lon": 100.40536
+          },
+          {
+            "stop_id": "12001880",
+            "stop_name": "Pangsapuri A1",
+            "lat": 5.39331,
+            "lon": 100.40557
+          },
+          {
+            "stop_id": "12001830",
+            "stop_name": "Prudential",
+            "lat": 5.39674,
+            "lon": 100.39963
+          },
+          {
+            "stop_id": "12002530",
+            "stop_name": "Hotel Blanket",
+            "lat": 5.3948529999999995,
+            "lon": 100.40001
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30000104",
+    "route_short_name": "C13C",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "1000000947",
+        "route_long_name": "SUNWAY - FIZ 4 & BLIP",
+        "stops": [
+          {
+            "stop_id": "12002530",
+            "stop_name": "Hotel Blanket",
+            "lat": 5.3948529999999995,
+            "lon": 100.40001
+          },
+          {
+            "stop_id": "12001809",
+            "stop_name": "Pasar Awam",
+            "lat": 5.3929800000000006,
+            "lon": 100.4016
+          },
+          {
+            "stop_id": "12001388",
+            "stop_name": "SP Arena",
+            "lat": 5.38636,
+            "lon": 100.40236
+          },
+          {
+            "stop_id": "12002994",
+            "stop_name": "Taman Tun Hussein Onn",
+            "lat": 5.3861454,
+            "lon": 100.4057448
+          },
+          {
+            "stop_id": "12001067",
+            "stop_name": "(M2) Megamall - Pacific",
+            "lat": 5.37879,
+            "lon": 100.39794
+          },
+          {
+            "stop_id": "12002108",
+            "stop_name": "Jambatan Pulau Pinang",
+            "lat": 5.355802,
+            "lon": 100.39232
+          },
+          {
+            "stop_id": "12001981",
+            "stop_name": "Batu Uban Highway",
+            "lat": 5.351251,
+            "lon": 100.30986
+          },
+          {
+            "stop_id": "12002068",
+            "stop_name": "Jeti Pulau Jerejak",
+            "lat": 5.34299,
+            "lon": 100.31141
+          },
+          {
+            "stop_id": "12002064",
+            "stop_name": "Gold Coast Kondominium",
+            "lat": 5.339738,
+            "lon": 100.30965
+          },
+          {
+            "stop_id": "12002303",
+            "stop_name": "KWSP Queensbay",
+            "lat": 5.33692,
+            "lon": 100.30844
+          },
+          {
+            "stop_id": "12002060",
+            "stop_name": "Hadapan Queensbay Mall",
+            "lat": 5.332325,
+            "lon": 100.30773
+          },
+          {
+            "stop_id": "12000025",
+            "stop_name": "Venture Electronics",
+            "lat": 5.301667,
+            "lon": 100.29406999999999
+          },
+          {
+            "stop_id": "12002004",
+            "stop_name": "Kobe Precision Technology",
+            "lat": 5.302061,
+            "lon": 100.291214
+          },
+          {
+            "stop_id": "12002005",
+            "stop_name": "Kingdee Southeast Asia",
+            "lat": 5.299992,
+            "lon": 100.28868
+          },
+          {
+            "stop_id": "12002006",
+            "stop_name": "K.K Chong Engineering",
+            "lat": 5.300322,
+            "lon": 100.286674
+          },
+          {
+            "stop_id": "12002008",
+            "stop_name": "ER Mekatron",
+            "lat": 5.298094,
+            "lon": 100.28541
+          },
+          {
+            "stop_id": "12002007",
+            "stop_name": "SAM Engineering & Equipment",
+            "lat": 5.29565,
+            "lon": 100.28665
+          },
+          {
+            "stop_id": "12002070",
+            "stop_name": "AT Engineering",
+            "lat": 5.294347,
+            "lon": 100.28719
+          },
+          {
+            "stop_id": "12002050",
+            "stop_name": "Pentamaster",
+            "lat": 5.295761,
+            "lon": 100.28863
+          },
+          {
+            "stop_id": "12002052",
+            "stop_name": "Advantest Engineering",
+            "lat": 5.298522,
+            "lon": 100.29016999999999
+          },
+          {
+            "stop_id": "12002051",
+            "stop_name": "Motorola",
+            "lat": 5.297999999999999,
+            "lon": 100.29276999999999
+          },
+          {
+            "stop_id": "12002049",
+            "stop_name": "Mini Circuits",
+            "lat": 5.294636,
+            "lon": 100.29098499999999
+          },
+          {
+            "stop_id": "12002010",
+            "stop_name": "Elsoft Research",
+            "lat": 5.292789,
+            "lon": 100.28856
+          },
+          {
+            "stop_id": "12002009",
+            "stop_name": "Microlead",
+            "lat": 5.291417,
+            "lon": 100.28671999999999
+          },
+          {
+            "stop_id": "12002003",
+            "stop_name": "MOX",
+            "lat": 5.292808,
+            "lon": 100.285736
+          },
+          {
+            "stop_id": "12000026",
+            "stop_name": "Jabil Circuit",
+            "lat": 5.304328,
+            "lon": 100.29144000000001
+          },
+          {
+            "stop_id": "12000029",
+            "stop_name": "SAM Engineering",
+            "lat": 5.304917,
+            "lon": 100.29403
+          },
+          {
+            "stop_id": "12000030",
+            "stop_name": "Brady Technology",
+            "lat": 5.305717,
+            "lon": 100.29559
+          },
+          {
+            "stop_id": "12000028",
+            "stop_name": "ASE",
+            "lat": 5.308572,
+            "lon": 100.29408000000001
+          },
+          {
+            "stop_id": "12000027",
+            "stop_name": "Dell",
+            "lat": 5.307167,
+            "lon": 100.29253
+          },
+          {
+            "stop_id": "12000607",
+            "stop_name": "Broadcom",
+            "lat": 5.3234580000000005,
+            "lon": 100.30109
+          },
+          {
+            "stop_id": "12000608",
+            "stop_name": "Esquel Group",
+            "lat": 5.323992,
+            "lon": 100.29932
+          },
+          {
+            "stop_id": "12000609",
+            "stop_name": "Fastron",
+            "lat": 5.3249889999999995,
+            "lon": 100.29604
+          },
+          {
+            "stop_id": "12000846",
+            "stop_name": "Jalan Mahsuri",
+            "lat": 5.32677,
+            "lon": 100.28886
+          },
+          {
+            "stop_id": "12000847",
+            "stop_name": "KFC Jalan Mahsuri",
+            "lat": 5.32686,
+            "lon": 100.28667
+          },
+          {
+            "stop_id": "12000848",
+            "stop_name": "Mayang Mall",
+            "lat": 5.32693,
+            "lon": 100.2843
+          },
+          {
+            "stop_id": "12000851",
+            "stop_name": "(M2) Spice",
+            "lat": 5.32736,
+            "lon": 100.28050999999999
+          },
+          {
+            "stop_id": "12002974",
+            "stop_name": "Terminal Bas Bayan Baru",
+            "lat": 5.3269589999999996,
+            "lon": 100.2803228
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "1000000948",
+        "route_long_name": "FIZ 4 & BLIP - SUNWAY",
+        "stops": [
+          {
+            "stop_id": "12002974",
+            "stop_name": "Terminal Bas Bayan Baru",
+            "lat": 5.3269589999999996,
+            "lon": 100.2803228
+          },
+          {
+            "stop_id": "12000882",
+            "stop_name": "Masjid Bayan Baru",
+            "lat": 5.323671,
+            "lon": 100.28688000000001
+          },
+          {
+            "stop_id": "12000885",
+            "stop_name": "Sunshine Square",
+            "lat": 5.325499,
+            "lon": 100.2875
+          },
+          {
+            "stop_id": "12000849",
+            "stop_name": "Jalan Mahsuri",
+            "lat": 5.32695,
+            "lon": 100.28878
+          },
+          {
+            "stop_id": "12000025",
+            "stop_name": "Venture Electronics",
+            "lat": 5.301667,
+            "lon": 100.29406999999999
+          },
+          {
+            "stop_id": "12002004",
+            "stop_name": "Kobe Precision Technology",
+            "lat": 5.302061,
+            "lon": 100.291214
+          },
+          {
+            "stop_id": "12002005",
+            "stop_name": "Kingdee Southeast Asia",
+            "lat": 5.299992,
+            "lon": 100.28868
+          },
+          {
+            "stop_id": "12002006",
+            "stop_name": "K.K Chong Engineering",
+            "lat": 5.300322,
+            "lon": 100.286674
+          },
+          {
+            "stop_id": "12002008",
+            "stop_name": "ER Mekatron",
+            "lat": 5.298094,
+            "lon": 100.28541
+          },
+          {
+            "stop_id": "12002007",
+            "stop_name": "SAM Engineering & Equipment",
+            "lat": 5.29565,
+            "lon": 100.28665
+          },
+          {
+            "stop_id": "12002070",
+            "stop_name": "AT Engineering",
+            "lat": 5.294347,
+            "lon": 100.28719
+          },
+          {
+            "stop_id": "12002050",
+            "stop_name": "Pentamaster",
+            "lat": 5.295761,
+            "lon": 100.28863
+          },
+          {
+            "stop_id": "12002052",
+            "stop_name": "Advantest Engineering",
+            "lat": 5.298522,
+            "lon": 100.29016999999999
+          },
+          {
+            "stop_id": "12002051",
+            "stop_name": "Motorola",
+            "lat": 5.297999999999999,
+            "lon": 100.29276999999999
+          },
+          {
+            "stop_id": "12002049",
+            "stop_name": "Mini Circuits",
+            "lat": 5.294636,
+            "lon": 100.29098499999999
+          },
+          {
+            "stop_id": "12002010",
+            "stop_name": "Elsoft Research",
+            "lat": 5.292789,
+            "lon": 100.28856
+          },
+          {
+            "stop_id": "12002009",
+            "stop_name": "Microlead",
+            "lat": 5.291417,
+            "lon": 100.28671999999999
+          },
+          {
+            "stop_id": "12002003",
+            "stop_name": "MOX",
+            "lat": 5.292808,
+            "lon": 100.285736
+          },
+          {
+            "stop_id": "12000026",
+            "stop_name": "Jabil Circuit",
+            "lat": 5.304328,
+            "lon": 100.29144000000001
+          },
+          {
+            "stop_id": "12000029",
+            "stop_name": "SAM Engineering",
+            "lat": 5.304917,
+            "lon": 100.29403
+          },
+          {
+            "stop_id": "12000030",
+            "stop_name": "Brady Technology",
+            "lat": 5.305717,
+            "lon": 100.29559
+          },
+          {
+            "stop_id": "12000028",
+            "stop_name": "ASE",
+            "lat": 5.308572,
+            "lon": 100.29408000000001
+          },
+          {
+            "stop_id": "12000027",
+            "stop_name": "Dell",
+            "lat": 5.307167,
+            "lon": 100.29253
+          },
+          {
+            "stop_id": "12002068",
+            "stop_name": "Jeti Pulau Jerejak",
+            "lat": 5.34299,
+            "lon": 100.31141
+          },
+          {
+            "stop_id": "12002064",
+            "stop_name": "Gold Coast Kondominium",
+            "lat": 5.339738,
+            "lon": 100.30965
+          },
+          {
+            "stop_id": "12002303",
+            "stop_name": "KWSP Queensbay",
+            "lat": 5.33692,
+            "lon": 100.30844
+          },
+          {
+            "stop_id": "12002059",
+            "stop_name": "Queensbay Mall",
+            "lat": 5.331947,
+            "lon": 100.30790999999999
+          },
+          {
+            "stop_id": "12002063",
+            "stop_name": "Bay Garden",
+            "lat": 5.336976,
+            "lon": 100.308266
+          },
+          {
+            "stop_id": "12002066",
+            "stop_name": "Putra Place",
+            "lat": 5.339915,
+            "lon": 100.30946
+          },
+          {
+            "stop_id": "12002069",
+            "stop_name": "Jeti Pulau Jerejak",
+            "lat": 5.34301,
+            "lon": 100.31121999999999
+          },
+          {
+            "stop_id": "12001989",
+            "stop_name": "E-Park Kondominium",
+            "lat": 5.352093,
+            "lon": 100.30986999999999
+          },
+          {
+            "stop_id": "12002109",
+            "stop_name": "Jambatan Pulau Pinang",
+            "lat": 5.356566,
+            "lon": 100.39229
+          },
+          {
+            "stop_id": "12001067",
+            "stop_name": "(M2) Megamall - Pacific",
+            "lat": 5.37879,
+            "lon": 100.39794
+          },
+          {
+            "stop_id": "12001877",
+            "stop_name": "Masjid Seberang Jaya",
+            "lat": 5.38675,
+            "lon": 100.40491
+          },
+          {
+            "stop_id": "12001878",
+            "stop_name": "Pangsapuri B3",
+            "lat": 5.390969999999999,
+            "lon": 100.40536
+          },
+          {
+            "stop_id": "12001880",
+            "stop_name": "Pangsapuri A1",
+            "lat": 5.39331,
+            "lon": 100.40557
+          },
+          {
+            "stop_id": "12001830",
+            "stop_name": "Prudential",
+            "lat": 5.39674,
+            "lon": 100.39963
+          },
+          {
+            "stop_id": "12002530",
+            "stop_name": "Hotel Blanket",
+            "lat": 5.3948529999999995,
+            "lon": 100.40001
           }
         ]
       }

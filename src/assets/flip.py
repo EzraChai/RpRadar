@@ -11,8 +11,8 @@ def flip_linestring(geojson):
 
 
 # === Usage ===
-input_file = "input.json"
-output_file = "output_flipped.json"
+input_file = "shapes.json"
+output_file = "shapes_flipped.json"
 
 with open(input_file, "r") as f:
     data = json.load(f)
