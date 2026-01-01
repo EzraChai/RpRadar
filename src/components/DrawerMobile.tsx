@@ -156,7 +156,7 @@ export function DrawerMobile({
       <Drawer.Portal>
         <Drawer.Content
           data-testid="content"
-          className="fixed z-[1000] flex p-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] bottom-0 left-0 right-0 h-full  max-h-[97%] mx-[-1px]"
+          className="fixed z-1000 flex p-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] bottom-0 left-0 right-0 h-full  max-h-[97%] mx-[-1px]"
         >
           <div className="max-w-md w-full mx-auto rounded-t-[10px]">
             <Drawer.Handle />
@@ -390,10 +390,10 @@ export function DrawerMobile({
                                     }`}
                                     variant={"ghost"}
                                   >
-                                    <p className="text-sm pr-4 whitespace-normal text-left break-words dark:text-neutral-50 text-neutral-900">
+                                    <p className="text-sm pr-4 whitespace-normal text-left wrap-break-word dark:text-neutral-50 text-neutral-900">
                                       {route?.route_name}
                                     </p>
-                                    <div className="min-w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+                                    <div className="min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
                                       {route?.route_code}
                                     </div>
                                   </Button>

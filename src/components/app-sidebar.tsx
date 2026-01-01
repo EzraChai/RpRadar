@@ -96,7 +96,7 @@ export function AppSidebar() {
               />
             </SidebarHeader>
             <SidebarContent>
-              <SidebarMenuItem className="mt-1">
+              <SidebarMenuItem className="mt-1 pl-2">
                 <SidebarMenuButton
                   className={`hover:cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-700 `}
                   onClick={() => {
@@ -110,14 +110,14 @@ export function AppSidebar() {
                   asChild
                 >
                   <div
-                    className={`w-8 h-8 flex ${
+                    className={`w-8 h-8 flex items-baseline ${
                       openSearch
                         ? "bg-neutral-50 dark:bg-neutral-700"
                         : "bg-transparent"
                     }`}
                   >
                     <Search className={"w-4 h-4 text-black dark:text-white"} />
-                    <span className="text-xl">Search</span>
+                    <span className="text-lg">Search</span>
                   </div>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -142,9 +142,9 @@ export function AppSidebar() {
                         <Button
                           variant={"ghost"}
                           key={route?.route_id}
-                          className=" text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-8 h-5 py-1 px-2 border-red-500 rounded-xl"
+                          className="text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-9 h-5 py-1 px-1 border-red-500 rounded-xl"
                         >
-                          <p className="text-black  dark:text-white">
+                          <p className="text-black dark:text-white truncate">
                             {route?.route_code}
                           </p>
                         </Button>
@@ -320,7 +320,7 @@ export function RouteCard({
         <p className="text-sm pr-4 whitespace-normal text-left wrap-break-word dark:text-neutral-50 text-neutral-900">
           {line.route_name}
         </p>
-        <div className="min-w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+        <div className="min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
           {line.route_code}
         </div>
       </Button>

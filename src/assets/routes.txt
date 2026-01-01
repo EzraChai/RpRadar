@@ -23,8 +23,7 @@ route_id,agency_id,route_short_name,route_long_name,route_type
 30000026,rapidpg,601,601,3
 30000028,rapidpg,604,604,3
 30000041,rapidpg,709,709,3
-30000024,rapidpg,502,502,3
-30000065,rapidpg,706,706,3
+30000139,rapidpg,CAT HOSPITAL,CAT HOSPITAL,3
 30000013,rapidpg,303,303,3
 30000042,rapidpg,801,801,3
 30000008,rapidpg,204,204,3
@@ -37,6 +36,7 @@ route_id,agency_id,route_short_name,route_long_name,route_type
 30000046,rapidpg,EB60,EB60,3
 30000043,rapidpg,802,802,3
 30000003,rapidpg,103,103,3
+30000141,rapidpg,502,502,3
 30000045,rapidpg,EB80,EB80,3
 30000002,rapidpg,102,102,3
 30000004,rapidpg,104,104,3
@@ -44,5 +44,5 @@ route_id,agency_id,route_short_name,route_long_name,route_type
 30000036,rapidpg,701,701,3
 30000050,rapidpg,13,13,3
 30000027,rapidpg,603,603,3
-30000039,rapidpg,707,707,3
+30000140,rapidpg,T713,T713,3
 30000103,rapidpg,C13A,C13A,3

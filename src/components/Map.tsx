@@ -12,7 +12,7 @@ import L from "leaflet";
 import { Link, useSearchParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
-import Shapes from "@/assets/shapes.json";
+import Shapes from "@/assets/shapes_flipped.json";
 import routes from "@/assets/routes_with_directions.json";
 import type { LatLngExpression } from "leaflet";
 import { Button } from "./ui/button";
@@ -145,7 +145,7 @@ function App() {
           className="absolute z-1000 py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
         >
           <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
-            <div className="w-12 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+            <div className="px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
               {route?.route_short_name}
             </div>
             <div className="flex items-center gap-3">
