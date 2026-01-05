@@ -562,7 +562,7 @@ function VehiclesMarker({
       html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;">
           <img src="${
             bearing > 180 ? "/bus-drawing-2.png" : "/bus-drawing.png"
-          }" alt="RapidPenang bus icon" style="width: 100%; height: 100%;"/>
+          }" alt="RapidPenang bus icon" style="width: 100%; height: 100%; display: block;"/>
            </div>`,
       iconSize: [100, 100],
       iconAnchor: [50, 50],
