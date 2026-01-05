@@ -410,23 +410,23 @@ function App() {
             <TileLayer
               key={theme}
               attribution={
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://maptiler.com/">MapTiler</a>'
               }
-              url={`https://{s}.basemaps.cartocdn.com/${
-                theme === "dark" ? "dark_all" : "rastertiles/voyager"
-              }/{z}/{x}/{y}{r}.png`}
+              url={`https://api.maptiler.com/maps/${
+                theme === "dark" ? "streets-v2-dark" : "streets"
+              }/{z}/{x}/{y}{r}.png?key=nujdgT3N9QZR55uLychE`}
             />
           ) : (
             <TileLayer
               key={theme}
               attribution={
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://maptiler.com/">MapTiler</a>'
               }
-              url={`https://{s}.basemaps.cartocdn.com/${
+              url={`https://api.maptiler.com/maps/${
                 window.matchMedia("(prefers-color-scheme: dark)").matches
-                  ? "dark_all"
-                  : "rastertiles/voyager"
-              }/{z}/{x}/{y}{r}.png`}
+                  ? "streets-v2-dark"
+                  : "streets"
+              }/{z}/{x}/{y}{r}.png?key=nujdgT3N9QZR55uLychE`}
             />
           )}
 
