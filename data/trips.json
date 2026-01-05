@@ -2514,13 +2514,13 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "251219020138S9",
+    "trip_id": "251219020139S7",
     "route_id": "30000014",
     "service_id": "25121902",
     "direction_id": "1"
   },
   {
-    "trip_id": "251219020139S7",
+    "trip_id": "251219020138S9",
     "route_id": "30000014",
     "service_id": "25121902",
     "direction_id": "1"
@@ -3528,16 +3528,16 @@
     "direction_id": "1"
   },
   {
-    "trip_id": "251219021001S7",
-    "route_id": "30000034",
-    "service_id": "25121902",
-    "direction_id": "0"
-  },
-  {
     "trip_id": "251217021001S2",
     "route_id": "30000034",
     "service_id": "25121702",
     "direction_id": "1"
+  },
+  {
+    "trip_id": "251219021001S7",
+    "route_id": "30000034",
+    "service_id": "25121902",
+    "direction_id": "0"
   },
   {
     "trip_id": "251219021001S4",
@@ -7836,13 +7836,13 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "251219020110S2",
+    "trip_id": "251219020110S4",
     "route_id": "30000010",
     "service_id": "25121902",
     "direction_id": "1"
   },
   {
-    "trip_id": "251219020110S4",
+    "trip_id": "251219020110S2",
     "route_id": "30000010",
     "service_id": "25121902",
     "direction_id": "1"
@@ -36984,13 +36984,13 @@
     "direction_id": "1"
   },
   {
-    "trip_id": "251219020039S6",
+    "trip_id": "251219020039S12",
     "route_id": "30000004",
     "service_id": "25121902",
     "direction_id": "0"
   },
   {
-    "trip_id": "251219020039S12",
+    "trip_id": "251219020039S6",
     "route_id": "30000004",
     "service_id": "25121902",
     "direction_id": "0"
@@ -38262,13 +38262,13 @@
     "direction_id": "1"
   },
   {
-    "trip_id": "251219020110S3",
+    "trip_id": "251219020110S5",
     "route_id": "30000010",
     "service_id": "25121902",
     "direction_id": "0"
   },
   {
-    "trip_id": "251219020110S5",
+    "trip_id": "251219020110S3",
     "route_id": "30000010",
     "service_id": "25121902",
     "direction_id": "0"
@@ -41730,13 +41730,13 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "251219029039S3",
+    "trip_id": "251219029039S6",
     "route_id": "30000117",
     "service_id": "25121902",
     "direction_id": "1"
   },
   {
-    "trip_id": "251219029039S6",
+    "trip_id": "251219029039S3",
     "route_id": "30000117",
     "service_id": "25121902",
     "direction_id": "1"
@@ -42018,13 +42018,13 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "251219027001S4",
+    "trip_id": "251219027001S6",
     "route_id": "30000140",
     "service_id": "25121902",
     "direction_id": "0"
   },
   {
-    "trip_id": "251219027001S6",
+    "trip_id": "251219027001S4",
     "route_id": "30000140",
     "service_id": "25121902",
     "direction_id": "0"
