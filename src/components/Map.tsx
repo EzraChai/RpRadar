@@ -483,7 +483,7 @@ function UserLocation() {
       watch: true,
     },
     strings: {
-      title: "My Position",
+      title: "Current Position",
     },
   }).addTo(map);
 
