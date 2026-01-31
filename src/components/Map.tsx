@@ -63,12 +63,12 @@ function App() {
         (feature) =>
           feature.properties.shape_id ===
           route?.directions.filter((d) => d.direction_id === direction)[0]
-            .shape_id
+            .shape_id,
       );
       if (filteredShape.length) {
         setPositions(
           filteredShape[0].geometry
-            .coordinates as unknown as LatLngExpression[][]
+            .coordinates as unknown as LatLngExpression[][],
         );
       }
     } else {
@@ -172,7 +172,7 @@ function App() {
               <h4 className="font-semibold text-balance text-xl">
                 {
                   route?.directions.filter(
-                    (d) => d.direction_id === direction
+                    (d) => d.direction_id === direction,
                   )[0].route_long_name
                 }
               </h4>
@@ -210,7 +210,7 @@ function App() {
                     {/* Vertical line */}
                     {idx <
                       route?.directions.filter(
-                        (d) => d.direction_id === direction
+                        (d) => d.direction_id === direction,
                       )[0].stops.length -
                         1 && <div className=" h-full w-1 bg-blue-500"></div>}
                   </div>
@@ -240,13 +240,13 @@ function App() {
                             Next bus will depart at{" "}
                             {nextBusTime(
                               Schedule.find(
-                                (s) => s.route_id === route.route_id
+                                (s) => s.route_id === route.route_id,
                               )
                                 ?.directions.filter(
-                                  (d) => d.direction_id === direction
+                                  (d) => d.direction_id === direction,
                                 )[0]
                                 .dates.find((d) => d.date === getCurrentDate())
-                                ?.times.flatMap((t) => t.time) || []
+                                ?.times.flatMap((t) => t.time) || [],
                             )}
                           </Card>
                         </CollapsibleTrigger>
@@ -255,7 +255,7 @@ function App() {
                           <div className="grid grid-cols-6 self-center ">
                             {Schedule.find((s) => s.route_id === route.route_id)
                               ?.directions.filter(
-                                (d) => d.direction_id === direction
+                                (d) => d.direction_id === direction,
                               )[0]
                               .dates.find((d) => d.date === getCurrentDate())
                               ?.times.map((t, idx) => (
@@ -410,7 +410,7 @@ function App() {
             <TileLayer
               key={theme}
               attribution={
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://maptiler.com/">MapTiler</a>'
+                '&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/">OSM</a>'
               }
               url={`https://api.maptiler.com/maps/${
                 theme === "dark" ? "streets-v2-dark" : "streets"
@@ -420,7 +420,7 @@ function App() {
             <TileLayer
               key={theme}
               attribution={
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://maptiler.com/">MapTiler</a>'
+                '&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/">OSM</a>'
               }
               url={`https://api.maptiler.com/maps/${
                 window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -451,7 +451,7 @@ function App() {
                 <div>
                   <h4 className="font-semibold">
                     {route.directions?.filter(
-                      (d) => d.direction_id === direction
+                      (d) => d.direction_id === direction,
                     )[0]?.route_long_name || ""}
                   </h4>
                 </div>
@@ -531,7 +531,7 @@ function VehiclesMarker({
   useEffect(() => {
     async function loadData() {
       const res = await fetch(
-        "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang"
+        "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
       );
       const buffer = await res.arrayBuffer();
       const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
@@ -540,6 +540,7 @@ function VehiclesMarker({
       }[] = [];
       feed.entity.forEach((entity) => {
         if (entity.vehicle) {
+          console.log(entity.vehicle);
           vehicleData.push({
             data: entity.vehicle,
           });
@@ -571,12 +572,12 @@ function VehiclesMarker({
   useEffect(() => {
     setDirectionsLocation({ 0: [], 1: [] });
     const vehicleForThisRoute = vehicles.filter(
-      (v) => v.data.trip?.routeId === route?.route_short_name
+      (v) => v.data.trip?.routeId === route?.route_short_name,
     );
 
     vehicleForThisRoute.forEach((v) => {
       const directions = Directions.find(
-        (d) => d.trip_id === v.data.trip?.tripId
+        (d) => d.trip_id === v.data.trip?.tripId,
       );
       if (directions === undefined && route?.directions.length === 1) {
         setDirectionsLocation((prev) => ({
@@ -625,7 +626,7 @@ function VehiclesMarker({
                     {"Departure: "}
                     {Schedule.find((s) => s.route_id === route?.route_id)
                       ?.directions.filter(
-                        (d) => d.direction_id === direction
+                        (d) => d.direction_id === direction,
                       )[0]
                       .dates.find((d) => d.date === getCurrentDateEvenAfter12())
                       ?.times.find((d) => d.trip_id === v.data?.trip?.tripId)
@@ -639,14 +640,14 @@ function VehiclesMarker({
                         {isT310HeadingQueensbay(
                           Schedule.find((s) => s.route_id === route?.route_id)
                             ?.directions.filter(
-                              (d) => d.direction_id === direction
+                              (d) => d.direction_id === direction,
                             )[0]
                             .dates.find(
-                              (d) => d.date === getCurrentDateEvenAfter12()
+                              (d) => d.date === getCurrentDateEvenAfter12(),
                             )
                             ?.times.find(
-                              (d) => d.trip_id === v.data?.trip?.tripId
-                            )?.time || ""
+                              (d) => d.trip_id === v.data?.trip?.tripId,
+                            )?.time || "",
                         )
                           ? "Queensbay Mall"
                           : "Padang Kawad"}

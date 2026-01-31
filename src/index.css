@@ -210,20 +210,20 @@ body {
 }
 
 .leaflet-control-locate {
-  @apply !border-0;
+  @apply border-0!;
 }
 
 .leaflet-bar a {
-  @apply !border !cursor-auto !border-white dark:!border-neutral-500 !inline-flex !w-full !h-full !px-1 !py-[2px] !justify-center !items-center !bg-white/50 dark:!bg-white/10 !backdrop-blur-lg !rounded-2xl !shadow-md !gap-2 !whitespace-nowrap !text-sm !font-medium !transition-all disabled:!pointer-events-none disabled:!opacity-50 [&_svg]:!pointer-events-none [&_svg:not([class*='size-'])]:!size-4 !shrink-0 [&_svg]:!shrink-0 !outline-none focus-visible:!border-ring focus-visible:!ring-ring/50 focus-visible:!ring-[3px] aria-invalid:!ring-destructive/20 dark:aria-invalid:!ring-destructive/40 aria-invalid:!border-destructive;
+  @apply border! cursor-auto! border-white! dark:border-neutral-500! inline-flex! w-full! h-full! px-1! py-[2px]! justify-center! items-center! bg-white/50! dark:bg-white/10! backdrop-blur-lg! rounded-2xl! shadow-md! gap-2! whitespace-nowrap! text-sm! font-medium! transition-all! disabled:pointer-events-none! disabled:opacity-50! [&_svg]:pointer-events-none! [&_svg:not([class*='size-'])]:size-4! shrink-0! [&_svg]:shrink-0! outline-none! focus-visible:border-ring! focus-visible:ring-ring/50! focus-visible:ring-[3px]! aria-invalid:ring-destructive/20! dark:aria-invalid:!ring-destructive/40 aria-invalid:!border-destructive;
   outline: none; /* remove focus outline */
   -webkit-tap-highlight-color: transparent; /* remove mobile tap highlight */
 }
 
 .leaflet-top {
-  @apply !top-34 lg:!top-22;
+  @apply top-34! lg:top-22!;
 }
 .leaflet-right {
-  @apply !right-[7px];
+  @apply right-1.75!;
 }
 
 .leaflet-control-locate a .leaflet-control-locate-location-arrow {
