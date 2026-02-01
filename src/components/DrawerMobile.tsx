@@ -233,10 +233,13 @@ export function DrawerMobile({
                           key={idx}
                           className={`${
                             idx === 0 && "mt-2"
-                          } flex relative w-full `}
+                          } flex relative w-full`}
                         >
                           {/* Bullet */}
-                          <div className="flex w-3 flex-col items-center mr-1">
+
+                          <div
+                            className={`flex flex-col items-center w-4 mr-2`}
+                          >
                             <div className="w-3 h-3 absolute rounded-full bg-blue-600 z-10"></div>
                             {/* Vertical line */}
                             {idx <
@@ -247,8 +250,9 @@ export function DrawerMobile({
                               <div className=" h-full w-1 bg-blue-500"></div>
                             )}
                           </div>
+
                           {/* Stop Name */}
-                          <div className="w-full">
+                          <div className="w-full -mt-2 pb-2">
                             <Button
                               variant={"ghost"}
                               onClick={() => {
@@ -260,9 +264,10 @@ export function DrawerMobile({
                                   map.flyTo([stop.lat, stop.lon], 16, {
                                     animate: true,
                                   });
+                                  setSnap(SNAP_POINTS[0]);
                                 }
                               }}
-                              className="cursor-pointer m-2 !hover:bg-transparent  text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
+                              className="cursor-pointer m-2 !hover:bg-transparent text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
                             >
                               <p>{stop.stop_name}</p>
                             </Button>
