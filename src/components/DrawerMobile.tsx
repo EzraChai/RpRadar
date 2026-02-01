@@ -156,7 +156,7 @@ export function DrawerMobile({
       <Drawer.Portal>
         <Drawer.Content
           data-testid="content"
-          className="fixed z-1000 flex p-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] bottom-0 left-0 right-0 h-full  max-h-[97%] -mx-px"
+          className="fixed z-1000 flex p-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] bottom-0 left-0 right-0 h-full outline-none max-h-[97%] -mx-px"
         >
           <div className="max-w-md w-full mx-auto rounded-t-[10px]">
             <Drawer.Handle />
