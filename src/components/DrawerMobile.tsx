@@ -20,7 +20,7 @@ import {
 import Schedule from "@/../data/schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 
-const SNAP_POINTS = [0.23, 0.5, 1];
+const SNAP_POINTS = [0.2, 0.5, 1];
 
 export function DrawerMobile({
   markerRefs,
@@ -73,59 +73,59 @@ export function DrawerMobile({
   }, [starred]);
 
   const [filteredRoutes, setFilteredRoutes] = useState(routes); // initial list
-  const activeScrollRef = useRef<HTMLDivElement>(null);
-  const list2Ref = useRef<HTMLDivElement>(null);
-  const list1Ref = useRef<HTMLDivElement>(null);
+  // const activeScrollRef = useRef<HTMLDivElement>(null);
+  // const list2Ref = useRef<HTMLDivElement>(null);
+  // const list1Ref = useRef<HTMLDivElement>(null);
 
-  const touchStartY = useRef<number | null>(null);
-  const dragOffset = useRef<number>(0);
-  const isDragging = useRef(false);
+  // const touchStartY = useRef<number | null>(null);
+  // const dragOffset = useRef<number>(0);
+  // const isDragging = useRef(false);
 
-  // Track finger start
-  const handleTouchStart =
-    (ref: React.RefObject<HTMLDivElement | null>) => (e: React.TouchEvent) => {
-      activeScrollRef.current = ref.current;
-      touchStartY.current = e.touches[0].clientY;
-      dragOffset.current = 0;
-      isDragging.current = false;
-    };
+  // // Track finger start
+  // const handleTouchStart =
+  //   (ref: React.RefObject<HTMLDivElement | null>) => (e: React.TouchEvent) => {
+  //     activeScrollRef.current = ref.current;
+  //     touchStartY.current = e.touches[0].clientY;
+  //     dragOffset.current = 0;
+  //     isDragging.current = false;
+  //   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!activeScrollRef.current || touchStartY.current === null) return;
+  // const handleTouchMove = (e: React.TouchEvent) => {
+  //   if (!activeScrollRef.current || touchStartY.current === null) return;
 
-    const dy = e.touches[0].clientY - touchStartY.current;
-    const scrollTop = activeScrollRef.current.scrollTop;
-    const scrollHeight = activeScrollRef.current.scrollHeight;
-    const clientHeight = activeScrollRef.current.clientHeight;
-    const SCROLL_THRESHOLD = 150;
+  //   const dy = e.touches[0].clientY - touchStartY.current;
+  //   const scrollTop = activeScrollRef.current.scrollTop;
+  //   const scrollHeight = activeScrollRef.current.scrollHeight;
+  //   const clientHeight = activeScrollRef.current.clientHeight;
+  //   const SCROLL_THRESHOLD = 150;
 
-    const atTop = scrollTop <= 0;
-    const atBottom = scrollTop + clientHeight >= scrollHeight;
+  //   const atTop = scrollTop <= 0;
+  //   const atBottom = scrollTop + clientHeight >= scrollHeight;
 
-    if ((atTop && dy > 0) || (atBottom && dy < 0)) {
-      e.preventDefault();
-      e.stopPropagation();
-      isDragging.current = true;
-      dragOffset.current = dy;
+  //   if ((atTop && dy > 0) || (atBottom && dy < 0)) {
+  //     e.preventDefault();
+  //     e.stopPropagation();
+  //     isDragging.current = true;
+  //     dragOffset.current = dy;
 
-      const currentIndex =
-        typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
-      if (dy > SCROLL_THRESHOLD && currentIndex > 0 && atTop) {
-        setSnap(SNAP_POINTS[currentIndex - 1]);
-        touchStartY.current = e.touches[0].clientY;
-      } else if (
-        dy < SCROLL_THRESHOLD * -1 &&
-        currentIndex < SNAP_POINTS.length - 1 &&
-        atBottom
-      ) {
-        setSnap(SNAP_POINTS[currentIndex + 1]);
-        touchStartY.current = e.touches[0].clientY;
-      }
-    } else {
-      isDragging.current = false;
-      dragOffset.current = 0;
-    }
-  };
+  //     const currentIndex =
+  //       typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
+  //     if (dy > SCROLL_THRESHOLD && currentIndex > 0 && atTop) {
+  //       setSnap(SNAP_POINTS[currentIndex - 1]);
+  //       touchStartY.current = e.touches[0].clientY;
+  //     } else if (
+  //       dy < SCROLL_THRESHOLD * -1 &&
+  //       currentIndex < SNAP_POINTS.length - 1 &&
+  //       atBottom
+  //     ) {
+  //       setSnap(SNAP_POINTS[currentIndex + 1]);
+  //       touchStartY.current = e.touches[0].clientY;
+  //     }
+  //   } else {
+  //     isDragging.current = false;
+  //     dragOffset.current = 0;
+  //   }
+  // };
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -134,7 +134,7 @@ export function DrawerMobile({
       const results = routes.filter(
         (bus) =>
           bus.route_code.toLowerCase().includes(term) ||
-          bus.route_name.toLowerCase().includes(term)
+          bus.route_name.toLowerCase().includes(term),
       );
 
       setFilteredRoutes(results);
@@ -147,7 +147,7 @@ export function DrawerMobile({
     <Drawer.Root
       repositionInputs={false}
       open
-      dismissible={false}
+      // dismissible={false}
       snapPoints={SNAP_POINTS}
       activeSnapPoint={snap}
       setActiveSnapPoint={setSnap}
@@ -162,9 +162,9 @@ export function DrawerMobile({
             <Drawer.Handle />
             {route ? (
               <div
-                ref={list1Ref}
-                onTouchStart={handleTouchStart(list1Ref)}
-                onTouchMove={handleTouchMove}
+                // ref={list1Ref}
+                // onTouchStart={handleTouchStart(list1Ref)}
+                // onTouchMove={handleTouchMove}
                 className="overflow-y-auto overscroll-contain "
               >
                 <div className="p-2 py-0 flex justify-between items-center">
@@ -198,7 +198,7 @@ export function DrawerMobile({
                 <DialogTitle className=" w-full p-2 font-bold text-xl">
                   {
                     route?.directions.filter(
-                      (d) => d.direction_id === direction
+                      (d) => d.direction_id === direction,
                     )[0].route_long_name
                   }
                 </DialogTitle>
@@ -241,7 +241,7 @@ export function DrawerMobile({
                             {/* Vertical line */}
                             {idx <
                               route?.directions.filter(
-                                (d) => d.direction_id === direction
+                                (d) => d.direction_id === direction,
                               )[0].stops.length -
                                 1 && (
                               <div className=" h-full w-1 bg-blue-500"></div>
@@ -273,15 +273,15 @@ export function DrawerMobile({
                                     Next bus will depart at{" "}
                                     {nextBusTime(
                                       Schedule.find(
-                                        (s) => s.route_id === route.route_id
+                                        (s) => s.route_id === route.route_id,
                                       )
                                         ?.directions.filter(
-                                          (d) => d.direction_id === direction
+                                          (d) => d.direction_id === direction,
                                         )[0]
                                         .dates.find(
-                                          (d) => d.date === getCurrentDate()
+                                          (d) => d.date === getCurrentDate(),
                                         )
-                                        ?.times.flatMap((t) => t.time) || []
+                                        ?.times.flatMap((t) => t.time) || [],
                                     )}
                                   </Card>
                                 </CollapsibleTrigger>
@@ -289,13 +289,13 @@ export function DrawerMobile({
                                   <div className="mt-2">Scheduled</div>
                                   <div className="grid grid-cols-6 self-center text-xs">
                                     {Schedule.find(
-                                      (s) => s.route_id === route.route_id
+                                      (s) => s.route_id === route.route_id,
                                     )
                                       ?.directions.filter(
-                                        (d) => d.direction_id === direction
+                                        (d) => d.direction_id === direction,
                                       )[0]
                                       .dates.find(
-                                        (d) => d.date === getCurrentDate()
+                                        (d) => d.date === getCurrentDate(),
                                       )
                                       ?.times.map((t, idx) => (
                                         <div
@@ -340,9 +340,9 @@ export function DrawerMobile({
                   </div>
                 </Drawer.Title>
                 <div
-                  ref={list2Ref}
-                  onTouchStart={handleTouchStart(list2Ref)}
-                  onTouchMove={handleTouchMove}
+                  // ref={list2Ref}
+                  // onTouchStart={handleTouchStart(list2Ref)}
+                  // onTouchMove={handleTouchMove}
                   className="py-1 text-black overflow-y-auto overscroll-contain"
                 >
                   <div className="px-4 relative ">
