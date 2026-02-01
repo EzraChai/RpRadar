@@ -20,7 +20,7 @@ import {
 import Schedule from "@/../data/schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 
-const SNAP_POINTS = [0.2, 0.5, 1];
+const SNAP_POINTS = [0.23, 0.5, 1];
 
 export function DrawerMobile({
   markerRefs,
@@ -145,7 +145,7 @@ export function DrawerMobile({
 
   return (
     <Drawer.Root
-      repositionInputs={false}
+      // repositionInputs={false}
       open
       // dismissible={false}
       snapPoints={SNAP_POINTS}
