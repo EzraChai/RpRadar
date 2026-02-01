@@ -629,7 +629,10 @@ function VehiclesMarker({
                         (d) => d.direction_id === direction,
                       )[0]
                       .dates.find((d) => d.date === getCurrentDateEvenAfter12())
-                      ?.times.find((d) => d.trip_id === v.data?.trip?.tripId)
+                      ?.times.find(
+                        (d) =>
+                          d.trip_id.slice(6) === v.data?.trip?.tripId.slice(6),
+                      )
                       ?.time.substring(0, 5) || ""}
                   </p>
                   {v.data.trip?.routeId === "T310" &&
