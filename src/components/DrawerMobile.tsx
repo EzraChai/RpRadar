@@ -220,7 +220,7 @@ export function DrawerMobile({
                     </Button>
                   )}
                   <div
-                    className={`mt-4 ml-2 overflow-y-auto overflow-x-clip ${
+                    className={`mt-4 ml-2 overflow-y-auto overflow-x-clip scroll-hidden ${
                       snap === SNAP_POINTS[2] && "max-h-[78dvh]"
                     }
                   ${snap === SNAP_POINTS[1] && "max-h-[50dvh]"}
@@ -370,7 +370,7 @@ export function DrawerMobile({
                       />
                     )}
                   </div>
-                  <div className="mt-4 overflow-y-auto max-h-[84dvh]">
+                  <div className="mt-4 overflow-y-auto max-h-[84dvh] scroll-hidden">
                     <div className="px-4">
                       {filteredRoutes.length === routes.length && (
                         <>
