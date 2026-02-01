@@ -156,16 +156,16 @@ export function DrawerMobile({
       <Drawer.Portal>
         <Drawer.Content
           data-testid="content"
-          className="fixed z-1000 flex p-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] bottom-0 left-0 right-0 h-full  max-h-[97%] mx-[-1px]"
+          className=" z-1000 flex p-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] max-h-[97%] -mx-px h-fit fixed bottom-0 left-0 right-0 outline-none"
         >
           <div className="max-w-md w-full mx-auto rounded-t-[10px]">
             <Drawer.Handle />
             {route ? (
               <div
-                // ref={list1Ref}
-                // onTouchStart={handleTouchStart(list1Ref)}
-                // onTouchMove={handleTouchMove}
-                className="overflow-y-auto overscroll-contain "
+              // ref={list1Ref}
+              // onTouchStart={handleTouchStart(list1Ref)}
+              // onTouchMove={handleTouchMove}
+              // className="overflow-y-auto overscroll-contain "
               >
                 <div className="p-2 py-0 flex justify-between items-center">
                   <div className="border-2 font-semibold border-red-500 rounded-lg px-2">
