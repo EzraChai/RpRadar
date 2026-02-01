@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function isT310HeadingQueensbay(time: string): boolean {
+export function findT310Heading(time: string): boolean {
   const formatter = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Kuala_Lumpur",
     hour12: false,
@@ -14,7 +14,7 @@ export function isT310HeadingQueensbay(time: string): boolean {
   });
 
   const currentTimeSubtractWith35Minutes = formatter.format(
-    new Date(Date.now() - 35 * 60000)
+    new Date(Date.now() - 35 * 60000),
   ); // minus 35 minutes, "HH:MM"
   for (let i = 0; i < 5; i++) {
     if (currentTimeSubtractWith35Minutes[i] === time[i]) {
