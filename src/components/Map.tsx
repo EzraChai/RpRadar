@@ -623,8 +623,9 @@ function VehiclesMarker({
                   <p className="mt-4">Route: {v.data.trip?.routeId}</p>
                   <p>Speed: {v.data.position?.speed}km/h</p>
                   <p>
-                    {"Departure: "}
-                    {Schedule.find((s) => s.route_id === route?.route_id)
+                    {`Departure: ${Schedule.find(
+                      (s) => s.route_id === route?.route_id,
+                    )
                       ?.directions.filter(
                         (d) => d.direction_id === direction,
                       )[0]
@@ -633,7 +634,7 @@ function VehiclesMarker({
                         (d) =>
                           d.trip_id.slice(6) === v.data?.trip?.tripId?.slice(6),
                       )
-                      ?.time.substring(0, 5) || ""}
+                      ?.time.substring(0, 5)}` || ""}
                   </p>
                   {v.data.trip?.routeId === "T310" &&
                     typeof v.data.position?.latitude === "number" &&
