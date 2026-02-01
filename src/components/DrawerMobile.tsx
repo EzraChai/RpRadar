@@ -1,5 +1,5 @@
 import { Search, Star, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Drawer } from "vaul";
 import { Input } from "./ui/input";
 import routes from "@/assets/routes_with_shapes.json";
@@ -73,59 +73,59 @@ export function DrawerMobile({
   }, [starred]);
 
   const [filteredRoutes, setFilteredRoutes] = useState(routes); // initial list
-  // const activeScrollRef = useRef<HTMLDivElement>(null);
-  // const list2Ref = useRef<HTMLDivElement>(null);
-  // const list1Ref = useRef<HTMLDivElement>(null);
+  const activeScrollRef = useRef<HTMLDivElement>(null);
+  const list2Ref = useRef<HTMLDivElement>(null);
+  const list1Ref = useRef<HTMLDivElement>(null);
 
-  // const touchStartY = useRef<number | null>(null);
-  // const dragOffset = useRef<number>(0);
-  // const isDragging = useRef(false);
+  const touchStartY = useRef<number | null>(null);
+  const dragOffset = useRef<number>(0);
+  const isDragging = useRef(false);
 
-  // // Track finger start
-  // const handleTouchStart =
-  //   (ref: React.RefObject<HTMLDivElement | null>) => (e: React.TouchEvent) => {
-  //     activeScrollRef.current = ref.current;
-  //     touchStartY.current = e.touches[0].clientY;
-  //     dragOffset.current = 0;
-  //     isDragging.current = false;
-  //   };
+  // Track finger start
+  const handleTouchStart =
+    (ref: React.RefObject<HTMLDivElement | null>) => (e: React.TouchEvent) => {
+      activeScrollRef.current = ref.current;
+      touchStartY.current = e.touches[0].clientY;
+      dragOffset.current = 0;
+      isDragging.current = false;
+    };
 
-  // const handleTouchMove = (e: React.TouchEvent) => {
-  //   if (!activeScrollRef.current || touchStartY.current === null) return;
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!activeScrollRef.current || touchStartY.current === null) return;
 
-  //   const dy = e.touches[0].clientY - touchStartY.current;
-  //   const scrollTop = activeScrollRef.current.scrollTop;
-  //   const scrollHeight = activeScrollRef.current.scrollHeight;
-  //   const clientHeight = activeScrollRef.current.clientHeight;
-  //   const SCROLL_THRESHOLD = 150;
+    const dy = e.touches[0].clientY - touchStartY.current;
+    const scrollTop = activeScrollRef.current.scrollTop;
+    const scrollHeight = activeScrollRef.current.scrollHeight;
+    const clientHeight = activeScrollRef.current.clientHeight;
+    const SCROLL_THRESHOLD = 150;
 
-  //   const atTop = scrollTop <= 0;
-  //   const atBottom = scrollTop + clientHeight >= scrollHeight;
+    const atTop = scrollTop <= 0;
+    const atBottom = scrollTop + clientHeight >= scrollHeight;
 
-  //   if ((atTop && dy > 0) || (atBottom && dy < 0)) {
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //     isDragging.current = true;
-  //     dragOffset.current = dy;
+    if ((atTop && dy > 0) || (atBottom && dy < 0)) {
+      e.preventDefault();
+      e.stopPropagation();
+      isDragging.current = true;
+      dragOffset.current = dy;
 
-  //     const currentIndex =
-  //       typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
-  //     if (dy > SCROLL_THRESHOLD && currentIndex > 0 && atTop) {
-  //       setSnap(SNAP_POINTS[currentIndex - 1]);
-  //       touchStartY.current = e.touches[0].clientY;
-  //     } else if (
-  //       dy < SCROLL_THRESHOLD * -1 &&
-  //       currentIndex < SNAP_POINTS.length - 1 &&
-  //       atBottom
-  //     ) {
-  //       setSnap(SNAP_POINTS[currentIndex + 1]);
-  //       touchStartY.current = e.touches[0].clientY;
-  //     }
-  //   } else {
-  //     isDragging.current = false;
-  //     dragOffset.current = 0;
-  //   }
-  // };
+      const currentIndex =
+        typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
+      if (dy > SCROLL_THRESHOLD && currentIndex > 0 && atTop) {
+        setSnap(SNAP_POINTS[currentIndex - 1]);
+        touchStartY.current = e.touches[0].clientY;
+      } else if (
+        dy < SCROLL_THRESHOLD * -1 &&
+        currentIndex < SNAP_POINTS.length - 1 &&
+        atBottom
+      ) {
+        setSnap(SNAP_POINTS[currentIndex + 1]);
+        touchStartY.current = e.touches[0].clientY;
+      }
+    } else {
+      isDragging.current = false;
+      dragOffset.current = 0;
+    }
+  };
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -145,9 +145,9 @@ export function DrawerMobile({
 
   return (
     <Drawer.Root
-      // repositionInputs={false}
+      repositionInputs={false}
       open
-      // dismissible={false}
+      dismissible={false}
       snapPoints={SNAP_POINTS}
       activeSnapPoint={snap}
       setActiveSnapPoint={setSnap}
@@ -156,16 +156,16 @@ export function DrawerMobile({
       <Drawer.Portal>
         <Drawer.Content
           data-testid="content"
-          className=" z-1000 flex p-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] max-h-[97%] -mx-px h-fit fixed bottom-0 left-0 right-0 outline-none"
+          className="fixed z-1000 flex p-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] bottom-0 left-0 right-0 h-full  max-h-[97%] -mx-px"
         >
           <div className="max-w-md w-full mx-auto rounded-t-[10px]">
             <Drawer.Handle />
             {route ? (
               <div
-              // ref={list1Ref}
-              // onTouchStart={handleTouchStart(list1Ref)}
-              // onTouchMove={handleTouchMove}
-              // className="overflow-y-auto overscroll-contain "
+                ref={list1Ref}
+                onTouchStart={handleTouchStart(list1Ref)}
+                onTouchMove={handleTouchMove}
+                className="overflow-y-auto overscroll-contain "
               >
                 <div className="p-2 py-0 flex justify-between items-center">
                   <div className="border-2 font-semibold border-red-500 rounded-lg px-2">
@@ -262,7 +262,7 @@ export function DrawerMobile({
                                   });
                                 }
                               }}
-                              className="cursor-pointer m-2 !hover:bg-transparent  text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal break-words"
+                              className="cursor-pointer m-2 !hover:bg-transparent  text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
                             >
                               <p>{stop.stop_name}</p>
                             </Button>
@@ -340,9 +340,9 @@ export function DrawerMobile({
                   </div>
                 </Drawer.Title>
                 <div
-                  // ref={list2Ref}
-                  // onTouchStart={handleTouchStart(list2Ref)}
-                  // onTouchMove={handleTouchMove}
+                  ref={list2Ref}
+                  onTouchStart={handleTouchStart(list2Ref)}
+                  onTouchMove={handleTouchMove}
                   className="py-1 text-black overflow-y-auto overscroll-contain"
                 >
                   <div className="px-4 relative ">
@@ -351,7 +351,7 @@ export function DrawerMobile({
                       onFocus={() => {
                         if (snap === SNAP_POINTS[0]) setSnap(SNAP_POINTS[1]);
                       }}
-                      className="mb-3 pl-10 pr-10 py-2 h-12 dark:text-white !text-lg bg-neutral-50 dark:!bg-neutral-900"
+                      className="mb-3 pl-10 pr-10 py-2 h-12 dark:text-white text-lg! bg-neutral-50 dark:bg-neutral-900!"
                       placeholder="Search Routes"
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
