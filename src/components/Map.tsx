@@ -577,7 +577,7 @@ function VehiclesMarker({
 
     vehicleForThisRoute.forEach((v) => {
       const directions = Directions.find(
-        (d) => d.trip_id === v.data.trip?.tripId,
+        (d) => d.trip_id.slice(6) === v.data.trip?.tripId?.slice(6),
       );
       if (directions === undefined && route?.directions.length === 1) {
         setDirectionsLocation((prev) => ({
