@@ -241,7 +241,7 @@
   },
   {
     "route_id": "30000139",
-    "route_code": "CAT HOSPITAL",
+    "route_code": "CT15",
     "route_name": "CAT HOSPITAL",
     "shape_ids": ["1000001034"]
   },
