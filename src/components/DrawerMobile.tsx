@@ -1,5 +1,5 @@
 import { Search, Star, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Drawer } from "vaul";
 import { Input } from "./ui/input";
 import routes from "@/assets/routes_with_shapes.json";
