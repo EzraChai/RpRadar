@@ -267,7 +267,7 @@ export function DrawerMobile({
                                   setSnap(SNAP_POINTS[0]);
                                 }
                               }}
-                              className="cursor-pointer m-2 !hover:bg-transparent text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
+                              className="cursor-pointer mr-2 m-2 !hover:bg-transparent text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
                             >
                               <p>{stop.stop_name}</p>
                             </Button>
