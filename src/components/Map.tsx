@@ -631,7 +631,7 @@ function VehiclesMarker({
                       .dates.find((d) => d.date === getCurrentDateEvenAfter12())
                       ?.times.find(
                         (d) =>
-                          d.trip_id.slice(6) === v.data?.trip?.tripId.slice(6),
+                          d.trip_id.slice(6) === v.data?.trip?.tripId?.slice(6),
                       )
                       ?.time.substring(0, 5) || ""}
                   </p>

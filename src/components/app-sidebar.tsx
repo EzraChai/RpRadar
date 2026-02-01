@@ -161,15 +161,15 @@ export function AppSidebar() {
               <div className="flex justify-end">
                 <ModeToggle />
               </div>
-              <div className=" flex justify-center w-full h-4">
+              <div className="flex justify-center w-full h-4">
                 <p
-                  className={`  whitespace-nowrap overflow-hiddentext-xs text-neutral-400 ${
+                  className={`whitespace-nowrap overflow-hidden text-xs text-neutral-400 ${
                     collapsed ? "hidden " : "block "
                   }`}
                 >
                   Made with ❤️ by
                   <a
-                    className="ml-1 !dark:text-neutral-300 text-neutral-500! hover:underline underline-offset-2"
+                    className="ml-1 dark:text-neutral-300! text-neutral-500! hover:underline underline-offset-2"
                     target="_blank"
                     href="https://ezrachai-links.vercel.app/"
                   >
@@ -214,7 +214,7 @@ function SearchSideBar({
       const results = routes.filter(
         (bus) =>
           bus.route_code.toLowerCase().includes(term) ||
-          bus.route_name.toLowerCase().includes(term)
+          bus.route_name.toLowerCase().includes(term),
       );
 
       setFilteredRoutes(results);
