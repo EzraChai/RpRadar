@@ -540,7 +540,7 @@ function VehiclesMarker({
       }[] = [];
       feed.entity.forEach((entity) => {
         if (entity.vehicle) {
-          console.log(entity.vehicle);
+          // console.log(entity.vehicle);
           vehicleData.push({
             data: entity.vehicle,
           });
