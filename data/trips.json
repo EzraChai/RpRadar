@@ -1,5 +1,143 @@
 [
   {
+    "trip_id": "260119032188S3",
+    "route_id": "30000140",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119027001S4",
+    "route_id": "30000140",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119032188S10",
+    "route_id": "30000140",
+    "service_id": "26011903",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119032188S4",
+    "route_id": "30000140",
+    "service_id": "26011903",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119027001S7",
+    "route_id": "30000140",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119017001S5",
+    "route_id": "30000140",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119012188S2",
+    "route_id": "30000140",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119032900S2",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119030185S5",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119030182S7",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119022900S8",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119020182S5",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119020181S4",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119020180S4",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119012900S2",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119010183S9",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119010182S3",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119010180S2",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119030182S4",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119030180S3",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119020185S6",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119020183S6",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119010182S2",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "0"
+  },
+  {
     "trip_id": "260119030022S8",
     "route_id": "30000001",
     "service_id": "26011903",
@@ -4200,139 +4338,163 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "260119032188S3",
+    "trip_id": "260119037001S4",
     "route_id": "30000140",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119027001S4",
+    "trip_id": "260119032188S9",
+    "route_id": "30000140",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119027001S6",
     "route_id": "30000140",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119032188S10",
+    "trip_id": "260119027001S2",
+    "route_id": "30000140",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119022188S9",
+    "route_id": "30000140",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119022188S7",
+    "route_id": "30000140",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119017001S2",
+    "route_id": "30000140",
+    "service_id": "26011901",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119012188S9",
+    "route_id": "30000140",
+    "service_id": "26011901",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119037001S7",
     "route_id": "30000140",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119032188S4",
+    "trip_id": "260119037001S3",
     "route_id": "30000140",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119027001S7",
-    "route_id": "30000140",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119017001S5",
+    "trip_id": "260119012188S10",
     "route_id": "30000140",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119012188S2",
-    "route_id": "30000140",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119032900S2",
+    "trip_id": "260119030183S3",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030185S5",
+    "trip_id": "260119030181S4",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030182S7",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119022900S8",
+    "trip_id": "260119020183S7",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020182S5",
+    "trip_id": "260119020182S3",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020181S4",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119020180S4",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119012900S2",
+    "trip_id": "260119010183S7",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010183S9",
+    "trip_id": "260119010181S6",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010182S3",
+    "trip_id": "260119010181S2",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010180S2",
+    "trip_id": "260119010180S4",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030182S4",
+    "trip_id": "260119030185S4",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030180S3",
+    "trip_id": "260119030183S4",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020185S6",
+    "trip_id": "260119030181S7",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119020182S2",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020183S6",
+    "trip_id": "260119010184S4",
     "route_id": "30000141",
-    "service_id": "26011902",
+    "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010182S2",
+    "trip_id": "260119010184S2",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119010182S8",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119010180S7",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
@@ -8850,163 +9012,175 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "260119037001S4",
-    "route_id": "30000140",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119032188S9",
-    "route_id": "30000140",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119027001S6",
+    "trip_id": "260119022188S5",
     "route_id": "30000140",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119027001S2",
-    "route_id": "30000140",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119022188S9",
-    "route_id": "30000140",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119022188S7",
-    "route_id": "30000140",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119017001S2",
+    "trip_id": "260119017001S6",
     "route_id": "30000140",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119012188S9",
-    "route_id": "30000140",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119037001S7",
+    "trip_id": "260119032188S2",
     "route_id": "30000140",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119037001S3",
-    "route_id": "30000140",
-    "service_id": "26011903",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119012188S10",
+    "trip_id": "260119017001S7",
     "route_id": "30000140",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030183S3",
+    "trip_id": "260119012188S4",
+    "route_id": "30000140",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119030184S9",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030181S4",
+    "trip_id": "260119030184S3",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020183S7",
+    "trip_id": "260119030183S7",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119030180S2",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119022900S6",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020182S3",
+    "trip_id": "260119022900S2",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010183S7",
+    "trip_id": "260119020184S9",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119020181S8",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119020180S8",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119010185S7",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010181S6",
+    "trip_id": "260119010183S5",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010181S2",
+    "trip_id": "260119010182S7",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010180S4",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119030185S4",
+    "trip_id": "260119030185S2",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030183S4",
+    "trip_id": "260119030184S4",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030181S7",
+    "trip_id": "260119030184S2",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020182S2",
+    "trip_id": "260119030183S8",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119030182S2",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119030180S9",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119020183S4",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010184S4",
+    "trip_id": "260119020181S3",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119020180S3",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119012900S9",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010184S2",
+    "trip_id": "260119012900S7",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010182S8",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119010180S7",
+    "trip_id": "260119010180S9",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
@@ -13266,175 +13440,199 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "260119022188S5",
+    "trip_id": "260119027001S10",
     "route_id": "30000140",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119017001S6",
+    "trip_id": "260119027001S8",
+    "route_id": "30000140",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119012188S5",
     "route_id": "30000140",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119032188S2",
+    "trip_id": "260119032188S6",
     "route_id": "30000140",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119017001S7",
+    "trip_id": "260119027001S5",
+    "route_id": "30000140",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119022188S6",
+    "route_id": "30000140",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119017001S3",
     "route_id": "30000140",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119012188S4",
-    "route_id": "30000140",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119030184S9",
+    "trip_id": "260119030184S5",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030184S3",
+    "trip_id": "260119030183S5",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030183S7",
+    "trip_id": "260119030182S9",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030180S2",
+    "trip_id": "260119030181S6",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119022900S6",
+    "trip_id": "260119030180S8",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119020185S5",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119022900S2",
+    "trip_id": "260119020185S3",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020184S9",
+    "trip_id": "260119020184S5",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020181S8",
+    "trip_id": "260119020183S9",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020180S8",
+    "trip_id": "260119020182S9",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010185S7",
+    "trip_id": "260119020181S2",
     "route_id": "30000141",
-    "service_id": "26011901",
+    "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010183S5",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119010182S7",
+    "trip_id": "260119012900S8",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030185S2",
+    "trip_id": "260119010184S5",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119010184S3",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119010182S9",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119010181S4",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119032900S9",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030184S4",
+    "trip_id": "260119030185S6",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030184S2",
+    "trip_id": "260119030182S6",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030183S8",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119030182S2",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119030180S9",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119020183S4",
+    "trip_id": "260119022900S5",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020181S3",
+    "trip_id": "260119020185S8",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020180S3",
+    "trip_id": "260119020185S4",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119012900S9",
+    "trip_id": "260119020184S8",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119010185S2",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119012900S7",
+    "trip_id": "260119010183S8",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010180S9",
+    "trip_id": "260119010183S2",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
@@ -17946,199 +18144,205 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "260119027001S10",
+    "trip_id": "260119037001S10",
     "route_id": "30000140",
-    "service_id": "26011902",
+    "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119027001S8",
+    "trip_id": "260119037001S6",
     "route_id": "30000140",
-    "service_id": "26011902",
+    "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119012188S5",
+    "trip_id": "260119017001S4",
     "route_id": "30000140",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119032188S6",
+    "trip_id": "260119012188S3",
     "route_id": "30000140",
-    "service_id": "26011903",
-    "direction_id": "1"
+    "service_id": "26011901",
+    "direction_id": "0"
   },
   {
-    "trip_id": "260119027001S5",
-    "route_id": "30000140",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119022188S6",
+    "trip_id": "260119022188S8",
     "route_id": "30000140",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119017001S3",
+    "trip_id": "260119022188S4",
     "route_id": "30000140",
-    "service_id": "26011901",
+    "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030184S5",
+    "trip_id": "260119032900S6",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030183S5",
+    "trip_id": "260119032900S4",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030182S9",
+    "trip_id": "260119030184S7",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030181S6",
+    "trip_id": "260119030181S2",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030180S8",
+    "trip_id": "260119030180S4",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020185S5",
+    "trip_id": "260119020185S7",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020185S3",
+    "trip_id": "260119020183S5",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020184S5",
+    "trip_id": "260119020181S6",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020183S9",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119020182S9",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119020181S2",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119012900S8",
+    "trip_id": "260119012900S4",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010184S5",
+    "trip_id": "260119010184S9",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010184S3",
+    "trip_id": "260119010182S5",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010182S9",
+    "trip_id": "260119010180S6",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010181S4",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119032900S9",
+    "trip_id": "260119032900S7",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030185S6",
+    "trip_id": "260119030185S8",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030182S6",
+    "trip_id": "260119030183S2",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119022900S5",
+    "trip_id": "260119030181S5",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119030181S3",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119022900S7",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020185S8",
+    "trip_id": "260119020184S4",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020185S4",
+    "trip_id": "260119020183S8",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020184S8",
+    "trip_id": "260119020180S9",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010185S2",
+    "trip_id": "260119012900S3",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010183S8",
+    "trip_id": "260119010185S8",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010183S2",
+    "trip_id": "260119010184S8",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119010183S6",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119010182S6",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119010181S5",
+    "route_id": "30000141",
+    "service_id": "26011901",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119010181S3",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
@@ -22374,205 +22578,145 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "260119037001S10",
-    "route_id": "30000140",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119037001S6",
-    "route_id": "30000140",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119017001S4",
+    "trip_id": "260119017001S8",
     "route_id": "30000140",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119012188S3",
+    "trip_id": "260119037001S9",
     "route_id": "30000140",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119022188S8",
-    "route_id": "30000140",
-    "service_id": "26011902",
+    "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119022188S4",
+    "trip_id": "260119027001S3",
     "route_id": "30000140",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119032900S6",
+    "trip_id": "260119032900S8",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119032900S4",
+    "trip_id": "260119030182S3",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030184S7",
+    "trip_id": "260119030180S6",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030181S2",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119030180S4",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119020185S7",
+    "trip_id": "260119022900S4",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020183S5",
+    "trip_id": "260119020184S7",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020181S6",
+    "trip_id": "260119020182S7",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119012900S4",
+    "trip_id": "260119010183S3",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010184S9",
+    "trip_id": "260119010181S8",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010182S5",
+    "trip_id": "260119010180S8",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010180S6",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119032900S7",
+    "trip_id": "260119032900S5",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030185S8",
+    "trip_id": "260119030184S6",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030183S2",
+    "trip_id": "260119030182S8",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030181S5",
+    "trip_id": "260119030180S7",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030181S3",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119022900S7",
+    "trip_id": "260119022900S9",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020184S4",
+    "trip_id": "260119020181S7",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020183S8",
+    "trip_id": "260119020180S7",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020180S9",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119012900S3",
+    "trip_id": "260119012900S5",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010185S8",
+    "trip_id": "260119010185S6",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010184S8",
+    "trip_id": "260119010185S4",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010183S6",
+    "trip_id": "260119010184S6",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010182S6",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119010181S5",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119010181S3",
+    "trip_id": "260119010183S4",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
@@ -26814,145 +26958,187 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "260119017001S8",
+    "trip_id": "260119037001S2",
+    "route_id": "30000140",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119032188S5",
+    "route_id": "30000140",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119022188S3",
+    "route_id": "30000140",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119017001S10",
     "route_id": "30000140",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119037001S9",
+    "trip_id": "260119037001S5",
     "route_id": "30000140",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119027001S3",
+    "trip_id": "260119032188S8",
+    "route_id": "30000140",
+    "service_id": "26011903",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119027001S9",
     "route_id": "30000140",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119032900S8",
+    "trip_id": "260119022188S2",
+    "route_id": "30000140",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119017001S9",
+    "route_id": "30000140",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119012188S8",
+    "route_id": "30000140",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119012188S6",
+    "route_id": "30000140",
+    "service_id": "26011901",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119030185S3",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030182S3",
+    "trip_id": "260119030183S9",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030180S6",
+    "trip_id": "260119030182S5",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119022900S4",
+    "trip_id": "260119020180S2",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119020184S7",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119020182S7",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119010183S3",
+    "trip_id": "260119010185S5",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010181S8",
+    "trip_id": "260119010185S3",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010180S8",
+    "trip_id": "260119010184S7",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119032900S5",
+    "trip_id": "260119030180S5",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119030184S6",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119030182S8",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119030180S7",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119022900S9",
+    "trip_id": "260119020185S2",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020181S7",
+    "trip_id": "260119020184S6",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020180S7",
+    "trip_id": "260119020184S2",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119012900S5",
+    "trip_id": "260119020183S2",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119020182S8",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119020182S6",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119020182S4",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119020181S5",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119020180S5",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119010182S4",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010185S6",
+    "trip_id": "260119010181S7",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119010185S4",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119010184S6",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119010183S4",
+    "trip_id": "260119010180S3",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
@@ -31302,187 +31488,91 @@
     "direction_id": "0"
   },
   {
-    "trip_id": "260119037001S2",
+    "trip_id": "260119037001S8",
     "route_id": "30000140",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119032188S5",
+    "trip_id": "260119032188S7",
     "route_id": "30000140",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119022188S3",
-    "route_id": "30000140",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119017001S10",
+    "trip_id": "260119012188S7",
     "route_id": "30000140",
     "service_id": "26011901",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119037001S5",
-    "route_id": "30000140",
-    "service_id": "26011903",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119032188S8",
-    "route_id": "30000140",
-    "service_id": "26011903",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119027001S9",
+    "trip_id": "260119022188S10",
     "route_id": "30000140",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119022188S2",
-    "route_id": "30000140",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119017001S9",
-    "route_id": "30000140",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119012188S8",
-    "route_id": "30000140",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119012188S6",
-    "route_id": "30000140",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119030185S3",
+    "trip_id": "260119030185S7",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030183S9",
+    "trip_id": "260119030181S8",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119030182S5",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119020180S2",
+    "trip_id": "260119020184S3",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010185S5",
+    "trip_id": "260119020183S3",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119020180S6",
+    "route_id": "30000141",
+    "service_id": "26011902",
+    "direction_id": "1"
+  },
+  {
+    "trip_id": "260119012900S6",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "1"
   },
   {
-    "trip_id": "260119010185S3",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119010184S7",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119030180S5",
+    "trip_id": "260119032900S3",
     "route_id": "30000141",
     "service_id": "26011903",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020185S2",
+    "trip_id": "260119030184S8",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119030183S6",
+    "route_id": "30000141",
+    "service_id": "26011903",
+    "direction_id": "0"
+  },
+  {
+    "trip_id": "260119022900S3",
     "route_id": "30000141",
     "service_id": "26011902",
     "direction_id": "0"
   },
   {
-    "trip_id": "260119020184S6",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119020184S2",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119020183S2",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119020182S8",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119020182S6",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119020182S4",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119020181S5",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119020180S5",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119010182S4",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119010181S7",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119010180S3",
+    "trip_id": "260119010180S5",
     "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
@@ -35762,96 +35852,6 @@
   {
     "trip_id": "260119018000S3",
     "route_id": "30000139",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119037001S8",
-    "route_id": "30000140",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119032188S7",
-    "route_id": "30000140",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119012188S7",
-    "route_id": "30000140",
-    "service_id": "26011901",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119022188S10",
-    "route_id": "30000140",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119030185S7",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119030181S8",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119020184S3",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119020183S3",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119020180S6",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119012900S6",
-    "route_id": "30000141",
-    "service_id": "26011901",
-    "direction_id": "1"
-  },
-  {
-    "trip_id": "260119032900S3",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119030184S8",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119030183S6",
-    "route_id": "30000141",
-    "service_id": "26011903",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119022900S3",
-    "route_id": "30000141",
-    "service_id": "26011902",
-    "direction_id": "0"
-  },
-  {
-    "trip_id": "260119010180S5",
-    "route_id": "30000141",
     "service_id": "26011901",
     "direction_id": "0"
   }
