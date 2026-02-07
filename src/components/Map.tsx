@@ -540,7 +540,6 @@ function VehiclesMarker({
       }[] = [];
       feed.entity.forEach((entity) => {
         if (entity.vehicle) {
-          // console.log(entity.vehicle.trip?.routeId === "CT15");
           vehicleData.push({
             data: entity.vehicle,
           });
@@ -577,7 +576,7 @@ function VehiclesMarker({
 
     vehicleForThisRoute.forEach((v) => {
       const directions = Directions.find(
-        (d) => d.trip_id.slice(6) === v.data.trip?.tripId?.slice(6),
+        (d) => d.trip_id === v.data.trip?.tripId,
       );
       if (directions === undefined && route?.directions.length === 1) {
         setDirectionsLocation((prev) => ({
@@ -628,10 +627,8 @@ function VehiclesMarker({
                         (d) => d.direction_id === direction,
                       )[0]
                       .dates.find((d) => d.date === getCurrentDateEvenAfter12())
-                      ?.times.find(
-                        (d) =>
-                          d.trip_id.slice(6) === v.data?.trip?.tripId?.slice(6),
-                      )?.time
+                      ?.times.find((d) => d.trip_id === v.data?.trip?.tripId)
+                      ?.time
                       ? `Departure: ${
                           Schedule.find((s) => s.route_id === route?.route_id)
                             ?.directions.filter(
@@ -641,9 +638,7 @@ function VehiclesMarker({
                               (d) => d.date === getCurrentDateEvenAfter12(),
                             )
                             ?.times.find(
-                              (d) =>
-                                d.trip_id.slice(6) ===
-                                v.data?.trip?.tripId?.slice(6),
+                              (d) => d.trip_id === v.data?.trip?.tripId,
                             )
                             ?.time.substring(0, 5) || ""
                         }`
