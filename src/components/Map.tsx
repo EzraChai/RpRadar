@@ -41,6 +41,7 @@ import {
 import { ModeToggle } from "./mode-toggle";
 import "leaflet/dist/leaflet.css";
 import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
+import type { BusScheduleType } from "@/hooks/types";
 
 function App() {
   const [searchParams] = useSearchParams();
@@ -51,6 +52,7 @@ function App() {
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
   const { theme } = useTheme();
   const isMobile = useIsMobile();
+  const BusSchedule: BusScheduleType = Schedule as unknown as BusScheduleType;
 
   useEffect(() => {
     if (searchParams.get("id") === null) {
@@ -233,13 +235,13 @@ function App() {
                     >
                       <p>{stop.stop_name.trim()}</p>
                     </Button>
-                    {idx === 0 && Schedule && (
+                    {idx === 0 && BusSchedule && (
                       <Collapsible className="px-6 mb-4">
                         <CollapsibleTrigger asChild>
                           <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
                             Next bus will depart at{" "}
                             {nextBusTime(
-                              Schedule.find(
+                              BusSchedule.find(
                                 (s) => s.route_id === route.route_id,
                               )
                                 ?.directions.filter(
@@ -253,7 +255,9 @@ function App() {
                         <CollapsibleContent>
                           <div className="mt-2">Scheduled</div>
                           <div className="grid grid-cols-6 self-center ">
-                            {Schedule.find((s) => s.route_id === route.route_id)
+                            {BusSchedule.find(
+                              (s) => s.route_id === route.route_id,
+                            )
                               ?.directions.filter(
                                 (d) => d.direction_id === direction,
                               )[0]
@@ -528,6 +532,8 @@ function VehiclesMarker({
     1: { data?: transit_realtime.IVehiclePosition }[];
   }>({ 0: [], 1: [] });
 
+  const BusSchedule: BusScheduleType = Schedule as unknown as BusScheduleType;
+
   useEffect(() => {
     async function loadData() {
       const res = await fetch(
@@ -622,7 +628,7 @@ function VehiclesMarker({
                   <p className="mt-4">Route: {v.data.trip?.routeId}</p>
                   <p>Speed: {v.data.position?.speed}km/h</p>
                   <p>
-                    {Schedule.find((s) => s.route_id === route?.route_id)
+                    {BusSchedule.find((s) => s.route_id === route?.route_id)
                       ?.directions.filter(
                         (d) => d.direction_id === direction,
                       )[0]
@@ -630,7 +636,9 @@ function VehiclesMarker({
                       ?.times.find((d) => d.trip_id === v.data?.trip?.tripId)
                       ?.time
                       ? `Departure: ${
-                          Schedule.find((s) => s.route_id === route?.route_id)
+                          BusSchedule.find(
+                            (s) => s.route_id === route?.route_id,
+                          )
                             ?.directions.filter(
                               (d) => d.direction_id === direction,
                             )[0]
@@ -650,7 +658,9 @@ function VehiclesMarker({
                       <p>
                         {"Heading: "}
                         {findT310Heading(
-                          Schedule.find((s) => s.route_id === route?.route_id)
+                          BusSchedule.find(
+                            (s) => s.route_id === route?.route_id,
+                          )
                             ?.directions.filter(
                               (d) => d.direction_id === direction,
                             )[0]
