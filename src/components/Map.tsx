@@ -534,40 +534,25 @@ function VehiclesMarker({
   }>({ 0: [], 1: [] });
 
   const BusSchedule: BusScheduleType = Schedule as unknown as BusScheduleType;
-  const redis = new Redis({
-    url: "https://natural-marlin-19275.upstash.io",
-  });
 
   useEffect(() => {
     async function loadData() {
-      const cacheVehicleData = (await redis.get("vehicles")) as
-        | {
-            data: transit_realtime.IVehiclePosition;
-          }[]
-        | null;
-      if (cacheVehicleData) {
-        setVehicles(cacheVehicleData);
-      } else {
-        const res = await fetch(
-          "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
-        );
-        const buffer = await res.arrayBuffer();
-        const feed = transit_realtime.FeedMessage.decode(
-          new Uint8Array(buffer),
-        );
-        const vehicleData: {
-          data: transit_realtime.IVehiclePosition;
-        }[] = [];
-        feed.entity.forEach((entity) => {
-          if (entity.vehicle) {
-            vehicleData.push({
-              data: entity.vehicle,
-            });
-          }
-        });
-        setVehicles(vehicleData);
-        await redis.set("vehicles", vehicleData, { ex: 15 });
-      }
+      const res = await fetch(
+        "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
+      );
+      const buffer = await res.arrayBuffer();
+      const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
+      const vehicleData: {
+        data: transit_realtime.IVehiclePosition;
+      }[] = [];
+      feed.entity.forEach((entity) => {
+        if (entity.vehicle) {
+          vehicleData.push({
+            data: entity.vehicle,
+          });
+        }
+      });
+      setVehicles(vehicleData);
     }
     loadData();
     const interval = setInterval(loadData, 15000); // Refresh every 15 seconds
