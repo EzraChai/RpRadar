@@ -418,7 +418,7 @@ function App() {
               }
               url={`https://api.maptiler.com/maps/${
                 theme === "dark" ? "streets-v2-dark" : "streets"
-              }/{z}/{x}/{y}{r}.png?key=nujdgT3N9QZR55uLychE`}
+              }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip `}
             />
           ) : (
             <TileLayer
@@ -430,7 +430,7 @@ function App() {
                 window.matchMedia("(prefers-color-scheme: dark)").matches
                   ? "streets-v2-dark"
                   : "streets"
-              }/{z}/{x}/{y}{r}.png?key=nujdgT3N9QZR55uLychE`}
+              }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip `}
             />
           )}
 
