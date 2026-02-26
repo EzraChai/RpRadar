@@ -536,7 +536,6 @@ function VehiclesMarker({
   const BusSchedule: BusScheduleType = Schedule as unknown as BusScheduleType;
   const redis = new Redis({
     url: "https://natural-marlin-19275.upstash.io",
-    token: "AUtLAAIncDEzOGZjOTM2M2JiZTA0MTA4YTc3MGYzZWVlZjIyM2MzN3AxMTkyNzU",
   });
 
   useEffect(() => {
