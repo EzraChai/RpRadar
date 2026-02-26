@@ -7,6 +7,7 @@ import {
   Popup,
   Marker,
 } from "react-leaflet";
+import { Redis } from "@upstash/redis";
 import { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import L from "leaflet";
 import { Link, useSearchParams } from "react-router";
@@ -533,26 +534,41 @@ function VehiclesMarker({
   }>({ 0: [], 1: [] });
 
   const BusSchedule: BusScheduleType = Schedule as unknown as BusScheduleType;
+  const redis = new Redis({
+    url: "https://natural-marlin-19275.upstash.io",
+    token: "AUtLAAIncDEzOGZjOTM2M2JiZTA0MTA4YTc3MGYzZWVlZjIyM2MzN3AxMTkyNzU",
+  });
 
   useEffect(() => {
     async function loadData() {
-      const res = await fetch(
-        "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
-      );
-      const buffer = await res.arrayBuffer();
-      const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
-      const vehicleData: {
-        data: transit_realtime.IVehiclePosition;
-      }[] = [];
-      feed.entity.forEach((entity) => {
-        if (entity.vehicle) {
-          vehicleData.push({
-            data: entity.vehicle,
-          });
-        }
-      });
-      setVehicles([]);
-      setVehicles(vehicleData);
+      const cacheVehicleData = (await redis.get("vehicles")) as
+        | {
+            data: transit_realtime.IVehiclePosition;
+          }[]
+        | null;
+      if (cacheVehicleData) {
+        setVehicles(cacheVehicleData);
+      } else {
+        const res = await fetch(
+          "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
+        );
+        const buffer = await res.arrayBuffer();
+        const feed = transit_realtime.FeedMessage.decode(
+          new Uint8Array(buffer),
+        );
+        const vehicleData: {
+          data: transit_realtime.IVehiclePosition;
+        }[] = [];
+        feed.entity.forEach((entity) => {
+          if (entity.vehicle) {
+            vehicleData.push({
+              data: entity.vehicle,
+            });
+          }
+        });
+        setVehicles(vehicleData);
+        await redis.set("vehicles", vehicleData, { ex: 15 });
+      }
     }
     loadData();
     const interval = setInterval(loadData, 15000); // Refresh every 15 seconds
