@@ -7,7 +7,6 @@ import {
   Popup,
   Marker,
 } from "react-leaflet";
-import { Redis } from "@upstash/redis";
 import { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import L from "leaflet";
 import { Link, useSearchParams } from "react-router";
