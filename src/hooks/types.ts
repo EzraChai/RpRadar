@@ -1,8 +1,16 @@
-export type BusScheduleType = RouteSchedule[];
+export type BusScheduleType = CompressedRoute[];
+
+export interface CompressedRoute {
+  r: string; // route_id
+  d: number; // direction_id
+  dt: string; // date (YYYYMMDD)
+  t: string[]; // array of times (HH:mm:ss)
+  trip_ids: string[]; // array of trip IDs
+}
 
 export interface RouteSchedule {
-  route_id: string;
-  directions: Direction[];
+  r: string;
+  dt: Direction[];
 }
 
 export interface Direction {

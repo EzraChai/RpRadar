@@ -63,7 +63,7 @@ for (route_id, direction_id), stop_time_list in grouped.items():
     route_entry["directions"].append({
         "direction_id": int(direction_id),
         "shape_id": shape_id,
-        "route_long_name": headsign,  # <-- use trip_headsign here
+        "route_long_name": route_info["route_long_name"],
         "stops": stops_list
     })
 

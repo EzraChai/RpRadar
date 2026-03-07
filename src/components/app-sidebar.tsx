@@ -16,15 +16,31 @@ import { Card, CardHeader, CardTitle } from "./ui/card";
 import { useEffect, useRef, useState } from "react";
 import { Input } from "./ui/input";
 import { Link, NavLink } from "react-router";
-import routes from "@/assets/routes_with_shapes.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import { useIsMobile } from "@/hooks/use-mobile";
 import RpRadarIcon from "@/assets/RpRadar.png";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "./ui/select";
+import RapidPenangRoutes from "@/assets/rp/rp_routes_with_shapes.json";
+import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_shapes.json";
 
 export function AppSidebar() {
   const map = useMap();
   const [openSearch, setOpenSearch] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
+  const [provider, setProvider] = useState<string>("rp");
+
+  useEffect(() => {
+    const storedProvider = localStorage.getItem("provider");
+    if (storedProvider) {
+      setProvider(storedProvider);
+    }
+  }, [provider]);
 
   const [savedRoutes, setSavedRoutes] = useState<
     (
@@ -41,10 +57,62 @@ export function AppSidebar() {
   const { starred } = useStarredRoutes();
   const inputRef = useRef<HTMLInputElement>(null);
   const isMobile = useIsMobile();
+  let routes = null;
+  switch (provider) {
+    case "rp":
+      routes = RapidPenangRoutes as unknown as {
+        type: "FeatureCollection";
+        features: {
+          type: "Feature";
+          properties: {
+            route_id: string;
+            route_code: string;
+            route_name: string;
+            shape_ids: string[];
+          };
+        }[];
+      };
+      break;
+    case "rkl":
+      routes = RapidKLRoutes as unknown as {
+        type: "FeatureCollection";
+        features: {
+          type: "Feature";
+          properties: {
+            route_id: string;
+            route_code: string;
+            route_name: string;
+            shape_ids: string[];
+          };
+        }[];
+      };
+      break;
+  }
 
   useEffect(() => {
-    setSavedRoutes(starred.map((s) => routes.find((r) => r.route_id === s)));
-  }, [starred]);
+    if (!routes) {
+      setSavedRoutes([]);
+      return;
+    }
+
+    // If routes is a FeatureCollection, extract the properties array; otherwise assume it's already an array of route objects.
+    const routeList: {
+      route_id: string;
+      route_code: string;
+      route_name: string;
+      shape_ids: string[];
+    }[] =
+      Array.isArray((routes as any).features) && (routes as any).features.length
+        ? (routes as any).features.map((f: any) => f.properties)
+        : (routes as any as {
+            route_id: string;
+            route_code: string;
+            route_name: string;
+            shape_ids: string[];
+          }[]);
+
+    setSavedRoutes(starred.map((s) => routeList.find((r) => r.route_id === s)));
+  }, [starred, provider]);
 
   if (!isMobile)
     return (
@@ -161,6 +229,29 @@ export function AppSidebar() {
               <div className="flex justify-end">
                 <ModeToggle />
               </div>
+              <SidebarMenuButton asChild>
+                <Select
+                  onValueChange={(value) => {
+                    setProvider(value);
+                    localStorage.setItem("provider", value);
+                    window.history.replaceState(
+                      {},
+                      "",
+                      window.location.pathname,
+                    );
+                    window.location.reload();
+                  }}
+                  value={provider}
+                >
+                  <SelectTrigger className="w-full ">
+                    <SelectValue placeholder="Select State" />
+                  </SelectTrigger>
+                  <SelectContent className="z-1002 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
+                    <SelectItem value="rp">Rapid Penang</SelectItem>
+                    <SelectItem value="rkl">Rapid KL</SelectItem>
+                  </SelectContent>
+                </Select>
+              </SidebarMenuButton>
               <div className="flex justify-center w-full h-4">
                 <p
                   className={`whitespace-nowrap overflow-hidden text-xs text-neutral-400 ${
@@ -203,16 +294,71 @@ function SearchSideBar({
   setOpenSearch: React.Dispatch<React.SetStateAction<boolean>>;
   inputRef: React.RefObject<HTMLInputElement | null>;
 }) {
+  const [provider, setProvider] = useState<string>("rp");
+  useEffect(() => {
+    const user_provider = localStorage.getItem("provider");
+    if (user_provider) {
+      setProvider(user_provider);
+    }
+  }, [provider]);
+
+  let routes = null;
+  if (provider === "rp") {
+    routes = RapidPenangRoutes as unknown as {
+      features: {
+        properties: {
+          route_id: string;
+          route_code: string;
+          route_name: string;
+          shape_ids: string[];
+        };
+      }[];
+    };
+  } else if (provider === "rkl") {
+    routes = RapidKLRoutes as unknown as {
+      features: {
+        properties: {
+          route_id: string;
+          route_code: string;
+          route_name: string;
+          shape_ids: string[];
+        };
+      }[];
+    };
+  }
   const map = useMap();
   const [search, setSearch] = useState("");
-  const [filteredRoutes, setFilteredRoutes] = useState(routes); // initial list
+  const [filteredRoutes, setFilteredRoutes] = useState(() => {
+    // derive an initial array of route objects from routes (supports FeatureCollection or plain array)
+    if (!routes) return [];
+    if (
+      Array.isArray((routes as any).features) &&
+      (routes as any).features.length
+    ) {
+      return (routes as any).features.map((f: any) => f.properties);
+    }
+    if (Array.isArray(routes)) {
+      return routes as any;
+    }
+    return [];
+  }); // initial list
 
   useEffect(() => {
     const handler = setTimeout(() => {
       const term = search.trim().toLowerCase();
 
-      const results = routes.filter(
-        (bus) =>
+      // derive a safe list to filter from (supports FeatureCollection or plain array)
+      const list =
+        routes &&
+        Array.isArray((routes as any).features) &&
+        (routes as any).features.length
+          ? (routes as any).features.map((f: any) => f.properties)
+          : Array.isArray(routes)
+            ? (routes as any)
+            : [];
+
+      const results = list.filter(
+        (bus: any) =>
           bus.route_code.toLowerCase().includes(term) ||
           bus.route_name.toLowerCase().includes(term),
       );
@@ -221,7 +367,7 @@ function SearchSideBar({
     }, 300); // wait 300ms after user stops typing
 
     return () => clearTimeout(handler); //
-  }, [search]);
+  }, [search, routes]);
   return (
     <Card
       hidden={!openSearch}

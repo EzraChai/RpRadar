@@ -14,7 +14,7 @@ with open(ROUTES_FILE, newline="", encoding="utf-8") as f:
         routes[row["route_id"]] = {
             "route_id": row["route_id"],
             "route_code": row["route_short_name"],
-            "route_name": None,
+            "route_name": row["route_long_name"] if row["route_long_name"] else None,
             "shape_ids": set()
         }
 

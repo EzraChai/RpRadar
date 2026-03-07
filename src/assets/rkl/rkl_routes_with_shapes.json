@@ -1,0 +1,1027 @@
+[
+  {
+    "route_id": "U1510",
+    "route_code": "151",
+    "route_name": "Bandar Baru Selayang ~ Hab Lebuh Pudu",
+    "shape_ids": [
+      "U151001",
+      "U151002"
+    ]
+  },
+  {
+    "route_id": "U1708",
+    "route_code": "170",
+    "route_name": "Hab Wira Damai ~ SOGO KL",
+    "shape_ids": [
+      "U170802"
+    ]
+  },
+  {
+    "route_id": "U1710",
+    "route_code": "171",
+    "route_name": "Hab Wira Damai ~ Lebuh Ampang via Sentul",
+    "shape_ids": [
+      "U171001",
+      "U171002"
+    ]
+  },
+  {
+    "route_id": "U1730",
+    "route_code": "173",
+    "route_name": "Taman Jasa Utama ~ Lebuh Ampang",
+    "shape_ids": [
+      "U173001",
+      "U173002"
+    ]
+  },
+  {
+    "route_id": "U1800",
+    "route_code": "180",
+    "route_name": "Taman Dato' Senu ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U180001",
+      "U180002"
+    ]
+  },
+  {
+    "route_id": "U1900",
+    "route_code": "190",
+    "route_name": "Desa Sri Hartamas ~ Lin Ho Jln Lekiu",
+    "shape_ids": [
+      "U190001",
+      "U190002"
+    ]
+  },
+  {
+    "route_id": "U2000",
+    "route_code": "200",
+    "route_name": "UIA Gombak ~ SOGO KL",
+    "shape_ids": [
+      "U200002"
+    ]
+  },
+  {
+    "route_id": "U2018",
+    "route_code": "201",
+    "route_name": "Batu 12 Gombak – SOGO KL",
+    "shape_ids": [
+      "U201802"
+    ]
+  },
+  {
+    "route_id": "U2020",
+    "route_code": "202",
+    "route_name": "Hub Wira Damai ~ Lebuh Ampang via Gombak",
+    "shape_ids": [
+      "U202001",
+      "U202002"
+    ]
+  },
+  {
+    "route_id": "U2200",
+    "route_code": "220",
+    "route_name": "Taman Melawati ~ Lebuh Ampang",
+    "shape_ids": [
+      "U220001",
+      "U220002"
+    ]
+  },
+  {
+    "route_id": "U2220",
+    "route_code": "222",
+    "route_name": "Taman Melawati ~ Stesen LRT Wangsa Maju",
+    "shape_ids": [
+      "U222002"
+    ]
+  },
+  {
+    "route_id": "U2500",
+    "route_code": "250",
+    "route_name": "Stesen LRT Wangsa Maju ~ Lebuh Ampang",
+    "shape_ids": [
+      "U250001",
+      "U250002"
+    ]
+  },
+  {
+    "route_id": "U2510",
+    "route_code": "251",
+    "route_name": "AU3 Jentayu ~ Chow Kit",
+    "shape_ids": [
+      "U251002"
+    ]
+  },
+  {
+    "route_id": "U2538",
+    "route_code": "253",
+    "route_name": "Stesen LRT Wangsa Maju ~ Ampang Point",
+    "shape_ids": [
+      "U253802"
+    ]
+  },
+  {
+    "route_id": "U2548",
+    "route_code": "254",
+    "route_name": "Ayer Panas ~ Titiwangsa via Chowkit",
+    "shape_ids": [
+      "U254802"
+    ]
+  },
+  {
+    "route_id": "U3000",
+    "route_code": "300",
+    "route_name": "Terminal Maluri ~ Lebuh Ampang",
+    "shape_ids": [
+      "U300002"
+    ]
+  },
+  {
+    "route_id": "U3020",
+    "route_code": "302",
+    "route_name": "Titiwangsa ~ KLCC",
+    "shape_ids": [
+      "U302002"
+    ]
+  },
+  {
+    "route_id": "U3030",
+    "route_code": "303",
+    "route_name": "Taman Mulia Jaya ~ Lebuh Ampang",
+    "shape_ids": [
+      "U303002"
+    ]
+  },
+  {
+    "route_id": "U4000",
+    "route_code": "400",
+    "route_name": "Damai Perdana ~ Hab Lebuh Pudu via Bukit Bintang",
+    "shape_ids": [
+      "U400002"
+    ]
+  },
+  {
+    "route_id": "U4200",
+    "route_code": "420",
+    "route_name": "Hentian Taman Dagang ~ Menara Maybank via Bukit Bintang",
+    "shape_ids": [
+      "U420002"
+    ]
+  },
+  {
+    "route_id": "U4210",
+    "route_code": "421",
+    "route_name": "Hentian Taman Dagang ~ Menara Maybank via Bukit Bintang",
+    "shape_ids": [
+      "U421002"
+    ]
+  },
+  {
+    "route_id": "U4500",
+    "route_code": "450",
+    "route_name": "Hentian Kajang ~ Hab Lebuh Pudu",
+    "shape_ids": [
+      "U450001",
+      "U450002"
+    ]
+  },
+  {
+    "route_id": "U5410",
+    "route_code": "541",
+    "route_name": "Stesen MRT Taman Equine ~ Stesen LRT BK 5",
+    "shape_ids": [
+      "U541002"
+    ]
+  },
+  {
+    "route_id": "U5800",
+    "route_code": "580",
+    "route_name": "Desa Petaling ~ Pasar Seni via Stesen LRT Salak Selatan",
+    "shape_ids": [
+      "U580002"
+    ]
+  },
+  {
+    "route_id": "U5810",
+    "route_code": "581",
+    "route_name": "Desa Tasik ~ Stesen LRT Bandar Tasik Selatan",
+    "shape_ids": [
+      "U581002"
+    ]
+  },
+  {
+    "route_id": "U5900",
+    "route_code": "590",
+    "route_name": "Bandar Sungai Long ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U590002"
+    ]
+  },
+  {
+    "route_id": "U6000",
+    "route_code": "600",
+    "route_name": "Puchong Utama ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U600001",
+      "U600002"
+    ]
+  },
+  {
+    "route_id": "U6028",
+    "route_code": "602",
+    "route_name": "Puchong Prima ~ IOI Puchong",
+    "shape_ids": [
+      "U602802"
+    ]
+  },
+  {
+    "route_id": "U6400",
+    "route_code": "640",
+    "route_name": "Hab Bas Sri Manja ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U640001",
+      "U640002"
+    ]
+  },
+  {
+    "route_id": "U6418",
+    "route_code": "641",
+    "route_name": "Stesen LRT Subang Jaya ~ Pearl Point",
+    "shape_ids": [
+      "U641802"
+    ]
+  },
+  {
+    "route_id": "U6500",
+    "route_code": "650",
+    "route_name": "Taman Desa ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U650002"
+    ]
+  },
+  {
+    "route_id": "U6510",
+    "route_code": "651",
+    "route_name": "Stesen LRT Muhibbah ~Pearl Point",
+    "shape_ids": [
+      "U651002"
+    ]
+  },
+  {
+    "route_id": "U6520",
+    "route_code": "652",
+    "route_name": "Stesen LRT Awan Besar ~Batu 3 Jalan Klang Lama",
+    "shape_ids": [
+      "U652002"
+    ]
+  },
+  {
+    "route_id": "U7508",
+    "route_code": "750",
+    "route_name": "Hab Sekysen 2 ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U750801",
+      "U750802"
+    ]
+  },
+  {
+    "route_id": "U7510",
+    "route_code": "751",
+    "route_name": "Taman Sri Muda ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U751001",
+      "U751002"
+    ]
+  },
+  {
+    "route_id": "U7520",
+    "route_code": "752",
+    "route_name": "Stesen LRT Putra Height ~ Hentian Bandar Shah Alam",
+    "shape_ids": [
+      "U752001",
+      "U752002"
+    ]
+  },
+  {
+    "route_id": "U7538",
+    "route_code": "753",
+    "route_name": "Hentian Bandar Shah Alam ~ UiTM Puncak Alam",
+    "shape_ids": [
+      "U753801",
+      "U753802"
+    ]
+  },
+  {
+    "route_id": "U7548",
+    "route_code": "754",
+    "route_name": "Sekysen 13 Shah Alam ~ UITM Puncak Perdana",
+    "shape_ids": [
+      "U754802"
+    ]
+  },
+  {
+    "route_id": "U7700",
+    "route_code": "770",
+    "route_name": "Subang Mewah USJ 1 ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U770001",
+      "U770002"
+    ]
+  },
+  {
+    "route_id": "U7718",
+    "route_code": "771",
+    "route_name": "Subang Mewah USJ 1 ~ Desa Mentari via Persiaran Tujuan",
+    "shape_ids": [
+      "U771802"
+    ]
+  },
+  {
+    "route_id": "U7720",
+    "route_code": "772",
+    "route_name": "Subang Suria Mah Sing ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U772001",
+      "U772002"
+    ]
+  },
+  {
+    "route_id": "U7800",
+    "route_code": "780",
+    "route_name": "Kota Damansara ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U780001",
+      "U780002"
+    ]
+  },
+  {
+    "route_id": "U7828",
+    "route_code": "782",
+    "route_name": "Hentian PJ Old Town ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U782801",
+      "U782802"
+    ]
+  },
+  {
+    "route_id": "U7830",
+    "route_code": "783",
+    "route_name": "Stesen LRT Kelana Jaya ~ Subang Parade",
+    "shape_ids": [
+      "U783002"
+    ]
+  },
+  {
+    "route_id": "U8210",
+    "route_code": "821",
+    "route_name": "Pantai Hill Park ~ Hab Pasar Seni",
+    "shape_ids": [
+      "U821002"
+    ]
+  },
+  {
+    "route_id": "U8220",
+    "route_code": "822",
+    "route_name": "Stesen LRT Bangsar ~ Bangsar Shopping Centre",
+    "shape_ids": [
+      "U822002"
+    ]
+  },
+  {
+    "route_id": "S0040",
+    "route_code": "AJ01",
+    "route_name": "Ukay Perdana ~ Taman Melawati via Sg. Sering",
+    "shape_ids": [
+      "S004001",
+      "S004002"
+    ]
+  },
+  {
+    "route_id": "S1050",
+    "route_code": "AJ03",
+    "route_name": "Stesen LRT Cempaka ~ Bukit Teratai",
+    "shape_ids": [
+      "S105001",
+      "S105002"
+    ]
+  },
+  {
+    "route_id": "S1140",
+    "route_code": "AJ04",
+    "route_name": "Pandan Perdana ~ Hospital Ampang",
+    "shape_ids": [
+      "S114002"
+    ]
+  },
+  {
+    "route_id": "S1030",
+    "route_code": "AJ2A",
+    "route_name": "Sri Nilam ~ Taman Cahaya",
+    "shape_ids": [
+      "S103002"
+    ]
+  },
+  {
+    "route_id": "S1040",
+    "route_code": "AJ2B",
+    "route_name": "Sri Nilam ~ AEON Big Ampang",
+    "shape_ids": [
+      "S104002"
+    ]
+  },
+  {
+    "route_id": "S0060",
+    "route_code": "BTG1",
+    "route_name": "Hentian Banting ~ Mitsui Outlet , KLIA 2",
+    "shape_ids": [
+      "S006002"
+    ]
+  },
+  {
+    "route_id": "S2060",
+    "route_code": "BTG2",
+    "route_name": "Hentian Banting ~ Bandar Baru Banting",
+    "shape_ids": [
+      "S206001",
+      "S206002"
+    ]
+  },
+  {
+    "route_id": "S0120",
+    "route_code": "HLB2",
+    "route_name": "LRT Taman Jaya ~ Hong Leong Bank PJCT",
+    "shape_ids": [
+      "S012002"
+    ]
+  },
+  {
+    "route_id": "S0030",
+    "route_code": "KJ01",
+    "route_name": "Hentian Kajang ~ Bandar Kajang via Seksyen 7 Bangi",
+    "shape_ids": [
+      "S003002"
+    ]
+  },
+  {
+    "route_id": "S1060",
+    "route_code": "KJ02",
+    "route_name": "Stesen KTM Bangi ~ Bandar Bukit Mahkota",
+    "shape_ids": [
+      "S106002"
+    ]
+  },
+  {
+    "route_id": "S1070",
+    "route_code": "KJ03",
+    "route_name": "Stesen MRT BTHO ~ Taman Tun Perak",
+    "shape_ids": [
+      "S107002"
+    ]
+  },
+  {
+    "route_id": "S1170",
+    "route_code": "KJ04",
+    "route_name": "Hentian Kajang ~ Bandar Baru Bangi",
+    "shape_ids": [
+      "S117002"
+    ]
+  },
+  {
+    "route_id": "S5010",
+    "route_code": "MENARA PRASARANA",
+    "route_name": "LRT Lembah Subang ~ Menara Prasarana",
+    "shape_ids": [
+      "S501002"
+    ]
+  },
+  {
+    "route_id": "S0070",
+    "route_code": "MPS1",
+    "route_name": "Selayang Mutiara ~ Stesen LRT Gombak",
+    "shape_ids": [
+      "S007002"
+    ]
+  },
+  {
+    "route_id": "S1190",
+    "route_code": "MPS2A",
+    "route_name": "Lotus Rawang ~ Rawang Perdana",
+    "shape_ids": [
+      "S119002"
+    ]
+  },
+  {
+    "route_id": "S1390",
+    "route_code": "MPS3",
+    "route_name": "Batu Arang ~ Stesen MRT Sungai Buloh",
+    "shape_ids": [
+      "S139001",
+      "S139002"
+    ]
+  },
+  {
+    "route_id": "S1490",
+    "route_code": "MPS4",
+    "route_name": "Wangsa Permai ~ Bandar Baru Selayang",
+    "shape_ids": [
+      "S149002"
+    ]
+  },
+  {
+    "route_id": "P1010",
+    "route_code": "P101",
+    "route_name": "Kompleks F ~ Presint 5",
+    "shape_ids": [
+      "P101002"
+    ]
+  },
+  {
+    "route_id": "P1020",
+    "route_code": "P102",
+    "route_name": "Presint 11 ~ Kompleks E",
+    "shape_ids": [
+      "P102002"
+    ]
+  },
+  {
+    "route_id": "P1030",
+    "route_code": "P103",
+    "route_name": "Presint 14 via Alamanda ~ Kompleks E",
+    "shape_ids": [
+      "P103002"
+    ]
+  },
+  {
+    "route_id": "P1040",
+    "route_code": "P104",
+    "route_name": "Dataran Gemilang ~ PICC via Presint 5",
+    "shape_ids": [
+      "P104002"
+    ]
+  },
+  {
+    "route_id": "P1050",
+    "route_code": "P105",
+    "route_name": "Dataran Gemilang ~ Kompleks ABCDE",
+    "shape_ids": [
+      "P105002"
+    ]
+  },
+  {
+    "route_id": "P1060",
+    "route_code": "P106",
+    "route_name": "Presint 4 ~ Kompleks E",
+    "shape_ids": [
+      "P106002"
+    ]
+  },
+  {
+    "route_id": "P1080",
+    "route_code": "P108",
+    "route_name": "Terminal Putrajaya Sentral ~ Kompleks ABCDE",
+    "shape_ids": [
+      "P108002"
+    ]
+  },
+  {
+    "route_id": "S6060",
+    "route_code": "PAVILION BUKIT JALIL (PAVBJ)",
+    "route_name": "Stesen LRT Awan Besar ~ Pavilion Bukit Jalil",
+    "shape_ids": [
+      "S606002"
+    ]
+  },
+  {
+    "route_id": "P0010",
+    "route_code": "PJ01",
+    "route_name": "Terminal Taman Medan ~ Stesen LRT Taman Jaya",
+    "shape_ids": [
+      "P001001",
+      "P001002"
+    ]
+  },
+  {
+    "route_id": "P0020",
+    "route_code": "PJ02",
+    "route_name": "Stesen LRT Taman Jaya ~ PPUM via SS2 PJ",
+    "shape_ids": [
+      "P002002"
+    ]
+  },
+  {
+    "route_id": "P0030",
+    "route_code": "PJ03",
+    "route_name": "Stesen LRT Taman Bahagia ~ SS6 Kelana Park View",
+    "shape_ids": [
+      "P003002"
+    ]
+  },
+  {
+    "route_id": "P0040",
+    "route_code": "PJ04",
+    "route_name": "Stesen LRT Taman Bahagia ~ Kampung Tunku via SS3",
+    "shape_ids": [
+      "P004002"
+    ]
+  },
+  {
+    "route_id": "P0050",
+    "route_code": "PJ05",
+    "route_name": "Bandar Utama ~ Stesen LRT Taman Bahagia",
+    "shape_ids": [
+      "P005002"
+    ]
+  },
+  {
+    "route_id": "P0060",
+    "route_code": "PJ06",
+    "route_name": "Bandar Utama ~ Damansara Damai",
+    "shape_ids": [
+      "P006002"
+    ]
+  },
+  {
+    "route_id": "S4020",
+    "route_code": "SA02",
+    "route_name": "Hentian Bandar Seksyen 14 ~ Stesen KTM Batu 3",
+    "shape_ids": [
+      "S402002"
+    ]
+  },
+  {
+    "route_id": "S4050",
+    "route_code": "SA05",
+    "route_name": "Stesen Bas Seksyen 13 ~ Bukit Jelutong",
+    "shape_ids": [
+      "S405002"
+    ]
+  },
+  {
+    "route_id": "S4070",
+    "route_code": "SA07",
+    "route_name": "Stesen KTM Batu 3 ~ Seksyen 20 via HICOM",
+    "shape_ids": [
+      "S407002"
+    ]
+  },
+  {
+    "route_id": "S4080",
+    "route_code": "SA08",
+    "route_name": "Stesen LRT Alam Megah ~ Kota Kemuning",
+    "shape_ids": [
+      "S408002"
+    ]
+  },
+  {
+    "route_id": "T2000",
+    "route_code": "T200",
+    "route_name": "Stesen LRT Gombak ~ UIA Gombak",
+    "shape_ids": [
+      "T200002"
+    ]
+  },
+  {
+    "route_id": "T2010",
+    "route_code": "T201",
+    "route_name": "Stesen LRT Gombak ~ Hab Wira Damai",
+    "shape_ids": [
+      "T201001",
+      "T201002"
+    ]
+  },
+  {
+    "route_id": "T2020",
+    "route_code": "T202",
+    "route_name": "Stesen LRT Taman Melati ~ Taman Melewar",
+    "shape_ids": [
+      "T202002"
+    ]
+  },
+  {
+    "route_id": "T2220",
+    "route_code": "T222",
+    "route_name": "Stesen LRT Sri Rampai ~ UKAY Perdana",
+    "shape_ids": [
+      "T222002"
+    ]
+  },
+  {
+    "route_id": "T2230",
+    "route_code": "T223",
+    "route_name": "Stesen LRT Setiawangsa ~ AU3, Jentayu, Keramat",
+    "shape_ids": [
+      "T223002"
+    ]
+  },
+  {
+    "route_id": "T2240",
+    "route_code": "T224",
+    "route_name": "Stesen LRT Dato Keramat ~ Desa Pandan",
+    "shape_ids": [
+      "T224002"
+    ]
+  },
+  {
+    "route_id": "T2500",
+    "route_code": "T250",
+    "route_name": "Stesen LRT Wangsa Maju ~ Setapak Sentral",
+    "shape_ids": [
+      "T250002"
+    ]
+  },
+  {
+    "route_id": "T2510",
+    "route_code": "T251",
+    "route_name": "Stesen LRT Sri Rampai ~ Seksyen 10 Wangsa Maju",
+    "shape_ids": [
+      "T251002"
+    ]
+  },
+  {
+    "route_id": "T3008",
+    "route_code": "T300",
+    "route_name": "Bukit Indah ~ Ampang Point via Jalan Rasmi",
+    "shape_ids": [
+      "T300802"
+    ]
+  },
+  {
+    "route_id": "T3018",
+    "route_code": "T301",
+    "route_name": "Taman Mulia Jaya ~ Ampang Point via Jalan Merdeka",
+    "shape_ids": [
+      "T301801",
+      "T301802"
+    ]
+  },
+  {
+    "route_id": "T3028",
+    "route_code": "T302",
+    "route_name": "Hutan Lipur Ampang ~ Ampang Point",
+    "shape_ids": [
+      "T302801",
+      "T302802"
+    ]
+  },
+  {
+    "route_id": "T3030",
+    "route_code": "T303",
+    "route_name": "Ampang Point ~ Stesen LRT Pandan Indah",
+    "shape_ids": [
+      "T303002"
+    ]
+  },
+  {
+    "route_id": "T3048",
+    "route_code": "T304",
+    "route_name": "Bukit Indah ~ Ampang Point via Jalan Ampang",
+    "shape_ids": [
+      "T304802"
+    ]
+  },
+  {
+    "route_id": "T3500",
+    "route_code": "T350",
+    "route_name": "Stesen LRT Cempaka ~ Taman Mawar",
+    "shape_ids": [
+      "T350002"
+    ]
+  },
+  {
+    "route_id": "T3510",
+    "route_code": "T351",
+    "route_name": "Stesen LRT Cempaka ~ Taman Bukit Permai",
+    "shape_ids": [
+      "T351002"
+    ]
+  },
+  {
+    "route_id": "T4068",
+    "route_code": "T406",
+    "route_name": "Cheras Batu 10 ~ Pangsun",
+    "shape_ids": [
+      "T406802"
+    ]
+  },
+  {
+    "route_id": "T4508",
+    "route_code": "T450",
+    "route_name": "Beranang ~ MRT Stadium Kajang",
+    "shape_ids": [
+      "T450802"
+    ]
+  },
+  {
+    "route_id": "T5718",
+    "route_code": "T571",
+    "route_name": "Stesen KTM Serdang ~ Taman Sri Pulai",
+    "shape_ids": [
+      "T571802"
+    ]
+  },
+  {
+    "route_id": "T5800",
+    "route_code": "T580",
+    "route_name": "Stesen LRT Awan Besar ~ TPM via Stesen LRT Bukit Jalil",
+    "shape_ids": [
+      "T580002"
+    ]
+  },
+  {
+    "route_id": "T5810",
+    "route_code": "T581",
+    "route_name": "Stesen LRT Alam Sutera ~ PPR Pinggiran Bukit Jalil",
+    "shape_ids": [
+      "T581002"
+    ]
+  },
+  {
+    "route_id": "T6000",
+    "route_code": "T600",
+    "route_name": "Stesen LRT IOI Puchong ~ Taman Wawasan",
+    "shape_ids": [
+      "T600002"
+    ]
+  },
+  {
+    "route_id": "T6010",
+    "route_code": "T601",
+    "route_name": "Puchong Utama ~ Puchong Prima",
+    "shape_ids": [
+      "T601001",
+      "T601002"
+    ]
+  },
+  {
+    "route_id": "T6030",
+    "route_code": "T603",
+    "route_name": "Stesen LRT Puchong Prima ~ Taman Mas Sepang",
+    "shape_ids": [
+      "T603002"
+    ]
+  },
+  {
+    "route_id": "T6040",
+    "route_code": "T604",
+    "route_name": "Stesen LRT Perindustrian Puchong ~ Taman Kinrara",
+    "shape_ids": [
+      "T604001",
+      "T604002"
+    ]
+  },
+  {
+    "route_id": "T6050",
+    "route_code": "T605",
+    "route_name": "Stesen LRT Bandar Puteri ~ Taman Wawasan",
+    "shape_ids": [
+      "T605002"
+    ]
+  },
+  {
+    "route_id": "T6400",
+    "route_code": "T640",
+    "route_name": "Stesen LRT Taman Jaya ~ Taman Sri Sentosa",
+    "shape_ids": [
+      "T640002"
+    ]
+  },
+  {
+    "route_id": "T7158",
+    "route_code": "T715",
+    "route_name": "UiTM Puncak Alam ~ Bandar Puncak Alam",
+    "shape_ids": [
+      "T715801",
+      "T715802"
+    ]
+  },
+  {
+    "route_id": "T7538",
+    "route_code": "T753",
+    "route_name": "Hentian Bandar Shah Alam ~ Sekysen 11, 9, 8, 6, 5",
+    "shape_ids": [
+      "T753802"
+    ]
+  },
+  {
+    "route_id": "T7548",
+    "route_code": "T754",
+    "route_name": "Hentian Bandar Shah Alam ~ Terminal Seksyen 17",
+    "shape_ids": [
+      "T754802"
+    ]
+  },
+  {
+    "route_id": "T7568",
+    "route_code": "T756",
+    "route_name": "Kemuning Business Park ~ Hentian Bandar via Taman Muda",
+    "shape_ids": [
+      "T756801",
+      "T756802"
+    ]
+  },
+  {
+    "route_id": "T7740",
+    "route_code": "T774",
+    "route_name": "Stesen LRT Glenmarie ~ MSU, Stadium Shah Alam",
+    "shape_ids": [
+      "T774002"
+    ]
+  },
+  {
+    "route_id": "T7760",
+    "route_code": "T776",
+    "route_name": "Stesen LRT USJ 7 ~ Subang Mewah",
+    "shape_ids": [
+      "T776002"
+    ]
+  },
+  {
+    "route_id": "T7800",
+    "route_code": "T780",
+    "route_name": "Stesen LRT Kelana Jaya ~ Taman Mayang",
+    "shape_ids": [
+      "T780002"
+    ]
+  },
+  {
+    "route_id": "T7810",
+    "route_code": "T781",
+    "route_name": "Stesen LRT Kelana Jaya ~ Kelana Centre Point",
+    "shape_ids": [
+      "T781002"
+    ]
+  },
+  {
+    "route_id": "T7820",
+    "route_code": "T782",
+    "route_name": "Stesen LRT Lembah Subang ~ Ara Damansara",
+    "shape_ids": [
+      "T782002"
+    ]
+  },
+  {
+    "route_id": "T7860",
+    "route_code": "T786",
+    "route_name": "Stesen LRT Asia Jaya ~ Stesen MRT Phileo Damansara",
+    "shape_ids": [
+      "T786002"
+    ]
+  },
+  {
+    "route_id": "T7870",
+    "route_code": "T787",
+    "route_name": "Stesen LRT Asia Jaya ~ Seksyen 14 & 18",
+    "shape_ids": [
+      "T787002"
+    ]
+  },
+  {
+    "route_id": "T7880",
+    "route_code": "T788",
+    "route_name": "Stesen LRT Universiti ~ Mid Valley",
+    "shape_ids": [
+      "T788001",
+      "T788002"
+    ]
+  },
+  {
+    "route_id": "T7890",
+    "route_code": "T789",
+    "route_name": "Stesen LRT Universiti ~ Universiti Malaya via Pantai Hillpark",
+    "shape_ids": [
+      "T789002"
+    ]
+  },
+  {
+    "route_id": "T7900",
+    "route_code": "T790",
+    "route_name": "Stesen LRT Paramount ~ Mid Valley",
+    "shape_ids": [
+      "T790001",
+      "T790002"
+    ]
+  },
+  {
+    "route_id": "T7910",
+    "route_code": "T791",
+    "route_name": "Stesen LRT Kerinchi ~ Pantai Hill Park",
+    "shape_ids": [
+      "T791002"
+    ]
+  },
+  {
+    "route_id": "T8500",
+    "route_code": "T850",
+    "route_name": "Stesen LRT Bangsar ~ Stesen MRT Semantan",
+    "shape_ids": [
+      "T850002"
+    ]
+  },
+  {
+    "route_id": "T8510",
+    "route_code": "T851",
+    "route_name": "KL Sentral ~ Parlimen",
+    "shape_ids": [
+      "T851002"
+    ]
+  }
+]

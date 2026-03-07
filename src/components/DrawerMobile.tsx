@@ -2,7 +2,7 @@ import { Search, Star, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Drawer } from "vaul";
 import { Input } from "./ui/input";
-import routes from "@/assets/routes_with_shapes.json";
+import routes from "@/assets/rp/rp_routes_with_shapes.json";
 import { RouteCard } from "./app-sidebar";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { Link } from "react-router";
@@ -17,7 +17,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "./ui/collapsible";
-import Schedule from "@/../data/schedule.json";
+import RapidPenangSchedule from "@/../data/rapid-penang-schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 
 const SNAP_POINTS = [0.23, 0.5, 1];
@@ -271,49 +271,41 @@ export function DrawerMobile({
                             >
                               <p>{stop.stop_name}</p>
                             </Button>
-                            {idx === 0 && Schedule && (
+                            {idx === 0 && RapidPenangSchedule && (
                               <Collapsible className="px-6 mb-4">
                                 <CollapsibleTrigger asChild>
                                   <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
                                     Next bus will depart at{" "}
                                     {nextBusTime(
-                                      Schedule.find(
-                                        (s) => s.route_id === route.route_id,
-                                      )
-                                        ?.directions.filter(
-                                          (d) => d.direction_id === direction,
-                                        )[0]
-                                        .dates.find(
-                                          (d) => d.date === getCurrentDate(),
-                                        )
-                                        ?.times.flatMap((t) => t.time) || [],
+                                      RapidPenangSchedule.find(
+                                        (s) =>
+                                          s.r === route.route_id &&
+                                          s.d === direction &&
+                                          s.dt === getCurrentDate(),
+                                      )?.t || [],
                                     )}
                                   </Card>
                                 </CollapsibleTrigger>
                                 <CollapsibleContent>
                                   <div className="mt-2">Scheduled</div>
                                   <div className="grid grid-cols-6 self-center text-xs">
-                                    {Schedule.find(
-                                      (s) => s.route_id === route.route_id,
-                                    )
-                                      ?.directions.filter(
-                                        (d) => d.direction_id === direction,
-                                      )[0]
-                                      .dates.find(
-                                        (d) => d.date === getCurrentDate(),
-                                      )
-                                      ?.times.map((t, idx) => (
-                                        <div
-                                          key={idx}
-                                          className={`${
-                                            hasCurrentTimePassed(t.time)
-                                              ? "dark:text-neutral-500 text-neutral-400"
-                                              : "dark:text-white text-black"
-                                          } px-2`}
-                                        >
-                                          {t.time.substring(0, 5)}
-                                        </div>
-                                      ))}
+                                    {RapidPenangSchedule.find(
+                                      (s) =>
+                                        s.r === route.route_id &&
+                                        s.d === direction &&
+                                        s.dt === getCurrentDate(),
+                                    )?.t.map((time, idx) => (
+                                      <div
+                                        key={idx}
+                                        className={`${
+                                          hasCurrentTimePassed(time)
+                                            ? "dark:text-neutral-500 text-neutral-400"
+                                            : "dark:text-white text-black"
+                                        } px-2`}
+                                      >
+                                        {time.substring(0, 5)}
+                                      </div>
+                                    ))}
                                   </div>
                                 </CollapsibleContent>
                               </Collapsible>

@@ -12,8 +12,6 @@ import L from "leaflet";
 import { Link, useSearchParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
-import Shapes from "@/assets/shapes_flipped.json";
-import routes from "@/assets/routes_with_directions.json";
 import type { LatLngExpression } from "leaflet";
 import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
@@ -22,10 +20,17 @@ import { useTheme } from "./theme-provider";
 import { Minus, Plus, Star, X } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
-import Directions from "@/../data/trips.json";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { DrawerMobile } from "./DrawerMobile";
-import Schedule from "@/../data/schedule.json";
+import RapidPenangShapes from "@/assets/rp/rp_shapes_flipped.json";
+import RapidPenangRoutes from "@/assets/rp/rp_routes_with_directions.json";
+import RapidPenangDirections from "@/../data/rapid-penang-trips.json";
+import RapidPenangSchedule from "@/../data/rapid-penang-schedule.json";
+import RapidKLShapes from "@/assets/rkl/rkl_shapes_flipped.json";
+import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_directions.json";
+import RapidKLDirections from "@/../data/rapid-kl-trips.json";
+import RapidKLSchedule from "@/../data/rapid-kl-schedule.json";
+
 import {
   Collapsible,
   CollapsibleContent,
@@ -45,14 +50,58 @@ import type { BusScheduleType } from "@/hooks/types";
 
 function App() {
   const [searchParams] = useSearchParams();
-  const route = routes.find((r) => r.route_id === searchParams.get("id"));
+  const [provider, setProvider] = useState<string | null>("");
+
+  useEffect(() => {
+    const user_provider = localStorage.getItem("provider");
+    if (user_provider) {
+      setProvider(user_provider || "rkl");
+    }
+  }, [provider]);
+
+  const [route, setRoute] = useState<
+    | {
+        route_id: string;
+        route_short_name: string;
+        directions: {
+          direction_id: number;
+          shape_id: string;
+          route_long_name: string;
+          stops: {
+            stop_id: string;
+            stop_name: string;
+            lat: number;
+            lon: number;
+          }[];
+        }[];
+      }
+    | undefined
+  >();
+  const [BusSchedule, setBusSchedule] = useState<BusScheduleType | null>(null);
+
+  useEffect(() => {
+    switch (provider) {
+      case "rp":
+        setRoute(
+          RapidPenangRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(RapidPenangSchedule as unknown as BusScheduleType);
+        break;
+      case "rkl":
+        setRoute(
+          RapidKLRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(RapidKLSchedule as unknown as BusScheduleType);
+        break;
+    }
+  }, [provider, searchParams]);
+
   const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
   const starredRoutes = useStarredRoutes();
   const [direction, setDirection] = useState(0);
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
   const { theme } = useTheme();
   const isMobile = useIsMobile();
-  const BusSchedule: BusScheduleType = Schedule as unknown as BusScheduleType;
 
   useEffect(() => {
     if (searchParams.get("id") === null) {
@@ -61,13 +110,22 @@ function App() {
       return;
     }
     if (searchParams.get("id")) {
-      const filteredShape = Shapes.features.filter(
-        (feature) =>
-          feature.properties.shape_id ===
-          route?.directions.filter((d) => d.direction_id === direction)[0]
-            .shape_id,
-      );
-      if (filteredShape.length) {
+      const shapeId = route?.directions.find(
+        (d) => d.direction_id === direction,
+      )?.shape_id;
+
+      let filteredShape = null;
+
+      if (provider === "rp") {
+        filteredShape = RapidPenangShapes.features.filter(
+          (feature) => feature.properties.shape_id === shapeId,
+        );
+      } else if (provider === "rkl") {
+        filteredShape = RapidKLShapes.features.filter(
+          (feature) => feature.properties.shape_id === shapeId,
+        );
+      }
+      if (filteredShape?.length) {
         setPositions(
           filteredShape[0].geometry
             .coordinates as unknown as LatLngExpression[][],
@@ -173,9 +231,8 @@ function App() {
             <div className="flex justify-between items-center gap-2">
               <h4 className="font-semibold text-balance text-xl">
                 {
-                  route?.directions.filter(
-                    (d) => d.direction_id === direction,
-                  )[0].route_long_name
+                  route?.directions.find((d) => d.direction_id === direction)
+                    ?.route_long_name
                 }
               </h4>
             </div>
@@ -200,8 +257,8 @@ function App() {
 
           <div className="mt-2 ml-2 overflow-y-auto h-full overflow-x-clip ">
             {route?.directions
-              .filter((d) => d.direction_id === direction)[0]
-              .stops.map((stop, idx) => (
+              .find((d) => d.direction_id === direction)
+              ?.stops.map((stop, idx) => (
                 <div
                   key={idx}
                   className={`${idx === 0 && "mt-2"} flex relative w-full `}
@@ -213,7 +270,7 @@ function App() {
                     {idx <
                       route?.directions.filter(
                         (d) => d.direction_id === direction,
-                      )[0].stops.length -
+                      )[0]?.stops.length -
                         1 && <div className=" h-full w-1 bg-blue-500"></div>}
                   </div>
                   {/* Stop Name */}
@@ -235,20 +292,18 @@ function App() {
                     >
                       <p>{stop.stop_name.trim()}</p>
                     </Button>
-                    {idx === 0 && BusSchedule && (
+                    {idx === 0 && BusSchedule && provider === "rp" && (
                       <Collapsible className="px-6 mb-4">
                         <CollapsibleTrigger asChild>
                           <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
                             Next bus will depart at{" "}
                             {nextBusTime(
                               BusSchedule.find(
-                                (s) => s.route_id === route.route_id,
-                              )
-                                ?.directions.filter(
-                                  (d) => d.direction_id === direction,
-                                )[0]
-                                .dates.find((d) => d.date === getCurrentDate())
-                                ?.times.flatMap((t) => t.time) || [],
+                                (s) =>
+                                  s.r === route.route_id &&
+                                  s.d === direction &&
+                                  s.dt === getCurrentDate(),
+                              )?.t || [],
                             )}
                           </Card>
                         </CollapsibleTrigger>
@@ -256,24 +311,61 @@ function App() {
                           <div className="mt-2">Scheduled</div>
                           <div className="grid grid-cols-6 self-center ">
                             {BusSchedule.find(
-                              (s) => s.route_id === route.route_id,
-                            )
-                              ?.directions.filter(
-                                (d) => d.direction_id === direction,
-                              )[0]
-                              .dates.find((d) => d.date === getCurrentDate())
-                              ?.times.map((t, idx) => (
-                                <div
-                                  key={idx}
-                                  className={`${
-                                    hasCurrentTimePassed(t.time)
-                                      ? "dark:text-neutral-500 text-neutral-400"
-                                      : "dark:text-white text-black"
-                                  } px-2`}
-                                >
-                                  {t.time.substring(0, 5)}
-                                </div>
-                              ))}
+                              (s) =>
+                                s.r === route.route_id &&
+                                s.d === direction &&
+                                s.dt === getCurrentDate(),
+                            )?.t.map((time, idx) => (
+                              <div
+                                key={idx}
+                                className={`${
+                                  hasCurrentTimePassed(time)
+                                    ? "dark:text-neutral-500 text-neutral-400"
+                                    : "dark:text-white text-black"
+                                } px-2`}
+                              >
+                                {time.substring(0, 5)}
+                              </div>
+                            ))}
+                          </div>
+                        </CollapsibleContent>
+                      </Collapsible>
+                    )}
+                    {idx === 0 && BusSchedule && provider === "rkl" && (
+                      <Collapsible className="px-6 mb-4">
+                        <CollapsibleTrigger asChild>
+                          <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
+                            Next bus will depart at{" "}
+                            {nextBusTime(
+                              BusSchedule.find(
+                                (s) =>
+                                  s.r === route.route_id &&
+                                  s.d === direction &&
+                                  s.dt === getCurrentDate(),
+                              )?.t || [],
+                            )}
+                          </Card>
+                        </CollapsibleTrigger>
+                        <CollapsibleContent>
+                          <div className="mt-2">Scheduled</div>
+                          <div className="grid grid-cols-6 self-center ">
+                            {BusSchedule.find(
+                              (s) =>
+                                s.r === route.route_id &&
+                                s.d === direction &&
+                                s.dt === getCurrentDate(),
+                            )?.t.map((time, idx) => (
+                              <div
+                                key={idx}
+                                className={`${
+                                  hasCurrentTimePassed(time)
+                                    ? "dark:text-neutral-500 text-neutral-400"
+                                    : "dark:text-white text-black"
+                                } px-2`}
+                              >
+                                {time.substring(0, 5)}
+                              </div>
+                            ))}
                           </div>
                         </CollapsibleContent>
                       </Collapsible>
@@ -350,12 +442,12 @@ function App() {
           pathOptions={{ color: color, weight: 5 }}
           positions={positions}
         />
-        {route?.directions.filter((d) => d.direction_id === direction)[0].stops
+        {route?.directions.find((d) => d.direction_id === direction)?.stops
           .length &&
           positions.length &&
           route.directions
-            .filter((d) => d.direction_id === direction)[0]
-            .stops.map((stop, idx) => (
+            .find((d) => d.direction_id === direction)
+            ?.stops.map((stop, idx) => (
               <CircleMarker
                 ref={(ref) => {
                   markerRefs.current[stop.stop_id] = ref;
@@ -389,14 +481,18 @@ function App() {
     );
   }
 
+  if (!provider) {
+    return null;
+  }
   return (
     <>
       <div className="w-full max-h-dvh overflow-hidden">
         <MapContainer
           id="map"
+          preferCanvas={true}
           zoomControl={false}
-          center={[5.4164, 100.3327]}
-          zoom={13.5}
+          center={provider === "rkl" ? [3.139, 101.6869] : [5.4164, 100.3327]}
+          zoom={provider === "rkl" ? 12.5 : 13.5}
           scrollWheelZoom={true}
           className="w-full h-dvh"
         >
@@ -454,9 +550,8 @@ function App() {
 
                 <div>
                   <h4 className="font-semibold">
-                    {route.directions?.filter(
-                      (d) => d.direction_id === direction,
-                    )[0]?.route_long_name || ""}
+                    {route.directions?.find((d) => d.direction_id === direction)
+                      ?.route_long_name || ""}
                   </h4>
                 </div>
                 <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
@@ -527,31 +622,65 @@ function VehiclesMarker({
     { data: transit_realtime.IVehiclePosition }[]
   >([]);
 
+  const [provider, setProvider] = useState<string | undefined>();
+  const [BusSchedule, setBusSchedule] =
+    useState<BusScheduleType>(RapidPenangSchedule);
+
+  useEffect(() => {
+    const userProvider = localStorage.getItem("provider");
+    setProvider(userProvider || "rp");
+
+    if (userProvider === "rkl") {
+      setBusSchedule(RapidKLSchedule as unknown as BusScheduleType);
+    }
+  }, []);
+
   const [directionsLocation, setDirectionsLocation] = useState<{
     0: { data: transit_realtime.IVehiclePosition }[];
     1: { data?: transit_realtime.IVehiclePosition }[];
   }>({ 0: [], 1: [] });
 
-  const BusSchedule: BusScheduleType = Schedule as unknown as BusScheduleType;
-
   useEffect(() => {
     async function loadData() {
-      const res = await fetch(
-        "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
-      );
-      const buffer = await res.arrayBuffer();
-      const feed = transit_realtime.FeedMessage.decode(new Uint8Array(buffer));
-      const vehicleData: {
-        data: transit_realtime.IVehiclePosition;
-      }[] = [];
-      feed.entity.forEach((entity) => {
-        if (entity.vehicle) {
-          vehicleData.push({
-            data: entity.vehicle,
-          });
+      try {
+        let res: Response | null = null;
+        if (provider === "rkl") {
+          res = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-kl",
+          );
+        } else {
+          res = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
+          );
         }
-      });
-      setVehicles(vehicleData);
+
+        // Ensure we have a valid response before proceeding
+        if (!res || !res.ok) {
+          setVehicles([]);
+          return;
+        }
+
+        const buffer = await res.arrayBuffer();
+        const feed = transit_realtime.FeedMessage.decode(
+          new Uint8Array(buffer),
+        );
+        const vehicleData: {
+          data: transit_realtime.IVehiclePosition;
+        }[] = [];
+        feed.entity.forEach((entity) => {
+          if (entity.vehicle) {
+            vehicleData.push({
+              data: entity.vehicle,
+            });
+          }
+        });
+        setVehicles(vehicleData);
+      } catch (err) {
+        // On any error, clear vehicles to keep state consistent
+        // eslint-disable-next-line no-console
+        console.error("Failed to load vehicle data", err);
+        setVehicles([]);
+      }
     }
     loadData();
     const interval = setInterval(loadData, 15000); // Refresh every 15 seconds
@@ -559,50 +688,90 @@ function VehiclesMarker({
       clearInterval(interval);
       setVehicles([]);
     };
-  }, []);
+  }, [provider]);
 
-  const busIcon = (bearing: number) =>
-    divIcon({
-      className: "",
-      html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;">
-          <img src="${
-            bearing > 180 ? "/bus2.png" : "/bus.png"
-          }" alt="Rapid Penang bus" style="width: 100%; height: 100%; display: block;"/>
-           </div>`,
-      iconSize: [100, 100],
-      iconAnchor: [50, 50],
-    });
+  let busIcon = null;
+  if (provider === "rp") {
+    busIcon = (bearing: number) =>
+      divIcon({
+        className: "",
+        html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;"><img src="${
+          bearing > 180 ? "/rp-bus2.png" : "/rp-bus.png"
+        }" alt="Rapid Penang bus" style="width: 100%; height: 100%; display: block;"/></div>`,
+        iconSize: [100, 100],
+        iconAnchor: [50, 50],
+      });
+  } else if (provider === "rkl") {
+    busIcon = (bearing: number) =>
+      divIcon({
+        className: "",
+        html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;"><img src="${
+          bearing > 180 ? "/rkl-bus2.png" : "/rkl-bus.png"
+        }" alt="Rapid KL bus" style="width: 100%; height: 100%; display: block;"/></div>`,
+        iconSize: [100, 100],
+        iconAnchor: [50, 50],
+      });
+  } else {
+    busIcon = (_: number) => divIcon();
+  }
 
   useEffect(() => {
     setDirectionsLocation({ 0: [], 1: [] });
-    const vehicleForThisRoute = vehicles.filter(
-      (v) => v.data.trip?.routeId === route?.route_short_name,
-    );
-
-    vehicleForThisRoute.forEach((v) => {
-      const directions = Directions.find(
-        (d) => d.trip_id === v.data.trip?.tripId,
+    if (provider === "rp") {
+      const vehicleForThisRoute = vehicles.filter(
+        (v) => v.data.trip?.routeId === route?.route_short_name,
       );
-      if (directions === undefined && route?.directions.length === 1) {
-        setDirectionsLocation((prev) => ({
-          0: [...prev[0], v],
-          1: [...prev[1]],
-        }));
-      } else if (directions !== undefined) {
-        const dirNum = Number(directions.direction_id);
-        if (dirNum === 0 || dirNum === 1) {
+
+      vehicleForThisRoute.forEach((v) => {
+        const directions = RapidPenangDirections.find(
+          (d) => d.trip_id === v.data.trip?.tripId,
+        );
+        if (directions === undefined && route?.directions.length === 1) {
           setDirectionsLocation((prev) => ({
-            ...prev,
-            [dirNum]: [...prev[dirNum], v],
+            0: [...prev[0], v],
+            1: [...prev[1]],
           }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
         }
-      }
-    });
+      });
+    } else if (provider === "rkl") {
+      const vehicleForThisRoute = vehicles.filter(
+        (v) => v.data.trip?.routeId === route?.route_id,
+      );
+
+      vehicleForThisRoute.forEach((v) => {
+        const directions = RapidKLDirections.find(
+          (d) => d.trip_id === v.data.trip?.tripId,
+        );
+        if (directions === undefined && route?.directions.length === 1) {
+          setDirectionsLocation((prev) => ({
+            0: [...prev[0], v],
+            1: [...prev[1]],
+          }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
+        }
+      });
+    }
   }, [route?.route_short_name, route?.directions.length, vehicles]);
+
   return (
     <>
       {directionsLocation[direction as 0 | 1].map((v, idx) => (
-        <>
+        <div key={idx}>
           {v.data && (
             <Marker
               key={v.data.vehicle?.licensePlate || idx}
@@ -624,32 +793,32 @@ function VehiclesMarker({
                   <p className="text-lg font-semibold">
                     {v.data.vehicle?.licensePlate}
                   </p>
-                  <p className="mt-4">Route: {v.data.trip?.routeId}</p>
-                  <p>Speed: {v.data.position?.speed}km/h</p>
+                  <p className="mt-4">
+                    Route:{" "}
+                    {provider === "rp"
+                      ? v.data.trip?.routeId
+                      : route?.route_short_name}
+                  </p>
+                  <p>Speed: {v.data.position?.speed?.toFixed(0)}km/h</p>
                   <p>
-                    {BusSchedule.find((s) => s.route_id === route?.route_id)
-                      ?.directions.filter(
-                        (d) => d.direction_id === direction,
-                      )[0]
-                      .dates.find((d) => d.date === getCurrentDateEvenAfter12())
-                      ?.times.find((d) => d.trip_id === v.data?.trip?.tripId)
-                      ?.time
-                      ? `Departure: ${
-                          BusSchedule.find(
-                            (s) => s.route_id === route?.route_id,
-                          )
-                            ?.directions.filter(
-                              (d) => d.direction_id === direction,
-                            )[0]
-                            .dates.find(
-                              (d) => d.date === getCurrentDateEvenAfter12(),
-                            )
-                            ?.times.find(
-                              (d) => d.trip_id === v.data?.trip?.tripId,
-                            )
-                            ?.time.substring(0, 5) || ""
-                        }`
-                      : ""}
+                    {(() => {
+                      const currentBus = BusSchedule.find(
+                        (s) =>
+                          s.r === route?.route_id &&
+                          s.d === direction &&
+                          s.dt === getCurrentDateEvenAfter12(),
+                      );
+
+                      if (!currentBus) return "";
+
+                      const idx = currentBus.trip_ids.findIndex(
+                        (id) => id === v.data?.trip?.tripId,
+                      );
+
+                      return idx >= 0
+                        ? `Departure: ${currentBus.t[idx].substring(0, 5)}`
+                        : "";
+                    })()}
                   </p>
                   {v.data.trip?.routeId === "T310" &&
                     typeof v.data.position?.latitude === "number" &&
@@ -657,18 +826,22 @@ function VehiclesMarker({
                       <p>
                         {"Heading: "}
                         {findT310Heading(
-                          BusSchedule.find(
-                            (s) => s.route_id === route?.route_id,
-                          )
-                            ?.directions.filter(
-                              (d) => d.direction_id === direction,
-                            )[0]
-                            .dates.find(
-                              (d) => d.date === getCurrentDateEvenAfter12(),
-                            )
-                            ?.times.find(
-                              (d) => d.trip_id === v.data?.trip?.tripId,
-                            )?.time || "",
+                          (() => {
+                            const currentBus = BusSchedule.find(
+                              (s) =>
+                                s.r === route?.route_id &&
+                                s.d === direction &&
+                                s.dt === getCurrentDateEvenAfter12(),
+                            );
+
+                            if (!currentBus) return "";
+
+                            const idx = currentBus.trip_ids.findIndex(
+                              (id) => id === v.data?.trip?.tripId,
+                            );
+
+                            return idx >= 0 ? currentBus.t[idx] : "";
+                          })(),
                         )
                           ? "Queensbay Mall"
                           : "Padang Kawad"}
@@ -678,7 +851,7 @@ function VehiclesMarker({
               </Popup>
             </Marker>
           )}
-        </>
+        </div>
       ))}
     </>
   );

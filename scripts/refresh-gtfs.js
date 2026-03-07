@@ -2,33 +2,42 @@ import fs from "fs";
 import unzipper from "unzipper";
 import csv from "csv-parser";
 
-const GTFS_URL =
+const GTFS_RP_URL =
   "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-penang";
-const OUTPUT_FILE = "data/trips.json";
-const OUTPUT_FILE_2 = "data/schedule.json";
+const GTFS_RKL_URL =
+  "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-kl";
 
-// helper: parse HH:MM:SS into seconds
+const OUTPUT_FILES = {
+  rp: {
+    trips: "data/rapid-penang-trips.json",
+    schedule: "data/rapid-penang-schedule.json",
+  },
+  rkl: {
+    trips: "data/rapid-kl-trips.json",
+    schedule: "data/rapid-kl-schedule.json",
+  },
+};
+
+// Helper: parse HH:MM:SS into seconds
 function parseTimeToSeconds(timeStr) {
   const [h, m, s] = timeStr.split(":").map(Number);
   return h * 3600 + m * 60 + s;
 }
 
-// expand a service_id from calendar.txt into YYYYMMDD dates
+// Expand a service_id from calendar.txt into YYYYMMDD dates
 function expandCalendar(service) {
   const dates = new Set();
-
   const start = new Date(
-    service.start_date.slice(0, 4),
-    service.start_date.slice(4, 6) - 1,
-    service.start_date.slice(6, 8)
+    +service.start_date.slice(0, 4),
+    +service.start_date.slice(4, 6) - 1,
+    +service.start_date.slice(6, 8),
   );
   const end = new Date(
-    service.end_date.slice(0, 4),
-    service.end_date.slice(4, 6) - 1,
-    service.end_date.slice(6, 8)
+    +service.end_date.slice(0, 4),
+    +service.end_date.slice(4, 6) - 1,
+    +service.end_date.slice(6, 8),
   );
-
-  const weekdayMap = [
+  const weekdays = [
     "sunday",
     "monday",
     "tuesday",
@@ -37,21 +46,17 @@ function expandCalendar(service) {
     "friday",
     "saturday",
   ];
-
   for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-    const dayName = weekdayMap[d.getDay()];
-    if (service[dayName] === "1") {
-      const dateStr = d.toISOString().slice(0, 10).replace(/-/g, "");
-      dates.add(dateStr);
-    }
+    if (service[weekdays[d.getDay()]] === "1")
+      dates.add(d.toISOString().slice(0, 10).replace(/-/g, ""));
   }
-
   return [...dates];
 }
 
-async function refreshGTFS() {
-  console.log("Downloading GTFS feed...");
-  const res = await fetch(GTFS_URL);
+// Main processing function
+async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
+  console.log(`Downloading GTFS feed from ${url}...`);
+  const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to download GTFS");
 
   const buffer = await res.arrayBuffer();
@@ -61,13 +66,10 @@ async function refreshGTFS() {
   const stopsFile = directory.files.find((f) => f.path === "stop_times.txt");
   const calendarFile = directory.files.find((f) => f.path === "calendar.txt");
 
-  if (!tripsFile || !stopsFile || !calendarFile) {
-    throw new Error(
-      "Missing GTFS files (trips, stop_times, calendar required)"
-    );
-  }
+  if (!tripsFile || !stopsFile || !calendarFile)
+    throw new Error("Missing required GTFS files");
 
-  // 1. Load calendar.txt
+  // Load calendar
   const services = {};
   await new Promise((resolve, reject) => {
     calendarFile
@@ -80,100 +82,101 @@ async function refreshGTFS() {
       .on("error", reject);
   });
 
-  // 2. Expand service_id → actual dates
   const serviceDates = {};
-  for (const serviceId of Object.keys(services)) {
-    serviceDates[serviceId] = expandCalendar(services[serviceId]);
-  }
+  for (const sid of Object.keys(services))
+    serviceDates[sid] = expandCalendar(services[sid]);
 
-  // 3. Load trips.txt
+  // Load trips
   const trips = [];
+  const tripsMap = new Map();
   await new Promise((resolve, reject) => {
     tripsFile
       .stream()
       .pipe(csv())
       .on("data", (row) => {
-        trips.push({
+        const trip = {
           trip_id: row.trip_id,
           route_id: row.route_id,
           service_id: row.service_id,
-          direction_id: row.direction_id,
-        });
+          direction_id: +row.direction_id,
+        };
+        trips.push(trip);
+        tripsMap.set(row.trip_id, trip);
       })
       .on("end", resolve)
       .on("error", reject);
   });
 
   fs.mkdirSync("data", { recursive: true });
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(trips, null, 2));
-  console.log(`Saved ${trips.length} trips to ${OUTPUT_FILE}`);
+  fs.writeFileSync(tripsFilePath, JSON.stringify(trips)); // minified trips
+  console.log(`✅ Saved trips to ${tripsFilePath}`);
 
-  // 4. Process stop_times (first stop only)
+  // Process stop_times (first stop only)
   const departures = {};
   await new Promise((resolve, reject) => {
     stopsFile
       .stream()
       .pipe(csv())
       .on("data", (row) => {
-        if (row.stop_sequence === "1") {
-          const trip = trips.find((t) => t.trip_id === row.trip_id);
-          if (!trip) return;
+        if (row.stop_sequence !== "1") return;
+        const trip = tripsMap.get(row.trip_id);
+        if (!trip) return;
+        const dates = serviceDates[trip.service_id];
+        if (!dates) return;
 
-          const { route_id, direction_id, service_id, trip_id } = trip;
-          const dates = serviceDates[service_id];
-          if (!dates) return;
+        const key = `${trip.route_id}_${trip.direction_id}`;
+        if (!departures[key])
+          departures[key] = {
+            route_id: trip.route_id,
+            direction_id: trip.direction_id,
+            dates: {},
+          };
 
-          const key = `${route_id}_${direction_id}`;
-          if (!departures[key]) {
-            departures[key] = {
-              route_id,
-              direction_id: Number(direction_id),
-              dates: {},
-            };
-          }
-
-          for (const date of dates) {
-            if (!departures[key].dates[date]) departures[key].dates[date] = [];
-            // store both time and trip_id
-            departures[key].dates[date].push({
-              time: row.departure_time,
-              trip_id,
-            });
-          }
+        for (const date of dates) {
+          if (!departures[key].dates[date]) departures[key].dates[date] = [];
+          departures[key].dates[date].push({
+            time: row.departure_time,
+            trip_id: row.trip_id,
+          });
         }
       })
       .on("end", resolve)
       .on("error", reject);
   });
 
-  // 5. Convert to final structure
-  const result = Object.values(
-    Object.values(departures).reduce(
-      (acc, { route_id, direction_id, dates }) => {
-        if (!acc[route_id]) acc[route_id] = { route_id, directions: [] };
+  // Flatten & minify schedule
+  const flattened = [];
+  for (const dep of Object.values(departures)) {
+    for (const [date, timesArr] of Object.entries(dep.dates)) {
+      timesArr.sort(
+        (a, b) => parseTimeToSeconds(a.time) - parseTimeToSeconds(b.time),
+      );
+      flattened.push({
+        r: dep.route_id,
+        d: dep.direction_id,
+        dt: date,
+        t: timesArr.map((x) => x.time),
+        trip_ids: timesArr.map((x) => x.trip_id), // optional, remove if not needed
+      });
+    }
+  }
 
-        const dateObjects = Object.entries(dates).map(([date, times]) => ({
-          date,
-          times: times.sort(
-            (a, b) => parseTimeToSeconds(a.time) - parseTimeToSeconds(b.time)
-          ),
-        }));
-
-        acc[route_id].directions.push({
-          direction_id,
-          dates: dateObjects,
-        });
-        return acc;
-      },
-      {}
-    )
-  );
-
-  fs.writeFileSync(OUTPUT_FILE_2, JSON.stringify(result, null, 2));
-  console.log(`✅ Saved route departures with dates to ${OUTPUT_FILE_2}`);
+  fs.writeFileSync(scheduleFilePath, JSON.stringify(flattened));
+  console.log(`✅ Saved flattened schedule to ${scheduleFilePath}`);
 }
 
-refreshGTFS().catch((err) => {
+// Run both feeds
+refreshGTFS(GTFS_RP_URL, OUTPUT_FILES.rp.trips, OUTPUT_FILES.rp.schedule).catch(
+  (err) => {
+    console.error(err);
+    process.exit(1);
+  },
+);
+refreshGTFS(
+  GTFS_RKL_URL,
+  OUTPUT_FILES.rkl.trips,
+  OUTPUT_FILES.rkl.schedule,
+).catch((err) => {
   console.error(err);
   process.exit(1);
 });
