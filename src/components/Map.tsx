@@ -50,14 +50,9 @@ import type { BusScheduleType } from "@/hooks/types";
 
 function App() {
   const [searchParams] = useSearchParams();
-  const [provider, setProvider] = useState<string | null>("");
-
-  useEffect(() => {
-    const user_provider = localStorage.getItem("provider");
-    if (user_provider) {
-      setProvider(user_provider || "rkl");
-    }
-  }, [provider]);
+  const [provider] = useState<string>(() => {
+    return localStorage.getItem("provider") || "rp";
+  });
 
   const [route, setRoute] = useState<
     | {
@@ -481,9 +476,6 @@ function App() {
     );
   }
 
-  if (!provider) {
-    return null;
-  }
   return (
     <>
       <div className="w-full max-h-dvh overflow-hidden">

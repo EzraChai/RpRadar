@@ -33,14 +33,9 @@ export function AppSidebar() {
   const map = useMap();
   const [openSearch, setOpenSearch] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
-  const [provider, setProvider] = useState<string>("rp");
-
-  useEffect(() => {
-    const storedProvider = localStorage.getItem("provider");
-    if (storedProvider) {
-      setProvider(storedProvider);
-    }
-  }, [provider]);
+  const [provider, setProvider] = useState<string>(() => {
+    return localStorage.getItem("provider") || "rp";
+  });
 
   const [savedRoutes, setSavedRoutes] = useState<
     (
@@ -294,13 +289,9 @@ function SearchSideBar({
   setOpenSearch: React.Dispatch<React.SetStateAction<boolean>>;
   inputRef: React.RefObject<HTMLInputElement | null>;
 }) {
-  const [provider, setProvider] = useState<string>("rp");
-  useEffect(() => {
-    const user_provider = localStorage.getItem("provider");
-    if (user_provider) {
-      setProvider(user_provider);
-    }
-  }, [provider]);
+  const [provider] = useState<string>(() => {
+    return localStorage.getItem("provider") || "rp";
+  });
 
   let routes = null;
   if (provider === "rp") {
