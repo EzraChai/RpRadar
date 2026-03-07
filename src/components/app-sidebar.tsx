@@ -238,12 +238,12 @@ export function AppSidebar() {
                   }}
                   value={provider}
                 >
-                  <SelectTrigger className="w-full ">
+                  <SelectTrigger className="w-full mb-2">
                     <SelectValue placeholder="Select State" />
                   </SelectTrigger>
                   <SelectContent className="z-1002 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
-                    <SelectItem value="rp">Rapid Penang</SelectItem>
-                    <SelectItem value="rkl">Rapid KL</SelectItem>
+                    <SelectItem value="rp"> Penang</SelectItem>
+                    <SelectItem value="rkl"> Selangor/KL</SelectItem>
                   </SelectContent>
                 </Select>
               </SidebarMenuButton>

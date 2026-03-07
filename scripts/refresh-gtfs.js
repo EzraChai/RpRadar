@@ -24,6 +24,7 @@ function parseTimeToSeconds(timeStr) {
   return h * 3600 + m * 60 + s;
 }
 
+// Expand service to actual dates (limit to next 7 days)
 function expandCalendar(service, maxDays = 7) {
   const dates = [];
   const today = new Date();
@@ -56,6 +57,27 @@ function expandCalendar(service, maxDays = 7) {
   return dates;
 }
 
+// Generate all departures from a frequency entry
+function generateDeparturesFromFrequency(freq) {
+  const departures = [];
+  let [h, m, s] = freq.start_time.split(":").map(Number);
+  let currentSeconds = h * 3600 + m * 60 + s;
+  const [endH, endM, endS] = freq.end_time.split(":").map(Number);
+  const endSeconds = endH * 3600 + endM * 60 + endS;
+
+  while (currentSeconds <= endSeconds) {
+    const hh = String(Math.floor(currentSeconds / 3600)).padStart(2, "0");
+    const mm = String(Math.floor((currentSeconds % 3600) / 60)).padStart(
+      2,
+      "0",
+    );
+    const ss = String(currentSeconds % 60).padStart(2, "0");
+    departures.push(`${hh}:${mm}:${ss}`);
+    currentSeconds += +freq.headway_secs;
+  }
+  return departures;
+}
+
 async function refreshGTFS(url, tripsFilePath, scheduleFilePath, maxDays = 7) {
   console.log(`Downloading GTFS feed from ${url}...`);
   const res = await fetch(url);
@@ -67,6 +89,9 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath, maxDays = 7) {
   const tripsFile = directory.files.find((f) => f.path === "trips.txt");
   const stopsFile = directory.files.find((f) => f.path === "stop_times.txt");
   const calendarFile = directory.files.find((f) => f.path === "calendar.txt");
+  const frequenciesFile = directory.files.find(
+    (f) => f.path === "frequencies.txt",
+  );
 
   if (!tripsFile || !stopsFile || !calendarFile)
     throw new Error("Missing GTFS files");
@@ -103,6 +128,21 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath, maxDays = 7) {
       .on("error", reject);
   });
 
+  // Load frequencies (optional)
+  const frequencies = {};
+  if (frequenciesFile) {
+    await new Promise((resolve, reject) => {
+      frequenciesFile
+        .stream()
+        .pipe(csv())
+        .on("data", (row) => {
+          frequencies[row.trip_id] = row; // one row per trip_id
+        })
+        .on("end", resolve)
+        .on("error", reject);
+    });
+  }
+
   fs.mkdirSync("data", { recursive: true });
   fs.writeFileSync(tripsFilePath, JSON.stringify(trips, null, 2));
   console.log(`✅ Saved trips to ${tripsFilePath}`);
@@ -120,10 +160,16 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath, maxDays = 7) {
 
         const key = `${trip.route_id}_${trip.direction_id}_${trip.service_id}`;
         if (!departures[key]) departures[key] = [];
-        departures[key].push({
-          time: row.departure_time,
-          trip_id: row.trip_id,
-        });
+
+        // Generate departure times using frequencies if available
+        let times = [row.departure_time];
+        if (frequencies[trip.trip_id]) {
+          times = generateDeparturesFromFrequency(frequencies[trip.trip_id]);
+        }
+
+        for (const t of times) {
+          departures[key].push({ time: t, trip_id: trip.trip_id });
+        }
       })
       .on("end", resolve)
       .on("error", reject);
