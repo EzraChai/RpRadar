@@ -640,7 +640,7 @@ function VehiclesMarker({
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-kl",
           );
-        } else {
+        } else if (provider === "rp") {
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
           );
