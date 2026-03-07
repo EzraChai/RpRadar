@@ -329,7 +329,6 @@ function SearchSideBar({
   const map = useMap();
   const [search, setSearch] = useState("");
   const [filteredRoutes, setFilteredRoutes] = useState(() => {
-    // derive an initial array of route objects from routes (supports FeatureCollection or plain array)
     if (!routes) return [];
     if (
       Array.isArray((routes as any).features) &&
@@ -408,15 +407,25 @@ function SearchSideBar({
       </div>
 
       <div className="px-4 h-screen overflow-x-clip overflow-y-auto">
-        {filteredRoutes.map((line, index) => (
-          <RouteCard
-            key={line.route_id}
-            index={index}
-            length={filteredRoutes.length}
-            line={line}
-            setOpenSearch={setOpenSearch}
-          />
-        ))}
+        {filteredRoutes.map(
+          (
+            line: {
+              route_id: any;
+              route_code?: string;
+              route_name?: string;
+              shape_ids?: string[];
+            },
+            index: number,
+          ) => (
+            <RouteCard
+              key={line.route_id}
+              index={index}
+              length={filteredRoutes.length}
+              line={line}
+              setOpenSearch={setOpenSearch}
+            />
+          ),
+        )}
       </div>
     </Card>
   );
@@ -430,10 +439,10 @@ export function RouteCard({
   setOpenSearch,
 }: {
   line: {
-    route_id: string;
-    route_code: string;
-    route_name: string;
-    shape_ids: string[];
+    route_id: string | number;
+    route_code?: string;
+    route_name?: string;
+    shape_ids?: string[];
   };
   index: number;
   length: number;
@@ -464,10 +473,10 @@ export function RouteCard({
         variant={"ghost"}
       >
         <p className="text-sm pr-4 whitespace-normal text-left wrap-break-word dark:text-neutral-50 text-neutral-900">
-          {line.route_name}
+          {line.route_name ?? ""}
         </p>
         <div className="min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
-          {line.route_code}
+          {line.route_code ?? ""}
         </div>
       </Button>
     </NavLink>
