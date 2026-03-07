@@ -14,29 +14,25 @@ const OUTPUT_FILES = {
   },
   rkl: {
     trips: "data/rapid-kl-trips.json",
-    schedulePrefix: "data/rapid-kl-schedule", // will create -1.json and -2.json
+    schedule: "data/rapid-kl-schedule.json",
   },
 };
 
-// Helper: parse HH:MM:SS into seconds
+// Convert HH:MM:SS to seconds
 function parseTimeToSeconds(timeStr) {
   const [h, m, s] = timeStr.split(":").map(Number);
   return h * 3600 + m * 60 + s;
 }
 
-// Expand a service_id from calendar.txt into YYYYMMDD dates
-function expandCalendar(service) {
-  const dates = new Set();
-  const start = new Date(
-    +service.start_date.slice(0, 4),
-    +service.start_date.slice(4, 6) - 1,
-    +service.start_date.slice(6, 8),
-  );
-  const end = new Date(
+function expandCalendar(service, maxDays = 7) {
+  const dates = [];
+  const today = new Date();
+  const endDate = new Date(
     +service.end_date.slice(0, 4),
     +service.end_date.slice(4, 6) - 1,
     +service.end_date.slice(6, 8),
   );
+
   const weekdays = [
     "sunday",
     "monday",
@@ -46,21 +42,21 @@ function expandCalendar(service) {
     "friday",
     "saturday",
   ];
-  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+  let count = 0;
+  for (
+    let d = new Date(today);
+    d <= endDate && count < maxDays;
+    d.setDate(d.getDate() + 1)
+  ) {
     if (service[weekdays[d.getDay()]] === "1") {
-      dates.add(d.toISOString().slice(0, 10).replace(/-/g, ""));
+      dates.push(d.toISOString().slice(0, 10).replace(/-/g, ""));
+      count++;
     }
   }
-  return [...dates];
+  return dates;
 }
 
-// Generic GTFS loader
-async function refreshGTFS(
-  url,
-  tripsFilePath,
-  scheduleFilePath,
-  splitKL = false,
-) {
+async function refreshGTFS(url, tripsFilePath, scheduleFilePath, maxDays = 7) {
   console.log(`Downloading GTFS feed from ${url}...`);
   const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to download GTFS");
@@ -73,7 +69,7 @@ async function refreshGTFS(
   const calendarFile = directory.files.find((f) => f.path === "calendar.txt");
 
   if (!tripsFile || !stopsFile || !calendarFile)
-    throw new Error("Missing required GTFS files");
+    throw new Error("Missing GTFS files");
 
   // Load calendar
   const services = {};
@@ -85,10 +81,6 @@ async function refreshGTFS(
       .on("end", resolve)
       .on("error", reject);
   });
-
-  const serviceDates = {};
-  for (const sid of Object.keys(services))
-    serviceDates[sid] = expandCalendar(services[sid]);
 
   // Load trips
   const trips = [];
@@ -112,7 +104,7 @@ async function refreshGTFS(
   });
 
   fs.mkdirSync("data", { recursive: true });
-  fs.writeFileSync(tripsFilePath, JSON.stringify(trips));
+  fs.writeFileSync(tripsFilePath, JSON.stringify(trips, null, 2));
   console.log(`✅ Saved trips to ${tripsFilePath}`);
 
   // Process stop_times (first stop only)
@@ -125,76 +117,61 @@ async function refreshGTFS(
         if (row.stop_sequence !== "1") return;
         const trip = tripsMap.get(row.trip_id);
         if (!trip) return;
-        const dates = serviceDates[trip.service_id];
-        if (!dates) return;
 
-        const key = `${trip.route_id}_${trip.direction_id}`;
-        if (!departures[key])
-          departures[key] = {
-            route_id: trip.route_id,
-            direction_id: trip.direction_id,
-            dates: {},
-          };
-
-        for (const date of dates) {
-          if (!departures[key].dates[date]) departures[key].dates[date] = [];
-          departures[key].dates[date].push({
-            time: row.departure_time,
-            trip_id: row.trip_id,
-          });
-        }
+        const key = `${trip.route_id}_${trip.direction_id}_${trip.service_id}`;
+        if (!departures[key]) departures[key] = [];
+        departures[key].push({
+          time: row.departure_time,
+          trip_id: row.trip_id,
+        });
       })
       .on("end", resolve)
       .on("error", reject);
   });
 
-  // Flatten schedule
+  // Flatten schedule (Penang-style)
   const flattened = [];
-  for (const dep of Object.values(departures)) {
-    for (const [date, timesArr] of Object.entries(dep.dates)) {
-      timesArr.sort(
-        (a, b) => parseTimeToSeconds(a.time) - parseTimeToSeconds(b.time),
-      );
+  for (const [key, timesArr] of Object.entries(departures)) {
+    const [route_id, direction_id, service_id] = key.split("_");
+
+    timesArr.sort(
+      (a, b) => parseTimeToSeconds(a.time) - parseTimeToSeconds(b.time),
+    );
+
+    const dates = expandCalendar(services[service_id], maxDays);
+
+    for (const dt of dates) {
       flattened.push({
-        r: dep.route_id,
-        d: dep.direction_id,
-        dt: date,
+        r: route_id,
+        d: +direction_id,
+        dt,
         t: timesArr.map((x) => x.time),
         trip_ids: timesArr.map((x) => x.trip_id),
       });
     }
   }
 
-  // If splitKL is true, split into two files
-  if (splitKL && scheduleFilePath) {
-    const mid = Math.ceil(flattened.length / 2);
-    const file1 = `${scheduleFilePath}-1.json`;
-    const file2 = `${scheduleFilePath}-2.json`;
-    fs.writeFileSync(file1, JSON.stringify(flattened.slice(0, mid)));
-    fs.writeFileSync(file2, JSON.stringify(flattened.slice(mid)));
-    console.log(`✅ KL schedule split into two files:`);
-    console.log(`   1) ${file1}`);
-    console.log(`   2) ${file2}`);
-  } else if (scheduleFilePath) {
-    fs.writeFileSync(scheduleFilePath, JSON.stringify(flattened));
-    console.log(`✅ Saved flattened schedule to ${scheduleFilePath}`);
-  }
+  fs.writeFileSync(scheduleFilePath, JSON.stringify(flattened, null, 2));
+  console.log(`✅ Saved schedule to ${scheduleFilePath}`);
 }
 
-// Run Rapid Penang (single file)
-refreshGTFS(GTFS_RP_URL, OUTPUT_FILES.rp.trips, OUTPUT_FILES.rp.schedule).catch(
-  (err) => {
-    console.error(err);
-    process.exit(1);
-  },
-);
+// Rapid Penang (next 7 days)
+refreshGTFS(
+  GTFS_RP_URL,
+  OUTPUT_FILES.rp.trips,
+  OUTPUT_FILES.rp.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
 
-// Run Rapid KL (split into 2 files)
+// Rapid KL (next 7 days)
 refreshGTFS(
   GTFS_RKL_URL,
   OUTPUT_FILES.rkl.trips,
-  OUTPUT_FILES.rkl.schedulePrefix,
-  true,
+  OUTPUT_FILES.rkl.schedule,
+  7,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
