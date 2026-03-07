@@ -14,7 +14,7 @@ const OUTPUT_FILES = {
   },
   rkl: {
     trips: "data/rapid-kl-trips.json",
-    schedule: "data/rapid-kl-schedule.json",
+    schedulePrefix: "data/rapid-kl-schedule", // will create -1.json and -2.json
   },
 };
 
@@ -47,14 +47,20 @@ function expandCalendar(service) {
     "saturday",
   ];
   for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-    if (service[weekdays[d.getDay()]] === "1")
+    if (service[weekdays[d.getDay()]] === "1") {
       dates.add(d.toISOString().slice(0, 10).replace(/-/g, ""));
+    }
   }
   return [...dates];
 }
 
-// Main processing function
-async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
+// Generic GTFS loader
+async function refreshGTFS(
+  url,
+  tripsFilePath,
+  scheduleFilePath,
+  splitKL = false,
+) {
   console.log(`Downloading GTFS feed from ${url}...`);
   const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to download GTFS");
@@ -75,9 +81,7 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
     calendarFile
       .stream()
       .pipe(csv())
-      .on("data", (row) => {
-        services[row.service_id] = row;
-      })
+      .on("data", (row) => (services[row.service_id] = row))
       .on("end", resolve)
       .on("error", reject);
   });
@@ -108,7 +112,7 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
   });
 
   fs.mkdirSync("data", { recursive: true });
-  fs.writeFileSync(tripsFilePath, JSON.stringify(trips)); // minified trips
+  fs.writeFileSync(tripsFilePath, JSON.stringify(trips));
   console.log(`✅ Saved trips to ${tripsFilePath}`);
 
   // Process stop_times (first stop only)
@@ -144,7 +148,7 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
       .on("error", reject);
   });
 
-  // Flatten & minify schedule
+  // Flatten schedule
   const flattened = [];
   for (const dep of Object.values(departures)) {
     for (const [date, timesArr] of Object.entries(dep.dates)) {
@@ -156,26 +160,41 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
         d: dep.direction_id,
         dt: date,
         t: timesArr.map((x) => x.time),
-        trip_ids: timesArr.map((x) => x.trip_id), // optional, remove if not needed
+        trip_ids: timesArr.map((x) => x.trip_id),
       });
     }
   }
 
-  fs.writeFileSync(scheduleFilePath, JSON.stringify(flattened));
-  console.log(`✅ Saved flattened schedule to ${scheduleFilePath}`);
+  // If splitKL is true, split into two files
+  if (splitKL && scheduleFilePath) {
+    const mid = Math.ceil(flattened.length / 2);
+    const file1 = `${scheduleFilePath}-1.json`;
+    const file2 = `${scheduleFilePath}-2.json`;
+    fs.writeFileSync(file1, JSON.stringify(flattened.slice(0, mid)));
+    fs.writeFileSync(file2, JSON.stringify(flattened.slice(mid)));
+    console.log(`✅ KL schedule split into two files:`);
+    console.log(`   1) ${file1}`);
+    console.log(`   2) ${file2}`);
+  } else if (scheduleFilePath) {
+    fs.writeFileSync(scheduleFilePath, JSON.stringify(flattened));
+    console.log(`✅ Saved flattened schedule to ${scheduleFilePath}`);
+  }
 }
 
-// Run both feeds
+// Run Rapid Penang (single file)
 refreshGTFS(GTFS_RP_URL, OUTPUT_FILES.rp.trips, OUTPUT_FILES.rp.schedule).catch(
   (err) => {
     console.error(err);
     process.exit(1);
   },
 );
+
+// Run Rapid KL (split into 2 files)
 refreshGTFS(
   GTFS_RKL_URL,
   OUTPUT_FILES.rkl.trips,
-  OUTPUT_FILES.rkl.schedule,
+  OUTPUT_FILES.rkl.schedulePrefix,
+  true,
 ).catch((err) => {
   console.error(err);
   process.exit(1);

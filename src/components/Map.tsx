@@ -29,7 +29,13 @@ import RapidPenangSchedule from "@/../data/rapid-penang-schedule.json";
 import RapidKLShapes from "@/assets/rkl/rkl_shapes_flipped.json";
 import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_directions.json";
 import RapidKLDirections from "@/../data/rapid-kl-trips.json";
-import RapidKLSchedule from "@/../data/rapid-kl-schedule.json";
+import RapidKLSchedule1 from "@/../data/rapid-kl-schedule-1.json";
+import RapidKLSchedule2 from "@/../data/rapid-kl-schedule-2.json";
+
+const combinedKLSchedule: BusScheduleType = [
+  ...(RapidKLSchedule1 as unknown as BusScheduleType),
+  ...(RapidKLSchedule2 as unknown as BusScheduleType),
+];
 
 import {
   Collapsible,
@@ -91,7 +97,7 @@ function App() {
         setRoute(
           RapidKLRoutes.find((r) => r.route_id === searchParams.get("id")),
         );
-        setBusSchedule(RapidKLSchedule as unknown as BusScheduleType);
+        setBusSchedule(combinedKLSchedule as unknown as BusScheduleType);
         break;
     }
   }, [provider, searchParams]);
@@ -631,7 +637,7 @@ function VehiclesMarker({
     setProvider(userProvider || "rp");
 
     if (userProvider === "rkl") {
-      setBusSchedule(RapidKLSchedule as unknown as BusScheduleType);
+      setBusSchedule(combinedKLSchedule as unknown as BusScheduleType);
     }
   }, []);
 
