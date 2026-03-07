@@ -43,7 +43,6 @@ export function hasCurrentTimePassed(time: string): boolean {
 }
 
 export function nextBusTime(times: string[] | undefined) {
-  console.log(times);
   if (times === undefined) {
     return null;
   }
