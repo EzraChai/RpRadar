@@ -433,11 +433,18 @@ function App() {
     const polylineRef = useRef<LeafletPolyline | null>(null);
 
     useEffect(() => {
-      if (polylineRef.current && positions.length > 0) {
-        const bounds = polylineRef.current.getBounds();
-        map.fitBounds(bounds); // Adjust the map view to fit the polyline
+      if (!polylineRef.current) return;
+      if (positions.length < 2) return;
+
+      const bounds = polylineRef.current.getBounds();
+      if (bounds.isValid()) {
+        map.flyToBounds(bounds, {
+          padding: [10, 10],
+          duration: 0.5, // seconds
+          easeLinearity: 0.25,
+        });
       }
-    }, [map, positions]);
+    }, [positions]);
 
     function darkenHex(hex: string, percent = 10) {
       hex = hex.replace("#", "");
