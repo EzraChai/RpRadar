@@ -989,25 +989,28 @@ function VehiclesMarker({
                   </p>
                   <p>Speed: {v.data.position?.speed?.toFixed(0)}km/h</p>
                   <p>
-                    {provider === "rp" &&
-                      (() => {
-                        const currentBus = BusSchedule.find(
-                          (s) =>
-                            s.r === route?.route_id &&
-                            s.d === direction &&
-                            s.dt === getCurrentDateEvenAfter12(),
-                        );
+                    {provider === "rp" ||
+                      (provider === "rkl" &&
+                        route?.route_short_name ===
+                          route?.directions[0].route_long_name &&
+                        (() => {
+                          const currentBus = BusSchedule.find(
+                            (s) =>
+                              s.r === route?.route_id &&
+                              s.d === direction &&
+                              s.dt === getCurrentDateEvenAfter12(),
+                          );
 
-                        if (!currentBus) return "";
+                          if (!currentBus) return "";
 
-                        const idx = currentBus.trip_ids.findIndex(
-                          (id) => id === v.data?.trip?.tripId,
-                        );
+                          const idx = currentBus.trip_ids.findIndex(
+                            (id) => id === v.data?.trip?.tripId,
+                          );
 
-                        return idx >= 0
-                          ? `Departure: ${currentBus.t[idx].substring(0, 5)}`
-                          : "";
-                      })()}
+                          return idx >= 0
+                            ? `Departure: ${currentBus.t[idx].substring(0, 5)}`
+                            : "";
+                        })())}
                   </p>
                   {provider === "rp" &&
                     v.data.trip?.routeId === "T310" &&
