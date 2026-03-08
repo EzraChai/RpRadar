@@ -28,7 +28,10 @@ import {
 } from "./ui/select";
 import RapidPenangRoutes from "@/assets/rp/rp_routes_with_shapes.json";
 import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_shapes.json";
+import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_shapes.json";
 import type { RouteType } from "@/hooks/types";
+
+const CombinedRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
 
 export function AppSidebar() {
   const map = useMap();
@@ -42,7 +45,7 @@ export function AppSidebar() {
   const [routes] = useState<RouteType[]>(
     provider === "rp"
       ? (RapidPenangRoutes as unknown as RouteType[])
-      : (RapidKLRoutes as unknown as RouteType[]),
+      : (CombinedRoutes as unknown as RouteType[]),
   );
   const { starred } = useStarredRoutes();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -261,7 +264,7 @@ function SearchSideBar({
       }[];
     };
   } else if (provider === "rkl") {
-    routes = RapidKLRoutes as unknown as {
+    routes = CombinedRoutes as unknown as {
       features: {
         properties: {
           route_id: string;
@@ -421,7 +424,9 @@ export function RouteCard({
         <p className="text-sm pr-4 whitespace-normal text-left wrap-break-word dark:text-neutral-50 text-neutral-900">
           {line.route_name ?? ""}
         </p>
-        <div className="min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+        <div
+          className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${line.route_code !== line.route_name ? "border-red-500" : "border-[#28ab78]"} rounded-lg text-black dark:text-white`}
+        >
           {line.route_code ?? ""}
         </div>
       </Button>

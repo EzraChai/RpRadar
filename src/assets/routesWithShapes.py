@@ -13,7 +13,7 @@ with open(ROUTES_FILE, newline="", encoding="utf-8") as f:
     for row in reader:
         routes[row["route_id"]] = {
             "route_id": row["route_id"],
-            "route_code": row["route_short_name"],
+            "route_code": row["route_short_name"] if row["route_short_name"] else row["route_long_name"],
             "route_name": row["route_long_name"] if row["route_long_name"] else None,
             "shape_ids": set()
         }

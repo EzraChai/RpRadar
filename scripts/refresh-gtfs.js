@@ -6,6 +6,8 @@ const GTFS_RP_URL =
   "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-penang";
 const GTFS_RKL_URL =
   "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-kl";
+const GTFS_MRT_URL =
+  "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-mrtfeeder";
 
 const OUTPUT_FILES = {
   rp: {
@@ -15,6 +17,10 @@ const OUTPUT_FILES = {
   rkl: {
     trips: "data/rapid-kl-trips.json",
     schedule: "data/rapid-kl-schedule.json",
+  },
+  mrt: {
+    trips: "data/mrt-feeder-trips.json",
+    schedule: "data/mrt-feeder-schedule.json",
   },
 };
 
@@ -217,6 +223,16 @@ refreshGTFS(
   GTFS_RKL_URL,
   OUTPUT_FILES.rkl.trips,
   OUTPUT_FILES.rkl.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+refreshGTFS(
+  GTFS_MRT_URL,
+  OUTPUT_FILES.mrt.trips,
+  OUTPUT_FILES.mrt.schedule,
   7,
 ).catch((err) => {
   console.error(err);

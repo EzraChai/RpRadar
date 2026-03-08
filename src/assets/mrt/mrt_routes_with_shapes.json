@@ -1,0 +1,731 @@
+[
+  {
+    "route_id": "30000120",
+    "route_code": "T100",
+    "route_name": "T100",
+    "shape_ids": [
+      "1000000343"
+    ]
+  },
+  {
+    "route_id": "30000121",
+    "route_code": "T101",
+    "route_name": "T101",
+    "shape_ids": [
+      "1000000527"
+    ]
+  },
+  {
+    "route_id": "30000122",
+    "route_code": "T102",
+    "route_name": "T102",
+    "shape_ids": [
+      "1000000528"
+    ]
+  },
+  {
+    "route_id": "30000145",
+    "route_code": "T103",
+    "route_name": "T103",
+    "shape_ids": [
+      "1000000434"
+    ]
+  },
+  {
+    "route_id": "30000091",
+    "route_code": "T104",
+    "route_name": "T104",
+    "shape_ids": [
+      "1000000215"
+    ]
+  },
+  {
+    "route_id": "30000124",
+    "route_code": "T105",
+    "route_name": "T105",
+    "shape_ids": [
+      "1000000344"
+    ]
+  },
+  {
+    "route_id": "30000132",
+    "route_code": "T106",
+    "route_name": "T106",
+    "shape_ids": [
+      "1000000314"
+    ]
+  },
+  {
+    "route_id": "30000133",
+    "route_code": "T107",
+    "route_name": "T107",
+    "shape_ids": [
+      "1000000315"
+    ]
+  },
+  {
+    "route_id": "30000134",
+    "route_code": "T108",
+    "route_name": "T108",
+    "shape_ids": [
+      "1000000292"
+    ]
+  },
+  {
+    "route_id": "30000135",
+    "route_code": "T109",
+    "route_name": "T109",
+    "shape_ids": [
+      "1000000293"
+    ]
+  },
+  {
+    "route_id": "30000136",
+    "route_code": "T110",
+    "route_name": "T110",
+    "shape_ids": [
+      "1000000318"
+    ]
+  },
+  {
+    "route_id": "30000140",
+    "route_code": "T114",
+    "route_name": "T114",
+    "shape_ids": [
+      "1000000529"
+    ]
+  },
+  {
+    "route_id": "30000141",
+    "route_code": "T115",
+    "route_name": "T115",
+    "shape_ids": [
+      "1000000323"
+    ]
+  },
+  {
+    "route_id": "30000143",
+    "route_code": "T117",
+    "route_name": "T117",
+    "shape_ids": [
+      "1000000423"
+    ]
+  },
+  {
+    "route_id": "30000184",
+    "route_code": "T121",
+    "route_name": "T121",
+    "shape_ids": [
+      "1000000476"
+    ]
+  },
+  {
+    "route_id": "30000183",
+    "route_code": "T152",
+    "route_name": "T152",
+    "shape_ids": [
+      "1000000530"
+    ]
+  },
+  {
+    "route_id": "30000185",
+    "route_code": "T154",
+    "route_name": "T154",
+    "shape_ids": [
+      "1000000538"
+    ]
+  },
+  {
+    "route_id": "30000186",
+    "route_code": "T155",
+    "route_name": "T155",
+    "shape_ids": [
+      "1000000539",
+      "1000000540"
+    ]
+  },
+  {
+    "route_id": "30000147",
+    "route_code": "T180",
+    "route_name": "T180",
+    "shape_ids": [
+      "1000000531"
+    ]
+  },
+  {
+    "route_id": "30000097",
+    "route_code": "T305",
+    "route_name": "T305",
+    "shape_ids": [
+      "1000000501"
+    ]
+  },
+  {
+    "route_id": "30000075",
+    "route_code": "T352",
+    "route_name": "T352",
+    "shape_ids": [
+      "1000000370"
+    ]
+  },
+  {
+    "route_id": "30000057",
+    "route_code": "T400",
+    "route_name": "T400",
+    "shape_ids": [
+      "1000000521"
+    ]
+  },
+  {
+    "route_id": "30000058",
+    "route_code": "T401",
+    "route_name": "T401",
+    "shape_ids": [
+      "1000000532"
+    ]
+  },
+  {
+    "route_id": "30000098",
+    "route_code": "T402",
+    "route_name": "T402",
+    "shape_ids": [
+      "1000000409"
+    ]
+  },
+  {
+    "route_id": "30000127",
+    "route_code": "T407",
+    "route_name": "T407",
+    "shape_ids": [
+      "1000000489"
+    ]
+  },
+  {
+    "route_id": "30000064",
+    "route_code": "T408",
+    "route_name": "T408",
+    "shape_ids": [
+      "1000000510"
+    ]
+  },
+  {
+    "route_id": "30000038",
+    "route_code": "T409",
+    "route_name": "T409",
+    "shape_ids": [
+      "1000000102"
+    ]
+  },
+  {
+    "route_id": "30000040",
+    "route_code": "T410",
+    "route_name": "T410",
+    "shape_ids": [
+      "1000000309"
+    ]
+  },
+  {
+    "route_id": "30000041",
+    "route_code": "T411",
+    "route_name": "T411",
+    "shape_ids": [
+      "1000000310"
+    ]
+  },
+  {
+    "route_id": "30000056",
+    "route_code": "T412",
+    "route_name": "T412",
+    "shape_ids": [
+      "1000000522"
+    ]
+  },
+  {
+    "route_id": "30000044",
+    "route_code": "T413",
+    "route_name": "T413",
+    "shape_ids": [
+      "1000000490"
+    ]
+  },
+  {
+    "route_id": "30000045",
+    "route_code": "T414",
+    "route_name": "T414",
+    "shape_ids": [
+      "1000000502"
+    ]
+  },
+  {
+    "route_id": "30000036",
+    "route_code": "T415",
+    "route_name": "T415",
+    "shape_ids": [
+      "1000000307"
+    ]
+  },
+  {
+    "route_id": "30000046",
+    "route_code": "T416",
+    "route_name": "T416",
+    "shape_ids": [
+      "1000000548"
+    ]
+  },
+  {
+    "route_id": "30000069",
+    "route_code": "T417",
+    "route_name": "T417",
+    "shape_ids": [
+      "1000000549"
+    ]
+  },
+  {
+    "route_id": "30000169",
+    "route_code": "T418",
+    "route_name": "T418",
+    "shape_ids": [
+      "1000000389"
+    ]
+  },
+  {
+    "route_id": "30000170",
+    "route_code": "T419",
+    "route_name": "T419",
+    "shape_ids": [
+      "1000000390"
+    ]
+  },
+  {
+    "route_id": "30000128",
+    "route_code": "T451",
+    "route_name": "T451",
+    "shape_ids": [
+      "1000000429"
+    ]
+  },
+  {
+    "route_id": "30000094",
+    "route_code": "T453",
+    "route_name": "T453",
+    "shape_ids": [
+      "1000000546"
+    ]
+  },
+  {
+    "route_id": "30000096",
+    "route_code": "T455",
+    "route_name": "T455",
+    "shape_ids": [
+      "1000000550"
+    ]
+  },
+  {
+    "route_id": "30000115",
+    "route_code": "T457",
+    "route_name": "T457",
+    "shape_ids": [
+      "1000000415"
+    ]
+  },
+  {
+    "route_id": "30000116",
+    "route_code": "T458",
+    "route_name": "T458",
+    "shape_ids": [
+      "1000000551"
+    ]
+  },
+  {
+    "route_id": "30000117",
+    "route_code": "T459",
+    "route_name": "T459",
+    "shape_ids": [
+      "1000000552"
+    ]
+  },
+  {
+    "route_id": "30000118",
+    "route_code": "T460",
+    "route_name": "T460",
+    "shape_ids": [
+      "1000000553"
+    ]
+  },
+  {
+    "route_id": "30000100",
+    "route_code": "T461",
+    "route_name": "T461",
+    "shape_ids": [
+      "1000000554"
+    ]
+  },
+  {
+    "route_id": "30000101",
+    "route_code": "T462",
+    "route_name": "T462",
+    "shape_ids": [
+      "1000000225"
+    ]
+  },
+  {
+    "route_id": "30000102",
+    "route_code": "T463",
+    "route_name": "T463",
+    "shape_ids": [
+      "1000000226"
+    ]
+  },
+  {
+    "route_id": "30000129",
+    "route_code": "T464",
+    "route_name": "T464",
+    "shape_ids": [
+      "1000000295"
+    ]
+  },
+  {
+    "route_id": "30000187",
+    "route_code": "T465",
+    "route_name": "T465",
+    "shape_ids": [
+      "1000000547"
+    ]
+  },
+  {
+    "route_id": "30000150",
+    "route_code": "T504",
+    "route_name": "T504",
+    "shape_ids": [
+      "1000000454"
+    ]
+  },
+  {
+    "route_id": "30000151",
+    "route_code": "T505",
+    "route_name": "T505",
+    "shape_ids": [
+      "1000000455"
+    ]
+  },
+  {
+    "route_id": "30000152",
+    "route_code": "T506",
+    "route_name": "T506",
+    "shape_ids": [
+      "1000000503"
+    ]
+  },
+  {
+    "route_id": "30000153",
+    "route_code": "T507",
+    "route_name": "T507",
+    "shape_ids": [
+      "1000000407"
+    ]
+  },
+  {
+    "route_id": "30000154",
+    "route_code": "T509",
+    "route_name": "T509",
+    "shape_ids": [
+      "1000000495"
+    ]
+  },
+  {
+    "route_id": "30000176",
+    "route_code": "T511",
+    "route_name": "T511",
+    "shape_ids": [
+      "1000000497"
+    ]
+  },
+  {
+    "route_id": "30000165",
+    "route_code": "T543",
+    "route_name": "T543",
+    "shape_ids": [
+      "1000000511"
+    ]
+  },
+  {
+    "route_id": "30000156",
+    "route_code": "T544",
+    "route_name": "T544",
+    "shape_ids": [
+      "1000000504"
+    ]
+  },
+  {
+    "route_id": "30000180",
+    "route_code": "T545",
+    "route_name": "T545",
+    "shape_ids": [
+      "1000000460"
+    ]
+  },
+  {
+    "route_id": "30000172",
+    "route_code": "T559",
+    "route_name": "T559",
+    "shape_ids": [
+      "1000000418"
+    ]
+  },
+  {
+    "route_id": "30000173",
+    "route_code": "T560",
+    "route_name": "T560",
+    "shape_ids": [
+      "1000000401"
+    ]
+  },
+  {
+    "route_id": "30000158",
+    "route_code": "T561",
+    "route_name": "T561",
+    "shape_ids": [
+      "1000000468"
+    ]
+  },
+  {
+    "route_id": "30000174",
+    "route_code": "T565",
+    "route_name": "T565",
+    "shape_ids": [
+      "1000000512"
+    ]
+  },
+  {
+    "route_id": "30000167",
+    "route_code": "T566",
+    "route_name": "T566",
+    "shape_ids": [
+      "1000000385"
+    ]
+  },
+  {
+    "route_id": "30000168",
+    "route_code": "T567",
+    "route_name": "T567",
+    "shape_ids": [
+      "1000000386"
+    ]
+  },
+  {
+    "route_id": "30000166",
+    "route_code": "T568",
+    "route_name": "T568",
+    "shape_ids": [
+      "1000000513"
+    ]
+  },
+  {
+    "route_id": "30000181",
+    "route_code": "T569",
+    "route_name": "T569",
+    "shape_ids": [
+      "1000000485"
+    ]
+  },
+  {
+    "route_id": "30000161",
+    "route_code": "T585",
+    "route_name": "T585",
+    "shape_ids": [
+      "1000000379"
+    ]
+  },
+  {
+    "route_id": "30000162",
+    "route_code": "T586",
+    "route_name": "T586",
+    "shape_ids": [
+      "1000000380"
+    ]
+  },
+  {
+    "route_id": "30000163",
+    "route_code": "T587",
+    "route_name": "T587",
+    "shape_ids": [
+      "1000000381"
+    ]
+  },
+  {
+    "route_id": "30000164",
+    "route_code": "T588",
+    "route_name": "T588",
+    "shape_ids": [
+      "1000000382"
+    ]
+  },
+  {
+    "route_id": "30000171",
+    "route_code": "T589",
+    "route_name": "T589",
+    "shape_ids": [
+      "1000000506"
+    ]
+  },
+  {
+    "route_id": "30000131",
+    "route_code": "T772",
+    "route_name": "T772",
+    "shape_ids": [
+      "1000000537"
+    ]
+  },
+  {
+    "route_id": "30000130",
+    "route_code": "T801",
+    "route_name": "T801",
+    "shape_ids": [
+      "1000000524"
+    ]
+  },
+  {
+    "route_id": "30000060",
+    "route_code": "T802",
+    "route_name": "T802",
+    "shape_ids": [
+      "1000000478"
+    ]
+  },
+  {
+    "route_id": "30000067",
+    "route_code": "T803",
+    "route_name": "T803",
+    "shape_ids": [
+      "1000000533"
+    ]
+  },
+  {
+    "route_id": "30000062",
+    "route_code": "T804",
+    "route_name": "T804",
+    "shape_ids": [
+      "1000000542"
+    ]
+  },
+  {
+    "route_id": "30000085",
+    "route_code": "T805",
+    "route_name": "T805",
+    "shape_ids": [
+      "1000000281"
+    ]
+  },
+  {
+    "route_id": "30000125",
+    "route_code": "T807",
+    "route_name": "T807",
+    "shape_ids": [
+      "1000000543"
+    ]
+  },
+  {
+    "route_id": "30000009",
+    "route_code": "T808",
+    "route_name": "T808",
+    "shape_ids": [
+      "1000000061"
+    ]
+  },
+  {
+    "route_id": "30000106",
+    "route_code": "T809",
+    "route_name": "T809",
+    "shape_ids": [
+      "1000000544"
+    ]
+  },
+  {
+    "route_id": "30000105",
+    "route_code": "T810",
+    "route_name": "T810",
+    "shape_ids": [
+      "1000000545"
+    ]
+  },
+  {
+    "route_id": "30000010",
+    "route_code": "T811",
+    "route_name": "T811",
+    "shape_ids": [
+      "1000000335"
+    ]
+  },
+  {
+    "route_id": "30000011",
+    "route_code": "T812",
+    "route_name": "T812",
+    "shape_ids": [
+      "1000000336"
+    ]
+  },
+  {
+    "route_id": "30000092",
+    "route_code": "T813",
+    "route_name": "T813",
+    "shape_ids": [
+      "1000000515"
+    ]
+  },
+  {
+    "route_id": "30000093",
+    "route_code": "T814",
+    "route_name": "T814",
+    "shape_ids": [
+      "1000000217"
+    ]
+  },
+  {
+    "route_id": "30000016",
+    "route_code": "T815",
+    "route_name": "T815",
+    "shape_ids": [
+      "1000000306"
+    ]
+  },
+  {
+    "route_id": "30000025",
+    "route_code": "T816",
+    "route_name": "T816",
+    "shape_ids": [
+      "1000000441"
+    ]
+  },
+  {
+    "route_id": "30000026",
+    "route_code": "T817",
+    "route_name": "T817",
+    "shape_ids": [
+      "1000000369"
+    ]
+  },
+  {
+    "route_id": "30000027",
+    "route_code": "T818",
+    "route_name": "T818",
+    "shape_ids": [
+      "1000000534"
+    ]
+  },
+  {
+    "route_id": "30000030",
+    "route_code": "T821",
+    "route_name": "T821",
+    "shape_ids": [
+      "1000000516"
+    ]
+  },
+  {
+    "route_id": "30000068",
+    "route_code": "T852",
+    "route_name": "T852",
+    "shape_ids": [
+      "1000000535"
+    ]
+  }
+]

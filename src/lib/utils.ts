@@ -43,7 +43,7 @@ export function hasCurrentTimePassed(time: string): boolean {
 }
 
 export function nextBusTime(times: string[] | undefined) {
-  if (times === undefined) {
+  if (times === undefined || times.length === 0) {
     return null;
   }
   const nextTime = times[times.findIndex((t) => !hasCurrentTimePassed(t))];

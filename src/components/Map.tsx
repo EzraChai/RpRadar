@@ -30,6 +30,10 @@ import RapidKLShapes from "@/assets/rkl/rkl_shapes_flipped.json";
 import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_directions.json";
 import RapidKLDirections from "@/../data/rapid-kl-trips.json";
 import RapidKLSchedule from "@/../data/rapid-kl-schedule.json";
+import MRTFeederShapes from "@/assets/mrt/mrt_shapes_flipped.json";
+import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_directions.json";
+import MRTFeederSchedule from "@/../data/mrt-feeder-schedule.json";
+import MRTFeederDirections from "@/../data/mrt-feeder-trips.json";
 
 import {
   Collapsible,
@@ -98,9 +102,18 @@ function App() {
         break;
       case "rkl":
         setRoute(
-          RapidKLRoutes.find((r) => r.route_id === searchParams.get("id")),
+          RapidKLRoutes.find((r) => r.route_id === searchParams.get("id"))
+            ? RapidKLRoutes.find((r) => r.route_id === searchParams.get("id"))
+            : MRTFeederRoutes.find(
+                (r) => r.route_id === searchParams.get("id"),
+              ),
         );
-        setBusSchedule(RapidKLSchedule as unknown as BusScheduleType);
+
+        setBusSchedule(
+          RapidKLRoutes.find((r) => r.route_id === searchParams.get("id"))
+            ? (RapidKLSchedule as unknown as BusScheduleType)
+            : (MRTFeederSchedule as unknown as BusScheduleType),
+        );
         break;
     }
   }, [provider, searchParams]);
@@ -130,9 +143,23 @@ function App() {
           (feature) => feature.properties.shape_id === shapeId,
         );
       } else if (provider === "rkl") {
-        filteredShape = RapidKLShapes.features.filter(
-          (feature) => feature.properties.shape_id === shapeId,
-        );
+        if (
+          RapidKLShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = RapidKLShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        } else if (
+          MRTFeederShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MRTFeederShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        }
       }
       if (filteredShape?.length) {
         setPositions(
@@ -214,7 +241,9 @@ function App() {
           className="absolute z-1000 py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
         >
           <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
-            <div className="px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+            <div
+              className={`px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 ${route.directions[0].route_long_name !== route.route_short_name ? "border-red-500" : "border-[#28ab78]"} rounded-lg text-black dark:text-white`}
+            >
               {route?.route_short_name}
             </div>
             <div className="flex items-center gap-3">
@@ -340,45 +369,56 @@ function App() {
                         </CollapsibleContent>
                       </Collapsible>
                     )}
-                    {idx === 0 && BusSchedule && provider === "rkl" && (
-                      <Collapsible className="px-6 mb-4">
-                        <CollapsibleTrigger asChild>
-                          <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
-                            Next bus will depart at{" "}
-                            {nextBusTime(
-                              BusSchedule.find(
+                    {idx === 0 &&
+                      BusSchedule &&
+                      provider === "rkl" &&
+                      BusSchedule.length > 0 &&
+                      nextBusTime(
+                        BusSchedule.find(
+                          (s) =>
+                            s.r === route.route_id &&
+                            s.d === direction &&
+                            s.dt === getCurrentDate(),
+                        )?.t || [],
+                      ) && (
+                        <Collapsible className="px-6 mb-4">
+                          <CollapsibleTrigger asChild>
+                            <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
+                              Next bus will depart at{" "}
+                              {nextBusTime(
+                                BusSchedule.find(
+                                  (s) =>
+                                    s.r === route.route_id &&
+                                    s.d === direction &&
+                                    s.dt === getCurrentDate(),
+                                )?.t || [],
+                              )}
+                            </Card>
+                          </CollapsibleTrigger>
+                          <CollapsibleContent>
+                            <div className="mt-2">Scheduled</div>
+                            <div className="grid grid-cols-6 self-center ">
+                              {BusSchedule.find(
                                 (s) =>
                                   s.r === route.route_id &&
                                   s.d === direction &&
                                   s.dt === getCurrentDate(),
-                              )?.t || [],
-                            )}
-                          </Card>
-                        </CollapsibleTrigger>
-                        <CollapsibleContent>
-                          <div className="mt-2">Scheduled</div>
-                          <div className="grid grid-cols-6 self-center ">
-                            {BusSchedule.find(
-                              (s) =>
-                                s.r === route.route_id &&
-                                s.d === direction &&
-                                s.dt === getCurrentDate(),
-                            )?.t.map((time, idx) => (
-                              <div
-                                key={idx}
-                                className={`${
-                                  hasCurrentTimePassed(time)
-                                    ? "dark:text-neutral-500 text-neutral-400"
-                                    : "dark:text-white text-black"
-                                } px-2`}
-                              >
-                                {time.substring(0, 5)}
-                              </div>
-                            ))}
-                          </div>
-                        </CollapsibleContent>
-                      </Collapsible>
-                    )}
+                              )?.t.map((time, idx) => (
+                                <div
+                                  key={idx}
+                                  className={`${
+                                    hasCurrentTimePassed(time)
+                                      ? "dark:text-neutral-500 text-neutral-400"
+                                      : "dark:text-white text-black"
+                                  } px-2`}
+                                >
+                                  {time.substring(0, 5)}
+                                </div>
+                              ))}
+                            </div>
+                          </CollapsibleContent>
+                        </Collapsible>
+                      )}
                   </div>
                 </div>
               ))}
@@ -611,7 +651,9 @@ function App() {
           {!isMobile && route && (
             <Card className="absolute z-500 pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
               <div className="flex justify-between items-center gap-4">
-                <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
+                <div
+                  className={`text-2xl font-bold border-2 p-2 ${route.directions[0].route_long_name !== route.route_short_name ? "border-red-500" : "border-[#28ab78]"} rounded-xl`}
+                >
                   {route?.route_short_name}
                 </div>
 
@@ -621,7 +663,9 @@ function App() {
                       ?.route_long_name || ""}
                   </h4>
                 </div>
-                <div className="text-2xl font-bold border-2 p-2 border-red-500 rounded-xl">
+                <div
+                  className={`text-2xl font-bold border-2 p-2 ${route.directions[0].route_long_name !== route.route_short_name ? "border-red-500" : "border-[#28ab78]"} rounded-xl`}
+                >
                   {route?.route_short_name}
                 </div>
               </div>
@@ -711,9 +755,13 @@ function VehiclesMarker({
     async function loadData() {
       try {
         let res: Response | null = null;
+        let res2: Response | null = null;
         if (provider === "rkl") {
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-kl",
+          );
+          res2 = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-mrtfeeder",
           );
         } else if (provider === "rp") {
           res = await fetch(
@@ -733,6 +781,7 @@ function VehiclesMarker({
         const vehicleData: {
           data: transit_realtime.IVehiclePosition;
         }[] = [];
+
         feed.entity.forEach((entity) => {
           if (entity.vehicle) {
             vehicleData.push({
@@ -740,7 +789,27 @@ function VehiclesMarker({
             });
           }
         });
+
         setVehicles(vehicleData);
+
+        if (res2) {
+          const bufferMRT = await res2.arrayBuffer();
+          const feedMRT = transit_realtime.FeedMessage.decode(
+            new Uint8Array(bufferMRT),
+          );
+
+          const MRTVehicleData: {
+            data: transit_realtime.IVehiclePosition;
+          }[] = [];
+          feedMRT.entity.forEach((entity) => {
+            if (entity.vehicle) {
+              MRTVehicleData.push({
+                data: entity.vehicle,
+              });
+            }
+          });
+          setVehicles((prev) => [...prev, ...MRTVehicleData]);
+        }
       } catch (err) {
         // On any error, clear vehicles to keep state consistent
         // eslint-disable-next-line no-console
@@ -758,7 +827,7 @@ function VehiclesMarker({
 
   let busIcon = null;
   if (provider === "rp") {
-    busIcon = (bearing: number) =>
+    busIcon = (bearing: number, _: string | null | undefined) =>
       divIcon({
         className: "",
         html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;"><img src="${
@@ -768,15 +837,27 @@ function VehiclesMarker({
         iconAnchor: [50, 50],
       });
   } else if (provider === "rkl") {
-    busIcon = (bearing: number) =>
-      divIcon({
-        className: "",
-        html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;"><img src="${
-          bearing > 180 ? "/rkl-bus2.png" : "/rkl-bus.png"
-        }" alt="Rapid KL bus" style="width: 100%; height: 100%; display: block;"/></div>`,
-        iconSize: [100, 100],
-        iconAnchor: [50, 50],
-      });
+    busIcon = (bearing: number, tripId: string | null | undefined) => {
+      if (typeof tripId === "string" && tripId.charAt(0) === "w") {
+        return divIcon({
+          className: "",
+          html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;"><img src="${
+            bearing > 180 ? "/rkl-bus2.png" : "/rkl-bus.png"
+          }" alt="Rapid KL bus" style="width: 100%; height: 100%; display: block;"/></div>`,
+          iconSize: [100, 100],
+          iconAnchor: [50, 50],
+        });
+      } else {
+        return divIcon({
+          className: "",
+          html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;"><img src="${
+            bearing > 180 ? "/mrt-bus2.png" : "/mrt-bus.png"
+          }" alt="Rapid KL bus" style="width: 100%; height: 100%; display: block;"/></div>`,
+          iconSize: [100, 100],
+          iconAnchor: [50, 50],
+        });
+      }
+    };
   } else {
     busIcon = (_: number) => divIcon();
   }
@@ -809,13 +890,21 @@ function VehiclesMarker({
       });
     } else if (provider === "rkl") {
       const vehicleForThisRoute = vehicles.filter(
-        (v) => v.data.trip?.routeId === route?.route_id,
+        (v) =>
+          v.data.trip?.routeId === route?.route_id ||
+          v.data.trip?.routeId === route?.route_short_name,
       );
 
       vehicleForThisRoute.forEach((v) => {
-        const directions = RapidKLDirections.find(
+        let directions = RapidKLDirections.find(
           (d) => d.trip_id === v.data.trip?.tripId,
         );
+        if (!directions) {
+          directions = MRTFeederDirections.find(
+            (d) => d.trip_id === v.data.trip?.tripId,
+          );
+        }
+
         if (directions === undefined && route?.directions.length === 1) {
           setDirectionsLocation((prev) => ({
             0: [...prev[0], v],
@@ -847,7 +936,7 @@ function VehiclesMarker({
                   ? [v.data.position.latitude, v.data.position.longitude]
                   : [0, 0]
               }
-              icon={busIcon(v.data.position?.bearing || 0)}
+              icon={busIcon(v.data.position?.bearing || 0, v.data.trip?.tripId)}
             >
               <Popup
                 maxWidth={500}
