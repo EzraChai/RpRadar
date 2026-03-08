@@ -863,10 +863,18 @@ function VehiclesMarker({
     busIcon = (bearing: number, _: string | null | undefined) =>
       divIcon({
         className: "",
-        html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;"><img src="${
-          bearing > 180 ? "/rp-bus2.png" : "/rp-bus.png"
-        }" alt="Rapid Penang bus" style="width: 100%; height: 100%; display: block;"/></div>`,
-        iconSize: [100, 100],
+        html: `<img 
+    src="${bearing > 180 ? "/rp-bus2.png" : "/rp-bus.png"}"
+    alt="Rapid Penang bus"
+    style="
+      width:100px;
+      height:100px;
+      transform: rotate(${bearing}deg);
+      transform-origin: center center;
+      display:block;
+    "
+  />`,
+        iconSize: [24, 24],
         iconAnchor: [50, 50],
       });
   } else if (provider === "rkl") {
@@ -874,19 +882,35 @@ function VehiclesMarker({
       if (typeof tripId === "string" && tripId.charAt(0) === "w") {
         return divIcon({
           className: "",
-          html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;"><img src="${
-            bearing > 180 ? "/rkl-bus2.png" : "/rkl-bus.png"
-          }" alt="Rapid KL bus" style="width: 100%; height: 100%; display: block;"/></div>`,
-          iconSize: [100, 100],
+          html: `<img 
+    src="${bearing > 180 ? "/rkl-bus2.png" : "/rkl-bus.png"}"
+    alt="Rapid KL bus"
+    style="
+      width:100px;
+      height:100px;
+      transform: rotate(${bearing}deg);
+      transform-origin: center center;
+      display:block;
+    "
+  />`,
+          iconSize: [24, 24],
           iconAnchor: [50, 50],
         });
       } else {
         return divIcon({
           className: "",
-          html: `<div style="transform: rotate(${bearing}deg);transform-origin: center center;"><img src="${
-            bearing > 180 ? "/mrt-bus2.png" : "/mrt-bus.png"
-          }" alt="Rapid KL bus" style="width: 100%; height: 100%; display: block;"/></div>`,
-          iconSize: [100, 100],
+          html: `<img 
+    src="${bearing > 180 ? "/mrt-bus2.png" : "/mrt-bus.png"}"
+    alt="MRT Feeder bus"
+    style="
+      width:100px;
+      height:100px;
+      transform: rotate(${bearing}deg);
+      transform-origin: center center;
+      display:block;
+    "
+  />`,
+          iconSize: [24, 24],
           iconAnchor: [50, 50],
         });
       }
