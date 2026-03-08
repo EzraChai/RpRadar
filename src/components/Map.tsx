@@ -439,6 +439,24 @@ function App() {
       }
     }, [map, positions]);
 
+    function darkenHex(hex: string, percent = 10) {
+      hex = hex.replace("#", "");
+
+      const r = parseInt(hex.substring(0, 2), 16);
+      const g = parseInt(hex.substring(2, 4), 16);
+      const b = parseInt(hex.substring(4, 6), 16);
+
+      const factor = 1 - percent / 100;
+
+      const newR = Math.max(0, Math.round(r * factor));
+      const newG = Math.max(0, Math.round(g * factor));
+      const newB = Math.max(0, Math.round(b * factor));
+
+      const toHex = (v: number) => v.toString(16).padStart(2, "0");
+
+      return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
+    }
+
     if (route?.directions.length === 0) return null;
     if (route?.directions.length === 1) {
       setDirection(0);
@@ -459,7 +477,7 @@ function App() {
                 radius={6}
                 center={[stop.lat, stop.lon]}
                 pathOptions={{
-                  color: "blue",
+                  color: darkenHex(color),
                   fillColor: "white",
                   fillOpacity: 1,
                 }}
@@ -577,7 +595,14 @@ function App() {
           )}
 
           {positions.length !== 0 && (
-            <FitBoundsToPolyline color={provider === "rkl" ? "blue" : "blue"} />
+            <FitBoundsToPolyline
+              color={
+                route?.route_short_name ===
+                  route?.directions[0].route_long_name && provider === "rkl"
+                  ? "#28ab78"
+                  : "blue"
+              }
+            />
           )}
           <VehiclesMarker direction={direction} route={route} />
 
