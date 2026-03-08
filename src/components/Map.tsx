@@ -648,7 +648,6 @@ function VehiclesMarker({
 
         // Ensure we have a valid response before proceeding
         if (!res || !res.ok) {
-          setVehicles([]);
           return;
         }
 
@@ -793,24 +792,25 @@ function VehiclesMarker({
                   </p>
                   <p>Speed: {v.data.position?.speed?.toFixed(0)}km/h</p>
                   <p>
-                    {(() => {
-                      const currentBus = BusSchedule.find(
-                        (s) =>
-                          s.r === route?.route_id &&
-                          s.d === direction &&
-                          s.dt === getCurrentDateEvenAfter12(),
-                      );
+                    {provider === "rp" &&
+                      (() => {
+                        const currentBus = BusSchedule.find(
+                          (s) =>
+                            s.r === route?.route_id &&
+                            s.d === direction &&
+                            s.dt === getCurrentDateEvenAfter12(),
+                        );
 
-                      if (!currentBus) return "";
+                        if (!currentBus) return "";
 
-                      const idx = currentBus.trip_ids.findIndex(
-                        (id) => id === v.data?.trip?.tripId,
-                      );
+                        const idx = currentBus.trip_ids.findIndex(
+                          (id) => id === v.data?.trip?.tripId,
+                        );
 
-                      return idx >= 0
-                        ? `Departure: ${currentBus.t[idx].substring(0, 5)}`
-                        : "";
-                    })()}
+                        return idx >= 0
+                          ? `Departure: ${currentBus.t[idx].substring(0, 5)}`
+                          : "";
+                      })()}
                   </p>
                   {v.data.trip?.routeId === "T310" &&
                     typeof v.data.position?.latitude === "number" &&
