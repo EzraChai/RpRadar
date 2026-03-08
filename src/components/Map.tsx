@@ -522,7 +522,9 @@ function App() {
             />
           )}
 
-          {positions.length !== 0 && <FitBoundsToPolyline color={"blue"} />}
+          {positions.length !== 0 && (
+            <FitBoundsToPolyline color={provider === "rkl" ? "blue" : "blue"} />
+          )}
           <VehiclesMarker direction={direction} route={route} />
 
           <CustomZoomControls />
@@ -812,7 +814,8 @@ function VehiclesMarker({
                           : "";
                       })()}
                   </p>
-                  {v.data.trip?.routeId === "T310" &&
+                  {provider === "rp" &&
+                    v.data.trip?.routeId === "T310" &&
                     typeof v.data.position?.latitude === "number" &&
                     v.data.position.latitude >= 5.353 && (
                       <p>

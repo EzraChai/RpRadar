@@ -2,7 +2,6 @@ import { Search, Star, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Drawer } from "vaul";
 import { Input } from "./ui/input";
-import routes from "@/assets/rp/rp_routes_with_shapes.json";
 import { RouteCard } from "./app-sidebar";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { Link } from "react-router";
@@ -17,8 +16,12 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "./ui/collapsible";
+import RapidPenangRoutes from "@/assets/rp/rp_routes_with_shapes.json";
+import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_shapes.json";
 import RapidPenangSchedule from "@/../data/rapid-penang-schedule.json";
+import RapidKLSchedule from "@/../data/rapid-kl-schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
+import type { BusScheduleType, RouteType } from "@/hooks/types";
 
 const SNAP_POINTS = [0.23, 0.5, 1];
 
@@ -53,24 +56,39 @@ export function DrawerMobile({
 }) {
   const [snap, setSnap] = useState<number | string | null>(SNAP_POINTS[0]);
   const [search, setSearch] = useState("");
+  const [provider] = useState<string>(() => {
+    return localStorage.getItem("provider") || "rp";
+  });
+  const [BusSchedule] = useState<BusScheduleType>(
+    provider === "rp"
+      ? (RapidPenangSchedule as unknown as BusScheduleType)
+      : (RapidKLSchedule as unknown as BusScheduleType),
+  );
+  const [routes] = useState<RouteType[]>(
+    provider === "rp"
+      ? (RapidPenangRoutes as unknown as RouteType[])
+      : (RapidKLRoutes as unknown as RouteType[]),
+  );
   const map = useMap();
-  const [savedRoutes, setSavedRoutes] = useState<
-    (
-      | {
-          route_id: string;
-          route_code: string;
-          route_name: string;
-          shape_ids: string[];
-        }
-      | undefined
-    )[]
-  >([]);
+  const [savedRoutes, setSavedRoutes] = useState<(RouteType | undefined)[]>([]);
 
   const { starred, toggle } = useStarredRoutes();
 
   useEffect(() => {
-    setSavedRoutes(starred.map((s) => routes.find((r) => r.route_id === s)));
-  }, [starred]);
+    if (!routes) {
+      setSavedRoutes([]);
+      return;
+    }
+
+    setSavedRoutes(
+      routes.filter((r) => {
+        return (
+          r.route_id ===
+          starred.find((starredName) => starredName === r.route_id)
+        );
+      }),
+    );
+  }, [starred, provider, routes]);
 
   const [filteredRoutes, setFilteredRoutes] = useState(routes); // initial list
   const activeScrollRef = useRef<HTMLDivElement>(null);
@@ -271,13 +289,13 @@ export function DrawerMobile({
                             >
                               <p>{stop.stop_name}</p>
                             </Button>
-                            {idx === 0 && RapidPenangSchedule && (
+                            {idx === 0 && BusSchedule && (
                               <Collapsible className="px-6 mb-4">
                                 <CollapsibleTrigger asChild>
                                   <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
                                     Next bus will depart at{" "}
                                     {nextBusTime(
-                                      RapidPenangSchedule.find(
+                                      BusSchedule?.find(
                                         (s) =>
                                           s.r === route.route_id &&
                                           s.d === direction &&
@@ -289,7 +307,7 @@ export function DrawerMobile({
                                 <CollapsibleContent>
                                   <div className="mt-2">Scheduled</div>
                                   <div className="grid grid-cols-6 self-center text-xs">
-                                    {RapidPenangSchedule.find(
+                                    {BusSchedule?.find(
                                       (s) =>
                                         s.r === route.route_id &&
                                         s.d === direction &&

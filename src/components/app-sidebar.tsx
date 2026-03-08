@@ -28,6 +28,7 @@ import {
 } from "./ui/select";
 import RapidPenangRoutes from "@/assets/rp/rp_routes_with_shapes.json";
 import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_shapes.json";
+import type { RouteType } from "@/hooks/types";
 
 export function AppSidebar() {
   const map = useMap();
@@ -37,52 +38,15 @@ export function AppSidebar() {
     return localStorage.getItem("provider") || "rp";
   });
 
-  const [savedRoutes, setSavedRoutes] = useState<
-    (
-      | {
-          route_id: string;
-          route_code: string;
-          route_name: string;
-          shape_ids: string[];
-        }
-      | undefined
-    )[]
-  >([]);
-
+  const [savedRoutes, setSavedRoutes] = useState<(RouteType | undefined)[]>([]);
+  const [routes] = useState<RouteType[]>(
+    provider === "rp"
+      ? (RapidPenangRoutes as unknown as RouteType[])
+      : (RapidKLRoutes as unknown as RouteType[]),
+  );
   const { starred } = useStarredRoutes();
   const inputRef = useRef<HTMLInputElement>(null);
   const isMobile = useIsMobile();
-  let routes = null;
-  switch (provider) {
-    case "rp":
-      routes = RapidPenangRoutes as unknown as {
-        type: "FeatureCollection";
-        features: {
-          type: "Feature";
-          properties: {
-            route_id: string;
-            route_code: string;
-            route_name: string;
-            shape_ids: string[];
-          };
-        }[];
-      };
-      break;
-    case "rkl":
-      routes = RapidKLRoutes as unknown as {
-        type: "FeatureCollection";
-        features: {
-          type: "Feature";
-          properties: {
-            route_id: string;
-            route_code: string;
-            route_name: string;
-            shape_ids: string[];
-          };
-        }[];
-      };
-      break;
-  }
 
   useEffect(() => {
     if (!routes) {
@@ -90,24 +54,15 @@ export function AppSidebar() {
       return;
     }
 
-    // If routes is a FeatureCollection, extract the properties array; otherwise assume it's already an array of route objects.
-    const routeList: {
-      route_id: string;
-      route_code: string;
-      route_name: string;
-      shape_ids: string[];
-    }[] =
-      Array.isArray((routes as any).features) && (routes as any).features.length
-        ? (routes as any).features.map((f: any) => f.properties)
-        : (routes as any as {
-            route_id: string;
-            route_code: string;
-            route_name: string;
-            shape_ids: string[];
-          }[]);
-
-    setSavedRoutes(starred.map((s) => routeList.find((r) => r.route_id === s)));
-  }, [starred, provider]);
+    setSavedRoutes(
+      routes.filter((r) => {
+        return (
+          r.route_id ===
+          starred.find((starredName) => starredName === r.route_id)
+        );
+      }),
+    );
+  }, [starred, provider, routes]);
 
   if (!isMobile)
     return (

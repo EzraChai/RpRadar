@@ -8,6 +8,13 @@ export interface CompressedRoute {
   trip_ids: string[]; // array of trip IDs
 }
 
+export interface RouteType {
+  route_id: string;
+  route_code: string;
+  route_name: string;
+  shape_id: string[];
+}
+
 export interface RouteSchedule {
   r: string;
   dt: Direction[];
