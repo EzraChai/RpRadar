@@ -17,7 +17,7 @@ import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
-import { Minus, Plus, Star, X } from "lucide-react";
+import { Minus, Plus, Settings, Star, X } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -47,10 +47,24 @@ import { ModeToggle } from "./mode-toggle";
 import "leaflet/dist/leaflet.css";
 import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
 import type { BusScheduleType } from "@/hooks/types";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 function App() {
   const [searchParams] = useSearchParams();
-  const [provider] = useState<string>(() => {
+  const [provider, setProvider] = useState<string>(() => {
     return localStorage.getItem("provider") || "rp";
   });
 
@@ -529,8 +543,67 @@ function App() {
 
           <CustomZoomControls />
           {isMobile && (
-            <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-[99px] mr-px right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
-              <ModeToggle />
+            <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-24.75 mr-px right-4 z-1002 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+              {/* <ModeToggle /> */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    style={{
+                      touchAction: "none",
+                    }}
+                    className="rounded-none"
+                    variant={"ghost"}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
+                    <Settings className="text-sm" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="z-1003 backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/20 rounded-[10px] outline-none">
+                  <DialogHeader>
+                    <DialogTitle className="text-left">Settings</DialogTitle>
+                  </DialogHeader>
+                  <div className="flex items-center">
+                    <div className="flex-1">
+                      <h1 className="text-neutral-800 dark:text-neutral-100">
+                        Theme
+                      </h1>
+                    </div>
+                    <Button variant={"outline"} className="">
+                      <ModeToggle />
+                    </Button>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="flex-1">
+                      <h1 className="text-neutral-800 dark:text-neutral-100">
+                        Region
+                      </h1>
+                    </div>
+                    <Select
+                      onValueChange={(value) => {
+                        setProvider(value);
+                        localStorage.setItem("provider", value);
+                        window.history.replaceState(
+                          {},
+                          "",
+                          window.location.pathname,
+                        );
+                        window.location.reload();
+                      }}
+                      value={provider}
+                    >
+                      <SelectTrigger className="bg-white">
+                        <SelectValue placeholder="Select State" />
+                      </SelectTrigger>
+                      <SelectContent className="z-1006 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
+                        <SelectItem value="rp">Penang</SelectItem>
+                        <SelectItem value="rkl">Selangor/KL</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </Card>
           )}
           <UserLocation />
