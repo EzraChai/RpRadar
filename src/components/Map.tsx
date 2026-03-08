@@ -303,13 +303,19 @@ function App() {
                 >
                   {/* Bullet */}
                   <div className="flex w-3 flex-col items-center mr-1">
-                    <div className="w-3 h-3 absolute rounded-full bg-blue-600 z-10"></div>
+                    <div
+                      className={`w-3 h-3 absolute rounded-full ${route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : " bg-blue-600"} z-10`}
+                    ></div>
                     {/* Vertical line */}
                     {idx <
                       route?.directions.filter(
                         (d) => d.direction_id === direction,
                       )[0]?.stops.length -
-                        1 && <div className=" h-full w-1 bg-blue-500"></div>}
+                        1 && (
+                      <div
+                        className={`h-full w-1 ${route.directions[0].route_long_name === route.route_short_name ? "bg-[#28ab78]" : " bg-blue-500"}`}
+                      ></div>
+                    )}
                   </div>
                   {/* Stop Name */}
                   <div className="w-full">
@@ -576,30 +582,20 @@ function App() {
             />
           )}
           {!isMobile && <AppSidebar />}
-
-          {theme === "dark" || theme === "light" ? (
-            <TileLayer
-              key={theme}
-              attribution={
-                '&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/">OSM</a>'
-              }
-              url={`https://api.maptiler.com/maps/${
-                theme === "dark" ? "streets-v2-dark" : "streets"
-              }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip `}
-            />
-          ) : (
-            <TileLayer
-              key={theme}
-              attribution={
-                '&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/">OSM</a>'
-              }
-              url={`https://api.maptiler.com/maps/${
-                window.matchMedia("(prefers-color-scheme: dark)").matches
-                  ? "streets-v2-dark"
-                  : "streets"
-              }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip `}
-            />
-          )}
+          <TileLayer
+            key={theme}
+            attribution='&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/">OSM</a>'
+            url={`https://api.maptiler.com/maps/${
+              theme === "dark"
+                ? "streets-v4-dark"
+                : theme === "light"
+                  ? "streets-v4"
+                  : typeof window !== "undefined" &&
+                      window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "streets-v4-dark"
+                    : "streets-v4"
+            }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip`}
+          />
 
           {positions.length !== 0 && (
             <FitBoundsToPolyline
