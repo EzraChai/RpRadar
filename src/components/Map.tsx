@@ -742,7 +742,8 @@ function VehiclesMarker({
     setProvider(userProvider || "rp");
 
     if (userProvider === "rkl") {
-      setBusSchedule(RapidKLSchedule as unknown as BusScheduleType);
+      const combinedSchedule = [...RapidKLSchedule, ...MRTFeederSchedule];
+      setBusSchedule(combinedSchedule as unknown as BusScheduleType);
     }
   }, []);
 

@@ -31,7 +31,7 @@ import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_shapes.json";
 import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_shapes.json";
 import type { RouteType } from "@/hooks/types";
 
-const CombinedRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
+const combinedRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
 
 export function AppSidebar() {
   const map = useMap();
@@ -42,11 +42,12 @@ export function AppSidebar() {
   });
 
   const [savedRoutes, setSavedRoutes] = useState<(RouteType | undefined)[]>([]);
-  const [routes] = useState<RouteType[]>(
-    provider === "rp"
-      ? (RapidPenangRoutes as unknown as RouteType[])
-      : (CombinedRoutes as unknown as RouteType[]),
-  );
+  const [routes] = useState<RouteType[]>(() => {
+    if (provider === "rkl") {
+      return combinedRoutes as unknown as RouteType[];
+    }
+    return RapidPenangRoutes as unknown as RouteType[];
+  });
   const { starred } = useStarredRoutes();
   const inputRef = useRef<HTMLInputElement>(null);
   const isMobile = useIsMobile();
@@ -163,7 +164,7 @@ export function AppSidebar() {
                         <Button
                           variant={"ghost"}
                           key={route?.route_id}
-                          className="text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-9 h-5 py-1 px-1 border-red-500 rounded-xl"
+                          className={`text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-9 h-5 py-1 px-1 ${route?.route_name === route?.route_code ? "border-[#28ab78]" : "border-red-500"} rounded-xl`}
                         >
                           <p className="text-black dark:text-white truncate">
                             {route?.route_code}
@@ -264,7 +265,7 @@ function SearchSideBar({
       }[];
     };
   } else if (provider === "rkl") {
-    routes = CombinedRoutes as unknown as {
+    routes = combinedRoutes as unknown as {
       features: {
         properties: {
           route_id: string;

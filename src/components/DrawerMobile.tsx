@@ -18,8 +18,10 @@ import {
 } from "./ui/collapsible";
 import RapidPenangRoutes from "@/assets/rp/rp_routes_with_shapes.json";
 import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_shapes.json";
+import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_shapes.json";
 import RapidPenangSchedule from "@/../data/rapid-penang-schedule.json";
 import RapidKLSchedule from "@/../data/rapid-kl-schedule.json";
+import MRTFeederSchedule from "@/../data/mrt-feeder-schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import type { BusScheduleType, RouteType } from "@/hooks/types";
 
@@ -59,16 +61,22 @@ export function DrawerMobile({
   const [provider] = useState<string>(() => {
     return localStorage.getItem("provider") || "rp";
   });
-  const [BusSchedule] = useState<BusScheduleType>(
-    provider === "rp"
-      ? (RapidPenangSchedule as unknown as BusScheduleType)
-      : (RapidKLSchedule as unknown as BusScheduleType),
-  );
-  const [routes] = useState<RouteType[]>(
-    provider === "rp"
-      ? (RapidPenangRoutes as unknown as RouteType[])
-      : (RapidKLRoutes as unknown as RouteType[]),
-  );
+
+  const [BusSchedule] = useState<BusScheduleType>(() => {
+    if (provider === "rkl") {
+      const combinedSchedule = [...RapidKLSchedule, ...MRTFeederSchedule];
+      return combinedSchedule as unknown as BusScheduleType;
+    }
+    return RapidPenangSchedule as unknown as BusScheduleType;
+  });
+
+  const [routes] = useState<RouteType[]>(() => {
+    if (provider === "rkl") {
+      const CombinedRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
+      return CombinedRoutes as unknown as RouteType[];
+    }
+    return RapidPenangRoutes as unknown as RouteType[];
+  });
   const map = useMap();
   const [savedRoutes, setSavedRoutes] = useState<(RouteType | undefined)[]>([]);
 
@@ -186,7 +194,9 @@ export function DrawerMobile({
                 className="overflow-y-auto overscroll-contain "
               >
                 <div className="p-2 py-0 flex justify-between items-center">
-                  <div className="border-2 font-semibold border-red-500 rounded-lg px-2">
+                  <div
+                    className={`border-2 font-semibold ${route?.directions[0].route_long_name === route?.route_short_name ? "border-[#28ab78]" : "border-red-500"} rounded-lg px-2`}
+                  >
                     {route?.route_short_name}
                   </div>
 
@@ -408,7 +418,9 @@ export function DrawerMobile({
                                     <p className="text-sm pr-4 whitespace-normal text-left wrap-break-word dark:text-neutral-50 text-neutral-900">
                                       {route?.route_name}
                                     </p>
-                                    <div className="min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 border-red-500 rounded-lg text-black dark:text-white">
+                                    <div
+                                      className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${route?.route_name === route?.route_code ? "border-[#28ab78]" : "border-red-500"} rounded-lg text-black dark:text-white`}
+                                    >
                                       {route?.route_code}
                                     </div>
                                   </Button>
