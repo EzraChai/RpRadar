@@ -820,7 +820,7 @@ function VehiclesMarker({
 
         const vehicleData: transit_realtime.IVehiclePosition[] = [];
 
-        if (res && res.ok) {
+        if (res) {
           const buffer = await res.arrayBuffer();
           const feed = transit_realtime.FeedMessage.decode(
             new Uint8Array(buffer),
@@ -832,7 +832,7 @@ function VehiclesMarker({
           });
         }
 
-        if (res2 && res2.ok) {
+        if (res2) {
           const buffer2 = await res2.arrayBuffer();
           const feed2 = transit_realtime.FeedMessage.decode(
             new Uint8Array(buffer2),
@@ -847,10 +847,7 @@ function VehiclesMarker({
         if (isMounted) {
           setVehicles(vehicleData);
         }
-      } catch (err) {
-        console.error("Failed to load vehicle data", err);
-        if (isMounted) setVehicles([]);
-      }
+      } catch (err) {}
     }
 
     // initial load
@@ -991,7 +988,6 @@ function VehiclesMarker({
     }
   }, [route?.route_short_name, route?.directions.length, vehicles]);
 
-  console.log(directionsLocation);
   return (
     <>
       {directionsLocation[direction as 0 | 1].map((v, idx) => (
