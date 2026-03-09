@@ -9,7 +9,6 @@ import {
 } from "react-leaflet";
 import { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import L from "leaflet";
-import { PMTiles, leafletRasterLayer } from "pmtiles";
 import { Link, useSearchParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
