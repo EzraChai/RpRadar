@@ -9,6 +9,7 @@ import {
 } from "react-leaflet";
 import { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import L from "leaflet";
+import { PMTiles, leafletRasterLayer } from "pmtiles";
 import { Link, useSearchParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
@@ -582,7 +583,8 @@ function App() {
             />
           )}
           {!isMobile && <AppSidebar />}
-          <TileLayer
+          {/* <PMTileLayer /> */}
+          {/* <TileLayer
             key={theme}
             attribution='&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/">OSM</a>'
             url={`https://api.maptiler.com/maps/${
@@ -595,6 +597,20 @@ function App() {
                     ? "streets-v4-dark"
                     : "streets-v4"
             }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip`}
+          /> */}
+          <TileLayer
+            maxZoom={15}
+            key={theme}
+            url={`https://{s}.basemaps.cartocdn.com/${
+              theme === "dark"
+                ? "dark_all"
+                : theme === "light"
+                  ? "light_all"
+                  : typeof window !== "undefined" &&
+                      window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark_all"
+                    : "light_all"
+            }/{z}/{x}/{y}.png`}
           />
 
           {positions.length !== 0 && (
@@ -757,9 +773,9 @@ function VehiclesMarker({
       }
     | undefined;
 }) {
-  const [vehicles, setVehicles] = useState<
-    { data: transit_realtime.IVehiclePosition }[]
-  >([]);
+  const [vehicles, setVehicles] = useState<transit_realtime.IVehiclePosition[]>(
+    [],
+  );
 
   const [provider, setProvider] = useState<string | undefined>();
   const [BusSchedule, setBusSchedule] =
@@ -776,15 +792,20 @@ function VehiclesMarker({
   }, []);
 
   const [directionsLocation, setDirectionsLocation] = useState<{
-    0: { data: transit_realtime.IVehiclePosition }[];
-    1: { data?: transit_realtime.IVehiclePosition }[];
+    0: transit_realtime.IVehiclePosition[];
+    1: transit_realtime.IVehiclePosition[];
   }>({ 0: [], 1: [] });
 
+  const timerRef = useRef<number | null>(null);
+
   useEffect(() => {
+    let isMounted = true; // prevent state updates after unmount
+
     async function loadData() {
       try {
         let res: Response | null = null;
         let res2: Response | null = null;
+
         if (provider === "rkl") {
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-kl",
@@ -798,61 +819,56 @@ function VehiclesMarker({
           );
         }
 
-        // Ensure we have a valid response before proceeding
-        if (!res || !res.ok) {
-          return;
-        }
+        const vehicleData: transit_realtime.IVehiclePosition[] = [];
 
-        const buffer = await res.arrayBuffer();
-        const feed = transit_realtime.FeedMessage.decode(
-          new Uint8Array(buffer),
-        );
-        const vehicleData: {
-          data: transit_realtime.IVehiclePosition;
-        }[] = [];
-
-        feed.entity.forEach((entity) => {
-          if (entity.vehicle) {
-            vehicleData.push({
-              data: entity.vehicle,
-            });
-          }
-        });
-
-        setVehicles(vehicleData);
-
-        if (res2) {
-          const bufferMRT = await res2.arrayBuffer();
-          const feedMRT = transit_realtime.FeedMessage.decode(
-            new Uint8Array(bufferMRT),
+        if (res && res.ok) {
+          const buffer = await res.arrayBuffer();
+          const feed = transit_realtime.FeedMessage.decode(
+            new Uint8Array(buffer),
           );
-
-          const MRTVehicleData: {
-            data: transit_realtime.IVehiclePosition;
-          }[] = [];
-          feedMRT.entity.forEach((entity) => {
+          feed.entity.forEach((entity) => {
             if (entity.vehicle) {
-              MRTVehicleData.push({
-                data: entity.vehicle,
-              });
+              vehicleData.push(entity.vehicle);
             }
           });
-          setVehicles((prev) => [...prev, ...MRTVehicleData]);
+        }
+
+        if (res2 && res2.ok) {
+          const buffer2 = await res2.arrayBuffer();
+          const feed2 = transit_realtime.FeedMessage.decode(
+            new Uint8Array(buffer2),
+          );
+          feed2.entity.forEach((entity) => {
+            if (entity.vehicle) {
+              vehicleData.push(entity.vehicle);
+            }
+          });
+        }
+
+        if (isMounted) {
+          setVehicles(vehicleData);
         }
       } catch (err) {
-        // On any error, clear vehicles to keep state consistent
-        // eslint-disable-next-line no-console
         console.error("Failed to load vehicle data", err);
-        setVehicles([]);
+        if (isMounted) setVehicles([]);
       }
     }
+
+    // initial load
     loadData();
-    const interval = setInterval(loadData, 15000); // Refresh every 15 seconds
+
+    timerRef.current = window.setInterval(loadData, 15000); // every 15 seconds
+
+    // cleanup
     return () => {
-      clearInterval(interval);
+      isMounted = false;
+      if (timerRef.current !== null) {
+        window.clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
       setVehicles([]);
     };
-  }, [provider]);
+  }, [provider]); // re-run if provider changes
 
   let busIcon = null;
   if (provider === "rp") {
@@ -919,12 +935,12 @@ function VehiclesMarker({
     setDirectionsLocation({ 0: [], 1: [] });
     if (provider === "rp") {
       const vehicleForThisRoute = vehicles.filter(
-        (v) => v.data.trip?.routeId === route?.route_short_name,
+        (v) => v.trip?.routeId === route?.route_short_name,
       );
 
       vehicleForThisRoute.forEach((v) => {
         const directions = RapidPenangDirections.find(
-          (d) => d.trip_id === v.data.trip?.tripId,
+          (d) => d.trip_id === v.trip?.tripId,
         );
         if (directions === undefined && route?.directions.length === 1) {
           setDirectionsLocation((prev) => ({
@@ -944,17 +960,17 @@ function VehiclesMarker({
     } else if (provider === "rkl") {
       const vehicleForThisRoute = vehicles.filter(
         (v) =>
-          v.data.trip?.routeId === route?.route_id ||
-          v.data.trip?.routeId === route?.route_short_name,
+          v.trip?.routeId === route?.route_id ||
+          v.trip?.routeId === route?.route_short_name,
       );
 
       vehicleForThisRoute.forEach((v) => {
         let directions = RapidKLDirections.find(
-          (d) => d.trip_id === v.data.trip?.tripId,
+          (d) => d.trip_id === v.trip?.tripId,
         );
         if (!directions) {
           directions = MRTFeederDirections.find(
-            (d) => d.trip_id === v.data.trip?.tripId,
+            (d) => d.trip_id === v.trip?.tripId,
           );
         }
 
@@ -976,20 +992,21 @@ function VehiclesMarker({
     }
   }, [route?.route_short_name, route?.directions.length, vehicles]);
 
+  console.log(directionsLocation);
   return (
     <>
       {directionsLocation[direction as 0 | 1].map((v, idx) => (
         <div key={idx}>
-          {v.data && (
+          {v && (
             <Marker
-              key={v.data.vehicle?.licensePlate || idx}
+              key={v.vehicle?.licensePlate || idx}
               position={
-                typeof v.data.position?.latitude === "number" &&
-                typeof v.data.position?.longitude === "number"
-                  ? [v.data.position.latitude, v.data.position.longitude]
+                typeof v.position?.latitude === "number" &&
+                typeof v.position?.longitude === "number"
+                  ? [v.position.latitude, v.position.longitude]
                   : [0, 0]
               }
-              icon={busIcon(v.data.position?.bearing || 0, v.data.trip?.tripId)}
+              icon={busIcon(v.position?.bearing || 0, v.trip?.tripId)}
             >
               <Popup
                 maxWidth={500}
@@ -999,15 +1016,15 @@ function VehiclesMarker({
               >
                 <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
                   <p className="text-lg font-semibold">
-                    {v.data.vehicle?.licensePlate}
+                    {v.vehicle?.licensePlate}
                   </p>
                   <p className="mt-4">
                     Route:{" "}
                     {provider === "rp"
-                      ? v.data.trip?.routeId
+                      ? v.trip?.routeId
                       : route?.route_short_name}
                   </p>
-                  <p>Speed: {v.data.position?.speed?.toFixed(0)}km/h</p>
+                  <p>Speed: {v.position?.speed?.toFixed(0)}km/h</p>
                   <p>
                     {(() => {
                       const showDeparture =
@@ -1028,7 +1045,7 @@ function VehiclesMarker({
                       if (!currentBus) return "";
 
                       const idx = currentBus.trip_ids.findIndex(
-                        (id) => id === v.data?.trip?.tripId,
+                        (id) => id === v.trip?.tripId,
                       );
 
                       return idx >= 0
@@ -1037,9 +1054,9 @@ function VehiclesMarker({
                     })()}
                   </p>
                   {provider === "rp" &&
-                    v.data.trip?.routeId === "T310" &&
-                    typeof v.data.position?.latitude === "number" &&
-                    v.data.position.latitude >= 5.353 && (
+                    v.trip?.routeId === "T310" &&
+                    typeof v.position?.latitude === "number" &&
+                    v.position.latitude >= 5.353 && (
                       <p>
                         {"Heading: "}
                         {findT310Heading(
@@ -1054,7 +1071,7 @@ function VehiclesMarker({
                             if (!currentBus) return "";
 
                             const idx = currentBus.trip_ids.findIndex(
-                              (id) => id === v.data?.trip?.tripId,
+                              (id) => id === v.trip?.tripId,
                             );
 
                             return idx >= 0 ? currentBus.t[idx] : "";
