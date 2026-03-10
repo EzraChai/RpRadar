@@ -19,9 +19,13 @@ import {
 import RapidPenangRoutes from "@/assets/rp/rp_routes_with_shapes.json";
 import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_shapes.json";
 import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_shapes.json";
+import MyBasNSARoutes from "@/assets/ns_a/ns_a_routes_with_shapes.json";
+import MyBasNSBRoutes from "@/assets/ns_b/ns_b_routes_with_shapes.json";
 import RapidPenangSchedule from "@/../data/rapid-penang-schedule.json";
 import RapidKLSchedule from "@/../data/rapid-kl-schedule.json";
 import MRTFeederSchedule from "@/../data/mrt-feeder-schedule.json";
+import MYBasNSASchedule from "@/../data/ns-a-schedule.json";
+import MYBasNSBSchedule from "@/../data/ns-b-schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import type { BusScheduleType, RouteType } from "@/hooks/types";
 
@@ -66,6 +70,9 @@ export function DrawerMobile({
     if (provider === "rkl") {
       const combinedSchedule = [...RapidKLSchedule, ...MRTFeederSchedule];
       return combinedSchedule as unknown as BusScheduleType;
+    } else if (provider === "ns") {
+      const combinedSchedule = [...MYBasNSASchedule, ...MYBasNSBSchedule];
+      return combinedSchedule as unknown as BusScheduleType;
     }
     return RapidPenangSchedule as unknown as BusScheduleType;
   });
@@ -74,6 +81,9 @@ export function DrawerMobile({
     if (provider === "rkl") {
       const CombinedRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
       return CombinedRoutes as unknown as RouteType[];
+    } else if (provider === "ns") {
+      const combinedRoutes = [...MyBasNSARoutes, ...MyBasNSBRoutes];
+      return combinedRoutes as unknown as RouteType[];
     }
     return RapidPenangRoutes as unknown as RouteType[];
   });
@@ -434,6 +444,7 @@ export function DrawerMobile({
                     <div className={`p-4 pt-3 `}>
                       {filteredRoutes.map((r, idx) => (
                         <RouteCard
+                          provider={provider}
                           key={idx}
                           setSnap={setSnap}
                           line={r}
