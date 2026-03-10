@@ -8,6 +8,8 @@ const GTFS_RKL_URL =
   "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-kl";
 const GTFS_MRT_URL =
   "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-mrtfeeder";
+const GTFS_NS_A_URL = "https://api.data.gov.my/gtfs-static/mybas-seremban-a";
+const GTFS_NS_B_URL = "https://api.data.gov.my/gtfs-static/mybas-seremban-b";
 
 const OUTPUT_FILES = {
   rp: {
@@ -22,6 +24,14 @@ const OUTPUT_FILES = {
     trips: "data/mrt-feeder-trips.json",
     schedule: "data/mrt-feeder-schedule.json",
   },
+  ns_a: {
+    trips: "data/ns-a-trips.json",
+    schedule: "data/ns-a-schedule.json",
+  },
+  ns_b: {
+    trips: "data/ns-b-trips.json",
+    schedule: "data/ns-b-schedule.json",
+  },
 };
 
 // Convert HH:MM:SS to seconds
@@ -30,15 +40,11 @@ function parseTimeToSeconds(timeStr) {
   return h * 3600 + m * 60 + s;
 }
 
-// Expand service to actual dates (limit to next 7 days)
 function expandCalendar(service, maxDays = 7) {
   const dates = [];
+  if (!service) return dates;
+
   const today = new Date();
-  const endDate = new Date(
-    +service.end_date.slice(0, 4),
-    +service.end_date.slice(4, 6) - 1,
-    +service.end_date.slice(6, 8),
-  );
 
   const weekdays = [
     "sunday",
@@ -49,17 +55,19 @@ function expandCalendar(service, maxDays = 7) {
     "friday",
     "saturday",
   ];
+
   let count = 0;
-  for (
-    let d = new Date(today);
-    d <= endDate && count < maxDays;
-    d.setDate(d.getDate() + 1)
-  ) {
+
+  for (let i = 0; i < 30 && count < maxDays; i++) {
+    const d = new Date(today);
+    d.setDate(today.getDate() + i);
+
     if (service[weekdays[d.getDay()]] === "1") {
       dates.push(d.toISOString().slice(0, 10).replace(/-/g, ""));
       count++;
     }
   }
+
   return dates;
 }
 
@@ -84,38 +92,50 @@ function generateDeparturesFromFrequency(freq) {
   return departures;
 }
 
-async function refreshGTFS(url, tripsFilePath, scheduleFilePath, maxDays = 7) {
-  console.log(`Downloading GTFS feed from ${url}...`);
-  const res = await fetch(url);
-  if (!res.ok) throw new Error("Failed to download GTFS");
+async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
+  console.log(`Downloading ${url}`);
 
+  const res = await fetch(url);
   const buffer = await res.arrayBuffer();
+
   const directory = await unzipper.Open.buffer(Buffer.from(buffer));
 
   const tripsFile = directory.files.find((f) => f.path === "trips.txt");
-  const stopsFile = directory.files.find((f) => f.path === "stop_times.txt");
+  const stopTimesFile = directory.files.find(
+    (f) => f.path === "stop_times.txt",
+  );
   const calendarFile = directory.files.find((f) => f.path === "calendar.txt");
   const frequenciesFile = directory.files.find(
     (f) => f.path === "frequencies.txt",
   );
 
-  if (!tripsFile || !stopsFile || !calendarFile)
+  if (!tripsFile || !stopTimesFile || !calendarFile) {
     throw new Error("Missing GTFS files");
+  }
 
-  // Load calendar
   const services = {};
+  const trips = [];
+  const tripsMap = new Map();
+
+  const frequencies = {};
+
+  const firstStops = {};
+
+  const departures = {};
+
+  // calendar
   await new Promise((resolve, reject) => {
     calendarFile
       .stream()
       .pipe(csv())
-      .on("data", (row) => (services[row.service_id] = row))
+      .on("data", (row) => {
+        services[row.service_id] = row;
+      })
       .on("end", resolve)
       .on("error", reject);
   });
 
-  // Load trips
-  const trips = [];
-  const tripsMap = new Map();
+  // trips
   await new Promise((resolve, reject) => {
     tripsFile
       .stream()
@@ -125,8 +145,9 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath, maxDays = 7) {
           trip_id: row.trip_id,
           route_id: row.route_id,
           service_id: row.service_id,
-          direction_id: +row.direction_id,
+          direction_id: Number(row.direction_id || 0),
         };
+
         trips.push(trip);
         tripsMap.set(row.trip_id, trip);
       })
@@ -134,55 +155,64 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath, maxDays = 7) {
       .on("error", reject);
   });
 
-  // Load frequencies (optional)
-  const frequencies = {};
+  // frequencies (optional)
   if (frequenciesFile) {
     await new Promise((resolve, reject) => {
       frequenciesFile
         .stream()
         .pipe(csv())
         .on("data", (row) => {
-          frequencies[row.trip_id] = row; // one row per trip_id
+          frequencies[row.trip_id] = row;
         })
         .on("end", resolve)
         .on("error", reject);
     });
   }
 
-  fs.mkdirSync("data", { recursive: true });
-  fs.writeFileSync(tripsFilePath, JSON.stringify(trips, null, 2));
-  console.log(`✅ Saved trips to ${tripsFilePath}`);
-
-  // Process stop_times (first stop only)
-  const departures = {};
+  // find first stop of each trip (lowest stop_sequence)
   await new Promise((resolve, reject) => {
-    stopsFile
+    stopTimesFile
       .stream()
       .pipe(csv())
       .on("data", (row) => {
-        if (row.stop_sequence !== "1") return;
-        const trip = tripsMap.get(row.trip_id);
-        if (!trip) return;
+        const seq = Number(row.stop_sequence);
 
-        const key = `${trip.route_id}_${trip.direction_id}_${trip.service_id}`;
-        if (!departures[key]) departures[key] = [];
-
-        // Generate departure times using frequencies if available
-        let times = [row.departure_time];
-        if (frequencies[trip.trip_id]) {
-          times = generateDeparturesFromFrequency(frequencies[trip.trip_id]);
-        }
-
-        for (const t of times) {
-          departures[key].push({ time: t, trip_id: trip.trip_id });
+        if (!firstStops[row.trip_id] || seq < firstStops[row.trip_id].seq) {
+          firstStops[row.trip_id] = {
+            seq,
+            departure_time: row.departure_time,
+          };
         }
       })
       .on("end", resolve)
       .on("error", reject);
   });
 
-  // Flatten schedule (Penang-style)
+  // build departures
+  for (const [trip_id, stop] of Object.entries(firstStops)) {
+    const trip = tripsMap.get(trip_id);
+    if (!trip) continue;
+
+    const key = `${trip.route_id}_${trip.direction_id}_${trip.service_id}`;
+
+    if (!departures[key]) departures[key] = [];
+
+    let times = [stop.departure_time];
+
+    if (frequencies[trip_id]) {
+      times = generateDeparturesFromFrequency(frequencies[trip_id]);
+    }
+
+    for (const t of times) {
+      departures[key].push({
+        time: t,
+        trip_id,
+      });
+    }
+  }
+
   const flattened = [];
+
   for (const [key, timesArr] of Object.entries(departures)) {
     const [route_id, direction_id, service_id] = key.split("_");
 
@@ -190,12 +220,12 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath, maxDays = 7) {
       (a, b) => parseTimeToSeconds(a.time) - parseTimeToSeconds(b.time),
     );
 
-    const dates = expandCalendar(services[service_id], maxDays);
+    const dates = expandCalendar(services[service_id], 7);
 
     for (const dt of dates) {
       flattened.push({
         r: route_id,
-        d: +direction_id,
+        d: Number(direction_id),
         dt,
         t: timesArr.map((x) => x.time),
         trip_ids: timesArr.map((x) => x.trip_id),
@@ -203,8 +233,13 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath, maxDays = 7) {
     }
   }
 
-  fs.writeFileSync(scheduleFilePath, JSON.stringify(flattened, null, 2));
-  console.log(`✅ Saved schedule to ${scheduleFilePath}`);
+  fs.mkdirSync("data", { recursive: true });
+
+  fs.writeFileSync(tripsFilePath, JSON.stringify(trips));
+
+  fs.writeFileSync(scheduleFilePath, JSON.stringify(flattened));
+
+  console.log(`Saved ${scheduleFilePath}`);
 }
 
 // Rapid Penang (next 7 days)
@@ -233,6 +268,26 @@ refreshGTFS(
   GTFS_MRT_URL,
   OUTPUT_FILES.mrt.trips,
   OUTPUT_FILES.mrt.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+refreshGTFS(
+  GTFS_NS_A_URL,
+  OUTPUT_FILES.ns_a.trips,
+  OUTPUT_FILES.ns_a.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+refreshGTFS(
+  GTFS_NS_B_URL,
+  OUTPUT_FILES.ns_b.trips,
+  OUTPUT_FILES.ns_b.schedule,
   7,
 ).catch((err) => {
   console.error(err);

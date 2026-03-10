@@ -1,0 +1,68 @@
+[
+  {
+    "route_id": "N10A",
+    "route_code": "N10A",
+    "route_name": "TERMINAL 1 - BAHAU VIA JUASEH",
+    "shape_ids": ["R1705034", "R1705035"]
+  },
+  {
+    "route_id": "N10B",
+    "route_code": "N10B",
+    "route_name": "TERMINAL 1 - BAHAU VIA BT KIKIR",
+    "shape_ids": ["R1705036", "R1705038"]
+  },
+  {
+    "route_id": "N11",
+    "route_code": "N11",
+    "route_name": "KUALA PILAH - BETING UITM",
+    "shape_ids": ["R2509001", "R2509002"]
+  },
+  {
+    "route_id": "N30A",
+    "route_code": "N30A",
+    "route_name": "TERMINAL 1 - PORT DICKSON VIA SPRINGHILL",
+    "shape_ids": ["R1705026", "R1705027"]
+  },
+  {
+    "route_id": "N30B",
+    "route_code": "N30B",
+    "route_name": "TERMINAL 1 - PORT DICKSON VIA SPG SILIAU",
+    "shape_ids": ["R1705028", "R1705041"]
+  },
+  {
+    "route_id": "N31",
+    "route_code": "N31",
+    "route_name": "TERMINAL 1 - PEKAN LINGGI",
+    "shape_ids": ["R1710001", "R1710002"]
+  },
+  {
+    "route_id": "N32",
+    "route_code": "N32",
+    "route_name": "PORT DICKSON - POLYMALL",
+    "shape_ids": ["R1705018", "R1705019"]
+  },
+  {
+    "route_id": "N34",
+    "route_code": "N34",
+    "route_name": "POLYMALL - TANJUNG AGAS",
+    "shape_ids": ["R2207001", "R2207002"]
+  },
+  {
+    "route_id": "N53",
+    "route_code": "N53",
+    "route_name": "TERMINAL 1 - PORT DICKSON VIA RANTAU",
+    "shape_ids": ["R1705030", "R1705031"]
+  },
+  {
+    "route_id": "N70",
+    "route_code": "N70",
+    "route_name": "TERMINAL 1 - KUALA KLAWANG - TITI",
+    "shape_ids": ["R1710003", "R1710004"]
+  },
+  {
+    "route_id": "N71",
+    "route_code": "N71",
+    "route_name": "KUALA KLAWANG - KAMPUNG CHENNAH",
+    "shape_ids": ["R2403001", "R2403002"]
+  }
+]

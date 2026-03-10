@@ -1,0 +1,68 @@
+[
+  {
+    "route_id": "N50",
+    "route_code": "N50",
+    "route_name": " - NILAI SENTRAL",
+    "shape_ids": ["R1705007", "R1705008"]
+  },
+  {
+    "route_id": "N505",
+    "route_code": "N505",
+    "route_name": "TERMINAL 1 - BUKIT MUTIARA LOOP",
+    "shape_ids": ["R1705012"]
+  },
+  {
+    "route_id": "N508",
+    "route_code": "N508",
+    "route_name": "TERMINAL 1 - DESA RHU LOOP",
+    "shape_ids": ["R1705013"]
+  },
+  {
+    "route_id": "N51",
+    "route_code": "N51",
+    "route_name": "NILAI SENTRAL - NILAI 3",
+    "shape_ids": ["R1705009", "R1705010"]
+  },
+  {
+    "route_id": "N513",
+    "route_code": "N513",
+    "route_name": "NILAI SENTRAL - USIM LOOP",
+    "shape_ids": ["R1705014"]
+  },
+  {
+    "route_id": "N52",
+    "route_code": "N52",
+    "route_name": "TERMINAL 1 - NILAI VIA LABU",
+    "shape_ids": ["R1705016", "R1705017"]
+  },
+  {
+    "route_id": "N54",
+    "route_code": "N54",
+    "route_name": "TERMINAL 1 - SEREMBAN 2",
+    "shape_ids": ["R1705024", "R1705040"]
+  },
+  {
+    "route_id": "N56",
+    "route_code": "N56",
+    "route_name": "TERMINAL 1 - POLITEKNIK NILAI",
+    "shape_ids": ["R1705001", "R1705002"]
+  },
+  {
+    "route_id": "N57",
+    "route_code": "N57",
+    "route_name": "NILAI SENTRAL - KLIA",
+    "shape_ids": ["R1705003", "R1705004"]
+  },
+  {
+    "route_id": "N60A",
+    "route_code": "N60A",
+    "route_name": "TERMINAL 1 - TAMPIN VIA SENAWANG",
+    "shape_ids": ["R1705032", "R1705033"]
+  },
+  {
+    "route_id": "N60B",
+    "route_code": "N60B",
+    "route_name": "TERMINAL 1 - TAMPIN VIA SEREMBAN JAYA",
+    "shape_ids": ["R1705042", "R1705043"]
+  }
+]

@@ -10,6 +10,7 @@
     "npm:@radix-ui/react-slot@^1.2.4": "1.2.4_@types+react@19.2.14_react@19.2.4",
     "npm:@radix-ui/react-tooltip@^1.2.8": "1.2.8_@types+react@19.2.14_@types+react-dom@19.2.3__@types+react@19.2.14_react@19.2.4_react-dom@19.2.4__react@19.2.4",
     "npm:@tailwindcss/vite@^4.2.1": "4.2.1_vite@7.3.1__@types+node@25.3.5__picomatch@4.0.3_@types+node@25.3.5",
+    "npm:@turf/turf@^7.3.4": "7.3.4",
     "npm:@types/leaflet@^1.9.21": "1.9.21",
     "npm:@types/node@^25.3.5": "25.3.5",
     "npm:@types/react-dom@^19.2.3": "19.2.3_@types+react@19.2.14",
@@ -1877,11 +1878,1368 @@
         "vite"
       ]
     },
+    "@turf/along@7.3.4": {
+      "integrity": "sha512-PvIoXin0I1t3nRwJz7uqR6fsxDMqdGwJq90qGOeqkNwlZqlF+5o2wKHPwYwi0RXZhLvxRP5qlbNIvV8ADdbWxw==",
+      "dependencies": [
+        "@turf/bearing",
+        "@turf/destination",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/angle@7.3.4": {
+      "integrity": "sha512-235JAfbrNMjHQXQfd/p+fYnlfCHsQsKHda5Eeyc+/jIY0s5mKvhcxgFaOEnigA2q1n+PrVOExs3BViGTKnWhAg==",
+      "dependencies": [
+        "@turf/bearing",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/rhumb-bearing",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/area@7.3.4": {
+      "integrity": "sha512-UEQQFw2XwHpozSBAMEtZI3jDsAad4NnHL/poF7/S6zeDCjEBCkt3MYd6DSGH/cvgcOozxH/ky3/rIVSMZdx4vA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/bbox-clip@7.3.4": {
+      "integrity": "sha512-HCn0q/WPVEE9Dztg7tCvClOPrrh9MoxNUk73byHvcZLBcvziN6F84f/ZbFcbQSh8hgOeVMs/keeqWMqsICcNLg==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/bbox-polygon@7.3.4": {
+      "integrity": "sha512-XCDYQwCA41Bum3R1xX0Na1nR4ozoe/pCYy5bxqrzyMs87kPJUIfBrD5IWxjnZyLqFpfEpolMHJz5ed1uA2PanQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/bbox@7.3.4": {
+      "integrity": "sha512-D5ErVWtfQbEPh11yzI69uxqrcJmbPU/9Y59f1uTapgwAwQHQztDWgsYpnL3ns8r1GmPWLP8sGJLVTIk2TZSiYA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/bearing@7.3.4": {
+      "integrity": "sha512-zvFjapyFaOrM8nBtAND7f4yb0BJV0jyj6cyoXyTYqLY+3Hn0eHgL0M8lwxDLbTom5KfqYDHDVDQC3+VSfypoEA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/bezier-spline@7.3.4": {
+      "integrity": "sha512-+iDUeiBKByIs/6K5WW8pG6IDxrRLJHFLM80zSpzk2xBtgy3mq36NZwwt67Pu7EJAkc9GUXKIm9SkspoKue9aYQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-clockwise@7.3.4": {
+      "integrity": "sha512-X/O+u/OsoJ99mujhlqviuB7HX0tdJ5931TBjNSseps43XtROVuB5PwBDgwKfu5lY1B4DSGAxbbxJ795RmPnguQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-concave@7.3.4": {
+      "integrity": "sha512-SHuAzjqaAes6ELDZcN/FKZWCQZsqwYv3gMosoLRFWTwKyBQe8i29e4y6XnXakDr1uklVUeRRcdhZ5oKtX9ABPQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-contains@7.3.4": {
+      "integrity": "sha512-AJMGbtC6HiXgHvq0RNlTfsDB58Qf9Js45MP/APbhGTH4AiLZ8VMDISywVFNd7qN6oppNlDd3xApVR28+ti8bNg==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/boolean-point-in-polygon",
+        "@turf/boolean-point-on-line",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/line-split",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-crosses@7.3.4": {
+      "integrity": "sha512-v/U3SuGdkexfLTMhho6Vj0OjqPUeYdThxp8zggGJ1VHow27fvLLez0DjUR3AftHjjHM6bRzZoNsu2qUlEe5hjw==",
+      "dependencies": [
+        "@turf/boolean-equal",
+        "@turf/boolean-point-in-polygon",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/line-intersect",
+        "@turf/polygon-to-line",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-disjoint@7.3.4": {
+      "integrity": "sha512-Dl4O27ygi2NqskGQuvSlDLJYlJ2SPkHb3A9T/v6eAudjlMiKdEY6bMxKUfU5y+Px1WiCZxd+9rXGXJgGC3WiQg==",
+      "dependencies": [
+        "@turf/boolean-point-in-polygon",
+        "@turf/helpers",
+        "@turf/line-intersect",
+        "@turf/meta",
+        "@turf/polygon-to-line",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-equal@7.3.4": {
+      "integrity": "sha512-AhWqe7D1o0wp3d3QQRSqgWDI8s1JfTFKFe9rU5mrSxYPGlmaQsJC07RCaYfFiGym9lACd1lxBJiPidCbLaPOfw==",
+      "dependencies": [
+        "@turf/clean-coords",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "geojson-equality-ts",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-intersects@7.3.4": {
+      "integrity": "sha512-sxi41NXkb5hrJgOvpm32hyBLhW8fem0vn2XxR4+jyRg1rM/v3ziF10/VqC9KDZuDNZkt9JjL9B0825Cf7AN6Lg==",
+      "dependencies": [
+        "@turf/boolean-disjoint",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-overlap@7.3.4": {
+      "integrity": "sha512-Q3dlswIuqffSiMfln7xa36YDnN1TWtERMF/155rzjglm4NTUG/6S+gNsb8s6qpLjc+hN6btCq1ZjxAWurPf8Vg==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/line-intersect",
+        "@turf/line-overlap",
+        "@turf/meta",
+        "@types/geojson",
+        "geojson-equality-ts",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-parallel@7.3.4": {
+      "integrity": "sha512-sTNMqsUkLPnSJEqc2IZ5ig3nHRoubyOH2HW1LILqOybCJI630FEM9UoYP1pZniF5nwTyCjQWnXA1FxusVILuFQ==",
+      "dependencies": [
+        "@turf/clean-coords",
+        "@turf/helpers",
+        "@turf/line-segment",
+        "@turf/rhumb-bearing",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-point-in-polygon@7.3.4": {
+      "integrity": "sha512-v/4hfyY90Vz9cDgs2GwjQf+Lft8o7mNCLJOTz/iv8SHAIgMMX0czEoIaNVOJr7tBqPqwin1CGwsncrkf5C9n8Q==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "point-in-polygon-hao",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-point-on-line@7.3.4": {
+      "integrity": "sha512-70gm5x6YQOZKcw0b/O4jjMwVWnFj+Zb6TXozLgZFDZShc8pgTQtZku7K+HKZ7Eya+7usHIB4IimZauomOMa+iw==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-touches@7.3.4": {
+      "integrity": "sha512-XOwhjc0oCWhnBUB+l4drpXcg7mkNXPX3SuSz/Xv7gvLH/yRrBwzVGllzK1AHlGU9BVkGVBJIZGYX7jgTM681NQ==",
+      "dependencies": [
+        "@turf/boolean-point-in-polygon",
+        "@turf/boolean-point-on-line",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-valid@7.3.4": {
+      "integrity": "sha512-P6M9BtRvzFF2N5g+1/DTIbYGpEbwQ2sv/Pw+uj11P3NYAA9VE8mvrxFYf+CowFdSfY6bY4ejhuqKhrTmAMv7wA==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/boolean-crosses",
+        "@turf/boolean-disjoint",
+        "@turf/boolean-overlap",
+        "@turf/boolean-point-in-polygon",
+        "@turf/boolean-point-on-line",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/line-intersect",
+        "@types/geojson",
+        "geojson-polygon-self-intersections",
+        "tslib"
+      ]
+    },
+    "@turf/boolean-within@7.3.4": {
+      "integrity": "sha512-eLgi803gz0KcYkyxnnqnz9Vd6tw2/0eAExe/Rq8sO0dqypaSiomSumxjqu89d/yo24Qz8gW7c0kJ6YihNbMYxA==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/boolean-point-in-polygon",
+        "@turf/boolean-point-on-line",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/line-split",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/buffer@7.3.4": {
+      "integrity": "sha512-MVOCBDuOl3KGDsh2stW12RmiFaFeSkVjeUbZ+ADUtIVnv+jlFsmjBpFtsEw8s9YQn5g0667QppOshm0FBHA57Q==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/center",
+        "@turf/helpers",
+        "@turf/jsts",
+        "@turf/meta",
+        "@turf/projection",
+        "@types/geojson",
+        "d3-geo"
+      ]
+    },
+    "@turf/center-mean@7.3.4": {
+      "integrity": "sha512-6foVk5HLjlSPr48EI686Eis6/bYrJiHjKQlwY/7YlJc1uDitsIjPw2LjUCGIUZDEd6PdNUgg1+LgI7klXYvW3A==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/center-median@7.3.4": {
+      "integrity": "sha512-Bz6rDr0plQOGSXgT3X3t941pYd44a5vIY8OEt4Y11H1BsgpmzFc6g7L5mr7FXW/uiYGxOewAfNcVUYUdJf9kMg==",
+      "dependencies": [
+        "@turf/center-mean",
+        "@turf/centroid",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/center-of-mass@7.3.4": {
+      "integrity": "sha512-mOSupDF5qxQTA/kOWYletHcBJQ3S2gVl/IRgrBH/YY9yiFq6UGRpZ0sNcIML4H06u/1DY/jqqG+d1nc/1yIA6Q==",
+      "dependencies": [
+        "@turf/centroid",
+        "@turf/convex",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/center@7.3.4": {
+      "integrity": "sha512-4SsLMDHWthXbyIHsczgFCo4fx+8tC8w2+B5HdEuY+P+cSOOL4T+6QQzd7WWjuN/Y3ndowFssUmwRrvXuwVRxQA==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/centroid@7.3.4": {
+      "integrity": "sha512-6c3kyTSKBrmiPMe75UkHw6MgedroZ6eR5usEvdlDhXgA3MudFPXIZkMFmMd1h9XeJ9xFfkmq+HPCdF0cOzvztA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/circle@7.3.4": {
+      "integrity": "sha512-6ccr5iT51/XONF+pbpkqoRxKX4ZVWLubXb1frGCnClv2suo1UIY9SIlINNctVDupXd2P9PpqZCbrXATrcrokPg==",
+      "dependencies": [
+        "@turf/destination",
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/clean-coords@7.3.4": {
+      "integrity": "sha512-S61aJXLvPN/uZHtjzmJbLv7xhi28Sq3PshCIZSvno4Mo45bvl79Vg4aZskrG05AaSSbipplqfH+MZrkW9Xboeg==",
+      "dependencies": [
+        "@turf/boolean-point-on-line",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/clone@7.3.4": {
+      "integrity": "sha512-pwQ+RyQw986uu7IulY/18NRAebwZZScb084bvVqVkTrllwLSv4oVBqUxmUMiwtp+PNdiRGRFOvNyZqtRsiD+Jw==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/clusters-dbscan@7.3.4": {
+      "integrity": "sha512-RkuXf767Shk0AfY+fh0PASVw8YR4H8zYR7XQrCgWd/bCuh6CXs7rWZ6UTLu/PiA6y6WsIhyAQv4LhNH5kCzpbA==",
+      "dependencies": [
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "@types/geokdbush",
+        "geokdbush",
+        "kdbush",
+        "tslib"
+      ]
+    },
+    "@turf/clusters-kmeans@7.3.4": {
+      "integrity": "sha512-89mlwhcb+vyZAKX0eBa3LQ8VyIKLayrzJpKGb90sEkIu0hDua9JCE+zlbaPoUAvAqflEiX+poFFuh7pngtsBMg==",
+      "dependencies": [
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "skmeans",
+        "tslib"
+      ]
+    },
+    "@turf/clusters@7.3.4": {
+      "integrity": "sha512-+zoSyiF0LilXy4Tr0/lC7IgqbTMZZ2wwP3iSrqre58b61pUtdhCnBcjA2r8FkcW7z3GMbGf5XkIWhO+b+vDSsw==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/collect@7.3.4": {
+      "integrity": "sha512-fG28oDZK4HCXC/AhF0pmHKLtI9DWwdJr/ktuWolrqzA5b1G7eawrXwDu8B5I3sXhdWonNRMcuLbIuz+XQscHKw==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/boolean-point-in-polygon",
+        "@turf/helpers",
+        "@types/geojson",
+        "rbush@3.0.1",
+        "tslib"
+      ]
+    },
+    "@turf/combine@7.3.4": {
+      "integrity": "sha512-wNp9ar4FfpTfQXLZWXQ/jUBBoUFOwRN/mmlv5xrhoYFpP/F5SNy7GVDMZXaBfHdUUplfJUPF5hIKQlCUR8+k3A==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/concave@7.3.4": {
+      "integrity": "sha512-HZa1CV2pv4Xpcoe3t5S3ZW6j9jVbc27exzKwZWF7MlFxSz4BKRirWiME8Fku8nvQcGafpfLc+Lwpma+nGvg06w==",
+      "dependencies": [
+        "@turf/clone",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@turf/tin",
+        "@types/geojson",
+        "topojson-client",
+        "topojson-server",
+        "tslib"
+      ]
+    },
+    "@turf/convex@7.3.4": {
+      "integrity": "sha512-zeNv0fFdOoHuOQB7nl6OLb0DyjvzDvm0e3zlFkph50GF9pEKOmkCSmlniw681aWL2aRBdWZBnON3rRzOS+9C7Q==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "concaveman",
+        "tslib"
+      ]
+    },
+    "@turf/destination@7.3.4": {
+      "integrity": "sha512-YxoUJwkKmTHiRFQxMQOP0tz8Vy+ga5EXl+C+F/WubjDLwT1AJu5y8CNIjLvWyjPWckj/vZG4u/1js5bx6MLADA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/difference@7.3.4": {
+      "integrity": "sha512-kIxizNQrYLO2rtqUIeed0tPycicrXoipy/g9d4mjv91kzBEbwpyojz9zi8U9G1ISBfCEgA7wsViQD0r+8qzxXw==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "polyclip-ts",
+        "tslib"
+      ]
+    },
+    "@turf/dissolve@7.3.4": {
+      "integrity": "sha512-xjGY1gQ4icWhDgsW0YfU2KQtij1+ru34AfvtkVMQEgI86O9EwjW2r9Jq5DJY2PMKPbor3kz9yM/RTOiDP7f3Jg==",
+      "dependencies": [
+        "@turf/flatten",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "polyclip-ts",
+        "tslib"
+      ]
+    },
+    "@turf/distance-weight@7.3.4": {
+      "integrity": "sha512-dVMNEmIluKgn7iQTmzJJOe0UASRNmmSdFX1boAev5MISaW3AvPiURCCOV+lTIeoaQbWRpEAESbAp6JIimXFr8Q==",
+      "dependencies": [
+        "@turf/centroid",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/distance@7.3.4": {
+      "integrity": "sha512-9drWgd46uHPPyzgrcRQLgSvdS/SjVlQ6ZIBoRQagS5P2kSjUbcOXHIMeOSPwfxwlKhEtobLyr+IiR2ns1TfF8w==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/ellipse@7.3.4": {
+      "integrity": "sha512-SMgbERZl12j7H8YaIofmnf0NwAvdF5Wly4tjI/eUhj/sFOKrKXOS1lvCSBJ6uSV9tFijl3ecGOVOlTpURdZ30g==",
+      "dependencies": [
+        "@turf/destination",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/transform-rotate",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/envelope@7.3.4": {
+      "integrity": "sha512-anXSjYMXGAyXT7rpO74VyRI0q/rPAbKE/MYvou+QvG0U/Oa7el0yF4JNNi9wKEAxXg/10aWm9kHp8s2caeLg6A==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/bbox-polygon",
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/explode@7.3.4": {
+      "integrity": "sha512-7QWhp3f8jhrWjvArhJ74hXBFHMaiJr/2Y1PzHCWue2/pC5MbbTV0o7peehwrrrJC/1uD6CVb3hlcb77IxtMQkw==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/flatten@7.3.4": {
+      "integrity": "sha512-Yt3HCh/qeNaXS4LYhXczFhBfTeaKlTBoxEw1OICb9RT3SiGU0XCxuK7H0W26OLo7XxB0qP7GPs2L3FZbiri6wQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/flip@7.3.4": {
+      "integrity": "sha512-HME+kVMTyvcsYVY6dC6DTvuzq8vvDpw+C7PviEqpuT3KcVlBCoGPAqlWRdyWYOb9MDciOqNxvvJF/okpb/GQcg==",
+      "dependencies": [
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/geojson-rbush@7.3.4": {
+      "integrity": "sha512-aDG/5mMCgKduqBwZ3XpLOdlE2hizV3fM+5dHCWyrBepCQLeM/QRvvpBDCdQKDWKpoIBmrGGYDNiOofnf3QmGhg==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "rbush@3.0.1",
+        "tslib"
+      ]
+    },
+    "@turf/great-circle@7.3.4": {
+      "integrity": "sha512-JvfzWFL9efP+xKtOnKzGvwEIXfaN0CLZoPPxNnWa/cVisLs9FVMlC9PWnuL3/3aqH5VhBHPddmU8ipzNE6KIIA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "arc",
+        "tslib"
+      ]
+    },
+    "@turf/helpers@7.3.4": {
+      "integrity": "sha512-U/S5qyqgx3WTvg4twaH0WxF3EixoTCfDsmk98g1E3/5e2YKp7JKYZdz0vivsS5/UZLJeZDEElOSFH4pUgp+l7g==",
+      "dependencies": [
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/hex-grid@7.3.4": {
+      "integrity": "sha512-TDCgBykFdsrP3IOOfToiiLpYkbUb3eEEhM9riIqWht0ubKUY61LN7qVs9bxZD83hG6XaDB6uY7SWkxK1zIEopQ==",
+      "dependencies": [
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/intersect",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/interpolate@7.3.4": {
+      "integrity": "sha512-lwYSMbHxsXYEWObv0tyBCjwTLXyfsTvOLn/NFhlsGrNCYEXn8I1VPtLGwuxbSdF3hVRgurn8qftkB1npHrNs6Q==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/centroid",
+        "@turf/clone",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/hex-grid",
+        "@turf/invariant",
+        "@turf/meta",
+        "@turf/point-grid",
+        "@turf/square-grid",
+        "@turf/triangle-grid",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/intersect@7.3.4": {
+      "integrity": "sha512-VsqMEMeRWWs2mjwI7sTlUgH1cEfugTGhQ0nF8ncHG7YKd9HUUTzIKpn9FJeoguPWIYITcy1ar4yJEOU/hteBVw==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "polyclip-ts",
+        "tslib"
+      ]
+    },
+    "@turf/invariant@7.3.4": {
+      "integrity": "sha512-88Eo4va4rce9sNZs6XiMJowWkikM3cS2TBhaCKlU+GFHdNf8PFEpiU42VDU8q5tOF6/fu21Rvlke5odgOGW4AQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/isobands@7.3.4": {
+      "integrity": "sha512-SFYefwjQdQfF0MV0zfaSwNg9J1wD7mfPP8scGcScKGM3admbwS2A3V8rqPADBfYLD2eCPBDFnySxcl9SHbPung==",
+      "dependencies": [
+        "@turf/area",
+        "@turf/bbox",
+        "@turf/boolean-point-in-polygon",
+        "@turf/explode",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/isolines@7.3.4": {
+      "integrity": "sha512-UFRIULkIgkZOmrhLxExWvguixbzfoCgVcXIqo2Cp68do4v+nwc3pTM7MTt4DBVFloIdX0Usrn4K44LQ/V05gxg==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/jsts@2.7.2": {
+      "integrity": "sha512-zAezGlwWHPyU0zxwcX2wQY3RkRpwuoBmhhNE9HY9kWhFDkCxZ3aWK5URKwa/SWKJbj9aztO+8vtdiBA28KVJFg==",
+      "dependencies": [
+        "jsts"
+      ]
+    },
+    "@turf/kinks@7.3.4": {
+      "integrity": "sha512-LZTKELWxvXl0vc9ZxVgi0v07fO9+2FrZOam2B10fz/eGjy3oKNazU5gjggbnc499wEIcJS4hN+VyjQZrmsJAdQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/length@7.3.4": {
+      "integrity": "sha512-Dg1GnQ/B2go5NIWXt91N4L7XTjIgIWCftBSYIXkrpIM7QGjItzglek0Z5caytvb8ZRWXzZOGs8//+Q5we91WuQ==",
+      "dependencies": [
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/line-arc@7.3.4": {
+      "integrity": "sha512-nqZ+JKjDVIrvREFHgtJIP9Ps4WbWw3eStqdIzAPolrzoXyAZnpIKquyfRTxpJFYUUjDmf+uQ/SFWsPP4SOWAqQ==",
+      "dependencies": [
+        "@turf/circle",
+        "@turf/destination",
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/line-chunk@7.3.4": {
+      "integrity": "sha512-xWEHR99EpUO5ZPEZhMfa0QvnFZC0W+QLxB1GcJcSeJAQ5ZMXUXY8doKF1Nztk0eppawMprEEO3nQWLvQoR4z2g==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/length",
+        "@turf/line-slice-along",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/line-intersect@7.3.4": {
+      "integrity": "sha512-XygbTvHa6A+v6l2ZKYtS8AAWxwmrPxKxfBbdH75uED1JvdytSLWYTKGlcU3soxd9sYb4x/g9sDvRIVyU6Lucrg==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson",
+        "sweepline-intersections",
+        "tslib"
+      ]
+    },
+    "@turf/line-offset@7.3.4": {
+      "integrity": "sha512-CSrg3njde9Tx+C0oL+BHUpZYpgD+PEmzp0ldDNis5ZQiTe5tUrwiIyG7A/QXf9eDnGhtV1WhCAycX0Wjged4pg==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/line-overlap@7.3.4": {
+      "integrity": "sha512-3GBECiwNAQ2MmSwiqAHMweIl+EiePK0Jx4fXxF1KFE+NGCDv/MbGcEYfAbmsTg8mg6oRI9D8fJZzrT44DHpHXA==",
+      "dependencies": [
+        "@turf/boolean-point-on-line",
+        "@turf/geojson-rbush",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/line-segment",
+        "@turf/meta",
+        "@turf/nearest-point-on-line",
+        "@types/geojson",
+        "fast-deep-equal",
+        "tslib"
+      ]
+    },
+    "@turf/line-segment@7.3.4": {
+      "integrity": "sha512-UeISzf/JHoWEY5yeoyvKwA5epWcvJMCpCwbIMolvfTC5pp+IVozjHPVCRvRWuzmbmAvetcW0unL5bjqi0ADmuQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/line-slice-along@7.3.4": {
+      "integrity": "sha512-RT5HydNy8+m9Y3u39USeYZauG2EyMqCYoLnTpWcAxbZGdq9WjIwdzAwYir3d8eJkOzjlR6Khz071VM4Ufqs0Kg==",
+      "dependencies": [
+        "@turf/bearing",
+        "@turf/destination",
+        "@turf/distance",
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/line-slice@7.3.4": {
+      "integrity": "sha512-6Vt4Eptdr2C5T+jtpbo8D4v8b6X7KqYonPPyMB6huv+Kcg3nz4JRI9OQCDCaon9rWvU3ffWwjsjcbJCQS9o0sA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/nearest-point-on-line",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/line-split@7.3.4": {
+      "integrity": "sha512-l1zmCSUnGsiN4gf22Aw91a2VnYs5DZS67FdkYqKgr+wPEAL/gpQgIBBWSTmhwY8zb3NEqty+f/gMEe8EJAWYng==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/geojson-rbush",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/line-intersect",
+        "@turf/line-segment",
+        "@turf/meta",
+        "@turf/nearest-point-on-line",
+        "@turf/truncate",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/line-to-polygon@7.3.4": {
+      "integrity": "sha512-vRnDHjzwOroC74/fsJEU+dUeGhiR/B2bG0/HeEWRBplAjmwVPptRBmDGtXKTz8sbA6or17/XtOITp3zTU0lBZw==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/mask@7.3.4": {
+      "integrity": "sha512-FJIlSk8m0AiqzNoLSMdYuhDRif6aeOYVdW/WxjEjpUoMalwy2w5MMlZqJB9zxt/xSrMq6lvTWJgZfZfGL2s4ZQ==",
+      "dependencies": [
+        "@turf/clone",
+        "@turf/helpers",
+        "@types/geojson",
+        "polyclip-ts",
+        "tslib"
+      ]
+    },
+    "@turf/meta@7.3.4": {
+      "integrity": "sha512-tlmw9/Hs1p2n0uoHVm1w3ugw1I6L8jv9YZrcdQa4SH5FX5UY0ATrKeIvfA55FlL//PGuYppJp+eyg/0eb4goqw==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/midpoint@7.3.4": {
+      "integrity": "sha512-/XAeGvsz8l5HaqcP7TUlexzGfibqXozQgBZ8rH7az6op2Dfm3pL/Z7bKLHoVavM0ccBg0Pt7g6j9NM54kZWdKA==",
+      "dependencies": [
+        "@turf/bearing",
+        "@turf/destination",
+        "@turf/distance",
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/moran-index@7.3.4": {
+      "integrity": "sha512-SNb16szwEG0OiyNn3z9zvSnk3M3tfwvvN8i//9UIC32APEApI+MRXCl93H/qZkKMhhh/cHA0pF0pjYZwl5z8Ow==",
+      "dependencies": [
+        "@turf/distance-weight",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/nearest-neighbor-analysis@7.3.4": {
+      "integrity": "sha512-8EZlDy5poU0t7BDy8KTzOmfiGsAs2kWuB3/kgI4sMdbThKVk2P4hHKuToCSGvqAzwSy3B2qKYM1N6JeVWytu+w==",
+      "dependencies": [
+        "@turf/area",
+        "@turf/bbox",
+        "@turf/bbox-polygon",
+        "@turf/centroid",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/meta",
+        "@turf/nearest-point",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/nearest-point-on-line@7.3.4": {
+      "integrity": "sha512-DQrP3lRju83rIXFN68tUEpc7ki/eRwdwBkK2CTT4RAcyCxbcH2NGJPQv8dYiww/Ar77u1WLVn+aINXZH904dWw==",
+      "dependencies": [
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/nearest-point-to-line@7.3.4": {
+      "integrity": "sha512-Nzp3ojQt0gDACNYG+oNWymRXAUCey0LzdiSezYtRwdA0/+FQCtuxP8Lbc8FftV10JL8D78/CRlmt7omaXLLXCg==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@turf/point-to-line-distance",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/nearest-point@7.3.4": {
+      "integrity": "sha512-WfI09f2bX0nKx/jkO7zCt3tUrJulyAlUYQtZHP7lWYMCOmZ6Pq26D6lKWjpfs2it0OHbhlx1XF/UupEUaz830w==",
+      "dependencies": [
+        "@turf/clone",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/planepoint@7.3.4": {
+      "integrity": "sha512-KAhMAnddbuWIEZuk2bK//g+xTeKn8aV9N2AaE27x6JMJyV/wqvatIuVVqEIXI3SkAFbhiVBpVuarvPYhrJ+fhg==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/point-grid@7.3.4": {
+      "integrity": "sha512-9CL3OJ4dEt266+fxYlOQeRFqAY3XtsAuak2Gpk+K8k+Y3yGv8pvyn3QaAQ6P2npbiKt0zfG8Md/+HBAPOMPQ0A==",
+      "dependencies": [
+        "@turf/boolean-within",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/point-on-feature@7.3.4": {
+      "integrity": "sha512-tQfIxsJUxZqyO7OeJC25y3DqN9i4fmrAt4TBrPvZcIIwymgN7aMrElJKlg/dfi7JDihKp3h/CkWMjtMQA14Vwg==",
+      "dependencies": [
+        "@turf/boolean-point-in-polygon",
+        "@turf/center",
+        "@turf/explode",
+        "@turf/helpers",
+        "@turf/nearest-point",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/point-to-line-distance@7.3.4": {
+      "integrity": "sha512-IdPAxlAQZj7FCZg+ObyVHlNdqwLL/oxYoQjpxMNJ511gNxokCtEv0aeRZQjYOYIxr9Ss97v3yo3ILJaF9V2kPw==",
+      "dependencies": [
+        "@turf/bearing",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@turf/nearest-point-on-line",
+        "@turf/projection",
+        "@turf/rhumb-bearing",
+        "@turf/rhumb-distance",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/point-to-polygon-distance@7.3.4": {
+      "integrity": "sha512-VxbkgHyzCkYWSxirqSUqw+lzbYmTf2qFhVZ/T5dprhwyXWcgalpupvgRzmZmjKkgsoJ017vrvCNKZRaCCn+Z7Q==",
+      "dependencies": [
+        "@turf/boolean-point-in-polygon",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@turf/point-to-line-distance",
+        "@turf/polygon-to-line",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/points-within-polygon@7.3.4": {
+      "integrity": "sha512-HfT83Iw99zywDfCp+nJwS+JDzH+GdNug0sut9WDjGEznHKoZyAcOk+hGKL/ja8TeCLx9VsZHOiVCQFm+NTgvgA==",
+      "dependencies": [
+        "@turf/boolean-point-in-polygon",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/polygon-smooth@7.3.4": {
+      "integrity": "sha512-AnpaGgNYVvP/dfz10id3AotDrUh9O+4unXCk3es1ff51VrpUhVgH3H+zyTSbVL4zAXN/ejPb8UnKCxDvNOQs4g==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/polygon-tangents@7.3.4": {
+      "integrity": "sha512-D1IFocXJYF8PUMZ+BmnOstyRrzklqC86FgakYVk9O61F9Ki8LhMGaRfF+6reKMD473KvHvEf1M2EgmGt+OHDRw==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/boolean-within",
+        "@turf/explode",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/nearest-point",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/polygon-to-line@7.3.4": {
+      "integrity": "sha512-xhmOZ5rHZAKLUDLeYKWMsX84ip8CCGOcGLBHtPPYOjdIDHddMV6Sxt5kVgkmlZpK6NEWEmOD6lYR4obxHcHlGA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/polygonize@7.3.4": {
+      "integrity": "sha512-kmj05rkJ4tE8LvbQ4GVsL5GOrRiX/F5W4RIdxo8gPGTw1Y5oLG/1vFk6Hg6x63L1WcdNtF0sq6AdEI0G9BXWXA==",
+      "dependencies": [
+        "@turf/boolean-point-in-polygon",
+        "@turf/envelope",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/projection@7.3.4": {
+      "integrity": "sha512-p91zOaLmzoBHzU/2H6Ot1tOhTmAom85n1P7I4Oo0V9xU8hmJXWfNnomLFf/6rnkKDIFZkncLQIBz4iIecZ61sA==",
+      "dependencies": [
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/quadrat-analysis@7.3.4": {
+      "integrity": "sha512-Yxqq8wgrDiXIX+s0uOZ2exmYfRwTIcUX8J7j4P+sbyLVbyN8W3AjN2s5ZX21P0aFf3v24FBd2fNWlm5VmMUAdg==",
+      "dependencies": [
+        "@turf/area",
+        "@turf/bbox",
+        "@turf/bbox-polygon",
+        "@turf/centroid",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/point-grid",
+        "@turf/random",
+        "@turf/square-grid",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/random@7.3.4": {
+      "integrity": "sha512-CXMS5XDoI5x0zc1aCYbn3t603k8hjaFHNsSOvGBW20z68cwP0UwMQQr0KLqFPqI4J1O7dMX+urn8IHH27RXFYg==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/rectangle-grid@7.3.4": {
+      "integrity": "sha512-qM7vujJ4wndB4MKZlEcnUSawgvs5wXpSEFf4f+LWRIfmGhtv6serzDqFzWcmy8kF8hg5J465PMktRmAFWq/a+w==",
+      "dependencies": [
+        "@turf/boolean-intersects",
+        "@turf/distance",
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/rewind@7.3.4": {
+      "integrity": "sha512-4BZ8MHMujl4NAT7XnIs7JoOuDhpR96oDTB0RtqTeIP4onioIedVnw1ZA3Uq08sILGpR0qKLuDsvdz4x9jtbptg==",
+      "dependencies": [
+        "@turf/boolean-clockwise",
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/rhumb-bearing@7.3.4": {
+      "integrity": "sha512-tvX1toSo80q0iL0cUMMXpSKsCCfOjRqDGCmOdR6B9shhk6xP1ZM2PLQDr+MFPBFeGyQuyY4CNFkV2+3DF49vYw==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/rhumb-destination@7.3.4": {
+      "integrity": "sha512-6HikEb5nm2A18FQWk6vVLMQkc099I/7c69j47RYM27xQK8J8uBCNk1zLYyMPcZTh24xcNSbZ1iPHDsDOqw6wWQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/rhumb-distance@7.3.4": {
+      "integrity": "sha512-phwskeijdgYMsR3qDQmytfsg2iZcp3uWK7UFc76wKTEpxozbDGFI4enX5gXvZPpyI1iD7gsktGqHsO33AjnFDA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/sample@7.3.4": {
+      "integrity": "sha512-XzAATg09c2XYAXkIBbg8lktSrU1tXNjJYXtbVwF6jLp1q2wTRpwb+mZpTEPAwzZwVF81uR5c0CsdQyr5UHINVw==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/sector@7.3.4": {
+      "integrity": "sha512-x2tNAXl21HRcF302ghU5ohE/vmmfDcXpQKgoWHyi7o5Q9kDRBwy7kbvr5YxbT3vwW/kAWUDYM7FoXNH42bXgCw==",
+      "dependencies": [
+        "@turf/circle",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/line-arc",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/shortest-path@7.3.4": {
+      "integrity": "sha512-xbK/oM+JRL+lJCHkAdZ3QPgoivT40J9WKJ0d1Ddt8LXTpzX2YeJVgcwOZaBPG9ncZUzHfHIWS1rUjc54clnZcg==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/bbox-polygon",
+        "@turf/boolean-point-in-polygon",
+        "@turf/clean-coords",
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@turf/transform-scale",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/simplify@7.3.4": {
+      "integrity": "sha512-OoSwu3vI0H9P+GzLDaOJIL9v0V8ubeP8wQjM8GeMEZrq6U2uh9JWQnAU+jviT3ODcKF5H+88snpiMik585L0wA==",
+      "dependencies": [
+        "@turf/clean-coords",
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/square-grid@7.3.4": {
+      "integrity": "sha512-MgjlVRklQYFfQm9yJNha9kXothLPliVdeycNdmn4lWLH3SOZe1rqJPB5Z9+dhmJELT3BJraDq3W5ik5taEpKyQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/rectangle-grid",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/square@7.3.4": {
+      "integrity": "sha512-vJ+NeiEaOVsb8YiUExtyIgvH+ZybthHszl2TASZn5q340ioKHPb2JeHGlbgrB2x8pEMh3MVhoqxAbXDuND/cnw==",
+      "dependencies": [
+        "@turf/distance",
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/standard-deviational-ellipse@7.3.4": {
+      "integrity": "sha512-+BaetOKN8zA2mQCVTcRWMcfidNR3JkjmYj0r5iGRncK0J+pdxIjX2q6sF6yBMOOxMoEMy393P7j07HdBIPbibw==",
+      "dependencies": [
+        "@turf/center-mean",
+        "@turf/ellipse",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@turf/points-within-polygon",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/tag@7.3.4": {
+      "integrity": "sha512-ienLhLzBLeChtKhbJMmU3/vGg0hWzi6Wh/q0n39W4CmdNb+yAoGQhlYjcCbPOJT4IcdFlWE3OhbP9EmH/xPgfg==",
+      "dependencies": [
+        "@turf/boolean-point-in-polygon",
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/tesselate@7.3.4": {
+      "integrity": "sha512-NnDgVb5ZchJEhEpq1je2hktS5UhnHMfeeumxZQgnIoMeGILpJtcOL//b/1biBBUVSJ0ZZg5zxiHdQc1PgK2gxA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson",
+        "earcut",
+        "tslib"
+      ]
+    },
+    "@turf/tin@7.3.4": {
+      "integrity": "sha512-tuegrGlbKPp6Dm8r5SuYDtQ2EVzdXVVxelqI1agnzj9N+l8oTBIKLRxRbBkLsizeVIDnlmVHCQB6cRc3v+u8JQ==",
+      "dependencies": [
+        "@turf/helpers",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/transform-rotate@7.3.4": {
+      "integrity": "sha512-pbUG6QLwyJvvitq4aAq4IQH79X8T0NmEPUGDUEEP69yW7t4+UZjDBAVbCKwpOc8gtsK0K5yvxlZ0e2CdtpNmEw==",
+      "dependencies": [
+        "@turf/centroid",
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@turf/rhumb-bearing",
+        "@turf/rhumb-destination",
+        "@turf/rhumb-distance",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/transform-scale@7.3.4": {
+      "integrity": "sha512-7gUIFFHaU3Ewj3rCzIu5Yo7Zjfv4R2ypjh6UWiMJnDavb7RQ8fn0AKKcNMA/vF/yxuncp2l3zoa2gygv4AKM8A==",
+      "dependencies": [
+        "@turf/bbox",
+        "@turf/center",
+        "@turf/centroid",
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@turf/rhumb-bearing",
+        "@turf/rhumb-destination",
+        "@turf/rhumb-distance",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/transform-translate@7.3.4": {
+      "integrity": "sha512-qbSIEueOR8mNB7p4EB88vHvUAyuSBM8zxP68UiiTNV3Gh+OZF2VXTFiu3EFYMTaD9sE6Lxmzvv3fjW8N2q82pw==",
+      "dependencies": [
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@turf/meta",
+        "@turf/rhumb-destination",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/triangle-grid@7.3.4": {
+      "integrity": "sha512-0bki10XwYvNcPzDcSs5kUh3niOogdVeFtawJEz5FdlyTAUohbNlC+Vb40K//OqEyTrGII+q1/dE4q+1J6ZCmDA==",
+      "dependencies": [
+        "@turf/distance",
+        "@turf/helpers",
+        "@turf/intersect",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/truncate@7.3.4": {
+      "integrity": "sha512-VPXdae9+RLLM19FMrJgt7QANBikm7DxPbfp/dXgzE4Ca7v+mJ4T1fYc7gCZDaqOrWMccHKbvv4iSuW7YZWdIIA==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "tslib"
+      ]
+    },
+    "@turf/turf@7.3.4": {
+      "integrity": "sha512-uMAKLYt2tWJj8xIepq4vExF1r8fzJviP/5l/elDHuRyauI2mASy/Gox6kSFlrN0t0p8AT4Cs8o//4GuJTXyC+Q==",
+      "dependencies": [
+        "@turf/along",
+        "@turf/angle",
+        "@turf/area",
+        "@turf/bbox",
+        "@turf/bbox-clip",
+        "@turf/bbox-polygon",
+        "@turf/bearing",
+        "@turf/bezier-spline",
+        "@turf/boolean-clockwise",
+        "@turf/boolean-concave",
+        "@turf/boolean-contains",
+        "@turf/boolean-crosses",
+        "@turf/boolean-disjoint",
+        "@turf/boolean-equal",
+        "@turf/boolean-intersects",
+        "@turf/boolean-overlap",
+        "@turf/boolean-parallel",
+        "@turf/boolean-point-in-polygon",
+        "@turf/boolean-point-on-line",
+        "@turf/boolean-touches",
+        "@turf/boolean-valid",
+        "@turf/boolean-within",
+        "@turf/buffer",
+        "@turf/center",
+        "@turf/center-mean",
+        "@turf/center-median",
+        "@turf/center-of-mass",
+        "@turf/centroid",
+        "@turf/circle",
+        "@turf/clean-coords",
+        "@turf/clone",
+        "@turf/clusters",
+        "@turf/clusters-dbscan",
+        "@turf/clusters-kmeans",
+        "@turf/collect",
+        "@turf/combine",
+        "@turf/concave",
+        "@turf/convex",
+        "@turf/destination",
+        "@turf/difference",
+        "@turf/dissolve",
+        "@turf/distance",
+        "@turf/distance-weight",
+        "@turf/ellipse",
+        "@turf/envelope",
+        "@turf/explode",
+        "@turf/flatten",
+        "@turf/flip",
+        "@turf/geojson-rbush",
+        "@turf/great-circle",
+        "@turf/helpers",
+        "@turf/hex-grid",
+        "@turf/interpolate",
+        "@turf/intersect",
+        "@turf/invariant",
+        "@turf/isobands",
+        "@turf/isolines",
+        "@turf/kinks",
+        "@turf/length",
+        "@turf/line-arc",
+        "@turf/line-chunk",
+        "@turf/line-intersect",
+        "@turf/line-offset",
+        "@turf/line-overlap",
+        "@turf/line-segment",
+        "@turf/line-slice",
+        "@turf/line-slice-along",
+        "@turf/line-split",
+        "@turf/line-to-polygon",
+        "@turf/mask",
+        "@turf/meta",
+        "@turf/midpoint",
+        "@turf/moran-index",
+        "@turf/nearest-neighbor-analysis",
+        "@turf/nearest-point",
+        "@turf/nearest-point-on-line",
+        "@turf/nearest-point-to-line",
+        "@turf/planepoint",
+        "@turf/point-grid",
+        "@turf/point-on-feature",
+        "@turf/point-to-line-distance",
+        "@turf/point-to-polygon-distance",
+        "@turf/points-within-polygon",
+        "@turf/polygon-smooth",
+        "@turf/polygon-tangents",
+        "@turf/polygon-to-line",
+        "@turf/polygonize",
+        "@turf/projection",
+        "@turf/quadrat-analysis",
+        "@turf/random",
+        "@turf/rectangle-grid",
+        "@turf/rewind",
+        "@turf/rhumb-bearing",
+        "@turf/rhumb-destination",
+        "@turf/rhumb-distance",
+        "@turf/sample",
+        "@turf/sector",
+        "@turf/shortest-path",
+        "@turf/simplify",
+        "@turf/square",
+        "@turf/square-grid",
+        "@turf/standard-deviational-ellipse",
+        "@turf/tag",
+        "@turf/tesselate",
+        "@turf/tin",
+        "@turf/transform-rotate",
+        "@turf/transform-scale",
+        "@turf/transform-translate",
+        "@turf/triangle-grid",
+        "@turf/truncate",
+        "@turf/union",
+        "@turf/unkink-polygon",
+        "@turf/voronoi",
+        "@types/geojson",
+        "@types/kdbush@3.0.5",
+        "tslib"
+      ]
+    },
+    "@turf/union@7.3.4": {
+      "integrity": "sha512-JJYyPMmGcrTa9sPv2ief2QU9Hb//cEAU1zgKu/OfoCMa9a8Imp5QVm9UTAkhGlc+4qm/N/X16iJ+cvVWaxPjkg==",
+      "dependencies": [
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "polyclip-ts",
+        "tslib"
+      ]
+    },
+    "@turf/unkink-polygon@7.3.4": {
+      "integrity": "sha512-dFIqTLAnLL5D3OANPJtRb5OvmOM81GlNCjwgjlLQy0xdpYgKwGdE+gNXjygDrPUUXNc22xnaj3EfAfC3Pq7W4Q==",
+      "dependencies": [
+        "@turf/area",
+        "@turf/boolean-point-in-polygon",
+        "@turf/helpers",
+        "@turf/meta",
+        "@types/geojson",
+        "rbush@3.0.1",
+        "tslib"
+      ]
+    },
+    "@turf/voronoi@7.3.4": {
+      "integrity": "sha512-cwKSiDzDHRnA7yafQ1zOhWxRuMzp+fYFFzadCdByBAG1jAD7UlFwKhS1fjNPBNs67Fl5X3LL5ahCLW5gEdFgmg==",
+      "dependencies": [
+        "@turf/clone",
+        "@turf/helpers",
+        "@turf/invariant",
+        "@types/d3-voronoi",
+        "@types/geojson",
+        "d3-voronoi",
+        "tslib"
+      ]
+    },
     "@tybys/wasm-util@0.10.1": {
       "integrity": "sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==",
       "dependencies": [
         "tslib"
       ]
+    },
+    "@types/d3-voronoi@1.1.12": {
+      "integrity": "sha512-DauBl25PKZZ0WVJr42a6CNvI6efsdzofl9sajqZr2Gf5Gu733WkDdUGiPkUHXiUvYGzNNlFQde2wdZdfQPG+yw=="
     },
     "@types/estree@1.0.8": {
       "integrity": "sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w=="
@@ -1889,8 +3247,20 @@
     "@types/geojson@7946.0.16": {
       "integrity": "sha512-6C8nqWur3j98U6+lXDfTUWIfgvZU+EumvpHKcYjujKH7woYyLj2sUmff0tRhrqM7BohUw7Pz3ZB1jj2gW9Fvmg=="
     },
+    "@types/geokdbush@1.1.5": {
+      "integrity": "sha512-jIsYnXY+RQ/YCyBqeEHxYN9mh+7PqKJUJUp84wLfZ7T2kqyVPNaXwZuvf1A2uQUkrvVqEbsG94ff8jH32AlLvA==",
+      "dependencies": [
+        "@types/kdbush@1.0.7"
+      ]
+    },
     "@types/json-schema@7.0.15": {
       "integrity": "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="
+    },
+    "@types/kdbush@1.0.7": {
+      "integrity": "sha512-QM5iB8m/0mnGOjUKshErIZQ0LseyTieRSYc3yaOpmrRM0xbWiOuJUWlduJx+TPNK7/VFMWphUGwx3nus7eT1Wg=="
+    },
+    "@types/kdbush@3.0.5": {
+      "integrity": "sha512-tdJz7jaWFu4nR+8b2B+CdPZ6811ighYylWsu2hpsivapzW058yP0KdfZuNY89IiRe5jbKvBGXN3LQdN2KPXVdQ=="
     },
     "@types/leaflet@1.9.21": {
       "integrity": "sha512-TbAd9DaPGSnzp6QvtYngntMZgcRk+igFELwR2N99XZn7RXUdKgsXMR+28bUO0rPsWp8MIu/f47luLIQuSLYv/w==",
@@ -2069,6 +3439,9 @@
         "color-convert"
       ]
     },
+    "arc@0.2.0": {
+      "integrity": "sha512-8NFOo126uYKQJyXNSLY/jSklgfLQL+XWAcPXGo876JwEQ8nSOPXWNI3TV2jLZMN8QEw8uksJ1ZwS4npjBca8MA=="
+    },
     "argparse@2.0.1": {
       "integrity": "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="
     },
@@ -2087,6 +3460,9 @@
     "baseline-browser-mapping@2.10.0": {
       "integrity": "sha512-lIyg0szRfYbiy67j9KN8IyeD7q7hcmqnJ1ddWmNt19ItGpNN64mnllmxUNFIOdOm6by97jlL6wfpTTJrmnjWAA==",
       "bin": true
+    },
+    "bignumber.js@9.3.1": {
+      "integrity": "sha512-Ko0uX15oIUS7wJ3Rb30Fs6SkVbLmPBAKdlm7q9+ak9bbIeFf0MwuBsQV6z7+X768/cHsfg+WlysDWJcmthjsjQ=="
     },
     "bluebird@3.7.2": {
       "integrity": "sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg=="
@@ -2158,8 +3534,20 @@
     "color-name@1.1.4": {
       "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
     },
+    "commander@2.20.3": {
+      "integrity": "sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ=="
+    },
     "concat-map@0.0.1": {
       "integrity": "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="
+    },
+    "concaveman@1.2.1": {
+      "integrity": "sha512-PwZYKaM/ckQSa8peP5JpVr7IMJ4Nn/MHIaWUjP4be+KoZ7Botgs8seAZGpmaOM+UZXawcdYRao/px9ycrCihHw==",
+      "dependencies": [
+        "point-in-polygon",
+        "rbush@3.0.1",
+        "robust-predicates@2.0.4",
+        "tinyqueue"
+      ]
     },
     "convert-source-map@2.0.0": {
       "integrity": "sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg=="
@@ -2185,6 +3573,18 @@
       "integrity": "sha512-fgKbp+AJbn1h2dcAHKIdKNSSjfp43BZZykXsCjzALjKy80VXQNHPFJ6T9Afwdzoj24aMkq8GwDS7KGcDPpejrA==",
       "bin": true
     },
+    "d3-array@1.2.4": {
+      "integrity": "sha512-KHW6M86R+FUPYGb3R5XiYjXPq7VzwxZ22buHhAEVG5ztoEcZZMLov530mmccaqA1GghZArjQV46fuc8kUqhhHw=="
+    },
+    "d3-geo@1.7.1": {
+      "integrity": "sha512-O4AempWAr+P5qbk2bC2FuN/sDW4z+dN2wDf9QV3bxQt4M5HfOEeXLgJ/UKQW0+o1Dj8BE+L5kiDbdWUMjsmQpw==",
+      "dependencies": [
+        "d3-array"
+      ]
+    },
+    "d3-voronoi@1.1.2": {
+      "integrity": "sha512-RhGS1u2vavcO7ay7ZNAPo4xeDh/VYeGof3x5ZLJBQgYhLegxr3s5IykvWmJ94FTU6mcbtp4sloqZ54mP6R4Utw=="
+    },
     "debug@4.4.3": {
       "integrity": "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==",
       "dependencies": [
@@ -2205,6 +3605,9 @@
       "dependencies": [
         "readable-stream"
       ]
+    },
+    "earcut@2.2.4": {
+      "integrity": "sha512-/pjZsA1b4RPHbeWZQn66SWS8nZZWLQQ23oE3Eam7aroEFGEvwKAsJfZ9ytiEMycfzXWpca4FA9QIOehf7PocBQ=="
     },
     "electron-to-chromium@1.5.307": {
       "integrity": "sha512-5z3uFKBWjiNR44nFcYdkcXjKMbg5KXNdciu7mhTPo9tB7NbqSNP2sSnGR+fqknZSCwKkBN+oxiiajWs4dT6ORg=="
@@ -2451,6 +3854,24 @@
     "gensync@1.0.0-beta.2": {
       "integrity": "sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg=="
     },
+    "geojson-equality-ts@1.0.2": {
+      "integrity": "sha512-h3Ryq+0mCSN/7yLs0eDgrZhvc9af23o/QuC4aTiuuzP/MRCtd6mf5rLsLRY44jX0RPUfM8c4GqERQmlUxPGPoQ==",
+      "dependencies": [
+        "@types/geojson"
+      ]
+    },
+    "geojson-polygon-self-intersections@1.2.2": {
+      "integrity": "sha512-6XRNF4CsRHYmR9z5YuIk5f/aOototnDf0dgMqYGcS7y1l57ttt6MAIAxl3rXyas6lq1HEbTuLMh4PgvO+OV42w==",
+      "dependencies": [
+        "rbush@2.0.2"
+      ]
+    },
+    "geokdbush@2.0.1": {
+      "integrity": "sha512-0M8so1Qx6+jJ1xpirpCNrgUsWAzIcQ3LrLmh0KJPBYI3gH7vy70nY5zEEjSp9Tn0nBt6Q2Fh922oL08lfib4Zg==",
+      "dependencies": [
+        "tinyqueue"
+      ]
+    },
     "get-nonce@1.0.1": {
       "integrity": "sha512-FJhYRoDaiatfEkUK8HKlicmu/3SGFD51q3itKDGoSTysQJBnfOcxU5GxnhE1E6soB76MbT0MBtnKJuXyAx+96Q=="
     },
@@ -2607,6 +4028,12 @@
       "optionalDependencies": [
         "graceful-fs"
       ]
+    },
+    "jsts@2.7.1": {
+      "integrity": "sha512-x2wSZHEBK20CY+Wy+BPE7MrFQHW6sIsdaGUMEqmGAio+3gFzQaBYPwLRonUfQf9Ak8pBieqj9tUofX1+WtAEIg=="
+    },
+    "kdbush@4.0.2": {
+      "integrity": "sha512-WbCVYJ27Sz8zi9Q7Q0xHC+05iwkm3Znipc2XTlrnJbsHMYktW4hPhXUE8Ys1engBrvffoSCqbil1JQAa7clRpA=="
     },
     "keyv@4.5.4": {
       "integrity": "sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==",
@@ -2884,6 +4311,22 @@
         "fflate"
       ]
     },
+    "point-in-polygon-hao@1.2.4": {
+      "integrity": "sha512-x2pcvXeqhRHlNRdhLs/tgFapAbSSe86wa/eqmj1G6pWftbEs5aVRJhRGM6FYSUERKu0PjekJzMq0gsI2XyiclQ==",
+      "dependencies": [
+        "robust-predicates@3.0.2"
+      ]
+    },
+    "point-in-polygon@1.1.0": {
+      "integrity": "sha512-3ojrFwjnnw8Q9242TzgXuTD+eKiutbzyslcq1ydfu82Db2y+Ogbmyrkpv0Hgj31qwT3lbS9+QAAO/pIQM35XRw=="
+    },
+    "polyclip-ts@0.16.8": {
+      "integrity": "sha512-JPtKbDRuPEuAjuTdhR62Gph7Is2BS1Szx69CFOO3g71lpJDFo78k4tFyi+qFOMVPePEzdSKkpGU3NBXPHHjvKQ==",
+      "dependencies": [
+        "bignumber.js",
+        "splaytree-ts"
+      ]
+    },
     "postcss@8.5.8": {
       "integrity": "sha512-OW/rX8O/jXnm82Ey1k44pObPtdblfiuWnrd8X7GJ7emImCOstunGbXUpp7HdBrFQX6rJzn3sPT397Wp5aCwCHg==",
       "dependencies": [
@@ -2941,6 +4384,12 @@
     },
     "punycode@2.3.1": {
       "integrity": "sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg=="
+    },
+    "quickselect@1.1.1": {
+      "integrity": "sha512-qN0Gqdw4c4KGPsBOQafj6yj/PA6c/L63f6CaZ/DCF/xF4Esu3jVmKLUDYxghFx8Kb/O7y9tI7x2RjTSXwdK1iQ=="
+    },
+    "quickselect@2.0.0": {
+      "integrity": "sha512-RKJ22hX8mHe3Y6wH/N3wCM6BWtjaxIyyUIkpHOvfFnxdI4yD4tBXEBKSbriGujF6jnSVkJrffuo6vxACiSSxIw=="
     },
     "radix-ui@1.4.3_@types+react@19.2.14_@types+react-dom@19.2.3__@types+react@19.2.14_react@19.2.4_react-dom@19.2.4__react@19.2.4": {
       "integrity": "sha512-aWizCQiyeAenIdUbqEpXgRA1ya65P13NKn/W8rWkcN0OPkRDxdBVLWnIEDsS2RpwCK2nobI7oMUSmexzTDyAmA==",
@@ -3008,6 +4457,18 @@
       "optionalPeers": [
         "@types/react",
         "@types/react-dom"
+      ]
+    },
+    "rbush@2.0.2": {
+      "integrity": "sha512-XBOuALcTm+O/H8G90b6pzu6nX6v2zCKiFG4BJho8a+bY6AER6t8uQUZdi5bomQc0AprCWhEGa7ncAbbRap0bRA==",
+      "dependencies": [
+        "quickselect@1.1.1"
+      ]
+    },
+    "rbush@3.0.1": {
+      "integrity": "sha512-XRaVO0YecOpEuIvbhbpTrZgoiI6xBlz6hnlr6EHhd+0x9ase6EmeN+hdwwUaJvLcsFFQ8iWVF1GAK1yB0BWi0w==",
+      "dependencies": [
+        "quickselect@2.0.0"
       ]
     },
     "react-dom@19.2.4_react@19.2.4": {
@@ -3101,6 +4562,12 @@
     "resolve-from@4.0.0": {
       "integrity": "sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g=="
     },
+    "robust-predicates@2.0.4": {
+      "integrity": "sha512-l4NwboJM74Ilm4VKfbAtFeGq7aEjWL+5kVFcmgFA2MrdnQWx9iE/tUGvxY5HyMI7o/WpSIUFLbC5fbeaHgSCYg=="
+    },
+    "robust-predicates@3.0.2": {
+      "integrity": "sha512-IXgzBWvWQwE6PrDI05OvmXUIruQTcoMDzRsOd5CDvHCVLcLHMTSYvOK5Cm46kWqlV3yAbuSpBZdJ5oP5OUoStg=="
+    },
     "rollup@4.59.0": {
       "integrity": "sha512-2oMpl67a3zCH9H79LeMcbDhXW/UmWG/y2zuqnF2jQq5uq9TbM9TVyXvA4+t+ne2IIkBdrLpAaRQAvo7YI/Yyeg==",
       "dependencies": [
@@ -3162,11 +4629,17 @@
     "shebang-regex@3.0.0": {
       "integrity": "sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A=="
     },
+    "skmeans@0.9.7": {
+      "integrity": "sha512-hNj1/oZ7ygsfmPZ7ZfN5MUBRoGg1gtpnImuJBgLO0ljQ67DtJuiQaiYdS4lUA6s0KCwnPhGivtC/WRwIZLkHyg=="
+    },
     "source-map-js@1.2.1": {
       "integrity": "sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA=="
     },
     "source-map@0.6.1": {
       "integrity": "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g=="
+    },
+    "splaytree-ts@1.0.2": {
+      "integrity": "sha512-0kGecIZNIReCSiznK3uheYB8sbstLjCZLiwcQwbmLhgHJj2gz6OnSPkVzJQCMnmEz1BQ4gPK59ylhBoEWOhGNA=="
     },
     "string_decoder@1.1.1": {
       "integrity": "sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==",
@@ -3181,6 +4654,12 @@
       "integrity": "sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==",
       "dependencies": [
         "has-flag"
+      ]
+    },
+    "sweepline-intersections@1.5.0": {
+      "integrity": "sha512-AoVmx72QHpKtItPu72TzFL+kcYjd67BPLDoR0LarIk+xyaRg+pDTMFXndIEvZf9xEKnJv6JdhgRMnocoG0D3AQ==",
+      "dependencies": [
+        "tinyqueue"
       ]
     },
     "tailwind-merge@3.5.0": {
@@ -3199,8 +4678,25 @@
         "picomatch"
       ]
     },
+    "tinyqueue@2.0.3": {
+      "integrity": "sha512-ppJZNDuKGgxzkHihX8v9v9G5f+18gzaTfrukGrq6ueg0lmH4nqVnA2IPG0AEH3jKEk2GRJCUhDoqpoiw3PHLBA=="
+    },
     "tmp@0.2.5": {
       "integrity": "sha512-voyz6MApa1rQGUxT3E+BK7/ROe8itEx7vD8/HEvt4xwXucvQ5G5oeEiHkmHZJuBO21RpOf+YYm9MOivj709jow=="
+    },
+    "topojson-client@3.1.0": {
+      "integrity": "sha512-605uxS6bcYxGXw9qi62XyrV6Q3xwbndjachmNxu8HWTtVPxZfEJN9fd/SZS1Q54Sn2y0TMyMxFj/cJINqGHrKw==",
+      "dependencies": [
+        "commander"
+      ],
+      "bin": true
+    },
+    "topojson-server@3.0.1": {
+      "integrity": "sha512-/VS9j/ffKr2XAOjlZ9CgyyeLmgJ9dMwq6Y0YEON8O7p/tGGk+dCWnrE03zEdu7i4L7YsFZLEPZPzCvcB7lEEXw==",
+      "dependencies": [
+        "commander"
+      ],
+      "bin": true
     },
     "ts-api-utils@2.4.0_typescript@5.9.3": {
       "integrity": "sha512-3TaVTaAv2gTiMB35i3FiGJaRfwb3Pyn/j3m/bfAvGe8FB7CF6u+LMYqYlDh7reQf7UNvoTvdfAqHGmPGOSsPmA==",
@@ -3466,6 +4962,7 @@
         "npm:@radix-ui/react-slot@^1.2.4",
         "npm:@radix-ui/react-tooltip@^1.2.8",
         "npm:@tailwindcss/vite@^4.2.1",
+        "npm:@turf/turf@^7.3.4",
         "npm:@types/leaflet@^1.9.21",
         "npm:@types/node@^25.3.5",
         "npm:@types/react-dom@^19.2.3",

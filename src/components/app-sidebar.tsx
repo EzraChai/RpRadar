@@ -29,9 +29,12 @@ import {
 import RapidPenangRoutes from "@/assets/rp/rp_routes_with_shapes.json";
 import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_shapes.json";
 import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_shapes.json";
+import MYBusNSARoutes from "@/assets/ns_a/ns_a_routes_with_shapes.json";
+import MYBusNSBRoutes from "@/assets/ns_b/ns_b_routes_with_shapes.json";
 import type { RouteType } from "@/hooks/types";
 
-const combinedRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
+const combinedSelangorKLRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
+const combinedNSRoutes = [...MYBusNSARoutes, ...MYBusNSBRoutes];
 
 export function AppSidebar() {
   const map = useMap();
@@ -44,9 +47,12 @@ export function AppSidebar() {
   const [savedRoutes, setSavedRoutes] = useState<(RouteType | undefined)[]>([]);
   const [routes] = useState<RouteType[]>(() => {
     if (provider === "rkl") {
-      return combinedRoutes as unknown as RouteType[];
+      return combinedSelangorKLRoutes as unknown as RouteType[];
+    } else if (provider === "ns") {
+      return combinedNSRoutes as unknown as RouteType[];
+    } else {
+      return RapidPenangRoutes as unknown as RouteType[];
     }
-    return RapidPenangRoutes as unknown as RouteType[];
   });
   const { starred } = useStarredRoutes();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -201,8 +207,9 @@ export function AppSidebar() {
                     <SelectValue placeholder="Select State" />
                   </SelectTrigger>
                   <SelectContent className="z-1002 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
-                    <SelectItem value="rp"> Penang</SelectItem>
-                    <SelectItem value="rkl"> Selangor/KL</SelectItem>
+                    <SelectItem value="rp">Penang</SelectItem>
+                    <SelectItem value="rkl">Selangor/KL</SelectItem>
+                    <SelectItem value="ns">Negeri Sembilan</SelectItem>
                   </SelectContent>
                 </Select>
               </SidebarMenuButton>
@@ -265,7 +272,18 @@ function SearchSideBar({
       }[];
     };
   } else if (provider === "rkl") {
-    routes = combinedRoutes as unknown as {
+    routes = combinedSelangorKLRoutes as unknown as {
+      features: {
+        properties: {
+          route_id: string;
+          route_code: string;
+          route_name: string;
+          shape_ids: string[];
+        };
+      }[];
+    };
+  } else if (provider === "ns") {
+    routes = combinedNSRoutes as unknown as {
       features: {
         properties: {
           route_id: string;
@@ -373,6 +391,7 @@ function SearchSideBar({
               length={filteredRoutes.length}
               line={line}
               setOpenSearch={setOpenSearch}
+              provider={provider}
             />
           ),
         )}
@@ -387,6 +406,7 @@ export function RouteCard({
   length,
   setSnap,
   setOpenSearch,
+  provider,
 }: {
   line: {
     route_id: string | number;
@@ -398,6 +418,7 @@ export function RouteCard({
   length: number;
   setSnap?: React.Dispatch<React.SetStateAction<string | number | null>>;
   setOpenSearch?: React.Dispatch<React.SetStateAction<boolean>>;
+  provider: string;
 }) {
   return (
     <NavLink
@@ -426,7 +447,7 @@ export function RouteCard({
           {line.route_name ?? ""}
         </p>
         <div
-          className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${line.route_code !== line.route_name ? "border-red-500" : "border-[#28ab78]"} rounded-lg text-black dark:text-white`}
+          className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${line.route_code === line.route_name ? "border-[#28ab78]" : provider === "ns" ? "border-pink-400" : "border-red-500"} rounded-lg text-black dark:text-white`}
         >
           {line.route_code ?? ""}
         </div>

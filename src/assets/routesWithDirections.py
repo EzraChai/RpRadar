@@ -31,7 +31,7 @@ for (route_id, direction_id), stop_time_list in grouped.items():
     trip_id = stop_time_list[0]["trip_id"]
     trip = trips_by_id[trip_id]
     shape_id = trip["shape_id"]
-    headsign = trip["trip_headsign"]
+    # headsign = trip["trip_headsign"] if trip["trip_headsign"] else trip[""]
 
     # Get stop_times for that trip, ordered by stop_sequence
     trip_stops = [st for st in stop_times if st["trip_id"] == trip_id]
@@ -54,7 +54,8 @@ for (route_id, direction_id), stop_time_list in grouped.items():
     if not route_entry:
         route_entry = {
             "route_id": route_id,
-            "route_short_name": route_info["route_short_name"] if route_info["route_short_name"] else route_info["route_long_name"],
+            # "route_short_name": route_info["route_short_name"] if route_info["route_short_name"] else route_info["route_long_name"],
+            "route_short_name": route_info["route_id"],
             "directions": []
         }
         output.append(route_entry)

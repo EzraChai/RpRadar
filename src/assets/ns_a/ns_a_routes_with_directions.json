@@ -1,0 +1,5319 @@
+[
+  {
+    "route_id": "N56",
+    "route_short_name": "N56",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705001",
+        "route_long_name": "TERMINAL 1 - POLITEKNIK NILAI",
+        "stops": [
+          {
+            "stop_id": "T1_T1",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72153619,
+            "lon": 101.93721414
+          },
+          {
+            "stop_id": "KMPLAZA_KMPLAZAR",
+            "stop_name": "KM PLAZA",
+            "lat": 2.7228809,
+            "lon": 101.9376292
+          },
+          {
+            "stop_id": "ERAB_EB",
+            "stop_name": "ERA BARU",
+            "lat": 2.72578659,
+            "lon": 101.92982199
+          },
+          {
+            "stop_id": "KOOP_KOOPR",
+            "stop_name": "TMN KOOP",
+            "lat": 2.72545315,
+            "lon": 101.92792296
+          },
+          {
+            "stop_id": "SPGTMNAST_SPGTMNAST",
+            "stop_name": "SPG TMN AST",
+            "lat": 2.7236581,
+            "lon": 101.92737043
+          },
+          {
+            "stop_id": "PMAL_PMAL",
+            "stop_name": "PALM MALL",
+            "lat": 2.72060383,
+            "lon": 101.92205429
+          },
+          {
+            "stop_id": "MZM_MZM",
+            "stop_name": "MUZIUM NEGERI",
+            "lat": 2.71833724,
+            "lon": 101.92027867
+          },
+          {
+            "stop_id": "AEONS2_AEONS2",
+            "stop_name": "AEON SEREMBAN 2",
+            "lat": 2.69906834,
+            "lon": 101.91109478
+          },
+          {
+            "stop_id": "UPS2_UPS2",
+            "stop_name": "UPTOWN S2",
+            "lat": 2.69592648,
+            "lon": 101.90844021
+          },
+          {
+            "stop_id": "SPGMYDIN_SPGMYDIN",
+            "stop_name": "SPG MYDIN SEREMBAN",
+            "lat": 2.69414614,
+            "lon": 101.90571375
+          },
+          {
+            "stop_id": "MCDS2_MCDS2",
+            "stop_name": "MCD SEREMBAN 2",
+            "lat": 2.69131588,
+            "lon": 101.90562167
+          },
+          {
+            "stop_id": "SURTAQWA_SURTAQWA",
+            "stop_name": "SURAU AT TAQWA",
+            "lat": 2.68972491,
+            "lon": 101.90571846
+          },
+          {
+            "stop_id": "FAMSTR_FAMSTR",
+            "stop_name": "FAMILY STORE",
+            "lat": 2.68339351,
+            "lon": 101.90369122
+          },
+          {
+            "stop_id": "SKWAWA_SKWAWA",
+            "stop_name": "SK WAWASAN SEREMBAN2",
+            "lat": 2.67976097,
+            "lon": 101.90297917
+          },
+          {
+            "stop_id": "GAV_GRAV",
+            "stop_name": "GARDEN AVENUE",
+            "lat": 2.67683589,
+            "lon": 101.90289161
+          },
+          {
+            "stop_id": "INTMANDU_INTMANDU",
+            "stop_name": "AKADEMI MEMANDU RDS",
+            "lat": 2.67681992,
+            "lon": 101.89297012
+          },
+          {
+            "stop_id": "NSB3_NSB3",
+            "stop_name": "NUSARI BAYU 3",
+            "lat": 2.67608566,
+            "lon": 101.87544823
+          },
+          {
+            "stop_id": "NSBC_NSBC",
+            "stop_name": "NUSARI BUSINES CENTER",
+            "lat": 2.66866659,
+            "lon": 101.87480319
+          },
+          {
+            "stop_id": "SJKC_SJKC",
+            "stop_name": "SJKC KG PARIT TINGGI",
+            "lat": 2.66570223,
+            "lon": 101.87460581
+          },
+          {
+            "stop_id": "NUSARIB2B_NUSARIB2B",
+            "stop_name": "NUSARI BAYU 2B",
+            "lat": 2.66352699,
+            "lon": 101.87898634
+          },
+          {
+            "stop_id": "SMKBBSDYN_SMKBBSDYN",
+            "stop_name": "SMK BANDAR BARU SENDAYAN",
+            "lat": 2.66352512,
+            "lon": 101.88351631
+          },
+          {
+            "stop_id": "NSB1_NSB1",
+            "stop_name": "NUSARI BAYU 1",
+            "lat": 2.66333663,
+            "lon": 101.8869725
+          },
+          {
+            "stop_id": "TSIN_TSINR",
+            "stop_name": "TMN SENDAYAN INDAH",
+            "lat": 2.65716441,
+            "lon": 101.88040494
+          },
+          {
+            "stop_id": "SKJBARU_SKJBARUR",
+            "stop_name": "SEK KEB JIMAH BARU",
+            "lat": 2.66086188,
+            "lon": 101.86674714
+          },
+          {
+            "stop_id": "SPGKGJMHLM_SPGKGJMHLMR",
+            "stop_name": "SPG KG JIMAH LAMA",
+            "lat": 2.66766513,
+            "lon": 101.8531882
+          },
+          {
+            "stop_id": "KGSEN_KGSEN",
+            "stop_name": "KG SENDAYAN",
+            "lat": 2.66977935,
+            "lon": 101.85081798
+          },
+          {
+            "stop_id": "SMSD_SMSD",
+            "stop_name": "SMK SENDAYAN",
+            "lat": 2.67156341,
+            "lon": 101.84583376
+          },
+          {
+            "stop_id": "KOPSEN_KOPSEN",
+            "stop_name": "BGN KOPERASI WANITA SENDAYAN",
+            "lat": 2.6733994,
+            "lon": 101.84371186
+          },
+          {
+            "stop_id": "PPSNYN_PPSNYN",
+            "stop_name": "PONDOK POLIS SENDAYAN",
+            "lat": 2.67452596,
+            "lon": 101.8483969
+          },
+          {
+            "stop_id": "KKSDYN_KKSDYN",
+            "stop_name": "KLINIK KESIHATAN SENDAYAN",
+            "lat": 2.6793651,
+            "lon": 101.84705436
+          },
+          {
+            "stop_id": "TGDI_TGDIR",
+            "stop_name": "TMN GADONG INDAH",
+            "lat": 2.69642126,
+            "lon": 101.8344748
+          },
+          {
+            "stop_id": "TGDJ_TGDJR",
+            "stop_name": "TMN GADONG JAYA",
+            "lat": 2.70120637,
+            "lon": 101.83179259
+          },
+          {
+            "stop_id": "SPGEKA_SPGEKA",
+            "stop_name": "SPG TMN EKA MATAHARI",
+            "lat": 2.70191379,
+            "lon": 101.79793986
+          },
+          {
+            "stop_id": "TMNEKA_TMNEKA",
+            "stop_name": "TMN EKA MATAHARI",
+            "lat": 2.69588005,
+            "lon": 101.79749787
+          },
+          {
+            "stop_id": "SPGLBJ_SPGLBJ",
+            "stop_name": "SPG LBJ",
+            "lat": 2.72116849,
+            "lon": 101.78763051
+          },
+          {
+            "stop_id": "PTNI_POLINILAI",
+            "stop_name": "POLITEKNIK NILAI",
+            "lat": 2.72208554,
+            "lon": 101.79387539
+          },
+          {
+            "stop_id": "INTGURU_INTGURU",
+            "stop_name": "INT PENDIDIKAN GURU",
+            "lat": 2.72776897,
+            "lon": 101.7987993
+          },
+          {
+            "stop_id": "INTBAKI_INTBAKI",
+            "stop_name": "INT AMINUDIN BAKI TKC",
+            "lat": 2.72817815,
+            "lon": 101.79348046
+          },
+          {
+            "stop_id": "PTNB_PT",
+            "stop_name": "PENCAWANG TNB",
+            "lat": 2.72951147,
+            "lon": 101.78984898
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "R1705002",
+        "route_long_name": "  - POLITEKNIK NILAI",
+        "stops": [
+          {
+            "stop_id": "PTNB_PCWGTNB",
+            "stop_name": "PENCAWANG TNB",
+            "lat": 2.72951147,
+            "lon": 101.78984898
+          },
+          {
+            "stop_id": "INTBAKI_INTBAKIR",
+            "stop_name": "INT AMINUDIN BAKI TKC",
+            "lat": 2.72817815,
+            "lon": 101.79348046
+          },
+          {
+            "stop_id": "INTGURU_INTGURUR",
+            "stop_name": "INT PENDIDIKAN GURU",
+            "lat": 2.72776897,
+            "lon": 101.7987993
+          },
+          {
+            "stop_id": "PTNI_POLINILAIR",
+            "stop_name": "POLITEKNIK NILAI",
+            "lat": 2.72208554,
+            "lon": 101.79387539
+          },
+          {
+            "stop_id": "SPGLBJ_SPGLBJR",
+            "stop_name": "SPG LBJ",
+            "lat": 2.72116849,
+            "lon": 101.78763051
+          },
+          {
+            "stop_id": "TMNEKA_TMNEKAR",
+            "stop_name": "TMN EKA MATAHARI",
+            "lat": 2.69588005,
+            "lon": 101.79749786
+          },
+          {
+            "stop_id": "SPGEKA_SPGEKAR",
+            "stop_name": "SPG TMN EKA MATAHARI",
+            "lat": 2.70191379,
+            "lon": 101.79793986
+          },
+          {
+            "stop_id": "TGDJ_TG",
+            "stop_name": "TMN GADONG JAYA",
+            "lat": 2.70120637,
+            "lon": 101.83179259
+          },
+          {
+            "stop_id": "TGDI_TGDI",
+            "stop_name": "TMN GADONG INDAH",
+            "lat": 2.69642126,
+            "lon": 101.8344748
+          },
+          {
+            "stop_id": "KKSDYN_KKSDYNR",
+            "stop_name": "KLINIK KESIHATAN SENDAYAN",
+            "lat": 2.6793651,
+            "lon": 101.84705436
+          },
+          {
+            "stop_id": "PPSNYN_PPSNYNR",
+            "stop_name": "PONDOK POLIS SENDAYAN",
+            "lat": 2.67452596,
+            "lon": 101.8483969
+          },
+          {
+            "stop_id": "KOPSEN_KOPSENR",
+            "stop_name": "BGN KOPERASI WANITA SENDAYAN",
+            "lat": 2.6733994,
+            "lon": 101.84371186
+          },
+          {
+            "stop_id": "SMSD_SMSDR",
+            "stop_name": "SMK SENDAYAN",
+            "lat": 2.67156341,
+            "lon": 101.84583376
+          },
+          {
+            "stop_id": "KGSEN_KGSENR",
+            "stop_name": "KG SENDAYAN",
+            "lat": 2.66977935,
+            "lon": 101.85081798
+          },
+          {
+            "stop_id": "SPGKGJMHLM_SPGKGJMHLM",
+            "stop_name": "SPG KG JIMAH LAMA",
+            "lat": 2.66766513,
+            "lon": 101.8531882
+          },
+          {
+            "stop_id": "SKJBARU_SKJBARU",
+            "stop_name": "SEK KEB JIMAH BARU",
+            "lat": 2.66086188,
+            "lon": 101.86674714
+          },
+          {
+            "stop_id": "TSIN_TSIN",
+            "stop_name": "TMN SENDAYAN INDAH",
+            "lat": 2.65716441,
+            "lon": 101.88040494
+          },
+          {
+            "stop_id": "NSB1_NSB1R",
+            "stop_name": "NUSARI BAYU 1",
+            "lat": 2.66333663,
+            "lon": 101.8869725
+          },
+          {
+            "stop_id": "SMKBBSDYN_SMKBBSDYNR",
+            "stop_name": "SMK BANDAR BARU SENDAYAN",
+            "lat": 2.66352512,
+            "lon": 101.88351631
+          },
+          {
+            "stop_id": "NUSARIB2B_NUSARIB2BR",
+            "stop_name": "NUSARI BAYU 2B",
+            "lat": 2.66352699,
+            "lon": 101.87898634
+          },
+          {
+            "stop_id": "SJKC_SJKCR",
+            "stop_name": "SJKC KG PARIT TINGGI",
+            "lat": 2.66570223,
+            "lon": 101.87460581
+          },
+          {
+            "stop_id": "NSBC_NSBCR",
+            "stop_name": "NUSARI BUSINES CENTER",
+            "lat": 2.66866659,
+            "lon": 101.87480319
+          },
+          {
+            "stop_id": "NSB3_NSB3R",
+            "stop_name": "NUSARI BAYU 3",
+            "lat": 2.67608566,
+            "lon": 101.87544822
+          },
+          {
+            "stop_id": "INTMANDU_INTMANDUR",
+            "stop_name": "AKADEMI MEMANDU RDS",
+            "lat": 2.67681992,
+            "lon": 101.89297012
+          },
+          {
+            "stop_id": "GAV_GRAVR",
+            "stop_name": "GARDEN AVENUE",
+            "lat": 2.67683589,
+            "lon": 101.90289161
+          },
+          {
+            "stop_id": "SKWAWA_SKWAWAR",
+            "stop_name": "SK WAWASAN SEREMBAN2",
+            "lat": 2.67976097,
+            "lon": 101.90297917
+          },
+          {
+            "stop_id": "FAMSTR_FAMSTRR",
+            "stop_name": "FAMILY STORE",
+            "lat": 2.68339351,
+            "lon": 101.90369122
+          },
+          {
+            "stop_id": "SURTAQWA_SURTAQWAR",
+            "stop_name": "SURAU AT TAQWA",
+            "lat": 2.68933153,
+            "lon": 101.9054104
+          },
+          {
+            "stop_id": "MCDS2_MCDS2R",
+            "stop_name": "MCD SEREMBAN 2",
+            "lat": 2.69131588,
+            "lon": 101.90562167
+          },
+          {
+            "stop_id": "SPGMYDIN_SPGMYDINR",
+            "stop_name": "SPG MYDIN SEREMBAN",
+            "lat": 2.69414614,
+            "lon": 101.90571375
+          },
+          {
+            "stop_id": "UPS2_UPS2R",
+            "stop_name": "UPTOWN S2",
+            "lat": 2.69592648,
+            "lon": 101.90844021
+          },
+          {
+            "stop_id": "AEONS2_AEONS2R",
+            "stop_name": "AEON SEREMBAN 2",
+            "lat": 2.69901282,
+            "lon": 101.9110103
+          },
+          {
+            "stop_id": "MZM_MZMR",
+            "stop_name": "MUZIUM NEGERI",
+            "lat": 2.71841226,
+            "lon": 101.92006409
+          },
+          {
+            "stop_id": "PMAL_PMALR",
+            "stop_name": "PALM MALL",
+            "lat": 2.72035199,
+            "lon": 101.92182362
+          },
+          {
+            "stop_id": "KOOP_TKR",
+            "stop_name": "TMN KOOP",
+            "lat": 2.72545315,
+            "lon": 101.92792296
+          },
+          {
+            "stop_id": "ERAB_EB1",
+            "stop_name": "ERA BARU",
+            "lat": 2.72578659,
+            "lon": 101.92982199
+          },
+          {
+            "stop_id": "T1_T1R",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72152011,
+            "lon": 101.93715513
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "N57",
+    "route_short_name": "N57",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705003",
+        "route_long_name": "NILAI SENTRAL - KLIA",
+        "stops": [
+          {
+            "stop_id": "NS_NS",
+            "stop_name": "NILAI SENTRAL",
+            "lat": 2.80220369,
+            "lon": 101.79846883
+          },
+          {
+            "stop_id": "KGBRNILAI_KGBRNILAI",
+            "stop_name": "KG BARU NILAI",
+            "lat": 2.80494162,
+            "lon": 101.80064678
+          },
+          {
+            "stop_id": "CTEX_CTEX",
+            "stop_name": "CALTEX",
+            "lat": 2.80988168,
+            "lon": 101.80473447
+          },
+          {
+            "stop_id": "TIND_TIND",
+            "stop_name": "TMN DESA INDAH",
+            "lat": 2.81208277,
+            "lon": 101.79905393
+          },
+          {
+            "stop_id": "DSJM_DSJM",
+            "stop_name": "TMN DESA JASMIN",
+            "lat": 2.80659152,
+            "lon": 101.79003924
+          },
+          {
+            "stop_id": "TMNJ2_TMNJ2",
+            "stop_name": "TMN JASMIN 2",
+            "lat": 2.80522348,
+            "lon": 101.78709832
+          },
+          {
+            "stop_id": "TMNDCMPK_TDC",
+            "stop_name": "TMN DESA CEMPAKA",
+            "lat": 2.80427623,
+            "lon": 101.77168616
+          },
+          {
+            "stop_id": "CHEM_CM",
+            "stop_name": "CHEMPAKA MALL",
+            "lat": 2.80288032,
+            "lon": 101.767236
+          },
+          {
+            "stop_id": "PTNB_PTNB",
+            "stop_name": "PENCAWANG TNB",
+            "lat": 2.80086866,
+            "lon": 101.75966783
+          },
+          {
+            "stop_id": "PTRN_PTRN",
+            "stop_name": "TMN PUTRA NILAI",
+            "lat": 2.80550957,
+            "lon": 101.75669074
+          },
+          {
+            "stop_id": "INTI_INT",
+            "stop_name": "KOLEJ INTI",
+            "lat": 2.81303752,
+            "lon": 101.757254
+          },
+          {
+            "stop_id": "SZVR_SZVR",
+            "stop_name": "STARZ VALLEY RESIDENCE",
+            "lat": 2.81105256,
+            "lon": 101.75666504
+          },
+          {
+            "stop_id": "KKDS_KKDS",
+            "stop_name": "KOMP DAERAH SEPANG",
+            "lat": 2.8103639,
+            "lon": 101.74442232
+          },
+          {
+            "stop_id": "SMSS_SMSS",
+            "stop_name": "SMK SERI SEPANG",
+            "lat": 2.8110817,
+            "lon": 101.74042518
+          },
+          {
+            "stop_id": "BBST_BBST",
+            "stop_name": "BDR BARU SALAK TINGGI",
+            "lat": 2.81110865,
+            "lon": 101.73878968
+          },
+          {
+            "stop_id": "MSLE_MSLE",
+            "stop_name": "MEDAN SELERA SALAK TINGGI",
+            "lat": 2.80793673,
+            "lon": 101.73527062
+          },
+          {
+            "stop_id": "KLGWRP_KLGWRP",
+            "stop_name": "KILANG WRP",
+            "lat": 2.80570824,
+            "lon": 101.73083129
+          },
+          {
+            "stop_id": "IKTBN_IKTBN",
+            "stop_name": "IKTBN",
+            "lat": 2.80571853,
+            "lon": 101.71815276
+          },
+          {
+            "stop_id": "SKTW_SKTW",
+            "stop_name": "SPG KOTA WARISAN",
+            "lat": 2.80510236,
+            "lon": 101.69605672
+          },
+          {
+            "stop_id": "KLIA_04",
+            "stop_name": "KLIA 1 2",
+            "lat": 2.75465032,
+            "lon": 101.70201218
+          },
+          {
+            "stop_id": "KLIA2_KLIA2",
+            "stop_name": "KLIA2",
+            "lat": 2.74548785,
+            "lon": 101.68499529
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "R1705004",
+        "route_long_name": " KLIA - NILAI SENTRAL",
+        "stops": [
+          {
+            "stop_id": "KLIA2_KLIA2R",
+            "stop_name": "KLIA2",
+            "lat": 2.74548785,
+            "lon": 101.68499529
+          },
+          {
+            "stop_id": "KLIA_04R",
+            "stop_name": "KLIA 1 2",
+            "lat": 2.75465032,
+            "lon": 101.70201218
+          },
+          {
+            "stop_id": "SKTW_SKTWR",
+            "stop_name": "SPG KOTA WARISAN",
+            "lat": 2.80510236,
+            "lon": 101.69605672
+          },
+          {
+            "stop_id": "IKTBN_IKTBNR",
+            "stop_name": "IKTBN",
+            "lat": 2.80571853,
+            "lon": 101.71815276
+          },
+          {
+            "stop_id": "KLGWRP_KLGWRPR",
+            "stop_name": "KILANG WRP",
+            "lat": 2.80570824,
+            "lon": 101.73083129
+          },
+          {
+            "stop_id": "MSLE_MSLER",
+            "stop_name": "MEDAN SELERA SALAK TINGGI",
+            "lat": 2.80793673,
+            "lon": 101.73527061
+          },
+          {
+            "stop_id": "BBST_BBSTR",
+            "stop_name": "BDR BARU SALAK TINGGI",
+            "lat": 2.81110865,
+            "lon": 101.73878967
+          },
+          {
+            "stop_id": "SMSS_SMSSR",
+            "stop_name": "SMK SERI SEPANG",
+            "lat": 2.8110817,
+            "lon": 101.74042518
+          },
+          {
+            "stop_id": "KKDS_KKDSR",
+            "stop_name": "KOMP DAERAH SEPANG",
+            "lat": 2.8103639,
+            "lon": 101.74442231
+          },
+          {
+            "stop_id": "SZVR_SZVRR",
+            "stop_name": "STARZ VALLEY RESIDENCE",
+            "lat": 2.81105256,
+            "lon": 101.75666504
+          },
+          {
+            "stop_id": "INTI_INTR",
+            "stop_name": "KOLEJ INTI",
+            "lat": 2.81303752,
+            "lon": 101.757254
+          },
+          {
+            "stop_id": "PTRN_TPN",
+            "stop_name": "TMN PUTRA NILAI",
+            "lat": 2.80550957,
+            "lon": 101.75669074
+          },
+          {
+            "stop_id": "PTNB_PTNBR",
+            "stop_name": "PENCAWANG TNB",
+            "lat": 2.80086866,
+            "lon": 101.75966783
+          },
+          {
+            "stop_id": "CHEM_CMR",
+            "stop_name": "CHEMPAKA MALL",
+            "lat": 2.80288032,
+            "lon": 101.767236
+          },
+          {
+            "stop_id": "TMNDCMPK_TDCR",
+            "stop_name": "TMN DESA CEMPAKA",
+            "lat": 2.80427623,
+            "lon": 101.77168616
+          },
+          {
+            "stop_id": "TMNAWAM_TMNAWAMR",
+            "stop_name": "TMN AWAM NILAI",
+            "lat": 2.8065267,
+            "lon": 101.7775389
+          },
+          {
+            "stop_id": "TMNJ2_TMNJ2R",
+            "stop_name": "TMN JASMIN 2",
+            "lat": 2.80522348,
+            "lon": 101.78709832
+          },
+          {
+            "stop_id": "DSJM_DSJMR",
+            "stop_name": "TMN DESA JASMIN",
+            "lat": 2.80659152,
+            "lon": 101.79003924
+          },
+          {
+            "stop_id": "TIND_TINDR",
+            "stop_name": "TMN DESA INDAH",
+            "lat": 2.81196057,
+            "lon": 101.79970264
+          },
+          {
+            "stop_id": "CTEX_CTEXR",
+            "stop_name": "CALTEX",
+            "lat": 2.80989775,
+            "lon": 101.80470228
+          },
+          {
+            "stop_id": "KGBRNILAI_KGBRNILAIR",
+            "stop_name": "KG BARU NILAI",
+            "lat": 2.80494162,
+            "lon": 101.80064678
+          },
+          {
+            "stop_id": "NS_57R",
+            "stop_name": "NILAI SENTRAL",
+            "lat": 2.80220369,
+            "lon": 101.79846882
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "N50",
+    "route_short_name": "N50",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705007",
+        "route_long_name": "TERMINAL 1 - NILAI SENTRAL",
+        "stops": [
+          {
+            "stop_id": "T1_T10",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72153619,
+            "lon": 101.93721414
+          },
+          {
+            "stop_id": "DPSBN_DPSBNR",
+            "stop_name": "DEWAN PERBANDARAN SEREMBAN",
+            "lat": 2.72349735,
+            "lon": 101.94098532
+          },
+          {
+            "stop_id": "KOOP_TKOOP",
+            "stop_name": "TMN KOOP",
+            "lat": 2.72545315,
+            "lon": 101.92792296
+          },
+          {
+            "stop_id": "RPMFL_RPMFL",
+            "stop_name": "RUMAH PANGSA MANICKAVASAGAM/FLAT LOBAK",
+            "lat": 2.72939911,
+            "lon": 101.93079731
+          },
+          {
+            "stop_id": "SJKTLOBAK_SJKTLOBAK",
+            "stop_name": "SJKT LOBAK",
+            "lat": 2.73101328,
+            "lon": 101.93154537
+          },
+          {
+            "stop_id": "RPTDI_RPTDI",
+            "stop_name": "RUMAH PANGSA TUN DR ISMAIL",
+            "lat": 2.73589032,
+            "lon": 101.93236844
+          },
+          {
+            "stop_id": "NSCMH_NSCMH",
+            "stop_name": "NSCMH MEDICAL CENTRE",
+            "lat": 2.73716645,
+            "lon": 101.93079293
+          },
+          {
+            "stop_id": "TMNSNTSA_TMNSNTSA",
+            "stop_name": "TMN SENTOSA",
+            "lat": 2.7385631,
+            "lon": 101.928539
+          },
+          {
+            "stop_id": "TMNDWN_TMNDWN",
+            "stop_name": "TMN DAWN",
+            "lat": 2.74100834,
+            "lon": 101.92356169
+          },
+          {
+            "stop_id": "TMNBKTMKA_TMNBKTMKA",
+            "stop_name": "TMN BKT MIKA",
+            "lat": 2.74536997,
+            "lon": 101.91992462
+          },
+          {
+            "stop_id": "TMNBKTDSA_TMNBKTDSA",
+            "stop_name": "TMN BKT DESA",
+            "lat": 2.7508207,
+            "lon": 101.9194967
+          },
+          {
+            "stop_id": "KBI_KBI",
+            "stop_name": "KG BELIHOI",
+            "lat": 2.768408,
+            "lon": 101.908651
+          },
+          {
+            "stop_id": "PPNS_PPNS",
+            "stop_name": "PEJABAT PERHUTANAN",
+            "lat": 2.79794406,
+            "lon": 101.91998363
+          },
+          {
+            "stop_id": "BT8JLNBSR_BT8JLNBSR",
+            "stop_name": "BATU 8 JALAN BESAR",
+            "lat": 2.80497266,
+            "lon": 101.91841305
+          },
+          {
+            "stop_id": "YAMAKO_YAMAKO",
+            "stop_name": "KILANG YAMAKOH",
+            "lat": 2.80716717,
+            "lon": 101.91753022
+          },
+          {
+            "stop_id": "TAS_TMNAS",
+            "stop_name": "TMN ASOKA",
+            "lat": 2.81580758,
+            "lon": 101.9073987
+          },
+          {
+            "stop_id": "TBR_TBRAYA",
+            "stop_name": "TMN BUNGA RAYA",
+            "lat": 2.8188616,
+            "lon": 101.90290332
+          },
+          {
+            "stop_id": "SKCM_SKCM",
+            "stop_name": "SEK KEB CINA MANTIN",
+            "lat": 2.82148371,
+            "lon": 101.89832147
+          },
+          {
+            "stop_id": "PKM_PKM",
+            "stop_name": "PEKAN MANTIN",
+            "lat": 2.82345135,
+            "lon": 101.89378805
+          },
+          {
+            "stop_id": "TGJ_TGJ",
+            "stop_name": "TMN GADING JAYA",
+            "lat": 2.82346405,
+            "lon": 101.89193845
+          },
+          {
+            "stop_id": "TTS_TTS",
+            "stop_name": "TMN TONG SENG",
+            "lat": 2.82552148,
+            "lon": 101.88677788
+          },
+          {
+            "stop_id": "SKM_SEKKMTN",
+            "stop_name": "SEK KEB MANTIN",
+            "lat": 2.82660914,
+            "lon": 101.88350021
+          },
+          {
+            "stop_id": "DPB_DPBYU",
+            "stop_name": "DESA PINGGIRAN BAYU",
+            "lat": 2.82841473,
+            "lon": 101.87935292
+          },
+          {
+            "stop_id": "BT12KGGBK_BT12KGGBK",
+            "stop_name": "BT 12 KG GEBOK",
+            "lat": 2.82926266,
+            "lon": 101.87713296
+          },
+          {
+            "stop_id": "KL_KL",
+            "stop_name": "KOLEJ LEGENDA",
+            "lat": 2.82176023,
+            "lon": 101.87024474
+          },
+          {
+            "stop_id": "MKG_MKG",
+            "stop_name": "MASJID KG GEBOK",
+            "lat": 2.83487901,
+            "lon": 101.86328173
+          },
+          {
+            "stop_id": "KGB15_KGB15",
+            "stop_name": "KG GEBOK BT15",
+            "lat": 2.83720164,
+            "lon": 101.85971439
+          },
+          {
+            "stop_id": "TAP_TAP",
+            "stop_name": "TMN ANGGERIK PAJAM",
+            "lat": 2.8411075,
+            "lon": 101.8537277
+          },
+          {
+            "stop_id": "SJKTTS_SJKTTS",
+            "stop_name": "SJKT TUN SAMBANTH",
+            "lat": 2.8437489,
+            "lon": 101.84991896
+          },
+          {
+            "stop_id": "BPLISPJM_BPLISPJM",
+            "stop_name": "BALAI POLIS PAJAM",
+            "lat": 2.84456329,
+            "lon": 101.84895337
+          },
+          {
+            "stop_id": "PP_PP",
+            "stop_name": "PKN PAJAM",
+            "lat": 2.84575272,
+            "lon": 101.84731722
+          },
+          {
+            "stop_id": "TMP_TMP",
+            "stop_name": "TMN MULIA PAJAM",
+            "lat": 2.84588131,
+            "lon": 101.84344411
+          },
+          {
+            "stop_id": "MJDBTGBNR_MJDBTGBNR",
+            "stop_name": "MASJID BATANG BENAR",
+            "lat": 2.84433291,
+            "lon": 101.82717383
+          },
+          {
+            "stop_id": "KGSGMHG_KGSM",
+            "stop_name": "KG SG MAHANG",
+            "lat": 2.84124353,
+            "lon": 101.828129
+          },
+          {
+            "stop_id": "KTNBB_KTM",
+            "stop_name": "KTM BATANG BENAR",
+            "lat": 2.82997389,
+            "lon": 101.82703435
+          },
+          {
+            "stop_id": "CIMBTS_CIMBTS",
+            "stop_name": "CIMB TAMAN SEMARAK",
+            "lat": 2.82000284,
+            "lon": 101.81719601
+          },
+          {
+            "stop_id": "SMTS_SMTSMR",
+            "stop_name": "SEK MEN TMN SEMARAK",
+            "lat": 2.82179238,
+            "lon": 101.81554914
+          },
+          {
+            "stop_id": "BLOK5_BLOK5",
+            "stop_name": "BLOK5 JLN SEMARAK",
+            "lat": 2.82345333,
+            "lon": 101.81435823
+          },
+          {
+            "stop_id": "BLOK7_BLOK7",
+            "stop_name": "BLOK 7 JLN SEMARAK",
+            "lat": 2.82341,
+            "lon": 101.81229666
+          },
+          {
+            "stop_id": "SKTS_SKTS",
+            "stop_name": "SEK KEB TMN SEMARAK",
+            "lat": 2.82046362,
+            "lon": 101.81154191
+          },
+          {
+            "stop_id": "NILAISQ_NS",
+            "stop_name": "NILAI SQUARE",
+            "lat": 2.81730244,
+            "lon": 101.81501806
+          },
+          {
+            "stop_id": "SHELLSE_SHELLSE",
+            "stop_name": "SHELL TMN SEMARAK",
+            "lat": 2.81525035,
+            "lon": 101.81317806
+          },
+          {
+            "stop_id": "TMNSEMARAK_TMNSEMARAK",
+            "stop_name": "TMN SEMARAK",
+            "lat": 2.81424306,
+            "lon": 101.81079626
+          },
+          {
+            "stop_id": "PSRAWM_PSRAWM",
+            "stop_name": "PASAR AWAM NILAI",
+            "lat": 2.81378227,
+            "lon": 101.80939078
+          },
+          {
+            "stop_id": "KGBRNILAI_KGBN",
+            "stop_name": "KG BARU NILAI",
+            "lat": 2.80494162,
+            "lon": 101.80064678
+          },
+          {
+            "stop_id": "NS_NS512",
+            "stop_name": "NILAI SENTRAL",
+            "lat": 2.80220369,
+            "lon": 101.79846882
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "R1705008",
+        "route_long_name": "  - NILAI SENTRAL",
+        "stops": [
+          {
+            "stop_id": "NS_56R",
+            "stop_name": "NILAI SENTRAL",
+            "lat": 2.80220369,
+            "lon": 101.79846882
+          },
+          {
+            "stop_id": "KGBRNILAI_KGBRNILAI",
+            "stop_name": "KG BARU NILAI",
+            "lat": 2.80494162,
+            "lon": 101.80064678
+          },
+          {
+            "stop_id": "PSRAWM_PSRAWMR",
+            "stop_name": "PASAR AWAM NILAI",
+            "lat": 2.81378227,
+            "lon": 101.80939078
+          },
+          {
+            "stop_id": "TMNSEMARAK_TMNSEMARAKR",
+            "stop_name": "TMN SEMARAK",
+            "lat": 2.81424306,
+            "lon": 101.81079626
+          },
+          {
+            "stop_id": "SHELLSE_SHELLSER",
+            "stop_name": "SHELL TMN SEMARAK",
+            "lat": 2.81525035,
+            "lon": 101.81317806
+          },
+          {
+            "stop_id": "NILAISQ_NSR",
+            "stop_name": "NILAI SQUARE",
+            "lat": 2.81730244,
+            "lon": 101.81501805
+          },
+          {
+            "stop_id": "SKTS_SKTSR",
+            "stop_name": "SEK KEB TMN SEMARAK",
+            "lat": 2.82046362,
+            "lon": 101.81154191
+          },
+          {
+            "stop_id": "BLOK7_BLOK7R",
+            "stop_name": "BLOK 7 JLN SEMARAK",
+            "lat": 2.82341,
+            "lon": 101.81229666
+          },
+          {
+            "stop_id": "BLOK5_BLOK5R",
+            "stop_name": "BLOK5 JLN SEMARAK",
+            "lat": 2.82345333,
+            "lon": 101.81435823
+          },
+          {
+            "stop_id": "SMTS_SMTSR",
+            "stop_name": "SEK MEN TMN SEMARAK",
+            "lat": 2.82179238,
+            "lon": 101.81554913
+          },
+          {
+            "stop_id": "CIMBTS_CIMBR",
+            "stop_name": "CIMB TAMAN SEMARAK",
+            "lat": 2.81997069,
+            "lon": 101.81723356
+          },
+          {
+            "stop_id": "KTNBB_KTNBBR",
+            "stop_name": "KTM BATANG BENAR",
+            "lat": 2.82997389,
+            "lon": 101.82703435
+          },
+          {
+            "stop_id": "KGSGMHG_KGSMR",
+            "stop_name": "KG SG MAHANG",
+            "lat": 2.84124353,
+            "lon": 101.828129
+          },
+          {
+            "stop_id": "MJDBTGBNR_MJDBTGBNRR",
+            "stop_name": "MASJID BATANG BENAR",
+            "lat": 2.84433291,
+            "lon": 101.82717382
+          },
+          {
+            "stop_id": "TMP_TMPR",
+            "stop_name": "TMN MULIA PAJAM",
+            "lat": 2.84588131,
+            "lon": 101.8434441
+          },
+          {
+            "stop_id": "PP_PPR",
+            "stop_name": "PKN PAJAM",
+            "lat": 2.84598847,
+            "lon": 101.84565425
+          },
+          {
+            "stop_id": "BPLISPJM_BPLISPJMR",
+            "stop_name": "BALAI POLIS PAJAM",
+            "lat": 2.84456329,
+            "lon": 101.84895336
+          },
+          {
+            "stop_id": "SJKTTS_SJKTTSR",
+            "stop_name": "SJKT TUN SAMBANTH",
+            "lat": 2.8437489,
+            "lon": 101.84991896
+          },
+          {
+            "stop_id": "TAP_TAPR",
+            "stop_name": "TMN ANGGERIK PAJAM",
+            "lat": 2.8411075,
+            "lon": 101.85372769
+          },
+          {
+            "stop_id": "KGB15_KGB15R",
+            "stop_name": "KG GEBOK BT15",
+            "lat": 2.83720164,
+            "lon": 101.85971438
+          },
+          {
+            "stop_id": "MKG_MKGR",
+            "stop_name": "MASJID KG GEBOK",
+            "lat": 2.83487901,
+            "lon": 101.86328172
+          },
+          {
+            "stop_id": "KL_KL2",
+            "stop_name": "KOLEJ LEGENDA",
+            "lat": 2.82176023,
+            "lon": 101.87024474
+          },
+          {
+            "stop_id": "BT12KGGBK_BT12KGGBKR",
+            "stop_name": "BT 12 KG GEBOK",
+            "lat": 2.82926266,
+            "lon": 101.87713296
+          },
+          {
+            "stop_id": "DPB_DPBYUR",
+            "stop_name": "DESA PINGGIRAN BAYU",
+            "lat": 2.82841473,
+            "lon": 101.87935292
+          },
+          {
+            "stop_id": "SKM_SKMR",
+            "stop_name": "SEK KEB MANTIN",
+            "lat": 2.82660914,
+            "lon": 101.88350021
+          },
+          {
+            "stop_id": "TTS_TTSR",
+            "stop_name": "TMN TONG SENG",
+            "lat": 2.82552148,
+            "lon": 101.88677787
+          },
+          {
+            "stop_id": "TGJ_TGJR",
+            "stop_name": "TMN GADING JAYA",
+            "lat": 2.82346405,
+            "lon": 101.89193844
+          },
+          {
+            "stop_id": "PKM_PKMR",
+            "stop_name": "PEKAN MANTIN",
+            "lat": 2.82347477,
+            "lon": 101.89392328
+          },
+          {
+            "stop_id": "SKCM_SKCMR",
+            "stop_name": "SEK KEB CINA MANTIN",
+            "lat": 2.82148371,
+            "lon": 101.89832147
+          },
+          {
+            "stop_id": "TBR_TBRAYAR",
+            "stop_name": "TMN BUNGA RAYA",
+            "lat": 2.8188616,
+            "lon": 101.90290332
+          },
+          {
+            "stop_id": "TAS_TMNASR",
+            "stop_name": "TMN ASOKA",
+            "lat": 2.81580758,
+            "lon": 101.9073987
+          },
+          {
+            "stop_id": "YAMAKO_YAMAKOR",
+            "stop_name": "KILANG YAMAKOH",
+            "lat": 2.80716717,
+            "lon": 101.91753022
+          },
+          {
+            "stop_id": "BT8JLNBSR_BT8JLNBSRR",
+            "stop_name": "BATU 8 JALAN BESAR",
+            "lat": 2.80497266,
+            "lon": 101.91841305
+          },
+          {
+            "stop_id": "PPNS_PPNSR",
+            "stop_name": "PEJABAT PERHUTANAN",
+            "lat": 2.79794406,
+            "lon": 101.91998362
+          },
+          {
+            "stop_id": "KBI_KBIR",
+            "stop_name": "KG BELIHOI",
+            "lat": 2.768408,
+            "lon": 101.908651
+          },
+          {
+            "stop_id": "TMNBKTDSA_TMNBKTDSAR",
+            "stop_name": "TMN BKT DESA",
+            "lat": 2.7508207,
+            "lon": 101.9194967
+          },
+          {
+            "stop_id": "TMNBKTMKA_TMNBKTMKAR",
+            "stop_name": "TMN BKT MIKA",
+            "lat": 2.74536997,
+            "lon": 101.91992461
+          },
+          {
+            "stop_id": "TMNDWN_TMNDWNR",
+            "stop_name": "TMN DAWN",
+            "lat": 2.74100834,
+            "lon": 101.92356169
+          },
+          {
+            "stop_id": "TMNSNTSA_TMNSNTSAR",
+            "stop_name": "TMN SENTOSA",
+            "lat": 2.7385631,
+            "lon": 101.928539
+          },
+          {
+            "stop_id": "NSCMH_NSCMHR",
+            "stop_name": "NSCMH MEDICAL CENTRE",
+            "lat": 2.73716645,
+            "lon": 101.93079292
+          },
+          {
+            "stop_id": "RPTDI_RPTDIR",
+            "stop_name": "RUMAH PANGSA TUN DR ISMAIL",
+            "lat": 2.73589032,
+            "lon": 101.93236844
+          },
+          {
+            "stop_id": "SJKTLOBAK_SJKTLOBAKR",
+            "stop_name": "SJKT LOBAK",
+            "lat": 2.73101328,
+            "lon": 101.93154537
+          },
+          {
+            "stop_id": "RPMFL_RPMFLR",
+            "stop_name": "RUMAH PANGSA MANICKAVASAGAM/FLAT LOBAK",
+            "lat": 2.72939911,
+            "lon": 101.93079731
+          },
+          {
+            "stop_id": "KOOP_KOOPR",
+            "stop_name": "TMN KOOP",
+            "lat": 2.72545315,
+            "lon": 101.92792296
+          },
+          {
+            "stop_id": "TAST_TAST",
+            "stop_name": "TMN AST",
+            "lat": 2.7240439,
+            "lon": 101.92744553
+          },
+          {
+            "stop_id": "T1_T1R",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72152011,
+            "lon": 101.93715513
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "N51",
+    "route_short_name": "N51",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705009",
+        "route_long_name": "NILAI SENTRAL - NILAI 3",
+        "stops": [
+          {
+            "stop_id": "NS_56R",
+            "stop_name": "NILAI SENTRAL",
+            "lat": 2.80220369,
+            "lon": 101.79846882
+          },
+          {
+            "stop_id": "KGBRNILAI_KGBRNILAI",
+            "stop_name": "KG BARU NILAI",
+            "lat": 2.80494162,
+            "lon": 101.80064678
+          },
+          {
+            "stop_id": "CTEX_CTEX",
+            "stop_name": "CALTEX",
+            "lat": 2.80988168,
+            "lon": 101.80473447
+          },
+          {
+            "stop_id": "TIND_TMNDI",
+            "stop_name": "TMN DESA INDAH",
+            "lat": 2.81181649,
+            "lon": 101.80071652
+          },
+          {
+            "stop_id": "WISMABBN_WISMABBN",
+            "stop_name": "WISMA BBN",
+            "lat": 2.81219632,
+            "lon": 101.79472446
+          },
+          {
+            "stop_id": "GN_GN",
+            "stop_name": "GIANT NILAI 1",
+            "lat": 2.81315004,
+            "lon": 101.79150581
+          },
+          {
+            "stop_id": "TESCONLI_TESCONLI",
+            "stop_name": "TESCO NILAI",
+            "lat": 2.8157915,
+            "lon": 101.79181159
+          },
+          {
+            "stop_id": "SIAPRTMENT_SIAPRTMENT",
+            "stop_name": "SUTERA INDAH APARTMENT 1",
+            "lat": 2.81829366,
+            "lon": 101.79264843
+          },
+          {
+            "stop_id": "NILAISQ_NILAISQ",
+            "stop_name": "NILAI SQUARE",
+            "lat": 2.82131553,
+            "lon": 101.79110885
+          },
+          {
+            "stop_id": "EMERSON_EMERSON",
+            "stop_name": "EMERSON",
+            "lat": 2.82017965,
+            "lon": 101.80527091
+          },
+          {
+            "stop_id": "SKF_SKF",
+            "stop_name": "SKF",
+            "lat": 2.81842225,
+            "lon": 101.80630088
+          },
+          {
+            "stop_id": "TMNSEMARAK_TMNSEMARAKR",
+            "stop_name": "TMN SEMARAK",
+            "lat": 2.81424306,
+            "lon": 101.81079626
+          },
+          {
+            "stop_id": "SHELLSE_SHELLSER",
+            "stop_name": "SHELL TMN SEMARAK",
+            "lat": 2.81525035,
+            "lon": 101.81317806
+          },
+          {
+            "stop_id": "NLISTMNS_NLISTMNSR",
+            "stop_name": "NILAI SQUARE TAMAN SEMARAK",
+            "lat": 2.81746854,
+            "lon": 101.81494231
+          },
+          {
+            "stop_id": "SKTS_SKTSR",
+            "stop_name": "SEK KEB TMN SEMARAK",
+            "lat": 2.82046362,
+            "lon": 101.81154191
+          },
+          {
+            "stop_id": "BLOK7_BLOK7R",
+            "stop_name": "BLOK 7 JLN SEMARAK",
+            "lat": 2.82341,
+            "lon": 101.81229666
+          },
+          {
+            "stop_id": "BLOK5_BLOK5R",
+            "stop_name": "BLOK5 JLN SEMARAK",
+            "lat": 2.82345333,
+            "lon": 101.81435823
+          },
+          {
+            "stop_id": "SMTS_SMTSMRR",
+            "stop_name": "SEK MEN TMN SEMARAK",
+            "lat": 2.82179238,
+            "lon": 101.81554914
+          },
+          {
+            "stop_id": "CIMBTS_CIMBTS512",
+            "stop_name": "CIMB TAMAN SEMARAK",
+            "lat": 2.81997069,
+            "lon": 101.81723356
+          },
+          {
+            "stop_id": "HYTECH_HYTECH",
+            "stop_name": "HYTECH",
+            "lat": 2.83588167,
+            "lon": 101.819045
+          },
+          {
+            "stop_id": "NIMP_NIMP",
+            "stop_name": "NILAI IMPIAN",
+            "lat": 2.843025,
+            "lon": 101.81409333
+          },
+          {
+            "stop_id": "KPRNSINN7_KPRNSINN7",
+            "stop_name": "KAW PERINDUSTRIAN NILAI 7",
+            "lat": 2.84571522,
+            "lon": 101.814031
+          },
+          {
+            "stop_id": "N3SM_N3SM",
+            "stop_name": "NILAI 3 STREET MALL",
+            "lat": 2.85238566,
+            "lon": 101.80732012
+          },
+          {
+            "stop_id": "KPN3_KPN3",
+            "stop_name": "KAW PERINDUSTRIAN NILAI 3",
+            "lat": 2.85226833,
+            "lon": 101.8049
+          },
+          {
+            "stop_id": "PSRBN_PSRBN",
+            "stop_name": "PASAR BORONG NILAI3",
+            "lat": 2.85378,
+            "lon": 101.79932666
+          },
+          {
+            "stop_id": "KKHOTEL_KKHOTEL",
+            "stop_name": "KK HOTEL",
+            "lat": 2.8552735,
+            "lon": 101.79942369
+          },
+          {
+            "stop_id": "DESARIA_DESARIA",
+            "stop_name": "DESARIA",
+            "lat": 2.86389946,
+            "lon": 101.79829717
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "R1705010",
+        "route_long_name": "NILAI SENTRAL - NILAI 3",
+        "stops": [
+          {
+            "stop_id": "DESARIA_DESARIAR",
+            "stop_name": "DESARIA",
+            "lat": 2.86389946,
+            "lon": 101.79829716
+          },
+          {
+            "stop_id": "KKHOTEL_KKHOTELR",
+            "stop_name": "KK HOTEL",
+            "lat": 2.8552735,
+            "lon": 101.79942369
+          },
+          {
+            "stop_id": "PSRBN_PSRBNR",
+            "stop_name": "PASAR BORONG NILAI3",
+            "lat": 2.85378,
+            "lon": 101.79932666
+          },
+          {
+            "stop_id": "KPN3_KPN3R",
+            "stop_name": "KAW PERINDUSTRIAN NILAI 3",
+            "lat": 2.85226833,
+            "lon": 101.8049
+          },
+          {
+            "stop_id": "N3SM_N3SMR",
+            "stop_name": "NILAI 3 STREET MALL",
+            "lat": 2.85238566,
+            "lon": 101.80732011
+          },
+          {
+            "stop_id": "KPRNSINN7_KPRNSINN7R",
+            "stop_name": "KAW PERINDUSTRIAN NILAI 7",
+            "lat": 2.84571522,
+            "lon": 101.814031
+          },
+          {
+            "stop_id": "NIMP_NIMPR",
+            "stop_name": "NILAI IMPIAN",
+            "lat": 2.843025,
+            "lon": 101.81409333
+          },
+          {
+            "stop_id": "HYTECH_HYTECHR",
+            "stop_name": "HYTECH",
+            "lat": 2.83588167,
+            "lon": 101.819045
+          },
+          {
+            "stop_id": "CIMBTS_CIMBTS512R",
+            "stop_name": "CIMB TAMAN SEMARAK",
+            "lat": 2.81997069,
+            "lon": 101.81723356
+          },
+          {
+            "stop_id": "SMTS_SMTSMR",
+            "stop_name": "SEK MEN TMN SEMARAK",
+            "lat": 2.82179238,
+            "lon": 101.81554914
+          },
+          {
+            "stop_id": "BLOK5_BLOK5",
+            "stop_name": "BLOK5 JLN SEMARAK",
+            "lat": 2.82345333,
+            "lon": 101.81435823
+          },
+          {
+            "stop_id": "BLOK7_BLOK7",
+            "stop_name": "BLOK 7 JLN SEMARAK",
+            "lat": 2.82341,
+            "lon": 101.81229666
+          },
+          {
+            "stop_id": "SKTS_SKTS",
+            "stop_name": "SEK KEB TMN SEMARAK",
+            "lat": 2.82046362,
+            "lon": 101.81154191
+          },
+          {
+            "stop_id": "NLISTMNS_NLISTMNS",
+            "stop_name": "NILAI SQUARE TAMAN SEMARAK",
+            "lat": 2.81746318,
+            "lon": 101.8150562
+          },
+          {
+            "stop_id": "SHELLSE_SHELLSE",
+            "stop_name": "SHELL TMN SEMARAK",
+            "lat": 2.81525035,
+            "lon": 101.81317806
+          },
+          {
+            "stop_id": "TMNSEMARAK_TS",
+            "stop_name": "TMN SEMARAK",
+            "lat": 2.81424306,
+            "lon": 101.81079626
+          },
+          {
+            "stop_id": "SKF_SKFR",
+            "stop_name": "SKF",
+            "lat": 2.81842225,
+            "lon": 101.80634379
+          },
+          {
+            "stop_id": "EMERSON_EMERSONR",
+            "stop_name": "EMERSON",
+            "lat": 2.82017965,
+            "lon": 101.80527091
+          },
+          {
+            "stop_id": "NILAISQ_NILAISQR",
+            "stop_name": "NILAI SQUARE",
+            "lat": 2.82131553,
+            "lon": 101.79110884
+          },
+          {
+            "stop_id": "SIAPRTMENT_SIAPRTMENTR",
+            "stop_name": "SUTERA INDAH APARTMENT 1",
+            "lat": 2.81829366,
+            "lon": 101.79264843
+          },
+          {
+            "stop_id": "TESCONLI_TESCONLI512",
+            "stop_name": "TESCO NILAI",
+            "lat": 2.8157915,
+            "lon": 101.79181158
+          },
+          {
+            "stop_id": "GN_GNR",
+            "stop_name": "GIANT NILAI 1",
+            "lat": 2.81315004,
+            "lon": 101.79150581
+          },
+          {
+            "stop_id": "WISMABBN_WISMABBNR",
+            "stop_name": "WISMA BBN",
+            "lat": 2.81219632,
+            "lon": 101.79472446
+          },
+          {
+            "stop_id": "TIND_TINDR",
+            "stop_name": "TMN DESA INDAH",
+            "lat": 2.81196057,
+            "lon": 101.79970264
+          },
+          {
+            "stop_id": "CTEX_CTEXR",
+            "stop_name": "CALTEX",
+            "lat": 2.80989775,
+            "lon": 101.80470228
+          },
+          {
+            "stop_id": "KGBRNILAI_KGBRNILAIR",
+            "stop_name": "KG BARU NILAI",
+            "lat": 2.80494162,
+            "lon": 101.80064678
+          },
+          {
+            "stop_id": "NS_NS512",
+            "stop_name": "NILAI SENTRAL",
+            "lat": 2.80220369,
+            "lon": 101.79846882
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "N505",
+    "route_short_name": "N505",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705012",
+        "route_long_name": "  - BUKIT MUTIARA LOOP",
+        "stops": [
+          {
+            "stop_id": "T1_T1",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72153619,
+            "lon": 101.93721414
+          },
+          {
+            "stop_id": "KMPLAZA_KMPLAZA",
+            "stop_name": "KM PLAZA",
+            "lat": 2.7228809,
+            "lon": 101.9376292
+          },
+          {
+            "stop_id": "TSTB_TANB",
+            "stop_name": "TAN BROTHERS",
+            "lat": 2.7263212,
+            "lon": 101.93687886
+          },
+          {
+            "stop_id": "KPKK_KPKK",
+            "stop_name": "KLINIK PAKAR KANAK-KANAK",
+            "lat": 2.72762724,
+            "lon": 101.93800807
+          },
+          {
+            "stop_id": "PPUS_PPUS",
+            "stop_name": "PEJABAT POS SEREMBAN UTAMA",
+            "lat": 2.7294214,
+            "lon": 101.9376225
+          },
+          {
+            "stop_id": "KFCJT_KFCJLNT",
+            "stop_name": "KFC TEMIANG",
+            "lat": 2.73264403,
+            "lon": 101.93633973
+          },
+          {
+            "stop_id": "SJLNT1_SJLNT1",
+            "stop_name": "SHELL JALAN TEMIANG 1",
+            "lat": 2.73728969,
+            "lon": 101.93842649
+          },
+          {
+            "stop_id": "SMKCW1_SMKCW11",
+            "stop_name": "SEK MEN KEB CHAN WAH1",
+            "lat": 2.7401778,
+            "lon": 101.93907022
+          },
+          {
+            "stop_id": "TMNTMAG_TMNTMAG",
+            "stop_name": "TAMAN TEMIANG1",
+            "lat": 2.74280872,
+            "lon": 101.93929553
+          },
+          {
+            "stop_id": "TSPLAI1_TSPLAI1",
+            "stop_name": "TAMAN SRI PULAI 1",
+            "lat": 2.7480491,
+            "lon": 101.94138765
+          },
+          {
+            "stop_id": "TBKTZMRD1_TBKTZMRD1",
+            "stop_name": "TAMAN BUKIT ZAMRUD 1",
+            "lat": 2.75039065,
+            "lon": 101.94123209
+          },
+          {
+            "stop_id": "TPUT1_TPUT1",
+            "stop_name": "TABIKA PERPADUAN ULU TEMIANG 1",
+            "lat": 2.75290902,
+            "lon": 101.94116771
+          },
+          {
+            "stop_id": "TKW1_TKWG1",
+            "stop_name": "TMN KING WONG1",
+            "lat": 2.75602215,
+            "lon": 101.94057762
+          },
+          {
+            "stop_id": "TDT1_TDT1",
+            "stop_name": "TAMAN DESA TEMIANG 1",
+            "lat": 2.76009974,
+            "lon": 101.93670452
+          },
+          {
+            "stop_id": "TBDT1_TBDT1",
+            "stop_name": "TAMAN BUKIT DESA TEMIANG 1",
+            "lat": 2.76291279,
+            "lon": 101.93309963
+          },
+          {
+            "stop_id": "TBM11_TBM11",
+            "stop_name": "TAMAN BUKIT MUTIARA 1 1",
+            "lat": 2.76282706,
+            "lon": 101.92984879
+          },
+          {
+            "stop_id": "TBM21_TBM21",
+            "stop_name": "TAMAN BUKIT MUTIARA 2 1",
+            "lat": 2.76178757,
+            "lon": 101.92860961
+          },
+          {
+            "stop_id": "TBM3_TBM3",
+            "stop_name": "TAMAN BUKIT MUTIARA 3",
+            "lat": 2.76456311,
+            "lon": 101.92727923
+          },
+          {
+            "stop_id": "TBM22_TBM22",
+            "stop_name": "TAMAN BUKIT MUTIARA 2 2",
+            "lat": 2.76183044,
+            "lon": 101.92862034
+          },
+          {
+            "stop_id": "TBM2_TBM2",
+            "stop_name": "TAMAN BUKIT MUTIARA 1 2",
+            "lat": 2.76281811,
+            "lon": 101.92986429
+          },
+          {
+            "stop_id": "TBDT2_TBDT2",
+            "stop_name": "TAMAN BUKIT DESA TEMIANG 2",
+            "lat": 2.76291279,
+            "lon": 101.93309963
+          },
+          {
+            "stop_id": "TDT2_TDT2",
+            "stop_name": "TAMAN DESA TEMIANG 2",
+            "lat": 2.75995507,
+            "lon": 101.93683863
+          },
+          {
+            "stop_id": "TKW2_TKW2",
+            "stop_name": "TAMAN KING WONG 2",
+            "lat": 2.75602215,
+            "lon": 101.94060445
+          },
+          {
+            "stop_id": "TPUT2_TPUT2",
+            "stop_name": "TABIKA PERPADUAN ULU TEMIANG 2",
+            "lat": 2.75290902,
+            "lon": 101.94116771
+          },
+          {
+            "stop_id": "TMNBKTZRD2_TMNBKTZRD2",
+            "stop_name": "TAMAN BUKIT ZAMRUD 2",
+            "lat": 2.75040137,
+            "lon": 101.94119453
+          },
+          {
+            "stop_id": "TSPLI2_TSPLI2",
+            "stop_name": "TAMAN SRI PULAI 2",
+            "lat": 2.74819913,
+            "lon": 101.94138765
+          },
+          {
+            "stop_id": "TMNTMG2_TMNTMG2",
+            "stop_name": "TAMAN TEMIANG2",
+            "lat": 2.74284623,
+            "lon": 101.93926871
+          },
+          {
+            "stop_id": "SMJKCW2_SMJKCW2",
+            "stop_name": "SEK MEN KEB CHAN WA2",
+            "lat": 2.7401778,
+            "lon": 101.93907022
+          },
+          {
+            "stop_id": "SJT2_SJT2",
+            "stop_name": "SHELL JALAN TEMIANG 2",
+            "lat": 2.73728969,
+            "lon": 101.93842649
+          },
+          {
+            "stop_id": "HJSCNDL_HC",
+            "stop_name": "HAJI SHARIFF CENDOL",
+            "lat": 2.72729374,
+            "lon": 101.94003045
+          },
+          {
+            "stop_id": "TO1_TO1",
+            "stop_name": " ",
+            "lat": 2.72181482,
+            "lon": 101.93712831
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "N508",
+    "route_short_name": "N508",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705013",
+        "route_long_name": "  - DESA RHU LOOP",
+        "stops": [
+          {
+            "stop_id": "T1_F508",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72153619,
+            "lon": 101.93721414
+          },
+          {
+            "stop_id": "KMPLAZA_F508",
+            "stop_name": "KM PLAZA",
+            "lat": 2.7228809,
+            "lon": 101.9376292
+          },
+          {
+            "stop_id": "PDGMPS_PMPS",
+            "stop_name": "PADANG MPS",
+            "lat": 2.7221554,
+            "lon": 101.9413501
+          },
+          {
+            "stop_id": "KWSP_KWSP",
+            "stop_name": "KWSP SEREMBAN",
+            "lat": 2.71988581,
+            "lon": 101.94300771
+          },
+          {
+            "stop_id": "SHELLJLNZB_SHELLJLNZB",
+            "stop_name": "SHELL JALAN ZAABA",
+            "lat": 2.71689583,
+            "lon": 101.94570601
+          },
+          {
+            "stop_id": "BPRHG_BPRHG1",
+            "stop_name": "BALAI POLIS RAHANG",
+            "lat": 2.71431309,
+            "lon": 101.95125282
+          },
+          {
+            "stop_id": "STDN1_STDN1",
+            "stop_name": "SIMPANG TAMAN DUSUN NYIOR 1",
+            "lat": 2.71502575,
+            "lon": 101.95236325
+          },
+          {
+            "stop_id": "PMN_PMN",
+            "stop_name": "PEJABAT MARA SEREMBAN 1",
+            "lat": 2.71883021,
+            "lon": 101.95490599
+          },
+          {
+            "stop_id": "CPOI_CPOI1",
+            "stop_name": "CENTREPOINT",
+            "lat": 2.72238817,
+            "lon": 101.95649385
+          },
+          {
+            "stop_id": "SKSK_SKSK",
+            "stop_name": "SK SERI KELANA 1",
+            "lat": 2.72471905,
+            "lon": 101.95468605
+          },
+          {
+            "stop_id": "KEMS_KEMS",
+            "stop_name": "KEM TENTERA SIKAMAT1",
+            "lat": 2.72938617,
+            "lon": 101.95516348
+          },
+          {
+            "stop_id": "SMDR_SMDR",
+            "stop_name": "SMK DATO HAJI MOHD REDHA1",
+            "lat": 2.73419794,
+            "lon": 101.95946038
+          },
+          {
+            "stop_id": "IPGRM_IPGRM",
+            "stop_name": "IPG KAMPUS RAJA MELEWAR1",
+            "lat": 2.73906864,
+            "lon": 101.95930481
+          },
+          {
+            "stop_id": "TMNMGAWY1_TMNMGAWY1",
+            "stop_name": "TAMAN MEGAWEY1",
+            "lat": 2.74004921,
+            "lon": 101.9598949
+          },
+          {
+            "stop_id": "TDB_TDB",
+            "stop_name": "TMN DESA BERINGIN",
+            "lat": 2.7423747,
+            "lon": 101.9604367
+          },
+          {
+            "stop_id": "TRBIDH_TRBIDH",
+            "stop_name": "TAMAN RASHIDA INDAH",
+            "lat": 2.74491988,
+            "lon": 101.95433199
+          },
+          {
+            "stop_id": "TLSN_TSULI",
+            "stop_name": "TMN SULIANA",
+            "lat": 2.74722334,
+            "lon": 101.95522013
+          },
+          {
+            "stop_id": "TDR1_TMNDESAR",
+            "stop_name": "TMN DESA RHU1",
+            "lat": 2.75034243,
+            "lon": 101.956864
+          },
+          {
+            "stop_id": "PDR1_PDR1",
+            "stop_name": "PERSIARAN DESA RHU 1",
+            "lat": 2.75015489,
+            "lon": 101.95889711
+          },
+          {
+            "stop_id": "JD10_JDESA10",
+            "stop_name": "JLN DESA RHU 10",
+            "lat": 2.74912016,
+            "lon": 101.95973096
+          },
+          {
+            "stop_id": "TJUR_TMNJJUR",
+            "stop_name": "TMN JUJUR",
+            "lat": 2.75104971,
+            "lon": 101.96168543
+          },
+          {
+            "stop_id": "TPEL_TMNPGI",
+            "stop_name": "TMN PELANGI",
+            "lat": 2.75042816,
+            "lon": 101.96364462
+          },
+          {
+            "stop_id": "SKST_SKST",
+            "stop_name": "SK SIKAMAT",
+            "lat": 2.75396995,
+            "lon": 101.96570992
+          },
+          {
+            "stop_id": "TAFE_TAFE",
+            "stop_name": "KOLEJ TAFE",
+            "lat": 2.75386814,
+            "lon": 101.9673568
+          },
+          {
+            "stop_id": "TDRA_TDRA",
+            "stop_name": "TMN DESA KIARA",
+            "lat": 2.75046567,
+            "lon": 101.96603179
+          },
+          {
+            "stop_id": "FAMSTR_FS",
+            "stop_name": "FAMILY STORE",
+            "lat": 2.74720249,
+            "lon": 101.96367145
+          },
+          {
+            "stop_id": "TMWY2_TMWY2",
+            "stop_name": "TAMAN MEGAWEY2",
+            "lat": 2.7399862,
+            "lon": 101.9599707
+          },
+          {
+            "stop_id": "IPRGM2_IPRGM2",
+            "stop_name": "IPG KAMPUS RAJA MELEWAR2",
+            "lat": 2.73906864,
+            "lon": 101.95930481
+          },
+          {
+            "stop_id": "SMDMR1_SMDMR1",
+            "stop_name": "SMK DATO HAJI MOHD REDZA2",
+            "lat": 2.73433726,
+            "lon": 101.95939064
+          },
+          {
+            "stop_id": "KTS2_KTS2",
+            "stop_name": "KEM TENTERA SIKAMAT2",
+            "lat": 2.72938617,
+            "lon": 101.95516348
+          },
+          {
+            "stop_id": "SKSKLNA_SKSKLNA",
+            "stop_name": "SK SERI KELANA 2",
+            "lat": 2.72471905,
+            "lon": 101.95466459
+          },
+          {
+            "stop_id": "PMNS2_PMNS2",
+            "stop_name": "PEJABAT MARA SEREMBAN 2",
+            "lat": 2.71883021,
+            "lon": 101.95490599
+          },
+          {
+            "stop_id": "STDN2_STDN2",
+            "stop_name": "SIMPANG TAMAN DUSUN NYIOR 2",
+            "lat": 2.71502575,
+            "lon": 101.95236325
+          },
+          {
+            "stop_id": "CNC_CNC",
+            "stop_name": "CYCLE N CARRIAGE",
+            "lat": 2.71410947,
+            "lon": 101.94960594
+          },
+          {
+            "stop_id": "KTMS_KTMSBN",
+            "stop_name": "KTM SEREMBAN",
+            "lat": 2.71881949,
+            "lon": 101.94136083
+          },
+          {
+            "stop_id": "KMPLAZA2_KMPLAZA2",
+            "stop_name": "KM PLAZA 2",
+            "lat": 2.72321336,
+            "lon": 101.93751454
+          },
+          {
+            "stop_id": "TO1_TO1",
+            "stop_name": " ",
+            "lat": 2.72181482,
+            "lon": 101.93712831
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "N513",
+    "route_short_name": "N513",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705014",
+        "route_long_name": "NILAI SENTRAL - USIM LOOP",
+        "stops": [
+          {
+            "stop_id": "NS_52",
+            "stop_name": "NILAI SENTRAL",
+            "lat": 2.80220369,
+            "lon": 101.79846882
+          },
+          {
+            "stop_id": "KGBRNILAI_KGBRNILAI",
+            "stop_name": "KG BARU NILAI",
+            "lat": 2.80494162,
+            "lon": 101.80064678
+          },
+          {
+            "stop_id": "CTEX_CTEX",
+            "stop_name": "CALTEX",
+            "lat": 2.80988168,
+            "lon": 101.80473447
+          },
+          {
+            "stop_id": "TIND_TMNDI",
+            "stop_name": "TMN DESA INDAH",
+            "lat": 2.81181649,
+            "lon": 101.80071652
+          },
+          {
+            "stop_id": "WISMABBN_WISMABBN",
+            "stop_name": "WISMA BBN",
+            "lat": 2.81219632,
+            "lon": 101.79472446
+          },
+          {
+            "stop_id": "GN_GN",
+            "stop_name": "GIANT NILAI 1",
+            "lat": 2.81315004,
+            "lon": 101.79150581
+          },
+          {
+            "stop_id": "TESCONLI_TESCONLI",
+            "stop_name": "TESCO NILAI",
+            "lat": 2.8157915,
+            "lon": 101.79181159
+          },
+          {
+            "stop_id": "SIAPRTMENT_SIAPRTMENT",
+            "stop_name": "SUTERA INDAH APARTMENT 1",
+            "lat": 2.81829366,
+            "lon": 101.79264843
+          },
+          {
+            "stop_id": "DTRNN_DTRNN",
+            "stop_name": "DATARAN NILAI 1",
+            "lat": 2.820619,
+            "lon": 101.79057777
+          },
+          {
+            "stop_id": "KSDT_KSDT",
+            "stop_name": "KOMPLEKS SUKAN DREAMTEL1",
+            "lat": 2.81157747,
+            "lon": 101.77505851
+          },
+          {
+            "stop_id": "NIS_NIS",
+            "stop_name": "NILAI INTERNATIONAL SCHOOL1",
+            "lat": 2.81334528,
+            "lon": 101.77487848
+          },
+          {
+            "stop_id": "KASIA_KASIA",
+            "stop_name": "TMN DESA KASIA1",
+            "lat": 2.81980995,
+            "lon": 101.77463472
+          },
+          {
+            "stop_id": "NSV_NSV",
+            "stop_name": "NILAI SPRING VILLAS1",
+            "lat": 2.82449277,
+            "lon": 101.77619576
+          },
+          {
+            "stop_id": "TMNDAGGRK1_TMNDAGGRK1",
+            "stop_name": "TMN DESA ANGGERIK1",
+            "lat": 2.83119012,
+            "lon": 101.78719819
+          },
+          {
+            "stop_id": "USIM_USIM1",
+            "stop_name": "KOLEJ KEDIAMAN ACASIA AVENUE USIM1",
+            "lat": 2.83633367,
+            "lon": 101.78743958
+          },
+          {
+            "stop_id": "AAPRT_AAPRT",
+            "stop_name": "ANGGERIK APARTMENT 1",
+            "lat": 2.8376517,
+            "lon": 101.78669929
+          },
+          {
+            "stop_id": "STN1_STN1",
+            "stop_name": "STADIUM TERTUTUP NILAI 1",
+            "lat": 2.8399131,
+            "lon": 101.7861247
+          },
+          {
+            "stop_id": "PUU1_PUU1",
+            "stop_name": "PINTU UTAMA USIM 1",
+            "lat": 2.84328277,
+            "lon": 101.78393662
+          },
+          {
+            "stop_id": "PKU_PKU",
+            "stop_name": "PUSAT KOMERSIAL USIM",
+            "lat": 2.84201297,
+            "lon": 101.78019226
+          },
+          {
+            "stop_id": "KK1_KK1",
+            "stop_name": "KOLEJ KEDIAMAN 1",
+            "lat": 2.84719397,
+            "lon": 101.78061068
+          },
+          {
+            "stop_id": "PUU2_PUU2",
+            "stop_name": "PINTU UTAMA USIM 2",
+            "lat": 2.84451507,
+            "lon": 101.78222001
+          },
+          {
+            "stop_id": "STN2_STN2",
+            "stop_name": "STADIUM TERTUTUP NILAI 2",
+            "lat": 2.84153613,
+            "lon": 101.78562105
+          },
+          {
+            "stop_id": "AP2_AP2",
+            "stop_name": "ANGGERIK APARTMENT 2",
+            "lat": 2.8376517,
+            "lon": 101.78669929
+          },
+          {
+            "stop_id": "KKA2_KKA2",
+            "stop_name": "KOLEJ KEDIAMAN ACASIA AVENUE USIM 2",
+            "lat": 2.83633367,
+            "lon": 101.78743958
+          },
+          {
+            "stop_id": "TDAGG_TDA2",
+            "stop_name": "TMN DESA ANGGERIK2",
+            "lat": 2.83114726,
+            "lon": 101.78717136
+          },
+          {
+            "stop_id": "NSV2_NSV2",
+            "stop_name": "NILAI SPRING VILLAS2",
+            "lat": 2.82449277,
+            "lon": 101.77619576
+          },
+          {
+            "stop_id": "TDK2_TDK2",
+            "stop_name": "TMN DESA KASIA2",
+            "lat": 2.81980995,
+            "lon": 101.77463472
+          },
+          {
+            "stop_id": "NIS2_NIS2",
+            "stop_name": "NILAI INTERNATIONAL SCHOOL2",
+            "lat": 2.81457466,
+            "lon": 101.77484275
+          },
+          {
+            "stop_id": "KSD2_KSD2",
+            "stop_name": "KOMPLEKS SUKAN DREAMTEL2",
+            "lat": 2.81157747,
+            "lon": 101.77505851
+          },
+          {
+            "stop_id": "DN2_DN2",
+            "stop_name": "DATARAN NILAI 2",
+            "lat": 2.820619,
+            "lon": 101.79057777
+          },
+          {
+            "stop_id": "SIP2_SIP2",
+            "stop_name": "SUTERA INDAH APARTMENT 2",
+            "lat": 2.81829366,
+            "lon": 101.79264843
+          },
+          {
+            "stop_id": "TESCON2_TESCON2",
+            "stop_name": "TESCO NILAI 2",
+            "lat": 2.81581293,
+            "lon": 101.79184914
+          },
+          {
+            "stop_id": "GN2_GN2",
+            "stop_name": "GIANT NILAI 2",
+            "lat": 2.81315004,
+            "lon": 101.79150581
+          },
+          {
+            "stop_id": "WBBN2_WBBN2",
+            "stop_name": "WISMA BBN 2",
+            "lat": 2.81219632,
+            "lon": 101.79472446
+          },
+          {
+            "stop_id": "TDI2_TDI2",
+            "stop_name": "TMN DESA INDAH 2",
+            "lat": 2.8118278,
+            "lon": 101.80058659
+          },
+          {
+            "stop_id": "CALTEX2_CALTEX2",
+            "stop_name": "CALTEX 2",
+            "lat": 2.81037461,
+            "lon": 101.804021
+          },
+          {
+            "stop_id": "KBNI2_KBNI2",
+            "stop_name": "KG BARU NILAI 2",
+            "lat": 2.80494162,
+            "lon": 101.80064678
+          },
+          {
+            "stop_id": "NS2_NS2",
+            "stop_name": "NILAI SENTRAL 2",
+            "lat": 2.80220369,
+            "lon": 101.79846883
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "N52",
+    "route_short_name": "N52",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705016",
+        "route_long_name": "  - NILAI VIA LABU",
+        "stops": [
+          {
+            "stop_id": "T1_T1",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72153619,
+            "lon": 101.93721414
+          },
+          {
+            "stop_id": "KMPLAZA_KMPLAZAR",
+            "stop_name": "KM PLAZA",
+            "lat": 2.7228809,
+            "lon": 101.9376292
+          },
+          {
+            "stop_id": "ERAB_EBARU",
+            "stop_name": "ERA BARU",
+            "lat": 2.72578659,
+            "lon": 101.92982199
+          },
+          {
+            "stop_id": "KOOP_KOOPR",
+            "stop_name": "TMN KOOP",
+            "lat": 2.72545315,
+            "lon": 101.92792296
+          },
+          {
+            "stop_id": "SPGTMNAST_SPGTMNAST",
+            "stop_name": "SPG TMN AST",
+            "lat": 2.7236581,
+            "lon": 101.92737043
+          },
+          {
+            "stop_id": "PMAL_PMAL",
+            "stop_name": "PALM MALL",
+            "lat": 2.72060383,
+            "lon": 101.92205429
+          },
+          {
+            "stop_id": "MZM_M",
+            "stop_name": "MUZIUM NEGERI",
+            "lat": 2.71841226,
+            "lon": 101.92006409
+          },
+          {
+            "stop_id": "KGDMSAID_KGDMSAID",
+            "stop_name": "KG DATO MOHD SAID",
+            "lat": 2.72160863,
+            "lon": 101.91158458
+          },
+          {
+            "stop_id": "TLKJLABU_TLKJLABU",
+            "stop_name": "TELEKOM JALAN LABU",
+            "lat": 2.72192866,
+            "lon": 101.90930974
+          },
+          {
+            "stop_id": "AGPANS_AGPANS",
+            "stop_name": "ANGKATAN PERTAHANAN AWAM NEGERI SEMBILAN",
+            "lat": 2.72430257,
+            "lon": 101.90464467
+          },
+          {
+            "stop_id": "TMNHMNI_TMNHMNI",
+            "stop_name": "TAMAN HARMONI",
+            "lat": 2.72620874,
+            "lon": 101.90101005
+          },
+          {
+            "stop_id": "TSPNG_TSPNG",
+            "stop_name": "TAMAN SRI PINANG",
+            "lat": 2.72700415,
+            "lon": 101.89477312
+          },
+          {
+            "stop_id": "KGSEBIR_KS",
+            "stop_name": "KG SEBIR",
+            "lat": 2.72912322,
+            "lon": 101.88237469
+          },
+          {
+            "stop_id": "KGBT6_KGBT6",
+            "stop_name": "KAMPUNG BATU 6",
+            "lat": 2.73620896,
+            "lon": 101.8781161
+          },
+          {
+            "stop_id": "TTL_TTL",
+            "stop_name": "TAMAN TIROI LABU",
+            "lat": 2.739757,
+            "lon": 101.87113433
+          },
+          {
+            "stop_id": "RRBT7_RRBT7",
+            "stop_name": "RUMAH RAKYAT BT 7",
+            "lat": 2.7400095,
+            "lon": 101.863617
+          },
+          {
+            "stop_id": "SMAPL_SMAPL",
+            "stop_name": "SMA PERSEKUTUAN LABU",
+            "lat": 2.74097619,
+            "lon": 101.86117351
+          },
+          {
+            "stop_id": "KGBC_KBC",
+            "stop_name": "KG BARU CINA",
+            "lat": 2.74278612,
+            "lon": 101.8580846
+          },
+          {
+            "stop_id": "SJKCBT8_SJKCBT8",
+            "stop_name": "SJK CINA KG BARU BATU 8",
+            "lat": 2.74351065,
+            "lon": 101.85641527
+          },
+          {
+            "stop_id": "DORBT8_DORBT8",
+            "stop_name": "DEWAN ORANG RAMAI BATU 8",
+            "lat": 2.74334455,
+            "lon": 101.85445726
+          },
+          {
+            "stop_id": "KPPTH_KPPTH",
+            "stop_name": "KAMPUNG PASIR PUTEH",
+            "lat": 2.74325881,
+            "lon": 101.85231149
+          },
+          {
+            "stop_id": "MPPTH_MPPTH",
+            "stop_name": "MASJID PASIR PUTEH",
+            "lat": 2.7429909,
+            "lon": 101.85091138
+          },
+          {
+            "stop_id": "PEBT_PEBT",
+            "stop_name": "PADANG EMPANGAN BATU",
+            "lat": 2.74298018,
+            "lon": 101.84766054
+          },
+          {
+            "stop_id": "SJKTLDGK_SJKTLDGK",
+            "stop_name": "SJK TAMIL LADANG KIRBY",
+            "lat": 2.7442876,
+            "lon": 101.8448174
+          },
+          {
+            "stop_id": "CEST_CEST",
+            "stop_name": "CAROTINA ESTATE",
+            "lat": 2.74504773,
+            "lon": 101.84203118
+          },
+          {
+            "stop_id": "BT9_BT9",
+            "stop_name": "BATU 9",
+            "lat": 2.74560526,
+            "lon": 101.83735304
+          },
+          {
+            "stop_id": "TTE_TTE",
+            "stop_name": "TEBING TINGGI ELER",
+            "lat": 2.74648522,
+            "lon": 101.83493913
+          },
+          {
+            "stop_id": "SPGGDG_SPGGDG",
+            "stop_name": "SIMPANG GADONG",
+            "lat": 2.74858555,
+            "lon": 101.82502644
+          },
+          {
+            "stop_id": "ALIRSHAD_ALIRSHAD",
+            "stop_name": "PUSAT PENDIDIKAN AL IRSHAD",
+            "lat": 2.75098542,
+            "lon": 101.82290257
+          },
+          {
+            "stop_id": "PKNLBU_PKNLBU",
+            "stop_name": "PEKAN LABU",
+            "lat": 2.75248246,
+            "lon": 101.82203474
+          },
+          {
+            "stop_id": "KGKPDI_KKP",
+            "stop_name": "KG KILANG PADI",
+            "lat": 2.75832986,
+            "lon": 101.81999858
+          },
+          {
+            "stop_id": "BTKGLMDR_BTKGLMDR",
+            "stop_name": "BATU 11 KAMPUNG LAMBAR",
+            "lat": 2.76177971,
+            "lon": 101.81847789
+          },
+          {
+            "stop_id": "KGPLU_KPL",
+            "stop_name": "KAMPUNG PULAU LAMBAR",
+            "lat": 2.76258009,
+            "lon": 101.81750494
+          },
+          {
+            "stop_id": "KGLBR_KL",
+            "stop_name": "KAMPUNG LAMBAR",
+            "lat": 2.76452346,
+            "lon": 101.8157188
+          },
+          {
+            "stop_id": "KPLMBR_KPLMBR",
+            "stop_name": "KAMPUNG PULAU",
+            "lat": 2.76663739,
+            "lon": 101.81425239
+          },
+          {
+            "stop_id": "NLESTATE_NLESTATE",
+            "stop_name": "NEW LABU ESTATE",
+            "lat": 2.77300756,
+            "lon": 101.80940151
+          },
+          {
+            "stop_id": "KGJRGKG_KGJRGKG",
+            "stop_name": "KAMPUNG JERANGKANG",
+            "lat": 2.77753518,
+            "lon": 101.80657446
+          },
+          {
+            "stop_id": "MLHILR_MLHILR",
+            "stop_name": "MASJID LABU HILIR",
+            "lat": 2.78100797,
+            "lon": 101.80142595
+          },
+          {
+            "stop_id": "TDSHRDN_TDSHRDN",
+            "stop_name": "TMN DATO SHAHARDIN BT13",
+            "lat": 2.78281801,
+            "lon": 101.80077947
+          },
+          {
+            "stop_id": "SKDSBDR_SKDSBDR",
+            "stop_name": "SK DATO SHAH BANDAR",
+            "lat": 2.78379403,
+            "lon": 101.80033028
+          },
+          {
+            "stop_id": "SJKGKNDK_SJKGKNDK",
+            "stop_name": "SIMPANG JALAN KG KONDOK 2",
+            "lat": 2.79103868,
+            "lon": 101.79635735
+          },
+          {
+            "stop_id": "SPGJKGKDK4_SPGJKGKDK4",
+            "stop_name": "SIMPANG JALAN KG KONDOK  4",
+            "lat": 2.79312373,
+            "lon": 101.79566225
+          },
+          {
+            "stop_id": "KKODK_KKD",
+            "stop_name": "KAMPUNG KONDOK",
+            "lat": 2.79627449,
+            "lon": 101.79243907
+          },
+          {
+            "stop_id": "SMANILAI_SMANILAI",
+            "stop_name": "SMA NILAI",
+            "lat": 2.79898657,
+            "lon": 101.79146713
+          },
+          {
+            "stop_id": "TMNBE_TMNBA",
+            "stop_name": "TAMAN BAN AIK",
+            "lat": 2.80176003,
+            "lon": 101.79134985
+          },
+          {
+            "stop_id": "NS_57R",
+            "stop_name": "NILAI SENTRAL",
+            "lat": 2.80220369,
+            "lon": 101.79846882
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "R1705017",
+        "route_long_name": "  - NILAI VIA LABU",
+        "stops": [
+          {
+            "stop_id": "NS_NS512",
+            "stop_name": "NILAI SENTRAL",
+            "lat": 2.80220369,
+            "lon": 101.79846882
+          },
+          {
+            "stop_id": "TMNBE_TMNBAR",
+            "stop_name": "TAMAN BAN AIK",
+            "lat": 2.80197748,
+            "lon": 101.79155413
+          },
+          {
+            "stop_id": "SMANILAI_SMANILAIR",
+            "stop_name": "SMA NILAI",
+            "lat": 2.79922227,
+            "lon": 101.79148672
+          },
+          {
+            "stop_id": "KKODK_KKDR",
+            "stop_name": "KAMPUNG KONDOK",
+            "lat": 2.79627449,
+            "lon": 101.79243907
+          },
+          {
+            "stop_id": "SPGJKGKDK4_SPGJKGKDK4R",
+            "stop_name": "SIMPANG JALAN KG KONDOK  4",
+            "lat": 2.79312373,
+            "lon": 101.79566225
+          },
+          {
+            "stop_id": "SJKGKNDK_SJKGKNDKR",
+            "stop_name": "SIMPANG JALAN KG KONDOK 2",
+            "lat": 2.79103868,
+            "lon": 101.79635735
+          },
+          {
+            "stop_id": "SKDSBDR_SKDSBDRR",
+            "stop_name": "SK DATO SHAH BANDAR",
+            "lat": 2.78379403,
+            "lon": 101.80033028
+          },
+          {
+            "stop_id": "TDSHRDN_TDSHRDNR",
+            "stop_name": "TMN DATO SHAHARDIN BT13",
+            "lat": 2.78281801,
+            "lon": 101.80077947
+          },
+          {
+            "stop_id": "MLHILR_MLHILRR",
+            "stop_name": "MASJID LABU HILIR",
+            "lat": 2.78100797,
+            "lon": 101.80142595
+          },
+          {
+            "stop_id": "KGJRGKG_KGJRGKGR",
+            "stop_name": "KAMPUNG JERANGKANG",
+            "lat": 2.7774816,
+            "lon": 101.80672467
+          },
+          {
+            "stop_id": "NLESTATE_NLESTATER",
+            "stop_name": "NEW LABU ESTATE",
+            "lat": 2.77302899,
+            "lon": 101.80940688
+          },
+          {
+            "stop_id": "KPLMBR_KPLMBRR",
+            "stop_name": "KAMPUNG PULAU",
+            "lat": 2.76670755,
+            "lon": 101.8141472
+          },
+          {
+            "stop_id": "KGLBR_KLR",
+            "stop_name": "KAMPUNG LAMBAR",
+            "lat": 2.76452346,
+            "lon": 101.8157188
+          },
+          {
+            "stop_id": "KGPLU_KPLR",
+            "stop_name": "KAMPUNG PULAU LAMBAR",
+            "lat": 2.76258009,
+            "lon": 101.81750494
+          },
+          {
+            "stop_id": "BTKGLMDR_BTKGLMDRR",
+            "stop_name": "BATU 11 KAMPUNG LAMBAR",
+            "lat": 2.76177971,
+            "lon": 101.81847789
+          },
+          {
+            "stop_id": "KGKPDI_KKPR",
+            "stop_name": "KG KILANG PADI",
+            "lat": 2.75832986,
+            "lon": 101.81999858
+          },
+          {
+            "stop_id": "PKNLBU_PKNLBUR",
+            "stop_name": "PEKAN LABU",
+            "lat": 2.75280121,
+            "lon": 101.82184224
+          },
+          {
+            "stop_id": "ALIRSHAD_ALIRSHADR",
+            "stop_name": "PUSAT PENDIDIKAN AL IRSHAD",
+            "lat": 2.75098542,
+            "lon": 101.82290257
+          },
+          {
+            "stop_id": "SPGGDG_SPGGDGR",
+            "stop_name": "SIMPANG GADONG",
+            "lat": 2.74858555,
+            "lon": 101.82502644
+          },
+          {
+            "stop_id": "TTE_TTER",
+            "stop_name": "TEBING TINGGI ELER",
+            "lat": 2.74656068,
+            "lon": 101.83487536
+          },
+          {
+            "stop_id": "BT9_BT9R",
+            "stop_name": "BATU 9",
+            "lat": 2.74550693,
+            "lon": 101.83747169
+          },
+          {
+            "stop_id": "CEST_CESTR",
+            "stop_name": "CAROTINA ESTATE",
+            "lat": 2.7450175,
+            "lon": 101.84224307
+          },
+          {
+            "stop_id": "SJKTLDGK_SJKTLDGKR",
+            "stop_name": "SJK TAMIL LADANG KIRBY",
+            "lat": 2.7442876,
+            "lon": 101.84481739
+          },
+          {
+            "stop_id": "PEBT_PEBTR",
+            "stop_name": "PADANG EMPANGAN BATU",
+            "lat": 2.74298018,
+            "lon": 101.84766054
+          },
+          {
+            "stop_id": "MPPTH_MPPTHR",
+            "stop_name": "MASJID PASIR PUTEH",
+            "lat": 2.7429909,
+            "lon": 101.85091137
+          },
+          {
+            "stop_id": "KPPTH_KPPTHR",
+            "stop_name": "KAMPUNG PASIR PUTEH",
+            "lat": 2.74325881,
+            "lon": 101.85231149
+          },
+          {
+            "stop_id": "DORBT8_DORBT8R",
+            "stop_name": "DEWAN ORANG RAMAI BATU 8",
+            "lat": 2.74334455,
+            "lon": 101.85445725
+          },
+          {
+            "stop_id": "SJKCBT8_SJKCBT8R",
+            "stop_name": "SJK CINA KG BARU BATU 8",
+            "lat": 2.74351065,
+            "lon": 101.85641527
+          },
+          {
+            "stop_id": "KGBC_KBCR",
+            "stop_name": "KG BARU CINA",
+            "lat": 2.74278612,
+            "lon": 101.8580846
+          },
+          {
+            "stop_id": "SMAPL_SMAPLR",
+            "stop_name": "SMA PERSEKUTUAN LABU",
+            "lat": 2.74097619,
+            "lon": 101.86117351
+          },
+          {
+            "stop_id": "RRBT7_RRBT7R",
+            "stop_name": "RUMAH RAKYAT BT 7",
+            "lat": 2.74010815,
+            "lon": 101.86351776
+          },
+          {
+            "stop_id": "TTL_TTLR",
+            "stop_name": "TAMAN TIROI LABU",
+            "lat": 2.73956578,
+            "lon": 101.8712127
+          },
+          {
+            "stop_id": "KGBT6_KGBT6R",
+            "stop_name": "KAMPUNG BATU 6",
+            "lat": 2.73620896,
+            "lon": 101.8781161
+          },
+          {
+            "stop_id": "KGSEBIR_KGSEBIRR",
+            "stop_name": "KG SEBIR",
+            "lat": 2.72866815,
+            "lon": 101.88264191
+          },
+          {
+            "stop_id": "TSPNG_TSPNGR",
+            "stop_name": "TAMAN SRI PINANG",
+            "lat": 2.72683024,
+            "lon": 101.89470648
+          },
+          {
+            "stop_id": "TMNHMNI_TMNHMNIR",
+            "stop_name": "TAMAN HARMONI",
+            "lat": 2.72620874,
+            "lon": 101.90101005
+          },
+          {
+            "stop_id": "AGPANS_AGPANSR",
+            "stop_name": "ANGKATAN PERTAHANAN AWAM NEGERI SEMBILAN",
+            "lat": 2.72430257,
+            "lon": 101.90464467
+          },
+          {
+            "stop_id": "TLKJLABU_TLKJLABUR",
+            "stop_name": "TELEKOM JALAN LABU",
+            "lat": 2.72192866,
+            "lon": 101.90930974
+          },
+          {
+            "stop_id": "KGDMSAID_KGDMSAIDR",
+            "stop_name": "KG DATO MOHD SAID",
+            "lat": 2.72160863,
+            "lon": 101.91158458
+          },
+          {
+            "stop_id": "MZM_MZMR",
+            "stop_name": "MUZIUM NEGERI",
+            "lat": 2.71841226,
+            "lon": 101.92006409
+          },
+          {
+            "stop_id": "PMAL_PMALR",
+            "stop_name": "PALM MALL",
+            "lat": 2.72035199,
+            "lon": 101.92182362
+          },
+          {
+            "stop_id": "KOOP_TKR",
+            "stop_name": "TMN KOOP",
+            "lat": 2.72545315,
+            "lon": 101.92792296
+          },
+          {
+            "stop_id": "ERAB_EBARUR",
+            "stop_name": "ERA BARU",
+            "lat": 2.72578659,
+            "lon": 101.92982199
+          },
+          {
+            "stop_id": "T1_T1R",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72152011,
+            "lon": 101.93715513
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "N54",
+    "route_short_name": "N54",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705024",
+        "route_long_name": "TERMINAL 1 - SEREMBAN 2",
+        "stops": [
+          {
+            "stop_id": "T1_53",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72152011,
+            "lon": 101.93715513
+          },
+          {
+            "stop_id": "DPSBN_DPSBN",
+            "stop_name": "DEWAN PERBANDARAN SEREMBAN",
+            "lat": 2.72349735,
+            "lon": 101.94098532
+          },
+          {
+            "stop_id": "PDGMPS_PMPS",
+            "stop_name": "PADANG MPS",
+            "lat": 2.7221554,
+            "lon": 101.9413501
+          },
+          {
+            "stop_id": "KWSP_KWSPSBN",
+            "stop_name": "KWSP SEREMBAN",
+            "lat": 2.71988581,
+            "lon": 101.94300771
+          },
+          {
+            "stop_id": "PETRSH_PETRRSH",
+            "stop_name": "PETRON BKT RASAH",
+            "lat": 2.71466571,
+            "lon": 101.94258736
+          },
+          {
+            "stop_id": "HMWR_HMWR",
+            "stop_name": "HOSPITAL MAWAR",
+            "lat": 2.70597003,
+            "lon": 101.94078147
+          },
+          {
+            "stop_id": "SPGKGPSR_SPGKGPSR",
+            "stop_name": "SIMPANG KAMPUNG PASIR KG DATO MANSOR",
+            "lat": 2.70100629,
+            "lon": 101.93960313
+          },
+          {
+            "stop_id": "KGBRSH_KGBR",
+            "stop_name": "KAMPUNG BARU RASAH",
+            "lat": 2.6971768,
+            "lon": 101.93728924
+          },
+          {
+            "stop_id": "PPOOT_PPOOT",
+            "stop_name": "PUSAT PENJAGAAN ORANG-ORANG TUA",
+            "lat": 2.69898992,
+            "lon": 101.93488708
+          },
+          {
+            "stop_id": "PAKBR_PAKBR",
+            "stop_name": "PERPUSTAKAAN AWAM KG BARU RASAH",
+            "lat": 2.7010543,
+            "lon": 101.9325413
+          },
+          {
+            "stop_id": "TMNPRIMPN_TMNPRIMPN",
+            "stop_name": "TAMAN PERMAI IMPIAN",
+            "lat": 2.704153,
+            "lon": 101.929316
+          },
+          {
+            "stop_id": "TMNPERMAI3_TP3",
+            "stop_name": "TAMAN PERMAI 3",
+            "lat": 2.7055723,
+            "lon": 101.9270984
+          },
+          {
+            "stop_id": "TMNPMIF2_TMNPMIF2",
+            "stop_name": "TAMAN PERMAI FASA 2",
+            "lat": 2.71007321,
+            "lon": 101.92501576
+          },
+          {
+            "stop_id": "TMNPMIF1_TPF1",
+            "stop_name": "TAMAN PERMAI FASA 1",
+            "lat": 2.71526547,
+            "lon": 101.92309525
+          },
+          {
+            "stop_id": "KPJPALMMAL_KPJPALMMAL",
+            "stop_name": "KPJ PALM MALL",
+            "lat": 2.71945753,
+            "lon": 101.92192512
+          },
+          {
+            "stop_id": "MZM_MZM",
+            "stop_name": "MUZIUM NEGERI",
+            "lat": 2.71833724,
+            "lon": 101.92027867
+          },
+          {
+            "stop_id": "TMNBKPYG_TMNBKPYG",
+            "stop_name": "TAMAN BUKIT KEPAYANG",
+            "lat": 2.71452863,
+            "lon": 101.9149975
+          },
+          {
+            "stop_id": "TSCOXTRA_TSCOXTRA",
+            "stop_name": "TESCO EXTRA SEREMBAN 2",
+            "lat": 2.71186312,
+            "lon": 101.91331565
+          },
+          {
+            "stop_id": "TMNOLDF3_TMNOLDF3",
+            "stop_name": "TAMAN OAKLAND FASA 3",
+            "lat": 2.71088371,
+            "lon": 101.91631973
+          },
+          {
+            "stop_id": "COLUMBIA_COLUMBIA",
+            "stop_name": "COLUMBIA HOSPITAL",
+            "lat": 2.71076405,
+            "lon": 101.91715422
+          },
+          {
+            "stop_id": "TMGH_TM",
+            "stop_name": "TAMAN MEGAH",
+            "lat": 2.70975844,
+            "lon": 101.91707611
+          },
+          {
+            "stop_id": "OBC_OBC",
+            "stop_name": "OAKLAND BUSSINESS CENTRE",
+            "lat": 2.70769545,
+            "lon": 101.91696882
+          },
+          {
+            "stop_id": "DHL_DHL",
+            "stop_name": "DHL",
+            "lat": 2.70448574,
+            "lon": 101.91723168
+          },
+          {
+            "stop_id": "VBYUK_VBYUK",
+            "stop_name": "VICTOR BYUCK",
+            "lat": 2.70272582,
+            "lon": 101.91743081
+          },
+          {
+            "stop_id": "TITILATEX_TITILATEX",
+            "stop_name": "TITILATEX",
+            "lat": 2.69844317,
+            "lon": 101.91805007
+          },
+          {
+            "stop_id": "PETRSBN2_PETRSBN2",
+            "stop_name": "PETRONAS SEREMBAN 2",
+            "lat": 2.69407601,
+            "lon": 101.91701651
+          },
+          {
+            "stop_id": "KNGR_KNGR",
+            "stop_name": "KOLEJ NEGERI",
+            "lat": 2.69353304,
+            "lon": 101.91146493
+          },
+          {
+            "stop_id": "AEONS2_ASB2",
+            "stop_name": "AEON SEREMBAN 2",
+            "lat": 2.69943631,
+            "lon": 101.91274225
+          },
+          {
+            "stop_id": "KPDN_SAQ",
+            "stop_name": "SURAU AL-QUDWAH KPNKK",
+            "lat": 2.70019965,
+            "lon": 101.91041561
+          },
+          {
+            "stop_id": "LUCKYP_LUCKYP",
+            "stop_name": "RESTOREN LUCKY PALACE",
+            "lat": 2.69816155,
+            "lon": 101.91066442
+          },
+          {
+            "stop_id": "CPAT_CA",
+            "stop_name": "CENTRAL PARK APARTMENT",
+            "lat": 2.69832558,
+            "lon": 101.90911012
+          },
+          {
+            "stop_id": "PSRBMYDIN_PSRBMYDIN",
+            "stop_name": "PASARAYA BESAR MYDIN",
+            "lat": 2.69470479,
+            "lon": 101.90473392
+          },
+          {
+            "stop_id": "SURTAQWA_SURTAQWA",
+            "stop_name": "SURAU AT TAQWA",
+            "lat": 2.68972491,
+            "lon": 101.90571846
+          },
+          {
+            "stop_id": "FSTORESB2_FSTORESB2",
+            "stop_name": "FAMILY STORE SEREMBAN 2",
+            "lat": 2.6836303,
+            "lon": 101.9038041
+          },
+          {
+            "stop_id": "SPGPAV_SPGPAV",
+            "stop_name": "SIMPANG PARK AVENUE",
+            "lat": 2.68360371,
+            "lon": 101.90180361
+          },
+          {
+            "stop_id": "GAV1_GAV1",
+            "stop_name": "GARDEN AVENUE 1",
+            "lat": 2.68302976,
+            "lon": 101.89952435
+          },
+          {
+            "stop_id": "GAV2_GAV2",
+            "stop_name": "GARDEN AVENUE 2",
+            "lat": 2.68037787,
+            "lon": 101.89812899
+          },
+          {
+            "stop_id": "FSBN2_FSBN2",
+            "stop_name": "FLAT SEREMBAN 2",
+            "lat": 2.67880958,
+            "lon": 101.89855814
+          },
+          {
+            "stop_id": "SKWWSBN2_SKWWSBN2",
+            "stop_name": "SK WAWASAN SEREMBAN 2",
+            "lat": 2.67912874,
+            "lon": 101.90319359
+          },
+          {
+            "stop_id": "SKWSBN22_SKWSBN22",
+            "stop_name": "SK WAWASAN SEREMBAN 2 2",
+            "lat": 2.68076545,
+            "lon": 101.90354941
+          },
+          {
+            "stop_id": "SMKBKTKPG_SMKBKTKPG",
+            "stop_name": "SMK BUKIT KEPAYANG",
+            "lat": 2.68062347,
+            "lon": 101.90565532
+          },
+          {
+            "stop_id": "GHOM_GH",
+            "stop_name": "GARDEN HOMES",
+            "lat": 2.68034036,
+            "lon": 101.90939426
+          },
+          {
+            "stop_id": "GHFE_GHFE",
+            "stop_name": "GARDEN HOMES FASA E",
+            "lat": 2.68138587,
+            "lon": 101.91167237
+          },
+          {
+            "stop_id": "ARWI_AI",
+            "stop_name": "AROWANA INDAH",
+            "lat": 2.68231381,
+            "lon": 101.91431313
+          },
+          {
+            "stop_id": "KKSBN2_KKSBN2",
+            "stop_name": "KLINIK KESIHATAN SEREMBAN 2",
+            "lat": 2.68409883,
+            "lon": 101.91722984
+          },
+          {
+            "stop_id": "BPMAKAH_BPMAKAH",
+            "stop_name": "BALAI POLIS MAHKAMAH",
+            "lat": 2.68548679,
+            "lon": 101.91827493
+          },
+          {
+            "stop_id": "BBA_BBA",
+            "stop_name": "BALAI BOMBA SEREMBAN 2",
+            "lat": 2.68855,
+            "lon": 101.92141166
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "R1705040",
+        "route_long_name": "TERMINAL 1 - SEREMBAN 2",
+        "stops": [
+          {
+            "stop_id": "BBA_BB",
+            "stop_name": "BALAI BOMBA SEREMBAN 2",
+            "lat": 2.68638479,
+            "lon": 101.91877126
+          },
+          {
+            "stop_id": "BPMAKAH_BPMAKAHR",
+            "stop_name": "BALAI POLIS MAHKAMAH",
+            "lat": 2.68548679,
+            "lon": 101.91827493
+          },
+          {
+            "stop_id": "KKSBN2_KKSBN2R",
+            "stop_name": "KLINIK KESIHATAN SEREMBAN 2",
+            "lat": 2.68409883,
+            "lon": 101.91722984
+          },
+          {
+            "stop_id": "ARWI_AIR",
+            "stop_name": "AROWANA INDAH",
+            "lat": 2.68231381,
+            "lon": 101.91431313
+          },
+          {
+            "stop_id": "GHFE_GHFER",
+            "stop_name": "GARDEN HOMES FASA E",
+            "lat": 2.68138587,
+            "lon": 101.91167237
+          },
+          {
+            "stop_id": "GHOM_GHR",
+            "stop_name": "GARDEN HOMES",
+            "lat": 2.68034036,
+            "lon": 101.90939426
+          },
+          {
+            "stop_id": "SMKBKTKPG_SMKBKTKPGR",
+            "stop_name": "SMK BUKIT KEPAYANG",
+            "lat": 2.68054961,
+            "lon": 101.90636165
+          },
+          {
+            "stop_id": "SKWSBN22_SKWSBN22R",
+            "stop_name": "SK WAWASAN SEREMBAN 2 2",
+            "lat": 2.68075474,
+            "lon": 101.90355542
+          },
+          {
+            "stop_id": "SKWWSBN2_SKWWSBN2R",
+            "stop_name": "SK WAWASAN SEREMBAN 2",
+            "lat": 2.67921624,
+            "lon": 101.90320673
+          },
+          {
+            "stop_id": "FSBN2_FSBN2R",
+            "stop_name": "FLAT SEREMBAN 2",
+            "lat": 2.67880958,
+            "lon": 101.89855813
+          },
+          {
+            "stop_id": "GAV2_GAV2R",
+            "stop_name": "GARDEN AVENUE 2",
+            "lat": 2.68037787,
+            "lon": 101.89812898
+          },
+          {
+            "stop_id": "GAV1_GAV1R",
+            "stop_name": "GARDEN AVENUE 1",
+            "lat": 2.68302976,
+            "lon": 101.89952435
+          },
+          {
+            "stop_id": "SPGPAV_SPGPAVR",
+            "stop_name": "SIMPANG PARK AVENUE",
+            "lat": 2.68360371,
+            "lon": 101.90180361
+          },
+          {
+            "stop_id": "FSTORESB2_FSTORESB2R",
+            "stop_name": "FAMILY STORE SEREMBAN 2",
+            "lat": 2.6836303,
+            "lon": 101.9038041
+          },
+          {
+            "stop_id": "SURTAQWA_SURTAQWAR",
+            "stop_name": "SURAU AT TAQWA",
+            "lat": 2.68933153,
+            "lon": 101.9054104
+          },
+          {
+            "stop_id": "PSRBMYDIN_PSRBMYDINR",
+            "stop_name": "PASARAYA BESAR MYDIN",
+            "lat": 2.69470479,
+            "lon": 101.90473392
+          },
+          {
+            "stop_id": "CPAT_CAR",
+            "stop_name": "CENTRAL PARK APARTMENT",
+            "lat": 2.69832558,
+            "lon": 101.90911012
+          },
+          {
+            "stop_id": "LUCKYP_LUCKYPR",
+            "stop_name": "RESTOREN LUCKY PALACE",
+            "lat": 2.69827947,
+            "lon": 101.9108242
+          },
+          {
+            "stop_id": "KPDN_SAQR",
+            "stop_name": "SURAU AL-QUDWAH KPNKK",
+            "lat": 2.70019965,
+            "lon": 101.91041561
+          },
+          {
+            "stop_id": "AEONS2_ASB2R",
+            "stop_name": "AEON SEREMBAN 2",
+            "lat": 2.69943631,
+            "lon": 101.91274225
+          },
+          {
+            "stop_id": "KNGR_KNGRR",
+            "stop_name": "KOLEJ NEGERI",
+            "lat": 2.69353304,
+            "lon": 101.91146492
+          },
+          {
+            "stop_id": "PETRSBN2_PETRSBN2R",
+            "stop_name": "PETRONAS SEREMBAN 2",
+            "lat": 2.69407601,
+            "lon": 101.91701651
+          },
+          {
+            "stop_id": "TITILATEX_TITILATEXR",
+            "stop_name": "TITILATEX",
+            "lat": 2.69844317,
+            "lon": 101.91805007
+          },
+          {
+            "stop_id": "VBYUK_VBYUKR",
+            "stop_name": "VICTOR BYUCK",
+            "lat": 2.70272582,
+            "lon": 101.91743081
+          },
+          {
+            "stop_id": "DHL_DHLR",
+            "stop_name": "DHL",
+            "lat": 2.70448574,
+            "lon": 101.91723167
+          },
+          {
+            "stop_id": "OBC_OBCR",
+            "stop_name": "OAKLAND BUSSINESS CENTRE",
+            "lat": 2.70769545,
+            "lon": 101.91696882
+          },
+          {
+            "stop_id": "TMGH_TMR",
+            "stop_name": "TAMAN MEGAH",
+            "lat": 2.70975844,
+            "lon": 101.91707611
+          },
+          {
+            "stop_id": "COLUMBIA_COLUMBIAR",
+            "stop_name": "COLUMBIA HOSPITAL",
+            "lat": 2.71076405,
+            "lon": 101.91715421
+          },
+          {
+            "stop_id": "TMNOLDF3_TMNOLDF3R",
+            "stop_name": "TAMAN OAKLAND FASA 3",
+            "lat": 2.71088371,
+            "lon": 101.91631972
+          },
+          {
+            "stop_id": "TSCOXTRA_TSCOXTRAR",
+            "stop_name": "TESCO EXTRA SEREMBAN 2",
+            "lat": 2.71186312,
+            "lon": 101.91331565
+          },
+          {
+            "stop_id": "TMNBKPYG_TMNBKPYGR",
+            "stop_name": "TAMAN BUKIT KEPAYANG",
+            "lat": 2.71452863,
+            "lon": 101.9149975
+          },
+          {
+            "stop_id": "MZM_54R",
+            "stop_name": "MUZIUM NEGERI",
+            "lat": 2.71841226,
+            "lon": 101.92006409
+          },
+          {
+            "stop_id": "KPJPALMMAL_KPJPALMMALR",
+            "stop_name": "KPJ PALM MALL",
+            "lat": 2.71945753,
+            "lon": 101.92192512
+          },
+          {
+            "stop_id": "TMNPMIF1_TPF1R",
+            "stop_name": "TAMAN PERMAI FASA 1",
+            "lat": 2.71526547,
+            "lon": 101.92309525
+          },
+          {
+            "stop_id": "TMNPMIF2_TMNPMIF2R",
+            "stop_name": "TAMAN PERMAI FASA 2",
+            "lat": 2.71007321,
+            "lon": 101.92501576
+          },
+          {
+            "stop_id": "TMNPERMAI3_TP3R",
+            "stop_name": "TAMAN PERMAI 3",
+            "lat": 2.7055723,
+            "lon": 101.9270984
+          },
+          {
+            "stop_id": "TMNPRIMPN_TMNPRIMPNR",
+            "stop_name": "TAMAN PERMAI IMPIAN",
+            "lat": 2.704153,
+            "lon": 101.929316
+          },
+          {
+            "stop_id": "PAKBR_PAKBRR",
+            "stop_name": "PERPUSTAKAAN AWAM KG BARU RASAH",
+            "lat": 2.7010543,
+            "lon": 101.9325413
+          },
+          {
+            "stop_id": "PPOOT_PPOOTR",
+            "stop_name": "PUSAT PENJAGAAN ORANG-ORANG TUA",
+            "lat": 2.69898992,
+            "lon": 101.93488708
+          },
+          {
+            "stop_id": "KGBRSH_KGBRR",
+            "stop_name": "KAMPUNG BARU RASAH",
+            "lat": 2.6971768,
+            "lon": 101.93728923
+          },
+          {
+            "stop_id": "SPGKGPSR_SPGKGPSRR",
+            "stop_name": "SIMPANG KAMPUNG PASIR KG DATO MANSOR",
+            "lat": 2.70100629,
+            "lon": 101.93960312
+          },
+          {
+            "stop_id": "HMWR_HMWRR",
+            "stop_name": "HOSPITAL MAWAR",
+            "lat": 2.70600754,
+            "lon": 101.94064736
+          },
+          {
+            "stop_id": "HBS_HBTJR",
+            "stop_name": "HOSPITAL BESAR TUANKU JAAFAR",
+            "lat": 2.70879955,
+            "lon": 101.94148958
+          },
+          {
+            "stop_id": "PETRSH_PETRSHR",
+            "stop_name": "PETRON BKT RASAH",
+            "lat": 2.71466571,
+            "lon": 101.94258736
+          },
+          {
+            "stop_id": "KTMS_KTMSBN",
+            "stop_name": "KTM SEREMBAN",
+            "lat": 2.71881949,
+            "lon": 101.94136083
+          },
+          {
+            "stop_id": "KMPLAZA_KMP",
+            "stop_name": "KM PLAZA",
+            "lat": 2.7228809,
+            "lon": 101.9376292
+          },
+          {
+            "stop_id": "T1_T1R",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72152011,
+            "lon": 101.93715513
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "N60A",
+    "route_short_name": "N60A",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705032",
+        "route_long_name": "  - TAMPIN VIA SENAWANG",
+        "stops": [
+          {
+            "stop_id": "T1_53",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72152011,
+            "lon": 101.93715513
+          },
+          {
+            "stop_id": "DPSBN_DPSBN",
+            "stop_name": "DEWAN PERBANDARAN SEREMBAN",
+            "lat": 2.72349735,
+            "lon": 101.94098532
+          },
+          {
+            "stop_id": "PDGMPS_PMPS",
+            "stop_name": "PADANG MPS",
+            "lat": 2.7221554,
+            "lon": 101.9413501
+          },
+          {
+            "stop_id": "KWSP_KWSP",
+            "stop_name": "KWSP SEREMBAN",
+            "lat": 2.71988581,
+            "lon": 101.94300771
+          },
+          {
+            "stop_id": "SHELLJLNZB_SHELLJLNZB",
+            "stop_name": "SHELL JALAN ZAABA",
+            "lat": 2.71689583,
+            "lon": 101.94570601
+          },
+          {
+            "stop_id": "BBRHG_BBRHG",
+            "stop_name": "BALAI BOMBA RAHANG",
+            "lat": 2.71436131,
+            "lon": 101.95116699
+          },
+          {
+            "stop_id": "TNCHLOG_TNCHLOG",
+            "stop_name": "TAMAN CHOONG LOONG",
+            "lat": 2.7074302,
+            "lon": 101.9556731
+          },
+          {
+            "stop_id": "TMNSRMBN_TSB",
+            "stop_name": "TAMAN SEREMBAN / TAMAN BINJAI",
+            "lat": 2.69884329,
+            "lon": 101.96200311
+          },
+          {
+            "stop_id": "KBRH_TR",
+            "stop_name": "KAMPUNG BARU RAHANG",
+            "lat": 2.69576752,
+            "lon": 101.9679898
+          },
+          {
+            "stop_id": "TMNBKTEMS_TBE",
+            "stop_name": "TAMAN BUKIT EMAS/JPJ",
+            "lat": 2.69090737,
+            "lon": 101.96981907
+          },
+          {
+            "stop_id": "PETRONAS_PJT",
+            "stop_name": "PETRONAS JALAN TAMPIN / SENAWANG",
+            "lat": 2.67856668,
+            "lon": 101.9789654
+          },
+          {
+            "stop_id": "KPRTINSNW_KPRTINSNW",
+            "stop_name": "KAWASAN PERINDUSTRIAN SENAWANG",
+            "lat": 2.67761285,
+            "lon": 101.98069274
+          },
+          {
+            "stop_id": "TTNJ_TTN",
+            "stop_name": "TAMAN TUNKU NAJIHAH",
+            "lat": 2.67733957,
+            "lon": 101.98316574
+          },
+          {
+            "stop_id": "TTJAAFAR_TJ",
+            "stop_name": "TAMAN TUNKU JAAFAR",
+            "lat": 2.673872,
+            "lon": 101.99400695
+          },
+          {
+            "stop_id": "SWGLINK_SL",
+            "stop_name": "SENAWANG LINK",
+            "lat": 2.66212116,
+            "lon": 102.00554072
+          },
+          {
+            "stop_id": "KPSGGDT_KPSGGDT",
+            "stop_name": "KAWASAN PERINDUSTRIAN SUNGAI GADUT",
+            "lat": 2.66273204,
+            "lon": 102.01071203
+          },
+          {
+            "stop_id": "BATU10_BATU10",
+            "stop_name": "BATU 10",
+            "lat": 2.65901583,
+            "lon": 102.01983958
+          },
+          {
+            "stop_id": "KUARTJPJ_KUARTJPJ",
+            "stop_name": "KUARTERS JPJ",
+            "lat": 2.65518573,
+            "lon": 102.02313066
+          },
+          {
+            "stop_id": "WWPDS_APP",
+            "stop_name": "AIR PANAS PEDAS",
+            "lat": 2.63309848,
+            "lon": 102.05394387
+          },
+          {
+            "stop_id": "ULUSP_US",
+            "stop_name": "SIMPANG KAMPUNG ULU SEPRI",
+            "lat": 2.62510855,
+            "lon": 102.05715716
+          },
+          {
+            "stop_id": "BPPDS_BPPDS",
+            "stop_name": "BALAI POLIS PEDAS",
+            "lat": 2.61976985,
+            "lon": 102.05840975
+          },
+          {
+            "stop_id": "IKTBN_IKT",
+            "stop_name": "IKTBN",
+            "lat": 2.6159825,
+            "lon": 102.0621407
+          },
+          {
+            "stop_id": "TCHEMJ_TCJ",
+            "stop_name": "TAMAN CHEMBONG JAYA",
+            "lat": 2.61224204,
+            "lon": 102.06453323
+          },
+          {
+            "stop_id": "SJKTC_ST",
+            "stop_name": "SJKT LADANG CHEMBONG",
+            "lat": 2.60854443,
+            "lon": 102.06704915
+          },
+          {
+            "stop_id": "MDNSLRAR_MDNSLRAR",
+            "stop_name": "MEDAN SELERA REMBAU",
+            "lat": 2.60371073,
+            "lon": 102.06883013
+          },
+          {
+            "stop_id": "IPDR_IPDR1",
+            "stop_name": "IPD REMBAU",
+            "lat": 2.60126172,
+            "lon": 102.06952751
+          },
+          {
+            "stop_id": "ZENMART_ZM",
+            "stop_name": "ZE MART REMBAU",
+            "lat": 2.59794456,
+            "lon": 102.07215071
+          },
+          {
+            "stop_id": "MASBT17_MASBT17",
+            "stop_name": "MASJID BATU 17",
+            "lat": 2.5955652,
+            "lon": 102.07544982
+          },
+          {
+            "stop_id": "SMKDSR_SDR",
+            "stop_name": "SMK DATO SEDIA RAJA",
+            "lat": 2.59488998,
+            "lon": 102.07679092
+          },
+          {
+            "stop_id": "KGTGSNA_KGTGSNA",
+            "stop_name": "KAMPUNG TANJUNG SENA",
+            "lat": 2.59244765,
+            "lon": 102.08741918
+          },
+          {
+            "stop_id": "KFCREMBAU_KFCREMBAU",
+            "stop_name": "KFC REMBAU",
+            "lat": 2.58946139,
+            "lon": 102.09261596
+          },
+          {
+            "stop_id": "TREMBAU_TBR",
+            "stop_name": "PERHENTIAN BAS REMBAU",
+            "lat": 2.59200152,
+            "lon": 102.09255695
+          },
+          {
+            "stop_id": "SMARMBU_SMARMBU",
+            "stop_name": "SM AGAMA REMBAU",
+            "lat": 2.59083327,
+            "lon": 102.0907706
+          },
+          {
+            "stop_id": "KPKRJAN_KK",
+            "stop_name": "KOMPLEKS KERAJAAN REMBAU",
+            "lat": 2.59116553,
+            "lon": 102.09692895
+          },
+          {
+            "stop_id": "KGKLIG_TK",
+            "stop_name": "KAMPUNG TANJUNG KELING",
+            "lat": 2.5879716,
+            "lon": 102.09860802
+          },
+          {
+            "stop_id": "KGBATU_KGB",
+            "stop_name": "KAMPUNG BATU  LONGGOK  KG  BATU",
+            "lat": 2.58380903,
+            "lon": 102.11475223
+          },
+          {
+            "stop_id": "MASJDKGBT_MASJDKGBT",
+            "stop_name": "MASJID KAMPUNG BATU",
+            "lat": 2.58458608,
+            "lon": 102.11577415
+          },
+          {
+            "stop_id": "SKSNAMA_SKSNAMA",
+            "stop_name": "SK SALAK NAMA",
+            "lat": 2.57852374,
+            "lon": 102.11989939
+          },
+          {
+            "stop_id": "KLIDBGGK_KLIDBGGK",
+            "stop_name": "KLINIK DESA BONGEK",
+            "lat": 2.5689405,
+            "lon": 102.12217927
+          },
+          {
+            "stop_id": "MASJIDKBG_MASJIDKBG",
+            "stop_name": "MASJID BONGEK",
+            "lat": 2.56549062,
+            "lon": 102.1232146
+          },
+          {
+            "stop_id": "PKNCGKU_PC",
+            "stop_name": "PEKAN CHENGKAU",
+            "lat": 2.56068891,
+            "lon": 102.12366253
+          },
+          {
+            "stop_id": "MASJIDCU_MC",
+            "stop_name": "MASJID CHENGKAU",
+            "lat": 2.55591934,
+            "lon": 102.12597191
+          },
+          {
+            "stop_id": "TNHDTRCGKU_TDC",
+            "stop_name": "TANAH DATAR CHENGKAU",
+            "lat": 2.55091394,
+            "lon": 102.13047802
+          },
+          {
+            "stop_id": "KGLADA_BRC",
+            "stop_name": "BALAI RAYA KAMPUNG LADA",
+            "lat": 2.5464766,
+            "lon": 102.13307977
+          },
+          {
+            "stop_id": "SKCGKAU_SKC",
+            "stop_name": "SK CHENGKAU",
+            "lat": 2.54366306,
+            "lon": 102.13548839
+          },
+          {
+            "stop_id": "KLGMAYC_KLGMAYCR",
+            "stop_name": "KILANG MEMPROSES ANAK AYAM CHENGKAU",
+            "lat": 2.54069946,
+            "lon": 102.13921666
+          },
+          {
+            "stop_id": "SKAALSOFA_SKAALSOFA",
+            "stop_name": "SK AGAMA AL-SOFA",
+            "lat": 2.5375054,
+            "lon": 102.14204639
+          },
+          {
+            "stop_id": "CGGULU_CGGULU",
+            "stop_name": "CHENGKAU ULU",
+            "lat": 2.52662626,
+            "lon": 102.15063214
+          },
+          {
+            "stop_id": "SMKDUA_SMKDUA",
+            "stop_name": "SK DATO HAJI ADNAN",
+            "lat": 2.52274084,
+            "lon": 102.15439796
+          },
+          {
+            "stop_id": "PKNKOTA_PKNKOTA",
+            "stop_name": "PEKAN KOTA",
+            "lat": 2.51934845,
+            "lon": 102.15778291
+          },
+          {
+            "stop_id": "SPGKGKTA_SPGKGKTA",
+            "stop_name": "SIMPANG KAMPUNG KOTA PULAU",
+            "lat": 2.5184347,
+            "lon": 102.15870559
+          },
+          {
+            "stop_id": "SKKOTA_SKK",
+            "stop_name": "SK KOTA",
+            "lat": 2.51424109,
+            "lon": 102.16244995
+          },
+          {
+            "stop_id": "GADONG_KK",
+            "stop_name": "KAMPUNG GADONG",
+            "lat": 2.51215232,
+            "lon": 102.16474056
+          },
+          {
+            "stop_id": "PPGDGG_PPGDGG",
+            "stop_name": "PUSAT PERTANIAN GADONG",
+            "lat": 2.51026987,
+            "lon": 102.16651082
+          },
+          {
+            "stop_id": "KOTATRA_KOTATRA",
+            "stop_name": "KOTA TRADING",
+            "lat": 2.50737587,
+            "lon": 102.16967583
+          },
+          {
+            "stop_id": "KGKENDOG_KK",
+            "stop_name": "KAMPUNG KENDONG",
+            "lat": 2.50399415,
+            "lon": 102.17273355
+          },
+          {
+            "stop_id": "SRIKDG_SRIKDG",
+            "stop_name": "SRI KENDONG",
+            "lat": 2.4991815,
+            "lon": 102.17663348
+          },
+          {
+            "stop_id": "SEIKDG2_SEIKDG2",
+            "stop_name": "SRI KENDONG 2",
+            "lat": 2.49727358,
+            "lon": 102.1803993
+          },
+          {
+            "stop_id": "MDNSSK_MS",
+            "stop_name": "MEDAN SELERA SRI KENDONG",
+            "lat": 2.49515129,
+            "lon": 102.18432605
+          },
+          {
+            "stop_id": "SPGEMPAT_SPGEMPAT",
+            "stop_name": "SIMPANG EMPAT",
+            "lat": 2.49417053,
+            "lon": 102.18626261
+          },
+          {
+            "stop_id": "TBHNNG_TBHNNG",
+            "stop_name": "TABOH NANING",
+            "lat": 2.49362521,
+            "lon": 102.18750715
+          },
+          {
+            "stop_id": "TBOHNNG_TNJ",
+            "stop_name": "TABOH NANING JAYA",
+            "lat": 2.49064944,
+            "lon": 102.19195962
+          },
+          {
+            "stop_id": "TMNSLMNDIA_TMNSLMNDIA",
+            "stop_name": "TAMAN SALAM NADIAH",
+            "lat": 2.48854321,
+            "lon": 102.19350457
+          },
+          {
+            "stop_id": "KGTMNTSK_KGTMNTSK",
+            "stop_name": "KAMPUNG TAMAN TASIK",
+            "lat": 2.47869803,
+            "lon": 102.21273065
+          },
+          {
+            "stop_id": "TMNWOON_TMNWOON",
+            "stop_name": "TAMAN WOON",
+            "lat": 2.47790752,
+            "lon": 102.21394435
+          },
+          {
+            "stop_id": "SKTMPIN_SKBT",
+            "stop_name": "SK TUNKU BESAR TAMPIN",
+            "lat": 2.47417871,
+            "lon": 102.22272992
+          },
+          {
+            "stop_id": "VETERINA_VETERINA",
+            "stop_name": "VETERINA",
+            "lat": 2.47419479,
+            "lon": 102.22492129
+          },
+          {
+            "stop_id": "SKTGKZNN_SKTGKZNN",
+            "stop_name": "SK TENGKU ZAINUN",
+            "lat": 2.4738317,
+            "lon": 102.2261917
+          },
+          {
+            "stop_id": "SJKTTMPN_SJKTTMPN",
+            "stop_name": "SJKT TAMPIN",
+            "lat": 2.47268477,
+            "lon": 102.22857311
+          },
+          {
+            "stop_id": "BANKISLAM_BANKISLAM",
+            "stop_name": "BANK ISLAM TAMPIN",
+            "lat": 2.47120289,
+            "lon": 102.23176226
+          },
+          {
+            "stop_id": "TMNLTMP_TMNLTMP",
+            "stop_name": "TERMINAL TAMPIN",
+            "lat": 2.46488967,
+            "lon": 102.22626365
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "R1705033",
+        "route_long_name": "TAMPIN -   VIA SENAWANG",
+        "stops": [
+          {
+            "stop_id": "TMNLTMP_TT",
+            "stop_name": "TERMINAL TAMPIN",
+            "lat": 2.46488967,
+            "lon": 102.22626365
+          },
+          {
+            "stop_id": "BANKISLAM_BANKISLAMR",
+            "stop_name": "BANK ISLAM TAMPIN",
+            "lat": 2.47120289,
+            "lon": 102.23176226
+          },
+          {
+            "stop_id": "SJKTTMPN_SJKTTMPNR",
+            "stop_name": "SJKT TAMPIN",
+            "lat": 2.47268477,
+            "lon": 102.22857311
+          },
+          {
+            "stop_id": "SKTGKZNN_SKTGKZNNR",
+            "stop_name": "SK TENGKU ZAINUN",
+            "lat": 2.4738317,
+            "lon": 102.2261917
+          },
+          {
+            "stop_id": "VETERINA_VETERINAR",
+            "stop_name": "VETERINA",
+            "lat": 2.47419479,
+            "lon": 102.22492128
+          },
+          {
+            "stop_id": "SKTMPIN_SKBTR",
+            "stop_name": "SK TUNKU BESAR TAMPIN",
+            "lat": 2.47417871,
+            "lon": 102.22272992
+          },
+          {
+            "stop_id": "TMNWOON_TMNWOONR",
+            "stop_name": "TAMAN WOON",
+            "lat": 2.47790752,
+            "lon": 102.21394434
+          },
+          {
+            "stop_id": "KGTMNTSK_KGTMNTSKR",
+            "stop_name": "KAMPUNG TAMAN TASIK",
+            "lat": 2.47869803,
+            "lon": 102.21273064
+          },
+          {
+            "stop_id": "TMNSLMNDIA_TMNSLMNDIAR",
+            "stop_name": "TAMAN SALAM NADIAH",
+            "lat": 2.48854321,
+            "lon": 102.19350457
+          },
+          {
+            "stop_id": "TBOHNNG_TNJR",
+            "stop_name": "TABOH NANING JAYA",
+            "lat": 2.49064944,
+            "lon": 102.19195961
+          },
+          {
+            "stop_id": "TBHNNG_TBHNNGR",
+            "stop_name": "TABOH NANING",
+            "lat": 2.49362521,
+            "lon": 102.18750715
+          },
+          {
+            "stop_id": "SPGEMPAT_SPGEMPATR",
+            "stop_name": "SIMPANG EMPAT",
+            "lat": 2.49417053,
+            "lon": 102.1862626
+          },
+          {
+            "stop_id": "MDNSSK_MSR",
+            "stop_name": "MEDAN SELERA SRI KENDONG",
+            "lat": 2.49515129,
+            "lon": 102.18432605
+          },
+          {
+            "stop_id": "SEIKDG2_SEIKDG2R",
+            "stop_name": "SRI KENDONG 2",
+            "lat": 2.49727358,
+            "lon": 102.18039929
+          },
+          {
+            "stop_id": "SRIKDG_SRIKDGR",
+            "stop_name": "SRI KENDONG",
+            "lat": 2.4991815,
+            "lon": 102.17663347
+          },
+          {
+            "stop_id": "KGKENDOG_KKR",
+            "stop_name": "KAMPUNG KENDONG",
+            "lat": 2.50399415,
+            "lon": 102.17273354
+          },
+          {
+            "stop_id": "KOTATRA_KOTATRAR",
+            "stop_name": "KOTA TRADING",
+            "lat": 2.50529646,
+            "lon": 102.17199862
+          },
+          {
+            "stop_id": "PPGDGG_PPGDGGR",
+            "stop_name": "PUSAT PERTANIAN GADONG",
+            "lat": 2.51026987,
+            "lon": 102.16651082
+          },
+          {
+            "stop_id": "GADONG_KKR",
+            "stop_name": "KAMPUNG GADONG",
+            "lat": 2.51215232,
+            "lon": 102.16474056
+          },
+          {
+            "stop_id": "SKKOTA_SKKOTAR",
+            "stop_name": "SK KOTA",
+            "lat": 2.51424109,
+            "lon": 102.16244995
+          },
+          {
+            "stop_id": "SPGKGKTA_SPGKGKTAR",
+            "stop_name": "SIMPANG KAMPUNG KOTA PULAU",
+            "lat": 2.5184347,
+            "lon": 102.15870559
+          },
+          {
+            "stop_id": "PKNKOTA_PKNKOTAR",
+            "stop_name": "PEKAN KOTA",
+            "lat": 2.51933773,
+            "lon": 102.15778291
+          },
+          {
+            "stop_id": "SMKDUA_SMKDUAR",
+            "stop_name": "SK DATO HAJI ADNAN",
+            "lat": 2.52274084,
+            "lon": 102.15439796
+          },
+          {
+            "stop_id": "CGGULU_CGGULUR",
+            "stop_name": "CHENGKAU ULU",
+            "lat": 2.52662626,
+            "lon": 102.15063214
+          },
+          {
+            "stop_id": "KGCHULU_KGCHULUR",
+            "stop_name": "KAMPUNG CHENGKAU ULU",
+            "lat": 2.53409697,
+            "lon": 102.14531332
+          },
+          {
+            "stop_id": "SKAALSOFA_SKAALSOFAR",
+            "stop_name": "SK AGAMA AL-SOFA",
+            "lat": 2.5375054,
+            "lon": 102.14204639
+          },
+          {
+            "stop_id": "KLGMAYC_KLGMAYC",
+            "stop_name": "KILANG MEMPROSES ANAK AYAM CHENGKAU",
+            "lat": 2.54069946,
+            "lon": 102.13921666
+          },
+          {
+            "stop_id": "SKCGKAU_SKCR",
+            "stop_name": "SK CHENGKAU",
+            "lat": 2.54366306,
+            "lon": 102.13548839
+          },
+          {
+            "stop_id": "KGLADA_BKLR",
+            "stop_name": "BALAI RAYA KAMPUNG LADA",
+            "lat": 2.5464766,
+            "lon": 102.13307976
+          },
+          {
+            "stop_id": "TNHDTRCGKU_TNHDTRCGKUR",
+            "stop_name": "TANAH DATAR CHENGKAU",
+            "lat": 2.55091394,
+            "lon": 102.13047802
+          },
+          {
+            "stop_id": "MASJIDCU_MCR",
+            "stop_name": "MASJID CHENGKAU",
+            "lat": 2.55591934,
+            "lon": 102.12597191
+          },
+          {
+            "stop_id": "PKNCGKU_PCR",
+            "stop_name": "PEKAN CHENGKAU",
+            "lat": 2.56068891,
+            "lon": 102.12366253
+          },
+          {
+            "stop_id": "MASJIDKBG_MASJIDKBGR",
+            "stop_name": "MASJID BONGEK",
+            "lat": 2.56549062,
+            "lon": 102.1232146
+          },
+          {
+            "stop_id": "KLIDBGGK_KLIDBGGKR",
+            "stop_name": "KLINIK DESA BONGEK",
+            "lat": 2.5689405,
+            "lon": 102.12217926
+          },
+          {
+            "stop_id": "SKSNAMA_SKSNAMAR",
+            "stop_name": "SK SALAK NAMA",
+            "lat": 2.57852374,
+            "lon": 102.11989939
+          },
+          {
+            "stop_id": "MASJDKGBT_MASJDKGBTR",
+            "stop_name": "MASJID KAMPUNG BATU",
+            "lat": 2.58458608,
+            "lon": 102.11577415
+          },
+          {
+            "stop_id": "KGBATU_KGBR",
+            "stop_name": "KAMPUNG BATU  LONGGOK  KG  BATU",
+            "lat": 2.58345266,
+            "lon": 102.11361095
+          },
+          {
+            "stop_id": "KGKLIG_KGKLIGR",
+            "stop_name": "KAMPUNG TANJUNG KELING",
+            "lat": 2.58905947,
+            "lon": 102.09810376
+          },
+          {
+            "stop_id": "KPKRJAN_KKR",
+            "stop_name": "KOMPLEKS KERAJAAN REMBAU",
+            "lat": 2.59116553,
+            "lon": 102.09692895
+          },
+          {
+            "stop_id": "SMARMBU_SMARMBUR",
+            "stop_name": "SM AGAMA REMBAU",
+            "lat": 2.59083327,
+            "lon": 102.0907706
+          },
+          {
+            "stop_id": "TREMBAU_TBRR",
+            "stop_name": "PERHENTIAN BAS REMBAU",
+            "lat": 2.59200152,
+            "lon": 102.09255695
+          },
+          {
+            "stop_id": "KFCREMBAU_KFCREMBAUR",
+            "stop_name": "KFC REMBAU",
+            "lat": 2.58946139,
+            "lon": 102.09261596
+          },
+          {
+            "stop_id": "KGTGSNA_KGTGSNAR",
+            "stop_name": "KAMPUNG TANJUNG SENA",
+            "lat": 2.59244765,
+            "lon": 102.08741918
+          },
+          {
+            "stop_id": "BTHMPR_BTHMPRR",
+            "stop_name": "BATU HAMPAR",
+            "lat": 2.59252134,
+            "lon": 102.08162426
+          },
+          {
+            "stop_id": "SMKDSR_SMKDSRR",
+            "stop_name": "SMK DATO SEDIA RAJA",
+            "lat": 2.59488998,
+            "lon": 102.07679092
+          },
+          {
+            "stop_id": "ZENMART_ZENMARTR",
+            "stop_name": "ZE MART REMBAU",
+            "lat": 2.5976659,
+            "lon": 102.07240283
+          },
+          {
+            "stop_id": "IPDR_IPDR1",
+            "stop_name": "IPD REMBAU",
+            "lat": 2.60126172,
+            "lon": 102.06952751
+          },
+          {
+            "stop_id": "MDNSLRAR_MDNSLRARR",
+            "stop_name": "MEDAN SELERA REMBAU",
+            "lat": 2.60371073,
+            "lon": 102.06883013
+          },
+          {
+            "stop_id": "SJKTC_STR",
+            "stop_name": "SJKT LADANG CHEMBONG",
+            "lat": 2.60854443,
+            "lon": 102.06704915
+          },
+          {
+            "stop_id": "TCHEMJ_TCJR",
+            "stop_name": "TAMAN CHEMBONG JAYA",
+            "lat": 2.61224204,
+            "lon": 102.06453323
+          },
+          {
+            "stop_id": "IKTBN_IKTR",
+            "stop_name": "IKTBN",
+            "lat": 2.6159825,
+            "lon": 102.0621407
+          },
+          {
+            "stop_id": "BPPDS_BPPDSR",
+            "stop_name": "BALAI POLIS PEDAS",
+            "lat": 2.61976985,
+            "lon": 102.05840975
+          },
+          {
+            "stop_id": "ULUSP_ISR",
+            "stop_name": "SIMPANG KAMPUNG ULU SEPRI",
+            "lat": 2.62510855,
+            "lon": 102.05715716
+          },
+          {
+            "stop_id": "WWPDS_APPR",
+            "stop_name": "AIR PANAS PEDAS",
+            "lat": 2.63309848,
+            "lon": 102.05394387
+          },
+          {
+            "stop_id": "KUARTJPJ_KUARTJPJR",
+            "stop_name": "KUARTERS JPJ",
+            "lat": 2.65518573,
+            "lon": 102.02313065
+          },
+          {
+            "stop_id": "BATU10_BATU10R",
+            "stop_name": "BATU 10",
+            "lat": 2.65901583,
+            "lon": 102.01983958
+          },
+          {
+            "stop_id": "KPSGGDT_KPSGGDTR",
+            "stop_name": "KAWASAN PERINDUSTRIAN SUNGAI GADUT",
+            "lat": 2.66273204,
+            "lon": 102.01071202
+          },
+          {
+            "stop_id": "SWGLINK_SLR",
+            "stop_name": "SENAWANG LINK",
+            "lat": 2.66212116,
+            "lon": 102.00554072
+          },
+          {
+            "stop_id": "TTJAAFAR_TJR",
+            "stop_name": "TAMAN TUNKU JAAFAR",
+            "lat": 2.673872,
+            "lon": 101.99400695
+          },
+          {
+            "stop_id": "TTNJ_TTNR",
+            "stop_name": "TAMAN TUNKU NAJIHAH",
+            "lat": 2.67733957,
+            "lon": 101.98316574
+          },
+          {
+            "stop_id": "KPRTINSNW_KPRTINSNWR",
+            "stop_name": "KAWASAN PERINDUSTRIAN SENAWANG",
+            "lat": 2.67761285,
+            "lon": 101.98069274
+          },
+          {
+            "stop_id": "PETRONAS_PJTR",
+            "stop_name": "PETRONAS JALAN TAMPIN / SENAWANG",
+            "lat": 2.67856668,
+            "lon": 101.9789654
+          },
+          {
+            "stop_id": "TMNBKTEMS_TBER",
+            "stop_name": "TAMAN BUKIT EMAS/JPJ",
+            "lat": 2.69090737,
+            "lon": 101.96981907
+          },
+          {
+            "stop_id": "KBRH_TRR",
+            "stop_name": "KAMPUNG BARU RAHANG",
+            "lat": 2.69576752,
+            "lon": 101.9679898
+          },
+          {
+            "stop_id": "TMNSRMBN_TSBR",
+            "stop_name": "TAMAN SEREMBAN / TAMAN BINJAI",
+            "lat": 2.69884329,
+            "lon": 101.96200311
+          },
+          {
+            "stop_id": "TNCHLOG_TNCHLOGR",
+            "stop_name": "TAMAN CHOONG LOONG",
+            "lat": 2.7074302,
+            "lon": 101.95567309
+          },
+          {
+            "stop_id": "CNC_CNCR",
+            "stop_name": "CYCLE N CARRIAGE",
+            "lat": 2.71410947,
+            "lon": 101.94960594
+          },
+          {
+            "stop_id": "KTMS_KTMSBN",
+            "stop_name": "KTM SEREMBAN",
+            "lat": 2.71881949,
+            "lon": 101.94136083
+          },
+          {
+            "stop_id": "KMPLAZA_KMP",
+            "stop_name": "KM PLAZA",
+            "lat": 2.7228809,
+            "lon": 101.9376292
+          },
+          {
+            "stop_id": "T1_T1R",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72152011,
+            "lon": 101.93715513
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "N60B",
+    "route_short_name": "N60B",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "R1705042",
+        "route_long_name": "  - TAMPIN VIA SEREMBAN JAYA",
+        "stops": [
+          {
+            "stop_id": "T1_53",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72152011,
+            "lon": 101.93715513
+          },
+          {
+            "stop_id": "DPSBN_DPSBN",
+            "stop_name": "DEWAN PERBANDARAN SEREMBAN",
+            "lat": 2.72349735,
+            "lon": 101.94098532
+          },
+          {
+            "stop_id": "PDGMPS_PMPS",
+            "stop_name": "PADANG MPS",
+            "lat": 2.7221554,
+            "lon": 101.9413501
+          },
+          {
+            "stop_id": "KWSP_KWSP",
+            "stop_name": "KWSP SEREMBAN",
+            "lat": 2.71988581,
+            "lon": 101.94300771
+          },
+          {
+            "stop_id": "SHELLJLNZB_SHELLJLNZB",
+            "stop_name": "SHELL JALAN ZAABA",
+            "lat": 2.71689583,
+            "lon": 101.94570601
+          },
+          {
+            "stop_id": "BPRHG_BPRHG1",
+            "stop_name": "BALAI POLIS RAHANG",
+            "lat": 2.71431309,
+            "lon": 101.95125282
+          },
+          {
+            "stop_id": "TNCHLOG_TNCHLOG",
+            "stop_name": "TAMAN CHOONG LOONG",
+            "lat": 2.7074302,
+            "lon": 101.9556731
+          },
+          {
+            "stop_id": "TMNSRMBN_TSB",
+            "stop_name": "TAMAN SEREMBAN / TAMAN BINJAI",
+            "lat": 2.69884329,
+            "lon": 101.96200311
+          },
+          {
+            "stop_id": "KBRH_TR",
+            "stop_name": "KAMPUNG BARU RAHANG",
+            "lat": 2.69576752,
+            "lon": 101.9679898
+          },
+          {
+            "stop_id": "TMNBKTEMS_TBE",
+            "stop_name": "TAMAN BUKIT EMAS/JPJ",
+            "lat": 2.69090737,
+            "lon": 101.96981907
+          },
+          {
+            "stop_id": "TESCOSJ_TESCOSJR",
+            "stop_name": "TESCO SEREMBAN JAYA",
+            "lat": 2.68529165,
+            "lon": 101.97205603
+          },
+          {
+            "stop_id": "TMNSBNJF1_TSJ",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 1",
+            "lat": 2.68343224,
+            "lon": 101.97018117
+          },
+          {
+            "stop_id": "SMKSBNJYA_SMKSJ",
+            "stop_name": "SMK SEREMBAN JAYA",
+            "lat": 2.67949773,
+            "lon": 101.96972787
+          },
+          {
+            "stop_id": "TMNSBNJYF4_TSBNJF4",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 4",
+            "lat": 2.67695777,
+            "lon": 101.97033003
+          },
+          {
+            "stop_id": "PSRASBNJ_PSRA",
+            "stop_name": "PASAR AWAM TAMAN SEREMBAN JAYA",
+            "lat": 2.67492955,
+            "lon": 101.973892
+          },
+          {
+            "stop_id": "TMNSBNJF8_TMNSJ8",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 8",
+            "lat": 2.67472619,
+            "lon": 101.976088
+          },
+          {
+            "stop_id": "TMNSBNJF5_F5",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 5",
+            "lat": 2.67353766,
+            "lon": 101.97988272
+          },
+          {
+            "stop_id": "TMNSBNJF4_F9",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 9",
+            "lat": 2.67234002,
+            "lon": 101.98147595
+          },
+          {
+            "stop_id": "TMNSBNJF10_F10",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 10",
+            "lat": 2.67057704,
+            "lon": 101.98341116
+          },
+          {
+            "stop_id": "BSRNSTN_BS",
+            "stop_name": "BANDAR SEREMBAN SELATAN",
+            "lat": 2.66919453,
+            "lon": 101.98524714
+          },
+          {
+            "stop_id": "KTMSG_K",
+            "stop_name": "KTM SUNGAI GADUT",
+            "lat": 2.66017061,
+            "lon": 101.99539393
+          },
+          {
+            "stop_id": "KTMSGPL_KTMSGG",
+            "stop_name": "KTM SUNGAI GADUT PARKING",
+            "lat": 2.66018787,
+            "lon": 101.99634134
+          },
+          {
+            "stop_id": "SWGLINK_SL",
+            "stop_name": "SENAWANG LINK",
+            "lat": 2.66212116,
+            "lon": 102.00554072
+          },
+          {
+            "stop_id": "KPSGGDT_KPSGGDT",
+            "stop_name": "KAWASAN PERINDUSTRIAN SUNGAI GADUT",
+            "lat": 2.66273204,
+            "lon": 102.01071203
+          },
+          {
+            "stop_id": "BATU10_BATU10",
+            "stop_name": "BATU 10",
+            "lat": 2.65901583,
+            "lon": 102.01983958
+          },
+          {
+            "stop_id": "KUARTJPJ_KUARTJPJ",
+            "stop_name": "KUARTERS JPJ",
+            "lat": 2.65518573,
+            "lon": 102.02313066
+          },
+          {
+            "stop_id": "WWPDS_APP",
+            "stop_name": "AIR PANAS PEDAS",
+            "lat": 2.63309848,
+            "lon": 102.05394387
+          },
+          {
+            "stop_id": "ULUSP_US",
+            "stop_name": "SIMPANG KAMPUNG ULU SEPRI",
+            "lat": 2.62510855,
+            "lon": 102.05715716
+          },
+          {
+            "stop_id": "BPPDS_BPPDS",
+            "stop_name": "BALAI POLIS PEDAS",
+            "lat": 2.61976985,
+            "lon": 102.05840975
+          },
+          {
+            "stop_id": "IKTBN_IKT",
+            "stop_name": "IKTBN",
+            "lat": 2.6159825,
+            "lon": 102.0621407
+          },
+          {
+            "stop_id": "TCHEMJ_TCJ",
+            "stop_name": "TAMAN CHEMBONG JAYA",
+            "lat": 2.61224204,
+            "lon": 102.06453323
+          },
+          {
+            "stop_id": "SJKTC_ST",
+            "stop_name": "SJKT LADANG CHEMBONG",
+            "lat": 2.60854443,
+            "lon": 102.06704915
+          },
+          {
+            "stop_id": "MPM_MS",
+            "stop_name": "MEDAN SELERA REMBAU",
+            "lat": 2.60371073,
+            "lon": 102.06883013
+          },
+          {
+            "stop_id": "IPDR_IPDR1",
+            "stop_name": "IPD REMBAU",
+            "lat": 2.60126172,
+            "lon": 102.06952751
+          },
+          {
+            "stop_id": "ZENMART_ZM",
+            "stop_name": "ZE MART REMBAU",
+            "lat": 2.59794456,
+            "lon": 102.07215071
+          },
+          {
+            "stop_id": "MASBT17_MASBT17",
+            "stop_name": "MASJID BATU 17",
+            "lat": 2.5955652,
+            "lon": 102.07544982
+          },
+          {
+            "stop_id": "SMKDSR_SDR",
+            "stop_name": "SMK DATO SEDIA RAJA",
+            "lat": 2.59488998,
+            "lon": 102.07679092
+          },
+          {
+            "stop_id": "KGTGSNA_KGTGSNA",
+            "stop_name": "KAMPUNG TANJUNG SENA",
+            "lat": 2.59244765,
+            "lon": 102.08741918
+          },
+          {
+            "stop_id": "KFCREMBAU_KFCREMBAU",
+            "stop_name": "KFC REMBAU",
+            "lat": 2.58946139,
+            "lon": 102.09261596
+          },
+          {
+            "stop_id": "TREMBAU_TBR",
+            "stop_name": "PERHENTIAN BAS REMBAU",
+            "lat": 2.59200152,
+            "lon": 102.09255695
+          },
+          {
+            "stop_id": "SMARMBU_SMARMBU",
+            "stop_name": "SM AGAMA REMBAU",
+            "lat": 2.59083327,
+            "lon": 102.0907706
+          },
+          {
+            "stop_id": "KPKRJAN_KK",
+            "stop_name": "KOMPLEKS KERAJAAN REMBAU",
+            "lat": 2.59116553,
+            "lon": 102.09692895
+          },
+          {
+            "stop_id": "KGKLIG_TK",
+            "stop_name": "KAMPUNG TANJUNG KELING",
+            "lat": 2.5879716,
+            "lon": 102.09860802
+          },
+          {
+            "stop_id": "KGBATU_KGB",
+            "stop_name": "KAMPUNG BATU  LONGGOK  KG  BATU",
+            "lat": 2.58380903,
+            "lon": 102.11475223
+          },
+          {
+            "stop_id": "MASJDKGBT_MASJDKGBT",
+            "stop_name": "MASJID KAMPUNG BATU",
+            "lat": 2.58458608,
+            "lon": 102.11577415
+          },
+          {
+            "stop_id": "SKSNAMA_SKSNAMA",
+            "stop_name": "SK SALAK NAMA",
+            "lat": 2.57852374,
+            "lon": 102.11989939
+          },
+          {
+            "stop_id": "KLIDBGGK_KLIDBGGK",
+            "stop_name": "KLINIK DESA BONGEK",
+            "lat": 2.5689405,
+            "lon": 102.12217927
+          },
+          {
+            "stop_id": "MASJIDKBG_MASJIDKBG",
+            "stop_name": "MASJID BONGEK",
+            "lat": 2.56549062,
+            "lon": 102.1232146
+          },
+          {
+            "stop_id": "PKNCGKU_PC",
+            "stop_name": "PEKAN CHENGKAU",
+            "lat": 2.56068891,
+            "lon": 102.12366253
+          },
+          {
+            "stop_id": "MASJIDCU_MC",
+            "stop_name": "MASJID CHENGKAU",
+            "lat": 2.55591934,
+            "lon": 102.12597191
+          },
+          {
+            "stop_id": "TNHDTRCGKU_TDC",
+            "stop_name": "TANAH DATAR CHENGKAU",
+            "lat": 2.55091394,
+            "lon": 102.13047802
+          },
+          {
+            "stop_id": "KGLADA_BRC",
+            "stop_name": "BALAI RAYA KAMPUNG LADA",
+            "lat": 2.5464766,
+            "lon": 102.13307977
+          },
+          {
+            "stop_id": "SKCGKAU_SKC",
+            "stop_name": "SK CHENGKAU",
+            "lat": 2.54366306,
+            "lon": 102.13548839
+          },
+          {
+            "stop_id": "KLGMAYC_KLGMAYCR",
+            "stop_name": "KILANG MEMPROSES ANAK AYAM CHENGKAU",
+            "lat": 2.54069946,
+            "lon": 102.13921666
+          },
+          {
+            "stop_id": "SKAALSOFA_SKAALSOFA",
+            "stop_name": "SK AGAMA AL-SOFA",
+            "lat": 2.5375054,
+            "lon": 102.14204639
+          },
+          {
+            "stop_id": "CGGULU_CGGULU",
+            "stop_name": "CHENGKAU ULU",
+            "lat": 2.52662626,
+            "lon": 102.15063214
+          },
+          {
+            "stop_id": "SMKDUA_SMKDUA",
+            "stop_name": "SK DATO HAJI ADNAN",
+            "lat": 2.52274084,
+            "lon": 102.15439796
+          },
+          {
+            "stop_id": "PKNKOTA_PKNKOTA",
+            "stop_name": "PEKAN KOTA",
+            "lat": 2.51934845,
+            "lon": 102.15778291
+          },
+          {
+            "stop_id": "SPGKGKTA_SPGKGKTA",
+            "stop_name": "SIMPANG KAMPUNG KOTA PULAU",
+            "lat": 2.5184347,
+            "lon": 102.15870559
+          },
+          {
+            "stop_id": "SKKOTA_SKK",
+            "stop_name": "SK KOTA",
+            "lat": 2.51424109,
+            "lon": 102.16244995
+          },
+          {
+            "stop_id": "GADONG_KK",
+            "stop_name": "KAMPUNG GADONG",
+            "lat": 2.51215232,
+            "lon": 102.16474056
+          },
+          {
+            "stop_id": "PPGDGG_PPGDGG",
+            "stop_name": "PUSAT PERTANIAN GADONG",
+            "lat": 2.51026987,
+            "lon": 102.16651082
+          },
+          {
+            "stop_id": "KOTATRA_KOTATRA",
+            "stop_name": "KOTA TRADING",
+            "lat": 2.50737587,
+            "lon": 102.16967583
+          },
+          {
+            "stop_id": "KGKENDOG_KK",
+            "stop_name": "KAMPUNG KENDONG",
+            "lat": 2.50399415,
+            "lon": 102.17273355
+          },
+          {
+            "stop_id": "SRIKDG_SRIKDG",
+            "stop_name": "SRI KENDONG",
+            "lat": 2.4991815,
+            "lon": 102.17663348
+          },
+          {
+            "stop_id": "SEIKDG2_SEIKDG2",
+            "stop_name": "SRI KENDONG 2",
+            "lat": 2.49727358,
+            "lon": 102.1803993
+          },
+          {
+            "stop_id": "MDNSSK_MS",
+            "stop_name": "MEDAN SELERA SRI KENDONG",
+            "lat": 2.49515129,
+            "lon": 102.18432605
+          },
+          {
+            "stop_id": "SPGEMPAT_SPGEMPAT",
+            "stop_name": "SIMPANG EMPAT",
+            "lat": 2.49417053,
+            "lon": 102.18626261
+          },
+          {
+            "stop_id": "TBHNNG_TBHNNG",
+            "stop_name": "TABOH NANING",
+            "lat": 2.49362521,
+            "lon": 102.18750715
+          },
+          {
+            "stop_id": "TBOHNNG_TNJ",
+            "stop_name": "TABOH NANING JAYA",
+            "lat": 2.49064944,
+            "lon": 102.19195962
+          },
+          {
+            "stop_id": "TMNSLMNDIA_TMNSLMNDIA",
+            "stop_name": "TAMAN SALAM NADIAH",
+            "lat": 2.48854321,
+            "lon": 102.19350457
+          },
+          {
+            "stop_id": "KGTMNTSK_KGTMNTSK",
+            "stop_name": "KAMPUNG TAMAN TASIK",
+            "lat": 2.47869803,
+            "lon": 102.21273065
+          },
+          {
+            "stop_id": "TMNWOON_TMNWOON",
+            "stop_name": "TAMAN WOON",
+            "lat": 2.47790752,
+            "lon": 102.21394435
+          },
+          {
+            "stop_id": "SKTMPIN_SKBT",
+            "stop_name": "SK TUNKU BESAR TAMPIN",
+            "lat": 2.47417871,
+            "lon": 102.22272992
+          },
+          {
+            "stop_id": "VETERINA_VETERINA",
+            "stop_name": "VETERINA",
+            "lat": 2.47419479,
+            "lon": 102.22492129
+          },
+          {
+            "stop_id": "SKTGKZNN_SKTGKZNN",
+            "stop_name": "SK TENGKU ZAINUN",
+            "lat": 2.4738317,
+            "lon": 102.2261917
+          },
+          {
+            "stop_id": "SJKTTMPN_SJKTTMPN",
+            "stop_name": "SJKT TAMPIN",
+            "lat": 2.47268477,
+            "lon": 102.22857311
+          },
+          {
+            "stop_id": "BISL_BI",
+            "stop_name": "BANK ISLAM",
+            "lat": 2.47120289,
+            "lon": 102.23176226
+          },
+          {
+            "stop_id": "TMNLTMP_TMNLTMP",
+            "stop_name": "TERMINAL TAMPIN",
+            "lat": 2.46488967,
+            "lon": 102.22626365
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "R1705043",
+        "route_long_name": "  - TAMPIN VIA SEREMBAN JAYA",
+        "stops": [
+          {
+            "stop_id": "TMNLTMP_TT",
+            "stop_name": "TERMINAL TAMPIN",
+            "lat": 2.46488967,
+            "lon": 102.22626365
+          },
+          {
+            "stop_id": "BISL_BIR",
+            "stop_name": "BANK ISLAM",
+            "lat": 2.47120289,
+            "lon": 102.23176226
+          },
+          {
+            "stop_id": "SJKTTMPN_SJKTTMPNR",
+            "stop_name": "SJKT TAMPIN",
+            "lat": 2.47268477,
+            "lon": 102.22857311
+          },
+          {
+            "stop_id": "SKTGKZNN_SKTGKZNNR",
+            "stop_name": "SK TENGKU ZAINUN",
+            "lat": 2.4738317,
+            "lon": 102.2261917
+          },
+          {
+            "stop_id": "VETERINA_VETERINAR",
+            "stop_name": "VETERINA",
+            "lat": 2.47419479,
+            "lon": 102.22492128
+          },
+          {
+            "stop_id": "SKTMPIN_SKBTR",
+            "stop_name": "SK TUNKU BESAR TAMPIN",
+            "lat": 2.47417871,
+            "lon": 102.22272992
+          },
+          {
+            "stop_id": "TMNWOON_TMNWOONR",
+            "stop_name": "TAMAN WOON",
+            "lat": 2.47790752,
+            "lon": 102.21394434
+          },
+          {
+            "stop_id": "KGTMNTSK_KGTMNTSKR",
+            "stop_name": "KAMPUNG TAMAN TASIK",
+            "lat": 2.47869803,
+            "lon": 102.21273064
+          },
+          {
+            "stop_id": "TMNSLMNDIA_TMNSLMNDIAR",
+            "stop_name": "TAMAN SALAM NADIAH",
+            "lat": 2.48854321,
+            "lon": 102.19350457
+          },
+          {
+            "stop_id": "TBOHNNG_TNJR",
+            "stop_name": "TABOH NANING JAYA",
+            "lat": 2.49064944,
+            "lon": 102.19195961
+          },
+          {
+            "stop_id": "TBHNNG_TBHNNGR",
+            "stop_name": "TABOH NANING",
+            "lat": 2.49362521,
+            "lon": 102.18750715
+          },
+          {
+            "stop_id": "SPGEMPAT_SPGEMPATR",
+            "stop_name": "SIMPANG EMPAT",
+            "lat": 2.49417053,
+            "lon": 102.1862626
+          },
+          {
+            "stop_id": "MDNSSK_MSR",
+            "stop_name": "MEDAN SELERA SRI KENDONG",
+            "lat": 2.49515129,
+            "lon": 102.18432605
+          },
+          {
+            "stop_id": "SEIKDG2_SEIKDG2R",
+            "stop_name": "SRI KENDONG 2",
+            "lat": 2.49727358,
+            "lon": 102.18039929
+          },
+          {
+            "stop_id": "SRIKDG_SRIKDGR",
+            "stop_name": "SRI KENDONG",
+            "lat": 2.4991815,
+            "lon": 102.17663347
+          },
+          {
+            "stop_id": "KGKENDOG_KKR",
+            "stop_name": "KAMPUNG KENDONG",
+            "lat": 2.50399415,
+            "lon": 102.17273354
+          },
+          {
+            "stop_id": "KOTATRA_KOTATRAR",
+            "stop_name": "KOTA TRADING",
+            "lat": 2.50529646,
+            "lon": 102.17199862
+          },
+          {
+            "stop_id": "PPGDGG_PPGDGGR",
+            "stop_name": "PUSAT PERTANIAN GADONG",
+            "lat": 2.51026987,
+            "lon": 102.16651082
+          },
+          {
+            "stop_id": "GADONG_KKR",
+            "stop_name": "KAMPUNG GADONG",
+            "lat": 2.51215232,
+            "lon": 102.16474056
+          },
+          {
+            "stop_id": "SKKOTA_SKKR",
+            "stop_name": "SK KOTA",
+            "lat": 2.51424109,
+            "lon": 102.16244995
+          },
+          {
+            "stop_id": "SPGKGKTA_SPGKGKTAR",
+            "stop_name": "SIMPANG KAMPUNG KOTA PULAU",
+            "lat": 2.5184347,
+            "lon": 102.15870559
+          },
+          {
+            "stop_id": "PKNKOTA_PKNKOTAR",
+            "stop_name": "PEKAN KOTA",
+            "lat": 2.51933773,
+            "lon": 102.15778291
+          },
+          {
+            "stop_id": "SMKDUA_SMKDUAR",
+            "stop_name": "SK DATO HAJI ADNAN",
+            "lat": 2.52274084,
+            "lon": 102.15439796
+          },
+          {
+            "stop_id": "CGGULU_CGGULUR",
+            "stop_name": "CHENGKAU ULU",
+            "lat": 2.52662626,
+            "lon": 102.15063214
+          },
+          {
+            "stop_id": "KGCHULU_KGCHULUR",
+            "stop_name": "KAMPUNG CHENGKAU ULU",
+            "lat": 2.53409697,
+            "lon": 102.14531332
+          },
+          {
+            "stop_id": "SKAALSOFA_SKAALSOFAR",
+            "stop_name": "SK AGAMA AL-SOFA",
+            "lat": 2.5375054,
+            "lon": 102.14204639
+          },
+          {
+            "stop_id": "KLGMAYC_KLGMAYC",
+            "stop_name": "KILANG MEMPROSES ANAK AYAM CHENGKAU",
+            "lat": 2.54069946,
+            "lon": 102.13921666
+          },
+          {
+            "stop_id": "SKCGKAU_SKCR",
+            "stop_name": "SK CHENGKAU",
+            "lat": 2.54366306,
+            "lon": 102.13548839
+          },
+          {
+            "stop_id": "KGLADA_BKLR",
+            "stop_name": "BALAI RAYA KAMPUNG LADA",
+            "lat": 2.5464766,
+            "lon": 102.13307976
+          },
+          {
+            "stop_id": "TNHDTRCGKU_TNHDTRCGKUR",
+            "stop_name": "TANAH DATAR CHENGKAU",
+            "lat": 2.55091394,
+            "lon": 102.13047802
+          },
+          {
+            "stop_id": "MASJIDCU_MCR",
+            "stop_name": "MASJID CHENGKAU",
+            "lat": 2.55591934,
+            "lon": 102.12597191
+          },
+          {
+            "stop_id": "PKNCGKU_PCR",
+            "stop_name": "PEKAN CHENGKAU",
+            "lat": 2.56068891,
+            "lon": 102.12366253
+          },
+          {
+            "stop_id": "MASJIDKBG_MASJIDKBGR",
+            "stop_name": "MASJID BONGEK",
+            "lat": 2.56549062,
+            "lon": 102.1232146
+          },
+          {
+            "stop_id": "KLIDBGGK_KLIDBGGKR",
+            "stop_name": "KLINIK DESA BONGEK",
+            "lat": 2.5689405,
+            "lon": 102.12217926
+          },
+          {
+            "stop_id": "SKSNAMA_SKSNAMAR",
+            "stop_name": "SK SALAK NAMA",
+            "lat": 2.57852374,
+            "lon": 102.11989939
+          },
+          {
+            "stop_id": "MASJDKGBT_MASJDKGBTR",
+            "stop_name": "MASJID KAMPUNG BATU",
+            "lat": 2.58458608,
+            "lon": 102.11577415
+          },
+          {
+            "stop_id": "KGBATU_KGBR",
+            "stop_name": "KAMPUNG BATU  LONGGOK  KG  BATU",
+            "lat": 2.58345266,
+            "lon": 102.11361095
+          },
+          {
+            "stop_id": "KGKLIG_KGKLIGR",
+            "stop_name": "KAMPUNG TANJUNG KELING",
+            "lat": 2.58905947,
+            "lon": 102.09810376
+          },
+          {
+            "stop_id": "KPKRJAN_KKR",
+            "stop_name": "KOMPLEKS KERAJAAN REMBAU",
+            "lat": 2.59116553,
+            "lon": 102.09692895
+          },
+          {
+            "stop_id": "SMARMBU_SMARMBUR",
+            "stop_name": "SM AGAMA REMBAU",
+            "lat": 2.59083327,
+            "lon": 102.0907706
+          },
+          {
+            "stop_id": "TREMBAU_TBRR",
+            "stop_name": "PERHENTIAN BAS REMBAU",
+            "lat": 2.59200152,
+            "lon": 102.09255695
+          },
+          {
+            "stop_id": "KFCREMBAU_KFCREMBAUR",
+            "stop_name": "KFC REMBAU",
+            "lat": 2.58946139,
+            "lon": 102.09261596
+          },
+          {
+            "stop_id": "KGTGSNA_KGTGSNAR",
+            "stop_name": "KAMPUNG TANJUNG SENA",
+            "lat": 2.59244765,
+            "lon": 102.08741918
+          },
+          {
+            "stop_id": "BTHMPR_BTHMPRR",
+            "stop_name": "BATU HAMPAR",
+            "lat": 2.59252134,
+            "lon": 102.08162426
+          },
+          {
+            "stop_id": "SMKDSR_SDRR",
+            "stop_name": "SMK DATO SEDIA RAJA",
+            "lat": 2.59488998,
+            "lon": 102.07679092
+          },
+          {
+            "stop_id": "ZENMART_ZENMARTR",
+            "stop_name": "ZE MART REMBAU",
+            "lat": 2.5976659,
+            "lon": 102.07240283
+          },
+          {
+            "stop_id": "IPDR_IPDR1",
+            "stop_name": "IPD REMBAU",
+            "lat": 2.60126172,
+            "lon": 102.06952751
+          },
+          {
+            "stop_id": "MDNSLRAR_MDNSLRARR",
+            "stop_name": "MEDAN SELERA REMBAU",
+            "lat": 2.60371073,
+            "lon": 102.06883013
+          },
+          {
+            "stop_id": "SJKTC_STR",
+            "stop_name": "SJKT LADANG CHEMBONG",
+            "lat": 2.60854443,
+            "lon": 102.06704915
+          },
+          {
+            "stop_id": "TCHEMJ_TCJR",
+            "stop_name": "TAMAN CHEMBONG JAYA",
+            "lat": 2.61224204,
+            "lon": 102.06453323
+          },
+          {
+            "stop_id": "IKTBN_IKTR",
+            "stop_name": "IKTBN",
+            "lat": 2.6159825,
+            "lon": 102.0621407
+          },
+          {
+            "stop_id": "BPPDS_BPPDSR",
+            "stop_name": "BALAI POLIS PEDAS",
+            "lat": 2.61976985,
+            "lon": 102.05840975
+          },
+          {
+            "stop_id": "ULUSP_ISR",
+            "stop_name": "SIMPANG KAMPUNG ULU SEPRI",
+            "lat": 2.62510855,
+            "lon": 102.05715716
+          },
+          {
+            "stop_id": "WWPDS_APPR",
+            "stop_name": "AIR PANAS PEDAS",
+            "lat": 2.63309848,
+            "lon": 102.05394387
+          },
+          {
+            "stop_id": "KUARTJPJ_KUARTJPJR",
+            "stop_name": "KUARTERS JPJ",
+            "lat": 2.65518573,
+            "lon": 102.02313065
+          },
+          {
+            "stop_id": "BATU10_BATU10R",
+            "stop_name": "BATU 10",
+            "lat": 2.65901583,
+            "lon": 102.01983958
+          },
+          {
+            "stop_id": "KPSGGDT_KPSGGDTR",
+            "stop_name": "KAWASAN PERINDUSTRIAN SUNGAI GADUT",
+            "lat": 2.66273204,
+            "lon": 102.01071202
+          },
+          {
+            "stop_id": "SWGLINK_SL1",
+            "stop_name": "SENAWANG LINK",
+            "lat": 2.66212116,
+            "lon": 102.00554072
+          },
+          {
+            "stop_id": "KTMSG1_KTMR",
+            "stop_name": "KTM SG GADUT1",
+            "lat": 2.66012507,
+            "lon": 101.99541538
+          },
+          {
+            "stop_id": "BSRNSTN_BSRNSTNR",
+            "stop_name": "BANDAR SEREMBAN SELATAN",
+            "lat": 2.66919453,
+            "lon": 101.98524713
+          },
+          {
+            "stop_id": "TMNSBNJF10_TMNSBNJF10R",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 10",
+            "lat": 2.67057704,
+            "lon": 101.98341116
+          },
+          {
+            "stop_id": "TMNSBNJF4_TMNSBNJF4R",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 9",
+            "lat": 2.67234002,
+            "lon": 101.98147594
+          },
+          {
+            "stop_id": "TMNSBNJF5_TMNSBNJF5R",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 5",
+            "lat": 2.67353766,
+            "lon": 101.97988271
+          },
+          {
+            "stop_id": "TMNSBNJF8_TMNSBNJF8R",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 8",
+            "lat": 2.67472619,
+            "lon": 101.976088
+          },
+          {
+            "stop_id": "PSRASBNJ_PSRASBNJR",
+            "stop_name": "PASAR AWAM TAMAN SEREMBAN JAYA",
+            "lat": 2.67492955,
+            "lon": 101.973892
+          },
+          {
+            "stop_id": "TMNSBNJYF4_TMNSBNJYF4R",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 4",
+            "lat": 2.67695777,
+            "lon": 101.97033002
+          },
+          {
+            "stop_id": "SMKSBNJYA_SMKSBNJYAR",
+            "stop_name": "SMK SEREMBAN JAYA",
+            "lat": 2.67949773,
+            "lon": 101.96972787
+          },
+          {
+            "stop_id": "TMNSBNJF1_TMNSBNJF1R",
+            "stop_name": "TAMAN SEREMBAN JAYA FASA 1",
+            "lat": 2.68343224,
+            "lon": 101.97018116
+          },
+          {
+            "stop_id": "TESCOSJ_TS",
+            "stop_name": "TESCO SEREMBAN JAYA",
+            "lat": 2.68529165,
+            "lon": 101.97205603
+          },
+          {
+            "stop_id": "TMNBKTEMS_TBER",
+            "stop_name": "TAMAN BUKIT EMAS/JPJ",
+            "lat": 2.69090737,
+            "lon": 101.96981907
+          },
+          {
+            "stop_id": "KBRH_TRR",
+            "stop_name": "KAMPUNG BARU RAHANG",
+            "lat": 2.69576752,
+            "lon": 101.9679898
+          },
+          {
+            "stop_id": "TMNSRMBN_TSBR",
+            "stop_name": "TAMAN SEREMBAN / TAMAN BINJAI",
+            "lat": 2.69884329,
+            "lon": 101.96200311
+          },
+          {
+            "stop_id": "TNCHLOG_TC",
+            "stop_name": "TAMAN CHOONG LOONG",
+            "lat": 2.7074302,
+            "lon": 101.95567309
+          },
+          {
+            "stop_id": "PROTONJR_PROTONJRR",
+            "stop_name": "PROTON RAHANG",
+            "lat": 2.7106908,
+            "lon": 101.95234715
+          },
+          {
+            "stop_id": "CNC_CNCR",
+            "stop_name": "CYCLE N CARRIAGE",
+            "lat": 2.71410947,
+            "lon": 101.94960594
+          },
+          {
+            "stop_id": "KTMSNWG_KR",
+            "stop_name": "KTM",
+            "lat": 2.71884093,
+            "lon": 101.94131255
+          },
+          {
+            "stop_id": "KMPLAZA_KMP",
+            "stop_name": "KM PLAZA",
+            "lat": 2.7228809,
+            "lon": 101.9376292
+          },
+          {
+            "stop_id": "T1_T1R",
+            "stop_name": "TERMINAL ONE",
+            "lat": 2.72152011,
+            "lon": 101.93715513
+          }
+        ]
+      }
+    ]
+  }
+]

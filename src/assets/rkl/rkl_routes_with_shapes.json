@@ -6,12 +6,6 @@
     "shape_ids": ["U151001", "U151002"]
   },
   {
-    "route_id": "U1708",
-    "route_code": "170",
-    "route_name": "Hab Wira Damai ~ SOGO KL",
-    "shape_ids": ["U170802"]
-  },
-  {
     "route_id": "U1710",
     "route_code": "171",
     "route_name": "Hab Wira Damai ~ Lebuh Ampang via Sentul",
@@ -346,12 +340,6 @@
     "route_code": "KJ04",
     "route_name": "Hentian Kajang ~ Bandar Baru Bangi",
     "shape_ids": ["S117002"]
-  },
-  {
-    "route_id": "S5010",
-    "route_code": "MENARA PRASARANA",
-    "route_name": "LRT Lembah Subang ~ Menara Prasarana",
-    "shape_ids": ["S501002"]
   },
   {
     "route_id": "S0070",

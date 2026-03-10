@@ -17,6 +17,7 @@ import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
+import { bearing, lineString, point, nearestPointOnLine } from "@turf/turf";
 import { Minus, Plus, Settings, Star, X } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
@@ -34,6 +35,14 @@ import MRTFeederShapes from "@/assets/mrt/mrt_shapes_flipped.json";
 import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_directions.json";
 import MRTFeederSchedule from "@/../data/mrt-feeder-schedule.json";
 import MRTFeederDirections from "@/../data/mrt-feeder-trips.json";
+import MYBusNSAShapes from "@/assets/ns_a/ns_a_shapes_flipped.json";
+import MYBusNSARoutes from "@/assets/ns_a/ns_a_routes_with_directions.json";
+import MYBusNSASchedule from "@/../data/ns-a-schedule.json";
+import MYBusNSADirections from "@/../data/ns-a-trips.json";
+import MYBusNSBShapes from "@/assets/ns_b/ns_b_shapes_flipped.json";
+import MYBusNSBRoutes from "@/assets/ns_b/ns_b_routes_with_directions.json";
+import MYBusNSBSchedule from "@/../data/ns-b-schedule.json";
+import MYBusNSBDirections from "@/../data/ns-b-trips.json";
 
 import {
   Collapsible,
@@ -100,6 +109,7 @@ function App() {
         );
         setBusSchedule(RapidPenangSchedule as unknown as BusScheduleType);
         break;
+
       case "rkl":
         setRoute(
           RapidKLRoutes.find((r) => r.route_id === searchParams.get("id"))
@@ -108,13 +118,24 @@ function App() {
                 (r) => r.route_id === searchParams.get("id"),
               ),
         );
-
         setBusSchedule(
           RapidKLRoutes.find((r) => r.route_id === searchParams.get("id"))
             ? (RapidKLSchedule as unknown as BusScheduleType)
             : (MRTFeederSchedule as unknown as BusScheduleType),
         );
         break;
+
+      case "ns":
+        setRoute(
+          MYBusNSARoutes.find((r) => r.route_id === searchParams.get("id"))
+            ? MYBusNSARoutes.find((r) => r.route_id === searchParams.get("id"))
+            : MYBusNSBRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(
+          MYBusNSARoutes.find((r) => r.route_id === searchParams.get("id"))
+            ? (MYBusNSASchedule as unknown as BusScheduleType)
+            : (MYBusNSBSchedule as unknown as BusScheduleType),
+        );
     }
   }, [provider, searchParams]);
 
@@ -157,6 +178,24 @@ function App() {
           ).length > 0
         ) {
           filteredShape = MRTFeederShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        }
+      } else if (provider === "ns") {
+        if (
+          MYBusNSAShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MYBusNSAShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        } else if (
+          MYBusNSBShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MYBusNSBShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         }
@@ -242,7 +281,7 @@ function App() {
         >
           <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
             <div
-              className={`px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 ${route.directions[0].route_long_name !== route.route_short_name ? "border-red-500" : "border-[#28ab78]"} rounded-lg text-black dark:text-white`}
+              className={`px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-[#e74e9f]" : "border-red-500"} rounded-lg text-black dark:text-white`}
             >
               {route?.route_short_name}
             </div>
@@ -304,7 +343,7 @@ function App() {
                   {/* Bullet */}
                   <div className="flex w-3 flex-col items-center mr-1">
                     <div
-                      className={`w-3 h-3 absolute rounded-full ${route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : " bg-blue-600"} z-10`}
+                      className={`w-3 h-3 absolute rounded-full ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-500" : "bg-blue-600"} z-10`}
                     ></div>
                     {/* Vertical line */}
                     {idx <
@@ -313,7 +352,7 @@ function App() {
                       )[0]?.stops.length -
                         1 && (
                       <div
-                        className={`h-full w-1 ${route.directions[0].route_long_name === route.route_short_name ? "bg-[#28ab78]" : " bg-blue-500"}`}
+                        className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-blue-500"}`}
                       ></div>
                     )}
                   </div>
@@ -336,45 +375,47 @@ function App() {
                     >
                       <p>{stop.stop_name.trim()}</p>
                     </Button>
-                    {idx === 0 && BusSchedule && provider === "rp" && (
-                      <Collapsible className="px-6 mb-4">
-                        <CollapsibleTrigger asChild>
-                          <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
-                            Next bus will depart at{" "}
-                            {nextBusTime(
-                              BusSchedule.find(
+                    {idx === 0 &&
+                      BusSchedule &&
+                      (provider === "rp" || provider === "ns") && (
+                        <Collapsible className="px-6 mb-4">
+                          <CollapsibleTrigger asChild>
+                            <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
+                              Next bus will depart at{" "}
+                              {nextBusTime(
+                                BusSchedule.find(
+                                  (s) =>
+                                    s.r === route.route_id &&
+                                    s.d === direction &&
+                                    s.dt === getCurrentDate(),
+                                )?.t || [],
+                              )}
+                            </Card>
+                          </CollapsibleTrigger>
+                          <CollapsibleContent>
+                            <div className="mt-2">Scheduled</div>
+                            <div className="grid grid-cols-6 self-center ">
+                              {BusSchedule.find(
                                 (s) =>
                                   s.r === route.route_id &&
                                   s.d === direction &&
                                   s.dt === getCurrentDate(),
-                              )?.t || [],
-                            )}
-                          </Card>
-                        </CollapsibleTrigger>
-                        <CollapsibleContent>
-                          <div className="mt-2">Scheduled</div>
-                          <div className="grid grid-cols-6 self-center ">
-                            {BusSchedule.find(
-                              (s) =>
-                                s.r === route.route_id &&
-                                s.d === direction &&
-                                s.dt === getCurrentDate(),
-                            )?.t.map((time, idx) => (
-                              <div
-                                key={idx}
-                                className={`${
-                                  hasCurrentTimePassed(time)
-                                    ? "dark:text-neutral-500 text-neutral-400"
-                                    : "dark:text-white text-black"
-                                } px-2`}
-                              >
-                                {time.substring(0, 5)}
-                              </div>
-                            ))}
-                          </div>
-                        </CollapsibleContent>
-                      </Collapsible>
-                    )}
+                              )?.t.map((time, idx) => (
+                                <div
+                                  key={idx}
+                                  className={`${
+                                    hasCurrentTimePassed(time)
+                                      ? "dark:text-neutral-500 text-neutral-400"
+                                      : "dark:text-white text-black"
+                                  } px-2`}
+                                >
+                                  {time.substring(0, 5)}
+                                </div>
+                              ))}
+                            </div>
+                          </CollapsibleContent>
+                        </Collapsible>
+                      )}
                     {idx === 0 &&
                       BusSchedule &&
                       provider === "rkl" &&
@@ -440,7 +481,7 @@ function App() {
 
     useEffect(() => {
       if (!polylineRef.current) return;
-      if (positions.length < 2) return;
+      // if (positions.length < 2) return;
 
       const bounds = polylineRef.current.getBounds();
       if (bounds.isValid()) {
@@ -469,7 +510,21 @@ function App() {
 
       return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
     }
+    function lighterHex(hex: string, percent = 10) {
+      hex = hex.replace("#", "");
 
+      const r = parseInt(hex.substring(0, 2), 16);
+      const g = parseInt(hex.substring(2, 4), 16);
+      const b = parseInt(hex.substring(4, 6), 16);
+
+      const newR = Math.round(r + (255 - r) * (percent / 100));
+      const newG = Math.round(g + (255 - g) * (percent / 100));
+      const newB = Math.round(b + (255 - b) * (percent / 100));
+
+      const toHex = (v: number) => v.toString(16).padStart(2, "0");
+
+      return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
+    }
     if (route?.directions.length === 0) return null;
     if (route?.directions.length === 1) {
       setDirection(0);
@@ -519,7 +574,13 @@ function App() {
       <>
         <Polyline
           ref={polylineRef}
-          pathOptions={{ color: color, weight: 5 }}
+          pathOptions={{
+            color:
+              provider !== "rkl" && provider !== "rp"
+                ? lighterHex(color, 40)
+                : color,
+            weight: 5,
+          }}
           positions={positions}
         />
         {route?.directions.find((d) => d.direction_id === direction)?.stops
@@ -536,7 +597,7 @@ function App() {
                 radius={6}
                 center={[stop.lat, stop.lon]}
                 pathOptions={{
-                  color: "blue",
+                  color: darkenHex(color),
                   fillColor: "white",
                   fillOpacity: 1,
                 }}
@@ -568,8 +629,14 @@ function App() {
           id="map"
           preferCanvas={true}
           zoomControl={false}
-          center={provider === "rkl" ? [3.139, 101.6869] : [5.4164, 100.3327]}
-          zoom={provider === "rkl" ? 12.5 : 13.5}
+          center={
+            provider === "rkl"
+              ? [3.139, 101.6869]
+              : provider === "ns"
+                ? [2.7297, 101.9381]
+                : [5.4164, 100.3327]
+          }
+          zoom={provider === "rkl" ? 12.5 : provider === "ns" ? 12.5 : 13.5}
           scrollWheelZoom={true}
           className="w-full h-dvh"
         >
@@ -598,7 +665,7 @@ function App() {
             }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip`}
           /> */}
           <TileLayer
-            maxZoom={15}
+            maxZoom={16}
             key={theme}
             url={`https://{s}.basemaps.cartocdn.com/${
               theme === "dark"
@@ -615,14 +682,20 @@ function App() {
           {positions.length !== 0 && (
             <FitBoundsToPolyline
               color={
-                route?.route_short_name ===
-                  route?.directions[0].route_long_name && provider === "rkl"
+                provider === "rkl" &&
+                route?.route_short_name === route?.directions[0].route_long_name
                   ? "#28ab78"
-                  : "blue"
+                  : provider !== "rkl" && provider !== "rp"
+                    ? "#e74e9f"
+                    : "blue"
               }
             />
           )}
-          <VehiclesMarker direction={direction} route={route} />
+          <VehiclesMarker
+            positions={positions}
+            direction={direction}
+            route={route}
+          />
 
           <CustomZoomControls />
           {isMobile && (
@@ -682,6 +755,7 @@ function App() {
                       <SelectContent className="z-1006 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
                         <SelectItem value="rp">Penang</SelectItem>
                         <SelectItem value="rkl">Selangor/KL</SelectItem>
+                        <SelectItem value="ns">Negeri Sembilan</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -695,7 +769,7 @@ function App() {
             <Card className="absolute z-500 pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
               <div className="flex justify-between items-center gap-4">
                 <div
-                  className={`text-2xl font-bold border-2 p-2 ${route.directions[0].route_long_name !== route.route_short_name ? "border-red-500" : "border-[#28ab78]"} rounded-xl`}
+                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
                 >
                   {route?.route_short_name}
                 </div>
@@ -707,7 +781,7 @@ function App() {
                   </h4>
                 </div>
                 <div
-                  className={`text-2xl font-bold border-2 p-2 ${route.directions[0].route_long_name !== route.route_short_name ? "border-red-500" : "border-[#28ab78]"} rounded-xl`}
+                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
                 >
                   {route?.route_short_name}
                 </div>
@@ -752,8 +826,10 @@ function UserLocation() {
 function VehiclesMarker({
   direction,
   route,
+  positions,
 }: {
   direction: number;
+  positions: LatLngExpression[][];
   route:
     | {
         route_id: string;
@@ -787,6 +863,9 @@ function VehiclesMarker({
     if (userProvider === "rkl") {
       const combinedSchedule = [...RapidKLSchedule, ...MRTFeederSchedule];
       setBusSchedule(combinedSchedule as unknown as BusScheduleType);
+    } else if (userProvider === "ns") {
+      const combinedSchedule = [...MYBusNSASchedule, ...MRTFeederSchedule];
+      setBusSchedule(combinedSchedule as unknown as BusScheduleType);
     }
   }, []);
 
@@ -812,6 +891,13 @@ function VehiclesMarker({
           res2 = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-mrtfeeder",
           );
+        } else if (provider === "ns") {
+          res = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-seremban-a",
+          );
+          res2 = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-seremban-b",
+          );
         } else if (provider === "rp") {
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
@@ -826,6 +912,7 @@ function VehiclesMarker({
             new Uint8Array(buffer),
           );
           feed.entity.forEach((entity) => {
+            console.log(entity.vehicle);
             if (entity.vehicle) {
               vehicleData.push(entity.vehicle);
             }
@@ -838,6 +925,7 @@ function VehiclesMarker({
             new Uint8Array(buffer2),
           );
           feed2.entity.forEach((entity) => {
+            console.log(entity.vehicle);
             if (entity.vehicle) {
               vehicleData.push(entity.vehicle);
             }
@@ -872,8 +960,26 @@ function VehiclesMarker({
       divIcon({
         className: "",
         html: `<img 
-    src="${bearing > 180 ? "/rp-bus2.png" : "/rp-bus.png"}"
+    src="${bearing < 0 ? "/rp-bus2.png" : "/rp-bus.png"}"
     alt="Rapid Penang bus"
+    style="
+      width:100px;
+      height:100px;
+      transform: rotate(${bearing}deg);
+      transform-origin: center center;
+      display:block;
+    "
+  />`,
+        iconSize: [24, 24],
+        iconAnchor: [50, 50],
+      });
+  } else if (provider === "ns") {
+    busIcon = (bearing: number, _: string | null | undefined) =>
+      divIcon({
+        className: "",
+        html: `<img 
+    src="${bearing < 0 ? "/basmy-bus2.png" : "/basmy-bus.png"}"
+    alt="BASMY bus"
     style="
       width:100px;
       height:100px;
@@ -891,7 +997,7 @@ function VehiclesMarker({
         return divIcon({
           className: "",
           html: `<img 
-    src="${bearing > 180 ? "/rkl-bus2.png" : "/rkl-bus.png"}"
+    src="${bearing < 0 ? "/rkl-bus2.png" : "/rkl-bus.png"}"
     alt="Rapid KL bus"
     style="
       width:100px;
@@ -908,7 +1014,7 @@ function VehiclesMarker({
         return divIcon({
           className: "",
           html: `<img 
-    src="${bearing > 180 ? "/mrt-bus2.png" : "/mrt-bus.png"}"
+    src="${bearing < 0 ? "/mrt-bus2.png" : "/mrt-bus.png"}"
     alt="MRT Feeder bus"
     style="
       width:100px;
@@ -985,103 +1091,198 @@ function VehiclesMarker({
           }
         }
       });
+    } else if (provider === "ns") {
+      const vehicleForThisRoute = vehicles.filter(
+        (v) =>
+          v.trip?.routeId === route?.route_id ||
+          v.trip?.routeId === route?.route_short_name,
+      );
+
+      vehicleForThisRoute.forEach((v) => {
+        let directions = MYBusNSADirections.find(
+          (d) => d.trip_id === v.trip?.tripId,
+        );
+        if (!directions) {
+          directions = MYBusNSBDirections.find(
+            (d) => d.trip_id === v.trip?.tripId,
+          );
+        }
+
+        if (directions === undefined && route?.directions.length === 1) {
+          setDirectionsLocation((prev) => ({
+            0: [...prev[0], v],
+            1: [...prev[1]],
+          }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
+        }
+      });
     }
   }, [route?.route_short_name, route?.directions.length, vehicles]);
 
+  if (directionsLocation[direction as 0 | 1].length === 0) return null;
+
+  // convert positions (LatLngExpression[][]) to GeoJSON Positions [lon, lat]
+  const coordsForLine = positions
+    .map((pos) => {
+      const p = pos as unknown as [number, number];
+      // flip [lat, lon] -> [lon, lat] for Turf
+      return [p[1], p[0]] as [number, number];
+    })
+    .filter((p) => Number.isFinite(p[0]) && Number.isFinite(p[1]));
+  // Turf lineString requires two or more positions; if we don't have enough, skip rendering vehicles.
+  if (coordsForLine.length < 2) {
+    return null;
+  }
+  const line = lineString(coordsForLine);
+
   return (
     <>
-      {directionsLocation[direction as 0 | 1].map((v, idx) => (
-        <div key={idx}>
-          {v && (
-            <Marker
-              key={v.vehicle?.licensePlate || idx}
-              position={
-                typeof v.position?.latitude === "number" &&
-                typeof v.position?.longitude === "number"
-                  ? [v.position.latitude, v.position.longitude]
-                  : [0, 0]
-              }
-              icon={busIcon(v.position?.bearing || 0, v.trip?.tripId)}
-            >
-              <Popup
-                maxWidth={500}
-                offset={[0, 8]}
-                className="pointer-events-none"
-                closeButton={false}
+      {directionsLocation[direction as 0 | 1].map((v) => {
+        // console.log(v.position.longitude, v.position.latitude);
+        const busPoint = point(
+          typeof v.position?.latitude === "number" &&
+            typeof v.position?.longitude === "number"
+            ? [v.position.longitude, v.position.latitude]
+            : [0, 0],
+        );
+        const snapped = nearestPointOnLine(line, busPoint, { units: "meters" });
+
+        console.log(snapped.properties.dist);
+        // 50 meters threshold
+        const MAX_SNAP_DISTANCE = 50;
+        const MAX_OFF_ROUTE_DISTANCE = 1000;
+
+        let isOffRoute = false;
+        if (snapped.properties.dist > MAX_OFF_ROUTE_DISTANCE) {
+          return null;
+        } else if (snapped.properties.dist > MAX_SNAP_DISTANCE) {
+          isOffRoute = true;
+        }
+
+        const coords = line.geometry.coordinates;
+        let idx2 = snapped.properties.index;
+
+        // Safety check
+        if (idx2 >= coords.length - 1) {
+          idx2 = coords.length - 2;
+        }
+        // Pick next point to calculate bearing
+        if (idx2 >= coords.length - 1) idx2 = coords.length - 2;
+        const start = coords[idx2];
+        const end = coords[idx2 + 1];
+
+        return (
+          <div key={v.vehicle?.licensePlate}>
+            {v && (
+              <Marker
+                key={v.vehicle?.licensePlate}
+                position={{
+                  lat: isOffRoute
+                    ? busPoint.geometry.coordinates[1] || 0
+                    : snapped.geometry.coordinates[1] || 0,
+                  lng: isOffRoute
+                    ? busPoint.geometry.coordinates[0] || 0
+                    : snapped.geometry.coordinates[0] || 0,
+                }}
+                icon={busIcon(
+                  isOffRoute
+                    ? v.position?.bearing || 0
+                    : bearing(point(start), point(end)) ||
+                        v.position?.bearing ||
+                        0,
+                  v.trip?.tripId,
+                )}
               >
-                <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
-                  <p className="text-lg font-semibold">
-                    {v.vehicle?.licensePlate}
-                  </p>
-                  <p className="mt-4">
-                    Route:{" "}
-                    {provider === "rp"
-                      ? v.trip?.routeId
-                      : route?.route_short_name}
-                  </p>
-                  <p>Speed: {v.position?.speed?.toFixed(0)}km/h</p>
-                  <p>
-                    {(() => {
-                      const showDeparture =
-                        provider === "rp" ||
-                        (provider === "rkl" &&
-                          route?.route_short_name ===
-                            route?.directions[0].route_long_name);
-
-                      if (!showDeparture) return "";
-
-                      const currentBus = BusSchedule.find(
-                        (s) =>
-                          s.r === route?.route_id &&
-                          s.d === direction &&
-                          s.dt === getCurrentDateEvenAfter12(),
-                      );
-
-                      if (!currentBus) return "";
-
-                      const idx = currentBus.trip_ids.findIndex(
-                        (id) => id === v.trip?.tripId,
-                      );
-
-                      return idx >= 0
-                        ? `Departure: ${currentBus.t[idx].substring(0, 5)}`
-                        : "";
-                    })()}
-                  </p>
-                  {provider === "rp" &&
-                    v.trip?.routeId === "T310" &&
-                    typeof v.position?.latitude === "number" &&
-                    v.position.latitude >= 5.353 && (
-                      <p>
-                        {"Heading: "}
-                        {findT310Heading(
-                          (() => {
-                            const currentBus = BusSchedule.find(
-                              (s) =>
-                                s.r === route?.route_id &&
-                                s.d === direction &&
-                                s.dt === getCurrentDateEvenAfter12(),
-                            );
-
-                            if (!currentBus) return "";
-
-                            const idx = currentBus.trip_ids.findIndex(
-                              (id) => id === v.trip?.tripId,
-                            );
-
-                            return idx >= 0 ? currentBus.t[idx] : "";
-                          })(),
-                        )
-                          ? "Queensbay Mall"
-                          : "Padang Kawad"}
-                      </p>
+                <Popup
+                  maxWidth={500}
+                  offset={[0, 8]}
+                  className="pointer-events-none"
+                  closeButton={false}
+                >
+                  <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
+                    <p className="text-lg font-semibold">
+                      {v.vehicle?.licensePlate}
+                    </p>
+                    <p className="mt-4">
+                      Route:{" "}
+                      {provider === "rp"
+                        ? v.trip?.routeId
+                        : route?.route_short_name}
+                    </p>
+                    {provider !== "ns" && (
+                      <p>Speed: {v.position?.speed?.toFixed(0)}km/h</p>
                     )}
-                </div>
-              </Popup>
-            </Marker>
-          )}
-        </div>
-      ))}
+                    <p>
+                      {(() => {
+                        const showDeparture =
+                          provider === "rp" ||
+                          provider === "ns" ||
+                          (provider === "rkl" &&
+                            route?.route_short_name ===
+                              route?.directions[0].route_long_name);
+
+                        if (!showDeparture) return "";
+
+                        const currentBus = BusSchedule.find(
+                          (s) =>
+                            s.r === route?.route_id &&
+                            s.d === direction &&
+                            s.dt === getCurrentDateEvenAfter12(),
+                        );
+
+                        if (!currentBus) return "";
+
+                        const idx = currentBus.trip_ids.findIndex(
+                          (id) => id === v.trip?.tripId,
+                        );
+
+                        return idx >= 0
+                          ? `Departure: ${currentBus.t[idx].substring(0, 5)}`
+                          : "";
+                      })()}
+                    </p>
+                    {provider === "rp" &&
+                      v.trip?.routeId === "T310" &&
+                      typeof v.position?.latitude === "number" &&
+                      v.position.latitude >= 5.353 && (
+                        <p>
+                          {"Heading: "}
+                          {findT310Heading(
+                            (() => {
+                              const currentBus = BusSchedule.find(
+                                (s) =>
+                                  s.r === route?.route_id &&
+                                  s.d === direction &&
+                                  s.dt === getCurrentDateEvenAfter12(),
+                              );
+
+                              if (!currentBus) return "";
+
+                              const idx = currentBus.trip_ids.findIndex(
+                                (id) => id === v.trip?.tripId,
+                              );
+
+                              return idx >= 0 ? currentBus.t[idx] : "";
+                            })(),
+                          )
+                            ? "Queensbay Mall"
+                            : "Padang Kawad"}
+                        </p>
+                      )}
+                  </div>
+                </Popup>
+              </Marker>
+            )}
+          </div>
+        );
+      })}
     </>
   );
 }
