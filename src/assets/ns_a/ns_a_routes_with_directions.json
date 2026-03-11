@@ -1860,7 +1860,7 @@
           },
           {
             "stop_id": "TO1_TO1",
-            "stop_name": " ",
+            "stop_name": "TERMINAL ONE",
             "lat": 2.72181482,
             "lon": 101.93712831
           }
@@ -2095,7 +2095,7 @@
           },
           {
             "stop_id": "TO1_TO1",
-            "stop_name": " ",
+            "stop_name": "TERMINAL ONE",
             "lat": 2.72181482,
             "lon": 101.93712831
           }
