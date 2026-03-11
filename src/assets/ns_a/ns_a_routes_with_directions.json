@@ -1676,7 +1676,7 @@
       {
         "direction_id": 0,
         "shape_id": "R1705012",
-        "route_long_name": "  - BUKIT MUTIARA LOOP",
+        "route_long_name": "TERMINAL 1 - BUKIT MUTIARA LOOP",
         "stops": [
           {
             "stop_id": "T1_T1",
@@ -1875,7 +1875,7 @@
       {
         "direction_id": 0,
         "shape_id": "R1705013",
-        "route_long_name": "  - DESA RHU LOOP",
+        "route_long_name": "TERMINAL 1 - DESA RHU LOOP",
         "stops": [
           {
             "stop_id": "T1_F508",

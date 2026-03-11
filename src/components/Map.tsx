@@ -1119,13 +1119,11 @@ function VehiclesMarker({
         }
       });
     } else if (provider === "ns") {
-      console.log(route);
       const vehicleForThisRoute = Array.from(vehicles.values()).filter(
         (v) =>
           v.trip?.routeId === route?.route_id ||
           v.trip?.routeId === route?.route_short_name,
       );
-      console.log("vec", vehicleForThisRoute);
 
       vehicleForThisRoute.forEach((v) => {
         let directions = MYBusNSADirections.find(
@@ -1155,7 +1153,6 @@ function VehiclesMarker({
     }
   }, [route?.route_short_name, route?.directions.length, vehicles]);
 
-  console.log(directionsLocation);
   if (directionsLocation[direction as 0 | 1].length === 0) return null;
 
   // convert positions (LatLngExpression[][]) to GeoJSON Positions [lon, lat]

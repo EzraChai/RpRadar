@@ -170,7 +170,7 @@ export function AppSidebar() {
                         <Button
                           variant={"ghost"}
                           key={route?.route_id}
-                          className={`text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-9 h-5 py-1 px-1 ${route?.route_name === route?.route_code ? "border-[#28ab78]" : "border-red-500"} rounded-xl`}
+                          className={`text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-9 h-5 py-1 px-1  ${provider === "rkl" && route?.route_code === route?.route_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"}  rounded-xl`}
                         >
                           <p className="text-black dark:text-white truncate">
                             {route?.route_code}
@@ -424,8 +424,8 @@ export function RouteCard({
     <NavLink
       onClick={() => {
         if (typeof setSnap === "function") {
+          console.log("first");
           setSnap(0.2);
-          scrollTo();
         }
         if (typeof setOpenSearch === "function") {
           setTimeout(() => {
