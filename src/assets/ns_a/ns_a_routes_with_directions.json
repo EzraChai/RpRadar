@@ -247,7 +247,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705002",
-        "route_long_name": "  - POLITEKNIK NILAI",
+        "route_long_name": "POLITEKNIK NILAI - TERMINAL 1",
         "stops": [
           {
             "stop_id": "PTNB_PCWGTNB",
@@ -1043,7 +1043,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705008",
-        "route_long_name": "  - NILAI SENTRAL",
+        "route_long_name": "NILAI SENTRAL - TERMINAL 1",
         "stops": [
           {
             "stop_id": "NS_56R",
@@ -1501,7 +1501,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705010",
-        "route_long_name": "NILAI SENTRAL - NILAI 3",
+        "route_long_name": "NILAI 3 - NILAI SENTRAL",
         "stops": [
           {
             "stop_id": "DESARIA_DESARIAR",
@@ -2351,7 +2351,7 @@
       {
         "direction_id": 0,
         "shape_id": "R1705016",
-        "route_long_name": "  - NILAI VIA LABU",
+        "route_long_name": "TERMINAL 1 - NILAI VIA LABU",
         "stops": [
           {
             "stop_id": "T1_T1",
@@ -2634,7 +2634,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705017",
-        "route_long_name": "  - NILAI VIA LABU",
+        "route_long_name": "NILAI - TERMINAL 1 VIA LABU",
         "stops": [
           {
             "stop_id": "NS_NS512",
@@ -3200,7 +3200,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705040",
-        "route_long_name": "TERMINAL 1 - SEREMBAN 2",
+        "route_long_name": "SEREMBAN 2 - TERMINAL 1",
         "stops": [
           {
             "stop_id": "BBA_BB",
@@ -3495,7 +3495,7 @@
       {
         "direction_id": 0,
         "shape_id": "R1705032",
-        "route_long_name": "  - TAMPIN VIA SENAWANG",
+        "route_long_name": "TERMINAL 1 - TAMPIN VIA SENAWANG",
         "stops": [
           {
             "stop_id": "T1_53",
@@ -3919,7 +3919,7 @@
           },
           {
             "stop_id": "TMNLTMP_TMNLTMP",
-            "stop_name": "TERMINAL TAMPIN",
+            "stop_name": "PULAU SEBANG SENTRAL",
             "lat": 2.46488967,
             "lon": 102.22626365
           }
@@ -3928,11 +3928,11 @@
       {
         "direction_id": 1,
         "shape_id": "R1705033",
-        "route_long_name": "TAMPIN -   VIA SENAWANG",
+        "route_long_name": "TAMPIN - TERMINAL 1 VIA SENAWANG",
         "stops": [
           {
             "stop_id": "TMNLTMP_TT",
-            "stop_name": "TERMINAL TAMPIN",
+            "stop_name": "PULAU SEBANG SENTRAL",
             "lat": 2.46488967,
             "lon": 102.22626365
           },
@@ -4361,7 +4361,7 @@
       {
         "direction_id": 0,
         "shape_id": "R1705042",
-        "route_long_name": "  - TAMPIN VIA SEREMBAN JAYA",
+        "route_long_name": "TERMINAL 1 - TAMPIN VIA SEREMBAN JAYA",
         "stops": [
           {
             "stop_id": "T1_53",
@@ -4833,7 +4833,7 @@
           },
           {
             "stop_id": "TMNLTMP_TMNLTMP",
-            "stop_name": "TERMINAL TAMPIN",
+            "stop_name": "PULAU SEBANG SENTRAL",
             "lat": 2.46488967,
             "lon": 102.22626365
           }
@@ -4842,11 +4842,11 @@
       {
         "direction_id": 1,
         "shape_id": "R1705043",
-        "route_long_name": "  - TAMPIN VIA SEREMBAN JAYA",
+        "route_long_name": "TAMPIN - TERMINAL 1 VIA SEREMBAN JAYA",
         "stops": [
           {
             "stop_id": "TMNLTMP_TT",
-            "stop_name": "TERMINAL TAMPIN",
+            "stop_name": "PULAU SEBANG SENTRAL",
             "lat": 2.46488967,
             "lon": 102.22626365
           },

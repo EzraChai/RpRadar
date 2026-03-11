@@ -79,11 +79,13 @@ export function DrawerMobile({
 
   const [routes] = useState<RouteType[]>(() => {
     if (provider === "rkl") {
-      const CombinedRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
-      return CombinedRoutes as unknown as RouteType[];
+      const combinedSelangorKLRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
+      return combinedSelangorKLRoutes as unknown as RouteType[];
     } else if (provider === "ns") {
-      const combinedRoutes = [...MyBasNSARoutes, ...MyBasNSBRoutes];
-      return combinedRoutes as unknown as RouteType[];
+      const combinedNSRoutes = [...MyBasNSARoutes, ...MyBasNSBRoutes];
+      return combinedNSRoutes.sort((a, b) =>
+        a.route_id.localeCompare(b.route_id),
+      ) as unknown as RouteType[];
     }
     return RapidPenangRoutes as unknown as RouteType[];
   });

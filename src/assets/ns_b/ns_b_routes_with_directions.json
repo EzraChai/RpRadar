@@ -271,7 +271,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705019",
-        "route_long_name": "PORT DICKSON - POLYMALL",
+        "route_long_name": "POLYMALL - PORT DICKSON",
         "stops": [
           {
             "stop_id": "POLYMALL_POLYMALLR",
@@ -548,7 +548,7 @@
       {
         "direction_id": 0,
         "shape_id": "R1705026",
-        "route_long_name": "TERMINAL 1-PORT DICKSON VIA SPRINGHILL",
+        "route_long_name": "TERMINAL 1 - PORT DICKSON VIA SPRINGHILL",
         "stops": [
           {
             "stop_id": "T1_53",
@@ -873,7 +873,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705027",
-        "route_long_name": "TERMINAL 1-PORT DICKSON VIA SPRINGHILL",
+        "route_long_name": "PORT DICKSON - TERMINAL 1 VIA SPRINGHILL",
         "stops": [
           {
             "stop_id": "TPD_PD",
@@ -1216,7 +1216,7 @@
       {
         "direction_id": 0,
         "shape_id": "R1705028",
-        "route_long_name": "TERMINAL 1-PORT DICKSON VIA SPG SILIAU",
+        "route_long_name": "TERMINAL 1 - PORT DICKSON VIA SPG SILIAU",
         "stops": [
           {
             "stop_id": "T1_53",
@@ -1559,7 +1559,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705041",
-        "route_long_name": "TERMINAL 1-PORT DICKSON VIA SPG SILIAU",
+        "route_long_name": "PORT DICKSON - TERMINAL 1 VIA SPG SILIAU",
         "stops": [
           {
             "stop_id": "TPD_PD",
@@ -1920,7 +1920,7 @@
       {
         "direction_id": 0,
         "shape_id": "R1705030",
-        "route_long_name": "TERMINAL 1- PORT DICKSON VIA RANTAU",
+        "route_long_name": "TERMINAL 1 - PORT DICKSON VIA RANTAU",
         "stops": [
           {
             "stop_id": "T1_53",
@@ -2461,7 +2461,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705031",
-        "route_long_name": "TERMINAL 1- PORT DICKSON VIA RANTAU",
+        "route_long_name": "PORT DICKSON - TERMINAL 1 VIA RANTAU",
         "stops": [
           {
             "stop_id": "TPD_PD",
@@ -3579,7 +3579,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705035",
-        "route_long_name": "TERMINAL 1 - BAHAU VIA JUASEH",
+        "route_long_name": "BAHAU - TERMINAL 1 VIA JUASEH",
         "stops": [
           {
             "stop_id": "TBHA_TBHAR",
@@ -4697,7 +4697,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1705038",
-        "route_long_name": "TERMINAL 1 - BAHAU VIA BT KIKIR",
+        "route_long_name": "BAHAU - TERMINAL 1 VIA BT KIKIR",
         "stops": [
           {
             "stop_id": "TBHA_TBHAR",
@@ -5280,7 +5280,7 @@
       {
         "direction_id": 0,
         "shape_id": "R1710001",
-        "route_long_name": "TERMINAL 1-PEKAN LINGGI",
+        "route_long_name": "TERMINAL 1 - PEKAN LINGGI",
         "stops": [
           {
             "stop_id": "T1_53",
@@ -5815,7 +5815,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1710002",
-        "route_long_name": "TERMINAL 1-PEKAN LINGGI",
+        "route_long_name": "PEKAN LINGGI - TERMINAL 1",
         "stops": [
           {
             "stop_id": "HPGKLNKMPS_T31R",
@@ -6897,7 +6897,7 @@
       {
         "direction_id": 1,
         "shape_id": "R1710004",
-        "route_long_name": "TERMINAL 1 - KUALA KLAWANG - TITI",
+        "route_long_name": "TITI - KUALA KLAWANG - TERMINAL 1",
         "stops": [
           {
             "stop_id": "RRTT_T70R",
@@ -7607,7 +7607,7 @@
       {
         "direction_id": 1,
         "shape_id": "R2207002",
-        "route_long_name": "POLYMALL - TANJUNG AGAS",
+        "route_long_name": "TANJUNG AGAS - POLYMALL",
         "stops": [
           {
             "stop_id": "KOLUNITI_T34R",
@@ -7951,7 +7951,7 @@
       {
         "direction_id": 1,
         "shape_id": "R2403002",
-        "route_long_name": "KUALA KLAWANG - KAMPUNG CHENNAH",
+        "route_long_name": "KAMPUNG CHENNAH - KUALA KLAWANG",
         "stops": [
           {
             "stop_id": "BPKGC_T71R",
@@ -8283,7 +8283,7 @@
       {
         "direction_id": 1,
         "shape_id": "R2509002",
-        "route_long_name": "KUALA PILAH - BETING UITM",
+        "route_long_name": "BETING UITM - KUALA PILAH",
         "stops": [
           {
             "stop_id": "KLJRSIPL2_N11R",

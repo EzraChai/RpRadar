@@ -60,7 +60,9 @@ export function AppSidebar({
     if (provider === "rkl") {
       return combinedSelangorKLRoutes as unknown as RouteType[];
     } else if (provider === "ns") {
-      return combinedNSRoutes as unknown as RouteType[];
+      return combinedNSRoutes.sort((a, b) =>
+        a.route_id.localeCompare(b.route_id),
+      ) as unknown as RouteType[];
     } else {
       return RapidPenangRoutes as unknown as RouteType[];
     }
