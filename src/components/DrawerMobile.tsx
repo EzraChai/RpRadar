@@ -205,7 +205,7 @@ export function DrawerMobile({
               >
                 <div className="p-2 py-0 flex justify-between items-center">
                   <div
-                    className={`border-2 font-semibold ${route?.directions[0].route_long_name === route?.route_short_name ? "border-[#28ab78]" : "border-red-500"} rounded-lg px-2`}
+                    className={`border-2 font-semibold ${provider === "rkl" && route?.directions[0].route_long_name === route?.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-lg px-2`}
                   >
                     {route?.route_short_name}
                   </div>
@@ -278,14 +278,18 @@ export function DrawerMobile({
                           <div
                             className={`flex flex-col items-center w-4 mr-2`}
                           >
-                            <div className="w-3 h-3 absolute rounded-full bg-blue-600 z-10"></div>
+                            <div
+                              className={`w-3 h-3 absolute rounded-full  ${provider === "rkl" && route?.directions[0].route_long_name === route?.route_short_name ? "bg-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-500" : "bg-blue-600"}  z-10`}
+                            ></div>
                             {/* Vertical line */}
                             {idx <
                               route?.directions.filter(
                                 (d) => d.direction_id === direction,
                               )[0].stops.length -
                                 1 && (
-                              <div className=" h-full w-1 bg-blue-500"></div>
+                              <div
+                                className={` h-full w-1 ${provider === "rkl" && route?.directions[0].route_long_name === route?.route_short_name ? "bg-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-500" : "bg-blue-500"}`}
+                              ></div>
                             )}
                           </div>
 
@@ -429,7 +433,7 @@ export function DrawerMobile({
                                       {route?.route_name}
                                     </p>
                                     <div
-                                      className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${route?.route_name === route?.route_code ? "border-[#28ab78]" : "border-red-500"} rounded-lg text-black dark:text-white`}
+                                      className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${provider === "rkl" && route?.route_code === route?.route_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-lg text-black dark:text-white`}
                                     >
                                       {route?.route_code}
                                     </div>

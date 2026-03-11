@@ -343,7 +343,7 @@ function App() {
                   {/* Bullet */}
                   <div className="flex w-3 flex-col items-center mr-1">
                     <div
-                      className={`w-3 h-3 absolute rounded-full ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-500" : "bg-blue-600"} z-10`}
+                      className={`w-3 h-3 absolute rounded-full ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-blue-600"} z-10`}
                     ></div>
                     {/* Vertical line */}
                     {idx <
@@ -848,9 +848,9 @@ function VehiclesMarker({
       }
     | undefined;
 }) {
-  const [vehicles, setVehicles] = useState<transit_realtime.IVehiclePosition[]>(
-    [],
-  );
+  const [vehicles, setVehicles] = useState<
+    Map<string, transit_realtime.IVehiclePosition>
+  >(new Map());
 
   const [provider, setProvider] = useState<string | undefined>();
   const [BusSchedule, setBusSchedule] =
@@ -864,7 +864,7 @@ function VehiclesMarker({
       const combinedSchedule = [...RapidKLSchedule, ...MRTFeederSchedule];
       setBusSchedule(combinedSchedule as unknown as BusScheduleType);
     } else if (userProvider === "ns") {
-      const combinedSchedule = [...MYBusNSASchedule, ...MRTFeederSchedule];
+      const combinedSchedule = [...MYBusNSASchedule, ...MYBusNSBSchedule];
       setBusSchedule(combinedSchedule as unknown as BusScheduleType);
     }
   }, []);
@@ -877,8 +877,6 @@ function VehiclesMarker({
   const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
-    let isMounted = true; // prevent state updates after unmount
-
     async function loadData() {
       try {
         let res: Response | null = null;
@@ -904,36 +902,66 @@ function VehiclesMarker({
           );
         }
 
-        const vehicleData: transit_realtime.IVehiclePosition[] = [];
+        setVehicles((prev) => {
+          const now = Date.now();
+          const updated = new Map(prev);
+
+          for (const [plate, vehicle] of updated) {
+            const tsNumber =
+              typeof vehicle.timestamp === "object" &&
+              typeof (vehicle.timestamp as any).toNumber === "function"
+                ? (vehicle.timestamp as any).toNumber()
+                : Number(vehicle.timestamp);
+            if (!vehicle.timestamp || tsNumber * 1000 < now - 120000) {
+              updated.delete(plate);
+            }
+          }
+
+          return updated;
+        });
 
         if (res) {
           const buffer = await res.arrayBuffer();
           const feed = transit_realtime.FeedMessage.decode(
             new Uint8Array(buffer),
           );
-          feed.entity.forEach((entity) => {
-            console.log(entity.vehicle);
-            if (entity.vehicle) {
-              vehicleData.push(entity.vehicle);
-            }
+
+          setVehicles((prev) => {
+            const updated = new Map(prev);
+
+            feed.entity.forEach((entity) => {
+              const vehicle = entity.vehicle;
+              const plate = vehicle?.vehicle?.licensePlate;
+
+              if (!vehicle || !plate) return;
+
+              updated.set(plate, vehicle);
+            });
+
+            return updated;
           });
         }
 
         if (res2) {
-          const buffer2 = await res2.arrayBuffer();
-          const feed2 = transit_realtime.FeedMessage.decode(
-            new Uint8Array(buffer2),
+          const buffer = await res2.arrayBuffer();
+          const feed = transit_realtime.FeedMessage.decode(
+            new Uint8Array(buffer),
           );
-          feed2.entity.forEach((entity) => {
-            console.log(entity.vehicle);
-            if (entity.vehicle) {
-              vehicleData.push(entity.vehicle);
-            }
-          });
-        }
 
-        if (isMounted) {
-          setVehicles(vehicleData);
+          setVehicles((prev) => {
+            const updated = new Map(prev);
+
+            feed.entity.forEach((entity) => {
+              const vehicle = entity.vehicle;
+              const plate = vehicle?.vehicle?.licensePlate;
+
+              if (!vehicle || !plate) return;
+
+              updated.set(plate, vehicle);
+            });
+
+            return updated;
+          });
         }
       } catch (err) {}
     }
@@ -945,12 +973,11 @@ function VehiclesMarker({
 
     // cleanup
     return () => {
-      isMounted = false;
       if (timerRef.current !== null) {
         window.clearInterval(timerRef.current);
         timerRef.current = null;
       }
-      setVehicles([]);
+      setVehicles(new Map());
     };
   }, [provider]); // re-run if provider changes
 
@@ -1036,7 +1063,7 @@ function VehiclesMarker({
   useEffect(() => {
     setDirectionsLocation({ 0: [], 1: [] });
     if (provider === "rp") {
-      const vehicleForThisRoute = vehicles.filter(
+      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
         (v) => v.trip?.routeId === route?.route_short_name,
       );
 
@@ -1060,7 +1087,7 @@ function VehiclesMarker({
         }
       });
     } else if (provider === "rkl") {
-      const vehicleForThisRoute = vehicles.filter(
+      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
         (v) =>
           v.trip?.routeId === route?.route_id ||
           v.trip?.routeId === route?.route_short_name,
@@ -1092,11 +1119,13 @@ function VehiclesMarker({
         }
       });
     } else if (provider === "ns") {
-      const vehicleForThisRoute = vehicles.filter(
+      console.log(route);
+      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
         (v) =>
           v.trip?.routeId === route?.route_id ||
           v.trip?.routeId === route?.route_short_name,
       );
+      console.log("vec", vehicleForThisRoute);
 
       vehicleForThisRoute.forEach((v) => {
         let directions = MYBusNSADirections.find(
@@ -1126,6 +1155,7 @@ function VehiclesMarker({
     }
   }, [route?.route_short_name, route?.directions.length, vehicles]);
 
+  console.log(directionsLocation);
   if (directionsLocation[direction as 0 | 1].length === 0) return null;
 
   // convert positions (LatLngExpression[][]) to GeoJSON Positions [lon, lat]
@@ -1144,7 +1174,7 @@ function VehiclesMarker({
 
   return (
     <>
-      {directionsLocation[direction as 0 | 1].map((v) => {
+      {directionsLocation[direction as 0 | 1].map((v, idx) => {
         // console.log(v.position.longitude, v.position.latitude);
         const busPoint = point(
           typeof v.position?.latitude === "number" &&
@@ -1154,7 +1184,6 @@ function VehiclesMarker({
         );
         const snapped = nearestPointOnLine(line, busPoint, { units: "meters" });
 
-        console.log(snapped.properties.dist);
         // 50 meters threshold
         const MAX_SNAP_DISTANCE = 50;
         const MAX_OFF_ROUTE_DISTANCE = 1000;
@@ -1179,10 +1208,9 @@ function VehiclesMarker({
         const end = coords[idx2 + 1];
 
         return (
-          <div key={v.vehicle?.licensePlate}>
+          <div key={idx}>
             {v && (
               <Marker
-                key={v.vehicle?.licensePlate}
                 position={{
                   lat: isOffRoute
                     ? busPoint.geometry.coordinates[1] || 0
@@ -1236,7 +1264,6 @@ function VehiclesMarker({
                             s.d === direction &&
                             s.dt === getCurrentDateEvenAfter12(),
                         );
-
                         if (!currentBus) return "";
 
                         const idx = currentBus.trip_ids.findIndex(
