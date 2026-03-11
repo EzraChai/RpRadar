@@ -648,7 +648,7 @@ function App() {
               route={route}
             />
           )}
-          {!isMobile && <AppSidebar />}
+          {!isMobile && <AppSidebar setPositions={setPositions} />}
           {/* <PMTileLayer /> */}
           {/* <TileLayer
             key={theme}
@@ -739,6 +739,8 @@ function App() {
                     <Select
                       onValueChange={(value) => {
                         setProvider(value);
+                        setPositions([]);
+                        setBusSchedule(null);
                         localStorage.setItem("provider", value);
                         window.history.replaceState(
                           {},

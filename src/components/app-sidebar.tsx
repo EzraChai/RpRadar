@@ -13,7 +13,13 @@ import { ModeToggle } from "./mode-toggle";
 import { Search, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardHeader, CardTitle } from "./ui/card";
-import { useEffect, useRef, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import { Input } from "./ui/input";
 import { Link, NavLink } from "react-router";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
@@ -37,7 +43,11 @@ import { SNAP_POINTS } from "./DrawerMobile";
 const combinedSelangorKLRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
 const combinedNSRoutes = [...MYBusNSARoutes, ...MYBusNSBRoutes];
 
-export function AppSidebar() {
+export function AppSidebar({
+  setPositions,
+}: {
+  setPositions: Dispatch<SetStateAction<L.LatLngExpression[][]>>;
+}) {
   const map = useMap();
   const [openSearch, setOpenSearch] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
@@ -194,6 +204,7 @@ export function AppSidebar() {
                 <Select
                   onValueChange={(value) => {
                     setProvider(value);
+                    setPositions([]);
                     localStorage.setItem("provider", value);
                     window.history.replaceState(
                       {},
