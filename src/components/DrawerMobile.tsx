@@ -114,52 +114,52 @@ export function DrawerMobile({
   const list1Ref = useRef<HTMLDivElement>(null);
 
   const touchStartY = useRef<number | null>(null);
-  const dragOffset = useRef<number>(0);
-  const isDragging = useRef(false);
+  const lastTouchY = useRef<number | null>(null);
+  const lastTouchTime = useRef<number | null>(null);
 
-  // Track finger start
   const handleTouchStart =
     (ref: React.RefObject<HTMLDivElement | null>) => (e: React.TouchEvent) => {
       activeScrollRef.current = ref.current;
-      touchStartY.current = e.touches[0].clientY;
-      dragOffset.current = 0;
-      isDragging.current = false;
+
+      const y = e.touches[0].clientY;
+      touchStartY.current = y;
+      lastTouchY.current = y;
+      lastTouchTime.current = performance.now();
     };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (!activeScrollRef.current || touchStartY.current === null) return;
+    if (!activeScrollRef.current || lastTouchY.current === null) return;
 
-    const dy = e.touches[0].clientY - touchStartY.current;
+    const currentY = e.touches[0].clientY;
+    const now = performance.now();
+
+    const dt = now - (lastTouchTime.current ?? now); // time in ms
+    const velocity = dt > 0 ? (currentY - lastTouchY.current) / dt : 0; // px/ms
+
+    lastTouchY.current = currentY;
+    lastTouchTime.current = now;
+
     const scrollTop = activeScrollRef.current.scrollTop;
     const scrollHeight = activeScrollRef.current.scrollHeight;
     const clientHeight = activeScrollRef.current.clientHeight;
-    const SCROLL_THRESHOLD = 150;
 
     const atTop = scrollTop <= 0;
     const atBottom = scrollTop + clientHeight >= scrollHeight;
 
-    if ((atTop && dy > 0) || (atBottom && dy < 0)) {
-      e.preventDefault();
-      e.stopPropagation();
-      isDragging.current = true;
-      dragOffset.current = dy;
+    // Snap based purely on velocity
+    const velocityThreshold = 2; // tweak this (px/ms)
 
+    if (atTop && velocity > velocityThreshold) {
+      // swipe down at top -> snap up
       const currentIndex =
         typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
-      if (dy > SCROLL_THRESHOLD && currentIndex > 0 && atTop) {
-        setSnap(SNAP_POINTS[currentIndex - 1]);
-        touchStartY.current = e.touches[0].clientY;
-      } else if (
-        dy < SCROLL_THRESHOLD * -1 &&
-        currentIndex < SNAP_POINTS.length - 1 &&
-        atBottom
-      ) {
+      if (currentIndex > 0) setSnap(SNAP_POINTS[currentIndex - 1]);
+    } else if (atBottom && velocity < -velocityThreshold) {
+      // swipe up at bottom -> snap down
+      const currentIndex =
+        typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
+      if (currentIndex < SNAP_POINTS.length - 1)
         setSnap(SNAP_POINTS[currentIndex + 1]);
-        touchStartY.current = e.touches[0].clientY;
-      }
-    } else {
-      isDragging.current = false;
-      dragOffset.current = 0;
     }
   };
 
