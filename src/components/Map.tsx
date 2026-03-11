@@ -628,6 +628,7 @@ function App() {
         <MapContainer
           id="map"
           preferCanvas={true}
+          maxZoom={17}
           zoomControl={false}
           center={
             provider === "rkl"
@@ -665,18 +666,21 @@ function App() {
             }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip`}
           /> */}
           <TileLayer
-            maxZoom={16}
+            maxZoom={17}
+            attribution={
+              '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+            }
             key={theme}
-            url={`https://{s}.basemaps.cartocdn.com/${
+            url={`https://tiles.stadiamaps.com/tiles/${
               theme === "dark"
-                ? "dark_all"
+                ? "alidade_smooth_dark"
                 : theme === "light"
-                  ? "light_all"
+                  ? "alidade_smooth"
                   : typeof window !== "undefined" &&
                       window.matchMedia("(prefers-color-scheme: dark)").matches
-                    ? "dark_all"
-                    : "light_all"
-            }/{z}/{x}/{y}.png`}
+                    ? "alidade_smooth_dark"
+                    : "alidade_smooth"
+            }/{z}/{x}/{y}{r}.png`}
           />
 
           {positions.length !== 0 && (
