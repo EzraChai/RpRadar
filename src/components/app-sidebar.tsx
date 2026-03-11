@@ -32,6 +32,7 @@ import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_shapes.json";
 import MYBusNSARoutes from "@/assets/ns_a/ns_a_routes_with_shapes.json";
 import MYBusNSBRoutes from "@/assets/ns_b/ns_b_routes_with_shapes.json";
 import type { RouteType } from "@/hooks/types";
+import { SNAP_POINTS } from "./DrawerMobile";
 
 const combinedSelangorKLRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
 const combinedNSRoutes = [...MYBusNSARoutes, ...MYBusNSBRoutes];
@@ -424,8 +425,7 @@ export function RouteCard({
     <NavLink
       onClick={() => {
         if (typeof setSnap === "function") {
-          console.log("first");
-          setSnap(0.2);
+          setSnap(SNAP_POINTS[0]);
         }
         if (typeof setOpenSearch === "function") {
           setTimeout(() => {

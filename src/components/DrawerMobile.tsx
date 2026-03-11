@@ -29,7 +29,7 @@ import MYBasNSBSchedule from "@/../data/ns-b-schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import type { BusScheduleType, RouteType } from "@/hooks/types";
 
-const SNAP_POINTS = [0.23, 0.5, 1];
+export const SNAP_POINTS = [0.23, 0.5, 1];
 
 export function DrawerMobile({
   markerRefs,
@@ -179,6 +179,7 @@ export function DrawerMobile({
     return () => clearTimeout(handler);
   }, [search]);
 
+  console.log(snap);
   return (
     <Drawer.Root
       repositionInputs={false}
