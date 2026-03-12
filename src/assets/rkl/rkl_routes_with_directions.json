@@ -6,7 +6,7 @@
       {
         "direction_id": 1,
         "shape_id": "P001001",
-        "route_long_name": "Terminal Taman Medan ~ Stesen LRT Taman Jaya",
+        "route_long_name": "Stesen LRT Taman Jaya ~ Terminal Taman Medan",
         "stops": [
           {
             "stop_id": "1001828",
@@ -3369,7 +3369,7 @@
       {
         "direction_id": 1,
         "shape_id": "S004001",
-        "route_long_name": "Ukay Perdana ~ Taman Melawati via Sg. Sering",
+        "route_long_name": "Taman Melawati ~ Ukay Perdana via Sg. Sering",
         "stops": [
           {
             "stop_id": "1003663",
@@ -4954,7 +4954,7 @@
       {
         "direction_id": 1,
         "shape_id": "S105001",
-        "route_long_name": "Stesen LRT Cempaka ~ Bukit Teratai",
+        "route_long_name": "Bukit Teratai ~ Stesen LRT Cempaka",
         "stops": [
           {
             "stop_id": "1006906",
@@ -6401,7 +6401,7 @@
       {
         "direction_id": 1,
         "shape_id": "S139001",
-        "route_long_name": "Batu Arang ~ Stesen MRT Sungai Buloh",
+        "route_long_name": "Stesen MRT Sungai Buloh ~ Batu Arang",
         "stops": [
           {
             "stop_id": "1007013",
@@ -7172,7 +7172,7 @@
       {
         "direction_id": 1,
         "shape_id": "S206001",
-        "route_long_name": "Hentian Banting ~ Bandar Baru Banting",
+        "route_long_name": "Bandar Baru Banting ~ Hentian Banting",
         "stops": [
           {
             "stop_id": "1008051",
@@ -8772,7 +8772,7 @@
       {
         "direction_id": 0,
         "shape_id": "T201002",
-        "route_long_name": "Stesen LRT Gombak ~ Hab Wira Damai",
+        "route_long_name": "Hab Wira Damai ~ Stesen LRT Gombak",
         "stops": [
           {
             "stop_id": "1002132",
@@ -10430,7 +10430,7 @@
       {
         "direction_id": 1,
         "shape_id": "T301801",
-        "route_long_name": "Taman Mulia Jaya ~ Ampang Point via Jalan Merdeka",
+        "route_long_name": "Ampang Point ~ Taman Mulia Jaya via Jalan Merdeka",
         "stops": [
           {
             "stop_id": "1000083",
@@ -10768,7 +10768,7 @@
       {
         "direction_id": 1,
         "shape_id": "T302801",
-        "route_long_name": "Hutan Lipur Ampang ~ Ampang Point",
+        "route_long_name": "Ampang Point ~ Hutan Lipur Ampang",
         "stops": [
           {
             "stop_id": "1000083",
@@ -13516,7 +13516,7 @@
       {
         "direction_id": 1,
         "shape_id": "T601001",
-        "route_long_name": "Puchong Utama ~ Puchong Prima",
+        "route_long_name": "Puchong Prima ~ Puchong Utama",
         "stops": [
           {
             "stop_id": "1002156",
@@ -13951,7 +13951,7 @@
       {
         "direction_id": 1,
         "shape_id": "T604001",
-        "route_long_name": "Stesen LRT Perindustrian Puchong ~ Taman Kinrara",
+        "route_long_name": "Taman Kinrara ~ Stesen LRT Perindustrian Puchong",
         "stops": [
           {
             "stop_id": "1000025",
@@ -14856,7 +14856,7 @@
       {
         "direction_id": 0,
         "shape_id": "T715802",
-        "route_long_name": "UiTM Puncak Alam ~ Bandar Puncak Alam",
+        "route_long_name": "Bandar Puncak Alam ~ UiTM Puncak Alam",
         "stops": [
           {
             "stop_id": "1003730",
@@ -15532,7 +15532,7 @@
       {
         "direction_id": 0,
         "shape_id": "T756802",
-        "route_long_name": "Kemuning Business Park ~ Hentian Bandar via Taman Muda",
+        "route_long_name": "Hentian Bandar ~ Kemuning Business Park via Taman Muda",
         "stops": [
           {
             "stop_id": "1003078",
@@ -16920,7 +16920,7 @@
       {
         "direction_id": 1,
         "shape_id": "T788001",
-        "route_long_name": "Stesen LRT Universiti ~ Mid Valley",
+        "route_long_name": "Mid Valley ~ Stesen LRT Universiti",
         "stops": [
           {
             "stop_id": "1002029",
@@ -17115,7 +17115,7 @@
       {
         "direction_id": 1,
         "shape_id": "T790001",
-        "route_long_name": "Stesen LRT Paramount ~ Mid Valley",
+        "route_long_name": "Mid Valley ~ Stesen LRT Paramount",
         "stops": [
           {
             "stop_id": "1002029",
@@ -17708,7 +17708,7 @@
       {
         "direction_id": 1,
         "shape_id": "U151001",
-        "route_long_name": "Bandar Baru Selayang ~ Hab Lebuh Pudu",
+        "route_long_name": "Hab Lebuh Pudu ~ Bandar Baru Selayang",
         "stops": [
           {
             "stop_id": "1002080",
@@ -18250,7 +18250,7 @@
       {
         "direction_id": 1,
         "shape_id": "U171001",
-        "route_long_name": "Hab Wira Damai ~ Lebuh Ampang via Sentul",
+        "route_long_name": "Lebuh Ampang ~ Hab Wira Damai via Sentul",
         "stops": [
           {
             "stop_id": "1000383",
@@ -19026,7 +19026,7 @@
       {
         "direction_id": 1,
         "shape_id": "U173001",
-        "route_long_name": "Taman Jasa Utama ~ Lebuh Ampang",
+        "route_long_name": "Lebuh Ampang ~ Taman Jasa Utama",
         "stops": [
           {
             "stop_id": "1000383",
@@ -19754,7 +19754,7 @@
       {
         "direction_id": 1,
         "shape_id": "U180001",
-        "route_long_name": "Taman Dato' Senu ~ Hab Pasar Seni",
+        "route_long_name": "Hab Pasar Seni ~ Taman Dato' Senu",
         "stops": [
           {
             "stop_id": "1001170",
@@ -20086,7 +20086,7 @@
       {
         "direction_id": 1,
         "shape_id": "U190001",
-        "route_long_name": "Desa Sri Hartamas ~ Lin Ho Jln Lekiu",
+        "route_long_name": "Lin Ho Jln Lekiu ~ Desa Sri Hartamas",
         "stops": [
           {
             "stop_id": "1006277",
@@ -21103,7 +21103,7 @@
       {
         "direction_id": 1,
         "shape_id": "U202001",
-        "route_long_name": "Hub Wira Damai ~ Lebuh Ampang via Gombak",
+        "route_long_name": "Lebuh Ampang ~ Hub Wira Damai via Gombak",
         "stops": [
           {
             "stop_id": "1000383",
@@ -21801,7 +21801,7 @@
       {
         "direction_id": 1,
         "shape_id": "U220001",
-        "route_long_name": "Taman Melawati ~ Lebuh Ampang",
+        "route_long_name": "Lebuh Ampang ~ Taman Melawati",
         "stops": [
           {
             "stop_id": "1000383",
@@ -22710,7 +22710,7 @@
       {
         "direction_id": 1,
         "shape_id": "U250001",
-        "route_long_name": "Stesen LRT Wangsa Maju ~ Lebuh Ampang",
+        "route_long_name": "Lebuh Ampang ~ Stesen LRT Wangsa Maju",
         "stops": [
           {
             "stop_id": "1000383",
@@ -26705,7 +26705,7 @@
       {
         "direction_id": 1,
         "shape_id": "U450001",
-        "route_long_name": "Hentian Kajang ~ Hab Lebuh Pudu",
+        "route_long_name": "Hab Lebuh Pudu ~ Hentian Kajang",
         "stops": [
           {
             "stop_id": "1002081",
@@ -28787,7 +28787,7 @@
       {
         "direction_id": 1,
         "shape_id": "U600001",
-        "route_long_name": "Puchong Utama ~ Hab Pasar Seni",
+        "route_long_name": "Hab Pasar Seni ~ Puchong Utama",
         "stops": [
           {
             "stop_id": "1000531",
@@ -29522,7 +29522,7 @@
       {
         "direction_id": 1,
         "shape_id": "U640001",
-        "route_long_name": "Hab Bas Sri Manja ~ Hab Pasar Seni",
+        "route_long_name": "Hab Pasar Seni ~ Hab Bas Sri Manja",
         "stops": [
           {
             "stop_id": "1004343",
@@ -31070,7 +31070,7 @@
       {
         "direction_id": 1,
         "shape_id": "U750801",
-        "route_long_name": "Hab Sekysen 2 ~ Hab Pasar Seni",
+        "route_long_name": "Hab Pasar Seni ~ Hab Sekysen 2",
         "stops": [
           {
             "stop_id": "1004347",
@@ -31684,7 +31684,7 @@
       {
         "direction_id": 1,
         "shape_id": "U751001",
-        "route_long_name": "Taman Sri Muda ~ Hab Pasar Seni",
+        "route_long_name": "Hab Pasar Seni ~ Taman Sri Muda",
         "stops": [
           {
             "stop_id": "1004348",
@@ -32190,7 +32190,7 @@
       {
         "direction_id": 1,
         "shape_id": "U752001",
-        "route_long_name": "Stesen LRT Putra Height ~ Hentian Bandar Shah Alam",
+        "route_long_name": "Hentian Bandar Shah Alam ~ Stesen LRT Putra Height",
         "stops": [
           {
             "stop_id": "1003078",
@@ -32582,7 +32582,7 @@
       {
         "direction_id": 1,
         "shape_id": "U753801",
-        "route_long_name": "Hentian Bandar Shah Alam ~ UiTM Puncak Alam",
+        "route_long_name": "UiTM Puncak Alam ~ Hentian Bandar Shah Alam",
         "stops": [
           {
             "stop_id": "1000572",
@@ -33461,7 +33461,7 @@
       {
         "direction_id": 1,
         "shape_id": "U770001",
-        "route_long_name": "Subang Mewah USJ 1 ~ Hab Pasar Seni",
+        "route_long_name": "Hab Pasar Seni ~ Subang Mewah USJ 1",
         "stops": [
           {
             "stop_id": "1002297",
@@ -34286,7 +34286,7 @@
       {
         "direction_id": 1,
         "shape_id": "U772001",
-        "route_long_name": "Subang Suria Mah Sing ~ Hab Pasar Seni",
+        "route_long_name": "Hab Pasar Seni ~ Subang Suria Mah Sing",
         "stops": [
           {
             "stop_id": "1004344",
@@ -34870,7 +34870,7 @@
       {
         "direction_id": 1,
         "shape_id": "U780001",
-        "route_long_name": "Kota Damansara ~ Hab Pasar Seni",
+        "route_long_name": "Hab Pasar Seni ~ Kota Damansara",
         "stops": [
           {
             "stop_id": "1004344",

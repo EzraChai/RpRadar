@@ -1,0 +1,138 @@
+[
+  {
+    "route_id": "M100CWLMYMK",
+    "route_code": "M100",
+    "route_name": "Bandaraya Melaka Feeder",
+    "shape_ids": ["shape_M100CWLMYMK_1"]
+  },
+  {
+    "route_id": "M101CWLMYMK",
+    "route_code": "M101",
+    "route_name": "Pasar Melaka Feeder",
+    "shape_ids": ["shape_M101CWLMYMK_1"]
+  },
+  {
+    "route_id": "M10ACWLMYMK",
+    "route_code": "M10A",
+    "route_name": "Melaka Sentral - MITC",
+    "shape_ids": [
+      "shape_M10ACWLMLK_12564_1",
+      "shape_M10ACWLMLK_12565_0",
+      "shape_M10ACWLMLK_12566_1",
+      "shape_M10ACWLMLK_12567_0"
+    ]
+  },
+  {
+    "route_id": "M10BCWLMYMK",
+    "route_code": "M10B",
+    "route_name": "Melaka Sentral - MITC - Via Jalan Pengkalan Batu & AEON Melaka",
+    "shape_ids": ["shape_M10BCWLMYMK_0", "shape_M10BCWLMYMK_1"]
+  },
+  {
+    "route_id": "M11CWLMYMK",
+    "route_code": "M11",
+    "route_name": "Melaka Sentral - Bukit Katil / Taman Saujana Permai",
+    "shape_ids": ["shape_M11CWLMYMK_0", "shape_M11CWLMYMK_1"]
+  },
+  {
+    "route_id": "M12CWLMYMK",
+    "route_code": "M12",
+    "route_name": "Melaka Sentral - Airport Batu Berendam / Angkasa Nuri",
+    "shape_ids": ["shape_M12CWLMYMK_0", "shape_M12CWLMYMK_1"]
+  },
+  {
+    "route_id": "M13CWLMYMK",
+    "route_code": "M13",
+    "route_name": "Melaka Sentral - Taman Inang Sari",
+    "shape_ids": ["shape_M13CWLMYMK_0", "shape_M13CWLMYMK_1"]
+  },
+  {
+    "route_id": "M14CWLMYMK",
+    "route_code": "M14",
+    "route_name": "Melaka Sentral - Bertam Ulu / Tanjung Minyak Perdana",
+    "shape_ids": ["shape_M14CWLMYMK_0", "shape_M14CWLMYMK_1"]
+  },
+  {
+    "route_id": "M15CWLMYMK",
+    "route_code": "M15",
+    "route_name": "Melaka Sentral - Pulau Gadong",
+    "shape_ids": ["shape_M15CWLMYMK_0", "shape_M15CWLMYMK_1"]
+  },
+  {
+    "route_id": "M16CWLMYMK",
+    "route_code": "M16",
+    "route_name": "Melaka Sentral - Paya Luboh",
+    "shape_ids": ["shape_M16CWLMYMK_0", "shape_M16CWLMYMK_1"]
+  },
+  {
+    "route_id": "M17CWLMYMK",
+    "route_code": "M17",
+    "route_name": "Melaka Sentral - Tangga Batu",
+    "shape_ids": ["shape_M17CWLMYMK_0", "shape_M17CWLMYMK_1"]
+  },
+  {
+    "route_id": "M20CWLMYMK",
+    "route_code": "M20",
+    "route_name": "Melaka Sentral - Tampin via Alor Gajah",
+    "shape_ids": ["shape_M20CWLMYMK_0", "shape_M20CWLMYMK_1"]
+  },
+  {
+    "route_id": "M21CWLMYMK",
+    "route_code": "M21",
+    "route_name": "Melaka Sentral - Tampin via Alor Gajah Durian Tunggal",
+    "shape_ids": ["shape_M21CWLMYMK_0", "shape_M21CWLMYMK_1"]
+  },
+  {
+    "route_id": "M21XCWLMYMK",
+    "route_code": "M21X",
+    "route_name": "Terminal Alor Gajah Sentral - Melaka Sentral - Durian Tunggal",
+    "shape_ids": ["shape_M21XCWLMYMK_1"]
+  },
+  {
+    "route_id": "M22CWLMYMK",
+    "route_code": "M22",
+    "route_name": "Melaka Sentral - Bandar Vendor / UniKL",
+    "shape_ids": [
+      "shape_M22CWLMLK_12590_1",
+      "shape_M22CWLMLK_12591_0",
+      "shape_M22CWLMLK_12592_1",
+      "shape_M22CWLMLK_12593_0"
+    ]
+  },
+  {
+    "route_id": "M23CWLMYMK",
+    "route_code": "M23",
+    "route_name": "Melaka Sentral - Masjid Tanah / Pengkalan Balak",
+    "shape_ids": ["shape_M23CWLMYMK_0", "shape_M23CWLMYMK_1"]
+  },
+  {
+    "route_id": "M23XCWLMYMK",
+    "route_code": "M23X",
+    "route_name": "Terminal Masjid Tanah Sentral - Melaka Sentral",
+    "shape_ids": ["shape_M23XCWLMYMK_1"]
+  },
+  {
+    "route_id": "M30CWLMYMK",
+    "route_code": "M30",
+    "route_name": "Melaka Sentral - Batang Melaka via Selandar",
+    "shape_ids": ["shape_M30CWLMYMK_0", "shape_M30CWLMYMK_1"]
+  },
+  {
+    "route_id": "M31CWLMYMK",
+    "route_code": "M31",
+    "route_name": "Melaka Sentral - Batang Melaka via Tebong",
+    "shape_ids": ["shape_M31CWLMYMK_0", "shape_M31CWLMYMK_1"]
+  },
+  {
+    "route_id": "M32CWLMYMK",
+    "route_code": "M32",
+    "route_name": "Melaka Sentral - Jasin",
+    "shape_ids": ["shape_M32CWLMYMK_0", "shape_M32CWLMYMK_1"]
+  },
+  {
+    "route_id": "M33CWLMYMK",
+    "route_code": "M33",
+    "route_name": "Jasin - Taman Seri Asahan",
+    "shape_ids": ["shape_M33CWLMYMK_0", "shape_M33CWLMYMK_1"]
+  }
+]

@@ -10,6 +10,7 @@ const GTFS_MRT_URL =
   "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-mrtfeeder";
 const GTFS_NS_A_URL = "https://api.data.gov.my/gtfs-static/mybas-seremban-a";
 const GTFS_NS_B_URL = "https://api.data.gov.my/gtfs-static/mybas-seremban-b";
+const GTFS_ME_URL = "https://api.data.gov.my/gtfs-static/mybas-melaka";
 
 const OUTPUT_FILES = {
   rp: {
@@ -31,6 +32,10 @@ const OUTPUT_FILES = {
   ns_b: {
     trips: "data/ns-b-trips.json",
     schedule: "data/ns-b-schedule.json",
+  },
+  me: {
+    trips: "data/me-trips.json",
+    schedule: "data/me-schedule.json",
   },
 };
 
@@ -145,7 +150,12 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
           trip_id: row.trip_id,
           route_id: row.route_id,
           service_id: row.service_id,
-          direction_id: Number(row.direction_id || 0),
+          direction_id:
+            url === "https://api.data.gov.my/gtfs-static/mybas-melaka"
+              ? Number(row.direction_id || 0) === 1
+                ? 0
+                : 1
+              : Number(row.direction_id || 0),
         };
 
         trips.push(trip);
@@ -288,6 +298,16 @@ refreshGTFS(
   GTFS_NS_B_URL,
   OUTPUT_FILES.ns_b.trips,
   OUTPUT_FILES.ns_b.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+refreshGTFS(
+  GTFS_ME_URL,
+  OUTPUT_FILES.me.trips,
+  OUTPUT_FILES.me.schedule,
   7,
 ).catch((err) => {
   console.error(err);

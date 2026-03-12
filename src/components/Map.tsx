@@ -35,14 +35,18 @@ import MRTFeederShapes from "@/assets/mrt/mrt_shapes_flipped.json";
 import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_directions.json";
 import MRTFeederSchedule from "@/../data/mrt-feeder-schedule.json";
 import MRTFeederDirections from "@/../data/mrt-feeder-trips.json";
-import MYBusNSAShapes from "@/assets/ns_a/ns_a_shapes_flipped.json";
-import MYBusNSARoutes from "@/assets/ns_a/ns_a_routes_with_directions.json";
-import MYBusNSASchedule from "@/../data/ns-a-schedule.json";
-import MYBusNSADirections from "@/../data/ns-a-trips.json";
-import MYBusNSBShapes from "@/assets/ns_b/ns_b_shapes_flipped.json";
-import MYBusNSBRoutes from "@/assets/ns_b/ns_b_routes_with_directions.json";
-import MYBusNSBSchedule from "@/../data/ns-b-schedule.json";
-import MYBusNSBDirections from "@/../data/ns-b-trips.json";
+import MYBasNSAShapes from "@/assets/ns_a/ns_a_shapes_flipped.json";
+import MYBasNSARoutes from "@/assets/ns_a/ns_a_routes_with_directions.json";
+import MYBasNSASchedule from "@/../data/ns-a-schedule.json";
+import MYBasNSADirections from "@/../data/ns-a-trips.json";
+import MYBasNSBShapes from "@/assets/ns_b/ns_b_shapes_flipped.json";
+import MYBasNSBRoutes from "@/assets/ns_b/ns_b_routes_with_directions.json";
+import MYBasNSBSchedule from "@/../data/ns-b-schedule.json";
+import MYBasNSBDirections from "@/../data/ns-b-trips.json";
+import MyBasMeShapes from "@/assets/me/me_shapes_flipped.json";
+import MyBasMeRoutes from "@/assets/me/me_routes_with_directions.json";
+import MyBasMeSchedule from "@/../data/me-schedule.json";
+import MyBasMeDirections from "@/../data/me-trips.json";
 
 import {
   Collapsible,
@@ -86,6 +90,7 @@ function App() {
         route_id: string;
         route_short_name: string;
         directions: {
+          service_ids?: string[];
           direction_id: number;
           shape_id: string;
           route_long_name: string;
@@ -127,21 +132,31 @@ function App() {
 
       case "ns":
         setRoute(
-          MYBusNSARoutes.find((r) => r.route_id === searchParams.get("id"))
-            ? MYBusNSARoutes.find((r) => r.route_id === searchParams.get("id"))
-            : MYBusNSBRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MYBasNSARoutes.find((r) => r.route_id === searchParams.get("id"))
+            ? MYBasNSARoutes.find((r) => r.route_id === searchParams.get("id"))
+            : MYBasNSBRoutes.find((r) => r.route_id === searchParams.get("id")),
         );
         setBusSchedule(
-          MYBusNSARoutes.find((r) => r.route_id === searchParams.get("id"))
-            ? (MYBusNSASchedule as unknown as BusScheduleType)
-            : (MYBusNSBSchedule as unknown as BusScheduleType),
+          MYBasNSARoutes.find((r) => r.route_id === searchParams.get("id"))
+            ? (MYBasNSASchedule as unknown as BusScheduleType)
+            : (MYBasNSBSchedule as unknown as BusScheduleType),
         );
+        break;
+
+      case "me":
+        setRoute(
+          MyBasMeRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(MyBasMeSchedule as unknown as BusScheduleType);
+        break;
     }
   }, [provider, searchParams]);
 
   const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
   const starredRoutes = useStarredRoutes();
-  const [direction, setDirection] = useState(0);
+  const [direction, setDirection] = useState(() => {
+    return provider === "me" ? 1 : 0;
+  });
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
   const { theme } = useTheme();
   const isMobile = useIsMobile();
@@ -153,9 +168,28 @@ function App() {
       return;
     }
     if (searchParams.get("id")) {
-      const shapeId = route?.directions.find(
-        (d) => d.direction_id === direction,
-      )?.shape_id;
+      const shapeId = route?.directions.find((d) => {
+        if (provider === "me") {
+          const today = new Date().getDay();
+          if (today !== 5 && today !== 6 && today !== 0) {
+            return (
+              (d.direction_id === direction &&
+                d.service_ids?.includes("ALLDAY")) ||
+              (d.direction_id === direction &&
+                d.service_ids?.includes("MONTHURS"))
+            );
+          } else {
+            return (
+              (d.direction_id === direction &&
+                d.service_ids?.includes("ALLDAY")) ||
+              (d.direction_id === direction &&
+                d.service_ids?.includes("FRISUN"))
+            );
+          }
+        } else {
+          return d.direction_id === direction;
+        }
+      })?.shape_id;
 
       let filteredShape = null;
 
@@ -183,19 +217,29 @@ function App() {
         }
       } else if (provider === "ns") {
         if (
-          MYBusNSAShapes.features.filter(
+          MYBasNSAShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           ).length > 0
         ) {
-          filteredShape = MYBusNSAShapes.features.filter(
+          filteredShape = MYBasNSAShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         } else if (
-          MYBusNSBShapes.features.filter(
+          MYBasNSBShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           ).length > 0
         ) {
-          filteredShape = MYBusNSBShapes.features.filter(
+          filteredShape = MYBasNSBShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        }
+      } else if (provider === "me") {
+        if (
+          MyBasMeShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MyBasMeShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         }
@@ -212,7 +256,7 @@ function App() {
         setPositions([]);
       }
     }
-  }, [direction, isMobile, route?.directions, searchParams]);
+  }, [route?.directions, direction, isMobile, searchParams]);
 
   function CustomZoomControls() {
     const map = useMap();
@@ -314,16 +358,13 @@ function App() {
               </h4>
             </div>
 
-            {route?.directions.length === 2 && (
+            {route?.directions.length >= 2 && (
               <Button
                 variant={"outline"}
                 className="bg-white w-full"
                 onClick={() =>
                   setDirection((prev) => {
-                    if (route?.directions.length == 2) {
-                      return prev === 1 ? 0 : 1;
-                    }
-                    return 0;
+                    return prev === 1 ? 0 : 1;
                   })
                 }
               >
@@ -334,7 +375,28 @@ function App() {
 
           <div className="mt-2 ml-2 overflow-y-auto h-full overflow-x-clip ">
             {route?.directions
-              .find((d) => d.direction_id === direction)
+              .find((d) => {
+                if (provider === "me") {
+                  const today = new Date().getDay();
+                  if (today !== 5 && today !== 6 && today !== 0) {
+                    return (
+                      (d.direction_id === direction &&
+                        d.service_ids?.includes("ALLDAY")) ||
+                      (d.direction_id === direction &&
+                        d.service_ids?.includes("MONTHURS"))
+                    );
+                  } else {
+                    return (
+                      (d.direction_id === direction &&
+                        d.service_ids?.includes("ALLDAY")) ||
+                      (d.direction_id === direction &&
+                        d.service_ids?.includes("FRISUN"))
+                    );
+                  }
+                } else {
+                  return d.direction_id === direction;
+                }
+              })
               ?.stops.map((stop, idx) => (
                 <div
                   key={idx}
@@ -377,7 +439,9 @@ function App() {
                     </Button>
                     {idx === 0 &&
                       BusSchedule &&
-                      (provider === "rp" || provider === "ns") && (
+                      (provider === "rp" ||
+                        provider === "ns" ||
+                        provider === "me") && (
                         <Collapsible className="px-6 mb-4">
                           <CollapsibleTrigger asChild>
                             <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
@@ -583,11 +647,52 @@ function App() {
           }}
           positions={positions}
         />
-        {route?.directions.find((d) => d.direction_id === direction)?.stops
-          .length &&
+        {route?.directions.find((d) => {
+          if (provider === "me") {
+            const today = new Date().getDay();
+            if (today !== 5 && today !== 6 && today !== 0) {
+              return (
+                (d.direction_id === direction &&
+                  d.service_ids?.includes("ALLDAY")) ||
+                (d.direction_id === direction &&
+                  d.service_ids?.includes("MONTHURS"))
+              );
+            } else {
+              return (
+                (d.direction_id === direction &&
+                  d.service_ids?.includes("ALLDAY")) ||
+                (d.direction_id === direction &&
+                  d.service_ids?.includes("FRISUN"))
+              );
+            }
+          } else {
+            return d.direction_id === direction;
+          }
+        })?.stops.length &&
           positions.length &&
           route.directions
-            .find((d) => d.direction_id === direction)
+            .find((d) => {
+              if (provider === "me") {
+                const today = new Date().getDay();
+                if (today !== 5 && today !== 6 && today !== 0) {
+                  return (
+                    (d.direction_id === direction &&
+                      d.service_ids?.includes("ALLDAY")) ||
+                    (d.direction_id === direction &&
+                      d.service_ids?.includes("MONTHURS"))
+                  );
+                } else {
+                  return (
+                    (d.direction_id === direction &&
+                      d.service_ids?.includes("ALLDAY")) ||
+                    (d.direction_id === direction &&
+                      d.service_ids?.includes("FRISUN"))
+                  );
+                }
+              } else {
+                return d.direction_id === direction;
+              }
+            })
             ?.stops.map((stop, idx) => (
               <CircleMarker
                 ref={(ref) => {
@@ -635,7 +740,9 @@ function App() {
               ? [3.139, 101.6869]
               : provider === "ns"
                 ? [2.7297, 101.9381]
-                : [5.4164, 100.3327]
+                : provider === "me"
+                  ? [2.1881, 102.2516]
+                  : [5.4164, 100.3327]
           }
           zoom={provider === "rkl" ? 12.5 : provider === "ns" ? 12.5 : 13.5}
           scrollWheelZoom={true}
@@ -762,6 +869,7 @@ function App() {
                         <SelectItem value="rp">Penang</SelectItem>
                         <SelectItem value="rkl">Selangor/KL</SelectItem>
                         <SelectItem value="ns">Negeri Sembilan</SelectItem>
+                        <SelectItem value="me">Melaka</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -870,8 +978,10 @@ function VehiclesMarker({
       const combinedSchedule = [...RapidKLSchedule, ...MRTFeederSchedule];
       setBusSchedule(combinedSchedule as unknown as BusScheduleType);
     } else if (userProvider === "ns") {
-      const combinedSchedule = [...MYBusNSASchedule, ...MYBusNSBSchedule];
+      const combinedSchedule = [...MYBasNSASchedule, ...MYBasNSBSchedule];
       setBusSchedule(combinedSchedule as unknown as BusScheduleType);
+    } else if (userProvider === "me") {
+      setBusSchedule(MyBasMeSchedule);
     }
   }, []);
 
@@ -901,6 +1011,10 @@ function VehiclesMarker({
           );
           res2 = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-seremban-b",
+          );
+        } else if (provider === "me") {
+          res = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-melaka",
           );
         } else if (provider === "rp") {
           res = await fetch(
@@ -1006,24 +1120,6 @@ function VehiclesMarker({
         iconSize: [24, 24],
         iconAnchor: [50, 50],
       });
-  } else if (provider === "ns") {
-    busIcon = (bearing: number, _: string | null | undefined) =>
-      divIcon({
-        className: "",
-        html: `<img 
-    src="${bearing < 0 ? "/basmy-bus2.png" : "/basmy-bus.png"}"
-    alt="BASMY bus"
-    style="
-      width:100px;
-      height:100px;
-      transform: rotate(${bearing}deg);
-      transform-origin: center center;
-      display:block;
-    "
-  />`,
-        iconSize: [24, 24],
-        iconAnchor: [50, 50],
-      });
   } else if (provider === "rkl") {
     busIcon = (bearing: number, tripId: string | null | undefined) => {
       if (typeof tripId === "string" && tripId.charAt(0) === "w") {
@@ -1062,6 +1158,24 @@ function VehiclesMarker({
         });
       }
     };
+  } else if (provider === "ns" || provider === "me") {
+    busIcon = (bearing: number, _: string | null | undefined) =>
+      divIcon({
+        className: "",
+        html: `<img 
+    src="${bearing < 0 ? "/basmy-bus2.png" : "/basmy-bus.png"}"
+    alt="BASMY bus"
+    style="
+      width:100px;
+      height:100px;
+      transform: rotate(${bearing}deg);
+      transform-origin: center center;
+      display:block;
+    "
+  />`,
+        iconSize: [24, 24],
+        iconAnchor: [50, 50],
+      });
   } else {
     busIcon = (_: number) => divIcon();
   }
@@ -1126,20 +1240,43 @@ function VehiclesMarker({
       });
     } else if (provider === "ns") {
       const vehicleForThisRoute = Array.from(vehicles.values()).filter(
-        (v) =>
-          v.trip?.routeId === route?.route_id ||
-          v.trip?.routeId === route?.route_short_name,
+        (v) => v.trip?.routeId === route?.route_id,
       );
 
       vehicleForThisRoute.forEach((v) => {
-        let directions = MYBusNSADirections.find(
+        let directions = MYBasNSADirections.find(
           (d) => d.trip_id === v.trip?.tripId,
         );
         if (!directions) {
-          directions = MYBusNSBDirections.find(
+          directions = MYBasNSBDirections.find(
             (d) => d.trip_id === v.trip?.tripId,
           );
         }
+
+        if (directions === undefined && route?.directions.length === 1) {
+          setDirectionsLocation((prev) => ({
+            0: [...prev[0], v],
+            1: [...prev[1]],
+          }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
+        }
+      });
+    } else if (provider === "me") {
+      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
+        (v) => v.trip?.routeId === route?.route_id,
+      );
+
+      vehicleForThisRoute.forEach((v) => {
+        let directions = MyBasMeDirections.find(
+          (d) => d.trip_id === v.trip?.tripId,
+        );
 
         if (directions === undefined && route?.directions.length === 1) {
           setDirectionsLocation((prev) => ({
@@ -1247,17 +1384,15 @@ function VehiclesMarker({
                         ? v.trip?.routeId
                         : route?.route_short_name}
                     </p>
-                    {provider !== "ns" && (
+                    {(provider === "rp" || provider === "rkl") && (
                       <p>Speed: {v.position?.speed?.toFixed(0)}km/h</p>
                     )}
                     <p>
                       {(() => {
                         const showDeparture =
-                          provider === "rp" ||
-                          provider === "ns" ||
-                          (provider === "rkl" &&
-                            route?.route_short_name ===
-                              route?.directions[0].route_long_name);
+                          provider !== "rkl" &&
+                          route?.route_short_name !==
+                            route?.directions[0].route_long_name;
 
                         if (!showDeparture) return "";
 

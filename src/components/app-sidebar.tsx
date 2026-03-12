@@ -35,13 +35,14 @@ import {
 import RapidPenangRoutes from "@/assets/rp/rp_routes_with_shapes.json";
 import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_shapes.json";
 import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_shapes.json";
-import MYBusNSARoutes from "@/assets/ns_a/ns_a_routes_with_shapes.json";
-import MYBusNSBRoutes from "@/assets/ns_b/ns_b_routes_with_shapes.json";
+import MYBasNSARoutes from "@/assets/ns_a/ns_a_routes_with_shapes.json";
+import MYBasNSBRoutes from "@/assets/ns_b/ns_b_routes_with_shapes.json";
+import MYBasMeRoutes from "@/assets/me/me_routes_with_shapes.json";
 import type { RouteType } from "@/hooks/types";
 import { SNAP_POINTS } from "./DrawerMobile";
 
 const combinedSelangorKLRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
-const combinedNSRoutes = [...MYBusNSARoutes, ...MYBusNSBRoutes];
+const combinedNSRoutes = [...MYBasNSARoutes, ...MYBasNSBRoutes];
 
 export function AppSidebar({
   setPositions,
@@ -61,6 +62,10 @@ export function AppSidebar({
       return combinedSelangorKLRoutes as unknown as RouteType[];
     } else if (provider === "ns") {
       return combinedNSRoutes.sort((a, b) =>
+        a.route_id.localeCompare(b.route_id),
+      ) as unknown as RouteType[];
+    } else if (provider === "me") {
+      return MYBasMeRoutes.sort((a, b) =>
         a.route_id.localeCompare(b.route_id),
       ) as unknown as RouteType[];
     } else {
@@ -224,6 +229,7 @@ export function AppSidebar({
                     <SelectItem value="rp">Penang</SelectItem>
                     <SelectItem value="rkl">Selangor/KL</SelectItem>
                     <SelectItem value="ns">Negeri Sembilan</SelectItem>
+                    <SelectItem value="me">Melaka</SelectItem>
                   </SelectContent>
                 </Select>
               </SidebarMenuButton>
@@ -275,38 +281,13 @@ function SearchSideBar({
 
   let routes = null;
   if (provider === "rp") {
-    routes = RapidPenangRoutes as unknown as {
-      features: {
-        properties: {
-          route_id: string;
-          route_code: string;
-          route_name: string;
-          shape_ids: string[];
-        };
-      }[];
-    };
+    routes = RapidPenangRoutes;
   } else if (provider === "rkl") {
-    routes = combinedSelangorKLRoutes as unknown as {
-      features: {
-        properties: {
-          route_id: string;
-          route_code: string;
-          route_name: string;
-          shape_ids: string[];
-        };
-      }[];
-    };
+    routes = combinedSelangorKLRoutes;
   } else if (provider === "ns") {
-    routes = combinedNSRoutes as unknown as {
-      features: {
-        properties: {
-          route_id: string;
-          route_code: string;
-          route_name: string;
-          shape_ids: string[];
-        };
-      }[];
-    };
+    routes = combinedNSRoutes;
+  } else if (provider === "me") {
+    routes = MYBasMeRoutes;
   }
   const map = useMap();
   const [search, setSearch] = useState("");
@@ -460,7 +441,7 @@ export function RouteCard({
           {line.route_name ?? ""}
         </p>
         <div
-          className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${line.route_code === line.route_name ? "border-[#28ab78]" : provider === "ns" ? "border-pink-400" : "border-red-500"} rounded-lg text-black dark:text-white`}
+          className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${line.route_code === line.route_name ? "border-[#28ab78]" : provider !== "rp" && provider !== "rkl" ? "border-pink-400" : "border-red-500"} rounded-lg text-black dark:text-white`}
         >
           {line.route_code ?? ""}
         </div>
