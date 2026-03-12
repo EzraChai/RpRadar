@@ -1,0 +1,128 @@
+[
+  {
+    "route_id": "J100CWLMYJB",
+    "route_code": "J100",
+    "route_name": "JB Sentral KSL - JB Sentral",
+    "shape_ids": ["shape_J100CWLMYJB_1"]
+  },
+  {
+    "route_id": "J10CWLMYJB",
+    "route_code": "J10",
+    "route_name": "JB Sentral - Terminal Bas Kota Tinggi",
+    "shape_ids": ["shape_J10CWLMYJB_0", "shape_J10CWLMYJB_1"]
+  },
+  {
+    "route_id": "J11CWLMYJB",
+    "route_code": "J11",
+    "route_name": "JB Sentral - AEON Dato Onn via Setia Indah",
+    "shape_ids": ["shape_J11CWLMYJB_0", "shape_J11CWLMYJB_1"]
+  },
+  {
+    "route_id": "J13CWLMYJB",
+    "route_code": "J13",
+    "route_name": "JB Sentral - Larkin Sentral via Mahmoodiah",
+    "shape_ids": ["shape_J13CWLMYJB_0", "shape_J13CWLMYJB_1"]
+  },
+  {
+    "route_id": "J15CWLMYJB",
+    "route_code": "J15",
+    "route_name": "JB Sentral - Mid Valley Southkey",
+    "shape_ids": ["shape_J15CWLMYJB_0", "shape_J15CWLMYJB_1"]
+  },
+  {
+    "route_id": "J16CWLMYJB",
+    "route_code": "J16",
+    "route_name": "B5 Johor Street Market / Plaza Angsana - Toppen Tebrau",
+    "shape_ids": ["shape_J16CWLMYJB_0", "shape_J16CWLMYJB_1"]
+  },
+  {
+    "route_id": "J200CWLMYJB",
+    "route_code": "J200",
+    "route_name": "Terminal Masai  PPR Seri Alam - Terminal Masai",
+    "shape_ids": ["shape_J200CWLMYJB_1"]
+  },
+  {
+    "route_id": "J205CWLMYJB",
+    "route_code": "J205",
+    "route_name": "Terminal Bas Masai - Lotus Kota Masai",
+    "shape_ids": ["shape_J205CWLMYJB_0", "shape_J205CWLMYJB_1"]
+  },
+  {
+    "route_id": "J20CWLMYJB",
+    "route_code": "J20",
+    "route_name": "JB Sentral - Terminal Bas Masai",
+    "shape_ids": ["shape_J20CWLMYJB_0", "shape_J20CWLMYJB_1"]
+  },
+  {
+    "route_id": "J21CWLMYJB",
+    "route_code": "J21",
+    "route_name": "JB Sentral - Permas Jaya",
+    "shape_ids": ["shape_J21CWLMYJB_0", "shape_J21CWLMYJB_1"]
+  },
+  {
+    "route_id": "J22CWLMYJB",
+    "route_code": "J22",
+    "route_name": "JB Sentral - Taman Scientex Pasir Gudang",
+    "shape_ids": ["shape_J22CWLMYJB_0", "shape_J22CWLMYJB_1"]
+  },
+  {
+    "route_id": "J300CWLMYJB",
+    "route_code": "J300",
+    "route_name": "Terminal Kulai - Taman Putri Kulai",
+    "shape_ids": ["shape_J300CWLMYJB_0", "shape_J300CWLMYJB_1"]
+  },
+  {
+    "route_id": "J30CWLMYJB",
+    "route_code": "J30",
+    "route_name": "JB Sentral - Terminal Kulai",
+    "shape_ids": ["shape_J30CWLMYJB_0", "shape_J30CWLMYJB_1"]
+  },
+  {
+    "route_id": "J31CWLMYJB",
+    "route_code": "J31",
+    "route_name": "JB Sentral - Taman Pulai Mutiara",
+    "shape_ids": ["shape_J31CWLMYJB_0", "shape_J31CWLMYJB_1"]
+  },
+  {
+    "route_id": "J32CWLMYJB",
+    "route_code": "J32",
+    "route_name": "JB Sentral - Bandar Selesa Jaya",
+    "shape_ids": ["shape_J32CWLMYJB_0", "shape_J32CWLMYJB_1"]
+  },
+  {
+    "route_id": "J33CWLMYJB",
+    "route_code": "J33",
+    "route_name": "JB Sentral - Taman Tan Sri Yaacob",
+    "shape_ids": ["shape_J33CWLMYJB_0", "shape_J33CWLMYJB_1"]
+  },
+  {
+    "route_id": "J34CWLMYJB",
+    "route_code": "J34",
+    "route_name": "JB Sentral - Terminal Sutera Mall",
+    "shape_ids": ["shape_J34CWLMYJB_0", "shape_J34CWLMYJB_1"]
+  },
+  {
+    "route_id": "J40CWLMYJB",
+    "route_code": "J40",
+    "route_name": "Larkin Sentral - Gelang Patah Sentral",
+    "shape_ids": ["shape_J40CWLMYJB_0", "shape_J40CWLMYJB_1"]
+  },
+  {
+    "route_id": "J42CWLMYJB",
+    "route_code": "J42",
+    "route_name": "Terminal Gelang Patah - Pendas",
+    "shape_ids": ["shape_J42CWLMYJB_0", "shape_J42CWLMYJB_1"]
+  },
+  {
+    "route_id": "J44CWLMYJB",
+    "route_code": "J44",
+    "route_name": "Larkin Sentral - Terminal Feri Puteri Harbour melalui AEON Bukit Indah",
+    "shape_ids": ["shape_J44CWLMYJB_0", "shape_J44CWLMYJB_1"]
+  },
+  {
+    "route_id": "J50CWLMYJB",
+    "route_code": "J50",
+    "route_name": "Larkin Sentral - Pontian",
+    "shape_ids": ["shape_J50CWLMYJB_0", "shape_J50CWLMYJB_1"]
+  }
+]

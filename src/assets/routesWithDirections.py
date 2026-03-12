@@ -78,7 +78,7 @@ for (route_id, direction_id, shape_id), trip_list in grouped.items():
 
     if(direction_id == "1"):
         direction_entry = {
-            "direction_id": 0,
+            "direction_id": 1,
             "route_long_name": routes_index[route_id]["route_long_name"],
             "shape_id": shape_id,
             "service_ids": service_ids,
@@ -88,7 +88,7 @@ for (route_id, direction_id, shape_id), trip_list in grouped.items():
         routes_index[route_id]["directions"].append(direction_entry)
     else:
         direction_entry = {
-            "direction_id": 1,
+            "direction_id": 0,
             "route_long_name": routes_index[route_id]["route_long_name"],
             "shape_id": shape_id,
             "service_ids": service_ids,

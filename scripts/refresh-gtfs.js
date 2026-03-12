@@ -11,6 +11,7 @@ const GTFS_MRT_URL =
 const GTFS_NS_A_URL = "https://api.data.gov.my/gtfs-static/mybas-seremban-a";
 const GTFS_NS_B_URL = "https://api.data.gov.my/gtfs-static/mybas-seremban-b";
 const GTFS_MK_URL = "https://api.data.gov.my/gtfs-static/mybas-melaka";
+const GTFS_JB_URL = "https://api.data.gov.my/gtfs-static/mybas-johor";
 
 const OUTPUT_FILES = {
   rp: {
@@ -37,6 +38,10 @@ const OUTPUT_FILES = {
     trips: "data/mk-trips.json",
     schedule: "data/mk-schedule.json",
   },
+  jb: {
+    trips: "data/jb-trips.json",
+    schedule: "data/jb-schedule.json",
+  },
 };
 
 // Convert HH:MM:SS to seconds
@@ -49,7 +54,8 @@ function expandCalendar(service, maxDays = 7) {
   const dates = [];
   if (!service) return dates;
 
-  const today = new Date();
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
 
   const weekdays = [
     "sunday",
@@ -64,8 +70,8 @@ function expandCalendar(service, maxDays = 7) {
   let count = 0;
 
   for (let i = 0; i < 30 && count < maxDays; i++) {
-    const d = new Date(today);
-    d.setDate(today.getDate() + i);
+    const d = new Date(yesterday);
+    d.setDate(yesterday.getDate() + i);
 
     if (service[weekdays[d.getDay()]] === "1") {
       dates.push(d.toISOString().slice(0, 10).replace(/-/g, ""));
@@ -308,6 +314,16 @@ refreshGTFS(
   GTFS_MK_URL,
   OUTPUT_FILES.mk.trips,
   OUTPUT_FILES.mk.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+refreshGTFS(
+  GTFS_JB_URL,
+  OUTPUT_FILES.jb.trips,
+  OUTPUT_FILES.jb.schedule,
   7,
 ).catch((err) => {
   console.error(err);

@@ -47,6 +47,10 @@ import MyBasMkShapes from "@/assets/mk/mk_shapes_flipped.json";
 import MyBasMkRoutes from "@/assets/mk/mk_routes_with_directions.json";
 import MyBasMkSchedule from "@/../data/mk-schedule.json";
 import MyBasMkDirections from "@/../data/mk-trips.json";
+import MyBasJbShapes from "@/assets/jb/jb_shapes_flipped.json";
+import MyBasJbRoutes from "@/assets/jb/jb_routes_with_directions.json";
+import MyBasJbSchedule from "@/../data/jb-schedule.json";
+import MyBasJbDirections from "@/../data/jb-trips.json";
 
 import {
   Collapsible,
@@ -149,13 +153,20 @@ function App() {
         );
         setBusSchedule(MyBasMkSchedule as unknown as BusScheduleType);
         break;
+
+      case "jb":
+        setRoute(
+          MyBasJbRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(MyBasJbSchedule as unknown as BusScheduleType);
+        break;
     }
   }, [provider, searchParams]);
 
   const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
   const starredRoutes = useStarredRoutes();
   const [direction, setDirection] = useState(() => {
-    return provider === "mk" ? 1 : 0;
+    return provider === "mk" || provider === "jb" ? 1 : 0;
   });
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
   const { theme } = useTheme();
@@ -163,7 +174,11 @@ function App() {
 
   useEffect(() => {
     if (searchParams.get("id") === null) {
-      setDirection(0);
+      if (provider === "jb") {
+        setDirection(1);
+      } else {
+        setDirection(0);
+      }
       setPositions([]);
       return;
     }
@@ -240,6 +255,16 @@ function App() {
           ).length > 0
         ) {
           filteredShape = MyBasMkShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        }
+      } else if (provider === "jb") {
+        if (
+          MyBasJbShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MyBasJbShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         }
@@ -441,6 +466,7 @@ function App() {
                       BusSchedule &&
                       (provider === "rp" ||
                         provider === "ns" ||
+                        provider === "jb" ||
                         provider === "mk") && (
                         <Collapsible className="px-6 mb-4">
                           <CollapsibleTrigger asChild>
@@ -591,7 +617,11 @@ function App() {
     }
     if (route?.directions.length === 0) return null;
     if (route?.directions.length === 1) {
-      setDirection(0);
+      if (provider === "jb") {
+        setDirection(1);
+      } else {
+        setDirection(0);
+      }
       return (
         <>
           <Polyline
@@ -733,7 +763,7 @@ function App() {
         <MapContainer
           id="map"
           preferCanvas={true}
-          maxZoom={17}
+          maxZoom={18}
           zoomControl={false}
           center={
             provider === "rkl"
@@ -742,9 +772,15 @@ function App() {
                 ? [2.7297, 101.9381]
                 : provider === "mk"
                   ? [2.1881, 102.2516]
-                  : [5.4164, 100.3327]
+                  : provider === "jb"
+                    ? [1.4927, 103.7412]
+                    : [5.4164, 100.3327]
           }
-          zoom={provider === "rkl" ? 12.5 : provider === "ns" ? 12.5 : 13.5}
+          zoom={
+            provider === "rkl" || provider === "ns" || provider === "jb"
+              ? 12.5
+              : 13.5
+          }
           scrollWheelZoom={true}
           className="w-full h-dvh"
         >
@@ -870,6 +906,7 @@ function App() {
                         <SelectItem value="rkl">Selangor/KL</SelectItem>
                         <SelectItem value="ns">Negeri Sembilan</SelectItem>
                         <SelectItem value="mk">Melaka</SelectItem>
+                        <SelectItem value="jb">Johor</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -982,6 +1019,8 @@ function VehiclesMarker({
       setBusSchedule(combinedSchedule as unknown as BusScheduleType);
     } else if (userProvider === "mk") {
       setBusSchedule(MyBasMkSchedule);
+    } else if (userProvider === "jb") {
+      setBusSchedule(MyBasJbSchedule);
     }
   }, []);
 
@@ -1016,6 +1055,10 @@ function VehiclesMarker({
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-melaka",
           );
+        } else if (provider === "jb") {
+          res = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-johor",
+          );
         } else if (provider === "rp") {
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
@@ -1032,7 +1075,7 @@ function VehiclesMarker({
               typeof (vehicle.timestamp as any).toNumber === "function"
                 ? (vehicle.timestamp as any).toNumber()
                 : Number(vehicle.timestamp);
-            if (!vehicle.timestamp || tsNumber * 1000 < now - 120000) {
+            if (!vehicle.timestamp || tsNumber * 1000 < now - 200000) {
               updated.delete(plate);
             }
           }
@@ -1101,13 +1144,15 @@ function VehiclesMarker({
     };
   }, [provider]); // re-run if provider changes
 
+  console.log(vehicles);
+
   let busIcon = null;
   if (provider === "rp") {
     busIcon = (bearing: number, _: string | null | undefined) =>
       divIcon({
         className: "",
         html: `<img 
-    src="${bearing < 0 ? "/rp-bus2.png" : "/rp-bus.png"}"
+    src="${bearing < 0 || bearing > 180 ? "/rp-bus2.png" : "/rp-bus.png"}"
     alt="Rapid Penang bus"
     style="
       width:100px;
@@ -1126,7 +1171,7 @@ function VehiclesMarker({
         return divIcon({
           className: "",
           html: `<img 
-    src="${bearing < 0 ? "/rkl-bus2.png" : "/rkl-bus.png"}"
+    src="${bearing < 0 || bearing > 180 ? "/rkl-bus2.png" : "/rkl-bus.png"}"
     alt="Rapid KL bus"
     style="
       width:100px;
@@ -1143,7 +1188,7 @@ function VehiclesMarker({
         return divIcon({
           className: "",
           html: `<img 
-    src="${bearing < 0 ? "/mrt-bus2.png" : "/mrt-bus.png"}"
+    src="${bearing < 0 || bearing > 180 ? "/mrt-bus2.png" : "/mrt-bus.png"}"
     alt="MRT Feeder bus"
     style="
       width:100px;
@@ -1158,7 +1203,7 @@ function VehiclesMarker({
         });
       }
     };
-  } else if (provider === "ns" || provider === "mk") {
+  } else if (provider !== "rp" && provider !== "rkl") {
     busIcon = (bearing: number, _: string | null | undefined) =>
       divIcon({
         className: "",
@@ -1184,7 +1229,9 @@ function VehiclesMarker({
     setDirectionsLocation({ 0: [], 1: [] });
     if (provider === "rp") {
       const vehicleForThisRoute = Array.from(vehicles.values()).filter(
-        (v) => v.trip?.routeId === route?.route_short_name,
+        (v) =>
+          v.trip?.routeId === route?.route_short_name ||
+          (route?.route_short_name === "502" && "502." === v.trip?.routeId),
       );
 
       vehicleForThisRoute.forEach((v) => {
@@ -1293,6 +1340,32 @@ function VehiclesMarker({
           }
         }
       });
+    } else if (provider === "jb") {
+      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
+        (v) => v.trip?.routeId === route?.route_id,
+      );
+
+      console.log(vehicleForThisRoute);
+      vehicleForThisRoute.forEach((v) => {
+        let directions = MyBasJbDirections.find(
+          (d) => d.trip_id === v.trip?.tripId,
+        );
+
+        if (directions === undefined && route?.directions.length === 1) {
+          setDirectionsLocation((prev) => ({
+            0: [...prev[0], v],
+            1: [...prev[1]],
+          }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
+        }
+      });
     }
   }, [route?.route_short_name, route?.directions.length, vehicles]);
 
@@ -1362,8 +1435,8 @@ function VehiclesMarker({
                 icon={busIcon(
                   isOffRoute
                     ? v.position?.bearing || 0
-                    : bearing(point(start), point(end)) ||
-                        v.position?.bearing ||
+                    : v.position?.bearing ||
+                        bearing(point(start), point(end)) ||
                         0,
                   v.trip?.tripId,
                 )}
@@ -1381,7 +1454,7 @@ function VehiclesMarker({
                     <p className="mt-4">
                       Route:{" "}
                       {provider === "rp"
-                        ? v.trip?.routeId
+                        ? v.trip?.routeId?.replace(".", "")
                         : route?.route_short_name}
                     </p>
                     {(provider === "rp" || provider === "rkl") && (
