@@ -809,7 +809,7 @@ function App() {
             }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip`}
           /> */}
           <TileLayer
-            maxZoom={17}
+            maxZoom={18}
             attribution={
               '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
             }
@@ -1144,8 +1144,6 @@ function VehiclesMarker({
     };
   }, [provider]); // re-run if provider changes
 
-  console.log(vehicles);
-
   let busIcon = null;
   if (provider === "rp") {
     busIcon = (bearing: number, _: string | null | undefined) =>
@@ -1345,7 +1343,6 @@ function VehiclesMarker({
         (v) => v.trip?.routeId === route?.route_id,
       );
 
-      console.log(vehicleForThisRoute);
       vehicleForThisRoute.forEach((v) => {
         let directions = MyBasJbDirections.find(
           (d) => d.trip_id === v.trip?.tripId,
