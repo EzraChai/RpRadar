@@ -37,7 +37,7 @@ import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_shapes.json";
 import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_shapes.json";
 import MYBasNSARoutes from "@/assets/ns_a/ns_a_routes_with_shapes.json";
 import MYBasNSBRoutes from "@/assets/ns_b/ns_b_routes_with_shapes.json";
-import MYBasMeRoutes from "@/assets/me/me_routes_with_shapes.json";
+import MYBasMkRoutes from "@/assets/mk/mk_routes_with_shapes.json";
 import type { RouteType } from "@/hooks/types";
 import { SNAP_POINTS } from "./DrawerMobile";
 
@@ -64,8 +64,8 @@ export function AppSidebar({
       return combinedNSRoutes.sort((a, b) =>
         a.route_id.localeCompare(b.route_id),
       ) as unknown as RouteType[];
-    } else if (provider === "me") {
-      return MYBasMeRoutes.sort((a, b) =>
+    } else if (provider === "mk") {
+      return MYBasMkRoutes.sort((a, b) =>
         a.route_id.localeCompare(b.route_id),
       ) as unknown as RouteType[];
     } else {
@@ -229,7 +229,7 @@ export function AppSidebar({
                     <SelectItem value="rp">Penang</SelectItem>
                     <SelectItem value="rkl">Selangor/KL</SelectItem>
                     <SelectItem value="ns">Negeri Sembilan</SelectItem>
-                    <SelectItem value="me">Melaka</SelectItem>
+                    <SelectItem value="mk">Melaka</SelectItem>
                   </SelectContent>
                 </Select>
               </SidebarMenuButton>
@@ -286,8 +286,8 @@ function SearchSideBar({
     routes = combinedSelangorKLRoutes;
   } else if (provider === "ns") {
     routes = combinedNSRoutes;
-  } else if (provider === "me") {
-    routes = MYBasMeRoutes;
+  } else if (provider === "mk") {
+    routes = MYBasMkRoutes;
   }
   const map = useMap();
   const [search, setSearch] = useState("");

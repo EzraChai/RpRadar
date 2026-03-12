@@ -43,10 +43,10 @@ import MYBasNSBShapes from "@/assets/ns_b/ns_b_shapes_flipped.json";
 import MYBasNSBRoutes from "@/assets/ns_b/ns_b_routes_with_directions.json";
 import MYBasNSBSchedule from "@/../data/ns-b-schedule.json";
 import MYBasNSBDirections from "@/../data/ns-b-trips.json";
-import MyBasMeShapes from "@/assets/me/me_shapes_flipped.json";
-import MyBasMeRoutes from "@/assets/me/me_routes_with_directions.json";
-import MyBasMeSchedule from "@/../data/me-schedule.json";
-import MyBasMeDirections from "@/../data/me-trips.json";
+import MyBasMkShapes from "@/assets/mk/mk_shapes_flipped.json";
+import MyBasMkRoutes from "@/assets/mk/mk_routes_with_directions.json";
+import MyBasMkSchedule from "@/../data/mk-schedule.json";
+import MyBasMkDirections from "@/../data/mk-trips.json";
 
 import {
   Collapsible,
@@ -143,11 +143,11 @@ function App() {
         );
         break;
 
-      case "me":
+      case "mk":
         setRoute(
-          MyBasMeRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MyBasMkRoutes.find((r) => r.route_id === searchParams.get("id")),
         );
-        setBusSchedule(MyBasMeSchedule as unknown as BusScheduleType);
+        setBusSchedule(MyBasMkSchedule as unknown as BusScheduleType);
         break;
     }
   }, [provider, searchParams]);
@@ -155,7 +155,7 @@ function App() {
   const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
   const starredRoutes = useStarredRoutes();
   const [direction, setDirection] = useState(() => {
-    return provider === "me" ? 1 : 0;
+    return provider === "mk" ? 1 : 0;
   });
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
   const { theme } = useTheme();
@@ -169,7 +169,7 @@ function App() {
     }
     if (searchParams.get("id")) {
       const shapeId = route?.directions.find((d) => {
-        if (provider === "me") {
+        if (provider === "mk") {
           const today = new Date().getDay();
           if (today !== 5 && today !== 6 && today !== 0) {
             return (
@@ -233,13 +233,13 @@ function App() {
             (feature) => feature.properties.shape_id === shapeId,
           );
         }
-      } else if (provider === "me") {
+      } else if (provider === "mk") {
         if (
-          MyBasMeShapes.features.filter(
+          MyBasMkShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           ).length > 0
         ) {
-          filteredShape = MyBasMeShapes.features.filter(
+          filteredShape = MyBasMkShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         }
@@ -376,7 +376,7 @@ function App() {
           <div className="mt-2 ml-2 overflow-y-auto h-full overflow-x-clip ">
             {route?.directions
               .find((d) => {
-                if (provider === "me") {
+                if (provider === "mk") {
                   const today = new Date().getDay();
                   if (today !== 5 && today !== 6 && today !== 0) {
                     return (
@@ -441,7 +441,7 @@ function App() {
                       BusSchedule &&
                       (provider === "rp" ||
                         provider === "ns" ||
-                        provider === "me") && (
+                        provider === "mk") && (
                         <Collapsible className="px-6 mb-4">
                           <CollapsibleTrigger asChild>
                             <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
@@ -648,7 +648,7 @@ function App() {
           positions={positions}
         />
         {route?.directions.find((d) => {
-          if (provider === "me") {
+          if (provider === "mk") {
             const today = new Date().getDay();
             if (today !== 5 && today !== 6 && today !== 0) {
               return (
@@ -672,7 +672,7 @@ function App() {
           positions.length &&
           route.directions
             .find((d) => {
-              if (provider === "me") {
+              if (provider === "mk") {
                 const today = new Date().getDay();
                 if (today !== 5 && today !== 6 && today !== 0) {
                   return (
@@ -740,7 +740,7 @@ function App() {
               ? [3.139, 101.6869]
               : provider === "ns"
                 ? [2.7297, 101.9381]
-                : provider === "me"
+                : provider === "mk"
                   ? [2.1881, 102.2516]
                   : [5.4164, 100.3327]
           }
@@ -869,7 +869,7 @@ function App() {
                         <SelectItem value="rp">Penang</SelectItem>
                         <SelectItem value="rkl">Selangor/KL</SelectItem>
                         <SelectItem value="ns">Negeri Sembilan</SelectItem>
-                        <SelectItem value="me">Melaka</SelectItem>
+                        <SelectItem value="mk">Melaka</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -980,8 +980,8 @@ function VehiclesMarker({
     } else if (userProvider === "ns") {
       const combinedSchedule = [...MYBasNSASchedule, ...MYBasNSBSchedule];
       setBusSchedule(combinedSchedule as unknown as BusScheduleType);
-    } else if (userProvider === "me") {
-      setBusSchedule(MyBasMeSchedule);
+    } else if (userProvider === "mk") {
+      setBusSchedule(MyBasMkSchedule);
     }
   }, []);
 
@@ -1012,7 +1012,7 @@ function VehiclesMarker({
           res2 = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-seremban-b",
           );
-        } else if (provider === "me") {
+        } else if (provider === "mk") {
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-melaka",
           );
@@ -1158,7 +1158,7 @@ function VehiclesMarker({
         });
       }
     };
-  } else if (provider === "ns" || provider === "me") {
+  } else if (provider === "ns" || provider === "mk") {
     busIcon = (bearing: number, _: string | null | undefined) =>
       divIcon({
         className: "",
@@ -1268,13 +1268,13 @@ function VehiclesMarker({
           }
         }
       });
-    } else if (provider === "me") {
+    } else if (provider === "mk") {
       const vehicleForThisRoute = Array.from(vehicles.values()).filter(
         (v) => v.trip?.routeId === route?.route_id,
       );
 
       vehicleForThisRoute.forEach((v) => {
-        let directions = MyBasMeDirections.find(
+        let directions = MyBasMkDirections.find(
           (d) => d.trip_id === v.trip?.tripId,
         );
 
