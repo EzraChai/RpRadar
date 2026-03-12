@@ -8,9 +8,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Bandar Selesa Jaya",
         "shape_id": "shape_J32CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -322,11 +320,9 @@
       },
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Bandar Selesa Jaya",
+        "route_long_name": "Bandar Selesa Jaya - JB Sentral",
         "shape_id": "shape_J32CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80011147",
@@ -645,11 +641,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Larkin Sentral via Mahmoodiah",
+        "route_long_name": "Larkin Sentral - JB Sentral via Mahmoodiah",
         "shape_id": "shape_J13CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004270",
@@ -789,9 +783,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Larkin Sentral via Mahmoodiah",
         "shape_id": "shape_J13CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -938,9 +930,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Mid Valley Southkey",
         "shape_id": "shape_J15CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -1048,11 +1038,9 @@
       },
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Mid Valley Southkey",
+        "route_long_name": "Mid Valley Southkey - JB Sentral",
         "shape_id": "shape_J15CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80008806",
@@ -1179,11 +1167,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Terminal Kulai",
+        "route_long_name": "Terminal Kulai - JB Sentral",
         "shape_id": "shape_J30CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80000293",
@@ -1491,9 +1477,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Terminal Kulai",
         "shape_id": "shape_J30CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -1808,9 +1792,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Taman Tan Sri Yaacob",
         "shape_id": "shape_J33CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -2110,11 +2092,9 @@
       },
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Taman Tan Sri Yaacob",
+        "route_long_name": "Taman Tan Sri Yaacob - JB Sentral",
         "shape_id": "shape_J33CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80008117",
@@ -2427,11 +2407,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Terminal Bas Masai",
+        "route_long_name": "Terminal Bas Masai - JB Sentral",
         "shape_id": "shape_J20CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004488",
@@ -2721,9 +2699,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Terminal Bas Masai",
         "shape_id": "shape_J20CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -3006,11 +2982,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "Terminal Gelang Patah - Pendas",
+        "route_long_name": "Pendas - Terminal Gelang Patah",
         "shape_id": "shape_J42CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004302",
@@ -3198,9 +3172,7 @@
         "direction_id": 1,
         "route_long_name": "Terminal Gelang Patah - Pendas",
         "shape_id": "shape_J42CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80000302",
@@ -3393,11 +3365,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "Terminal Kulai - Taman Putri Kulai",
+        "route_long_name": "Taman Putri Kulai - Terminal Kulai",
         "shape_id": "shape_J300CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80005516",
@@ -3513,9 +3483,7 @@
         "direction_id": 1,
         "route_long_name": "Terminal Kulai - Taman Putri Kulai",
         "shape_id": "shape_J300CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80000293",
@@ -3638,9 +3606,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral  KSL - JB Sentral",
         "shape_id": "shape_J100CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -3785,11 +3751,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "Larkin Sentral - Gelang Patah Sentral",
+        "route_long_name": "Gelang Patah Sentral - Larkin Sentral",
         "shape_id": "shape_J40CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80007852",
@@ -4145,9 +4109,7 @@
         "direction_id": 1,
         "route_long_name": "Larkin Sentral - Gelang Patah Sentral",
         "shape_id": "shape_J40CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004270",
@@ -4502,11 +4464,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "B5 Johor Street Market / Plaza Angsana - Toppen Tebrau",
+        "route_long_name": "Toppen Tebrau - B5 Johor Street Market / Plaza Angsana",
         "shape_id": "shape_J16CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80013294",
@@ -4760,9 +4720,7 @@
         "direction_id": 1,
         "route_long_name": "B5 Johor Street Market / Plaza Angsana - Toppen Tebrau",
         "shape_id": "shape_J16CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80011304",
@@ -5015,11 +4973,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Terminal Sutera Mall",
+        "route_long_name": "Terminal Sutera Mall - JB Sentral",
         "shape_id": "shape_J34CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80000297",
@@ -5183,9 +5139,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Terminal Sutera Mall",
         "shape_id": "shape_J34CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -5330,11 +5284,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Permas Jaya",
+        "route_long_name": "Permas Jaya - JB Sentral",
         "shape_id": "shape_J21CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80003070",
@@ -5588,9 +5540,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Permas Jaya",
         "shape_id": "shape_J21CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -5845,9 +5795,7 @@
         "direction_id": 1,
         "route_long_name": "Larkin Sentral - Pontian",
         "shape_id": "shape_J50CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004270",
@@ -6279,11 +6227,9 @@
       },
       {
         "direction_id": 0,
-        "route_long_name": "Larkin Sentral - Pontian",
+        "route_long_name": "Pontian - Larkin Sentral",
         "shape_id": "shape_J50CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80000294",
@@ -6718,9 +6664,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - AEON Dato Onn via Setia Indah",
         "shape_id": "shape_J11CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -7074,11 +7018,9 @@
       },
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - AEON Dato Onn via Setia Indah",
+        "route_long_name": "AEON Dato Onn - JB Sentral via Setia Indah",
         "shape_id": "shape_J11CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80008747",
@@ -7391,11 +7333,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Taman Pulai Mutiara",
+        "route_long_name": "Taman Pulai Mutiara - JB Sentral",
         "shape_id": "shape_J31CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80013337",
@@ -7955,9 +7895,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Taman Pulai Mutiara",
         "shape_id": "shape_J31CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -8558,11 +8496,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "Terminal Bas Masai - Lotus Kota Masai",
+        "route_long_name": "Lotus Kota Masai - Terminal Bas Masai",
         "shape_id": "shape_J205CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80013323",
@@ -8768,9 +8704,7 @@
         "direction_id": 1,
         "route_long_name": "Terminal Bas Masai - Lotus Kota Masai",
         "shape_id": "shape_J205CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004488",
@@ -8987,11 +8921,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Terminal Bas Kota Tinggi",
+        "route_long_name": "Terminal Bas Kota Tinggi - JB Sentral",
         "shape_id": "shape_J10CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80003208",
@@ -9317,9 +9249,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Terminal Bas Kota Tinggi",
         "shape_id": "shape_J10CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -9646,15 +9576,13 @@
   {
     "route_id": "J44CWLMYJB",
     "route_short_name": "J44",
-    "route_long_name": "Larkin Sentral - Terminal Feri Puteri Harbour melalui AEON Bukit Indah",
+    "route_long_name": "Larkin Sentral - Terminal Feri Puteri Harbour via AEON Bukit Indah",
     "directions": [
       {
         "direction_id": 1,
-        "route_long_name": "Larkin Sentral - Terminal Feri Puteri Harbour melalui AEON Bukit Indah",
+        "route_long_name": "Larkin Sentral - Terminal Feri Puteri Harbour via AEON Bukit Indah",
         "shape_id": "shape_J44CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004270",
@@ -9810,11 +9738,9 @@
       },
       {
         "direction_id": 0,
-        "route_long_name": "Larkin Sentral - Terminal Feri Puteri Harbour melalui AEON Bukit Indah",
+        "route_long_name": "Terminal Feri Puteri Harbour - Larkin Sentral via AEON Bukit Indah",
         "shape_id": "shape_J44CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80007723",
@@ -9983,11 +9909,9 @@
     "directions": [
       {
         "direction_id": 0,
-        "route_long_name": "JB Sentral - Taman Scientex Pasir Gudang",
+        "route_long_name": "Taman Scientex Pasir Gudang - JB Sentral",
         "shape_id": "shape_J22CWLMYJB_0",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80014142",
@@ -10307,9 +10231,7 @@
         "direction_id": 1,
         "route_long_name": "JB Sentral - Taman Scientex Pasir Gudang",
         "shape_id": "shape_J22CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004251",
@@ -10660,9 +10582,7 @@
         "direction_id": 1,
         "route_long_name": "Terminal Masai  PPR Seri Alam - Terminal Masai",
         "shape_id": "shape_J200CWLMYJB_1",
-        "service_ids": [
-          "ALLDAY"
-        ],
+        "service_ids": ["ALLDAY"],
         "stops": [
           {
             "stop_id": "80004488",
