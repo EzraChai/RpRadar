@@ -55,6 +55,14 @@ import MyBasPkShapes from "@/assets/pk/pk_shapes_flipped.json";
 import MyBasPkRoutes from "@/assets/pk/pk_routes_with_directions.json";
 import MyBasPkSchedule from "@/../data/pk-schedule.json";
 import MyBasPkDirections from "@/../data/pk-trips.json";
+import MyBasKtnShapes from "@/assets/ktn/ktn_shapes_flipped.json";
+import MyBasKtnRoutes from "@/assets/ktn/ktn_routes_with_directions.json";
+import MyBasKtnSchedule from "@/../data/rapid-ktn-schedule.json";
+import MyBasKtnDirections from "@/../data/rapid-ktn-trips.json";
+import MyBasAlrShapes from "@/assets/alr/alr_shapes_flipped.json";
+import MyBasAlrRoutes from "@/assets/alr/alr_routes_with_directions.json";
+import MyBasAlrSchedule from "@/../data/alr-schedule.json";
+import MyBasAlrDirections from "@/../data/alr-trips.json";
 
 import {
   Collapsible,
@@ -169,6 +177,19 @@ function App() {
           MyBasPkRoutes.find((r) => r.route_id === searchParams.get("id")),
         );
         setBusSchedule(MyBasPkSchedule as unknown as BusScheduleType);
+        break;
+      case "ktn":
+        setRoute(
+          MyBasKtnRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(MyBasKtnSchedule as unknown as BusScheduleType);
+        break;
+      case "alr":
+        setRoute(
+          MyBasAlrRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(MyBasAlrSchedule as unknown as BusScheduleType);
+        break;
     }
   }, [provider, searchParams]);
 
@@ -284,6 +305,26 @@ function App() {
           ).length > 0
         ) {
           filteredShape = MyBasPkShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        }
+      } else if (provider === "ktn") {
+        if (
+          MyBasKtnShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MyBasKtnShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        }
+      } else if (provider === "alr") {
+        if (
+          MyBasAlrShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MyBasAlrShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         }
@@ -486,6 +527,8 @@ function App() {
                       (provider === "rp" ||
                         provider === "ns" ||
                         provider === "jb" ||
+                        provider === "ktn" ||
+                        provider === "alr" ||
                         provider === "pk" ||
                         provider === "mk") && (
                         <Collapsible className="px-6 mb-4">
@@ -796,13 +839,19 @@ function App() {
                     ? [1.4927, 103.7412]
                     : provider === "pk"
                       ? [4.5841, 101.083]
-                      : [5.4164, 100.3327]
+                      : provider === "ktn"
+                        ? [3.8077, 103.326]
+                        : provider === "alr"
+                          ? [6.121, 100.3605]
+                          : [5.4164, 100.3327]
           }
           zoom={
             provider === "rkl" ||
             provider === "ns" ||
             provider === "jb" ||
-            provider === "pk"
+            provider === "pk" ||
+            provider === "alr" ||
+            provider === "ktn"
               ? 12.5
               : 13.5
           }
@@ -929,10 +978,12 @@ function App() {
                       <SelectContent className="z-1006 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
                         <SelectItem value="rp">Penang</SelectItem>
                         <SelectItem value="rkl">Selangor/KL</SelectItem>
-                        <SelectItem value="ns">Negeri Sembilan</SelectItem>
+                        <SelectItem value="ns">Seremban</SelectItem>
                         <SelectItem value="mk">Melaka</SelectItem>
                         <SelectItem value="jb">Johor Bahru</SelectItem>
                         <SelectItem value="pk">Ipoh</SelectItem>
+                        {/* <SelectItem value="ktn">Kuantan</SelectItem> */}
+                        <SelectItem value="alr">Alor Setar</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -1049,6 +1100,10 @@ function VehiclesMarker({
       setBusSchedule(MyBasJbSchedule);
     } else if (userProvider === "pk") {
       setBusSchedule(MyBasPkSchedule);
+    } else if (userProvider === "ktn") {
+      setBusSchedule(MyBasKtnSchedule);
+    } else if (userProvider === "alr") {
+      setBusSchedule(MyBasAlrSchedule);
     }
   }, []);
 
@@ -1091,9 +1146,17 @@ function VehiclesMarker({
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-ipoh",
           );
+        } else if (provider === "alr") {
+          res = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-alor-setar",
+          );
         } else if (provider === "rp") {
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
+          );
+        } else if (provider === "ktn") {
+          res = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-kuantan",
           );
         }
 
@@ -1254,6 +1317,8 @@ function VehiclesMarker({
   } else {
     busIcon = (_: number) => divIcon();
   }
+
+  console.log(vehicles);
 
   useEffect(() => {
     setDirectionsLocation({ 0: [], 1: [] });
@@ -1420,8 +1485,56 @@ function VehiclesMarker({
           }
         }
       });
+    } else if (provider === "ktn") {
+      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
+        (v) => v.trip?.routeId === route?.route_id,
+      );
+
+      vehicleForThisRoute.forEach((v) => {
+        let directions = MyBasKtnDirections.find(
+          (d) => d.trip_id === v.trip?.tripId,
+        );
+
+        if (directions === undefined && route?.directions.length === 1) {
+          setDirectionsLocation((prev) => ({
+            0: [...prev[0], v],
+            1: [...prev[1]],
+          }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
+        }
+      });
+    } else if (provider === "alr") {
+      const vehicleForThisRoute = Array.from(vehicles.values());
+
+      vehicleForThisRoute.forEach((v) => {
+        let directions = MyBasAlrDirections.find(
+          (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
+        );
+
+        if (directions !== undefined && route?.directions.length === 1) {
+          setDirectionsLocation((prev) => ({
+            0: [...prev[0], v],
+            1: [...prev[1]],
+          }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
+        }
+      });
     }
-  }, [route?.route_short_name, route?.directions.length, vehicles]);
+  }, [route?.route_id, route?.directions.length, vehicles]);
 
   if (directionsLocation[direction as 0 | 1].length === 0) return null;
 
@@ -1439,6 +1552,7 @@ function VehiclesMarker({
   }
   const line = lineString(coordsForLine);
 
+  console.log(directionsLocation);
   return (
     <>
       {directionsLocation[direction as 0 | 1].map((v, idx) => {

@@ -1,0 +1,150 @@
+[
+  {
+    "route_id": "K1000",
+    "route_code": "K1000",
+    "route_name": "Hentian Bandar-Gambang Resort",
+    "shape_ids": [
+      "K100001",
+      "K100002"
+    ]
+  },
+  {
+    "route_id": "K1010",
+    "route_code": "K1010",
+    "route_name": "Hentian Bandar-Inderapura/Indera Sempurna",
+    "shape_ids": [
+      "K101002"
+    ]
+  },
+  {
+    "route_id": "K1020",
+    "route_code": "K1020",
+    "route_name": "Hentian Bandar-Permatang Badak",
+    "shape_ids": [
+      "K102002"
+    ]
+  },
+  {
+    "route_id": "K2000",
+    "route_code": "K2000",
+    "route_name": "Hentian Bandar-Teluk Cempedak",
+    "shape_ids": [
+      "K200001",
+      "K200002"
+    ]
+  },
+  {
+    "route_id": "K2010",
+    "route_code": "K2010",
+    "route_name": "KUANTAN CITY LOOP",
+    "shape_ids": [
+      "K201002"
+    ]
+  },
+  {
+    "route_id": "K3000",
+    "route_code": "K3000",
+    "route_name": "Hentian Bandar-Taman Impian",
+    "shape_ids": [
+      "K300001",
+      "K300002"
+    ]
+  },
+  {
+    "route_id": "K3010",
+    "route_code": "K3010",
+    "route_name": "Hentian Bandar-Bukit Sagu",
+    "shape_ids": [
+      "K301001",
+      "K301002"
+    ]
+  },
+  {
+    "route_id": "K3020",
+    "route_code": "K3020",
+    "route_name": "Hentian Bandar-Indera Mahkota 1",
+    "shape_ids": [
+      "K302001",
+      "K302002"
+    ]
+  },
+  {
+    "route_id": "K3030",
+    "route_code": "K3030",
+    "route_name": "Hentian Bandar-Terminal Sentral Kuantan",
+    "shape_ids": [
+      "K303001",
+      "K303002"
+    ]
+  },
+  {
+    "route_id": "K4000",
+    "route_code": "K4000",
+    "route_name": "Hentian Bandar-Pekan",
+    "shape_ids": [
+      "K400001",
+      "K400002"
+    ]
+  },
+  {
+    "route_id": "K4010",
+    "route_code": "K4010",
+    "route_name": "Hentian Bandar-RTC Kuala Pahang",
+    "shape_ids": [
+      "K401001",
+      "K401002"
+    ]
+  },
+  {
+    "route_id": "K4020",
+    "route_code": "K4020",
+    "route_name": "HENTIAN BANDAR ~ SMK SUNGAI SOI",
+    "shape_ids": [
+      "K402001",
+      "K402002"
+    ]
+  },
+  {
+    "route_id": "K5000",
+    "route_code": "K5000",
+    "route_name": "Hentian Bandar-Sungai Lembing",
+    "shape_ids": [
+      "K500001",
+      "K500002"
+    ]
+  },
+  {
+    "route_id": "K6000",
+    "route_code": "K6000",
+    "route_name": "Hentian Bandar-Balok Makmur (via Jln Beserah)",
+    "shape_ids": [
+      "K600001",
+      "K600002"
+    ]
+  },
+  {
+    "route_id": "K6010",
+    "route_code": "K6010",
+    "route_name": "Hentian Bandar-Kolej Polisas",
+    "shape_ids": [
+      "K601001",
+      "K601002"
+    ]
+  },
+  {
+    "route_id": "K6030",
+    "route_code": "K6030",
+    "route_name": "Hentian Bandar-Kolej PSDC",
+    "shape_ids": [
+      "K603002"
+    ]
+  },
+  {
+    "route_id": "K6040",
+    "route_code": "K6040",
+    "route_name": "Balok Makmur-Cherating",
+    "shape_ids": [
+      "K604002"
+    ]
+  }
+]

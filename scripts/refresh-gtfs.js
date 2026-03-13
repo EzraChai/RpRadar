@@ -6,6 +6,8 @@ const GTFS_RP_URL =
   "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-penang";
 const GTFS_RKL_URL =
   "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-kl";
+const GTFS_RKTN_URL =
+  "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-kuantan";
 const GTFS_MRT_URL =
   "https://api.data.gov.my/gtfs-static/prasarana?category=rapid-bus-mrtfeeder";
 const GTFS_NS_A_URL = "https://api.data.gov.my/gtfs-static/mybas-seremban-a";
@@ -13,6 +15,7 @@ const GTFS_NS_B_URL = "https://api.data.gov.my/gtfs-static/mybas-seremban-b";
 const GTFS_MK_URL = "https://api.data.gov.my/gtfs-static/mybas-melaka";
 const GTFS_JB_URL = "https://api.data.gov.my/gtfs-static/mybas-johor";
 const GTFS_PK_URL = "https://api.data.gov.my/gtfs-static/mybas-ipoh";
+const GTFS_ALR_URL = "https://api.data.gov.my/gtfs-static/mybas-alor-setar";
 
 const OUTPUT_FILES = {
   rp: {
@@ -22,6 +25,10 @@ const OUTPUT_FILES = {
   rkl: {
     trips: "data/rapid-kl-trips.json",
     schedule: "data/rapid-kl-schedule.json",
+  },
+  rktn: {
+    trips: "data/rapid-ktn-trips.json",
+    schedule: "data/rapid-ktn-schedule.json",
   },
   mrt: {
     trips: "data/mrt-feeder-trips.json",
@@ -46,6 +53,10 @@ const OUTPUT_FILES = {
   pk: {
     trips: "data/pk-trips.json",
     schedule: "data/pk-schedule.json",
+  },
+  alr: {
+    trips: "data/alr-trips.json",
+    schedule: "data/alr-schedule.json",
   },
 };
 
@@ -339,6 +350,26 @@ refreshGTFS(
   GTFS_PK_URL,
   OUTPUT_FILES.pk.trips,
   OUTPUT_FILES.pk.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+refreshGTFS(
+  GTFS_RKTN_URL,
+  OUTPUT_FILES.rktn.trips,
+  OUTPUT_FILES.rktn.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+refreshGTFS(
+  GTFS_ALR_URL,
+  OUTPUT_FILES.alr.trips,
+  OUTPUT_FILES.alr.schedule,
   7,
 ).catch((err) => {
   console.error(err);

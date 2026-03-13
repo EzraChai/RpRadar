@@ -23,6 +23,9 @@ import MyBasNSARoutes from "@/assets/ns_a/ns_a_routes_with_shapes.json";
 import MyBasNSBRoutes from "@/assets/ns_b/ns_b_routes_with_shapes.json";
 import MyBasMkRoutes from "@/assets/mk/mk_routes_with_shapes.json";
 import MyBasJbRoutes from "@/assets/jb/jb_routes_with_shapes.json";
+import MyBasPkRoutes from "@/assets/pk/pk_routes_with_shapes.json";
+import MyBasKtnRoutes from "@/assets/ktn/ktn_routes_with_shapes.json";
+import MyBasAlrRoutes from "@/assets/alr/alr_routes_with_shapes.json";
 import RapidPenangSchedule from "@/../data/rapid-penang-schedule.json";
 import RapidKLSchedule from "@/../data/rapid-kl-schedule.json";
 import MRTFeederSchedule from "@/../data/mrt-feeder-schedule.json";
@@ -30,6 +33,9 @@ import MYBasNSASchedule from "@/../data/ns-a-schedule.json";
 import MYBasNSBSchedule from "@/../data/ns-b-schedule.json";
 import MyBasMkSchedule from "@/../data/mk-schedule.json";
 import MyBasJbSchedule from "@/../data/jb-schedule.json";
+import MyBasPkSchedule from "@/../data/pk-schedule.json";
+import MyBasKtnSchedule from "@/../data/rapid-ktn-schedule.json";
+import MyBasAlrSchedule from "@/../data/alr-schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import type { BusScheduleType, RouteType } from "@/hooks/types";
 
@@ -81,6 +87,12 @@ export function DrawerMobile({
       return MyBasMkSchedule as unknown as BusScheduleType;
     } else if (provider === "jb") {
       return MyBasJbSchedule as unknown as BusScheduleType;
+    } else if (provider === "pk") {
+      return MyBasPkSchedule as unknown as BusScheduleType;
+    } else if (provider === "ktn") {
+      return MyBasKtnSchedule as unknown as BusScheduleType;
+    } else if (provider === "alr") {
+      return MyBasAlrSchedule as unknown as BusScheduleType;
     }
     return RapidPenangSchedule as unknown as BusScheduleType;
   });
@@ -98,6 +110,12 @@ export function DrawerMobile({
       return MyBasMkRoutes as unknown as RouteType[];
     } else if (provider === "jb") {
       return MyBasJbRoutes as unknown as RouteType[];
+    } else if (provider === "ktn") {
+      return MyBasKtnRoutes as unknown as RouteType[];
+    } else if (provider === "pk") {
+      return MyBasPkRoutes as unknown as RouteType[];
+    } else if (provider === "alr") {
+      return MyBasAlrRoutes as unknown as RouteType[];
     }
     return RapidPenangRoutes as unknown as RouteType[];
   });

@@ -1,0 +1,86 @@
+[
+  {
+    "route_id": "30407",
+    "route_code": "K10",
+    "route_name": "SHAHAB PERDANA - KUALA KEDAH",
+    "shape_ids": ["SHP_30407_0", "SHP_30407_1"]
+  },
+  {
+    "route_id": "30408",
+    "route_code": "K20",
+    "route_name": "SHAHAB PERDANA - JITRA",
+    "shape_ids": ["SHP_30408_0", "SHP_30408_1"]
+  },
+  {
+    "route_id": "30409",
+    "route_code": "K30",
+    "route_name": "SHAHAB PERDANA - KUALA NERANG",
+    "shape_ids": ["SHP_30409_0", "SHP_30409_1"]
+  },
+  {
+    "route_id": "30410",
+    "route_code": "K40",
+    "route_name": "SHAHAB PERDANA - PENDANG VIA SIMPANG EMPAT",
+    "shape_ids": ["SHP_30410_0", "SHP_30410_1"]
+  },
+  {
+    "route_id": "30411",
+    "route_code": "K41",
+    "route_name": "SHAHAB PERDANA - PENDANG VIA KOTA SARANG SEMUT",
+    "shape_ids": ["SHP_30411_0", "SHP_30411_1"]
+  },
+  {
+    "route_id": "30412",
+    "route_code": "K50",
+    "route_name": "SHAHAB PERDANA - SUNGAI PETANI",
+    "shape_ids": ["SHP_30412_0", "SHP_30412_1"]
+  },
+  {
+    "route_id": "30413",
+    "route_code": "K51",
+    "route_name": "SUNGAI PETANI - TANJUNG DAWAI",
+    "shape_ids": ["SHP_30413_0", "SHP_30413_1"]
+  },
+  {
+    "route_id": "30414",
+    "route_code": "K52",
+    "route_name": "SUNGAI PETANI - PANTAI MERDEKA",
+    "shape_ids": ["SHP_30414_0", "SHP_30414_1"]
+  },
+  {
+    "route_id": "30415",
+    "route_code": "K60",
+    "route_name": "SUNGAI PETANI - TAMAN BANDAR BARU",
+    "shape_ids": ["SHP_30415_0", "SHP_30415_1"]
+  },
+  {
+    "route_id": "30416",
+    "route_code": "K61",
+    "route_name": "SUNGAI PETANI - TAMAN KELISA",
+    "shape_ids": ["SHP_30416_0", "SHP_30416_1"]
+  },
+  {
+    "route_id": "30417",
+    "route_code": "K62",
+    "route_name": "SUNGAI PETANI - TAMAN RIA JAYA / TAMAN BATIK",
+    "shape_ids": ["SHP_30417_0", "SHP_30417_1"]
+  },
+  {
+    "route_id": "30418",
+    "route_code": "K63",
+    "route_name": "SUNGAI PETANI - BANDAR PERDANA",
+    "shape_ids": ["SHP_30418_0", "SHP_30418_1"]
+  },
+  {
+    "route_id": "30419",
+    "route_code": "K100",
+    "route_name": "BANDARAYA ALOR SETAR FEEDER (LOOP) - ARAH HOSPITAL",
+    "shape_ids": ["SHP_30419_0"]
+  },
+  {
+    "route_id": "30424",
+    "route_code": "K100",
+    "route_name": "BANDARAYA ALOR SETAR FEEDER (LOOP) - ARAH MERGONG",
+    "shape_ids": ["SHP_30424_0"]
+  }
+]
