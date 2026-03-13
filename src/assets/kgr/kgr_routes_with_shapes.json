@@ -1,0 +1,56 @@
+[
+  {
+    "route_id": "30268",
+    "route_code": "R102",
+    "route_name": "KANGAR - KILANG GULA",
+    "shape_ids": ["SHP_30268_0", "SHP_30268_1"]
+  },
+  {
+    "route_id": "30270",
+    "route_code": "R15",
+    "route_name": "ALOR SETAR - UUM SINTOK VIA JITRA",
+    "shape_ids": ["SHP_30270_0", "SHP_30270_1"]
+  },
+  {
+    "route_id": "30271",
+    "route_code": "R14",
+    "route_name": "KANGAR - ALOR SETAR VIA JITRA",
+    "shape_ids": ["SHP_30271_0", "SHP_30271_1"]
+  },
+  {
+    "route_id": "30272",
+    "route_code": "R13",
+    "route_name": "KANGAR - ALOR SETAR VIA KUALA SANGLANG",
+    "shape_ids": ["SHP_30272_0", "SHP_30272_1"]
+  },
+  {
+    "route_id": "30273",
+    "route_code": "R12",
+    "route_name": "KANGAR - KUALA PERLIS VIA KG WEI",
+    "shape_ids": ["SHP_30273_0", "SHP_30273_1"]
+  },
+  {
+    "route_id": "30274",
+    "route_code": "R11",
+    "route_name": "KANGAR - PADANG BESAR",
+    "shape_ids": ["SHP_30274_0", "SHP_30274_1"]
+  },
+  {
+    "route_id": "30275",
+    "route_code": "R10",
+    "route_name": "KANGAR - CHANGLUN VIA ARAU",
+    "shape_ids": ["SHP_30275_0", "SHP_30275_1"]
+  },
+  {
+    "route_id": "30380",
+    "route_code": "R14",
+    "route_name": "TERMINAL BUKIT LAGI - FELDA CHUPING",
+    "shape_ids": ["SHP_30380_0", "SHP_30380_1"]
+  },
+  {
+    "route_id": "30381",
+    "route_code": "R105",
+    "route_name": "KTM PADANG BESAR - KAKI BUKIT (LOOP)",
+    "shape_ids": ["SHP_30381_0"]
+  }
+]

@@ -39,9 +39,10 @@ import MYBasNSARoutes from "@/assets/ns_a/ns_a_routes_with_shapes.json";
 import MYBasNSBRoutes from "@/assets/ns_b/ns_b_routes_with_shapes.json";
 import MYBasMkRoutes from "@/assets/mk/mk_routes_with_shapes.json";
 import MyBasJbRoutes from "@/assets/jb/jb_routes_with_shapes.json";
-import MybasPkRoutes from "@/assets/pk/pk_routes_with_shapes.json";
-import MybasKtnRoutes from "@/assets/ktn/ktn_routes_with_shapes.json";
-import MybasAlrRoutes from "@/assets/alr/alr_routes_with_shapes.json";
+import MyBasPkRoutes from "@/assets/pk/pk_routes_with_shapes.json";
+import MyBasKtnRoutes from "@/assets/ktn/ktn_routes_with_shapes.json";
+import MyBasAlrRoutes from "@/assets/alr/alr_routes_with_shapes.json";
+import MyBasKgrRoutes from "@/assets/kgr/kgr_routes_with_shapes.json";
 import type { RouteType } from "@/hooks/types";
 import { SNAP_POINTS } from "./DrawerMobile";
 
@@ -77,11 +78,15 @@ export function AppSidebar({
         a.route_id.localeCompare(b.route_id),
       ) as unknown as RouteType[];
     } else if (provider === "pk") {
-      return MybasPkRoutes as unknown as RouteType[];
+      return MyBasPkRoutes as unknown as RouteType[];
     } else if (provider === "ktn") {
-      return MybasKtnRoutes as unknown as RouteType[];
+      return MyBasKtnRoutes as unknown as RouteType[];
     } else if (provider === "alr") {
-      return MybasAlrRoutes as unknown as RouteType[];
+      return MyBasAlrRoutes as unknown as RouteType[];
+    } else if (provider === "kgr") {
+      return MyBasKgrRoutes.sort((a, b) =>
+        a.route_code.localeCompare(b.route_code),
+      ) as unknown as RouteType[];
     } else {
       return RapidPenangRoutes as unknown as RouteType[];
     }
@@ -248,6 +253,7 @@ export function AppSidebar({
                     <SelectItem value="pk">Ipoh</SelectItem>
                     {/* <SelectItem value="ktn">Kuantan</SelectItem> */}
                     <SelectItem value="alr">Alor Setar</SelectItem>
+                    <SelectItem value="kgr">Kangar</SelectItem>
                   </SelectContent>
                 </Select>
               </SidebarMenuButton>
@@ -309,11 +315,13 @@ function SearchSideBar({
   } else if (provider === "jb") {
     routes = MyBasJbRoutes;
   } else if (provider === "pk") {
-    routes = MybasPkRoutes;
+    routes = MyBasPkRoutes;
   } else if (provider === "ktn") {
-    routes = MybasKtnRoutes;
+    routes = MyBasKtnRoutes;
   } else if (provider === "alr") {
-    routes = MybasAlrRoutes;
+    routes = MyBasAlrRoutes;
+  } else if (provider === "kgr") {
+    routes = MyBasKgrRoutes;
   }
   const map = useMap();
   const [search, setSearch] = useState("");

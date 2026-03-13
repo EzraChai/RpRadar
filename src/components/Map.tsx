@@ -63,6 +63,10 @@ import MyBasAlrShapes from "@/assets/alr/alr_shapes_flipped.json";
 import MyBasAlrRoutes from "@/assets/alr/alr_routes_with_directions.json";
 import MyBasAlrSchedule from "@/../data/alr-schedule.json";
 import MyBasAlrDirections from "@/../data/alr-trips.json";
+import MyBasKgrShapes from "@/assets/kgr/kgr_shapes_flipped.json";
+import MyBasKgrRoutes from "@/assets/kgr/kgr_routes_with_directions.json";
+import MyBasKgrSchedule from "@/../data/kgr-schedule.json";
+import MyBasKgrDirections from "@/../data/kgr-trips.json";
 
 import {
   Collapsible,
@@ -189,6 +193,12 @@ function App() {
           MyBasAlrRoutes.find((r) => r.route_id === searchParams.get("id")),
         );
         setBusSchedule(MyBasAlrSchedule as unknown as BusScheduleType);
+        break;
+      case "kgr":
+        setRoute(
+          MyBasKgrRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(MyBasKgrSchedule as unknown as BusScheduleType);
         break;
     }
   }, [provider, searchParams]);
@@ -325,6 +335,16 @@ function App() {
           ).length > 0
         ) {
           filteredShape = MyBasAlrShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        }
+      } else if (provider === "kgr") {
+        if (
+          MyBasKgrShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MyBasKgrShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         }
@@ -530,6 +550,7 @@ function App() {
                         provider === "ktn" ||
                         provider === "alr" ||
                         provider === "pk" ||
+                        provider === "kgr" ||
                         provider === "mk") && (
                         <Collapsible className="px-6 mb-4">
                           <CollapsibleTrigger asChild>
@@ -843,7 +864,9 @@ function App() {
                         ? [3.8077, 103.326]
                         : provider === "alr"
                           ? [6.121, 100.3605]
-                          : [5.4164, 100.3327]
+                          : provider === "kgr"
+                            ? [6.4414, 100.1986]
+                            : [5.4164, 100.3327]
           }
           zoom={
             provider === "rkl" ||
@@ -851,6 +874,7 @@ function App() {
             provider === "jb" ||
             provider === "pk" ||
             provider === "alr" ||
+            provider === "kgr" ||
             provider === "ktn"
               ? 12.5
               : 13.5
@@ -984,6 +1008,7 @@ function App() {
                         <SelectItem value="pk">Ipoh</SelectItem>
                         {/* <SelectItem value="ktn">Kuantan</SelectItem> */}
                         <SelectItem value="alr">Alor Setar</SelectItem>
+                        <SelectItem value="kgr">Kangar</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -1104,6 +1129,8 @@ function VehiclesMarker({
       setBusSchedule(MyBasKtnSchedule);
     } else if (userProvider === "alr") {
       setBusSchedule(MyBasAlrSchedule);
+    } else if (userProvider === "kgr") {
+      setBusSchedule(MyBasKgrSchedule);
     }
   }, []);
 
@@ -1149,6 +1176,10 @@ function VehiclesMarker({
         } else if (provider === "alr") {
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-alor-setar",
+          );
+        } else if (provider === "kgr") {
+          res = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-kangar",
           );
         } else if (provider === "rp") {
           res = await fetch(
@@ -1515,6 +1546,29 @@ function VehiclesMarker({
 
       vehicleForThisRoute.forEach((v) => {
         let directions = MyBasAlrDirections.find(
+          (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
+        );
+
+        if (directions !== undefined && route?.directions.length === 1) {
+          setDirectionsLocation((prev) => ({
+            0: [...prev[0], v],
+            1: [...prev[1]],
+          }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
+        }
+      });
+    } else if (provider === "kgr") {
+      const vehicleForThisRoute = Array.from(vehicles.values());
+
+      vehicleForThisRoute.forEach((v) => {
+        let directions = MyBasKgrDirections.find(
           (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
         );
 

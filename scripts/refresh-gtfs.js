@@ -16,6 +16,7 @@ const GTFS_MK_URL = "https://api.data.gov.my/gtfs-static/mybas-melaka";
 const GTFS_JB_URL = "https://api.data.gov.my/gtfs-static/mybas-johor";
 const GTFS_PK_URL = "https://api.data.gov.my/gtfs-static/mybas-ipoh";
 const GTFS_ALR_URL = "https://api.data.gov.my/gtfs-static/mybas-alor-setar";
+const GTFS_KGR_URL = "https://api.data.gov.my/gtfs-static/mybas-kangar";
 
 const OUTPUT_FILES = {
   rp: {
@@ -57,6 +58,10 @@ const OUTPUT_FILES = {
   alr: {
     trips: "data/alr-trips.json",
     schedule: "data/alr-schedule.json",
+  },
+  kgr: {
+    trips: "data/kgr-trips.json",
+    schedule: "data/kgr-schedule.json",
   },
 };
 
@@ -370,6 +375,16 @@ refreshGTFS(
   GTFS_ALR_URL,
   OUTPUT_FILES.alr.trips,
   OUTPUT_FILES.alr.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+refreshGTFS(
+  GTFS_KGR_URL,
+  OUTPUT_FILES.kgr.trips,
+  OUTPUT_FILES.kgr.schedule,
   7,
 ).catch((err) => {
   console.error(err);
