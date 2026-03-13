@@ -874,7 +874,6 @@ function App() {
             provider === "jb" ||
             provider === "pk" ||
             provider === "alr" ||
-            provider === "kgr" ||
             provider === "ktn"
               ? 12.5
               : 13.5
