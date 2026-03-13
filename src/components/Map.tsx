@@ -82,7 +82,8 @@ import {
 } from "@/lib/utils";
 import { ModeToggle } from "./mode-toggle";
 import "leaflet/dist/leaflet.css";
-import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
+import "leaflet.locatecontrol"; // Import plugin
+import "leaflet.locatecontrol/dist/L.Control.Locate.min.css"; // Import styles
 import type { BusScheduleType } from "@/hooks/types";
 import {
   Dialog,
@@ -1348,8 +1349,6 @@ function VehiclesMarker({
     busIcon = (_: number) => divIcon();
   }
 
-  console.log(vehicles);
-
   useEffect(() => {
     setDirectionsLocation({ 0: [], 1: [] });
     if (provider === "rp") {
@@ -1605,11 +1604,9 @@ function VehiclesMarker({
   }
   const line = lineString(coordsForLine);
 
-  console.log(directionsLocation);
   return (
     <>
       {directionsLocation[direction as 0 | 1].map((v, idx) => {
-        // console.log(v.position.longitude, v.position.latitude);
         const busPoint = point(
           typeof v.position?.latitude === "number" &&
             typeof v.position?.longitude === "number"

@@ -257,22 +257,7 @@ export function AppSidebar({
                   </SelectContent>
                 </Select>
               </SidebarMenuButton>
-              <div className="flex justify-center w-full h-4">
-                <p
-                  className={`whitespace-nowrap overflow-hidden text-xs text-neutral-400 ${
-                    collapsed ? "hidden " : "block "
-                  }`}
-                >
-                  Data provided by
-                  <a
-                    className="ml-1 dark:text-neutral-300! text-neutral-500! hover:underline underline-offset-2"
-                    target="_blank"
-                    href="https://data.gov.my/"
-                  >
-                    data.gov.my
-                  </a>
-                </p>
-              </div>
+
               <div className="flex justify-center w-full h-4">
                 <p
                   className={`whitespace-nowrap overflow-hidden text-xs text-neutral-400 ${
@@ -286,6 +271,22 @@ export function AppSidebar({
                     href="https://ezrachai-links.vercel.app/"
                   >
                     ezrachai
+                  </a>
+                </p>
+              </div>
+              <div className="flex justify-center w-full h-4">
+                <p
+                  className={`whitespace-nowrap overflow-hidden text-xs text-neutral-400 ${
+                    collapsed ? "hidden " : "block "
+                  }`}
+                >
+                  Data provided by
+                  <a
+                    className="ml-1 dark:text-neutral-300! text-neutral-500! hover:underline underline-offset-2"
+                    target="_blank"
+                    href="https://data.gov.my/"
+                  >
+                    data.gov.my
                   </a>
                 </p>
               </div>
