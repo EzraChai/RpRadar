@@ -111,9 +111,13 @@ export function DrawerMobile({
         a.route_id.localeCompare(b.route_id),
       ) as unknown as RouteType[];
     } else if (provider === "mk") {
-      return MyBasMkRoutes as unknown as RouteType[];
+      return MyBasMkRoutes.sort((a, b) =>
+        a.route_id.localeCompare(b.route_id),
+      ) as unknown as RouteType[];
     } else if (provider === "jb") {
-      return MyBasJbRoutes as unknown as RouteType[];
+      return MyBasJbRoutes.sort((a, b) =>
+        a.route_id.localeCompare(b.route_id),
+      ) as unknown as RouteType[];
     } else if (provider === "ktn") {
       return MyBasKtnRoutes as unknown as RouteType[];
     } else if (provider === "pk") {
@@ -121,7 +125,9 @@ export function DrawerMobile({
     } else if (provider === "alr") {
       return MyBasAlrRoutes as unknown as RouteType[];
     } else if (provider === "kgr") {
-      return MyBasKgrRoutes as unknown as RouteType[];
+      return MyBasKgrRoutes.sort((a, b) =>
+        a.route_id.localeCompare(b.route_id),
+      ) as unknown as RouteType[];
     }
     return RapidPenangRoutes as unknown as RouteType[];
   });
