@@ -12,6 +12,7 @@ const GTFS_NS_A_URL = "https://api.data.gov.my/gtfs-static/mybas-seremban-a";
 const GTFS_NS_B_URL = "https://api.data.gov.my/gtfs-static/mybas-seremban-b";
 const GTFS_MK_URL = "https://api.data.gov.my/gtfs-static/mybas-melaka";
 const GTFS_JB_URL = "https://api.data.gov.my/gtfs-static/mybas-johor";
+const GTFS_PK_URL = "https://api.data.gov.my/gtfs-static/mybas-ipoh";
 
 const OUTPUT_FILES = {
   rp: {
@@ -41,6 +42,10 @@ const OUTPUT_FILES = {
   jb: {
     trips: "data/jb-trips.json",
     schedule: "data/jb-schedule.json",
+  },
+  pk: {
+    trips: "data/pk-trips.json",
+    schedule: "data/pk-schedule.json",
   },
 };
 
@@ -324,6 +329,16 @@ refreshGTFS(
   GTFS_JB_URL,
   OUTPUT_FILES.jb.trips,
   OUTPUT_FILES.jb.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+refreshGTFS(
+  GTFS_PK_URL,
+  OUTPUT_FILES.pk.trips,
+  OUTPUT_FILES.pk.schedule,
   7,
 ).catch((err) => {
   console.error(err);

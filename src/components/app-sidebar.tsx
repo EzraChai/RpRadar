@@ -39,6 +39,7 @@ import MYBasNSARoutes from "@/assets/ns_a/ns_a_routes_with_shapes.json";
 import MYBasNSBRoutes from "@/assets/ns_b/ns_b_routes_with_shapes.json";
 import MYBasMkRoutes from "@/assets/mk/mk_routes_with_shapes.json";
 import MyBasJbRoutes from "@/assets/jb/jb_routes_with_shapes.json";
+import MybasPkRoutes from "@/assets/pk/pk_routes_with_shapes.json";
 import type { RouteType } from "@/hooks/types";
 import { SNAP_POINTS } from "./DrawerMobile";
 
@@ -71,6 +72,10 @@ export function AppSidebar({
       ) as unknown as RouteType[];
     } else if (provider === "jb") {
       return MyBasJbRoutes.sort((a, b) =>
+        a.route_id.localeCompare(b.route_id),
+      ) as unknown as RouteType[];
+    } else if (provider === "pk") {
+      return MybasPkRoutes.sort((a, b) =>
         a.route_id.localeCompare(b.route_id),
       ) as unknown as RouteType[];
     } else {
@@ -235,7 +240,8 @@ export function AppSidebar({
                     <SelectItem value="rkl">Selangor/KL</SelectItem>
                     <SelectItem value="ns">Negeri Sembilan</SelectItem>
                     <SelectItem value="mk">Melaka</SelectItem>
-                    <SelectItem value="jb">Johor</SelectItem>
+                    <SelectItem value="jb">Johor Bahru</SelectItem>
+                    <SelectItem value="pk">Ipoh</SelectItem>
                   </SelectContent>
                 </Select>
               </SidebarMenuButton>
@@ -296,6 +302,8 @@ function SearchSideBar({
     routes = MYBasMkRoutes;
   } else if (provider === "jb") {
     routes = MyBasJbRoutes;
+  } else if (provider === "pk") {
+    routes = MybasPkRoutes;
   }
   const map = useMap();
   const [search, setSearch] = useState("");

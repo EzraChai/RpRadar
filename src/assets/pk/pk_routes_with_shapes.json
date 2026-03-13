@@ -1,0 +1,104 @@
+[
+  {
+    "route_id": "A100",
+    "route_code": "A100",
+    "route_name": "BANDARAYA IPOH (FEEDER)",
+    "shape_ids": ["R2402023"]
+  },
+  {
+    "route_id": "A101A",
+    "route_code": "A101A",
+    "route_name": "MEDAN KIDD - BERCHAM VIA TAMAN IPOH",
+    "shape_ids": ["R2402024"]
+  },
+  {
+    "route_id": "A101B",
+    "route_code": "A101B",
+    "route_name": "MEDAN KIDD - BERCHAM VIA KG SIMEE",
+    "shape_ids": ["R2402025"]
+  },
+  {
+    "route_id": "A102",
+    "route_code": "A102",
+    "route_name": "MEDAN KIDD - MANJOI - BUNTONG",
+    "shape_ids": ["R2402026"]
+  },
+  {
+    "route_id": "A103",
+    "route_code": "A103",
+    "route_name": "MEDAN KIDD - CHEMPAKA - AMPANG",
+    "shape_ids": ["R2402027"]
+  },
+  {
+    "route_id": "A30A",
+    "route_code": "A30A",
+    "route_name": "MEDAN KIDD - TERMINAL MERU RAYA",
+    "shape_ids": ["R2402001", "R2402002"]
+  },
+  {
+    "route_id": "A30B",
+    "route_code": "A30B",
+    "route_name": "MEDAN KIDD - TERMINAL MERU RAYA - CHEMOR",
+    "shape_ids": ["R2402003", "R2402004"]
+  },
+  {
+    "route_id": "A31A",
+    "route_code": "A31A",
+    "route_name": "MEDAN KIDD - KUALA KANGSAR VIA BUKIT GANTANG",
+    "shape_ids": ["R2402005", "R2402006"]
+  },
+  {
+    "route_id": "A31B",
+    "route_code": "A31B",
+    "route_name": "MEDAN KIDD - KUALA KANGSAR VIA JALAN TUN RAZAK",
+    "shape_ids": ["R2402007", "R2402008"]
+  },
+  {
+    "route_id": "A31X",
+    "route_code": "A31X",
+    "route_name": "MEDAN KIDD - KANTHAN",
+    "shape_ids": ["R2501008", "R2501009"]
+  },
+  {
+    "route_id": "A32",
+    "route_code": "A32",
+    "route_name": "MEDAN KIDD - BERCHAM - TANJUNG RAMBUTAN",
+    "shape_ids": ["R2402009", "R2402010"]
+  },
+  {
+    "route_id": "A33A",
+    "route_code": "A33A",
+    "route_name": "MEDAN KIDD - TANJUNG RAMBUTAN - CHEMOR",
+    "shape_ids": ["R2402011", "R2402012"]
+  },
+  {
+    "route_id": "A33B",
+    "route_code": "A33B",
+    "route_name": "MEDAN KIDD - TANJUNG RAMBUTAN",
+    "shape_ids": ["R2402013", "R2402014"]
+  },
+  {
+    "route_id": "A34",
+    "route_code": "A34",
+    "route_name": "MEDAN KIDD - GOPENG - KAMPAR",
+    "shape_ids": ["R2402015", "R2402016"]
+  },
+  {
+    "route_id": "A35",
+    "route_code": "A35",
+    "route_name": "MEDAN KIDD - PASIR PUTEH - PENGKALAN SENTOSA",
+    "shape_ids": ["R2402017", "R2402018"]
+  },
+  {
+    "route_id": "A36",
+    "route_code": "A36",
+    "route_name": "MEDAN KIDD - BATU GAJAH - SRI ISKANDAR",
+    "shape_ids": ["R2402019", "R2402020"]
+  },
+  {
+    "route_id": "A37",
+    "route_code": "A37",
+    "route_name": "MEDAN KIDD - LTSAS - TAMAN BOTANI",
+    "shape_ids": ["R2402021", "R2402022"]
+  }
+]

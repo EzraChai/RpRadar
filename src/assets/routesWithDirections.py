@@ -68,7 +68,7 @@ for (route_id, direction_id, shape_id), trip_list in grouped.items():
     if route_id not in routes_index:
         route_entry = {
             "route_id": route_id,
-            "route_short_name": route_info.get("route_short_name") or route_id,
+            "route_short_name": route_id,
             "route_long_name": route_info.get("route_long_name"),
             "directions": []
         }

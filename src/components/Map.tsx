@@ -51,6 +51,10 @@ import MyBasJbShapes from "@/assets/jb/jb_shapes_flipped.json";
 import MyBasJbRoutes from "@/assets/jb/jb_routes_with_directions.json";
 import MyBasJbSchedule from "@/../data/jb-schedule.json";
 import MyBasJbDirections from "@/../data/jb-trips.json";
+import MyBasPkShapes from "@/assets/pk/pk_shapes_flipped.json";
+import MyBasPkRoutes from "@/assets/pk/pk_routes_with_directions.json";
+import MyBasPkSchedule from "@/../data/pk-schedule.json";
+import MyBasPkDirections from "@/../data/pk-trips.json";
 
 import {
   Collapsible,
@@ -160,6 +164,11 @@ function App() {
         );
         setBusSchedule(MyBasJbSchedule as unknown as BusScheduleType);
         break;
+      case "pk":
+        setRoute(
+          MyBasPkRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(MyBasPkSchedule as unknown as BusScheduleType);
     }
   }, [provider, searchParams]);
 
@@ -265,6 +274,16 @@ function App() {
           ).length > 0
         ) {
           filteredShape = MyBasJbShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        }
+      } else if (provider === "pk") {
+        if (
+          MyBasPkShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MyBasPkShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         }
@@ -467,6 +486,7 @@ function App() {
                       (provider === "rp" ||
                         provider === "ns" ||
                         provider === "jb" ||
+                        provider === "pk" ||
                         provider === "mk") && (
                         <Collapsible className="px-6 mb-4">
                           <CollapsibleTrigger asChild>
@@ -774,10 +794,15 @@ function App() {
                   ? [2.1881, 102.2516]
                   : provider === "jb"
                     ? [1.4927, 103.7412]
-                    : [5.4164, 100.3327]
+                    : provider === "pk"
+                      ? [4.5841, 101.083]
+                      : [5.4164, 100.3327]
           }
           zoom={
-            provider === "rkl" || provider === "ns" || provider === "jb"
+            provider === "rkl" ||
+            provider === "ns" ||
+            provider === "jb" ||
+            provider === "pk"
               ? 12.5
               : 13.5
           }
@@ -906,7 +931,8 @@ function App() {
                         <SelectItem value="rkl">Selangor/KL</SelectItem>
                         <SelectItem value="ns">Negeri Sembilan</SelectItem>
                         <SelectItem value="mk">Melaka</SelectItem>
-                        <SelectItem value="jb">Johor</SelectItem>
+                        <SelectItem value="jb">Johor Bahru</SelectItem>
+                        <SelectItem value="pk">Ipoh</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -1021,6 +1047,8 @@ function VehiclesMarker({
       setBusSchedule(MyBasMkSchedule);
     } else if (userProvider === "jb") {
       setBusSchedule(MyBasJbSchedule);
+    } else if (userProvider === "pk") {
+      setBusSchedule(MyBasPkSchedule);
     }
   }, []);
 
@@ -1058,6 +1086,10 @@ function VehiclesMarker({
         } else if (provider === "jb") {
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-johor",
+          );
+        } else if (provider === "pk") {
+          res = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-ipoh",
           );
         } else if (provider === "rp") {
           res = await fetch(
@@ -1132,7 +1164,7 @@ function VehiclesMarker({
     // initial load
     loadData();
 
-    timerRef.current = window.setInterval(loadData, 15000); // every 15 seconds
+    timerRef.current = window.setInterval(loadData, 20000); // every 20 seconds
 
     // cleanup
     return () => {
@@ -1345,6 +1377,31 @@ function VehiclesMarker({
 
       vehicleForThisRoute.forEach((v) => {
         let directions = MyBasJbDirections.find(
+          (d) => d.trip_id === v.trip?.tripId,
+        );
+
+        if (directions === undefined && route?.directions.length === 1) {
+          setDirectionsLocation((prev) => ({
+            0: [...prev[0], v],
+            1: [...prev[1]],
+          }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
+        }
+      });
+    } else if (provider === "pk") {
+      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
+        (v) => v.trip?.routeId === route?.route_id,
+      );
+
+      vehicleForThisRoute.forEach((v) => {
+        let directions = MyBasPkDirections.find(
           (d) => d.trip_id === v.trip?.tripId,
         );
 
