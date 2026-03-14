@@ -18,7 +18,7 @@
         "clsx": "^2.1.1",
         "gtfs-realtime-bindings": "^1.1.1",
         "leaflet": "^1.9.4",
-        "leaflet.locatecontrol": "0.85.1",
+        "leaflet.locatecontrol": "^0.89.0",
         "lucide-react": "^0.577.0",
         "pmtiles": "^4.4.0",
         "radix-ui": "^1.4.3",
@@ -817,7 +817,7 @@
 
     "leaflet": ["leaflet@1.9.4", "", {}, "sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA=="],
 
-    "leaflet.locatecontrol": ["leaflet.locatecontrol@0.85.1", "", {}, "sha512-aB2qrwZO7Vs4EbWja6pyGy6Y1Mr2yeOqH3PN+Ocnjb4pgpiwYsX1AOI0mppVYzUTO2zwjafxVTOffiwEE32udA=="],
+    "leaflet.locatecontrol": ["leaflet.locatecontrol@0.89.0", "", { "peerDependencies": { "leaflet": "^1.9.0 || >=2.0.0-alpha.1" } }, "sha512-BTf8V802jXhlX4BBHmDg46ja10pPjSOOQuqB9LK+EeEHJMn+Vb7VownvE67nCfTGB4kEexl1gYF8v9rJyAUv0w=="],
 
     "levn": ["levn@0.4.1", "", { "dependencies": { "prelude-ls": "^1.2.1", "type-check": "~0.4.0" } }, "sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ=="],
 

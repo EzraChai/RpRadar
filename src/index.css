@@ -214,36 +214,47 @@ body {
 }
 
 .leaflet-bar a {
-  @apply border! cursor-auto! border-white! dark:border-neutral-500! inline-flex! w-full! h-full! px-1! py-[2px]! justify-center! items-center! bg-white/50! dark:bg-white/10! backdrop-blur-lg! rounded-2xl! shadow-md! gap-2! whitespace-nowrap! text-sm! font-medium! transition-all! disabled:pointer-events-none! disabled:opacity-50! [&_svg]:pointer-events-none! [&_svg:not([class*='size-'])]:size-4! shrink-0! [&_svg]:shrink-0! outline-none! focus-visible:border-ring! focus-visible:ring-ring/50! focus-visible:ring-[3px]! aria-invalid:ring-destructive/20! dark:aria-invalid:!ring-destructive/40 aria-invalid:!border-destructive;
+  @apply border! cursor-auto! border-white! dark:border-neutral-500! inline-flex! w-full! h-full! px-1! py-0.5! justify-center! items-center! bg-white/50! dark:bg-white/10! backdrop-blur-lg! rounded-2xl! shadow-md! gap-2! whitespace-nowrap! text-sm! font-medium! transition-all! disabled:pointer-events-none! disabled:opacity-50! [&_svg]:pointer-events-none! [&_svg:not([class*='size-'])]:size-4! shrink-0! [&_svg]:shrink-0! outline-none! focus-visible:border-ring! focus-visible:ring-ring/50! focus-visible:ring-[3px]! aria-invalid:ring-destructive/20! dark:aria-invalid:!ring-destructive/40 aria-invalid:!border-destructive;
   outline: none; /* remove focus outline */
   -webkit-tap-highlight-color: transparent; /* remove mobile tap highlight */
 }
-
 .leaflet-top {
-  @apply top-34! lg:top-22!;
+  top: 136px !important;
 }
+
+@media (width >= 64rem) {
+  .leaflet-top {
+    top: 88px !important;
+  }
+}
+
 .leaflet-right {
-  @apply right-1.75!;
+  right: 7px !important;
 }
 
 .leaflet-control-locate a .leaflet-control-locate-location-arrow {
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-icon lucide-locate"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/></svg>') !important;
+  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-icon lucide-locate"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/></svg>') !important;
+  background-color: var(--foreground) !important;
 }
 
 .leaflet-control-locate.active a .leaflet-control-locate-location-arrow {
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="lightblue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-fixed-icon lucide-locate-fixed"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>') !important;
+  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="lightblue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-fixed-icon lucide-locate-fixed"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>') !important;
+  background-color: var(--foreground) !important;
 }
 
 .dark .leaflet-control-locate a .leaflet-control-locate-spinner {
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M304 48a48 48 0 1 1-96 0 48 48 0 0 1 96 0zm-48 368a48 48 0 1 0 0 96 48 48 0 0 0 0-96zm208-208a48 48 0 1 0 0 96 48 48 0 0 0 0-96zM96 256a48 48 0 1 0-96 0 48 48 0 0 0 96 0zm13 99a48 48 0 1 0 0 96 48 48 0 0 0 0-96zm294 0a48 48 0 1 0 0 96 48 48 0 0 0 0-96zM109 61a48 48 0 1 0 0 96 48 48 0 0 0 0-96z"/></svg>') !important;
+  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M304 48a48 48 0 1 1-96 0 48 48 0 0 1 96 0zm-48 368a48 48 0 1 0 0 96 48 48 0 0 0 0-96zm208-208a48 48 0 1 0 0 96 48 48 0 0 0 0-96zM96 256a48 48 0 1 0-96 0 48 48 0 0 0 96 0zm13 99a48 48 0 1 0 0 96 48 48 0 0 0 0-96zm294 0a48 48 0 1 0 0 96 48 48 0 0 0 0-96zM109 61a48 48 0 1 0 0 96 48 48 0 0 0 0-96z"/></svg>') !important;
+  background-color: var(--foreground) !important;
 }
 
 .dark .leaflet-control-locate a .leaflet-control-locate-location-arrow {
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-icon lucide-locate"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/></svg>') !important;
+  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-icon lucide-locate"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/></svg>') !important;
+  background-color: var(--foreground) !important;
 }
 
 .dark .leaflet-control-locate.active a .leaflet-control-locate-location-arrow {
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="lightblue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-fixed-icon lucide-locate-fixed"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>') !important;
+  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="lightblue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-fixed-icon lucide-locate-fixed"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>') !important;
+  background-color: var(--foreground) !important;
 }
 
 .scroll-hidden::-webkit-scrollbar {
