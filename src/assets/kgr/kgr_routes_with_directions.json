@@ -1384,7 +1384,7 @@
           },
           {
             "stop_id": "4401",
-            "stop_name": "SMK DATO SHEIKH AHMAD cp",
+            "stop_name": "SMK DATO SHEIKH AHMAD",
             "lat": 6.439044,
             "lon": 100.267142
           },
@@ -1396,7 +1396,7 @@
           },
           {
             "stop_id": "4406",
-            "stop_name": "MAKAM DIRAJA cp",
+            "stop_name": "MAKAM DIRAJA",
             "lat": 6.430006,
             "lon": 100.270853
           },
@@ -2496,7 +2496,7 @@
           },
           {
             "stop_id": "4406",
-            "stop_name": "MAKAM DIRAJA cp",
+            "stop_name": "MAKAM DIRAJA",
             "lat": 6.430006,
             "lon": 100.270853
           },
@@ -2508,7 +2508,7 @@
           },
           {
             "stop_id": "4401",
-            "stop_name": "SMK DATO SHEIKH AHMAD cp",
+            "stop_name": "SMK DATO SHEIKH AHMAD",
             "lat": 6.439044,
             "lon": 100.267142
           },
@@ -3368,7 +3368,7 @@
           },
           {
             "stop_id": "4511",
-            "stop_name": "SRJK (C) KHOO AIK cp",
+            "stop_name": "SRJK (C) KHOO AIK",
             "lat": 6.429338,
             "lon": 100.196241
           },
@@ -3380,7 +3380,7 @@
           },
           {
             "stop_id": "4346",
-            "stop_name": "GIANT KANGAR cp",
+            "stop_name": "GIANT KANGAR",
             "lat": 6.420247,
             "lon": 100.198047
           },
@@ -3398,19 +3398,19 @@
           },
           {
             "stop_id": "4514",
-            "stop_name": "JABATAN KESIHATAN NEGERI PERLIS cp",
+            "stop_name": "JABATAN KESIHATAN NEGERI PERLIS",
             "lat": 6.408245,
             "lon": 100.200637
           },
           {
             "stop_id": "4515",
-            "stop_name": "SIMPANG TITI CHAI cp",
+            "stop_name": "SIMPANG TITI CHAI",
             "lat": 6.405549,
             "lon": 100.200837
           },
           {
             "stop_id": "4516",
-            "stop_name": "PASAR TITI CHAI cp",
+            "stop_name": "PASAR TITI CHAI",
             "lat": 6.404751,
             "lon": 100.201777
           },
@@ -3428,13 +3428,13 @@
           },
           {
             "stop_id": "4519",
-            "stop_name": "KLINIK DESA KG SURAU cp",
+            "stop_name": "KLINIK DESA KG SURAU",
             "lat": 6.384743,
             "lon": 100.206137
           },
           {
             "stop_id": "4520",
-            "stop_name": "DEWAN KG UJUNG BATU cp",
+            "stop_name": "DEWAN KG UJUNG BATU",
             "lat": 6.378942,
             "lon": 100.204361
           },
@@ -3446,67 +3446,67 @@
           },
           {
             "stop_id": "4522",
-            "stop_name": "SIMPANG TOK TINA ALUIH cp",
+            "stop_name": "SIMPANG TOK TINA ALUIH",
             "lat": 6.386118,
             "lon": 100.201969
           },
           {
             "stop_id": "4523",
-            "stop_name": "TMN MEDAN SEPAKAT cp",
+            "stop_name": "TMN MEDAN SEPAKAT",
             "lat": 6.396179,
             "lon": 100.197102
           },
           {
             "stop_id": "4524",
-            "stop_name": "SIMPANG GUNUNG MEDAN cp",
+            "stop_name": "SIMPANG GUNUNG MEDAN",
             "lat": 6.402121,
             "lon": 100.195415
           },
           {
             "stop_id": "4525",
-            "stop_name": "KG BUKIT KECHIK cp",
+            "stop_name": "KG BUKIT KECHIK",
             "lat": 6.399641,
             "lon": 100.192201
           },
           {
             "stop_id": "4526",
-            "stop_name": "KG ALOR MARUS cp",
+            "stop_name": "KG ALOR MARUS",
             "lat": 6.398524,
             "lon": 100.189998
           },
           {
             "stop_id": "4527",
-            "stop_name": "KLINIK DESA BEHOR LATEH cp",
+            "stop_name": "KLINIK DESA BEHOR LATEH",
             "lat": 6.396912,
             "lon": 100.183812
           },
           {
             "stop_id": "4528",
-            "stop_name": "SK KAYANG cp",
+            "stop_name": "SK KAYANG",
             "lat": 6.39607,
             "lon": 100.178811
           },
           {
             "stop_id": "4529",
-            "stop_name": "KG TITI SERONG/PERTUBUHAN PELADANG cp",
+            "stop_name": "KG TITI SERONG/PERTUBUHAN PELADANG",
             "lat": 6.395317,
             "lon": 100.172144
           },
           {
             "stop_id": "4530",
-            "stop_name": "KRAFTANGAN MALAYSIA PERLIS cp",
+            "stop_name": "KRAFTANGAN MALAYSIA PERLIS",
             "lat": 6.395056,
             "lon": 100.168894
           },
           {
             "stop_id": "4531",
-            "stop_name": "KG TELUK BATU 5 cp",
+            "stop_name": "KG TELUK BATU 5",
             "lat": 6.392315,
             "lon": 100.149093
           },
           {
             "stop_id": "4532",
-            "stop_name": "SIMPANG TIGA PADANG BESAR SELATAN cp",
+            "stop_name": "SIMPANG TIGA PADANG BESAR SELATAN",
             "lat": 6.392315,
             "lon": 100.149093
           },
@@ -3518,19 +3518,19 @@
           },
           {
             "stop_id": "4534",
-            "stop_name": "TMN INDERA INDAH cp",
+            "stop_name": "TMN INDERA INDAH",
             "lat": 6.393072,
             "lon": 100.143114
           },
           {
             "stop_id": "4535",
-            "stop_name": "BALAI POLIS KUALA PERLIS cp",
+            "stop_name": "BALAI POLIS KUALA PERLIS",
             "lat": 6.393393,
             "lon": 100.141021
           },
           {
             "stop_id": "4536",
-            "stop_name": "SMK KUALA PERLIS cp",
+            "stop_name": "SMK KUALA PERLIS",
             "lat": 6.395674,
             "lon": 100.13645
           },
@@ -3542,13 +3542,13 @@
           },
           {
             "stop_id": "4538",
-            "stop_name": "STESEN BAS KUALA PERLIS cp",
+            "stop_name": "STESEN BAS KUALA PERLIS",
             "lat": 6.397616,
             "lon": 100.131113
           },
           {
             "stop_id": "4539",
-            "stop_name": "LKIM cp",
+            "stop_name": "LKIM",
             "lat": 6.399482,
             "lon": 100.131218
           },
@@ -3560,7 +3560,7 @@
           },
           {
             "stop_id": "4541",
-            "stop_name": "PLAZA KUALA cp",
+            "stop_name": "PLAZA KUALA",
             "lat": 6.400488,
             "lon": 100.133137
           },
@@ -3584,13 +3584,13 @@
           },
           {
             "stop_id": "4545",
-            "stop_name": "SRJK (C) KHAY BENG cp",
+            "stop_name": "SRJK (C) KHAY BENG",
             "lat": 6.410486,
             "lon": 100.133047
           },
           {
             "stop_id": "4546",
-            "stop_name": "KLINIK DESA SEBERANG RAMAI cp",
+            "stop_name": "KLINIK DESA SEBERANG RAMAI",
             "lat": 6.407091,
             "lon": 100.131411
           },
@@ -3616,13 +3616,13 @@
           },
           {
             "stop_id": "4546",
-            "stop_name": "KLINIK DESA SEBERANG RAMAI cp",
+            "stop_name": "KLINIK DESA SEBERANG RAMAI",
             "lat": 6.407091,
             "lon": 100.131411
           },
           {
             "stop_id": "4545",
-            "stop_name": "SRJK (C) KHAY BENG cp",
+            "stop_name": "SRJK (C) KHAY BENG",
             "lat": 6.410486,
             "lon": 100.133047
           },
@@ -3646,7 +3646,7 @@
           },
           {
             "stop_id": "4541",
-            "stop_name": "PLAZA KUALA cp",
+            "stop_name": "PLAZA KUALA",
             "lat": 6.400488,
             "lon": 100.133137
           },
@@ -3658,13 +3658,13 @@
           },
           {
             "stop_id": "4539",
-            "stop_name": "LKIM cp",
+            "stop_name": "LKIM",
             "lat": 6.399482,
             "lon": 100.131218
           },
           {
             "stop_id": "4538",
-            "stop_name": "STESEN BAS KUALA PERLIS cp",
+            "stop_name": "STESEN BAS KUALA PERLIS",
             "lat": 6.397616,
             "lon": 100.131113
           },
@@ -3676,19 +3676,19 @@
           },
           {
             "stop_id": "4536",
-            "stop_name": "SMK KUALA PERLIS cp",
+            "stop_name": "SMK KUALA PERLIS",
             "lat": 6.395674,
             "lon": 100.13645
           },
           {
             "stop_id": "4535",
-            "stop_name": "BALAI POLIS KUALA PERLIS cp",
+            "stop_name": "BALAI POLIS KUALA PERLIS",
             "lat": 6.393393,
             "lon": 100.141021
           },
           {
             "stop_id": "4534",
-            "stop_name": "TMN INDERA INDAH cp",
+            "stop_name": "TMN INDERA INDAH",
             "lat": 6.393072,
             "lon": 100.143114
           },
@@ -3700,67 +3700,67 @@
           },
           {
             "stop_id": "4532",
-            "stop_name": "SIMPANG TIGA PADANG BESAR SELATAN cp",
+            "stop_name": "SIMPANG TIGA PADANG BESAR SELATAN",
             "lat": 6.392315,
             "lon": 100.149093
           },
           {
             "stop_id": "4531",
-            "stop_name": "KG TELUK BATU 5 cp",
+            "stop_name": "KG TELUK BATU 5",
             "lat": 6.392315,
             "lon": 100.149093
           },
           {
             "stop_id": "4530",
-            "stop_name": "KRAFTANGAN MALAYSIA PERLIS cp",
+            "stop_name": "KRAFTANGAN MALAYSIA PERLIS",
             "lat": 6.395056,
             "lon": 100.168894
           },
           {
             "stop_id": "4529",
-            "stop_name": "KG TITI SERONG/PERTUBUHAN PELADANG cp",
+            "stop_name": "KG TITI SERONG/PERTUBUHAN PELADANG",
             "lat": 6.395317,
             "lon": 100.172144
           },
           {
             "stop_id": "4528",
-            "stop_name": "SK KAYANG cp",
+            "stop_name": "SK KAYANG",
             "lat": 6.39607,
             "lon": 100.178811
           },
           {
             "stop_id": "4527",
-            "stop_name": "KLINIK DESA BEHOR LATEH cp",
+            "stop_name": "KLINIK DESA BEHOR LATEH",
             "lat": 6.396912,
             "lon": 100.183812
           },
           {
             "stop_id": "4526",
-            "stop_name": "KG ALOR MARUS cp",
+            "stop_name": "KG ALOR MARUS",
             "lat": 6.398524,
             "lon": 100.189998
           },
           {
             "stop_id": "4525",
-            "stop_name": "KG BUKIT KECHIK cp",
+            "stop_name": "KG BUKIT KECHIK",
             "lat": 6.399641,
             "lon": 100.192201
           },
           {
             "stop_id": "4524",
-            "stop_name": "SIMPANG GUNUNG MEDAN cp",
+            "stop_name": "SIMPANG GUNUNG MEDAN",
             "lat": 6.402121,
             "lon": 100.195415
           },
           {
             "stop_id": "4523",
-            "stop_name": "TMN MEDAN SEPAKAT cp",
+            "stop_name": "TMN MEDAN SEPAKAT",
             "lat": 6.396179,
             "lon": 100.197102
           },
           {
             "stop_id": "4522",
-            "stop_name": "SIMPANG TOK TINA ALUIH cp",
+            "stop_name": "SIMPANG TOK TINA ALUIH",
             "lat": 6.386118,
             "lon": 100.201969
           },
@@ -3772,13 +3772,13 @@
           },
           {
             "stop_id": "4520",
-            "stop_name": "DEWAN KG UJUNG BATU cp",
+            "stop_name": "DEWAN KG UJUNG BATU",
             "lat": 6.378942,
             "lon": 100.204361
           },
           {
             "stop_id": "4519",
-            "stop_name": "KLINIK DESA KG SURAU cp",
+            "stop_name": "KLINIK DESA KG SURAU",
             "lat": 6.384743,
             "lon": 100.206137
           },
@@ -3796,19 +3796,19 @@
           },
           {
             "stop_id": "4516",
-            "stop_name": "PASAR TITI CHAI cp",
+            "stop_name": "PASAR TITI CHAI",
             "lat": 6.404751,
             "lon": 100.201777
           },
           {
             "stop_id": "4515",
-            "stop_name": "SIMPANG TITI CHAI cp",
+            "stop_name": "SIMPANG TITI CHAI",
             "lat": 6.405549,
             "lon": 100.200837
           },
           {
             "stop_id": "4514",
-            "stop_name": "JABATAN KESIHATAN NEGERI PERLIS cp",
+            "stop_name": "JABATAN KESIHATAN NEGERI PERLIS",
             "lat": 6.408245,
             "lon": 100.200637
           },
@@ -3826,7 +3826,7 @@
           },
           {
             "stop_id": "4346",
-            "stop_name": "GIANT KANGAR cp",
+            "stop_name": "GIANT KANGAR",
             "lat": 6.420247,
             "lon": 100.198047
           },
@@ -3838,7 +3838,7 @@
           },
           {
             "stop_id": "4511",
-            "stop_name": "SRJK (C) KHOO AIK cp",
+            "stop_name": "SRJK (C) KHOO AIK",
             "lat": 6.429338,
             "lon": 100.196241
           },
@@ -3913,7 +3913,7 @@
           },
           {
             "stop_id": "4462",
-            "stop_name": "KG SALANG cp",
+            "stop_name": "KG SALANG",
             "lat": 6.460431,
             "lon": 100.208344
           },
@@ -3967,7 +3967,7 @@
           },
           {
             "stop_id": "4384",
-            "stop_name": "SK PAYA cp",
+            "stop_name": "SK PAYA",
             "lat": 6.501692,
             "lon": 100.224867
           },
@@ -3997,7 +3997,7 @@
           },
           {
             "stop_id": "4474",
-            "stop_name": "SK BESERI cp",
+            "stop_name": "SK BESERI",
             "lat": 6.535328,
             "lon": 100.228767
           },
@@ -4075,7 +4075,7 @@
           },
           {
             "stop_id": "4487",
-            "stop_name": "MASJID AL-AZIM cp",
+            "stop_name": "MASJID AL-AZIM",
             "lat": 6.634008,
             "lon": 100.261019
           },
@@ -4129,7 +4129,7 @@
           },
           {
             "stop_id": "4496",
-            "stop_name": "MASJID JABAL AL-ALA CP",
+            "stop_name": "MASJID JABAL AL-ALA",
             "lat": 6.632247,
             "lon": 100.209472
           },
@@ -4141,7 +4141,7 @@
           },
           {
             "stop_id": "4564",
-            "stop_name": "KLINIK KESIHATAN KAKI BUKIT PERLIS cp",
+            "stop_name": "KLINIK KESIHATAN KAKI BUKIT PERLIS",
             "lat": 6.642319,
             "lon": 100.21055
           },
@@ -4383,7 +4383,7 @@
           },
           {
             "stop_id": "4564",
-            "stop_name": "KLINIK KESIHATAN KAKI BUKIT PERLIS cp",
+            "stop_name": "KLINIK KESIHATAN KAKI BUKIT PERLIS",
             "lat": 6.642319,
             "lon": 100.21055
           },
@@ -4449,7 +4449,7 @@
           },
           {
             "stop_id": "4487",
-            "stop_name": "MASJID AL-AZIM cp",
+            "stop_name": "MASJID AL-AZIM",
             "lat": 6.634008,
             "lon": 100.261019
           },
@@ -4527,7 +4527,7 @@
           },
           {
             "stop_id": "4474",
-            "stop_name": "SK BESERI cp",
+            "stop_name": "SK BESERI",
             "lat": 6.535328,
             "lon": 100.228767
           },
@@ -4557,7 +4557,7 @@
           },
           {
             "stop_id": "4384",
-            "stop_name": "SK PAYA cp",
+            "stop_name": "SK PAYA",
             "lat": 6.501692,
             "lon": 100.224867
           },
@@ -4611,7 +4611,7 @@
           },
           {
             "stop_id": "4462",
-            "stop_name": "KG SALANG cp",
+            "stop_name": "KG SALANG",
             "lat": 6.460431,
             "lon": 100.208344
           },
@@ -4794,7 +4794,7 @@
           },
           {
             "stop_id": "4401",
-            "stop_name": "SMK DATO SHEIKH AHMAD cp",
+            "stop_name": "SMK DATO SHEIKH AHMAD",
             "lat": 6.439044,
             "lon": 100.267142
           },
@@ -4818,7 +4818,7 @@
           },
           {
             "stop_id": "4406",
-            "stop_name": "MAKAM DIRAJA cp",
+            "stop_name": "MAKAM DIRAJA",
             "lat": 6.430006,
             "lon": 100.270853
           },
@@ -5024,7 +5024,7 @@
           },
           {
             "stop_id": "4406",
-            "stop_name": "MAKAM DIRAJA cp",
+            "stop_name": "MAKAM DIRAJA",
             "lat": 6.430006,
             "lon": 100.270853
           },
@@ -5048,7 +5048,7 @@
           },
           {
             "stop_id": "4401",
-            "stop_name": "SMK DATO SHEIKH AHMAD cp",
+            "stop_name": "SMK DATO SHEIKH AHMAD",
             "lat": 6.439044,
             "lon": 100.267142
           },
