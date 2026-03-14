@@ -1569,7 +1569,7 @@
     "route_long_name": "Bandaraya Melaka Feeder",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Bandaraya Melaka Feeder",
         "shape_id": "shape_M100CWLMYMK_1",
         "service_ids": ["MONTHURS", "FRISUN"],
@@ -9490,7 +9490,7 @@
     "route_long_name": "Pasar Melaka Feeder",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Pasar Melaka Feeder",
         "shape_id": "shape_M101CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -11390,7 +11390,7 @@
     "route_long_name": "Terminal Masjid Tanah Sentral - Melaka Sentral",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Terminal Masjid Tanah Sentral - Melaka Sentral",
         "shape_id": "shape_M23XCWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -12152,7 +12152,7 @@
     "route_long_name": "Terminal Alor Gajah Sentral - Melaka Sentral - Durian Tunggal",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Terminal Alor Gajah Sentral - Melaka Sentral - Durian Tunggal",
         "shape_id": "shape_M21XCWLMYMK_1",
         "service_ids": ["ALLDAY"],

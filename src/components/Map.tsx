@@ -744,7 +744,7 @@ function App() {
     }
     if (route?.directions.length === 0) return null;
     if (route?.directions.length === 1) {
-      if (provider === "jb") {
+      if (provider === "mk" || provider === "jb") {
         setDirection(1);
       } else {
         setDirection(0);
