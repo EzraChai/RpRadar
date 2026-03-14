@@ -90,7 +90,6 @@ import {
 } from "@/lib/utils";
 import { ModeToggle } from "./mode-toggle";
 import "leaflet/dist/leaflet.css";
-import "leaflet.locatecontrol"; // Import plugin
 import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
 import type { BusScheduleType } from "@/hooks/types";
 import {
