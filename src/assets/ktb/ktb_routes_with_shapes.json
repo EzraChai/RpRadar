@@ -1,0 +1,98 @@
+[
+  {
+    "route_id": "30425",
+    "route_code": "D10",
+    "route_name": "KOTA BHARU - PENGKALAN CHEPA",
+    "shape_ids": ["SHP_30425_0", "SHP_30425_1"]
+  },
+  {
+    "route_id": "30426",
+    "route_code": "D11",
+    "route_name": "KOTA BHARU - SABAK VIA KEMUMIN",
+    "shape_ids": ["SHP_30426_0", "SHP_30426_1"]
+  },
+  {
+    "route_id": "30427",
+    "route_code": "D12",
+    "route_name": "KOTA BHARU - SABAK VIA LAPANGAN TERBANG",
+    "shape_ids": ["SHP_30427_0", "SHP_30427_1"]
+  },
+  {
+    "route_id": "30428",
+    "route_code": "D13",
+    "route_name": "KOTA BHARU - PANTAI CAHAYA BULAN",
+    "shape_ids": ["SHP_30428_0", "SHP_30428_1"]
+  },
+  {
+    "route_id": "30429",
+    "route_code": "D20",
+    "route_name": "KOTA BHARU - PENGKALAN KUBOR VIA CHABANG EMPAT",
+    "shape_ids": ["SHP_30429_0", "SHP_30429_1"]
+  },
+  {
+    "route_id": "30430",
+    "route_code": "D21",
+    "route_name": "KOTA BHARU - PENGKALAN KUBOR VIA TUMPAT",
+    "shape_ids": ["SHP_30430_0", "SHP_30430_1"]
+  },
+  {
+    "route_id": "30431",
+    "route_code": "D30",
+    "route_name": "KOTA BHARU - PASIR MAS VIA SALOR",
+    "shape_ids": ["SHP_30431_0", "SHP_30431_1"]
+  },
+  {
+    "route_id": "30432",
+    "route_code": "D31",
+    "route_name": "KOTA BHARU - MERANTI",
+    "shape_ids": ["SHP_30432_0", "SHP_30432_1"]
+  },
+  {
+    "route_id": "30433",
+    "route_code": "D32",
+    "route_name": "KOTA BHARU - RANTAU PANJANG",
+    "shape_ids": ["SHP_30433_0", "SHP_30433_1"]
+  },
+  {
+    "route_id": "30434",
+    "route_code": "D40",
+    "route_name": "KOTA BHARU - JELI VIA TANAH MERAH",
+    "shape_ids": ["SHP_30434_0", "SHP_30434_1"]
+  },
+  {
+    "route_id": "30435",
+    "route_code": "D50",
+    "route_name": "KOTA BHARU - BACHOK VIA BUKIT MARAK",
+    "shape_ids": ["SHP_30435_0", "SHP_30435_1"]
+  },
+  {
+    "route_id": "30436",
+    "route_code": "D51",
+    "route_name": "KOTA BHARU - JERTEH VIA PASIR PUTEH",
+    "shape_ids": ["SHP_30436_0", "SHP_30436_1"]
+  },
+  {
+    "route_id": "30437",
+    "route_code": "D52",
+    "route_name": "KOTA BHARU - KAMPUNG RAJA VIA TOK BALI",
+    "shape_ids": ["SHP_30437_0", "SHP_30437_1"]
+  },
+  {
+    "route_id": "30438",
+    "route_code": "D60",
+    "route_name": "KOTA BHARU - KUALA KRAI VIA MACHANG",
+    "shape_ids": ["SHP_30438_0", "SHP_30438_1"]
+  },
+  {
+    "route_id": "30439",
+    "route_code": "D61",
+    "route_name": "KOTA BHARU - UITM MACHANG",
+    "shape_ids": ["SHP_30439_0", "SHP_30439_1"]
+  },
+  {
+    "route_id": "30440",
+    "route_code": "D62",
+    "route_name": "KOTA BHARU - GUA MUSANG",
+    "shape_ids": ["SHP_30440_0", "SHP_30440_1"]
+  }
+]
