@@ -20,6 +20,7 @@ jobs:
         with:
           node-version: "latest"
           cache: "npm"
+          cache-dependency-path: scripts/package-lock.json
 
       - name: Install dependencies
         working-directory: scripts
