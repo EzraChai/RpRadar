@@ -83,7 +83,7 @@ import {
 import { ModeToggle } from "./mode-toggle";
 import "leaflet/dist/leaflet.css";
 import "leaflet.locatecontrol"; // Import plugin
-import "leaflet.locatecontrol/dist/L.Control.Locate.min.css"; // Import styles
+import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
 import type { BusScheduleType } from "@/hooks/types";
 import {
   Dialog,
@@ -1332,7 +1332,7 @@ function VehiclesMarker({
       divIcon({
         className: "",
         html: `<img 
-    src="${bearing < 0 ? "/basmy-bus2.png" : "/basmy-bus.png"}"
+    src="${bearing < 0 || bearing > 180 ? "/basmy-bus2.png" : "/basmy-bus.png"}"
     alt="BASMY bus"
     style="
       width:100px;
