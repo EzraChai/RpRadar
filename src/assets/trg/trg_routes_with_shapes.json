@@ -1,0 +1,56 @@
+[
+  {
+    "route_id": "30194",
+    "route_code": "T100",
+    "route_name": "LOOP - BANDARAYA KUALA TERENGGANU",
+    "shape_ids": ["SHP_30194_0"]
+  },
+  {
+    "route_id": "30260",
+    "route_code": "T10",
+    "route_name": "KUALA TERENGGANU - JETI MERANG",
+    "shape_ids": ["SHP_30260_0", "SHP_30260_1"]
+  },
+  {
+    "route_id": "30261",
+    "route_code": "T20",
+    "route_name": "KUALA TERENGGANU - BUKIT PAYUNG VIA PASIR PANJANG",
+    "shape_ids": ["SHP_30261_0", "SHP_30261_1"]
+  },
+  {
+    "route_id": "30262",
+    "route_code": "T30",
+    "route_name": "KUALA TERENGGANU - MARANG VIA CHENDERIANG",
+    "shape_ids": ["SHP_30262_0", "SHP_30262_1"]
+  },
+  {
+    "route_id": "30375",
+    "route_code": "T11A",
+    "route_name": "KUALA TERENGGANU - BATU RAKIT (PAGI)",
+    "shape_ids": ["SHP_30375_0", "SHP_30375_1"]
+  },
+  {
+    "route_id": "30376",
+    "route_code": "T11B",
+    "route_name": "KUALA TERENGGANU - BATU RAKIT (PETANG)",
+    "shape_ids": ["SHP_30376_0", "SHP_30376_1"]
+  },
+  {
+    "route_id": "30377",
+    "route_code": "T22",
+    "route_name": "KUALA TERENGGANU - KUALA BERANG",
+    "shape_ids": ["SHP_30377_0", "SHP_30377_1"]
+  },
+  {
+    "route_id": "30378",
+    "route_code": "T21",
+    "route_name": "KUALA TERENGGANU - BUKIT PAYONG VIA SUNGAI RENGAS",
+    "shape_ids": ["SHP_30378_0", "SHP_30378_1"]
+  },
+  {
+    "route_id": "30382",
+    "route_code": "T31",
+    "route_name": "KUALA TERENGGANU - MARANG VIA KEDAI BULUH",
+    "shape_ids": ["SHP_30382_0", "SHP_30382_1"]
+  }
+]

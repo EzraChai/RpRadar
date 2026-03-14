@@ -71,6 +71,10 @@ import MyBasKtbShapes from "@/assets/ktb/ktb_shapes_flipped.json";
 import MyBasKtbRoutes from "@/assets/ktb/ktb_routes_with_directions.json";
 import MyBasKtbSchedule from "@/../data/ktb-schedule.json";
 import MyBasKtbDirections from "@/../data/ktb-trips.json";
+import MyBasTrgShapes from "@/assets/trg/trg_shapes_flipped.json";
+import MyBasTrgRoutes from "@/assets/trg/trg_routes_with_directions.json";
+import MyBasTrgSchedule from "@/../data/trg-schedule.json";
+import MyBasTrgDirections from "@/../data/trg-trips.json";
 
 import {
   Collapsible,
@@ -210,6 +214,12 @@ function App() {
           MyBasKtbRoutes.find((r) => r.route_id === searchParams.get("id")),
         );
         setBusSchedule(MyBasKtbSchedule as unknown as BusScheduleType);
+        break;
+      case "trg":
+        setRoute(
+          MyBasTrgRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(MyBasTrgSchedule as unknown as BusScheduleType);
         break;
     }
   }, [provider, searchParams]);
@@ -366,6 +376,16 @@ function App() {
           ).length > 0
         ) {
           filteredShape = MyBasKtbShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        }
+      } else if (provider === "trg") {
+        if (
+          MyBasTrgShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MyBasTrgShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         }
@@ -573,6 +593,7 @@ function App() {
                         provider === "pk" ||
                         provider === "kgr" ||
                         provider === "ktb" ||
+                        provider === "trg" ||
                         provider === "mk") && (
                         <Collapsible className="px-6 mb-4">
                           <CollapsibleTrigger asChild>
@@ -890,7 +911,9 @@ function App() {
                             ? [6.4414, 100.1986]
                             : provider === "ktb"
                               ? [6.1293, 102.2399]
-                              : [5.4164, 100.3327]
+                              : provider === "trg"
+                                ? [5.3302, 103.1408]
+                                : [5.4164, 100.3327]
           }
           zoom={
             provider === "rkl" ||
@@ -899,7 +922,8 @@ function App() {
             provider === "pk" ||
             provider === "alr" ||
             provider === "ktn" ||
-            provider === "ktb"
+            provider === "ktb" ||
+            provider === "trg"
               ? 12.5
               : 13.5
           }
@@ -1034,6 +1058,7 @@ function App() {
                         <SelectItem value="alr">Alor Setar</SelectItem>
                         <SelectItem value="kgr">Kangar</SelectItem>
                         <SelectItem value="ktb">Kota Bharu</SelectItem>
+                        <SelectItem value="trg">Kuala Terengganu</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -1158,6 +1183,8 @@ function VehiclesMarker({
       setBusSchedule(MyBasKgrSchedule);
     } else if (userProvider === "ktb") {
       setBusSchedule(MyBasKtbSchedule);
+    } else if (userProvider === "trg") {
+      setBusSchedule(MyBasTrgSchedule);
     }
   }, []);
 
@@ -1211,6 +1238,10 @@ function VehiclesMarker({
         } else if (provider === "ktb") {
           res = await fetch(
             "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-kota-bharu",
+          );
+        } else if (provider === "trg") {
+          res = await fetch(
+            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-kuala-terengganu",
           );
         } else if (provider === "rp") {
           res = await fetch(
@@ -1621,6 +1652,29 @@ function VehiclesMarker({
 
       vehicleForThisRoute.forEach((v) => {
         let directions = MyBasKtbDirections.find(
+          (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
+        );
+
+        if (directions !== undefined && route?.directions.length === 1) {
+          setDirectionsLocation((prev) => ({
+            0: [...prev[0], v],
+            1: [...prev[1]],
+          }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
+        }
+      });
+    } else if (provider === "trg") {
+      const vehicleForThisRoute = Array.from(vehicles.values());
+
+      vehicleForThisRoute.forEach((v) => {
+        let directions = MyBasTrgDirections.find(
           (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
         );
 

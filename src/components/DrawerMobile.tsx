@@ -28,6 +28,7 @@ import MyBasKtnRoutes from "@/assets/ktn/ktn_routes_with_shapes.json";
 import MyBasAlrRoutes from "@/assets/alr/alr_routes_with_shapes.json";
 import MyBasKgrRoutes from "@/assets/kgr/kgr_routes_with_shapes.json";
 import MyBasKtbRoutes from "@/assets/ktb/ktb_routes_with_shapes.json";
+import MyBasTrgRoutes from "@/assets/trg/trg_routes_with_shapes.json";
 import RapidPenangSchedule from "@/../data/rapid-penang-schedule.json";
 import RapidKLSchedule from "@/../data/rapid-kl-schedule.json";
 import MRTFeederSchedule from "@/../data/mrt-feeder-schedule.json";
@@ -40,6 +41,7 @@ import MyBasKtnSchedule from "@/../data/rapid-ktn-schedule.json";
 import MyBasAlrSchedule from "@/../data/alr-schedule.json";
 import MyBasKgrSchedule from "@/../data/kgr-schedule.json";
 import MyBasKtbSchedule from "@/../data/ktb-schedule.json";
+import MyBasTrgSchedule from "@/../data/trg-schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import type { BusScheduleType, RouteType } from "@/hooks/types";
 
@@ -101,6 +103,8 @@ export function DrawerMobile({
       return MyBasKgrSchedule as unknown as BusScheduleType;
     } else if (provider === "ktb") {
       return MyBasKtbSchedule as unknown as BusScheduleType;
+    } else if (provider === "trg") {
+      return MyBasTrgSchedule as unknown as BusScheduleType;
     }
     return RapidPenangSchedule as unknown as BusScheduleType;
   });
@@ -134,6 +138,10 @@ export function DrawerMobile({
       ) as unknown as RouteType[];
     } else if (provider === "ktb") {
       return MyBasKtbRoutes as unknown as RouteType[];
+    } else if (provider === "trg") {
+      return MyBasTrgRoutes.sort((a, b) =>
+        a.route_id.localeCompare(b.route_id),
+      ) as unknown as RouteType[];
     }
     return RapidPenangRoutes as unknown as RouteType[];
   });

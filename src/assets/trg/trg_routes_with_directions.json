@@ -1,0 +1,6027 @@
+[
+  {
+    "route_id": "30194",
+    "route_short_name": "T100",
+    "route_long_name": "LOOP - BANDARAYA KUALA TERENGGANU",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "LOOP - BANDARAYA KUALA TERENGGANU",
+        "shape_id": "SHP_30194_0",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "15425",
+            "stop_name": "HENTIAN BAS MAJLIS PERBANDARAN KUALA TERENGGANU 1",
+            "lat": 5.3319649,
+            "lon": 103.1378691
+          },
+          {
+            "stop_id": "4124",
+            "stop_name": "FLAT SRI KOLAM",
+            "lat": 5.33354,
+            "lon": 103.1412277
+          },
+          {
+            "stop_id": "4125",
+            "stop_name": "KOLEJ KOMUNITI KUALA TERENGGANU",
+            "lat": 5.3309706,
+            "lon": 103.1426197
+          },
+          {
+            "stop_id": "4126",
+            "stop_name": "WISMA DARUL IMAN",
+            "lat": 5.3294174,
+            "lon": 103.1415759
+          },
+          {
+            "stop_id": "4127",
+            "stop_name": "JALAN PEJABAT",
+            "lat": 5.3282373,
+            "lon": 103.1436998
+          },
+          {
+            "stop_id": "4128",
+            "stop_name": "SK LADANG",
+            "lat": 5.3303588,
+            "lon": 103.1475752
+          },
+          {
+            "stop_id": "4129",
+            "stop_name": "HOTEL TANJONG VISTA",
+            "lat": 5.3331583,
+            "lon": 103.1480499
+          },
+          {
+            "stop_id": "4130",
+            "stop_name": "HOTEL GRAND CONTINENTAL",
+            "lat": 5.3347551,
+            "lon": 103.1464061
+          },
+          {
+            "stop_id": "3961",
+            "stop_name": "EMPORIUM HOCK KEE SENG BARU",
+            "lat": 5.336367,
+            "lon": 103.142744
+          },
+          {
+            "stop_id": "4132",
+            "stop_name": "DATARAN SHAHBANDAR",
+            "lat": 5.3369857,
+            "lon": 103.1397412
+          },
+          {
+            "stop_id": "4133",
+            "stop_name": "PASAR BESAR KEDAI PAYANG",
+            "lat": 5.3367781,
+            "lon": 103.1364344
+          },
+          {
+            "stop_id": "4134",
+            "stop_name": "JALAN BANGGUL",
+            "lat": 5.333747,
+            "lon": 103.1352899
+          },
+          {
+            "stop_id": "4135",
+            "stop_name": "JALAN KAMPUNG TIONG",
+            "lat": 5.3322931,
+            "lon": 103.1345354
+          },
+          {
+            "stop_id": "4136",
+            "stop_name": "HOTEL SERI MALAYSIA",
+            "lat": 5.3309036,
+            "lon": 103.1326628
+          },
+          {
+            "stop_id": "4137",
+            "stop_name": "POLITEKNIK KUALA TERENGGANU",
+            "lat": 5.3299948,
+            "lon": 103.136074
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "4154",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDIN SHAH",
+            "lat": 5.3288232,
+            "lon": 103.1398256
+          },
+          {
+            "stop_id": "4139",
+            "stop_name": "JABATAN PESAKIT LUAR",
+            "lat": 5.3256695,
+            "lon": 103.1495737
+          },
+          {
+            "stop_id": "4140",
+            "stop_name": "STADIUM NEGERI",
+            "lat": 5.3245149,
+            "lon": 103.1498626
+          },
+          {
+            "stop_id": "4141",
+            "stop_name": "HOSPITAL SULTANAH NUR ZAHIRAH",
+            "lat": 5.3246217,
+            "lon": 103.149826
+          },
+          {
+            "stop_id": "4142",
+            "stop_name": "PUSAT RAWATAN IBU DAN BAYI",
+            "lat": 5.3257939,
+            "lon": 103.1526816
+          },
+          {
+            "stop_id": "4143",
+            "stop_name": "PANTAI BATU BUROK",
+            "lat": 5.3243005,
+            "lon": 103.1540232
+          },
+          {
+            "stop_id": "4144",
+            "stop_name": "DATARAN PANTAI BATU BUROK",
+            "lat": 5.3229145,
+            "lon": 103.1546306
+          },
+          {
+            "stop_id": "4145",
+            "stop_name": "MEDAN SELERA BATU BUROK",
+            "lat": 5.319688,
+            "lon": 103.1546897
+          },
+          {
+            "stop_id": "4146",
+            "stop_name": "KUALA TERENGGANU SPECIALIST HOSPITAL",
+            "lat": 5.318922,
+            "lon": 103.153372
+          },
+          {
+            "stop_id": "4181",
+            "stop_name": "SMA KHAIRIAH JALAN SULTAN MOHAMAD",
+            "lat": 5.3147041,
+            "lon": 103.1441175
+          },
+          {
+            "stop_id": "4147",
+            "stop_name": "KLINIK KESIHATAN HILIRAN",
+            "lat": 5.3145971,
+            "lon": 103.1365916
+          },
+          {
+            "stop_id": "4148",
+            "stop_name": "JABATAN PEN NEGERI TERENGGANU",
+            "lat": 5.3158228,
+            "lon": 103.1353045
+          },
+          {
+            "stop_id": "4149",
+            "stop_name": "SABASUN 1",
+            "lat": 5.3159938,
+            "lon": 103.1344531
+          },
+          {
+            "stop_id": "3541",
+            "stop_name": "JPJ KUALA TERENGGANU",
+            "lat": 5.3140692,
+            "lon": 103.1323981
+          },
+          {
+            "stop_id": "4150",
+            "stop_name": "KWSP KUALA TERENGGANU",
+            "lat": 5.3129037,
+            "lon": 103.1298565
+          },
+          {
+            "stop_id": "4151",
+            "stop_name": "GIANT KUALA TERENNGANU",
+            "lat": 5.3113473,
+            "lon": 103.12874
+          },
+          {
+            "stop_id": "4152",
+            "stop_name": "WISMA PELADANG KUALA TERENGGANU",
+            "lat": 5.309587,
+            "lon": 103.129684
+          },
+          {
+            "stop_id": "4153",
+            "stop_name": "MYDIN KUALA TERENGGANU",
+            "lat": 5.3121054,
+            "lon": 103.1311467
+          },
+          {
+            "stop_id": "3537",
+            "stop_name": "SMKJC CHONG HWA WEI SENG",
+            "lat": 5.317975,
+            "lon": 103.133569
+          },
+          {
+            "stop_id": "3535",
+            "stop_name": "KKIA JALAN AIR JERNIH",
+            "lat": 5.328148,
+            "lon": 103.1351875
+          },
+          {
+            "stop_id": "15426",
+            "stop_name": "HENTIAN BAS MAJLIS PERBANDARAN KUALA TERENGGANU 2",
+            "lat": 5.3321424,
+            "lon": 103.1378055
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30260",
+    "route_short_name": "T10",
+    "route_long_name": "KUALA TERENGGANU - JETI MERANG",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "KUALA TERENGGANU - JETI MERANG",
+        "shape_id": "SHP_30260_0",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "15425",
+            "stop_name": "HENTIAN BAS MAJLIS PERBANDARAN KUALA TERENGGANU 1",
+            "lat": 5.3319649,
+            "lon": 103.1378691
+          },
+          {
+            "stop_id": "3534",
+            "stop_name": "COSMOPOINT",
+            "lat": 5.329586,
+            "lon": 103.138019
+          },
+          {
+            "stop_id": "3537",
+            "stop_name": "SMKJC CHONG HWA WEI SENG",
+            "lat": 5.317975,
+            "lon": 103.133569
+          },
+          {
+            "stop_id": "3541",
+            "stop_name": "JPJ KUALA TERENGGANU",
+            "lat": 5.3140692,
+            "lon": 103.1323981
+          },
+          {
+            "stop_id": "3543",
+            "stop_name": "KLINIK DESA PULAU DUYONG",
+            "lat": 5.3295278,
+            "lon": 103.1230934
+          },
+          {
+            "stop_id": "3546",
+            "stop_name": "KAMPUNG BUKIT TUMBUH",
+            "lat": 5.3395008,
+            "lon": 103.1160265
+          },
+          {
+            "stop_id": "8257",
+            "stop_name": "KAMPUNG BANGGUL PAUH",
+            "lat": 5.346936,
+            "lon": 103.117206
+          },
+          {
+            "stop_id": "3550",
+            "stop_name": "KAMPUNG BUKIT TOK BENG",
+            "lat": 5.3534679,
+            "lon": 103.1169144
+          },
+          {
+            "stop_id": "3553",
+            "stop_name": "SRK BUKIT TOK BENG",
+            "lat": 5.3554666,
+            "lon": 103.1183607
+          },
+          {
+            "stop_id": "3556",
+            "stop_name": "SMK IBRAHIM FIKRI",
+            "lat": 5.3584663,
+            "lon": 103.1190498
+          },
+          {
+            "stop_id": "3651",
+            "stop_name": "TAMAN SAMUDERA",
+            "lat": 5.3615326,
+            "lon": 103.1175974
+          },
+          {
+            "stop_id": "3652",
+            "stop_name": "KAMPUNG DUYUNG",
+            "lat": 5.3654868,
+            "lon": 103.1144091
+          },
+          {
+            "stop_id": "3653",
+            "stop_name": "RESTORAN SRI AMAN SEAFOOD",
+            "lat": 5.3681716,
+            "lon": 103.1127663
+          },
+          {
+            "stop_id": "3668",
+            "stop_name": "KLINIK KESIHATAN SEBERANG TAKIR",
+            "lat": 5.3713272,
+            "lon": 103.1105309
+          },
+          {
+            "stop_id": "3673",
+            "stop_name": "KEM ASKAR SEBERANG TAKIR",
+            "lat": 5.3741523,
+            "lon": 103.1086617
+          },
+          {
+            "stop_id": "3759",
+            "stop_name": "LAPANGAN TERBANG SULTAN MAHMUD",
+            "lat": 5.376847,
+            "lon": 103.106686
+          },
+          {
+            "stop_id": "3760",
+            "stop_name": "HOTEL TABUNG HAJI",
+            "lat": 5.372377,
+            "lon": 103.1015977
+          },
+          {
+            "stop_id": "3761",
+            "stop_name": "KOMPLEKS SUKAN NEGERI TERENGGANU",
+            "lat": 5.3699967,
+            "lon": 103.0987887
+          },
+          {
+            "stop_id": "3762",
+            "stop_name": "SEKOLAH SUKAN MALAYSIA TERENGGANU",
+            "lat": 5.3682912,
+            "lon": 103.0968086
+          },
+          {
+            "stop_id": "3763",
+            "stop_name": "SABASUN 2",
+            "lat": 5.3599226,
+            "lon": 103.098331
+          },
+          {
+            "stop_id": "3764",
+            "stop_name": "KOLEJ VOKASIONAL WAKAF TEMBESU",
+            "lat": 5.358457,
+            "lon": 103.093736
+          },
+          {
+            "stop_id": "3765",
+            "stop_name": "TAMAN SRI TEMUSU",
+            "lat": 5.3585975,
+            "lon": 103.093592
+          },
+          {
+            "stop_id": "3766",
+            "stop_name": "SM SAINS SULTAN MAHMUD",
+            "lat": 5.3609059,
+            "lon": 103.0921858
+          },
+          {
+            "stop_id": "3767",
+            "stop_name": "SMK TEKNIK KUALA TERENGGANU",
+            "lat": 5.3620959,
+            "lon": 103.0915932
+          },
+          {
+            "stop_id": "3768",
+            "stop_name": "PETRONAS WAKAF BARU",
+            "lat": 5.3650767,
+            "lon": 103.0896957
+          },
+          {
+            "stop_id": "3769",
+            "stop_name": "TAMAN SRI JAYA",
+            "lat": 5.3679921,
+            "lon": 103.08775
+          },
+          {
+            "stop_id": "3770",
+            "stop_name": "TAMAN SETIA JAYA",
+            "lat": 5.3715408,
+            "lon": 103.0854283
+          },
+          {
+            "stop_id": "3959",
+            "stop_name": "KAMPUNG BARU GONG BADAK",
+            "lat": 5.3757963,
+            "lon": 103.0841237
+          },
+          {
+            "stop_id": "15520",
+            "stop_name": "EMPORIUM HOCK KEE SENG LAMA",
+            "lat": 5.381647,
+            "lon": 103.08154
+          },
+          {
+            "stop_id": "3962",
+            "stop_name": "PERODUA GONG BADAK",
+            "lat": 5.383787,
+            "lon": 103.0810702
+          },
+          {
+            "stop_id": "3963",
+            "stop_name": "BALAI POLIS GONG BADAK",
+            "lat": 5.3875148,
+            "lon": 103.0803835
+          },
+          {
+            "stop_id": "3965",
+            "stop_name": "TAMAN PERUMAHAN GONG BADAK 2",
+            "lat": 5.3916165,
+            "lon": 103.0810487
+          },
+          {
+            "stop_id": "3966",
+            "stop_name": "TAMAN PERUMAHAN GONG BADAK 1",
+            "lat": 5.3936459,
+            "lon": 103.0817568
+          },
+          {
+            "stop_id": "3967",
+            "stop_name": "UNISZA PINTU A",
+            "lat": 5.3958188,
+            "lon": 103.0832662
+          },
+          {
+            "stop_id": "3968",
+            "stop_name": "MASJID UNISZA / McDonalds",
+            "lat": 5.3979649,
+            "lon": 103.0845056
+          },
+          {
+            "stop_id": "3969",
+            "stop_name": "KLINIK PAKAR UNISZA",
+            "lat": 5.3994675,
+            "lon": 103.0845678
+          },
+          {
+            "stop_id": "3971",
+            "stop_name": "KUARTERS POLIS GONG BADAK",
+            "lat": 5.4050866,
+            "lon": 103.086274
+          },
+          {
+            "stop_id": "3972",
+            "stop_name": "BULATAN KAMPUNG PAK TUYU",
+            "lat": 5.4083077,
+            "lon": 103.0845153
+          },
+          {
+            "stop_id": "3975",
+            "stop_name": "UNISZA PINTU B",
+            "lat": 5.409111,
+            "lon": 103.081594
+          },
+          {
+            "stop_id": "3976",
+            "stop_name": "KAMPUNG GONG DATUK",
+            "lat": 5.409608,
+            "lon": 103.07935
+          },
+          {
+            "stop_id": "3977",
+            "stop_name": "KAMPUNG GONG PAK JIN",
+            "lat": 5.4099865,
+            "lon": 103.077354
+          },
+          {
+            "stop_id": "3978",
+            "stop_name": "KAMPUNG PADANG NENAS",
+            "lat": 5.4127349,
+            "lon": 103.0685383
+          },
+          {
+            "stop_id": "3979",
+            "stop_name": "MASJID PADANG NENAS",
+            "lat": 5.414397,
+            "lon": 103.06653
+          },
+          {
+            "stop_id": "3980",
+            "stop_name": "BALAI POLIS MENGABANG TELIPOT",
+            "lat": 5.415949,
+            "lon": 103.065411
+          },
+          {
+            "stop_id": "3981",
+            "stop_name": "MRSM KUALA TERENGGANU / IPG BATU RAKIT",
+            "lat": 5.420218,
+            "lon": 103.062045
+          },
+          {
+            "stop_id": "3982",
+            "stop_name": "SK KOMPLEKS MENGABANG TELIPOT",
+            "lat": 5.4244691,
+            "lon": 103.0598691
+          },
+          {
+            "stop_id": "3983",
+            "stop_name": "KLINIK KESIHATAN BATU RAKIT",
+            "lat": 5.425862,
+            "lon": 103.058722
+          },
+          {
+            "stop_id": "3984",
+            "stop_name": "TAMAN PERUMAHAN WAKAF TENGAH",
+            "lat": 5.4295183,
+            "lon": 103.0561542
+          },
+          {
+            "stop_id": "3985",
+            "stop_name": "KAMPUNG MENGABANG TELONG 1",
+            "lat": 5.432419,
+            "lon": 103.05467
+          },
+          {
+            "stop_id": "3986",
+            "stop_name": "KAMPUNG MENGABANG TELONG 2",
+            "lat": 5.4361025,
+            "lon": 103.0526757
+          },
+          {
+            "stop_id": "3987",
+            "stop_name": "KAMPUNG TANJUNG BATU RAKIT",
+            "lat": 5.439148,
+            "lon": 103.051077
+          },
+          {
+            "stop_id": "3988",
+            "stop_name": "TAMAN NIRWANA",
+            "lat": 5.439974,
+            "lon": 103.050634
+          },
+          {
+            "stop_id": "3989",
+            "stop_name": "TAMAN DESA KAYANGAN",
+            "lat": 5.4443735,
+            "lon": 103.0482584
+          },
+          {
+            "stop_id": "3990",
+            "stop_name": "KAMPUNG BATU RAKIT",
+            "lat": 5.446629,
+            "lon": 103.0466827
+          },
+          {
+            "stop_id": "3991",
+            "stop_name": "SK BATU RAKIT",
+            "lat": 5.4482691,
+            "lon": 103.0456496
+          },
+          {
+            "stop_id": "3992",
+            "stop_name": "HUB BATU RAKIT",
+            "lat": 5.4493384,
+            "lon": 103.0450309
+          },
+          {
+            "stop_id": "3993",
+            "stop_name": "BALAI POLIS BATU RAKIT",
+            "lat": 5.4513033,
+            "lon": 103.0404911
+          },
+          {
+            "stop_id": "3994",
+            "stop_name": "KLINIK DESA PANTAI KUALA NERUS",
+            "lat": 5.4520998,
+            "lon": 103.0394762
+          },
+          {
+            "stop_id": "3995",
+            "stop_name": "KAMPUNG PENGKALAN ATAP 1",
+            "lat": 5.4533445,
+            "lon": 103.0385959
+          },
+          {
+            "stop_id": "3996",
+            "stop_name": "SURAU PENGKALAN ATAP",
+            "lat": 5.4548669,
+            "lon": 103.0370704
+          },
+          {
+            "stop_id": "3997",
+            "stop_name": "KAMPUNG PENGKALAN ATAP 2",
+            "lat": 5.4563132,
+            "lon": 103.0357313
+          },
+          {
+            "stop_id": "3998",
+            "stop_name": "KAMPUNG PENGKALAN ATAP 3",
+            "lat": 5.4588849,
+            "lon": 103.0332058
+          },
+          {
+            "stop_id": "3999",
+            "stop_name": "KAMPUNG PENGKALAN ATAP 4",
+            "lat": 5.4631029,
+            "lon": 103.0298273
+          },
+          {
+            "stop_id": "4000",
+            "stop_name": "KAMPUNG MENGABANG LEKOR",
+            "lat": 5.4641887,
+            "lon": 103.0283532
+          },
+          {
+            "stop_id": "4001",
+            "stop_name": "SMK BATU RAKIT",
+            "lat": 5.464503,
+            "lon": 103.0265647
+          },
+          {
+            "stop_id": "4002",
+            "stop_name": "SK PAGAR BESI",
+            "lat": 5.4655318,
+            "lon": 103.0208435
+          },
+          {
+            "stop_id": "4003",
+            "stop_name": "SBP INTEGRASI BATU RAKIT",
+            "lat": 5.4681569,
+            "lon": 103.0172131
+          },
+          {
+            "stop_id": "4004",
+            "stop_name": "INSTEP",
+            "lat": 5.4716761,
+            "lon": 103.0153165
+          },
+          {
+            "stop_id": "4005",
+            "stop_name": "AKADEMI KEPIMPINAN GPMS",
+            "lat": 5.4798372,
+            "lon": 103.0106288
+          },
+          {
+            "stop_id": "4006",
+            "stop_name": "KAMPUNG MENGABANG PANJANG",
+            "lat": 5.4824751,
+            "lon": 103.0090302
+          },
+          {
+            "stop_id": "4113",
+            "stop_name": "SEMPADAN SETIU",
+            "lat": 5.492994,
+            "lon": 102.9999982
+          },
+          {
+            "stop_id": "4114",
+            "stop_name": "TERENGGANU ENDURANCE PARK",
+            "lat": 5.5026823,
+            "lon": 102.9907335
+          },
+          {
+            "stop_id": "4115",
+            "stop_name": "SMK LEMBAH BIDONG",
+            "lat": 5.5069754,
+            "lon": 102.9872252
+          },
+          {
+            "stop_id": "4116",
+            "stop_name": "SK LEMBAH BIDONG",
+            "lat": 5.5112898,
+            "lon": 102.983631
+          },
+          {
+            "stop_id": "4117",
+            "stop_name": "KAMPUNG RHU TAPAI",
+            "lat": 5.5140775,
+            "lon": 102.9813139
+          },
+          {
+            "stop_id": "4118",
+            "stop_name": "RHU TAPAI",
+            "lat": 5.5146319,
+            "lon": 102.9794989
+          },
+          {
+            "stop_id": "4119",
+            "stop_name": "KAMPUNG LEMBAH BIDONG",
+            "lat": 5.5125462,
+            "lon": 102.9728929
+          },
+          {
+            "stop_id": "4120",
+            "stop_name": "KAMPUNG MERANG 1",
+            "lat": 5.5136499,
+            "lon": 102.9692001
+          },
+          {
+            "stop_id": "4121",
+            "stop_name": "KAMPUNG MERANG 2",
+            "lat": 5.5237258,
+            "lon": 102.9608581
+          },
+          {
+            "stop_id": "4122",
+            "stop_name": "LEMBAGA KENAF DAN TEMBAKAU NEGARA",
+            "lat": 5.528575,
+            "lon": 102.9577177
+          },
+          {
+            "stop_id": "4123",
+            "stop_name": "SK MERANG",
+            "lat": 5.530806,
+            "lon": 102.9562484
+          },
+          {
+            "stop_id": "15442",
+            "stop_name": "HENTIAN BAS JETI MERANG",
+            "lat": 5.533009,
+            "lon": 102.948605
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "JETI MERANG - KUALA TERENGGANU",
+        "shape_id": "SHP_30260_1",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "15442",
+            "stop_name": "HENTIAN BAS JETI MERANG",
+            "lat": 5.533009,
+            "lon": 102.948605
+          },
+          {
+            "stop_id": "4123",
+            "stop_name": "SK MERANG",
+            "lat": 5.530806,
+            "lon": 102.9562484
+          },
+          {
+            "stop_id": "4122",
+            "stop_name": "LEMBAGA KENAF DAN TEMBAKAU NEGARA",
+            "lat": 5.528575,
+            "lon": 102.9577177
+          },
+          {
+            "stop_id": "4121",
+            "stop_name": "KAMPUNG MERANG 2",
+            "lat": 5.5237258,
+            "lon": 102.9608581
+          },
+          {
+            "stop_id": "4120",
+            "stop_name": "KAMPUNG MERANG 1",
+            "lat": 5.5136499,
+            "lon": 102.9692001
+          },
+          {
+            "stop_id": "4119",
+            "stop_name": "KAMPUNG LEMBAH BIDONG",
+            "lat": 5.5125462,
+            "lon": 102.9728929
+          },
+          {
+            "stop_id": "4118",
+            "stop_name": "RHU TAPAI",
+            "lat": 5.5146319,
+            "lon": 102.9794989
+          },
+          {
+            "stop_id": "4117",
+            "stop_name": "KAMPUNG RHU TAPAI",
+            "lat": 5.5140775,
+            "lon": 102.9813139
+          },
+          {
+            "stop_id": "4116",
+            "stop_name": "SK LEMBAH BIDONG",
+            "lat": 5.5112898,
+            "lon": 102.983631
+          },
+          {
+            "stop_id": "4115",
+            "stop_name": "SMK LEMBAH BIDONG",
+            "lat": 5.5069754,
+            "lon": 102.9872252
+          },
+          {
+            "stop_id": "4114",
+            "stop_name": "TERENGGANU ENDURANCE PARK",
+            "lat": 5.5026823,
+            "lon": 102.9907335
+          },
+          {
+            "stop_id": "4113",
+            "stop_name": "SEMPADAN SETIU",
+            "lat": 5.492994,
+            "lon": 102.9999982
+          },
+          {
+            "stop_id": "4006",
+            "stop_name": "KAMPUNG MENGABANG PANJANG",
+            "lat": 5.4824751,
+            "lon": 103.0090302
+          },
+          {
+            "stop_id": "4005",
+            "stop_name": "AKADEMI KEPIMPINAN GPMS",
+            "lat": 5.4798372,
+            "lon": 103.0106288
+          },
+          {
+            "stop_id": "4004",
+            "stop_name": "INSTEP",
+            "lat": 5.4716761,
+            "lon": 103.0153165
+          },
+          {
+            "stop_id": "4003",
+            "stop_name": "SBP INTEGRASI BATU RAKIT",
+            "lat": 5.4681569,
+            "lon": 103.0172131
+          },
+          {
+            "stop_id": "4002",
+            "stop_name": "SK PAGAR BESI",
+            "lat": 5.4655318,
+            "lon": 103.0208435
+          },
+          {
+            "stop_id": "4001",
+            "stop_name": "SMK BATU RAKIT",
+            "lat": 5.464503,
+            "lon": 103.0265647
+          },
+          {
+            "stop_id": "4000",
+            "stop_name": "KAMPUNG MENGABANG LEKOR",
+            "lat": 5.4641887,
+            "lon": 103.0283532
+          },
+          {
+            "stop_id": "3999",
+            "stop_name": "KAMPUNG PENGKALAN ATAP 4",
+            "lat": 5.4631029,
+            "lon": 103.0298273
+          },
+          {
+            "stop_id": "3998",
+            "stop_name": "KAMPUNG PENGKALAN ATAP 3",
+            "lat": 5.4588849,
+            "lon": 103.0332058
+          },
+          {
+            "stop_id": "3997",
+            "stop_name": "KAMPUNG PENGKALAN ATAP 2",
+            "lat": 5.4563132,
+            "lon": 103.0357313
+          },
+          {
+            "stop_id": "3996",
+            "stop_name": "SURAU PENGKALAN ATAP",
+            "lat": 5.4548669,
+            "lon": 103.0370704
+          },
+          {
+            "stop_id": "3995",
+            "stop_name": "KAMPUNG PENGKALAN ATAP 1",
+            "lat": 5.4533445,
+            "lon": 103.0385959
+          },
+          {
+            "stop_id": "3994",
+            "stop_name": "KLINIK DESA PANTAI KUALA NERUS",
+            "lat": 5.4520998,
+            "lon": 103.0394762
+          },
+          {
+            "stop_id": "3993",
+            "stop_name": "BALAI POLIS BATU RAKIT",
+            "lat": 5.4513033,
+            "lon": 103.0404911
+          },
+          {
+            "stop_id": "3992",
+            "stop_name": "HUB BATU RAKIT",
+            "lat": 5.4493384,
+            "lon": 103.0450309
+          },
+          {
+            "stop_id": "3991",
+            "stop_name": "SK BATU RAKIT",
+            "lat": 5.4482691,
+            "lon": 103.0456496
+          },
+          {
+            "stop_id": "3990",
+            "stop_name": "KAMPUNG BATU RAKIT",
+            "lat": 5.446629,
+            "lon": 103.0466827
+          },
+          {
+            "stop_id": "3989",
+            "stop_name": "TAMAN DESA KAYANGAN",
+            "lat": 5.4443735,
+            "lon": 103.0482584
+          },
+          {
+            "stop_id": "3988",
+            "stop_name": "TAMAN NIRWANA",
+            "lat": 5.439974,
+            "lon": 103.050634
+          },
+          {
+            "stop_id": "3987",
+            "stop_name": "KAMPUNG TANJUNG BATU RAKIT",
+            "lat": 5.439148,
+            "lon": 103.051077
+          },
+          {
+            "stop_id": "3986",
+            "stop_name": "KAMPUNG MENGABANG TELONG 2",
+            "lat": 5.4361025,
+            "lon": 103.0526757
+          },
+          {
+            "stop_id": "3985",
+            "stop_name": "KAMPUNG MENGABANG TELONG 1",
+            "lat": 5.432419,
+            "lon": 103.05467
+          },
+          {
+            "stop_id": "3984",
+            "stop_name": "TAMAN PERUMAHAN WAKAF TENGAH",
+            "lat": 5.4295183,
+            "lon": 103.0561542
+          },
+          {
+            "stop_id": "3983",
+            "stop_name": "KLINIK KESIHATAN BATU RAKIT",
+            "lat": 5.425862,
+            "lon": 103.058722
+          },
+          {
+            "stop_id": "3982",
+            "stop_name": "SK KOMPLEKS MENGABANG TELIPOT",
+            "lat": 5.4244691,
+            "lon": 103.0598691
+          },
+          {
+            "stop_id": "3981",
+            "stop_name": "MRSM KUALA TERENGGANU / IPG BATU RAKIT",
+            "lat": 5.420218,
+            "lon": 103.062045
+          },
+          {
+            "stop_id": "3980",
+            "stop_name": "BALAI POLIS MENGABANG TELIPOT",
+            "lat": 5.415949,
+            "lon": 103.065411
+          },
+          {
+            "stop_id": "3979",
+            "stop_name": "MASJID PADANG NENAS",
+            "lat": 5.414397,
+            "lon": 103.06653
+          },
+          {
+            "stop_id": "3978",
+            "stop_name": "KAMPUNG PADANG NENAS",
+            "lat": 5.4127349,
+            "lon": 103.0685383
+          },
+          {
+            "stop_id": "3977",
+            "stop_name": "KAMPUNG GONG PAK JIN",
+            "lat": 5.4099865,
+            "lon": 103.077354
+          },
+          {
+            "stop_id": "3976",
+            "stop_name": "KAMPUNG GONG DATUK",
+            "lat": 5.409608,
+            "lon": 103.07935
+          },
+          {
+            "stop_id": "3975",
+            "stop_name": "UNISZA PINTU B",
+            "lat": 5.409111,
+            "lon": 103.081594
+          },
+          {
+            "stop_id": "3972",
+            "stop_name": "BULATAN KAMPUNG PAK TUYU",
+            "lat": 5.4083077,
+            "lon": 103.0845153
+          },
+          {
+            "stop_id": "3971",
+            "stop_name": "KUARTERS POLIS GONG BADAK",
+            "lat": 5.4050866,
+            "lon": 103.086274
+          },
+          {
+            "stop_id": "3969",
+            "stop_name": "KLINIK PAKAR UNISZA",
+            "lat": 5.3994675,
+            "lon": 103.0845678
+          },
+          {
+            "stop_id": "3968",
+            "stop_name": "MASJID UNISZA / McDonalds",
+            "lat": 5.3979649,
+            "lon": 103.0845056
+          },
+          {
+            "stop_id": "3967",
+            "stop_name": "UNISZA PINTU A",
+            "lat": 5.3958188,
+            "lon": 103.0832662
+          },
+          {
+            "stop_id": "3966",
+            "stop_name": "TAMAN PERUMAHAN GONG BADAK 1",
+            "lat": 5.3936459,
+            "lon": 103.0817568
+          },
+          {
+            "stop_id": "3965",
+            "stop_name": "TAMAN PERUMAHAN GONG BADAK 2",
+            "lat": 5.3916165,
+            "lon": 103.0810487
+          },
+          {
+            "stop_id": "3963",
+            "stop_name": "BALAI POLIS GONG BADAK",
+            "lat": 5.3875148,
+            "lon": 103.0803835
+          },
+          {
+            "stop_id": "3962",
+            "stop_name": "PERODUA GONG BADAK",
+            "lat": 5.383787,
+            "lon": 103.0810702
+          },
+          {
+            "stop_id": "15520",
+            "stop_name": "EMPORIUM HOCK KEE SENG LAMA",
+            "lat": 5.381647,
+            "lon": 103.08154
+          },
+          {
+            "stop_id": "3959",
+            "stop_name": "KAMPUNG BARU GONG BADAK",
+            "lat": 5.3757963,
+            "lon": 103.0841237
+          },
+          {
+            "stop_id": "3770",
+            "stop_name": "TAMAN SETIA JAYA",
+            "lat": 5.3715408,
+            "lon": 103.0854283
+          },
+          {
+            "stop_id": "3769",
+            "stop_name": "TAMAN SRI JAYA",
+            "lat": 5.3679921,
+            "lon": 103.08775
+          },
+          {
+            "stop_id": "3768",
+            "stop_name": "PETRONAS WAKAF BARU",
+            "lat": 5.3650767,
+            "lon": 103.0896957
+          },
+          {
+            "stop_id": "3767",
+            "stop_name": "SMK TEKNIK KUALA TERENGGANU",
+            "lat": 5.3620959,
+            "lon": 103.0915932
+          },
+          {
+            "stop_id": "3766",
+            "stop_name": "SM SAINS SULTAN MAHMUD",
+            "lat": 5.3609059,
+            "lon": 103.0921858
+          },
+          {
+            "stop_id": "3765",
+            "stop_name": "TAMAN SRI TEMUSU",
+            "lat": 5.3585975,
+            "lon": 103.093592
+          },
+          {
+            "stop_id": "3764",
+            "stop_name": "KOLEJ VOKASIONAL WAKAF TEMBESU",
+            "lat": 5.358457,
+            "lon": 103.093736
+          },
+          {
+            "stop_id": "3763",
+            "stop_name": "SABASUN 2",
+            "lat": 5.3599226,
+            "lon": 103.098331
+          },
+          {
+            "stop_id": "3762",
+            "stop_name": "SEKOLAH SUKAN MALAYSIA TERENGGANU",
+            "lat": 5.3682912,
+            "lon": 103.0968086
+          },
+          {
+            "stop_id": "3761",
+            "stop_name": "KOMPLEKS SUKAN NEGERI TERENGGANU",
+            "lat": 5.3699967,
+            "lon": 103.0987887
+          },
+          {
+            "stop_id": "3760",
+            "stop_name": "HOTEL TABUNG HAJI",
+            "lat": 5.372377,
+            "lon": 103.1015977
+          },
+          {
+            "stop_id": "3759",
+            "stop_name": "LAPANGAN TERBANG SULTAN MAHMUD",
+            "lat": 5.376847,
+            "lon": 103.106686
+          },
+          {
+            "stop_id": "3673",
+            "stop_name": "KEM ASKAR SEBERANG TAKIR",
+            "lat": 5.3741523,
+            "lon": 103.1086617
+          },
+          {
+            "stop_id": "3668",
+            "stop_name": "KLINIK KESIHATAN SEBERANG TAKIR",
+            "lat": 5.3713272,
+            "lon": 103.1105309
+          },
+          {
+            "stop_id": "3653",
+            "stop_name": "RESTORAN SRI AMAN SEAFOOD",
+            "lat": 5.3681716,
+            "lon": 103.1127663
+          },
+          {
+            "stop_id": "3652",
+            "stop_name": "KAMPUNG DUYUNG",
+            "lat": 5.3654868,
+            "lon": 103.1144091
+          },
+          {
+            "stop_id": "3651",
+            "stop_name": "TAMAN SAMUDERA",
+            "lat": 5.3615326,
+            "lon": 103.1175974
+          },
+          {
+            "stop_id": "3556",
+            "stop_name": "SMK IBRAHIM FIKRI",
+            "lat": 5.3584663,
+            "lon": 103.1190498
+          },
+          {
+            "stop_id": "3553",
+            "stop_name": "SRK BUKIT TOK BENG",
+            "lat": 5.3554666,
+            "lon": 103.1183607
+          },
+          {
+            "stop_id": "3550",
+            "stop_name": "KAMPUNG BUKIT TOK BENG",
+            "lat": 5.3534679,
+            "lon": 103.1169144
+          },
+          {
+            "stop_id": "8257",
+            "stop_name": "KAMPUNG BANGGUL PAUH",
+            "lat": 5.346936,
+            "lon": 103.117206
+          },
+          {
+            "stop_id": "3546",
+            "stop_name": "KAMPUNG BUKIT TUMBUH",
+            "lat": 5.3395008,
+            "lon": 103.1160265
+          },
+          {
+            "stop_id": "3543",
+            "stop_name": "KLINIK DESA PULAU DUYONG",
+            "lat": 5.3295278,
+            "lon": 103.1230934
+          },
+          {
+            "stop_id": "3541",
+            "stop_name": "JPJ KUALA TERENGGANU",
+            "lat": 5.3140692,
+            "lon": 103.1323981
+          },
+          {
+            "stop_id": "3537",
+            "stop_name": "SMKJC CHONG HWA WEI SENG",
+            "lat": 5.317975,
+            "lon": 103.133569
+          },
+          {
+            "stop_id": "3535",
+            "stop_name": "KKIA JALAN AIR JERNIH",
+            "lat": 5.328148,
+            "lon": 103.1351875
+          },
+          {
+            "stop_id": "15425",
+            "stop_name": "HENTIAN BAS MAJLIS PERBANDARAN KUALA TERENGGANU 1",
+            "lat": 5.3319649,
+            "lon": 103.1378691
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30261",
+    "route_short_name": "T20",
+    "route_long_name": "KUALA TERENGGANU - BUKIT PAYUNG VIA PASIR PANJANG",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "KUALA TERENGGANU - BUKIT PAYUNG VIA PASIR PANJANG",
+        "shape_id": "SHP_30261_0",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "15425",
+            "stop_name": "HENTIAN BAS MAJLIS PERBANDARAN KUALA TERENGGANU 1",
+            "lat": 5.3319649,
+            "lon": 103.1378691
+          },
+          {
+            "stop_id": "15459",
+            "stop_name": "HENTIAN COSMOPOINT",
+            "lat": 5.325687,
+            "lon": 103.137487
+          },
+          {
+            "stop_id": "15460",
+            "stop_name": "HENTIAN JABATAN KIMIA",
+            "lat": 5.320361,
+            "lon": 103.140017
+          },
+          {
+            "stop_id": "15461",
+            "stop_name": "HENTIAN YAYASAN PEMBANGUNAN KELUARGA",
+            "lat": 5.319984,
+            "lon": 103.143178
+          },
+          {
+            "stop_id": "15462",
+            "stop_name": "HENTIAN SMA KHAIRIAH JALAN SULTAN OMAR",
+            "lat": 5.316359,
+            "lon": 103.144833
+          },
+          {
+            "stop_id": "15463",
+            "stop_name": "HENTIAN SMA KHAIRIAH JALAN SULTAN MOHAMAD",
+            "lat": 5.314546,
+            "lon": 103.143897
+          },
+          {
+            "stop_id": "15464",
+            "stop_name": "HENTIAN SK GONG KAPAS (OPPOSITE)",
+            "lat": 5.314232,
+            "lon": 103.143046
+          },
+          {
+            "stop_id": "15467",
+            "stop_name": "HENTIAN KOMPLEKS BELIA DAN SUKAN",
+            "lat": 5.312117,
+            "lon": 103.13977
+          },
+          {
+            "stop_id": "15470",
+            "stop_name": "HENTIAN SK PUSAT BUKIT BESAR (OPPOSITE)",
+            "lat": 5.309959,
+            "lon": 103.139552
+          },
+          {
+            "stop_id": "15473",
+            "stop_name": "HENTIAN PASAR BUKIT BESAR",
+            "lat": 5.306218,
+            "lon": 103.139049
+          },
+          {
+            "stop_id": "15475",
+            "stop_name": "HENTIAN SK TENGKU BARIAH (OPPOSITE)",
+            "lat": 5.304103,
+            "lon": 103.138699
+          },
+          {
+            "stop_id": "15477",
+            "stop_name": "HENTIAN SMK TENGKU BADARIAH (OPPOSITE)",
+            "lat": 5.298657,
+            "lon": 103.137937
+          },
+          {
+            "stop_id": "15478",
+            "stop_name": "HENTIAN FLAT GELONG BILAL",
+            "lat": 5.293931,
+            "lon": 103.137799
+          },
+          {
+            "stop_id": "15479",
+            "stop_name": "HENTIAN PERTUBUHAN PELADANG KUALA TERENGGANU",
+            "lat": 5.284973,
+            "lon": 103.141684
+          },
+          {
+            "stop_id": "15484",
+            "stop_name": "HENTIAN PASAR KAMPUNG LAUT",
+            "lat": 5.273774,
+            "lon": 103.142566
+          },
+          {
+            "stop_id": "15488",
+            "stop_name": "HENTIAN KAMPUNG BELUKAR JAMBU",
+            "lat": 5.269753,
+            "lon": 103.142965
+          },
+          {
+            "stop_id": "15490",
+            "stop_name": "SEKOLAH KEBANGSAAN KAMPUNG BUKIT CHENDERING",
+            "lat": 5.260049,
+            "lon": 103.145245
+          },
+          {
+            "stop_id": "15503",
+            "stop_name": "HENTIAN KAMPUNG TITIAN BARU",
+            "lat": 5.250199,
+            "lon": 103.123592
+          },
+          {
+            "stop_id": "15516",
+            "stop_name": "HENTIAN SMK SERI PAYONG",
+            "lat": 5.232618,
+            "lon": 103.104181
+          },
+          {
+            "stop_id": "3534",
+            "stop_name": "COSMOPOINT",
+            "lat": 5.329586,
+            "lon": 103.138019
+          },
+          {
+            "stop_id": "4182",
+            "stop_name": "Jabatan Kimia",
+            "lat": 5.3202179,
+            "lon": 103.1400858
+          },
+          {
+            "stop_id": "4183",
+            "stop_name": "Yayasan Pembangunan Keluarga",
+            "lat": 5.3204606,
+            "lon": 103.1424886
+          },
+          {
+            "stop_id": "4180",
+            "stop_name": "SMA KHAIRIAH JALAN SULTAN OMAR",
+            "lat": 5.3163088,
+            "lon": 103.1447179
+          },
+          {
+            "stop_id": "4181",
+            "stop_name": "SMA KHAIRIAH JALAN SULTAN MOHAMAD",
+            "lat": 5.3147041,
+            "lon": 103.1441175
+          },
+          {
+            "stop_id": "4184",
+            "stop_name": "SK Gong Kapas",
+            "lat": 5.3141539,
+            "lon": 103.1426689
+          },
+          {
+            "stop_id": "4185",
+            "stop_name": "Kompleks Belia Dan Sukan",
+            "lat": 5.3124178,
+            "lon": 103.139772
+          },
+          {
+            "stop_id": "4186",
+            "stop_name": "SK Pusat Bukit Besar",
+            "lat": 5.3103123,
+            "lon": 103.1394391
+          },
+          {
+            "stop_id": "4187",
+            "stop_name": "Pasar Bukit Besar",
+            "lat": 5.3062511,
+            "lon": 103.1389737
+          },
+          {
+            "stop_id": "4188",
+            "stop_name": "SK Tengku Bariah",
+            "lat": 5.3041417,
+            "lon": 103.1387055
+          },
+          {
+            "stop_id": "4189",
+            "stop_name": "SMK Tengku Bariah",
+            "lat": 5.2988115,
+            "lon": 103.1378781
+          },
+          {
+            "stop_id": "4190",
+            "stop_name": "Flat Gelong Bilal",
+            "lat": 5.2939107,
+            "lon": 103.1377297
+          },
+          {
+            "stop_id": "4191",
+            "stop_name": "Pertubuhan Peladang Kuala Terengganu",
+            "lat": 5.2847487,
+            "lon": 103.141939
+          },
+          {
+            "stop_id": "4192",
+            "stop_name": "PASAR KAMPUNG LAUT 1",
+            "lat": 5.2729826,
+            "lon": 103.1426955
+          },
+          {
+            "stop_id": "4193",
+            "stop_name": "Kampung Belukar Jambu / Klinik Desa Kg Laut",
+            "lat": 5.266725,
+            "lon": 103.143696
+          },
+          {
+            "stop_id": "4194",
+            "stop_name": "SK Kampung Bukit Chendering",
+            "lat": 5.259796,
+            "lon": 103.144623
+          },
+          {
+            "stop_id": "4195",
+            "stop_name": "MASJID KAMPUNG SURAU PANJANG",
+            "lat": 5.2536103,
+            "lon": 103.1344674
+          },
+          {
+            "stop_id": "4196",
+            "stop_name": "PASAR PEKAN KEDAI BULUH / SMK SULTAN MANSOR",
+            "lat": 5.2524441,
+            "lon": 103.1309476
+          },
+          {
+            "stop_id": "4197",
+            "stop_name": "Kampung Titian Baru",
+            "lat": 5.2502602,
+            "lon": 103.1237739
+          },
+          {
+            "stop_id": "4198",
+            "stop_name": "Kampung Berangan Pak Ayu",
+            "lat": 5.2420331,
+            "lon": 103.1138894
+          },
+          {
+            "stop_id": "4199",
+            "stop_name": "SK Bukit Payong",
+            "lat": 5.2338182,
+            "lon": 103.1057629
+          },
+          {
+            "stop_id": "4200",
+            "stop_name": "SMK Seri Payong",
+            "lat": 5.2326342,
+            "lon": 103.1041884
+          },
+          {
+            "stop_id": "15711",
+            "stop_name": "HENTIAN PEKAN BUKIT PAYUNG",
+            "lat": 5.232374,
+            "lon": 103.102292
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "BUKIT PAYUNG - KUALA TERENGGANU  VIA PASIR PANJANG",
+        "shape_id": "SHP_30261_1",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "15711",
+            "stop_name": "HENTIAN PEKAN BUKIT PAYUNG",
+            "lat": 5.232374,
+            "lon": 103.102292
+          },
+          {
+            "stop_id": "15551",
+            "stop_name": "HENTIAN SMK SERI PAYONG -1",
+            "lat": 5.232665,
+            "lon": 103.104097
+          },
+          {
+            "stop_id": "15559",
+            "stop_name": "HENTIAN SK BUKIT PAYONG -1",
+            "lat": 5.233872,
+            "lon": 103.105706
+          },
+          {
+            "stop_id": "15560",
+            "stop_name": "HENTIAN KAMPUNG BERANGAN PAK AYU -1",
+            "lat": 5.242125,
+            "lon": 103.1139
+          },
+          {
+            "stop_id": "15561",
+            "stop_name": "HENTIAN KAMPUNG TITIAN BARU -1",
+            "lat": 5.250274,
+            "lon": 103.123601
+          },
+          {
+            "stop_id": "15563",
+            "stop_name": "HENTIAN MASJID KAMNPUNG SURAU PANJANG",
+            "lat": 5.253741,
+            "lon": 103.134657
+          },
+          {
+            "stop_id": "15564",
+            "stop_name": "HENTIAN SK KAMPUNG BUKIT CHENDERING",
+            "lat": 5.260084,
+            "lon": 103.14522
+          },
+          {
+            "stop_id": "15565",
+            "stop_name": "HENTIAN KAMPUNG BELUKAR JAMBU -1",
+            "lat": 5.269066,
+            "lon": 103.142983
+          },
+          {
+            "stop_id": "15566",
+            "stop_name": "HENTIAN PASAR KAMPUNG LAUT -1",
+            "lat": 5.273733,
+            "lon": 103.142443
+          },
+          {
+            "stop_id": "15567",
+            "stop_name": "HENTIAN PELADANG KUALA TERENGGANU -1",
+            "lat": 5.284912,
+            "lon": 103.141591
+          },
+          {
+            "stop_id": "15568",
+            "stop_name": "HENTIAN FLAT GELONG BILAL -1",
+            "lat": 5.293897,
+            "lon": 103.137659
+          },
+          {
+            "stop_id": "15569",
+            "stop_name": "HENTIAN SMK TENGKU BARIAH",
+            "lat": 5.29863,
+            "lon": 103.137833
+          },
+          {
+            "stop_id": "15571",
+            "stop_name": "HENTIAN PASAR BUKT BESAR",
+            "lat": 5.305517,
+            "lon": 103.138881
+          },
+          {
+            "stop_id": "15572",
+            "stop_name": "HENTIAN SK PUSAT BUKIT BESAR",
+            "lat": 5.309969,
+            "lon": 103.139428
+          },
+          {
+            "stop_id": "15573",
+            "stop_name": "HENTIAN KOMPLEKS BELIA DAN SUKAN -1",
+            "lat": 5.312086,
+            "lon": 103.139652
+          },
+          {
+            "stop_id": "15574",
+            "stop_name": "HENTIAN SK GONG KAPAS",
+            "lat": 5.314199,
+            "lon": 103.142589
+          },
+          {
+            "stop_id": "15575",
+            "stop_name": "HENTIAN SMA KHAIRIAH JALAN SULTAN MOHAMAD -1",
+            "lat": 5.314672,
+            "lon": 103.143868
+          },
+          {
+            "stop_id": "15576",
+            "stop_name": "HENTIAN SMA KHAIRIAH JALAN SULTAN OMAR -1",
+            "lat": 5.316336,
+            "lon": 103.144622
+          },
+          {
+            "stop_id": "15577",
+            "stop_name": "HENTIAN YAYASAN PEMBANGUNAN KELUARGA -1",
+            "lat": 5.31997,
+            "lon": 103.143036
+          },
+          {
+            "stop_id": "4200",
+            "stop_name": "SMK Seri Payong",
+            "lat": 5.2326342,
+            "lon": 103.1041884
+          },
+          {
+            "stop_id": "4199",
+            "stop_name": "SK Bukit Payong",
+            "lat": 5.2338182,
+            "lon": 103.1057629
+          },
+          {
+            "stop_id": "4198",
+            "stop_name": "Kampung Berangan Pak Ayu",
+            "lat": 5.2420331,
+            "lon": 103.1138894
+          },
+          {
+            "stop_id": "4197",
+            "stop_name": "Kampung Titian Baru",
+            "lat": 5.2502602,
+            "lon": 103.1237739
+          },
+          {
+            "stop_id": "4196",
+            "stop_name": "PASAR PEKAN KEDAI BULUH / SMK SULTAN MANSOR",
+            "lat": 5.2524441,
+            "lon": 103.1309476
+          },
+          {
+            "stop_id": "4195",
+            "stop_name": "MASJID KAMPUNG SURAU PANJANG",
+            "lat": 5.2536103,
+            "lon": 103.1344674
+          },
+          {
+            "stop_id": "4194",
+            "stop_name": "SK Kampung Bukit Chendering",
+            "lat": 5.259796,
+            "lon": 103.144623
+          },
+          {
+            "stop_id": "4193",
+            "stop_name": "Kampung Belukar Jambu / Klinik Desa Kg Laut",
+            "lat": 5.266725,
+            "lon": 103.143696
+          },
+          {
+            "stop_id": "4192",
+            "stop_name": "PASAR KAMPUNG LAUT 1",
+            "lat": 5.2729826,
+            "lon": 103.1426955
+          },
+          {
+            "stop_id": "4191",
+            "stop_name": "Pertubuhan Peladang Kuala Terengganu",
+            "lat": 5.2847487,
+            "lon": 103.141939
+          },
+          {
+            "stop_id": "4190",
+            "stop_name": "Flat Gelong Bilal",
+            "lat": 5.2939107,
+            "lon": 103.1377297
+          },
+          {
+            "stop_id": "4189",
+            "stop_name": "SMK Tengku Bariah",
+            "lat": 5.2988115,
+            "lon": 103.1378781
+          },
+          {
+            "stop_id": "4188",
+            "stop_name": "SK Tengku Bariah",
+            "lat": 5.3041417,
+            "lon": 103.1387055
+          },
+          {
+            "stop_id": "4187",
+            "stop_name": "Pasar Bukit Besar",
+            "lat": 5.3062511,
+            "lon": 103.1389737
+          },
+          {
+            "stop_id": "4186",
+            "stop_name": "SK Pusat Bukit Besar",
+            "lat": 5.3103123,
+            "lon": 103.1394391
+          },
+          {
+            "stop_id": "4185",
+            "stop_name": "Kompleks Belia Dan Sukan",
+            "lat": 5.3124178,
+            "lon": 103.139772
+          },
+          {
+            "stop_id": "4184",
+            "stop_name": "SK Gong Kapas",
+            "lat": 5.3141539,
+            "lon": 103.1426689
+          },
+          {
+            "stop_id": "4181",
+            "stop_name": "SMA KHAIRIAH JALAN SULTAN MOHAMAD",
+            "lat": 5.3147041,
+            "lon": 103.1441175
+          },
+          {
+            "stop_id": "4180",
+            "stop_name": "SMA KHAIRIAH JALAN SULTAN OMAR",
+            "lat": 5.3163088,
+            "lon": 103.1447179
+          },
+          {
+            "stop_id": "4183",
+            "stop_name": "Yayasan Pembangunan Keluarga",
+            "lat": 5.3204606,
+            "lon": 103.1424886
+          },
+          {
+            "stop_id": "4182",
+            "stop_name": "Jabatan Kimia",
+            "lat": 5.3202179,
+            "lon": 103.1400858
+          },
+          {
+            "stop_id": "3535",
+            "stop_name": "KKIA JALAN AIR JERNIH",
+            "lat": 5.328148,
+            "lon": 103.1351875
+          },
+          {
+            "stop_id": "15425",
+            "stop_name": "HENTIAN BAS MAJLIS PERBANDARAN KUALA TERENGGANU 1",
+            "lat": 5.3319649,
+            "lon": 103.1378691
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30262",
+    "route_short_name": "T30",
+    "route_long_name": "KUALA TERENGGANU - MARANG VIA CHENDERIANG",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "KUALA TERENGGANU - MARANG VIA CHENDERIANG",
+        "shape_id": "SHP_30262_0",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "15425",
+            "stop_name": "HENTIAN BAS MAJLIS PERBANDARAN KUALA TERENGGANU 1",
+            "lat": 5.3319649,
+            "lon": 103.1378691
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "4154",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDIN SHAH",
+            "lat": 5.3288232,
+            "lon": 103.1398256
+          },
+          {
+            "stop_id": "4127",
+            "stop_name": "JALAN PEJABAT",
+            "lat": 5.3282373,
+            "lon": 103.1436998
+          },
+          {
+            "stop_id": "4140",
+            "stop_name": "STADIUM NEGERI",
+            "lat": 5.3245149,
+            "lon": 103.1498626
+          },
+          {
+            "stop_id": "4155",
+            "stop_name": "SIMPANG PANTAI BATU BUROK",
+            "lat": 5.3198096,
+            "lon": 103.1532315
+          },
+          {
+            "stop_id": "4156",
+            "stop_name": "HOTEL PERMAI",
+            "lat": 5.3154778,
+            "lon": 103.1546125
+          },
+          {
+            "stop_id": "4157",
+            "stop_name": "KUALA TERENGGANU SPEC HOSPITAL BARU",
+            "lat": 5.3130652,
+            "lon": 103.1553915
+          },
+          {
+            "stop_id": "4158",
+            "stop_name": "SMA SULTAN ZAINAL ABIDIN",
+            "lat": 5.3109847,
+            "lon": 103.1564992
+          },
+          {
+            "stop_id": "4159",
+            "stop_name": "SMK SULTAN SULAIMAN",
+            "lat": 5.2992948,
+            "lon": 103.1643887
+          },
+          {
+            "stop_id": "4160",
+            "stop_name": "PUSAT PERABOT TM JATI GROUP",
+            "lat": 5.2964886,
+            "lon": 103.1659967
+          },
+          {
+            "stop_id": "4161",
+            "stop_name": "KAMPUNG KUALA IBAI",
+            "lat": 5.2919702,
+            "lon": 103.1679635
+          },
+          {
+            "stop_id": "4162",
+            "stop_name": "MASJID TERAPUNG KUALA IBAI",
+            "lat": 5.2845933,
+            "lon": 103.1689349
+          },
+          {
+            "stop_id": "4163",
+            "stop_name": "SIMPANG TIGA CHENDERING",
+            "lat": 5.2764656,
+            "lon": 103.1708422
+          },
+          {
+            "stop_id": "4164",
+            "stop_name": "NOOR ARFA BATIK",
+            "lat": 5.275945,
+            "lon": 103.167944
+          },
+          {
+            "stop_id": "4165",
+            "stop_name": "KRAFTANGAN MALAYSIA",
+            "lat": 5.2723979,
+            "lon": 103.1656453
+          },
+          {
+            "stop_id": "4166",
+            "stop_name": "KILANG APTIV",
+            "lat": 5.2703545,
+            "lon": 103.1642987
+          },
+          {
+            "stop_id": "4167",
+            "stop_name": "WISMA TI / KOLEJ KOMUNITI",
+            "lat": 5.2683654,
+            "lon": 103.1637804
+          },
+          {
+            "stop_id": "4168",
+            "stop_name": "UITM KUALA TERENGGANU",
+            "lat": 5.2622012,
+            "lon": 103.1647277
+          },
+          {
+            "stop_id": "4169",
+            "stop_name": "PEJABAT PENGURUSAN KOLEJ KERAWANG",
+            "lat": 5.2613008,
+            "lon": 103.1659401
+          },
+          {
+            "stop_id": "4170",
+            "stop_name": "SEK PEND KHAS CHENDERING",
+            "lat": 5.2631653,
+            "lon": 103.1683837
+          },
+          {
+            "stop_id": "4171",
+            "stop_name": "FLAT DESA KELUARGA KUALA TERENGGANU",
+            "lat": 5.2647192,
+            "lon": 103.1681586
+          },
+          {
+            "stop_id": "4172",
+            "stop_name": "SIMPANG EMPAT CHENDERING",
+            "lat": 5.2681048,
+            "lon": 103.1760341
+          },
+          {
+            "stop_id": "4173",
+            "stop_name": "BALAI POLIS CHENDERING",
+            "lat": 5.2660904,
+            "lon": 103.1781431
+          },
+          {
+            "stop_id": "4174",
+            "stop_name": "WISMA GEOSOIL",
+            "lat": 5.2512916,
+            "lon": 103.1836957
+          },
+          {
+            "stop_id": "4175",
+            "stop_name": "MASJID RUSILA",
+            "lat": 5.2428685,
+            "lon": 103.1879078
+          },
+          {
+            "stop_id": "4176",
+            "stop_name": "SIMPANG TIGA RUSILA",
+            "lat": 5.2235404,
+            "lon": 103.1960048
+          },
+          {
+            "stop_id": "4177",
+            "stop_name": "KAMPUNG RHU RENDANG",
+            "lat": 5.2190262,
+            "lon": 103.1990786
+          },
+          {
+            "stop_id": "4178",
+            "stop_name": "SHELL RHU RENDANG",
+            "lat": 5.2167003,
+            "lon": 103.200831
+          },
+          {
+            "stop_id": "4179",
+            "stop_name": "IPD MARANG",
+            "lat": 5.2150949,
+            "lon": 103.2017885
+          },
+          {
+            "stop_id": "15870",
+            "stop_name": "HENTIAN BAS MARANG",
+            "lat": 5.204992,
+            "lon": 103.205617
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "MARANG - KUALA TERENGGANU VIA CHENDERIANG",
+        "shape_id": "SHP_30262_1",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "15870",
+            "stop_name": "HENTIAN BAS MARANG",
+            "lat": 5.204992,
+            "lon": 103.205617
+          },
+          {
+            "stop_id": "4179",
+            "stop_name": "IPD MARANG",
+            "lat": 5.2150949,
+            "lon": 103.2017885
+          },
+          {
+            "stop_id": "4178",
+            "stop_name": "SHELL RHU RENDANG",
+            "lat": 5.2167003,
+            "lon": 103.200831
+          },
+          {
+            "stop_id": "4177",
+            "stop_name": "KAMPUNG RHU RENDANG",
+            "lat": 5.2190262,
+            "lon": 103.1990786
+          },
+          {
+            "stop_id": "4176",
+            "stop_name": "SIMPANG TIGA RUSILA",
+            "lat": 5.2235404,
+            "lon": 103.1960048
+          },
+          {
+            "stop_id": "4175",
+            "stop_name": "MASJID RUSILA",
+            "lat": 5.2428685,
+            "lon": 103.1879078
+          },
+          {
+            "stop_id": "4174",
+            "stop_name": "WISMA GEOSOIL",
+            "lat": 5.2512916,
+            "lon": 103.1836957
+          },
+          {
+            "stop_id": "4173",
+            "stop_name": "BALAI POLIS CHENDERING",
+            "lat": 5.2660904,
+            "lon": 103.1781431
+          },
+          {
+            "stop_id": "4172",
+            "stop_name": "SIMPANG EMPAT CHENDERING",
+            "lat": 5.2681048,
+            "lon": 103.1760341
+          },
+          {
+            "stop_id": "4171",
+            "stop_name": "FLAT DESA KELUARGA KUALA TERENGGANU",
+            "lat": 5.2647192,
+            "lon": 103.1681586
+          },
+          {
+            "stop_id": "4170",
+            "stop_name": "SEK PEND KHAS CHENDERING",
+            "lat": 5.2631653,
+            "lon": 103.1683837
+          },
+          {
+            "stop_id": "4169",
+            "stop_name": "PEJABAT PENGURUSAN KOLEJ KERAWANG",
+            "lat": 5.2613008,
+            "lon": 103.1659401
+          },
+          {
+            "stop_id": "4168",
+            "stop_name": "UITM KUALA TERENGGANU",
+            "lat": 5.2622012,
+            "lon": 103.1647277
+          },
+          {
+            "stop_id": "4167",
+            "stop_name": "WISMA TI / KOLEJ KOMUNITI",
+            "lat": 5.2683654,
+            "lon": 103.1637804
+          },
+          {
+            "stop_id": "4166",
+            "stop_name": "KILANG APTIV",
+            "lat": 5.2703545,
+            "lon": 103.1642987
+          },
+          {
+            "stop_id": "4165",
+            "stop_name": "KRAFTANGAN MALAYSIA",
+            "lat": 5.2723979,
+            "lon": 103.1656453
+          },
+          {
+            "stop_id": "4164",
+            "stop_name": "NOOR ARFA BATIK",
+            "lat": 5.275945,
+            "lon": 103.167944
+          },
+          {
+            "stop_id": "4163",
+            "stop_name": "SIMPANG TIGA CHENDERING",
+            "lat": 5.2764656,
+            "lon": 103.1708422
+          },
+          {
+            "stop_id": "4162",
+            "stop_name": "MASJID TERAPUNG KUALA IBAI",
+            "lat": 5.2845933,
+            "lon": 103.1689349
+          },
+          {
+            "stop_id": "4161",
+            "stop_name": "KAMPUNG KUALA IBAI",
+            "lat": 5.2919702,
+            "lon": 103.1679635
+          },
+          {
+            "stop_id": "4160",
+            "stop_name": "PUSAT PERABOT TM JATI GROUP",
+            "lat": 5.2964886,
+            "lon": 103.1659967
+          },
+          {
+            "stop_id": "4159",
+            "stop_name": "SMK SULTAN SULAIMAN",
+            "lat": 5.2992948,
+            "lon": 103.1643887
+          },
+          {
+            "stop_id": "4158",
+            "stop_name": "SMA SULTAN ZAINAL ABIDIN",
+            "lat": 5.3109847,
+            "lon": 103.1564992
+          },
+          {
+            "stop_id": "4157",
+            "stop_name": "KUALA TERENGGANU SPEC HOSPITAL BARU",
+            "lat": 5.3130652,
+            "lon": 103.1553915
+          },
+          {
+            "stop_id": "4156",
+            "stop_name": "HOTEL PERMAI",
+            "lat": 5.3154778,
+            "lon": 103.1546125
+          },
+          {
+            "stop_id": "4155",
+            "stop_name": "SIMPANG PANTAI BATU BUROK",
+            "lat": 5.3198096,
+            "lon": 103.1532315
+          },
+          {
+            "stop_id": "4140",
+            "stop_name": "STADIUM NEGERI",
+            "lat": 5.3245149,
+            "lon": 103.1498626
+          },
+          {
+            "stop_id": "4127",
+            "stop_name": "JALAN PEJABAT",
+            "lat": 5.3282373,
+            "lon": 103.1436998
+          },
+          {
+            "stop_id": "4154",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDIN SHAH",
+            "lat": 5.3288232,
+            "lon": 103.1398256
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "15425",
+            "stop_name": "HENTIAN BAS MAJLIS PERBANDARAN KUALA TERENGGANU 1",
+            "lat": 5.3319649,
+            "lon": 103.1378691
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30375",
+    "route_short_name": "T11A",
+    "route_long_name": "KUALA TERENGGANU - BATU RAKIT (PAGI)",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "KUALA TERENGGANU - BATU RAKIT (PAGI)",
+        "shape_id": "SHP_30375_0",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6340",
+            "stop_name": "TERMINAL MBKT",
+            "lat": 5.33155,
+            "lon": 103.137253
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "6921",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDDIN SHAH",
+            "lat": 5.328819,
+            "lon": 103.139817
+          },
+          {
+            "stop_id": "6752",
+            "stop_name": "MSU COLLEGE",
+            "lat": 5.324247,
+            "lon": 103.141578
+          },
+          {
+            "stop_id": "4183",
+            "stop_name": "Yayasan Pembangunan Keluarga",
+            "lat": 5.3204606,
+            "lon": 103.1424886
+          },
+          {
+            "stop_id": "6362",
+            "stop_name": "OPPOSITE SMA KHAIRIAH JALAN SULTAN OMAR",
+            "lat": 5.316356,
+            "lon": 103.144844
+          },
+          {
+            "stop_id": "6922",
+            "stop_name": "SMK KHAIRIAH JALAN SULTAN MOHAMAD",
+            "lat": 5.316,
+            "lon": 103.144817
+          },
+          {
+            "stop_id": "4184",
+            "stop_name": "SK Gong Kapas",
+            "lat": 5.3141539,
+            "lon": 103.1426689
+          },
+          {
+            "stop_id": "6849",
+            "stop_name": "KOMPLEKS MAHKAMAH KUALA TERENGGANU",
+            "lat": 5.312561,
+            "lon": 103.136389
+          },
+          {
+            "stop_id": "6923",
+            "stop_name": "MYDIN MALL KUALA TERENGGANU",
+            "lat": 5.310178,
+            "lon": 103.130956
+          },
+          {
+            "stop_id": "4152",
+            "stop_name": "WISMA PELADANG KUALA TERENGGANU",
+            "lat": 5.309587,
+            "lon": 103.129684
+          },
+          {
+            "stop_id": "6850",
+            "stop_name": "PERUMAHAN POLIS PADANG HILIRAN",
+            "lat": 5.308353,
+            "lon": 103.127119
+          },
+          {
+            "stop_id": "6924",
+            "stop_name": "SK PUSAT CHABANG TIGA",
+            "lat": 5.3063564,
+            "lon": 103.12112
+          },
+          {
+            "stop_id": "6366",
+            "stop_name": "MASJID LAMA DURIAN BURUNG",
+            "lat": 5.3075914,
+            "lon": 103.109764
+          },
+          {
+            "stop_id": "6367",
+            "stop_name": "MASJID AT TAQWA",
+            "lat": 5.308195,
+            "lon": 103.104385
+          },
+          {
+            "stop_id": "6925",
+            "stop_name": "MAT LEH IKAN SEGAR/PULAU RUSA",
+            "lat": 5.3092966,
+            "lon": 103.09467
+          },
+          {
+            "stop_id": "6926",
+            "stop_name": "JALAN BALAI POLIS MANIR",
+            "lat": 5.310325,
+            "lon": 103.0859
+          },
+          {
+            "stop_id": "6927",
+            "stop_name": "SIMPANG SK MANIR",
+            "lat": 5.310699,
+            "lon": 103.084216
+          },
+          {
+            "stop_id": "6936",
+            "stop_name": "PEJABAT POS MALAYSIA MANIR",
+            "lat": 5.311301,
+            "lon": 103.082923
+          },
+          {
+            "stop_id": "6937",
+            "stop_name": "MARDI MANIR",
+            "lat": 5.314944,
+            "lon": 103.08004
+          },
+          {
+            "stop_id": "6938",
+            "stop_name": "SMK HJ ABDUL RAHMAN LIMBONG",
+            "lat": 5.321737,
+            "lon": 103.081058
+          },
+          {
+            "stop_id": "6939",
+            "stop_name": "KG KUBANG JELA",
+            "lat": 5.324361,
+            "lon": 103.082308
+          },
+          {
+            "stop_id": "6940",
+            "stop_name": "BANGGOL TUAN MUDA",
+            "lat": 5.330417,
+            "lon": 103.085206
+          },
+          {
+            "stop_id": "6941",
+            "stop_name": "ECO SHOP MANIR",
+            "lat": 5.333243,
+            "lon": 103.086558
+          },
+          {
+            "stop_id": "6942",
+            "stop_name": "PEJABAT HUTAN DAERAH KUALA TERENGGANU",
+            "lat": 5.342253,
+            "lon": 103.09086
+          },
+          {
+            "stop_id": "6943",
+            "stop_name": "PASAR BATU ENAM",
+            "lat": 5.346638,
+            "lon": 103.09226
+          },
+          {
+            "stop_id": "6944",
+            "stop_name": "SURAU BATU ENAM",
+            "lat": 5.348595,
+            "lon": 103.09265
+          },
+          {
+            "stop_id": "6945",
+            "stop_name": "BANGGOL AYER LILIN",
+            "lat": 5.3516955,
+            "lon": 103.09312
+          },
+          {
+            "stop_id": "6380",
+            "stop_name": "MYDIN GONG BADAK",
+            "lat": 5.3552947,
+            "lon": 103.09517
+          },
+          {
+            "stop_id": "3764",
+            "stop_name": "KOLEJ VOKASIONAL WAKAF TEMBESU",
+            "lat": 5.358457,
+            "lon": 103.093736
+          },
+          {
+            "stop_id": "3766",
+            "stop_name": "SM SAINS SULTAN MAHMUD",
+            "lat": 5.3609059,
+            "lon": 103.0921858
+          },
+          {
+            "stop_id": "6946",
+            "stop_name": "SM TEKNIK KUALA TERENGGANU",
+            "lat": 5.3619366,
+            "lon": 103.09172
+          },
+          {
+            "stop_id": "3768",
+            "stop_name": "PETRONAS WAKAF BARU",
+            "lat": 5.3650767,
+            "lon": 103.0896957
+          },
+          {
+            "stop_id": "3769",
+            "stop_name": "TAMAN SRI JAYA",
+            "lat": 5.3679921,
+            "lon": 103.08775
+          },
+          {
+            "stop_id": "3770",
+            "stop_name": "TAMAN SETIA JAYA",
+            "lat": 5.3715408,
+            "lon": 103.0854283
+          },
+          {
+            "stop_id": "3959",
+            "stop_name": "KAMPUNG BARU GONG BADAK",
+            "lat": 5.3757963,
+            "lon": 103.0841237
+          },
+          {
+            "stop_id": "6948",
+            "stop_name": "HADAMI REST HOUSE",
+            "lat": 5.377767,
+            "lon": 103.085343
+          },
+          {
+            "stop_id": "6950",
+            "stop_name": "SIMPANG JALAN DAMAI",
+            "lat": 5.378955,
+            "lon": 103.087426
+          },
+          {
+            "stop_id": "6951",
+            "stop_name": "SIMPANG PADANG GOLF",
+            "lat": 5.3800116,
+            "lon": 103.09192
+          },
+          {
+            "stop_id": "6953",
+            "stop_name": "QUINARA",
+            "lat": 5.380827,
+            "lon": 103.094193
+          },
+          {
+            "stop_id": "6955",
+            "stop_name": "BALAI RAYA KG PAK TIJAH",
+            "lat": 5.3816857,
+            "lon": 103.09625
+          },
+          {
+            "stop_id": "6956",
+            "stop_name": "DEWAN SERBAGUNA KG PAK TIJAH",
+            "lat": 5.383149,
+            "lon": 103.10052
+          },
+          {
+            "stop_id": "6958",
+            "stop_name": "TAMAN MURNI PERMAI",
+            "lat": 5.385372,
+            "lon": 103.10013
+          },
+          {
+            "stop_id": "6960",
+            "stop_name": "SK TOK JEMBAL",
+            "lat": 5.390666,
+            "lon": 103.097242
+          },
+          {
+            "stop_id": "6961",
+            "stop_name": "TAMAN DESA PERWIRA",
+            "lat": 5.3930316,
+            "lon": 103.09602
+          },
+          {
+            "stop_id": "6962",
+            "stop_name": "TAMAN DESA WIRA",
+            "lat": 5.3958335,
+            "lon": 103.09451
+          },
+          {
+            "stop_id": "6964",
+            "stop_name": "KEM PGA GONG BADAK",
+            "lat": 5.399194,
+            "lon": 103.092705
+          },
+          {
+            "stop_id": "6966",
+            "stop_name": "UNIVERSITI MALAYSIA TERENGGANU 1",
+            "lat": 5.4031606,
+            "lon": 103.09036
+          },
+          {
+            "stop_id": "6967",
+            "stop_name": "BULATAN KG TAK TUYU",
+            "lat": 5.407937,
+            "lon": 103.08494
+          },
+          {
+            "stop_id": "6968",
+            "stop_name": "UNISZA A (MASUK)",
+            "lat": 5.4093814,
+            "lon": 103.08062
+          },
+          {
+            "stop_id": "6969",
+            "stop_name": "UNISZA B (KELUAR)",
+            "lat": 5.409402,
+            "lon": 103.08017
+          },
+          {
+            "stop_id": "3975",
+            "stop_name": "UNISZA PINTU B",
+            "lat": 5.409111,
+            "lon": 103.081594
+          },
+          {
+            "stop_id": "3976",
+            "stop_name": "KAMPUNG GONG DATUK",
+            "lat": 5.409608,
+            "lon": 103.07935
+          },
+          {
+            "stop_id": "3977",
+            "stop_name": "KAMPUNG GONG PAK JIN",
+            "lat": 5.4099865,
+            "lon": 103.077354
+          },
+          {
+            "stop_id": "3978",
+            "stop_name": "KAMPUNG PADANG NENAS",
+            "lat": 5.4127349,
+            "lon": 103.0685383
+          },
+          {
+            "stop_id": "3979",
+            "stop_name": "MASJID PADANG NENAS",
+            "lat": 5.414397,
+            "lon": 103.06653
+          },
+          {
+            "stop_id": "3980",
+            "stop_name": "BALAI POLIS MENGABANG TELIPOT",
+            "lat": 5.415949,
+            "lon": 103.065411
+          },
+          {
+            "stop_id": "3981",
+            "stop_name": "MRSM KUALA TERENGGANU / IPG BATU RAKIT",
+            "lat": 5.420218,
+            "lon": 103.062045
+          },
+          {
+            "stop_id": "3982",
+            "stop_name": "SK KOMPLEKS MENGABANG TELIPOT",
+            "lat": 5.4244691,
+            "lon": 103.0598691
+          },
+          {
+            "stop_id": "3983",
+            "stop_name": "KLINIK KESIHATAN BATU RAKIT",
+            "lat": 5.425862,
+            "lon": 103.058722
+          },
+          {
+            "stop_id": "3984",
+            "stop_name": "TAMAN PERUMAHAN WAKAF TENGAH",
+            "lat": 5.4295183,
+            "lon": 103.0561542
+          },
+          {
+            "stop_id": "3985",
+            "stop_name": "KAMPUNG MENGABANG TELONG 1",
+            "lat": 5.432419,
+            "lon": 103.05467
+          },
+          {
+            "stop_id": "3986",
+            "stop_name": "KAMPUNG MENGABANG TELONG 2",
+            "lat": 5.4361025,
+            "lon": 103.0526757
+          },
+          {
+            "stop_id": "6974",
+            "stop_name": "KAMPUNG MENGKABANG KAPAL",
+            "lat": 5.438064,
+            "lon": 103.05167
+          },
+          {
+            "stop_id": "3988",
+            "stop_name": "TAMAN NIRWANA",
+            "lat": 5.439974,
+            "lon": 103.050634
+          },
+          {
+            "stop_id": "6715",
+            "stop_name": "DESA KAYANGAN",
+            "lat": 5.442533,
+            "lon": 103.049297
+          },
+          {
+            "stop_id": "3989",
+            "stop_name": "TAMAN DESA KAYANGAN",
+            "lat": 5.4443735,
+            "lon": 103.0482584
+          },
+          {
+            "stop_id": "3990",
+            "stop_name": "KAMPUNG BATU RAKIT",
+            "lat": 5.446629,
+            "lon": 103.0466827
+          },
+          {
+            "stop_id": "3991",
+            "stop_name": "SK BATU RAKIT",
+            "lat": 5.4482691,
+            "lon": 103.0456496
+          },
+          {
+            "stop_id": "6975",
+            "stop_name": "PUSAT KHIDMAT MASYARAKAT ADUN BATU RAKIT",
+            "lat": 5.449756,
+            "lon": 103.04537
+          },
+          {
+            "stop_id": "6339",
+            "stop_name": "HENTIAN BATU RAKIT",
+            "lat": 5.450886,
+            "lon": 103.046194
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "BATU RAKIT - KUALA TERENGGANU (PAGI)",
+        "shape_id": "SHP_30375_1",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6339",
+            "stop_name": "HENTIAN BATU RAKIT",
+            "lat": 5.450886,
+            "lon": 103.046194
+          },
+          {
+            "stop_id": "6975",
+            "stop_name": "PUSAT KHIDMAT MASYARAKAT ADUN BATU RAKIT",
+            "lat": 5.449756,
+            "lon": 103.04537
+          },
+          {
+            "stop_id": "3991",
+            "stop_name": "SK BATU RAKIT",
+            "lat": 5.4482691,
+            "lon": 103.0456496
+          },
+          {
+            "stop_id": "3990",
+            "stop_name": "KAMPUNG BATU RAKIT",
+            "lat": 5.446629,
+            "lon": 103.0466827
+          },
+          {
+            "stop_id": "3989",
+            "stop_name": "TAMAN DESA KAYANGAN",
+            "lat": 5.4443735,
+            "lon": 103.0482584
+          },
+          {
+            "stop_id": "6715",
+            "stop_name": "DESA KAYANGAN",
+            "lat": 5.442533,
+            "lon": 103.049297
+          },
+          {
+            "stop_id": "3988",
+            "stop_name": "TAMAN NIRWANA",
+            "lat": 5.439974,
+            "lon": 103.050634
+          },
+          {
+            "stop_id": "6974",
+            "stop_name": "KAMPUNG MENGKABANG KAPAL",
+            "lat": 5.438064,
+            "lon": 103.05167
+          },
+          {
+            "stop_id": "3986",
+            "stop_name": "KAMPUNG MENGABANG TELONG 2",
+            "lat": 5.4361025,
+            "lon": 103.0526757
+          },
+          {
+            "stop_id": "3985",
+            "stop_name": "KAMPUNG MENGABANG TELONG 1",
+            "lat": 5.432419,
+            "lon": 103.05467
+          },
+          {
+            "stop_id": "3984",
+            "stop_name": "TAMAN PERUMAHAN WAKAF TENGAH",
+            "lat": 5.4295183,
+            "lon": 103.0561542
+          },
+          {
+            "stop_id": "3983",
+            "stop_name": "KLINIK KESIHATAN BATU RAKIT",
+            "lat": 5.425862,
+            "lon": 103.058722
+          },
+          {
+            "stop_id": "3982",
+            "stop_name": "SK KOMPLEKS MENGABANG TELIPOT",
+            "lat": 5.4244691,
+            "lon": 103.0598691
+          },
+          {
+            "stop_id": "3981",
+            "stop_name": "MRSM KUALA TERENGGANU / IPG BATU RAKIT",
+            "lat": 5.420218,
+            "lon": 103.062045
+          },
+          {
+            "stop_id": "3980",
+            "stop_name": "BALAI POLIS MENGABANG TELIPOT",
+            "lat": 5.415949,
+            "lon": 103.065411
+          },
+          {
+            "stop_id": "3979",
+            "stop_name": "MASJID PADANG NENAS",
+            "lat": 5.414397,
+            "lon": 103.06653
+          },
+          {
+            "stop_id": "3978",
+            "stop_name": "KAMPUNG PADANG NENAS",
+            "lat": 5.4127349,
+            "lon": 103.0685383
+          },
+          {
+            "stop_id": "3977",
+            "stop_name": "KAMPUNG GONG PAK JIN",
+            "lat": 5.4099865,
+            "lon": 103.077354
+          },
+          {
+            "stop_id": "3976",
+            "stop_name": "KAMPUNG GONG DATUK",
+            "lat": 5.409608,
+            "lon": 103.07935
+          },
+          {
+            "stop_id": "3975",
+            "stop_name": "UNISZA PINTU B",
+            "lat": 5.409111,
+            "lon": 103.081594
+          },
+          {
+            "stop_id": "6969",
+            "stop_name": "UNISZA B (KELUAR)",
+            "lat": 5.409402,
+            "lon": 103.08017
+          },
+          {
+            "stop_id": "6968",
+            "stop_name": "UNISZA A (MASUK)",
+            "lat": 5.4093814,
+            "lon": 103.08062
+          },
+          {
+            "stop_id": "6967",
+            "stop_name": "BULATAN KG TAK TUYU",
+            "lat": 5.407937,
+            "lon": 103.08494
+          },
+          {
+            "stop_id": "6966",
+            "stop_name": "UNIVERSITI MALAYSIA TERENGGANU 1",
+            "lat": 5.4031606,
+            "lon": 103.09036
+          },
+          {
+            "stop_id": "6964",
+            "stop_name": "KEM PGA GONG BADAK",
+            "lat": 5.399194,
+            "lon": 103.092705
+          },
+          {
+            "stop_id": "6962",
+            "stop_name": "TAMAN DESA WIRA",
+            "lat": 5.3958335,
+            "lon": 103.09451
+          },
+          {
+            "stop_id": "6961",
+            "stop_name": "TAMAN DESA PERWIRA",
+            "lat": 5.3930316,
+            "lon": 103.09602
+          },
+          {
+            "stop_id": "6960",
+            "stop_name": "SK TOK JEMBAL",
+            "lat": 5.390666,
+            "lon": 103.097242
+          },
+          {
+            "stop_id": "6958",
+            "stop_name": "TAMAN MURNI PERMAI",
+            "lat": 5.385372,
+            "lon": 103.10013
+          },
+          {
+            "stop_id": "6956",
+            "stop_name": "DEWAN SERBAGUNA KG PAK TIJAH",
+            "lat": 5.383149,
+            "lon": 103.10052
+          },
+          {
+            "stop_id": "6955",
+            "stop_name": "BALAI RAYA KG PAK TIJAH",
+            "lat": 5.3816857,
+            "lon": 103.09625
+          },
+          {
+            "stop_id": "6953",
+            "stop_name": "QUINARA",
+            "lat": 5.380827,
+            "lon": 103.094193
+          },
+          {
+            "stop_id": "6951",
+            "stop_name": "SIMPANG PADANG GOLF",
+            "lat": 5.3800116,
+            "lon": 103.09192
+          },
+          {
+            "stop_id": "6950",
+            "stop_name": "SIMPANG JALAN DAMAI",
+            "lat": 5.378955,
+            "lon": 103.087426
+          },
+          {
+            "stop_id": "6948",
+            "stop_name": "HADAMI REST HOUSE",
+            "lat": 5.377767,
+            "lon": 103.085343
+          },
+          {
+            "stop_id": "3959",
+            "stop_name": "KAMPUNG BARU GONG BADAK",
+            "lat": 5.3757963,
+            "lon": 103.0841237
+          },
+          {
+            "stop_id": "3770",
+            "stop_name": "TAMAN SETIA JAYA",
+            "lat": 5.3715408,
+            "lon": 103.0854283
+          },
+          {
+            "stop_id": "3769",
+            "stop_name": "TAMAN SRI JAYA",
+            "lat": 5.3679921,
+            "lon": 103.08775
+          },
+          {
+            "stop_id": "3768",
+            "stop_name": "PETRONAS WAKAF BARU",
+            "lat": 5.3650767,
+            "lon": 103.0896957
+          },
+          {
+            "stop_id": "6946",
+            "stop_name": "SM TEKNIK KUALA TERENGGANU",
+            "lat": 5.3619366,
+            "lon": 103.09172
+          },
+          {
+            "stop_id": "3766",
+            "stop_name": "SM SAINS SULTAN MAHMUD",
+            "lat": 5.3609059,
+            "lon": 103.0921858
+          },
+          {
+            "stop_id": "3764",
+            "stop_name": "KOLEJ VOKASIONAL WAKAF TEMBESU",
+            "lat": 5.358457,
+            "lon": 103.093736
+          },
+          {
+            "stop_id": "6380",
+            "stop_name": "MYDIN GONG BADAK",
+            "lat": 5.3552947,
+            "lon": 103.09517
+          },
+          {
+            "stop_id": "6945",
+            "stop_name": "BANGGOL AYER LILIN",
+            "lat": 5.3516955,
+            "lon": 103.09312
+          },
+          {
+            "stop_id": "6944",
+            "stop_name": "SURAU BATU ENAM",
+            "lat": 5.348595,
+            "lon": 103.09265
+          },
+          {
+            "stop_id": "6943",
+            "stop_name": "PASAR BATU ENAM",
+            "lat": 5.346638,
+            "lon": 103.09226
+          },
+          {
+            "stop_id": "6942",
+            "stop_name": "PEJABAT HUTAN DAERAH KUALA TERENGGANU",
+            "lat": 5.342253,
+            "lon": 103.09086
+          },
+          {
+            "stop_id": "6941",
+            "stop_name": "ECO SHOP MANIR",
+            "lat": 5.333243,
+            "lon": 103.086558
+          },
+          {
+            "stop_id": "6940",
+            "stop_name": "BANGGOL TUAN MUDA",
+            "lat": 5.330417,
+            "lon": 103.085206
+          },
+          {
+            "stop_id": "6939",
+            "stop_name": "KG KUBANG JELA",
+            "lat": 5.324361,
+            "lon": 103.082308
+          },
+          {
+            "stop_id": "6938",
+            "stop_name": "SMK HJ ABDUL RAHMAN LIMBONG",
+            "lat": 5.321737,
+            "lon": 103.081058
+          },
+          {
+            "stop_id": "6937",
+            "stop_name": "MARDI MANIR",
+            "lat": 5.314944,
+            "lon": 103.08004
+          },
+          {
+            "stop_id": "6936",
+            "stop_name": "PEJABAT POS MALAYSIA MANIR",
+            "lat": 5.311301,
+            "lon": 103.082923
+          },
+          {
+            "stop_id": "6927",
+            "stop_name": "SIMPANG SK MANIR",
+            "lat": 5.310699,
+            "lon": 103.084216
+          },
+          {
+            "stop_id": "6926",
+            "stop_name": "JALAN BALAI POLIS MANIR",
+            "lat": 5.310325,
+            "lon": 103.0859
+          },
+          {
+            "stop_id": "6925",
+            "stop_name": "MAT LEH IKAN SEGAR/PULAU RUSA",
+            "lat": 5.3092966,
+            "lon": 103.09467
+          },
+          {
+            "stop_id": "6367",
+            "stop_name": "MASJID AT TAQWA",
+            "lat": 5.308195,
+            "lon": 103.104385
+          },
+          {
+            "stop_id": "6366",
+            "stop_name": "MASJID LAMA DURIAN BURUNG",
+            "lat": 5.3075914,
+            "lon": 103.109764
+          },
+          {
+            "stop_id": "6924",
+            "stop_name": "SK PUSAT CHABANG TIGA",
+            "lat": 5.3063564,
+            "lon": 103.12112
+          },
+          {
+            "stop_id": "6850",
+            "stop_name": "PERUMAHAN POLIS PADANG HILIRAN",
+            "lat": 5.308353,
+            "lon": 103.127119
+          },
+          {
+            "stop_id": "4152",
+            "stop_name": "WISMA PELADANG KUALA TERENGGANU",
+            "lat": 5.309587,
+            "lon": 103.129684
+          },
+          {
+            "stop_id": "6923",
+            "stop_name": "MYDIN MALL KUALA TERENGGANU",
+            "lat": 5.310178,
+            "lon": 103.130956
+          },
+          {
+            "stop_id": "6849",
+            "stop_name": "KOMPLEKS MAHKAMAH KUALA TERENGGANU",
+            "lat": 5.312561,
+            "lon": 103.136389
+          },
+          {
+            "stop_id": "4184",
+            "stop_name": "SK Gong Kapas",
+            "lat": 5.3141539,
+            "lon": 103.1426689
+          },
+          {
+            "stop_id": "6922",
+            "stop_name": "SMK KHAIRIAH JALAN SULTAN MOHAMAD",
+            "lat": 5.316,
+            "lon": 103.144817
+          },
+          {
+            "stop_id": "6362",
+            "stop_name": "OPPOSITE SMA KHAIRIAH JALAN SULTAN OMAR",
+            "lat": 5.316356,
+            "lon": 103.144844
+          },
+          {
+            "stop_id": "4183",
+            "stop_name": "Yayasan Pembangunan Keluarga",
+            "lat": 5.3204606,
+            "lon": 103.1424886
+          },
+          {
+            "stop_id": "6752",
+            "stop_name": "MSU COLLEGE",
+            "lat": 5.324247,
+            "lon": 103.141578
+          },
+          {
+            "stop_id": "6921",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDDIN SHAH",
+            "lat": 5.328819,
+            "lon": 103.139817
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "6340",
+            "stop_name": "TERMINAL MBKT",
+            "lat": 5.33155,
+            "lon": 103.137253
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30376",
+    "route_short_name": "T11B",
+    "route_long_name": "KUALA TERENGGANU - BATU RAKIT (PETANG)",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "KUALA TERENGGANU - BATU RAKIT (PETANG)",
+        "shape_id": "SHP_30376_0",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6340",
+            "stop_name": "TERMINAL MBKT",
+            "lat": 5.33155,
+            "lon": 103.137253
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "6921",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDDIN SHAH",
+            "lat": 5.328819,
+            "lon": 103.139817
+          },
+          {
+            "stop_id": "6752",
+            "stop_name": "MSU COLLEGE",
+            "lat": 5.324247,
+            "lon": 103.141578
+          },
+          {
+            "stop_id": "4183",
+            "stop_name": "Yayasan Pembangunan Keluarga",
+            "lat": 5.3204606,
+            "lon": 103.1424886
+          },
+          {
+            "stop_id": "6362",
+            "stop_name": "OPPOSITE SMA KHAIRIAH JALAN SULTAN OMAR",
+            "lat": 5.316356,
+            "lon": 103.144844
+          },
+          {
+            "stop_id": "6922",
+            "stop_name": "SMK KHAIRIAH JALAN SULTAN MOHAMAD",
+            "lat": 5.316,
+            "lon": 103.144817
+          },
+          {
+            "stop_id": "4184",
+            "stop_name": "SK Gong Kapas",
+            "lat": 5.3141539,
+            "lon": 103.1426689
+          },
+          {
+            "stop_id": "6849",
+            "stop_name": "KOMPLEKS MAHKAMAH KUALA TERENGGANU",
+            "lat": 5.312561,
+            "lon": 103.136389
+          },
+          {
+            "stop_id": "6923",
+            "stop_name": "MYDIN MALL KUALA TERENGGANU",
+            "lat": 5.310178,
+            "lon": 103.130956
+          },
+          {
+            "stop_id": "4152",
+            "stop_name": "WISMA PELADANG KUALA TERENGGANU",
+            "lat": 5.309587,
+            "lon": 103.129684
+          },
+          {
+            "stop_id": "6850",
+            "stop_name": "PERUMAHAN POLIS PADANG HILIRAN",
+            "lat": 5.308353,
+            "lon": 103.127119
+          },
+          {
+            "stop_id": "6924",
+            "stop_name": "SK PUSAT CHABANG TIGA",
+            "lat": 5.3063564,
+            "lon": 103.12112
+          },
+          {
+            "stop_id": "6366",
+            "stop_name": "MASJID LAMA DURIAN BURUNG",
+            "lat": 5.3075914,
+            "lon": 103.109764
+          },
+          {
+            "stop_id": "6367",
+            "stop_name": "MASJID AT TAQWA",
+            "lat": 5.308195,
+            "lon": 103.104385
+          },
+          {
+            "stop_id": "6925",
+            "stop_name": "MAT LEH IKAN SEGAR/PULAU RUSA",
+            "lat": 5.3092966,
+            "lon": 103.09467
+          },
+          {
+            "stop_id": "6926",
+            "stop_name": "JALAN BALAI POLIS MANIR",
+            "lat": 5.310325,
+            "lon": 103.0859
+          },
+          {
+            "stop_id": "6976",
+            "stop_name": "SK MANIR",
+            "lat": 5.310128,
+            "lon": 103.083664
+          },
+          {
+            "stop_id": "6977",
+            "stop_name": "KG MANIR 1/KG BALOH",
+            "lat": 5.313975,
+            "lon": 103.07603
+          },
+          {
+            "stop_id": "6978",
+            "stop_name": "KG BALOH 2",
+            "lat": 5.3168097,
+            "lon": 103.070496
+          },
+          {
+            "stop_id": "6979",
+            "stop_name": "SK KEBOR AYER",
+            "lat": 5.318217,
+            "lon": 103.066055
+          },
+          {
+            "stop_id": "6980",
+            "stop_name": "KEBOR AYER 1",
+            "lat": 5.321529,
+            "lon": 103.05398
+          },
+          {
+            "stop_id": "6981",
+            "stop_name": "MASJID BANGGOL PERADONG",
+            "lat": 5.324787,
+            "lon": 103.049736
+          },
+          {
+            "stop_id": "6982",
+            "stop_name": "SURAU JERAM",
+            "lat": 5.3283134,
+            "lon": 103.05339
+          },
+          {
+            "stop_id": "6983",
+            "stop_name": "MASJID JERAM",
+            "lat": 5.332052,
+            "lon": 103.05813
+          },
+          {
+            "stop_id": "6984",
+            "stop_name": "TANJUNG SABTU 1",
+            "lat": 5.339029,
+            "lon": 103.063866
+          },
+          {
+            "stop_id": "6985",
+            "stop_name": "MASJID KG TANJUNG SABTU",
+            "lat": 5.340774,
+            "lon": 103.06549
+          },
+          {
+            "stop_id": "6986",
+            "stop_name": "JALAN KUBUR BINJAI",
+            "lat": 5.339895,
+            "lon": 103.07573
+          },
+          {
+            "stop_id": "6987",
+            "stop_name": "MASJID TOK KU PETAI BUBUS",
+            "lat": 5.339162,
+            "lon": 103.07859
+          },
+          {
+            "stop_id": "6988",
+            "stop_name": "KLINIK KESIHATAN PAYA DATU",
+            "lat": 5.338335,
+            "lon": 103.08481
+          },
+          {
+            "stop_id": "6989",
+            "stop_name": "DEWAN SIVIK BULUH GADING",
+            "lat": 5.337451,
+            "lon": 103.08763
+          },
+          {
+            "stop_id": "6942",
+            "stop_name": "PEJABAT HUTAN DAERAH KUALA TERENGGANU",
+            "lat": 5.342253,
+            "lon": 103.09086
+          },
+          {
+            "stop_id": "6943",
+            "stop_name": "PASAR BATU ENAM",
+            "lat": 5.346638,
+            "lon": 103.09226
+          },
+          {
+            "stop_id": "6944",
+            "stop_name": "SURAU BATU ENAM",
+            "lat": 5.348595,
+            "lon": 103.09265
+          },
+          {
+            "stop_id": "6945",
+            "stop_name": "BANGGOL AYER LILIN",
+            "lat": 5.3516955,
+            "lon": 103.09312
+          },
+          {
+            "stop_id": "6380",
+            "stop_name": "MYDIN GONG BADAK",
+            "lat": 5.3552947,
+            "lon": 103.09517
+          },
+          {
+            "stop_id": "3764",
+            "stop_name": "KOLEJ VOKASIONAL WAKAF TEMBESU",
+            "lat": 5.358457,
+            "lon": 103.093736
+          },
+          {
+            "stop_id": "3766",
+            "stop_name": "SM SAINS SULTAN MAHMUD",
+            "lat": 5.3609059,
+            "lon": 103.0921858
+          },
+          {
+            "stop_id": "6946",
+            "stop_name": "SM TEKNIK KUALA TERENGGANU",
+            "lat": 5.3619366,
+            "lon": 103.09172
+          },
+          {
+            "stop_id": "3768",
+            "stop_name": "PETRONAS WAKAF BARU",
+            "lat": 5.3650767,
+            "lon": 103.0896957
+          },
+          {
+            "stop_id": "3769",
+            "stop_name": "TAMAN SRI JAYA",
+            "lat": 5.3679921,
+            "lon": 103.08775
+          },
+          {
+            "stop_id": "3770",
+            "stop_name": "TAMAN SETIA JAYA",
+            "lat": 5.3715408,
+            "lon": 103.0854283
+          },
+          {
+            "stop_id": "3959",
+            "stop_name": "KAMPUNG BARU GONG BADAK",
+            "lat": 5.3757963,
+            "lon": 103.0841237
+          },
+          {
+            "stop_id": "6948",
+            "stop_name": "HADAMI REST HOUSE",
+            "lat": 5.377767,
+            "lon": 103.085343
+          },
+          {
+            "stop_id": "6950",
+            "stop_name": "SIMPANG JALAN DAMAI",
+            "lat": 5.378955,
+            "lon": 103.087426
+          },
+          {
+            "stop_id": "6951",
+            "stop_name": "SIMPANG PADANG GOLF",
+            "lat": 5.3800116,
+            "lon": 103.09192
+          },
+          {
+            "stop_id": "6953",
+            "stop_name": "QUINARA",
+            "lat": 5.380827,
+            "lon": 103.094193
+          },
+          {
+            "stop_id": "6955",
+            "stop_name": "BALAI RAYA KG PAK TIJAH",
+            "lat": 5.3816857,
+            "lon": 103.09625
+          },
+          {
+            "stop_id": "6956",
+            "stop_name": "DEWAN SERBAGUNA KG PAK TIJAH",
+            "lat": 5.383149,
+            "lon": 103.10052
+          },
+          {
+            "stop_id": "6958",
+            "stop_name": "TAMAN MURNI PERMAI",
+            "lat": 5.385372,
+            "lon": 103.10013
+          },
+          {
+            "stop_id": "6960",
+            "stop_name": "SK TOK JEMBAL",
+            "lat": 5.390666,
+            "lon": 103.097242
+          },
+          {
+            "stop_id": "6961",
+            "stop_name": "TAMAN DESA PERWIRA",
+            "lat": 5.3930316,
+            "lon": 103.09602
+          },
+          {
+            "stop_id": "6962",
+            "stop_name": "TAMAN DESA WIRA",
+            "lat": 5.3958335,
+            "lon": 103.09451
+          },
+          {
+            "stop_id": "6964",
+            "stop_name": "KEM PGA GONG BADAK",
+            "lat": 5.399194,
+            "lon": 103.092705
+          },
+          {
+            "stop_id": "6966",
+            "stop_name": "UNIVERSITI MALAYSIA TERENGGANU 1",
+            "lat": 5.4031606,
+            "lon": 103.09036
+          },
+          {
+            "stop_id": "6967",
+            "stop_name": "BULATAN KG TAK TUYU",
+            "lat": 5.407937,
+            "lon": 103.08494
+          },
+          {
+            "stop_id": "6968",
+            "stop_name": "UNISZA A (MASUK)",
+            "lat": 5.4093814,
+            "lon": 103.08062
+          },
+          {
+            "stop_id": "6969",
+            "stop_name": "UNISZA B (KELUAR)",
+            "lat": 5.409402,
+            "lon": 103.08017
+          },
+          {
+            "stop_id": "3975",
+            "stop_name": "UNISZA PINTU B",
+            "lat": 5.409111,
+            "lon": 103.081594
+          },
+          {
+            "stop_id": "3976",
+            "stop_name": "KAMPUNG GONG DATUK",
+            "lat": 5.409608,
+            "lon": 103.07935
+          },
+          {
+            "stop_id": "3977",
+            "stop_name": "KAMPUNG GONG PAK JIN",
+            "lat": 5.4099865,
+            "lon": 103.077354
+          },
+          {
+            "stop_id": "3978",
+            "stop_name": "KAMPUNG PADANG NENAS",
+            "lat": 5.4127349,
+            "lon": 103.0685383
+          },
+          {
+            "stop_id": "3979",
+            "stop_name": "MASJID PADANG NENAS",
+            "lat": 5.414397,
+            "lon": 103.06653
+          },
+          {
+            "stop_id": "3980",
+            "stop_name": "BALAI POLIS MENGABANG TELIPOT",
+            "lat": 5.415949,
+            "lon": 103.065411
+          },
+          {
+            "stop_id": "3981",
+            "stop_name": "MRSM KUALA TERENGGANU / IPG BATU RAKIT",
+            "lat": 5.420218,
+            "lon": 103.062045
+          },
+          {
+            "stop_id": "3982",
+            "stop_name": "SK KOMPLEKS MENGABANG TELIPOT",
+            "lat": 5.4244691,
+            "lon": 103.0598691
+          },
+          {
+            "stop_id": "3983",
+            "stop_name": "KLINIK KESIHATAN BATU RAKIT",
+            "lat": 5.425862,
+            "lon": 103.058722
+          },
+          {
+            "stop_id": "3984",
+            "stop_name": "TAMAN PERUMAHAN WAKAF TENGAH",
+            "lat": 5.4295183,
+            "lon": 103.0561542
+          },
+          {
+            "stop_id": "3985",
+            "stop_name": "KAMPUNG MENGABANG TELONG 1",
+            "lat": 5.432419,
+            "lon": 103.05467
+          },
+          {
+            "stop_id": "3986",
+            "stop_name": "KAMPUNG MENGABANG TELONG 2",
+            "lat": 5.4361025,
+            "lon": 103.0526757
+          },
+          {
+            "stop_id": "6974",
+            "stop_name": "KAMPUNG MENGKABANG KAPAL",
+            "lat": 5.438064,
+            "lon": 103.05167
+          },
+          {
+            "stop_id": "3988",
+            "stop_name": "TAMAN NIRWANA",
+            "lat": 5.439974,
+            "lon": 103.050634
+          },
+          {
+            "stop_id": "6715",
+            "stop_name": "DESA KAYANGAN",
+            "lat": 5.442533,
+            "lon": 103.049297
+          },
+          {
+            "stop_id": "3989",
+            "stop_name": "TAMAN DESA KAYANGAN",
+            "lat": 5.4443735,
+            "lon": 103.0482584
+          },
+          {
+            "stop_id": "3990",
+            "stop_name": "KAMPUNG BATU RAKIT",
+            "lat": 5.446629,
+            "lon": 103.0466827
+          },
+          {
+            "stop_id": "3991",
+            "stop_name": "SK BATU RAKIT",
+            "lat": 5.4482691,
+            "lon": 103.0456496
+          },
+          {
+            "stop_id": "6975",
+            "stop_name": "PUSAT KHIDMAT MASYARAKAT ADUN BATU RAKIT",
+            "lat": 5.449756,
+            "lon": 103.04537
+          },
+          {
+            "stop_id": "6339",
+            "stop_name": "HENTIAN BATU RAKIT",
+            "lat": 5.450886,
+            "lon": 103.046194
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "BATU RAKIT - KUALA TERENGGANU (PETANG)",
+        "shape_id": "SHP_30376_1",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6339",
+            "stop_name": "HENTIAN BATU RAKIT",
+            "lat": 5.450886,
+            "lon": 103.046194
+          },
+          {
+            "stop_id": "6975",
+            "stop_name": "PUSAT KHIDMAT MASYARAKAT ADUN BATU RAKIT",
+            "lat": 5.449756,
+            "lon": 103.04537
+          },
+          {
+            "stop_id": "3991",
+            "stop_name": "SK BATU RAKIT",
+            "lat": 5.4482691,
+            "lon": 103.0456496
+          },
+          {
+            "stop_id": "3990",
+            "stop_name": "KAMPUNG BATU RAKIT",
+            "lat": 5.446629,
+            "lon": 103.0466827
+          },
+          {
+            "stop_id": "3989",
+            "stop_name": "TAMAN DESA KAYANGAN",
+            "lat": 5.4443735,
+            "lon": 103.0482584
+          },
+          {
+            "stop_id": "6715",
+            "stop_name": "DESA KAYANGAN",
+            "lat": 5.442533,
+            "lon": 103.049297
+          },
+          {
+            "stop_id": "3988",
+            "stop_name": "TAMAN NIRWANA",
+            "lat": 5.439974,
+            "lon": 103.050634
+          },
+          {
+            "stop_id": "6974",
+            "stop_name": "KAMPUNG MENGKABANG KAPAL",
+            "lat": 5.438064,
+            "lon": 103.05167
+          },
+          {
+            "stop_id": "3986",
+            "stop_name": "KAMPUNG MENGABANG TELONG 2",
+            "lat": 5.4361025,
+            "lon": 103.0526757
+          },
+          {
+            "stop_id": "3985",
+            "stop_name": "KAMPUNG MENGABANG TELONG 1",
+            "lat": 5.432419,
+            "lon": 103.05467
+          },
+          {
+            "stop_id": "3984",
+            "stop_name": "TAMAN PERUMAHAN WAKAF TENGAH",
+            "lat": 5.4295183,
+            "lon": 103.0561542
+          },
+          {
+            "stop_id": "3983",
+            "stop_name": "KLINIK KESIHATAN BATU RAKIT",
+            "lat": 5.425862,
+            "lon": 103.058722
+          },
+          {
+            "stop_id": "3982",
+            "stop_name": "SK KOMPLEKS MENGABANG TELIPOT",
+            "lat": 5.4244691,
+            "lon": 103.0598691
+          },
+          {
+            "stop_id": "3981",
+            "stop_name": "MRSM KUALA TERENGGANU / IPG BATU RAKIT",
+            "lat": 5.420218,
+            "lon": 103.062045
+          },
+          {
+            "stop_id": "3980",
+            "stop_name": "BALAI POLIS MENGABANG TELIPOT",
+            "lat": 5.415949,
+            "lon": 103.065411
+          },
+          {
+            "stop_id": "3979",
+            "stop_name": "MASJID PADANG NENAS",
+            "lat": 5.414397,
+            "lon": 103.06653
+          },
+          {
+            "stop_id": "3978",
+            "stop_name": "KAMPUNG PADANG NENAS",
+            "lat": 5.4127349,
+            "lon": 103.0685383
+          },
+          {
+            "stop_id": "3977",
+            "stop_name": "KAMPUNG GONG PAK JIN",
+            "lat": 5.4099865,
+            "lon": 103.077354
+          },
+          {
+            "stop_id": "3976",
+            "stop_name": "KAMPUNG GONG DATUK",
+            "lat": 5.409608,
+            "lon": 103.07935
+          },
+          {
+            "stop_id": "3975",
+            "stop_name": "UNISZA PINTU B",
+            "lat": 5.409111,
+            "lon": 103.081594
+          },
+          {
+            "stop_id": "6969",
+            "stop_name": "UNISZA B (KELUAR)",
+            "lat": 5.409402,
+            "lon": 103.08017
+          },
+          {
+            "stop_id": "6968",
+            "stop_name": "UNISZA A (MASUK)",
+            "lat": 5.4093814,
+            "lon": 103.08062
+          },
+          {
+            "stop_id": "6967",
+            "stop_name": "BULATAN KG TAK TUYU",
+            "lat": 5.407937,
+            "lon": 103.08494
+          },
+          {
+            "stop_id": "6966",
+            "stop_name": "UNIVERSITI MALAYSIA TERENGGANU 1",
+            "lat": 5.4031606,
+            "lon": 103.09036
+          },
+          {
+            "stop_id": "6964",
+            "stop_name": "KEM PGA GONG BADAK",
+            "lat": 5.399194,
+            "lon": 103.092705
+          },
+          {
+            "stop_id": "6962",
+            "stop_name": "TAMAN DESA WIRA",
+            "lat": 5.3958335,
+            "lon": 103.09451
+          },
+          {
+            "stop_id": "6961",
+            "stop_name": "TAMAN DESA PERWIRA",
+            "lat": 5.3930316,
+            "lon": 103.09602
+          },
+          {
+            "stop_id": "6960",
+            "stop_name": "SK TOK JEMBAL",
+            "lat": 5.390666,
+            "lon": 103.097242
+          },
+          {
+            "stop_id": "6958",
+            "stop_name": "TAMAN MURNI PERMAI",
+            "lat": 5.385372,
+            "lon": 103.10013
+          },
+          {
+            "stop_id": "6956",
+            "stop_name": "DEWAN SERBAGUNA KG PAK TIJAH",
+            "lat": 5.383149,
+            "lon": 103.10052
+          },
+          {
+            "stop_id": "6955",
+            "stop_name": "BALAI RAYA KG PAK TIJAH",
+            "lat": 5.3816857,
+            "lon": 103.09625
+          },
+          {
+            "stop_id": "6953",
+            "stop_name": "QUINARA",
+            "lat": 5.380827,
+            "lon": 103.094193
+          },
+          {
+            "stop_id": "6951",
+            "stop_name": "SIMPANG PADANG GOLF",
+            "lat": 5.3800116,
+            "lon": 103.09192
+          },
+          {
+            "stop_id": "6950",
+            "stop_name": "SIMPANG JALAN DAMAI",
+            "lat": 5.378955,
+            "lon": 103.087426
+          },
+          {
+            "stop_id": "6948",
+            "stop_name": "HADAMI REST HOUSE",
+            "lat": 5.377767,
+            "lon": 103.085343
+          },
+          {
+            "stop_id": "3959",
+            "stop_name": "KAMPUNG BARU GONG BADAK",
+            "lat": 5.3757963,
+            "lon": 103.0841237
+          },
+          {
+            "stop_id": "3770",
+            "stop_name": "TAMAN SETIA JAYA",
+            "lat": 5.3715408,
+            "lon": 103.0854283
+          },
+          {
+            "stop_id": "3769",
+            "stop_name": "TAMAN SRI JAYA",
+            "lat": 5.3679921,
+            "lon": 103.08775
+          },
+          {
+            "stop_id": "3768",
+            "stop_name": "PETRONAS WAKAF BARU",
+            "lat": 5.3650767,
+            "lon": 103.0896957
+          },
+          {
+            "stop_id": "6946",
+            "stop_name": "SM TEKNIK KUALA TERENGGANU",
+            "lat": 5.3619366,
+            "lon": 103.09172
+          },
+          {
+            "stop_id": "3766",
+            "stop_name": "SM SAINS SULTAN MAHMUD",
+            "lat": 5.3609059,
+            "lon": 103.0921858
+          },
+          {
+            "stop_id": "3764",
+            "stop_name": "KOLEJ VOKASIONAL WAKAF TEMBESU",
+            "lat": 5.358457,
+            "lon": 103.093736
+          },
+          {
+            "stop_id": "6380",
+            "stop_name": "MYDIN GONG BADAK",
+            "lat": 5.3552947,
+            "lon": 103.09517
+          },
+          {
+            "stop_id": "6945",
+            "stop_name": "BANGGOL AYER LILIN",
+            "lat": 5.3516955,
+            "lon": 103.09312
+          },
+          {
+            "stop_id": "6944",
+            "stop_name": "SURAU BATU ENAM",
+            "lat": 5.348595,
+            "lon": 103.09265
+          },
+          {
+            "stop_id": "6943",
+            "stop_name": "PASAR BATU ENAM",
+            "lat": 5.346638,
+            "lon": 103.09226
+          },
+          {
+            "stop_id": "6942",
+            "stop_name": "PEJABAT HUTAN DAERAH KUALA TERENGGANU",
+            "lat": 5.342253,
+            "lon": 103.09086
+          },
+          {
+            "stop_id": "6989",
+            "stop_name": "DEWAN SIVIK BULUH GADING",
+            "lat": 5.337451,
+            "lon": 103.08763
+          },
+          {
+            "stop_id": "6988",
+            "stop_name": "KLINIK KESIHATAN PAYA DATU",
+            "lat": 5.338335,
+            "lon": 103.08481
+          },
+          {
+            "stop_id": "6987",
+            "stop_name": "MASJID TOK KU PETAI BUBUS",
+            "lat": 5.339162,
+            "lon": 103.07859
+          },
+          {
+            "stop_id": "6986",
+            "stop_name": "JALAN KUBUR BINJAI",
+            "lat": 5.339895,
+            "lon": 103.07573
+          },
+          {
+            "stop_id": "6985",
+            "stop_name": "MASJID KG TANJUNG SABTU",
+            "lat": 5.340774,
+            "lon": 103.06549
+          },
+          {
+            "stop_id": "6984",
+            "stop_name": "TANJUNG SABTU 1",
+            "lat": 5.339029,
+            "lon": 103.063866
+          },
+          {
+            "stop_id": "6983",
+            "stop_name": "MASJID JERAM",
+            "lat": 5.332052,
+            "lon": 103.05813
+          },
+          {
+            "stop_id": "6982",
+            "stop_name": "SURAU JERAM",
+            "lat": 5.3283134,
+            "lon": 103.05339
+          },
+          {
+            "stop_id": "6981",
+            "stop_name": "MASJID BANGGOL PERADONG",
+            "lat": 5.324787,
+            "lon": 103.049736
+          },
+          {
+            "stop_id": "6980",
+            "stop_name": "KEBOR AYER 1",
+            "lat": 5.321529,
+            "lon": 103.05398
+          },
+          {
+            "stop_id": "6979",
+            "stop_name": "SK KEBOR AYER",
+            "lat": 5.318217,
+            "lon": 103.066055
+          },
+          {
+            "stop_id": "6978",
+            "stop_name": "KG BALOH 2",
+            "lat": 5.3168097,
+            "lon": 103.070496
+          },
+          {
+            "stop_id": "6977",
+            "stop_name": "KG MANIR 1/KG BALOH",
+            "lat": 5.313975,
+            "lon": 103.07603
+          },
+          {
+            "stop_id": "6976",
+            "stop_name": "SK MANIR",
+            "lat": 5.310128,
+            "lon": 103.083664
+          },
+          {
+            "stop_id": "6926",
+            "stop_name": "JALAN BALAI POLIS MANIR",
+            "lat": 5.310325,
+            "lon": 103.0859
+          },
+          {
+            "stop_id": "6925",
+            "stop_name": "MAT LEH IKAN SEGAR/PULAU RUSA",
+            "lat": 5.3092966,
+            "lon": 103.09467
+          },
+          {
+            "stop_id": "6367",
+            "stop_name": "MASJID AT TAQWA",
+            "lat": 5.308195,
+            "lon": 103.104385
+          },
+          {
+            "stop_id": "6366",
+            "stop_name": "MASJID LAMA DURIAN BURUNG",
+            "lat": 5.3075914,
+            "lon": 103.109764
+          },
+          {
+            "stop_id": "6924",
+            "stop_name": "SK PUSAT CHABANG TIGA",
+            "lat": 5.3063564,
+            "lon": 103.12112
+          },
+          {
+            "stop_id": "6850",
+            "stop_name": "PERUMAHAN POLIS PADANG HILIRAN",
+            "lat": 5.308353,
+            "lon": 103.127119
+          },
+          {
+            "stop_id": "4152",
+            "stop_name": "WISMA PELADANG KUALA TERENGGANU",
+            "lat": 5.309587,
+            "lon": 103.129684
+          },
+          {
+            "stop_id": "6923",
+            "stop_name": "MYDIN MALL KUALA TERENGGANU",
+            "lat": 5.310178,
+            "lon": 103.130956
+          },
+          {
+            "stop_id": "6849",
+            "stop_name": "KOMPLEKS MAHKAMAH KUALA TERENGGANU",
+            "lat": 5.312561,
+            "lon": 103.136389
+          },
+          {
+            "stop_id": "4184",
+            "stop_name": "SK Gong Kapas",
+            "lat": 5.3141539,
+            "lon": 103.1426689
+          },
+          {
+            "stop_id": "6922",
+            "stop_name": "SMK KHAIRIAH JALAN SULTAN MOHAMAD",
+            "lat": 5.316,
+            "lon": 103.144817
+          },
+          {
+            "stop_id": "6362",
+            "stop_name": "OPPOSITE SMA KHAIRIAH JALAN SULTAN OMAR",
+            "lat": 5.316356,
+            "lon": 103.144844
+          },
+          {
+            "stop_id": "4183",
+            "stop_name": "Yayasan Pembangunan Keluarga",
+            "lat": 5.3204606,
+            "lon": 103.1424886
+          },
+          {
+            "stop_id": "6752",
+            "stop_name": "MSU COLLEGE",
+            "lat": 5.324247,
+            "lon": 103.141578
+          },
+          {
+            "stop_id": "6921",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDDIN SHAH",
+            "lat": 5.328819,
+            "lon": 103.139817
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "6340",
+            "stop_name": "TERMINAL MBKT",
+            "lat": 5.33155,
+            "lon": 103.137253
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30377",
+    "route_short_name": "T22",
+    "route_long_name": "KUALA TERENGGANU - KUALA BERANG",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "KUALA TERENGGANU - KUALA BERANG",
+        "shape_id": "SHP_30377_0",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6340",
+            "stop_name": "TERMINAL MBKT",
+            "lat": 5.33155,
+            "lon": 103.137253
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "4154",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDIN SHAH",
+            "lat": 5.3288232,
+            "lon": 103.1398256
+          },
+          {
+            "stop_id": "4127",
+            "stop_name": "JALAN PEJABAT",
+            "lat": 5.3282373,
+            "lon": 103.1436998
+          },
+          {
+            "stop_id": "6848",
+            "stop_name": "MASJID AL-MEKHTAFI BILLAH SHAH",
+            "lat": 5.327219,
+            "lon": 103.14745
+          },
+          {
+            "stop_id": "4141",
+            "stop_name": "HOSPITAL SULTANAH NUR ZAHIRAH",
+            "lat": 5.3246217,
+            "lon": 103.149826
+          },
+          {
+            "stop_id": "4155",
+            "stop_name": "SIMPANG PANTAI BATU BUROK",
+            "lat": 5.3198096,
+            "lon": 103.1532315
+          },
+          {
+            "stop_id": "4146",
+            "stop_name": "KUALA TERENGGANU SPECIALIST HOSPITAL",
+            "lat": 5.318922,
+            "lon": 103.153372
+          },
+          {
+            "stop_id": "4181",
+            "stop_name": "SMA KHAIRIAH JALAN SULTAN MOHAMAD",
+            "lat": 5.3147041,
+            "lon": 103.1441175
+          },
+          {
+            "stop_id": "4184",
+            "stop_name": "SK Gong Kapas",
+            "lat": 5.3141539,
+            "lon": 103.1426689
+          },
+          {
+            "stop_id": "6849",
+            "stop_name": "KOMPLEKS MAHKAMAH KUALA TERENGGANU",
+            "lat": 5.312561,
+            "lon": 103.136389
+          },
+          {
+            "stop_id": "4153",
+            "stop_name": "MYDIN KUALA TERENGGANU",
+            "lat": 5.3121054,
+            "lon": 103.1311467
+          },
+          {
+            "stop_id": "4152",
+            "stop_name": "WISMA PELADANG KUALA TERENGGANU",
+            "lat": 5.309587,
+            "lon": 103.129684
+          },
+          {
+            "stop_id": "6850",
+            "stop_name": "PERUMAHAN POLIS PADANG HILIRAN",
+            "lat": 5.308353,
+            "lon": 103.127119
+          },
+          {
+            "stop_id": "6851",
+            "stop_name": "WAKAF BERUAS/RESTORAN DAPUR ARANG",
+            "lat": 5.30125,
+            "lon": 103.120739
+          },
+          {
+            "stop_id": "6852",
+            "stop_name": "KLINIK ANDA",
+            "lat": 5.299575,
+            "lon": 103.1198
+          },
+          {
+            "stop_id": "3548",
+            "stop_name": "BANGGOL PAUH",
+            "lat": 5.295514,
+            "lon": 103.117458
+          },
+          {
+            "stop_id": "6853",
+            "stop_name": "KLINIK DESA GONG PAUH/PEJABAT PERTANIAN KUALA TERENGGANU",
+            "lat": 5.291536,
+            "lon": 103.115169
+          },
+          {
+            "stop_id": "6854",
+            "stop_name": "KAMPUNG KUBANG TANGGA",
+            "lat": 5.288397,
+            "lon": 103.113239
+          },
+          {
+            "stop_id": "6855",
+            "stop_name": "WAKAF MEMPELAM",
+            "lat": 5.286328,
+            "lon": 103.112081
+          },
+          {
+            "stop_id": "6856",
+            "stop_name": "GONG KIAT",
+            "lat": 5.270211,
+            "lon": 103.103011
+          },
+          {
+            "stop_id": "6857",
+            "stop_name": "SMK PADANG MIDIN",
+            "lat": 5.2646,
+            "lon": 103.0999
+          },
+          {
+            "stop_id": "6858",
+            "stop_name": "SMK TUN TELANAI",
+            "lat": 5.258056,
+            "lon": 103.096219
+          },
+          {
+            "stop_id": "6859",
+            "stop_name": "WAKAF DUA",
+            "lat": 5.245461,
+            "lon": 103.096503
+          },
+          {
+            "stop_id": "6860",
+            "stop_name": "KLINIK KESIHATAN BUKIT PAYONG",
+            "lat": 5.235336,
+            "lon": 103.099839
+          },
+          {
+            "stop_id": "6861",
+            "stop_name": "PEKAN BUKIT PAYONG",
+            "lat": 5.232403,
+            "lon": 103.10225
+          },
+          {
+            "stop_id": "6862",
+            "stop_name": "DATARAN BUKIT PAYONG",
+            "lat": 5.230172,
+            "lon": 103.104311
+          },
+          {
+            "stop_id": "6863",
+            "stop_name": "TAMAN AL AMIN/JABATAN PERTANIAN",
+            "lat": 5.227958,
+            "lon": 103.106089
+          },
+          {
+            "stop_id": "6864",
+            "stop_name": "KAMPUNG BATU 9",
+            "lat": 5.223017,
+            "lon": 103.107289
+          },
+          {
+            "stop_id": "6865",
+            "stop_name": "MASJID PADANG MENGKUANG",
+            "lat": 5.218506,
+            "lon": 103.105961
+          },
+          {
+            "stop_id": "6866",
+            "stop_name": "TAMAN SAFIAH MURNI",
+            "lat": 5.212039,
+            "lon": 103.104003
+          },
+          {
+            "stop_id": "6867",
+            "stop_name": "PETRONAS BATU 10 BUKIT PAYONG",
+            "lat": 5.208497,
+            "lon": 103.1034
+          },
+          {
+            "stop_id": "6868",
+            "stop_name": "BINJAI RENDAH",
+            "lat": 5.203228,
+            "lon": 103.102619
+          },
+          {
+            "stop_id": "6890",
+            "stop_name": "KLINIK KESIHATAN BINJAI RENDAH",
+            "lat": 5.193433,
+            "lon": 103.100711
+          },
+          {
+            "stop_id": "6891",
+            "stop_name": "SK BUKIT SAWA",
+            "lat": 5.189286,
+            "lon": 103.099261
+          },
+          {
+            "stop_id": "6892",
+            "stop_name": "SMK BUKIT SAWA",
+            "lat": 5.187375,
+            "lon": 103.097969
+          },
+          {
+            "stop_id": "6893",
+            "stop_name": "SIMPANG KAMPUNG BELUKAR GOREK",
+            "lat": 5.184017,
+            "lon": 103.093439
+          },
+          {
+            "stop_id": "6894",
+            "stop_name": "SMKA DURIAN GULING",
+            "lat": 5.179014,
+            "lon": 103.089361
+          },
+          {
+            "stop_id": "6895",
+            "stop_name": "TAMAN CERANG PERDANA",
+            "lat": 5.174806,
+            "lon": 103.087667
+          },
+          {
+            "stop_id": "6896",
+            "stop_name": "MASJID AL BAROKAH",
+            "lat": 5.156667,
+            "lon": 103.083689
+          },
+          {
+            "stop_id": "6897",
+            "stop_name": "PETRON KAMPUNG WAKAF TAPAI",
+            "lat": 5.149053,
+            "lon": 103.08465
+          },
+          {
+            "stop_id": "6898",
+            "stop_name": "BALAI BOMBA DAN PENYELAMAT WAKAF TAPAI",
+            "lat": 5.149053,
+            "lon": 103.08465
+          },
+          {
+            "stop_id": "6899",
+            "stop_name": "WAKAF TAPAI",
+            "lat": 5.141369,
+            "lon": 103.086189
+          },
+          {
+            "stop_id": "6900",
+            "stop_name": "PASAR WAKAF TAPAI",
+            "lat": 5.134892,
+            "lon": 103.08665
+          },
+          {
+            "stop_id": "6901",
+            "stop_name": "SJKC CHONG HWA",
+            "lat": 5.132006,
+            "lon": 103.086131
+          },
+          {
+            "stop_id": "6902",
+            "stop_name": "TAMAN ISTIWA",
+            "lat": 5.128583,
+            "lon": 103.085631
+          },
+          {
+            "stop_id": "6903",
+            "stop_name": "OPPOSITE KAMPUNG BATU 18",
+            "lat": 5.105094,
+            "lon": 103.088869
+          },
+          {
+            "stop_id": "6904",
+            "stop_name": "BUKIT PERAPAT",
+            "lat": 5.100281,
+            "lon": 103.090003
+          },
+          {
+            "stop_id": "6905",
+            "stop_name": "PULAI API BATU 18",
+            "lat": 5.096997,
+            "lon": 103.08945
+          },
+          {
+            "stop_id": "6906",
+            "stop_name": "SK BUKIT PERAH",
+            "lat": 5.092917,
+            "lon": 103.088639
+          },
+          {
+            "stop_id": "6907",
+            "stop_name": "PEKAN AJIL",
+            "lat": 5.083131,
+            "lon": 103.086831
+          },
+          {
+            "stop_id": "6908",
+            "stop_name": "KLINIK KESIHATAN AJIL",
+            "lat": 5.081231,
+            "lon": 103.085144
+          },
+          {
+            "stop_id": "6909",
+            "stop_name": "PEDOUA AJIL",
+            "lat": 5.078708,
+            "lon": 103.078925
+          },
+          {
+            "stop_id": "6910",
+            "stop_name": "NSTP AJIL",
+            "lat": 5.07735,
+            "lon": 103.072914
+          },
+          {
+            "stop_id": "6911",
+            "stop_name": "PIMA ACADEMY",
+            "lat": 5.075594,
+            "lon": 103.065475
+          },
+          {
+            "stop_id": "6912",
+            "stop_name": "PMU KUALA BERANG",
+            "lat": 5.072139,
+            "lon": 103.05205
+          },
+          {
+            "stop_id": "6913",
+            "stop_name": "HOSPITAL HULU TERENGGANU",
+            "lat": 5.072472,
+            "lon": 103.046036
+          },
+          {
+            "stop_id": "6914",
+            "stop_name": "JKR DAERAH HULU TERENGGANU",
+            "lat": 5.072694,
+            "lon": 103.043061
+          },
+          {
+            "stop_id": "6915",
+            "stop_name": "PEJABAT AGAMA DAERAH HULU TERENGGANU",
+            "lat": 5.072844,
+            "lon": 103.036289
+          },
+          {
+            "stop_id": "6916",
+            "stop_name": "KBRANG MALL",
+            "lat": 5.073008,
+            "lon": 103.02845
+          },
+          {
+            "stop_id": "6917",
+            "stop_name": "WISMA HAIDA 2",
+            "lat": 5.072903,
+            "lon": 103.0247
+          },
+          {
+            "stop_id": "6918",
+            "stop_name": "PEJABAT PENDIDIKAN DAERAH HULU TERENGGANU",
+            "lat": 5.073672,
+            "lon": 103.020011
+          },
+          {
+            "stop_id": "6919",
+            "stop_name": "IPD KUALA BERANG/RISDA KUALA BERANG",
+            "lat": 5.073528,
+            "lon": 103.016044
+          },
+          {
+            "stop_id": "6920",
+            "stop_name": "MASJID KUALA BERANG",
+            "lat": 5.073325,
+            "lon": 103.012606
+          },
+          {
+            "stop_id": "6341",
+            "stop_name": "TERMINAL BAS KUALA BERANG",
+            "lat": 5.070667,
+            "lon": 103.010956
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "KUALA BERANG - KUALA TERENGGANU",
+        "shape_id": "SHP_30377_1",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6341",
+            "stop_name": "TERMINAL BAS KUALA BERANG",
+            "lat": 5.070667,
+            "lon": 103.010956
+          },
+          {
+            "stop_id": "6920",
+            "stop_name": "MASJID KUALA BERANG",
+            "lat": 5.073325,
+            "lon": 103.012606
+          },
+          {
+            "stop_id": "6919",
+            "stop_name": "IPD KUALA BERANG/RISDA KUALA BERANG",
+            "lat": 5.073528,
+            "lon": 103.016044
+          },
+          {
+            "stop_id": "6918",
+            "stop_name": "PEJABAT PENDIDIKAN DAERAH HULU TERENGGANU",
+            "lat": 5.073672,
+            "lon": 103.020011
+          },
+          {
+            "stop_id": "6917",
+            "stop_name": "WISMA HAIDA 2",
+            "lat": 5.072903,
+            "lon": 103.0247
+          },
+          {
+            "stop_id": "6916",
+            "stop_name": "KBRANG MALL",
+            "lat": 5.073008,
+            "lon": 103.02845
+          },
+          {
+            "stop_id": "6915",
+            "stop_name": "PEJABAT AGAMA DAERAH HULU TERENGGANU",
+            "lat": 5.072844,
+            "lon": 103.036289
+          },
+          {
+            "stop_id": "6914",
+            "stop_name": "JKR DAERAH HULU TERENGGANU",
+            "lat": 5.072694,
+            "lon": 103.043061
+          },
+          {
+            "stop_id": "6913",
+            "stop_name": "HOSPITAL HULU TERENGGANU",
+            "lat": 5.072472,
+            "lon": 103.046036
+          },
+          {
+            "stop_id": "6912",
+            "stop_name": "PMU KUALA BERANG",
+            "lat": 5.072139,
+            "lon": 103.05205
+          },
+          {
+            "stop_id": "6911",
+            "stop_name": "PIMA ACADEMY",
+            "lat": 5.075594,
+            "lon": 103.065475
+          },
+          {
+            "stop_id": "6910",
+            "stop_name": "NSTP AJIL",
+            "lat": 5.07735,
+            "lon": 103.072914
+          },
+          {
+            "stop_id": "6909",
+            "stop_name": "PEDOUA AJIL",
+            "lat": 5.078708,
+            "lon": 103.078925
+          },
+          {
+            "stop_id": "6908",
+            "stop_name": "KLINIK KESIHATAN AJIL",
+            "lat": 5.081231,
+            "lon": 103.085144
+          },
+          {
+            "stop_id": "6907",
+            "stop_name": "PEKAN AJIL",
+            "lat": 5.083131,
+            "lon": 103.086831
+          },
+          {
+            "stop_id": "6906",
+            "stop_name": "SK BUKIT PERAH",
+            "lat": 5.092917,
+            "lon": 103.088639
+          },
+          {
+            "stop_id": "6905",
+            "stop_name": "PULAI API BATU 18",
+            "lat": 5.096997,
+            "lon": 103.08945
+          },
+          {
+            "stop_id": "6904",
+            "stop_name": "BUKIT PERAPAT",
+            "lat": 5.100281,
+            "lon": 103.090003
+          },
+          {
+            "stop_id": "6903",
+            "stop_name": "OPPOSITE KAMPUNG BATU 18",
+            "lat": 5.105094,
+            "lon": 103.088869
+          },
+          {
+            "stop_id": "6902",
+            "stop_name": "TAMAN ISTIWA",
+            "lat": 5.128583,
+            "lon": 103.085631
+          },
+          {
+            "stop_id": "6901",
+            "stop_name": "SJKC CHONG HWA",
+            "lat": 5.132006,
+            "lon": 103.086131
+          },
+          {
+            "stop_id": "6900",
+            "stop_name": "PASAR WAKAF TAPAI",
+            "lat": 5.134892,
+            "lon": 103.08665
+          },
+          {
+            "stop_id": "6899",
+            "stop_name": "WAKAF TAPAI",
+            "lat": 5.141369,
+            "lon": 103.086189
+          },
+          {
+            "stop_id": "6898",
+            "stop_name": "BALAI BOMBA DAN PENYELAMAT WAKAF TAPAI",
+            "lat": 5.149053,
+            "lon": 103.08465
+          },
+          {
+            "stop_id": "6897",
+            "stop_name": "PETRON KAMPUNG WAKAF TAPAI",
+            "lat": 5.149053,
+            "lon": 103.08465
+          },
+          {
+            "stop_id": "6896",
+            "stop_name": "MASJID AL BAROKAH",
+            "lat": 5.156667,
+            "lon": 103.083689
+          },
+          {
+            "stop_id": "6895",
+            "stop_name": "TAMAN CERANG PERDANA",
+            "lat": 5.174806,
+            "lon": 103.087667
+          },
+          {
+            "stop_id": "6894",
+            "stop_name": "SMKA DURIAN GULING",
+            "lat": 5.179014,
+            "lon": 103.089361
+          },
+          {
+            "stop_id": "6893",
+            "stop_name": "SIMPANG KAMPUNG BELUKAR GOREK",
+            "lat": 5.184017,
+            "lon": 103.093439
+          },
+          {
+            "stop_id": "6892",
+            "stop_name": "SMK BUKIT SAWA",
+            "lat": 5.187375,
+            "lon": 103.097969
+          },
+          {
+            "stop_id": "6891",
+            "stop_name": "SK BUKIT SAWA",
+            "lat": 5.189286,
+            "lon": 103.099261
+          },
+          {
+            "stop_id": "6890",
+            "stop_name": "KLINIK KESIHATAN BINJAI RENDAH",
+            "lat": 5.193433,
+            "lon": 103.100711
+          },
+          {
+            "stop_id": "6868",
+            "stop_name": "BINJAI RENDAH",
+            "lat": 5.203228,
+            "lon": 103.102619
+          },
+          {
+            "stop_id": "6867",
+            "stop_name": "PETRONAS BATU 10 BUKIT PAYONG",
+            "lat": 5.208497,
+            "lon": 103.1034
+          },
+          {
+            "stop_id": "6866",
+            "stop_name": "TAMAN SAFIAH MURNI",
+            "lat": 5.212039,
+            "lon": 103.104003
+          },
+          {
+            "stop_id": "6865",
+            "stop_name": "MASJID PADANG MENGKUANG",
+            "lat": 5.218506,
+            "lon": 103.105961
+          },
+          {
+            "stop_id": "6864",
+            "stop_name": "KAMPUNG BATU 9",
+            "lat": 5.223017,
+            "lon": 103.107289
+          },
+          {
+            "stop_id": "6863",
+            "stop_name": "TAMAN AL AMIN/JABATAN PERTANIAN",
+            "lat": 5.227958,
+            "lon": 103.106089
+          },
+          {
+            "stop_id": "6862",
+            "stop_name": "DATARAN BUKIT PAYONG",
+            "lat": 5.230172,
+            "lon": 103.104311
+          },
+          {
+            "stop_id": "6861",
+            "stop_name": "PEKAN BUKIT PAYONG",
+            "lat": 5.232403,
+            "lon": 103.10225
+          },
+          {
+            "stop_id": "6860",
+            "stop_name": "KLINIK KESIHATAN BUKIT PAYONG",
+            "lat": 5.235336,
+            "lon": 103.099839
+          },
+          {
+            "stop_id": "6859",
+            "stop_name": "WAKAF DUA",
+            "lat": 5.245461,
+            "lon": 103.096503
+          },
+          {
+            "stop_id": "6858",
+            "stop_name": "SMK TUN TELANAI",
+            "lat": 5.258056,
+            "lon": 103.096219
+          },
+          {
+            "stop_id": "6857",
+            "stop_name": "SMK PADANG MIDIN",
+            "lat": 5.2646,
+            "lon": 103.0999
+          },
+          {
+            "stop_id": "6856",
+            "stop_name": "GONG KIAT",
+            "lat": 5.270211,
+            "lon": 103.103011
+          },
+          {
+            "stop_id": "6855",
+            "stop_name": "WAKAF MEMPELAM",
+            "lat": 5.286328,
+            "lon": 103.112081
+          },
+          {
+            "stop_id": "6854",
+            "stop_name": "KAMPUNG KUBANG TANGGA",
+            "lat": 5.288397,
+            "lon": 103.113239
+          },
+          {
+            "stop_id": "6853",
+            "stop_name": "KLINIK DESA GONG PAUH/PEJABAT PERTANIAN KUALA TERENGGANU",
+            "lat": 5.291536,
+            "lon": 103.115169
+          },
+          {
+            "stop_id": "3548",
+            "stop_name": "BANGGOL PAUH",
+            "lat": 5.295514,
+            "lon": 103.117458
+          },
+          {
+            "stop_id": "6852",
+            "stop_name": "KLINIK ANDA",
+            "lat": 5.299575,
+            "lon": 103.1198
+          },
+          {
+            "stop_id": "6851",
+            "stop_name": "WAKAF BERUAS/RESTORAN DAPUR ARANG",
+            "lat": 5.30125,
+            "lon": 103.120739
+          },
+          {
+            "stop_id": "6850",
+            "stop_name": "PERUMAHAN POLIS PADANG HILIRAN",
+            "lat": 5.308353,
+            "lon": 103.127119
+          },
+          {
+            "stop_id": "4152",
+            "stop_name": "WISMA PELADANG KUALA TERENGGANU",
+            "lat": 5.309587,
+            "lon": 103.129684
+          },
+          {
+            "stop_id": "4153",
+            "stop_name": "MYDIN KUALA TERENGGANU",
+            "lat": 5.3121054,
+            "lon": 103.1311467
+          },
+          {
+            "stop_id": "6849",
+            "stop_name": "KOMPLEKS MAHKAMAH KUALA TERENGGANU",
+            "lat": 5.312561,
+            "lon": 103.136389
+          },
+          {
+            "stop_id": "4184",
+            "stop_name": "SK Gong Kapas",
+            "lat": 5.3141539,
+            "lon": 103.1426689
+          },
+          {
+            "stop_id": "4181",
+            "stop_name": "SMA KHAIRIAH JALAN SULTAN MOHAMAD",
+            "lat": 5.3147041,
+            "lon": 103.1441175
+          },
+          {
+            "stop_id": "4146",
+            "stop_name": "KUALA TERENGGANU SPECIALIST HOSPITAL",
+            "lat": 5.318922,
+            "lon": 103.153372
+          },
+          {
+            "stop_id": "4155",
+            "stop_name": "SIMPANG PANTAI BATU BUROK",
+            "lat": 5.3198096,
+            "lon": 103.1532315
+          },
+          {
+            "stop_id": "4141",
+            "stop_name": "HOSPITAL SULTANAH NUR ZAHIRAH",
+            "lat": 5.3246217,
+            "lon": 103.149826
+          },
+          {
+            "stop_id": "6848",
+            "stop_name": "MASJID AL-MEKHTAFI BILLAH SHAH",
+            "lat": 5.327219,
+            "lon": 103.14745
+          },
+          {
+            "stop_id": "4127",
+            "stop_name": "JALAN PEJABAT",
+            "lat": 5.3282373,
+            "lon": 103.1436998
+          },
+          {
+            "stop_id": "4154",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDIN SHAH",
+            "lat": 5.3288232,
+            "lon": 103.1398256
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "6340",
+            "stop_name": "TERMINAL MBKT",
+            "lat": 5.33155,
+            "lon": 103.137253
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30378",
+    "route_short_name": "T21",
+    "route_long_name": "KUALA TERENGGANU - BUKIT PAYONG VIA SUNGAI RENGAS",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "KUALA TERENGGANU - BUKIT PAYONG VIA SUNGAI RENGAS",
+        "shape_id": "SHP_30378_0",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6340",
+            "stop_name": "TERMINAL MBKT",
+            "lat": 5.33155,
+            "lon": 103.137253
+          },
+          {
+            "stop_id": "6456",
+            "stop_name": "COSMOPOINT TERENGGANU",
+            "lat": 5.325564,
+            "lon": 103.137481
+          },
+          {
+            "stop_id": "6813",
+            "stop_name": "WISMA MBKT",
+            "lat": 5.323356,
+            "lon": 103.1321
+          },
+          {
+            "stop_id": "6814",
+            "stop_name": "MASJID HILIRAN",
+            "lat": 5.314567,
+            "lon": 103.125144
+          },
+          {
+            "stop_id": "6815",
+            "stop_name": "SHELL HILIRAN",
+            "lat": 5.314181,
+            "lon": 103.122406
+          },
+          {
+            "stop_id": "6816",
+            "stop_name": "SIMPANG KUBANG BUYONG",
+            "lat": 5.315428,
+            "lon": 103.121681
+          },
+          {
+            "stop_id": "6817",
+            "stop_name": "KLINIK DESA LOSONG",
+            "lat": 5.317161,
+            "lon": 103.1162
+          },
+          {
+            "stop_id": "6458",
+            "stop_name": "KG LOSONG ATAP ZINK",
+            "lat": 5.318583,
+            "lon": 103.108667
+          },
+          {
+            "stop_id": "6459",
+            "stop_name": "MUZIUM NEGER TERENGGANU",
+            "lat": 5.31997,
+            "lon": 103.103164
+          },
+          {
+            "stop_id": "6818",
+            "stop_name": "RESTORAN BETENG",
+            "lat": 5.322222,
+            "lon": 103.1167
+          },
+          {
+            "stop_id": "6819",
+            "stop_name": "PUSAT KONVENSYEN",
+            "lat": 5.321556,
+            "lon": 103.118331
+          },
+          {
+            "stop_id": "6460",
+            "stop_name": "MASJID KRISTAL",
+            "lat": 5.320944,
+            "lon": 103.11925
+          },
+          {
+            "stop_id": "6461",
+            "stop_name": "OPPOSITE MUZIUM WARISAN",
+            "lat": 5.320002,
+            "lon": 103.103019
+          },
+          {
+            "stop_id": "6462",
+            "stop_name": "KG LOSONG LEBAI SALLEH",
+            "lat": 5.319611,
+            "lon": 103.105139
+          },
+          {
+            "stop_id": "6847",
+            "stop_name": "HENTIAN KAMPUNG LOSONG ATAP ZINK",
+            "lat": 5.318817,
+            "lon": 103.10865
+          },
+          {
+            "stop_id": "6463",
+            "stop_name": "OPPOSITE SMK SULTAN AHMAD",
+            "lat": 5.310675,
+            "lon": 103.107611
+          },
+          {
+            "stop_id": "6820",
+            "stop_name": "KAMPUNG PULAU MUSANG",
+            "lat": 5.303878,
+            "lon": 103.098661
+          },
+          {
+            "stop_id": "6821",
+            "stop_name": "KAMPUNG KUALA BEKAH",
+            "lat": 5.298467,
+            "lon": 103.0959
+          },
+          {
+            "stop_id": "6822",
+            "stop_name": "SELEKOH TUNGGAL PULAU MUSANG",
+            "lat": 5.294175,
+            "lon": 103.094361
+          },
+          {
+            "stop_id": "6823",
+            "stop_name": "SK RENGAS BEKAH",
+            "lat": 5.292589,
+            "lon": 103.0977
+          },
+          {
+            "stop_id": "6824",
+            "stop_name": "MASJID AL-MUTTAQIN",
+            "lat": 5.278036,
+            "lon": 103.096
+          },
+          {
+            "stop_id": "6468",
+            "stop_name": "SEK KEB KEPONG",
+            "lat": 5.276444,
+            "lon": 103.0905
+          },
+          {
+            "stop_id": "6825",
+            "stop_name": "MASJID KAMPUNG BELADAU SELAT",
+            "lat": 5.272989,
+            "lon": 103.083886
+          },
+          {
+            "stop_id": "6826",
+            "stop_name": "SMK SERADA",
+            "lat": 5.266119,
+            "lon": 103.066331
+          },
+          {
+            "stop_id": "6827",
+            "stop_name": "KAMPUNG SERADA",
+            "lat": 5.264639,
+            "lon": 103.063931
+          },
+          {
+            "stop_id": "6470",
+            "stop_name": "SK KG BAHARU SERADA",
+            "lat": 5.262056,
+            "lon": 103.057847
+          },
+          {
+            "stop_id": "6828",
+            "stop_name": "SIMPANG SK SERADA",
+            "lat": 5.260914,
+            "lon": 103.053986
+          },
+          {
+            "stop_id": "6474",
+            "stop_name": "KG BANGGOL KEMANG",
+            "lat": 5.239028,
+            "lon": 103.042194
+          },
+          {
+            "stop_id": "6475",
+            "stop_name": "KG TIRUK",
+            "lat": 5.234111,
+            "lon": 103.04025
+          },
+          {
+            "stop_id": "6477",
+            "stop_name": "SK PASIR TINGGI",
+            "lat": 5.205861,
+            "lon": 103.041361
+          },
+          {
+            "stop_id": "6829",
+            "stop_name": "KLINIK DESA PASIR TINGGI",
+            "lat": 5.204578,
+            "lon": 103.0422
+          },
+          {
+            "stop_id": "6830",
+            "stop_name": "PADANG BOLA PASIR TINGGI",
+            "lat": 5.204453,
+            "lon": 103.045311
+          },
+          {
+            "stop_id": "6476",
+            "stop_name": "KG PASIR TINGGI",
+            "lat": 5.205056,
+            "lon": 103.051092
+          },
+          {
+            "stop_id": "6478",
+            "stop_name": "KG PADANG LIMAU NIPIS",
+            "lat": 5.207972,
+            "lon": 103.053806
+          },
+          {
+            "stop_id": "6831",
+            "stop_name": "MASJID KAMPUNG PADANG LIMAU NIPIS",
+            "lat": 5.208908,
+            "lon": 103.058419
+          },
+          {
+            "stop_id": "6832",
+            "stop_name": "PASTI KAMPUNG PADANG LIMAU NIPIS",
+            "lat": 5.209011,
+            "lon": 103.060711
+          },
+          {
+            "stop_id": "6833",
+            "stop_name": "JALAN KAMPUNG PADANG LIMAU NIPIS 2",
+            "lat": 5.209108,
+            "lon": 103.062939
+          },
+          {
+            "stop_id": "6834",
+            "stop_name": "TAMAN DESA PADANG PAK WAN",
+            "lat": 5.209758,
+            "lon": 103.069839
+          },
+          {
+            "stop_id": "6835",
+            "stop_name": "JALAN MASJID PAK MADAH",
+            "lat": 5.208431,
+            "lon": 103.074589
+          },
+          {
+            "stop_id": "6836",
+            "stop_name": "SK SIMPANG RAWAI",
+            "lat": 5.206447,
+            "lon": 103.0775
+          },
+          {
+            "stop_id": "6837",
+            "stop_name": "SIMPANG 4 RAWAI",
+            "lat": 5.206242,
+            "lon": 103.078361
+          },
+          {
+            "stop_id": "6838",
+            "stop_name": "TASKA PERMATA KELUARGA",
+            "lat": 5.210764,
+            "lon": 103.082169
+          },
+          {
+            "stop_id": "6839",
+            "stop_name": "JALAN KUBANG CIK MAN",
+            "lat": 5.213992,
+            "lon": 103.084175
+          },
+          {
+            "stop_id": "6840",
+            "stop_name": "JALAN TAMBAK TOK SHEIKH",
+            "lat": 5.215883,
+            "lon": 103.0853
+          },
+          {
+            "stop_id": "6841",
+            "stop_name": "SURAU PADANG RAJA",
+            "lat": 5.218097,
+            "lon": 103.086814
+          },
+          {
+            "stop_id": "6480",
+            "stop_name": "KG BINJAI BONGKOK",
+            "lat": 5.220717,
+            "lon": 103.088581
+          },
+          {
+            "stop_id": "6842",
+            "stop_name": "MASJID BINJAI BONGKOK",
+            "lat": 5.221836,
+            "lon": 103.089244
+          },
+          {
+            "stop_id": "6843",
+            "stop_name": "DEWAN BINJAI BONGKOK",
+            "lat": 5.222969,
+            "lon": 103.089781
+          },
+          {
+            "stop_id": "6844",
+            "stop_name": "MAKSU HOMESTAY / LORONG PADANG AIR DERAS",
+            "lat": 5.226533,
+            "lon": 103.092539
+          },
+          {
+            "stop_id": "6845",
+            "stop_name": "PULAU TINGGI BUKIT PAYUNG",
+            "lat": 5.231386,
+            "lon": 103.098081
+          },
+          {
+            "stop_id": "6846",
+            "stop_name": "MASJID BUKIT PAYUNG",
+            "lat": 5.233031,
+            "lon": 103.100364
+          },
+          {
+            "stop_id": "6342",
+            "stop_name": "HENTIAN BUKIT PAYONG",
+            "lat": 5.232136,
+            "lon": 103.1026
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "BUKIT PAYONG - KUALA TERENGGANU VIA SUNGAI RENGAS",
+        "shape_id": "SHP_30378_1",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6342",
+            "stop_name": "HENTIAN BUKIT PAYONG",
+            "lat": 5.232136,
+            "lon": 103.1026
+          },
+          {
+            "stop_id": "6846",
+            "stop_name": "MASJID BUKIT PAYUNG",
+            "lat": 5.233031,
+            "lon": 103.100364
+          },
+          {
+            "stop_id": "6845",
+            "stop_name": "PULAU TINGGI BUKIT PAYUNG",
+            "lat": 5.231386,
+            "lon": 103.098081
+          },
+          {
+            "stop_id": "6844",
+            "stop_name": "MAKSU HOMESTAY / LORONG PADANG AIR DERAS",
+            "lat": 5.226533,
+            "lon": 103.092539
+          },
+          {
+            "stop_id": "6843",
+            "stop_name": "DEWAN BINJAI BONGKOK",
+            "lat": 5.222969,
+            "lon": 103.089781
+          },
+          {
+            "stop_id": "6842",
+            "stop_name": "MASJID BINJAI BONGKOK",
+            "lat": 5.221836,
+            "lon": 103.089244
+          },
+          {
+            "stop_id": "6480",
+            "stop_name": "KG BINJAI BONGKOK",
+            "lat": 5.220717,
+            "lon": 103.088581
+          },
+          {
+            "stop_id": "6841",
+            "stop_name": "SURAU PADANG RAJA",
+            "lat": 5.218097,
+            "lon": 103.086814
+          },
+          {
+            "stop_id": "6840",
+            "stop_name": "JALAN TAMBAK TOK SHEIKH",
+            "lat": 5.215883,
+            "lon": 103.0853
+          },
+          {
+            "stop_id": "6839",
+            "stop_name": "JALAN KUBANG CIK MAN",
+            "lat": 5.213992,
+            "lon": 103.084175
+          },
+          {
+            "stop_id": "6838",
+            "stop_name": "TASKA PERMATA KELUARGA",
+            "lat": 5.210764,
+            "lon": 103.082169
+          },
+          {
+            "stop_id": "6837",
+            "stop_name": "SIMPANG 4 RAWAI",
+            "lat": 5.206242,
+            "lon": 103.078361
+          },
+          {
+            "stop_id": "6836",
+            "stop_name": "SK SIMPANG RAWAI",
+            "lat": 5.206447,
+            "lon": 103.0775
+          },
+          {
+            "stop_id": "6835",
+            "stop_name": "JALAN MASJID PAK MADAH",
+            "lat": 5.208431,
+            "lon": 103.074589
+          },
+          {
+            "stop_id": "6834",
+            "stop_name": "TAMAN DESA PADANG PAK WAN",
+            "lat": 5.209758,
+            "lon": 103.069839
+          },
+          {
+            "stop_id": "6833",
+            "stop_name": "JALAN KAMPUNG PADANG LIMAU NIPIS 2",
+            "lat": 5.209108,
+            "lon": 103.062939
+          },
+          {
+            "stop_id": "6832",
+            "stop_name": "PASTI KAMPUNG PADANG LIMAU NIPIS",
+            "lat": 5.209011,
+            "lon": 103.060711
+          },
+          {
+            "stop_id": "6831",
+            "stop_name": "MASJID KAMPUNG PADANG LIMAU NIPIS",
+            "lat": 5.208908,
+            "lon": 103.058419
+          },
+          {
+            "stop_id": "6478",
+            "stop_name": "KG PADANG LIMAU NIPIS",
+            "lat": 5.207972,
+            "lon": 103.053806
+          },
+          {
+            "stop_id": "6476",
+            "stop_name": "KG PASIR TINGGI",
+            "lat": 5.205056,
+            "lon": 103.051092
+          },
+          {
+            "stop_id": "6830",
+            "stop_name": "PADANG BOLA PASIR TINGGI",
+            "lat": 5.204453,
+            "lon": 103.045311
+          },
+          {
+            "stop_id": "6829",
+            "stop_name": "KLINIK DESA PASIR TINGGI",
+            "lat": 5.204578,
+            "lon": 103.0422
+          },
+          {
+            "stop_id": "6477",
+            "stop_name": "SK PASIR TINGGI",
+            "lat": 5.205861,
+            "lon": 103.041361
+          },
+          {
+            "stop_id": "6475",
+            "stop_name": "KG TIRUK",
+            "lat": 5.234111,
+            "lon": 103.04025
+          },
+          {
+            "stop_id": "6474",
+            "stop_name": "KG BANGGOL KEMANG",
+            "lat": 5.239028,
+            "lon": 103.042194
+          },
+          {
+            "stop_id": "6828",
+            "stop_name": "SIMPANG SK SERADA",
+            "lat": 5.260914,
+            "lon": 103.053986
+          },
+          {
+            "stop_id": "6470",
+            "stop_name": "SK KG BAHARU SERADA",
+            "lat": 5.262056,
+            "lon": 103.057847
+          },
+          {
+            "stop_id": "6827",
+            "stop_name": "KAMPUNG SERADA",
+            "lat": 5.264639,
+            "lon": 103.063931
+          },
+          {
+            "stop_id": "6826",
+            "stop_name": "SMK SERADA",
+            "lat": 5.266119,
+            "lon": 103.066331
+          },
+          {
+            "stop_id": "6825",
+            "stop_name": "MASJID KAMPUNG BELADAU SELAT",
+            "lat": 5.272989,
+            "lon": 103.083886
+          },
+          {
+            "stop_id": "6468",
+            "stop_name": "SEK KEB KEPONG",
+            "lat": 5.276444,
+            "lon": 103.0905
+          },
+          {
+            "stop_id": "6824",
+            "stop_name": "MASJID AL-MUTTAQIN",
+            "lat": 5.278036,
+            "lon": 103.096
+          },
+          {
+            "stop_id": "6823",
+            "stop_name": "SK RENGAS BEKAH",
+            "lat": 5.292589,
+            "lon": 103.0977
+          },
+          {
+            "stop_id": "6822",
+            "stop_name": "SELEKOH TUNGGAL PULAU MUSANG",
+            "lat": 5.294175,
+            "lon": 103.094361
+          },
+          {
+            "stop_id": "6821",
+            "stop_name": "KAMPUNG KUALA BEKAH",
+            "lat": 5.298467,
+            "lon": 103.0959
+          },
+          {
+            "stop_id": "6820",
+            "stop_name": "KAMPUNG PULAU MUSANG",
+            "lat": 5.303878,
+            "lon": 103.098661
+          },
+          {
+            "stop_id": "6463",
+            "stop_name": "OPPOSITE SMK SULTAN AHMAD",
+            "lat": 5.310675,
+            "lon": 103.107611
+          },
+          {
+            "stop_id": "6847",
+            "stop_name": "HENTIAN KAMPUNG LOSONG ATAP ZINK",
+            "lat": 5.318817,
+            "lon": 103.10865
+          },
+          {
+            "stop_id": "6462",
+            "stop_name": "KG LOSONG LEBAI SALLEH",
+            "lat": 5.319611,
+            "lon": 103.105139
+          },
+          {
+            "stop_id": "6461",
+            "stop_name": "OPPOSITE MUZIUM WARISAN",
+            "lat": 5.320002,
+            "lon": 103.103019
+          },
+          {
+            "stop_id": "6460",
+            "stop_name": "MASJID KRISTAL",
+            "lat": 5.320944,
+            "lon": 103.11925
+          },
+          {
+            "stop_id": "6819",
+            "stop_name": "PUSAT KONVENSYEN",
+            "lat": 5.321556,
+            "lon": 103.118331
+          },
+          {
+            "stop_id": "6818",
+            "stop_name": "RESTORAN BETENG",
+            "lat": 5.322222,
+            "lon": 103.1167
+          },
+          {
+            "stop_id": "6459",
+            "stop_name": "MUZIUM NEGER TERENGGANU",
+            "lat": 5.31997,
+            "lon": 103.103164
+          },
+          {
+            "stop_id": "6458",
+            "stop_name": "KG LOSONG ATAP ZINK",
+            "lat": 5.318583,
+            "lon": 103.108667
+          },
+          {
+            "stop_id": "6817",
+            "stop_name": "KLINIK DESA LOSONG",
+            "lat": 5.317161,
+            "lon": 103.1162
+          },
+          {
+            "stop_id": "6816",
+            "stop_name": "SIMPANG KUBANG BUYONG",
+            "lat": 5.315428,
+            "lon": 103.121681
+          },
+          {
+            "stop_id": "6815",
+            "stop_name": "SHELL HILIRAN",
+            "lat": 5.314181,
+            "lon": 103.122406
+          },
+          {
+            "stop_id": "6814",
+            "stop_name": "MASJID HILIRAN",
+            "lat": 5.314567,
+            "lon": 103.125144
+          },
+          {
+            "stop_id": "6813",
+            "stop_name": "WISMA MBKT",
+            "lat": 5.323356,
+            "lon": 103.1321
+          },
+          {
+            "stop_id": "3535",
+            "stop_name": "KKIA JALAN AIR JERNIH",
+            "lat": 5.328148,
+            "lon": 103.1351875
+          },
+          {
+            "stop_id": "6340",
+            "stop_name": "TERMINAL MBKT",
+            "lat": 5.33155,
+            "lon": 103.137253
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30382",
+    "route_short_name": "T31",
+    "route_long_name": "KUALA TERENGGANU - MARANG VIA KEDAI BULUH",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "KUALA TERENGGANU - MARANG VIA KEDAI BULUH",
+        "shape_id": "SHP_30382_0",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6340",
+            "stop_name": "TERMINAL MBKT",
+            "lat": 5.33155,
+            "lon": 103.137253
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "4154",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDIN SHAH",
+            "lat": 5.3288232,
+            "lon": 103.1398256
+          },
+          {
+            "stop_id": "6752",
+            "stop_name": "MSU COLLEGE",
+            "lat": 5.324247,
+            "lon": 103.141578
+          },
+          {
+            "stop_id": "4183",
+            "stop_name": "Yayasan Pembangunan Keluarga",
+            "lat": 5.3204606,
+            "lon": 103.1424886
+          },
+          {
+            "stop_id": "6753",
+            "stop_name": "SMK KHAIRIAH JALAN SULTAN OMAR",
+            "lat": 5.316344,
+            "lon": 103.144889
+          },
+          {
+            "stop_id": "6754",
+            "stop_name": "KUATERS JKR",
+            "lat": 5.313253,
+            "lon": 103.144319
+          },
+          {
+            "stop_id": "6755",
+            "stop_name": "KG GEMIA",
+            "lat": 5.310322,
+            "lon": 103.1449
+          },
+          {
+            "stop_id": "6756",
+            "stop_name": "SMK MEGAT PANJI ALAM",
+            "lat": 5.3057,
+            "lon": 103.145189
+          },
+          {
+            "stop_id": "6757",
+            "stop_name": "TANAH KUBUR ISLAM KG NIBONG ATAS",
+            "lat": 5.301506,
+            "lon": 103.146211
+          },
+          {
+            "stop_id": "6758",
+            "stop_name": "LORONG PARMY",
+            "lat": 5.299133,
+            "lon": 103.147353
+          },
+          {
+            "stop_id": "6759",
+            "stop_name": "KLINIK DESA GONG TOK NASEK",
+            "lat": 5.297897,
+            "lon": 103.147544
+          },
+          {
+            "stop_id": "6760",
+            "stop_name": "ARKED MAIDAM",
+            "lat": 5.296342,
+            "lon": 103.148519
+          },
+          {
+            "stop_id": "6761",
+            "stop_name": "SK GONG TONG NASEK",
+            "lat": 5.29425,
+            "lon": 103.150089
+          },
+          {
+            "stop_id": "6762",
+            "stop_name": "LORONG HJ MAT AMIN",
+            "lat": 5.288294,
+            "lon": 103.148681
+          },
+          {
+            "stop_id": "6763",
+            "stop_name": "LORONG POK HIM",
+            "lat": 5.286767,
+            "lon": 103.146531
+          },
+          {
+            "stop_id": "6764",
+            "stop_name": "PASTI IBNU SINAR",
+            "lat": 5.285531,
+            "lon": 103.144731
+          },
+          {
+            "stop_id": "6731",
+            "stop_name": "ALAM MUTIARA 1 & 2",
+            "lat": 5.27707,
+            "lon": 103.142119
+          },
+          {
+            "stop_id": "4192",
+            "stop_name": "PASAR KAMPUNG LAUT 1",
+            "lat": 5.2729826,
+            "lon": 103.1426955
+          },
+          {
+            "stop_id": "6732",
+            "stop_name": "PASAR KAMPUNG LAUT 2",
+            "lat": 5.270477,
+            "lon": 103.142882
+          },
+          {
+            "stop_id": "4193",
+            "stop_name": "Kampung Belukar Jambu / Klinik Desa Kg Laut",
+            "lat": 5.266725,
+            "lon": 103.143696
+          },
+          {
+            "stop_id": "6733",
+            "stop_name": "LORONG TOK KHATIB ALI",
+            "lat": 5.266361,
+            "lon": 103.143766
+          },
+          {
+            "stop_id": "6734",
+            "stop_name": "MASJID BELUKAR JAMBU",
+            "lat": 5.26454,
+            "lon": 103.144104
+          },
+          {
+            "stop_id": "4194",
+            "stop_name": "SK Kampung Bukit Chendering",
+            "lat": 5.259796,
+            "lon": 103.144623
+          },
+          {
+            "stop_id": "4195",
+            "stop_name": "MASJID KAMPUNG SURAU PANJANG",
+            "lat": 5.2536103,
+            "lon": 103.1344674
+          },
+          {
+            "stop_id": "4196",
+            "stop_name": "PASAR PEKAN KEDAI BULUH / SMK SULTAN MANSOR",
+            "lat": 5.2524441,
+            "lon": 103.1309476
+          },
+          {
+            "stop_id": "6796",
+            "stop_name": "SURAU KAMPUNG TONG PONG",
+            "lat": 5.247933,
+            "lon": 103.132989
+          },
+          {
+            "stop_id": "6797",
+            "stop_name": "SK TOK DIR",
+            "lat": 5.244736,
+            "lon": 103.134819
+          },
+          {
+            "stop_id": "6798",
+            "stop_name": "MASJID TOK DIR",
+            "lat": 5.241189,
+            "lon": 103.135331
+          },
+          {
+            "stop_id": "6799",
+            "stop_name": "JALAN BAROH PINANG",
+            "lat": 5.231358,
+            "lon": 103.133161
+          },
+          {
+            "stop_id": "6800",
+            "stop_name": "KAMPUNG ALUR PARIT",
+            "lat": 5.228028,
+            "lon": 103.132089
+          },
+          {
+            "stop_id": "6801",
+            "stop_name": "JALAN PADANG KOLAH",
+            "lat": 5.222956,
+            "lon": 103.130811
+          },
+          {
+            "stop_id": "6802",
+            "stop_name": "MASJID KAMPUNG UDANG",
+            "lat": 5.221292,
+            "lon": 103.130481
+          },
+          {
+            "stop_id": "6803",
+            "stop_name": "ENTERPRENUE PARK BUKIT KOR",
+            "lat": 5.214014,
+            "lon": 103.150569
+          },
+          {
+            "stop_id": "6804",
+            "stop_name": "KOLEJ TASDEC",
+            "lat": 5.214672,
+            "lon": 103.158311
+          },
+          {
+            "stop_id": "6805",
+            "stop_name": "UCSI UNIVERSITY",
+            "lat": 5.215764,
+            "lon": 103.161869
+          },
+          {
+            "stop_id": "6806",
+            "stop_name": "KILANG PADI / PRM FOOD & MARKETING",
+            "lat": 5.21655,
+            "lon": 103.175431
+          },
+          {
+            "stop_id": "6807",
+            "stop_name": "BUKIT RHU RENDANG",
+            "lat": 5.220433,
+            "lon": 103.190511
+          },
+          {
+            "stop_id": "6808",
+            "stop_name": "SK RHU RENDANG",
+            "lat": 5.221631,
+            "lon": 103.192819
+          },
+          {
+            "stop_id": "6809",
+            "stop_name": "SIMPANG RHU RENDANG",
+            "lat": 5.222861,
+            "lon": 103.195367
+          },
+          {
+            "stop_id": "4178",
+            "stop_name": "SHELL RHU RENDANG",
+            "lat": 5.2167003,
+            "lon": 103.200831
+          },
+          {
+            "stop_id": "4179",
+            "stop_name": "IPD MARANG",
+            "lat": 5.2150949,
+            "lon": 103.2017885
+          },
+          {
+            "stop_id": "6810",
+            "stop_name": "KAMPUNG PAYA",
+            "lat": 5.210669,
+            "lon": 103.203561
+          },
+          {
+            "stop_id": "6811",
+            "stop_name": "PASAR MARANG",
+            "lat": 5.206858,
+            "lon": 103.207319
+          },
+          {
+            "stop_id": "6812",
+            "stop_name": "JETI MARANG",
+            "lat": 5.204406,
+            "lon": 103.207731
+          },
+          {
+            "stop_id": "15870",
+            "stop_name": "HENTIAN BAS MARANG",
+            "lat": 5.204992,
+            "lon": 103.205617
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "MARANG - KUALA TERENGGANU VIA KEDAI BULUH",
+        "shape_id": "SHP_30382_1",
+        "service_ids": ["WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "15870",
+            "stop_name": "HENTIAN BAS MARANG",
+            "lat": 5.204992,
+            "lon": 103.205617
+          },
+          {
+            "stop_id": "6812",
+            "stop_name": "JETI MARANG",
+            "lat": 5.204406,
+            "lon": 103.207731
+          },
+          {
+            "stop_id": "6811",
+            "stop_name": "PASAR MARANG",
+            "lat": 5.206858,
+            "lon": 103.207319
+          },
+          {
+            "stop_id": "6810",
+            "stop_name": "KAMPUNG PAYA",
+            "lat": 5.210669,
+            "lon": 103.203561
+          },
+          {
+            "stop_id": "4179",
+            "stop_name": "IPD MARANG",
+            "lat": 5.2150949,
+            "lon": 103.2017885
+          },
+          {
+            "stop_id": "4178",
+            "stop_name": "SHELL RHU RENDANG",
+            "lat": 5.2167003,
+            "lon": 103.200831
+          },
+          {
+            "stop_id": "6809",
+            "stop_name": "SIMPANG RHU RENDANG",
+            "lat": 5.222861,
+            "lon": 103.195367
+          },
+          {
+            "stop_id": "6808",
+            "stop_name": "SK RHU RENDANG",
+            "lat": 5.221631,
+            "lon": 103.192819
+          },
+          {
+            "stop_id": "6807",
+            "stop_name": "BUKIT RHU RENDANG",
+            "lat": 5.220433,
+            "lon": 103.190511
+          },
+          {
+            "stop_id": "6806",
+            "stop_name": "KILANG PADI / PRM FOOD & MARKETING",
+            "lat": 5.21655,
+            "lon": 103.175431
+          },
+          {
+            "stop_id": "6805",
+            "stop_name": "UCSI UNIVERSITY",
+            "lat": 5.215764,
+            "lon": 103.161869
+          },
+          {
+            "stop_id": "6804",
+            "stop_name": "KOLEJ TASDEC",
+            "lat": 5.214672,
+            "lon": 103.158311
+          },
+          {
+            "stop_id": "6803",
+            "stop_name": "ENTERPRENUE PARK BUKIT KOR",
+            "lat": 5.214014,
+            "lon": 103.150569
+          },
+          {
+            "stop_id": "6802",
+            "stop_name": "MASJID KAMPUNG UDANG",
+            "lat": 5.221292,
+            "lon": 103.130481
+          },
+          {
+            "stop_id": "6801",
+            "stop_name": "JALAN PADANG KOLAH",
+            "lat": 5.222956,
+            "lon": 103.130811
+          },
+          {
+            "stop_id": "6800",
+            "stop_name": "KAMPUNG ALUR PARIT",
+            "lat": 5.228028,
+            "lon": 103.132089
+          },
+          {
+            "stop_id": "6799",
+            "stop_name": "JALAN BAROH PINANG",
+            "lat": 5.231358,
+            "lon": 103.133161
+          },
+          {
+            "stop_id": "6798",
+            "stop_name": "MASJID TOK DIR",
+            "lat": 5.241189,
+            "lon": 103.135331
+          },
+          {
+            "stop_id": "6797",
+            "stop_name": "SK TOK DIR",
+            "lat": 5.244736,
+            "lon": 103.134819
+          },
+          {
+            "stop_id": "6796",
+            "stop_name": "SURAU KAMPUNG TONG PONG",
+            "lat": 5.247933,
+            "lon": 103.132989
+          },
+          {
+            "stop_id": "4196",
+            "stop_name": "PASAR PEKAN KEDAI BULUH / SMK SULTAN MANSOR",
+            "lat": 5.2524441,
+            "lon": 103.1309476
+          },
+          {
+            "stop_id": "4195",
+            "stop_name": "MASJID KAMPUNG SURAU PANJANG",
+            "lat": 5.2536103,
+            "lon": 103.1344674
+          },
+          {
+            "stop_id": "4194",
+            "stop_name": "SK Kampung Bukit Chendering",
+            "lat": 5.259796,
+            "lon": 103.144623
+          },
+          {
+            "stop_id": "6734",
+            "stop_name": "MASJID BELUKAR JAMBU",
+            "lat": 5.26454,
+            "lon": 103.144104
+          },
+          {
+            "stop_id": "6733",
+            "stop_name": "LORONG TOK KHATIB ALI",
+            "lat": 5.266361,
+            "lon": 103.143766
+          },
+          {
+            "stop_id": "4193",
+            "stop_name": "Kampung Belukar Jambu / Klinik Desa Kg Laut",
+            "lat": 5.266725,
+            "lon": 103.143696
+          },
+          {
+            "stop_id": "6732",
+            "stop_name": "PASAR KAMPUNG LAUT 2",
+            "lat": 5.270477,
+            "lon": 103.142882
+          },
+          {
+            "stop_id": "4192",
+            "stop_name": "PASAR KAMPUNG LAUT 1",
+            "lat": 5.2729826,
+            "lon": 103.1426955
+          },
+          {
+            "stop_id": "6731",
+            "stop_name": "ALAM MUTIARA 1 & 2",
+            "lat": 5.27707,
+            "lon": 103.142119
+          },
+          {
+            "stop_id": "6764",
+            "stop_name": "PASTI IBNU SINAR",
+            "lat": 5.285531,
+            "lon": 103.144731
+          },
+          {
+            "stop_id": "6763",
+            "stop_name": "LORONG POK HIM",
+            "lat": 5.286767,
+            "lon": 103.146531
+          },
+          {
+            "stop_id": "6762",
+            "stop_name": "LORONG HJ MAT AMIN",
+            "lat": 5.288294,
+            "lon": 103.148681
+          },
+          {
+            "stop_id": "6761",
+            "stop_name": "SK GONG TONG NASEK",
+            "lat": 5.29425,
+            "lon": 103.150089
+          },
+          {
+            "stop_id": "6760",
+            "stop_name": "ARKED MAIDAM",
+            "lat": 5.296342,
+            "lon": 103.148519
+          },
+          {
+            "stop_id": "6759",
+            "stop_name": "KLINIK DESA GONG TOK NASEK",
+            "lat": 5.297897,
+            "lon": 103.147544
+          },
+          {
+            "stop_id": "6758",
+            "stop_name": "LORONG PARMY",
+            "lat": 5.299133,
+            "lon": 103.147353
+          },
+          {
+            "stop_id": "6757",
+            "stop_name": "TANAH KUBUR ISLAM KG NIBONG ATAS",
+            "lat": 5.301506,
+            "lon": 103.146211
+          },
+          {
+            "stop_id": "6756",
+            "stop_name": "SMK MEGAT PANJI ALAM",
+            "lat": 5.3057,
+            "lon": 103.145189
+          },
+          {
+            "stop_id": "6755",
+            "stop_name": "KG GEMIA",
+            "lat": 5.310322,
+            "lon": 103.1449
+          },
+          {
+            "stop_id": "6754",
+            "stop_name": "KUATERS JKR",
+            "lat": 5.313253,
+            "lon": 103.144319
+          },
+          {
+            "stop_id": "6753",
+            "stop_name": "SMK KHAIRIAH JALAN SULTAN OMAR",
+            "lat": 5.316344,
+            "lon": 103.144889
+          },
+          {
+            "stop_id": "4183",
+            "stop_name": "Yayasan Pembangunan Keluarga",
+            "lat": 5.3204606,
+            "lon": 103.1424886
+          },
+          {
+            "stop_id": "6752",
+            "stop_name": "MSU COLLEGE",
+            "lat": 5.324247,
+            "lon": 103.141578
+          },
+          {
+            "stop_id": "4154",
+            "stop_name": "STADIUM SULTAN ISMAIL NASSIRUDIN SHAH",
+            "lat": 5.3288232,
+            "lon": 103.1398256
+          },
+          {
+            "stop_id": "4138",
+            "stop_name": "YAYASAN TERENGGANU",
+            "lat": 5.3291939,
+            "lon": 103.1386021
+          },
+          {
+            "stop_id": "6340",
+            "stop_name": "TERMINAL MBKT",
+            "lat": 5.33155,
+            "lon": 103.137253
+          }
+        ]
+      }
+    ]
+  }
+]
