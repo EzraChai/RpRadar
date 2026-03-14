@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 20
 
+        -name: npm install
+        run: npm install
+
       - name: Refresh GTFS
         run: node scripts/refresh-gtfs.js
 
