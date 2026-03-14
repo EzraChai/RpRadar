@@ -266,7 +266,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "KANGAR - KILANG GULA",
+        "route_long_name": "KILANG GULA - KANGAR",
         "shape_id": "SHP_30268_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -895,7 +895,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "ALOR SETAR - UUM SINTOK VIA JITRA",
+        "route_long_name": "UUM SINTOK - ALOR SETAR VIA JITRA",
         "shape_id": "SHP_30270_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -1950,7 +1950,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "KANGAR - ALOR SETAR VIA JITRA",
+        "route_long_name": "ALOR SETAR - KANGAR VIA JITRA",
         "shape_id": "SHP_30271_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -2987,7 +2987,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "KANGAR - ALOR SETAR VIA KUALA SANGLANG",
+        "route_long_name": "ALOR SETAR - KANGAR VIA KUALA SANGLANG",
         "shape_id": "SHP_30272_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -4263,7 +4263,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "KANGAR - PADANG BESAR",
+        "route_long_name": "PADANG BESAR - KANGAR",
         "shape_id": "SHP_30274_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
