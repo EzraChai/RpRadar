@@ -43,8 +43,8 @@
   },
   {
     "route_id": "30380",
-    "route_code": "R14",
-    "route_name": "TERMINAL BUKIT LAGI - FELDA CHUPING",
+    "route_code": "R104",
+    "route_name": "KANGAR - FELDA CHUPING VIA UITM ARAU",
     "shape_ids": ["SHP_30380_0", "SHP_30380_1"]
   },
   {
