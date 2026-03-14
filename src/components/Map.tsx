@@ -227,7 +227,7 @@ function App() {
   const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
   const starredRoutes = useStarredRoutes();
   const [direction, setDirection] = useState(() => {
-    return provider === "mk" || provider === "jb" ? 1 : 0;
+    return provider === "jb" || provider === "jb" ? 1 : 0;
   });
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
   const { theme } = useTheme();
@@ -744,7 +744,7 @@ function App() {
     }
     if (route?.directions.length === 0) return null;
     if (route?.directions.length === 1) {
-      if (provider === "mk" || provider === "jb") {
+      if (provider === "jb" || provider === "mk") {
         setDirection(1);
       } else {
         setDirection(0);
@@ -1513,8 +1513,8 @@ function VehiclesMarker({
 
         if (directions === undefined && route?.directions.length === 1) {
           setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
+            0: [...prev[0]],
+            1: [...prev[1], v],
           }));
         } else if (directions !== undefined) {
           const dirNum = Number(directions.direction_id);

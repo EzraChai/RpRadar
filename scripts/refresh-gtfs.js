@@ -188,12 +188,7 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
           trip_id: row.trip_id,
           route_id: row.route_id,
           service_id: row.service_id,
-          direction_id:
-            url === "https://api.data.gov.my/gtfs-static/mybas-melaka"
-              ? Number(row.direction_id || 0) === 1
-                ? 0
-                : 1
-              : Number(row.direction_id || 0),
+          direction_id: Number(row.direction_id || 0),
         };
 
         trips.push(trip);

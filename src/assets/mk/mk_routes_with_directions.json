@@ -5,7 +5,7 @@
     "route_long_name": "Jasin - Taman Seri Asahan",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Jasin - Taman Seri Asahan",
         "shape_id": "shape_M33CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -199,7 +199,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Taman Seri Asahan - Jasin",
         "shape_id": "shape_M33CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -400,7 +400,7 @@
     "route_long_name": "Melaka Sentral - Masjid Tanah / Pengkalan Balak",
     "directions": [
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Masjid Tanah / Pengkalan Balak - Melaka Sentral",
         "shape_id": "shape_M23CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -984,7 +984,7 @@
         ]
       },
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Masjid Tanah / Pengkalan Balak",
         "shape_id": "shape_M23CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -1764,7 +1764,7 @@
     "route_long_name": "Melaka Sentral - MITC - Via Jalan Pengkalan Batu & AEON Melaka",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - MITC - Via Jalan Pengkalan Batu & AEON Melaka",
         "shape_id": "shape_M10BCWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -1910,7 +1910,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "MITC - Melaka Sentral - Via Jalan Pengkalan Batu & AEON Melaka",
         "shape_id": "shape_M10BCWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -2075,7 +2075,7 @@
     "route_long_name": "Melaka Sentral - Tangga Batu",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Tangga Batu",
         "shape_id": "shape_M17CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -2437,7 +2437,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Tangga Batu - Melaka Sentral",
         "shape_id": "shape_M17CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -2812,7 +2812,7 @@
     "route_long_name": "Melaka Sentral - Bandar Vendor / UniKL",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Bandar Vendor / UniKL",
         "shape_id": "shape_M22CWLMLK_12590_1",
         "service_ids": ["FRISUN"],
@@ -3204,7 +3204,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Bandar Vendor / UniKL - Melaka Sentral",
         "shape_id": "shape_M22CWLMLK_12593_0",
         "service_ids": ["MONTHURS"],
@@ -3566,7 +3566,7 @@
         ]
       },
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Bandar Vendor / UniKL",
         "shape_id": "shape_M22CWLMLK_12592_1",
         "service_ids": ["MONTHURS"],
@@ -3946,7 +3946,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Bandar Vendor / UniKL - Melaka Sentral",
         "shape_id": "shape_M22CWLMLK_12591_0",
         "service_ids": ["FRISUN"],
@@ -4327,7 +4327,7 @@
     "route_long_name": "Melaka Sentral - Jasin",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Jasin",
         "shape_id": "shape_M32CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -4593,7 +4593,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Jasin - Melaka Sentral",
         "shape_id": "shape_M32CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -4866,7 +4866,7 @@
     "route_long_name": "Melaka Sentral - Pulau Gadong",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Pulau Gadong",
         "shape_id": "shape_M15CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -5060,7 +5060,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Pulau Gadong - Melaka Sentral",
         "shape_id": "shape_M15CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -5267,7 +5267,7 @@
     "route_long_name": "Melaka Sentral - Bukit Katil / Taman Saujana Permai",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Bukit Katil / Taman Saujana Permai",
         "shape_id": "shape_M11CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -5413,7 +5413,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Bukit Katil / Taman Saujana Permai - Melaka Sentral",
         "shape_id": "shape_M11CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -5554,7 +5554,7 @@
     "route_long_name": "Melaka Sentral - Tampin via Alor Gajah Durian Tunggal",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Tampin via Alor Gajah Durian Tunggal",
         "shape_id": "shape_M21CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -6156,7 +6156,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Tampin - Melaka Sentral via Alor Gajah Durian Tunggal",
         "shape_id": "shape_M21CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -6765,7 +6765,7 @@
     "route_long_name": "Melaka Sentral - Paya Luboh",
     "directions": [
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Paya Luboh - Melaka Sentral",
         "shape_id": "shape_M16CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -7079,7 +7079,7 @@
         ]
       },
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Paya Luboh",
         "shape_id": "shape_M16CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -7394,7 +7394,7 @@
     "route_long_name": "Melaka Sentral - Taman Inang Sari",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Taman Inang Sari",
         "shape_id": "shape_M13CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -7600,7 +7600,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Taman Inang Sari - Melaka Sentral",
         "shape_id": "shape_M13CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -7795,7 +7795,7 @@
     "route_long_name": "Melaka Sentral - Batang Melaka via Tebong",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Batang Melaka via Tebong",
         "shape_id": "shape_M31CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -8151,7 +8151,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Batang Melaka - Melaka Sentral via Tebong",
         "shape_id": "shape_M31CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -8508,7 +8508,7 @@
     "route_long_name": "Melaka Sentral - Bertam Ulu / Tanjung Minyak Perdana",
     "directions": [
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Bertam Ulu / Tanjung Minyak Perdana - Melaka Sentral",
         "shape_id": "shape_M14CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -8660,7 +8660,7 @@
         ]
       },
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Bertam Ulu / Tanjung Minyak Perdana",
         "shape_id": "shape_M14CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -8837,7 +8837,7 @@
     "route_long_name": "Melaka Sentral - Batang Melaka via Selandar",
     "directions": [
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Batang Melaka - Melaka Sentral via Selandar",
         "shape_id": "shape_M30CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -9157,7 +9157,7 @@
         ]
       },
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Batang Melaka via Selandar",
         "shape_id": "shape_M30CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -9583,7 +9583,7 @@
     "route_long_name": "Melaka Sentral - Airport Batu Berendam / Angkasa Nuri",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Airport Batu Berendam / Angkasa Nuri",
         "shape_id": "shape_M12CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -9771,7 +9771,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Airport Batu Berendam / Angkasa Nuri - Melaka Sentral",
         "shape_id": "shape_M12CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -9942,7 +9942,7 @@
     "route_long_name": "Melaka Sentral - MITC",
     "directions": [
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "MITC - Melaka Sentral",
         "shape_id": "shape_M10ACWLMLK_12567_0",
         "service_ids": ["MONTHURS"],
@@ -10070,7 +10070,7 @@
         ]
       },
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - MITC",
         "shape_id": "shape_M10ACWLMLK_12566_1",
         "service_ids": ["MONTHURS"],
@@ -10186,7 +10186,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "MITC / UTEM - Melaka Sentral",
         "shape_id": "shape_M10ACWLMLK_12565_0",
         "service_ids": ["FRISUN"],
@@ -10332,7 +10332,7 @@
         ]
       },
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - MITC / UTEM",
         "shape_id": "shape_M10ACWLMLK_12564_1",
         "service_ids": ["FRISUN"],
@@ -10473,7 +10473,7 @@
     "route_long_name": "Melaka Sentral - Tampin via Alor Gajah",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Melaka Sentral - Tampin via Alor Gajah",
         "shape_id": "shape_M20CWLMYMK_1",
         "service_ids": ["ALLDAY"],
@@ -10937,7 +10937,7 @@
         ]
       },
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "route_long_name": "Tampin - Melaka Sentral via Alor Gajah",
         "shape_id": "shape_M20CWLMYMK_0",
         "service_ids": ["ALLDAY"],
@@ -11885,7 +11885,7 @@
     "route_long_name": "Terminal Alor Gajah Sentral - Melaka Sentral",
     "directions": [
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "route_long_name": "Terminal Alor Gajah Sentral - Melaka Sentral",
         "shape_id": "shape_M20XCWLMYMK_1",
         "service_ids": ["ALLDAY"],
