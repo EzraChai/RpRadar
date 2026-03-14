@@ -284,7 +284,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SHAHAB PERDANA - KUALA KEDAH",
+        "route_long_name": "KUALA KEDAH - SHAHAB PERDANA",
         "shape_id": "SHP_30407_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -961,7 +961,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SHAHAB PERDANA - JITRA",
+        "route_long_name": "JITRA - SHAHAB PERDANA",
         "shape_id": "SHP_30408_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -1800,7 +1800,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SHAHAB PERDANA - KUALA NERANG",
+        "route_long_name": "KUALA NERANG - SHAHAB PERDANA",
         "shape_id": "SHP_30409_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -2549,7 +2549,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SHAHAB PERDANA - PENDANG VIA SIMPANG EMPAT",
+        "route_long_name": "PENDANG - SHAHAB PERDANA VIA SIMPANG EMPAT",
         "shape_id": "SHP_30410_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -3148,7 +3148,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SHAHAB PERDANA - PENDANG VIA KOTA SARANG SEMUT",
+        "route_long_name": "PENDANG - SHAHAB PERDANA VIA KOTA SARANG SEMUT",
         "shape_id": "SHP_30411_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -3993,7 +3993,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SHAHAB PERDANA - SUNGAI PETANI",
+        "route_long_name": "SUNGAI PETANI - SHAHAB PERDANA",
         "shape_id": "SHP_30412_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -4856,7 +4856,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SUNGAI PETANI - TANJUNG DAWAI",
+        "route_long_name": "TANJUNG DAWAI - SUNGAI PETANI",
         "shape_id": "SHP_30413_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -5395,7 +5395,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SUNGAI PETANI - PANTAI MERDEKA",
+        "route_long_name": "PANTAI MERDEKA - SUNGAI PETANI",
         "shape_id": "SHP_30414_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -5766,7 +5766,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SUNGAI PETANI - TAMAN BANDAR BARU",
+        "route_long_name": "TAMAN BANDAR BARU - SUNGAI PETANI",
         "shape_id": "SHP_30415_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -6017,7 +6017,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SUNGAI PETANI - TAMAN KELISA",
+        "route_long_name": "TAMAN KELISA - SUNGAI PETANI",
         "shape_id": "SHP_30416_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -6513,7 +6513,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SUNGAI PETANI - BANDAR PERDANA",
+        "route_long_name": "BANDAR PERDANA - SUNGAI PETANI",
         "shape_id": "SHP_30418_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
