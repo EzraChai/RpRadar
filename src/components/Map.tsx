@@ -1298,13 +1298,11 @@ function VehiclesMarker({
     async function loadData() {
       try {
         let res: Response | null = null;
-        let res2: Response | null = null;
 
         const URL =
           "https://my-gtfs-api.juanzhe21230.workers.dev/api/vehicle-position/";
         if (provider === "rkl") {
           res = await fetch(`${URL}prasarana?category=rapid-bus-kl`);
-          res2 = await fetch(`${URL}prasarana?category=rapid-bus-mrtfeeder`);
         } else if (provider === "ns") {
           res = await fetch(`${URL}mybas-seremban`);
         } else if (provider === "mk") {
@@ -1347,28 +1345,6 @@ function VehiclesMarker({
 
         if (res) {
           const buffer = await res.arrayBuffer();
-          const feed = transit_realtime.FeedMessage.decode(
-            new Uint8Array(buffer),
-          );
-
-          setVehicles((prev) => {
-            const updated = new Map(prev);
-
-            feed.entity.forEach((entity) => {
-              const vehicle = entity.vehicle;
-              const plate = vehicle?.vehicle?.licensePlate;
-
-              if (!vehicle || !plate) return;
-
-              updated.set(plate, vehicle);
-            });
-
-            return updated;
-          });
-        }
-
-        if (res2) {
-          const buffer = await res2.arrayBuffer();
           const feed = transit_realtime.FeedMessage.decode(
             new Uint8Array(buffer),
           );
