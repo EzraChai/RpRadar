@@ -234,7 +234,7 @@ function App() {
 
   useEffect(() => {
     if (searchParams.get("id") === null) {
-      if (provider === "jb") {
+      if (provider === "jb" || provider === "mk") {
         setDirection(1);
       } else {
         setDirection(0);
