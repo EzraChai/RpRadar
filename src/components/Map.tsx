@@ -765,43 +765,43 @@ function App() {
       return (
         <>
           <Polyline
-            pane="overlayPane"
             ref={polylineRef}
             pathOptions={{ color: color, weight: 5 }}
             positions={positions}
-          />
-          {positions.length &&
-            route.directions[0].stops.map((stop, idx) => (
-              <CircleMarker
-                pane="markerPane"
-                ref={(ref) => {
-                  markerRefs.current[stop.stop_id] = ref;
-                }}
-                key={idx}
-                radius={6}
-                center={[stop.lat, stop.lon]}
-                pathOptions={{
-                  color: color,
-                  fillColor: "white",
-                  fillOpacity: 1,
-                }}
-                eventHandlers={{
-                  click: () =>
-                    map.setView([stop.lat, stop.lon], 16, { animate: true }),
-                }}
-              >
-                <Popup
-                  className="pointer-events-none"
-                  maxWidth={500}
-                  offset={[0, 8]}
-                  closeButton={false}
+          >
+            {positions.length &&
+              route.directions[0].stops.map((stop, idx) => (
+                <CircleMarker
+                  pane="markerPane"
+                  ref={(ref) => {
+                    markerRefs.current[stop.stop_id] = ref;
+                  }}
+                  key={idx}
+                  radius={6}
+                  center={[stop.lat, stop.lon]}
+                  pathOptions={{
+                    color: color,
+                    fillColor: "white",
+                    fillOpacity: 1,
+                  }}
+                  eventHandlers={{
+                    click: () =>
+                      map.setView([stop.lat, stop.lon], 16, { animate: true }),
+                  }}
                 >
-                  <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
-                    {stop.stop_name.trim()}
-                  </div>
-                </Popup>
-              </CircleMarker>
-            ))}
+                  <Popup
+                    className="pointer-events-none"
+                    maxWidth={500}
+                    offset={[0, 8]}
+                    closeButton={false}
+                  >
+                    <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
+                      {stop.stop_name.trim()}
+                    </div>
+                  </Popup>
+                </CircleMarker>
+              ))}
+          </Polyline>
         </>
       );
     }
