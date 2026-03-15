@@ -1,0 +1,2223 @@
+[
+  {
+    "route_id": "AG",
+    "route_short_name": "AG",
+    "route_long_name": "LRT Ampang Line",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "LRT Ampang Line",
+        "shape_id": "shp_AG_0",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "AG18",
+            "stop_name": "AMPANG",
+            "lat": 3.150318,
+            "lon": 101.760049
+          },
+          {
+            "stop_id": "AG17",
+            "stop_name": "CAHAYA",
+            "lat": 3.140575,
+            "lon": 101.756677
+          },
+          {
+            "stop_id": "AG16",
+            "stop_name": "CEMPAKA",
+            "lat": 3.138324,
+            "lon": 101.752979
+          },
+          {
+            "stop_id": "AG15",
+            "stop_name": "PANDAN INDAH",
+            "lat": 3.134581,
+            "lon": 101.746509
+          },
+          {
+            "stop_id": "AG14",
+            "stop_name": "PANDAN JAYA",
+            "lat": 3.130141,
+            "lon": 101.739122
+          },
+          {
+            "stop_id": "AG13",
+            "stop_name": "MALURI",
+            "lat": 3.12329,
+            "lon": 101.727283
+          },
+          {
+            "stop_id": "AG12",
+            "stop_name": "MIHARJA",
+            "lat": 3.120973,
+            "lon": 101.717922
+          },
+          {
+            "stop_id": "AG11",
+            "stop_name": "CHAN SOW LIN",
+            "lat": 3.128105,
+            "lon": 101.715637
+          },
+          {
+            "stop_id": "AG10",
+            "stop_name": "PUDU",
+            "lat": 3.134879,
+            "lon": 101.711957
+          },
+          {
+            "stop_id": "AG9",
+            "stop_name": "HANG TUAH",
+            "lat": 3.140012,
+            "lon": 101.705984
+          },
+          {
+            "stop_id": "AG8",
+            "stop_name": "PLAZA RAKYAT",
+            "lat": 3.144049,
+            "lon": 101.702105
+          },
+          {
+            "stop_id": "AG7",
+            "stop_name": "MASJID JAMEK",
+            "lat": 3.14927,
+            "lon": 101.696377
+          },
+          {
+            "stop_id": "AG6",
+            "stop_name": "BANDARAYA - UOB",
+            "lat": 3.155567,
+            "lon": 101.694485
+          },
+          {
+            "stop_id": "AG5",
+            "stop_name": "SULTAN ISMAIL",
+            "lat": 3.161245,
+            "lon": 101.694109
+          },
+          {
+            "stop_id": "AG4",
+            "stop_name": "PWTC",
+            "lat": 3.166333,
+            "lon": 101.693586
+          },
+          {
+            "stop_id": "AG3",
+            "stop_name": "TITIWANGSA",
+            "lat": 3.173497,
+            "lon": 101.695367
+          },
+          {
+            "stop_id": "AG2",
+            "stop_name": "SENTUL",
+            "lat": 3.178484,
+            "lon": 101.695542
+          },
+          {
+            "stop_id": "AG1",
+            "stop_name": "SENTUL TIMUR",
+            "lat": 3.185897,
+            "lon": 101.695217
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "LRT Ampang Line",
+        "shape_id": "shp_AG_1",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "AG1",
+            "stop_name": "SENTUL TIMUR",
+            "lat": 3.185897,
+            "lon": 101.695217
+          },
+          {
+            "stop_id": "AG2",
+            "stop_name": "SENTUL",
+            "lat": 3.178484,
+            "lon": 101.695542
+          },
+          {
+            "stop_id": "AG3",
+            "stop_name": "TITIWANGSA",
+            "lat": 3.173497,
+            "lon": 101.695367
+          },
+          {
+            "stop_id": "AG4",
+            "stop_name": "PWTC",
+            "lat": 3.166333,
+            "lon": 101.693586
+          },
+          {
+            "stop_id": "AG5",
+            "stop_name": "SULTAN ISMAIL",
+            "lat": 3.161245,
+            "lon": 101.694109
+          },
+          {
+            "stop_id": "AG6",
+            "stop_name": "BANDARAYA - UOB",
+            "lat": 3.155567,
+            "lon": 101.694485
+          },
+          {
+            "stop_id": "AG7",
+            "stop_name": "MASJID JAMEK",
+            "lat": 3.14927,
+            "lon": 101.696377
+          },
+          {
+            "stop_id": "AG8",
+            "stop_name": "PLAZA RAKYAT",
+            "lat": 3.144049,
+            "lon": 101.702105
+          },
+          {
+            "stop_id": "AG9",
+            "stop_name": "HANG TUAH",
+            "lat": 3.140012,
+            "lon": 101.705984
+          },
+          {
+            "stop_id": "AG10",
+            "stop_name": "PUDU",
+            "lat": 3.134879,
+            "lon": 101.711957
+          },
+          {
+            "stop_id": "AG11",
+            "stop_name": "CHAN SOW LIN",
+            "lat": 3.128105,
+            "lon": 101.715637
+          },
+          {
+            "stop_id": "AG12",
+            "stop_name": "MIHARJA",
+            "lat": 3.120973,
+            "lon": 101.717922
+          },
+          {
+            "stop_id": "AG13",
+            "stop_name": "MALURI",
+            "lat": 3.12329,
+            "lon": 101.727283
+          },
+          {
+            "stop_id": "AG14",
+            "stop_name": "PANDAN JAYA",
+            "lat": 3.130141,
+            "lon": 101.739122
+          },
+          {
+            "stop_id": "AG15",
+            "stop_name": "PANDAN INDAH",
+            "lat": 3.134581,
+            "lon": 101.746509
+          },
+          {
+            "stop_id": "AG16",
+            "stop_name": "CEMPAKA",
+            "lat": 3.138324,
+            "lon": 101.752979
+          },
+          {
+            "stop_id": "AG17",
+            "stop_name": "CAHAYA",
+            "lat": 3.140575,
+            "lon": 101.756677
+          },
+          {
+            "stop_id": "AG18",
+            "stop_name": "AMPANG",
+            "lat": 3.150318,
+            "lon": 101.760049
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "KJ",
+    "route_short_name": "KJ",
+    "route_long_name": "LRT Kelana Jaya Line",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "LRT Kelana Jaya Line",
+        "shape_id": "shp_KJ_0",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "KJ37",
+            "stop_name": "PUTRA HEIGHTS",
+            "lat": 2.996227,
+            "lon": 101.575462
+          },
+          {
+            "stop_id": "KJ36",
+            "stop_name": "SUBANG ALAM",
+            "lat": 3.009421,
+            "lon": 101.572281
+          },
+          {
+            "stop_id": "KJ35",
+            "stop_name": "ALAM MEGAH",
+            "lat": 3.023151,
+            "lon": 101.572029
+          },
+          {
+            "stop_id": "KJ34",
+            "stop_name": "USJ 21",
+            "lat": 3.029881,
+            "lon": 101.581711
+          },
+          {
+            "stop_id": "KJ33",
+            "stop_name": "WAWASAN",
+            "lat": 3.035062,
+            "lon": 101.588348
+          },
+          {
+            "stop_id": "KJ32",
+            "stop_name": "TAIPAN",
+            "lat": 3.04815,
+            "lon": 101.590233
+          },
+          {
+            "stop_id": "KJ31",
+            "stop_name": "USJ 7",
+            "lat": 3.054956,
+            "lon": 101.592194
+          },
+          {
+            "stop_id": "KJ30",
+            "stop_name": "SS 18",
+            "lat": 3.067182,
+            "lon": 101.585945
+          },
+          {
+            "stop_id": "KJ29",
+            "stop_name": "SS 15",
+            "lat": 3.075972,
+            "lon": 101.585983
+          },
+          {
+            "stop_id": "KJ28",
+            "stop_name": "SUBANG JAYA",
+            "lat": 3.08466,
+            "lon": 101.588127
+          },
+          {
+            "stop_id": "KJ27",
+            "stop_name": "CGC GLENMARIE",
+            "lat": 3.094732,
+            "lon": 101.590622
+          },
+          {
+            "stop_id": "KJ26",
+            "stop_name": "ARA DAMANSARA",
+            "lat": 3.108643,
+            "lon": 101.586372
+          },
+          {
+            "stop_id": "KJ25",
+            "stop_name": "LEMBAH SUBANG",
+            "lat": 3.112094,
+            "lon": 101.591034
+          },
+          {
+            "stop_id": "KJ24",
+            "stop_name": "KELANA JAYA",
+            "lat": 3.112497,
+            "lon": 101.6043
+          },
+          {
+            "stop_id": "KJ23",
+            "stop_name": "TAMAN BAHAGIA",
+            "lat": 3.11079,
+            "lon": 101.612856
+          },
+          {
+            "stop_id": "KJ22",
+            "stop_name": "TAMAN PARAMOUNT",
+            "lat": 3.104716,
+            "lon": 101.623192
+          },
+          {
+            "stop_id": "KJ21",
+            "stop_name": "ASIA JAYA",
+            "lat": 3.104343,
+            "lon": 101.637695
+          },
+          {
+            "stop_id": "KJ20",
+            "stop_name": "TAMAN JAYA",
+            "lat": 3.104086,
+            "lon": 101.645248
+          },
+          {
+            "stop_id": "KJ19",
+            "stop_name": "UNIVERSITI",
+            "lat": 3.114616,
+            "lon": 101.661639
+          },
+          {
+            "stop_id": "KJ18",
+            "stop_name": "KERINCHI",
+            "lat": 3.115506,
+            "lon": 101.668572
+          },
+          {
+            "stop_id": "KJ17",
+            "stop_name": "ABDULLAH HUKUM",
+            "lat": 3.118735,
+            "lon": 101.672897
+          },
+          {
+            "stop_id": "KJ16",
+            "stop_name": "BANK RAKYAT BANGSAR",
+            "lat": 3.127588,
+            "lon": 101.679062
+          },
+          {
+            "stop_id": "KJ15",
+            "stop_name": "KL SENTRAL - REDONE",
+            "lat": 3.13442,
+            "lon": 101.68625
+          },
+          {
+            "stop_id": "KJ14",
+            "stop_name": "PASAR SENI",
+            "lat": 3.142439,
+            "lon": 101.69531
+          },
+          {
+            "stop_id": "KJ13",
+            "stop_name": "MASJID JAMEK",
+            "lat": 3.149714,
+            "lon": 101.696815
+          },
+          {
+            "stop_id": "KJ12",
+            "stop_name": "DANG WANGI",
+            "lat": 3.156942,
+            "lon": 101.701975
+          },
+          {
+            "stop_id": "KJ11",
+            "stop_name": "KAMPUNG BARU - CBP COOPBANK PERTAMA",
+            "lat": 3.161386,
+            "lon": 101.706608
+          },
+          {
+            "stop_id": "KJ10",
+            "stop_name": "KLCC",
+            "lat": 3.158935,
+            "lon": 101.713287
+          },
+          {
+            "stop_id": "KJ9",
+            "stop_name": "AMPANG PARK",
+            "lat": 3.159894,
+            "lon": 101.719017
+          },
+          {
+            "stop_id": "KJ8",
+            "stop_name": "DAMAI",
+            "lat": 3.164406,
+            "lon": 101.724489
+          },
+          {
+            "stop_id": "KJ7",
+            "stop_name": "DATO' KERAMAT",
+            "lat": 3.16509,
+            "lon": 101.73184
+          },
+          {
+            "stop_id": "KJ6",
+            "stop_name": "JELATEK",
+            "lat": 3.167204,
+            "lon": 101.735344
+          },
+          {
+            "stop_id": "KJ5",
+            "stop_name": "SETIAWANGSA",
+            "lat": 3.17576,
+            "lon": 101.73584
+          },
+          {
+            "stop_id": "KJ4",
+            "stop_name": "SRI RAMPAI",
+            "lat": 3.199176,
+            "lon": 101.73747
+          },
+          {
+            "stop_id": "KJ3",
+            "stop_name": "WANGSA MAJU",
+            "lat": 3.205751,
+            "lon": 101.731796
+          },
+          {
+            "stop_id": "KJ2",
+            "stop_name": "TAMAN MELATI",
+            "lat": 3.219558,
+            "lon": 101.72197
+          },
+          {
+            "stop_id": "KJ1",
+            "stop_name": "GOMBAK",
+            "lat": 3.231793,
+            "lon": 101.724427
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "LRT Kelana Jaya Line",
+        "shape_id": "shp_KJ_1",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "KJ1",
+            "stop_name": "GOMBAK",
+            "lat": 3.231793,
+            "lon": 101.724427
+          },
+          {
+            "stop_id": "KJ2",
+            "stop_name": "TAMAN MELATI",
+            "lat": 3.219558,
+            "lon": 101.72197
+          },
+          {
+            "stop_id": "KJ3",
+            "stop_name": "WANGSA MAJU",
+            "lat": 3.205751,
+            "lon": 101.731796
+          },
+          {
+            "stop_id": "KJ4",
+            "stop_name": "SRI RAMPAI",
+            "lat": 3.199176,
+            "lon": 101.73747
+          },
+          {
+            "stop_id": "KJ5",
+            "stop_name": "SETIAWANGSA",
+            "lat": 3.17576,
+            "lon": 101.73584
+          },
+          {
+            "stop_id": "KJ6",
+            "stop_name": "JELATEK",
+            "lat": 3.167204,
+            "lon": 101.735344
+          },
+          {
+            "stop_id": "KJ7",
+            "stop_name": "DATO' KERAMAT",
+            "lat": 3.16509,
+            "lon": 101.73184
+          },
+          {
+            "stop_id": "KJ8",
+            "stop_name": "DAMAI",
+            "lat": 3.164406,
+            "lon": 101.724489
+          },
+          {
+            "stop_id": "KJ9",
+            "stop_name": "AMPANG PARK",
+            "lat": 3.159894,
+            "lon": 101.719017
+          },
+          {
+            "stop_id": "KJ10",
+            "stop_name": "KLCC",
+            "lat": 3.158935,
+            "lon": 101.713287
+          },
+          {
+            "stop_id": "KJ11",
+            "stop_name": "KAMPUNG BARU - CBP COOPBANK PERTAMA",
+            "lat": 3.161386,
+            "lon": 101.706608
+          },
+          {
+            "stop_id": "KJ12",
+            "stop_name": "DANG WANGI",
+            "lat": 3.156942,
+            "lon": 101.701975
+          },
+          {
+            "stop_id": "KJ13",
+            "stop_name": "MASJID JAMEK",
+            "lat": 3.149714,
+            "lon": 101.696815
+          },
+          {
+            "stop_id": "KJ14",
+            "stop_name": "PASAR SENI",
+            "lat": 3.142439,
+            "lon": 101.69531
+          },
+          {
+            "stop_id": "KJ15",
+            "stop_name": "KL SENTRAL - REDONE",
+            "lat": 3.13442,
+            "lon": 101.68625
+          },
+          {
+            "stop_id": "KJ16",
+            "stop_name": "BANK RAKYAT BANGSAR",
+            "lat": 3.127588,
+            "lon": 101.679062
+          },
+          {
+            "stop_id": "KJ17",
+            "stop_name": "ABDULLAH HUKUM",
+            "lat": 3.118735,
+            "lon": 101.672897
+          },
+          {
+            "stop_id": "KJ18",
+            "stop_name": "KERINCHI",
+            "lat": 3.115506,
+            "lon": 101.668572
+          },
+          {
+            "stop_id": "KJ19",
+            "stop_name": "UNIVERSITI",
+            "lat": 3.114616,
+            "lon": 101.661639
+          },
+          {
+            "stop_id": "KJ20",
+            "stop_name": "TAMAN JAYA",
+            "lat": 3.104086,
+            "lon": 101.645248
+          },
+          {
+            "stop_id": "KJ21",
+            "stop_name": "ASIA JAYA",
+            "lat": 3.104343,
+            "lon": 101.637695
+          },
+          {
+            "stop_id": "KJ22",
+            "stop_name": "TAMAN PARAMOUNT",
+            "lat": 3.104716,
+            "lon": 101.623192
+          },
+          {
+            "stop_id": "KJ23",
+            "stop_name": "TAMAN BAHAGIA",
+            "lat": 3.11079,
+            "lon": 101.612856
+          },
+          {
+            "stop_id": "KJ24",
+            "stop_name": "KELANA JAYA",
+            "lat": 3.112497,
+            "lon": 101.6043
+          },
+          {
+            "stop_id": "KJ25",
+            "stop_name": "LEMBAH SUBANG",
+            "lat": 3.112094,
+            "lon": 101.591034
+          },
+          {
+            "stop_id": "KJ26",
+            "stop_name": "ARA DAMANSARA",
+            "lat": 3.108643,
+            "lon": 101.586372
+          },
+          {
+            "stop_id": "KJ27",
+            "stop_name": "CGC GLENMARIE",
+            "lat": 3.094732,
+            "lon": 101.590622
+          },
+          {
+            "stop_id": "KJ28",
+            "stop_name": "SUBANG JAYA",
+            "lat": 3.08466,
+            "lon": 101.588127
+          },
+          {
+            "stop_id": "KJ29",
+            "stop_name": "SS 15",
+            "lat": 3.075972,
+            "lon": 101.585983
+          },
+          {
+            "stop_id": "KJ30",
+            "stop_name": "SS 18",
+            "lat": 3.067182,
+            "lon": 101.585945
+          },
+          {
+            "stop_id": "KJ31",
+            "stop_name": "USJ 7",
+            "lat": 3.054956,
+            "lon": 101.592194
+          },
+          {
+            "stop_id": "KJ32",
+            "stop_name": "TAIPAN",
+            "lat": 3.04815,
+            "lon": 101.590233
+          },
+          {
+            "stop_id": "KJ33",
+            "stop_name": "WAWASAN",
+            "lat": 3.035062,
+            "lon": 101.588348
+          },
+          {
+            "stop_id": "KJ34",
+            "stop_name": "USJ 21",
+            "lat": 3.029881,
+            "lon": 101.581711
+          },
+          {
+            "stop_id": "KJ35",
+            "stop_name": "ALAM MEGAH",
+            "lat": 3.023151,
+            "lon": 101.572029
+          },
+          {
+            "stop_id": "KJ36",
+            "stop_name": "SUBANG ALAM",
+            "lat": 3.009421,
+            "lon": 101.572281
+          },
+          {
+            "stop_id": "KJ37",
+            "stop_name": "PUTRA HEIGHTS",
+            "lat": 2.996227,
+            "lon": 101.575462
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "PH",
+    "route_short_name": "PH",
+    "route_long_name": "LRT Sri Petaling Line",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "LRT Sri Petaling Line",
+        "shape_id": "shp_PH_0",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "SP31",
+            "stop_name": "PUTRA HEIGHTS",
+            "lat": 2.996016,
+            "lon": 101.575521
+          },
+          {
+            "stop_id": "SP29",
+            "stop_name": "PUCHONG PRIMA",
+            "lat": 2.999808,
+            "lon": 101.596692
+          },
+          {
+            "stop_id": "SP28",
+            "stop_name": "PUCHONG PERDANA",
+            "lat": 3.007913,
+            "lon": 101.605021
+          },
+          {
+            "stop_id": "SP27",
+            "stop_name": "BANDAR PUTERI",
+            "lat": 3.017111,
+            "lon": 101.612855
+          },
+          {
+            "stop_id": "SP26",
+            "stop_name": "TAMAN PERINDUSTRIAN PUCHONG",
+            "lat": 3.022814,
+            "lon": 101.613514
+          },
+          {
+            "stop_id": "SP25",
+            "stop_name": "PUSAT BANDAR PUCHONG",
+            "lat": 3.033194,
+            "lon": 101.616057
+          },
+          {
+            "stop_id": "SP24",
+            "stop_name": "IOI PUCHONG JAYA",
+            "lat": 3.048101,
+            "lon": 101.62095
+          },
+          {
+            "stop_id": "SP22",
+            "stop_name": "KINRARA",
+            "lat": 3.050506,
+            "lon": 101.644294
+          },
+          {
+            "stop_id": "SP21",
+            "stop_name": "ALAM SUTERA",
+            "lat": 3.0547,
+            "lon": 101.656468
+          },
+          {
+            "stop_id": "SP20",
+            "stop_name": "MUHIBBAH",
+            "lat": 3.062229,
+            "lon": 101.662552
+          },
+          {
+            "stop_id": "SP19",
+            "stop_name": "AWAN BESAR",
+            "lat": 3.062131,
+            "lon": 101.670555
+          },
+          {
+            "stop_id": "SP18",
+            "stop_name": "SRI PETALING",
+            "lat": 3.061445,
+            "lon": 101.687074
+          },
+          {
+            "stop_id": "SP17",
+            "stop_name": "BUKIT JALIL",
+            "lat": 3.058196,
+            "lon": 101.692125
+          },
+          {
+            "stop_id": "SP16",
+            "stop_name": "SUNGAI BESI",
+            "lat": 3.063842,
+            "lon": 101.708062
+          },
+          {
+            "stop_id": "SP15",
+            "stop_name": "BANDAR TASIK SELATAN",
+            "lat": 3.076058,
+            "lon": 101.711107
+          },
+          {
+            "stop_id": "SP14",
+            "stop_name": "BANDAR TUN RAZAK",
+            "lat": 3.089576,
+            "lon": 101.712466
+          },
+          {
+            "stop_id": "SP13",
+            "stop_name": "SALAK SELATAN",
+            "lat": 3.102201,
+            "lon": 101.706179
+          },
+          {
+            "stop_id": "SP12",
+            "stop_name": "CHERAS",
+            "lat": 3.112609,
+            "lon": 101.714178
+          },
+          {
+            "stop_id": "SP11",
+            "stop_name": "CHAN SOW LIN",
+            "lat": 3.128105,
+            "lon": 101.715637
+          },
+          {
+            "stop_id": "SP10",
+            "stop_name": "PUDU",
+            "lat": 3.134879,
+            "lon": 101.711957
+          },
+          {
+            "stop_id": "SP9",
+            "stop_name": "HANG TUAH",
+            "lat": 3.140012,
+            "lon": 101.705984
+          },
+          {
+            "stop_id": "SP8",
+            "stop_name": "PLAZA RAKYAT",
+            "lat": 3.144049,
+            "lon": 101.702105
+          },
+          {
+            "stop_id": "SP7",
+            "stop_name": "MASJID JAMEK",
+            "lat": 3.14927,
+            "lon": 101.696377
+          },
+          {
+            "stop_id": "SP6",
+            "stop_name": "BANDARAYA - UOB",
+            "lat": 3.155567,
+            "lon": 101.694485
+          },
+          {
+            "stop_id": "SP5",
+            "stop_name": "SULTAN ISMAIL",
+            "lat": 3.161245,
+            "lon": 101.694109
+          },
+          {
+            "stop_id": "SP4",
+            "stop_name": "PWTC",
+            "lat": 3.166333,
+            "lon": 101.693586
+          },
+          {
+            "stop_id": "SP3",
+            "stop_name": "TITIWANGSA",
+            "lat": 3.173497,
+            "lon": 101.695367
+          },
+          {
+            "stop_id": "SP2",
+            "stop_name": "SENTUL",
+            "lat": 3.178484,
+            "lon": 101.695542
+          },
+          {
+            "stop_id": "SP1",
+            "stop_name": "SENTUL TIMUR",
+            "lat": 3.185897,
+            "lon": 101.695217
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "LRT Sri Petaling Line",
+        "shape_id": "shp_PH_1",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "SP1",
+            "stop_name": "SENTUL TIMUR",
+            "lat": 3.185897,
+            "lon": 101.695217
+          },
+          {
+            "stop_id": "SP2",
+            "stop_name": "SENTUL",
+            "lat": 3.178484,
+            "lon": 101.695542
+          },
+          {
+            "stop_id": "SP3",
+            "stop_name": "TITIWANGSA",
+            "lat": 3.173497,
+            "lon": 101.695367
+          },
+          {
+            "stop_id": "SP4",
+            "stop_name": "PWTC",
+            "lat": 3.166333,
+            "lon": 101.693586
+          },
+          {
+            "stop_id": "SP5",
+            "stop_name": "SULTAN ISMAIL",
+            "lat": 3.161245,
+            "lon": 101.694109
+          },
+          {
+            "stop_id": "SP6",
+            "stop_name": "BANDARAYA - UOB",
+            "lat": 3.155567,
+            "lon": 101.694485
+          },
+          {
+            "stop_id": "SP7",
+            "stop_name": "MASJID JAMEK",
+            "lat": 3.14927,
+            "lon": 101.696377
+          },
+          {
+            "stop_id": "SP8",
+            "stop_name": "PLAZA RAKYAT",
+            "lat": 3.144049,
+            "lon": 101.702105
+          },
+          {
+            "stop_id": "SP9",
+            "stop_name": "HANG TUAH",
+            "lat": 3.140012,
+            "lon": 101.705984
+          },
+          {
+            "stop_id": "SP10",
+            "stop_name": "PUDU",
+            "lat": 3.134879,
+            "lon": 101.711957
+          },
+          {
+            "stop_id": "SP11",
+            "stop_name": "CHAN SOW LIN",
+            "lat": 3.128105,
+            "lon": 101.715637
+          },
+          {
+            "stop_id": "SP12",
+            "stop_name": "CHERAS",
+            "lat": 3.112609,
+            "lon": 101.714178
+          },
+          {
+            "stop_id": "SP13",
+            "stop_name": "SALAK SELATAN",
+            "lat": 3.102201,
+            "lon": 101.706179
+          },
+          {
+            "stop_id": "SP14",
+            "stop_name": "BANDAR TUN RAZAK",
+            "lat": 3.089576,
+            "lon": 101.712466
+          },
+          {
+            "stop_id": "SP15",
+            "stop_name": "BANDAR TASIK SELATAN",
+            "lat": 3.076058,
+            "lon": 101.711107
+          },
+          {
+            "stop_id": "SP16",
+            "stop_name": "SUNGAI BESI",
+            "lat": 3.063842,
+            "lon": 101.708062
+          },
+          {
+            "stop_id": "SP17",
+            "stop_name": "BUKIT JALIL",
+            "lat": 3.058196,
+            "lon": 101.692125
+          },
+          {
+            "stop_id": "SP18",
+            "stop_name": "SRI PETALING",
+            "lat": 3.061445,
+            "lon": 101.687074
+          },
+          {
+            "stop_id": "SP19",
+            "stop_name": "AWAN BESAR",
+            "lat": 3.062131,
+            "lon": 101.670555
+          },
+          {
+            "stop_id": "SP20",
+            "stop_name": "MUHIBBAH",
+            "lat": 3.062229,
+            "lon": 101.662552
+          },
+          {
+            "stop_id": "SP21",
+            "stop_name": "ALAM SUTERA",
+            "lat": 3.0547,
+            "lon": 101.656468
+          },
+          {
+            "stop_id": "SP22",
+            "stop_name": "KINRARA",
+            "lat": 3.050506,
+            "lon": 101.644294
+          },
+          {
+            "stop_id": "SP24",
+            "stop_name": "IOI PUCHONG JAYA",
+            "lat": 3.048101,
+            "lon": 101.62095
+          },
+          {
+            "stop_id": "SP25",
+            "stop_name": "PUSAT BANDAR PUCHONG",
+            "lat": 3.033194,
+            "lon": 101.616057
+          },
+          {
+            "stop_id": "SP26",
+            "stop_name": "TAMAN PERINDUSTRIAN PUCHONG",
+            "lat": 3.022814,
+            "lon": 101.613514
+          },
+          {
+            "stop_id": "SP27",
+            "stop_name": "BANDAR PUTERI",
+            "lat": 3.017111,
+            "lon": 101.612855
+          },
+          {
+            "stop_id": "SP28",
+            "stop_name": "PUCHONG PERDANA",
+            "lat": 3.007913,
+            "lon": 101.605021
+          },
+          {
+            "stop_id": "SP29",
+            "stop_name": "PUCHONG PRIMA",
+            "lat": 2.999808,
+            "lon": 101.596692
+          },
+          {
+            "stop_id": "SP31",
+            "stop_name": "PUTRA HEIGHTS",
+            "lat": 2.996016,
+            "lon": 101.575521
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "KGL",
+    "route_short_name": "KGL",
+    "route_long_name": "MRT Kajang Line",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "MRT Kajang Line",
+        "shape_id": "shp_MRT_0",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "KG04",
+            "stop_name": "KWASA DAMANSARA",
+            "lat": 3.176146,
+            "lon": 101.572052
+          },
+          {
+            "stop_id": "KG05",
+            "stop_name": "KWASA SENTRAL",
+            "lat": 3.170112,
+            "lon": 101.564651
+          },
+          {
+            "stop_id": "KG06",
+            "stop_name": "KOTA DAMANSARA",
+            "lat": 3.150134,
+            "lon": 101.57869
+          },
+          {
+            "stop_id": "KG07",
+            "stop_name": "SURIAN",
+            "lat": 3.14948,
+            "lon": 101.593925
+          },
+          {
+            "stop_id": "KG08",
+            "stop_name": "MUTIARA DAMANSARA",
+            "lat": 3.155301,
+            "lon": 101.609077
+          },
+          {
+            "stop_id": "KG09",
+            "stop_name": "BANDAR UTAMA",
+            "lat": 3.14671,
+            "lon": 101.618599
+          },
+          {
+            "stop_id": "KG10",
+            "stop_name": "TAMAN TUN DR ISMAIL",
+            "lat": 3.13613,
+            "lon": 101.630539
+          },
+          {
+            "stop_id": "KG12",
+            "stop_name": "PHILEO DAMANSARA",
+            "lat": 3.129864,
+            "lon": 101.642471
+          },
+          {
+            "stop_id": "KG13",
+            "stop_name": "PUSAT BANDAR DAMANSARA",
+            "lat": 3.143444,
+            "lon": 101.662857
+          },
+          {
+            "stop_id": "KG14",
+            "stop_name": "SEMANTAN",
+            "lat": 3.150977,
+            "lon": 101.665497
+          },
+          {
+            "stop_id": "KG15",
+            "stop_name": "MUZIUM NEGARA",
+            "lat": 3.137317,
+            "lon": 101.687336
+          },
+          {
+            "stop_id": "KG16",
+            "stop_name": "PASAR SENI",
+            "lat": 3.142293265,
+            "lon": 101.6955642
+          },
+          {
+            "stop_id": "KG17",
+            "stop_name": "MERDEKA",
+            "lat": 3.141969,
+            "lon": 101.70205
+          },
+          {
+            "stop_id": "KG18A",
+            "stop_name": "BUKIT BINTANG ",
+            "lat": 3.146503,
+            "lon": 101.710947
+          },
+          {
+            "stop_id": "KG20",
+            "stop_name": "TUN RAZAK EXCHANGE",
+            "lat": 3.142403,
+            "lon": 101.720156
+          },
+          {
+            "stop_id": "KG21",
+            "stop_name": "COCHRANE",
+            "lat": 3.132829,
+            "lon": 101.722962
+          },
+          {
+            "stop_id": "KG22",
+            "stop_name": "MALURI",
+            "lat": 3.123623,
+            "lon": 101.727809
+          },
+          {
+            "stop_id": "KG23",
+            "stop_name": "TAMAN PERTAMA",
+            "lat": 3.112547,
+            "lon": 101.729371
+          },
+          {
+            "stop_id": "KG24",
+            "stop_name": "TAMAN MIDAH",
+            "lat": 3.104505,
+            "lon": 101.732186
+          },
+          {
+            "stop_id": "KG25",
+            "stop_name": "TAMAN MUTIARA",
+            "lat": 3.090989,
+            "lon": 101.740453
+          },
+          {
+            "stop_id": "KG26",
+            "stop_name": "TAMAN CONNAUGHT",
+            "lat": 3.079172,
+            "lon": 101.74522
+          },
+          {
+            "stop_id": "KG27",
+            "stop_name": "TAMAN SUNTEX",
+            "lat": 3.071578,
+            "lon": 101.763552
+          },
+          {
+            "stop_id": "KG28",
+            "stop_name": "SRI RAYA",
+            "lat": 3.062273,
+            "lon": 101.772899
+          },
+          {
+            "stop_id": "KG29",
+            "stop_name": "BANDAR TUN HUSSEIN ONN",
+            "lat": 3.048223,
+            "lon": 101.775109
+          },
+          {
+            "stop_id": "KG30",
+            "stop_name": "BATU 11 CHERAS",
+            "lat": 3.041339,
+            "lon": 101.773383
+          },
+          {
+            "stop_id": "KG31",
+            "stop_name": "BUKIT DUKUNG",
+            "lat": 3.026413,
+            "lon": 101.771072
+          },
+          {
+            "stop_id": "KG33",
+            "stop_name": "SUNGAI JERNIH",
+            "lat": 3.000948,
+            "lon": 101.783857
+          },
+          {
+            "stop_id": "KG34",
+            "stop_name": "STADIUM KAJANG",
+            "lat": 2.994514,
+            "lon": 101.786338
+          },
+          {
+            "stop_id": "KG35",
+            "stop_name": "KAJANG",
+            "lat": 2.982778,
+            "lon": 101.790278
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "MRT Kajang Line",
+        "shape_id": "shp_MRT_1",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "KG35",
+            "stop_name": "KAJANG",
+            "lat": 2.982778,
+            "lon": 101.790278
+          },
+          {
+            "stop_id": "KG34",
+            "stop_name": "STADIUM KAJANG",
+            "lat": 2.994514,
+            "lon": 101.786338
+          },
+          {
+            "stop_id": "KG33",
+            "stop_name": "SUNGAI JERNIH",
+            "lat": 3.000948,
+            "lon": 101.783857
+          },
+          {
+            "stop_id": "KG31",
+            "stop_name": "BUKIT DUKUNG",
+            "lat": 3.026413,
+            "lon": 101.771072
+          },
+          {
+            "stop_id": "KG30",
+            "stop_name": "BATU 11 CHERAS",
+            "lat": 3.041339,
+            "lon": 101.773383
+          },
+          {
+            "stop_id": "KG29",
+            "stop_name": "BANDAR TUN HUSSEIN ONN",
+            "lat": 3.048223,
+            "lon": 101.775109
+          },
+          {
+            "stop_id": "KG28",
+            "stop_name": "SRI RAYA",
+            "lat": 3.062273,
+            "lon": 101.772899
+          },
+          {
+            "stop_id": "KG27",
+            "stop_name": "TAMAN SUNTEX",
+            "lat": 3.071578,
+            "lon": 101.763552
+          },
+          {
+            "stop_id": "KG26",
+            "stop_name": "TAMAN CONNAUGHT",
+            "lat": 3.079172,
+            "lon": 101.74522
+          },
+          {
+            "stop_id": "KG25",
+            "stop_name": "TAMAN MUTIARA",
+            "lat": 3.090989,
+            "lon": 101.740453
+          },
+          {
+            "stop_id": "KG24",
+            "stop_name": "TAMAN MIDAH",
+            "lat": 3.104505,
+            "lon": 101.732186
+          },
+          {
+            "stop_id": "KG23",
+            "stop_name": "TAMAN PERTAMA",
+            "lat": 3.112547,
+            "lon": 101.729371
+          },
+          {
+            "stop_id": "KG22",
+            "stop_name": "MALURI",
+            "lat": 3.123623,
+            "lon": 101.727809
+          },
+          {
+            "stop_id": "KG21",
+            "stop_name": "COCHRANE",
+            "lat": 3.132829,
+            "lon": 101.722962
+          },
+          {
+            "stop_id": "KG20",
+            "stop_name": "TUN RAZAK EXCHANGE",
+            "lat": 3.142403,
+            "lon": 101.720156
+          },
+          {
+            "stop_id": "KG18A",
+            "stop_name": "BUKIT BINTANG ",
+            "lat": 3.146503,
+            "lon": 101.710947
+          },
+          {
+            "stop_id": "KG17",
+            "stop_name": "MERDEKA",
+            "lat": 3.141969,
+            "lon": 101.70205
+          },
+          {
+            "stop_id": "KG16",
+            "stop_name": "PASAR SENI",
+            "lat": 3.142293265,
+            "lon": 101.6955642
+          },
+          {
+            "stop_id": "KG15",
+            "stop_name": "MUZIUM NEGARA",
+            "lat": 3.137317,
+            "lon": 101.687336
+          },
+          {
+            "stop_id": "KG14",
+            "stop_name": "SEMANTAN",
+            "lat": 3.150977,
+            "lon": 101.665497
+          },
+          {
+            "stop_id": "KG13",
+            "stop_name": "PUSAT BANDAR DAMANSARA",
+            "lat": 3.143444,
+            "lon": 101.662857
+          },
+          {
+            "stop_id": "KG12",
+            "stop_name": "PHILEO DAMANSARA",
+            "lat": 3.129864,
+            "lon": 101.642471
+          },
+          {
+            "stop_id": "KG10",
+            "stop_name": "TAMAN TUN DR ISMAIL",
+            "lat": 3.13613,
+            "lon": 101.630539
+          },
+          {
+            "stop_id": "KG09",
+            "stop_name": "BANDAR UTAMA",
+            "lat": 3.14671,
+            "lon": 101.618599
+          },
+          {
+            "stop_id": "KG08",
+            "stop_name": "MUTIARA DAMANSARA",
+            "lat": 3.155301,
+            "lon": 101.609077
+          },
+          {
+            "stop_id": "KG07",
+            "stop_name": "SURIAN",
+            "lat": 3.14948,
+            "lon": 101.593925
+          },
+          {
+            "stop_id": "KG06",
+            "stop_name": "KOTA DAMANSARA",
+            "lat": 3.150134,
+            "lon": 101.57869
+          },
+          {
+            "stop_id": "KG05",
+            "stop_name": "KWASA SENTRAL",
+            "lat": 3.170112,
+            "lon": 101.564651
+          },
+          {
+            "stop_id": "KG04",
+            "stop_name": "KWASA DAMANSARA",
+            "lat": 3.176146,
+            "lon": 101.572052
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "PYL",
+    "route_short_name": "PYL",
+    "route_long_name": "MRT Putrajaya Line",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "MRT Putrajaya Line",
+        "shape_id": "shp_PYL_0",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "PY01",
+            "stop_name": "KWASA DAMANSARA",
+            "lat": 3.1763324,
+            "lon": 101.5721456
+          },
+          {
+            "stop_id": "PY03",
+            "stop_name": "KAMPUNG SELAMAT",
+            "lat": 3.197266,
+            "lon": 101.578499
+          },
+          {
+            "stop_id": "PY04",
+            "stop_name": "SUNGAI BULOH",
+            "lat": 3.206429,
+            "lon": 101.581779
+          },
+          {
+            "stop_id": "PY05",
+            "stop_name": "DAMANSARA DAMAI",
+            "lat": 3.199892,
+            "lon": 101.592623
+          },
+          {
+            "stop_id": "PY06",
+            "stop_name": "SRI DAMANSARA BARAT",
+            "lat": 3.198197,
+            "lon": 101.608302
+          },
+          {
+            "stop_id": "PY07",
+            "stop_name": "SRI DAMANSARA SENTRAL",
+            "lat": 3.198815,
+            "lon": 101.621396
+          },
+          {
+            "stop_id": "PY08",
+            "stop_name": "SRI DAMANSARA TIMUR",
+            "lat": 3.207832,
+            "lon": 101.628716
+          },
+          {
+            "stop_id": "PY09",
+            "stop_name": "METRO PRIMA",
+            "lat": 3.214438,
+            "lon": 101.639402
+          },
+          {
+            "stop_id": "PY10",
+            "stop_name": "KEPONG BARU",
+            "lat": 3.211663,
+            "lon": 101.648193
+          },
+          {
+            "stop_id": "PY11",
+            "stop_name": "JINJANG",
+            "lat": 3.209544,
+            "lon": 101.655829
+          },
+          {
+            "stop_id": "PY12",
+            "stop_name": "SRI DELIMA",
+            "lat": 3.207108,
+            "lon": 101.665749
+          },
+          {
+            "stop_id": "PY13",
+            "stop_name": "KAMPUNG BATU",
+            "lat": 3.205521,
+            "lon": 101.675473
+          },
+          {
+            "stop_id": "PY14",
+            "stop_name": "KENTOMEN",
+            "lat": 3.19563,
+            "lon": 101.6797
+          },
+          {
+            "stop_id": "PY15",
+            "stop_name": "JALAN IPOH",
+            "lat": 3.189319,
+            "lon": 101.681145
+          },
+          {
+            "stop_id": "PY16",
+            "stop_name": "SENTUL BARAT",
+            "lat": 3.179369,
+            "lon": 101.684742
+          },
+          {
+            "stop_id": "PY17",
+            "stop_name": "TITIWANGSA",
+            "lat": 3.17408,
+            "lon": 101.69581
+          },
+          {
+            "stop_id": "PY18",
+            "stop_name": "HOSPITAL KUALA LUMPUR",
+            "lat": 3.17405,
+            "lon": 101.70239
+          },
+          {
+            "stop_id": "PY19",
+            "stop_name": "RAJA UDA",
+            "lat": 3.16794,
+            "lon": 101.71017
+          },
+          {
+            "stop_id": "PY20",
+            "stop_name": "AMPANG PARK",
+            "lat": 3.16225,
+            "lon": 101.71781
+          },
+          {
+            "stop_id": "PY21",
+            "stop_name": "PERSIARAN KLCC",
+            "lat": 3.15712,
+            "lon": 101.71834
+          },
+          {
+            "stop_id": "PY22",
+            "stop_name": "CONLAY",
+            "lat": 3.15145,
+            "lon": 101.71801
+          },
+          {
+            "stop_id": "PY23",
+            "stop_name": "TUN RAZAK EXCHANGE",
+            "lat": 3.14289,
+            "lon": 101.72034
+          },
+          {
+            "stop_id": "PY24",
+            "stop_name": "CHAN SOW LIN",
+            "lat": 3.12839,
+            "lon": 101.71663
+          },
+          {
+            "stop_id": "PY27",
+            "stop_name": "KUCHAI",
+            "lat": 3.089546,
+            "lon": 101.694124
+          },
+          {
+            "stop_id": "PY28",
+            "stop_name": "TAMAN NAGA EMAS",
+            "lat": 3.077688,
+            "lon": 101.699867
+          },
+          {
+            "stop_id": "PY29",
+            "stop_name": "SUNGAI BESI",
+            "lat": 3.063737,
+            "lon": 101.7084
+          },
+          {
+            "stop_id": "PY31",
+            "stop_name": "SERDANG RAYA UTARA",
+            "lat": 3.041674,
+            "lon": 101.704928
+          },
+          {
+            "stop_id": "PY32",
+            "stop_name": "SERDANG RAYA SELATAN",
+            "lat": 3.028463,
+            "lon": 101.707514
+          },
+          {
+            "stop_id": "PY33",
+            "stop_name": "SERDANG JAYA",
+            "lat": 3.0216,
+            "lon": 101.709
+          },
+          {
+            "stop_id": "PY34",
+            "stop_name": "UPM",
+            "lat": 3.008489,
+            "lon": 101.705396
+          },
+          {
+            "stop_id": "PY36",
+            "stop_name": "TAMAN EQUINE",
+            "lat": 2.98942,
+            "lon": 101.67244
+          },
+          {
+            "stop_id": "PY37",
+            "stop_name": "PUTRA PERMAI",
+            "lat": 2.98339,
+            "lon": 101.66099
+          },
+          {
+            "stop_id": "PY38",
+            "stop_name": "16 SIERRA",
+            "lat": 2.964974,
+            "lon": 101.654812
+          },
+          {
+            "stop_id": "PY39",
+            "stop_name": "CYBERJAYA UTARA",
+            "lat": 2.95,
+            "lon": 101.6573
+          },
+          {
+            "stop_id": "PY40",
+            "stop_name": "CYBERJAYA CITY CENTRE",
+            "lat": 2.9384,
+            "lon": 101.6659
+          },
+          {
+            "stop_id": "PY41",
+            "stop_name": "PUTRAJAYA SENTRAL",
+            "lat": 2.9313,
+            "lon": 101.6715
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "MRT Putrajaya Line",
+        "shape_id": "shp_PYL_1",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "PY41",
+            "stop_name": "PUTRAJAYA SENTRAL",
+            "lat": 2.9313,
+            "lon": 101.6715
+          },
+          {
+            "stop_id": "PY40",
+            "stop_name": "CYBERJAYA CITY CENTRE",
+            "lat": 2.9384,
+            "lon": 101.6659
+          },
+          {
+            "stop_id": "PY39",
+            "stop_name": "CYBERJAYA UTARA",
+            "lat": 2.95,
+            "lon": 101.6573
+          },
+          {
+            "stop_id": "PY38",
+            "stop_name": "16 SIERRA",
+            "lat": 2.964974,
+            "lon": 101.654812
+          },
+          {
+            "stop_id": "PY37",
+            "stop_name": "PUTRA PERMAI",
+            "lat": 2.98339,
+            "lon": 101.66099
+          },
+          {
+            "stop_id": "PY36",
+            "stop_name": "TAMAN EQUINE",
+            "lat": 2.98942,
+            "lon": 101.67244
+          },
+          {
+            "stop_id": "PY34",
+            "stop_name": "UPM",
+            "lat": 3.008489,
+            "lon": 101.705396
+          },
+          {
+            "stop_id": "PY33",
+            "stop_name": "SERDANG JAYA",
+            "lat": 3.0216,
+            "lon": 101.709
+          },
+          {
+            "stop_id": "PY32",
+            "stop_name": "SERDANG RAYA SELATAN",
+            "lat": 3.028463,
+            "lon": 101.707514
+          },
+          {
+            "stop_id": "PY31",
+            "stop_name": "SERDANG RAYA UTARA",
+            "lat": 3.041674,
+            "lon": 101.704928
+          },
+          {
+            "stop_id": "PY29",
+            "stop_name": "SUNGAI BESI",
+            "lat": 3.063737,
+            "lon": 101.7084
+          },
+          {
+            "stop_id": "PY28",
+            "stop_name": "TAMAN NAGA EMAS",
+            "lat": 3.077688,
+            "lon": 101.699867
+          },
+          {
+            "stop_id": "PY27",
+            "stop_name": "KUCHAI",
+            "lat": 3.089546,
+            "lon": 101.694124
+          },
+          {
+            "stop_id": "PY24",
+            "stop_name": "CHAN SOW LIN",
+            "lat": 3.12839,
+            "lon": 101.71663
+          },
+          {
+            "stop_id": "PY23",
+            "stop_name": "TUN RAZAK EXCHANGE",
+            "lat": 3.14289,
+            "lon": 101.72034
+          },
+          {
+            "stop_id": "PY22",
+            "stop_name": "CONLAY",
+            "lat": 3.15145,
+            "lon": 101.71801
+          },
+          {
+            "stop_id": "PY21",
+            "stop_name": "PERSIARAN KLCC",
+            "lat": 3.15712,
+            "lon": 101.71834
+          },
+          {
+            "stop_id": "PY20",
+            "stop_name": "AMPANG PARK",
+            "lat": 3.16225,
+            "lon": 101.71781
+          },
+          {
+            "stop_id": "PY19",
+            "stop_name": "RAJA UDA",
+            "lat": 3.16794,
+            "lon": 101.71017
+          },
+          {
+            "stop_id": "PY18",
+            "stop_name": "HOSPITAL KUALA LUMPUR",
+            "lat": 3.17405,
+            "lon": 101.70239
+          },
+          {
+            "stop_id": "PY17",
+            "stop_name": "TITIWANGSA",
+            "lat": 3.17408,
+            "lon": 101.69581
+          },
+          {
+            "stop_id": "PY16",
+            "stop_name": "SENTUL BARAT",
+            "lat": 3.179369,
+            "lon": 101.684742
+          },
+          {
+            "stop_id": "PY15",
+            "stop_name": "JALAN IPOH",
+            "lat": 3.189319,
+            "lon": 101.681145
+          },
+          {
+            "stop_id": "PY14",
+            "stop_name": "KENTOMEN",
+            "lat": 3.19563,
+            "lon": 101.6797
+          },
+          {
+            "stop_id": "PY13",
+            "stop_name": "KAMPUNG BATU",
+            "lat": 3.205521,
+            "lon": 101.675473
+          },
+          {
+            "stop_id": "PY12",
+            "stop_name": "SRI DELIMA",
+            "lat": 3.207108,
+            "lon": 101.665749
+          },
+          {
+            "stop_id": "PY11",
+            "stop_name": "JINJANG",
+            "lat": 3.209544,
+            "lon": 101.655829
+          },
+          {
+            "stop_id": "PY10",
+            "stop_name": "KEPONG BARU",
+            "lat": 3.211663,
+            "lon": 101.648193
+          },
+          {
+            "stop_id": "PY09",
+            "stop_name": "METRO PRIMA",
+            "lat": 3.214438,
+            "lon": 101.639402
+          },
+          {
+            "stop_id": "PY08",
+            "stop_name": "SRI DAMANSARA TIMUR",
+            "lat": 3.207832,
+            "lon": 101.628716
+          },
+          {
+            "stop_id": "PY07",
+            "stop_name": "SRI DAMANSARA SENTRAL",
+            "lat": 3.198815,
+            "lon": 101.621396
+          },
+          {
+            "stop_id": "PY06",
+            "stop_name": "SRI DAMANSARA BARAT",
+            "lat": 3.198197,
+            "lon": 101.608302
+          },
+          {
+            "stop_id": "PY05",
+            "stop_name": "DAMANSARA DAMAI",
+            "lat": 3.199892,
+            "lon": 101.592623
+          },
+          {
+            "stop_id": "PY04",
+            "stop_name": "SUNGAI BULOH",
+            "lat": 3.206429,
+            "lon": 101.581779
+          },
+          {
+            "stop_id": "PY03",
+            "stop_name": "KAMPUNG SELAMAT",
+            "lat": 3.197266,
+            "lon": 101.578499
+          },
+          {
+            "stop_id": "PY01",
+            "stop_name": "KWASA DAMANSARA",
+            "lat": 3.1763324,
+            "lon": 101.5721456
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "MR",
+    "route_short_name": "MR",
+    "route_long_name": "KL Monorail Line",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "KL Monorail Line",
+        "shape_id": "shp_MR_0",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "MR1",
+            "stop_name": "KL SENTRAL",
+            "lat": 3.132852,
+            "lon": 101.687817
+          },
+          {
+            "stop_id": "MR2",
+            "stop_name": "TUN SAMBANTHAN",
+            "lat": 3.13132,
+            "lon": 101.69085
+          },
+          {
+            "stop_id": "MR3",
+            "stop_name": "MAHARAJALELA",
+            "lat": 3.138743,
+            "lon": 101.699268
+          },
+          {
+            "stop_id": "MR4",
+            "stop_name": "HANG TUAH",
+            "lat": 3.140511,
+            "lon": 101.706029
+          },
+          {
+            "stop_id": "MR5",
+            "stop_name": "IMBI",
+            "lat": 3.14283,
+            "lon": 101.70945
+          },
+          {
+            "stop_id": "MR6",
+            "stop_name": "BUKIT BINTANG ",
+            "lat": 3.146022,
+            "lon": 101.7115
+          },
+          {
+            "stop_id": "MR7",
+            "stop_name": "RAJA CHULAN",
+            "lat": 3.150878,
+            "lon": 101.710432
+          },
+          {
+            "stop_id": "MR8",
+            "stop_name": "BUKIT NANAS",
+            "lat": 3.156214,
+            "lon": 101.704809
+          },
+          {
+            "stop_id": "MR9",
+            "stop_name": "MEDAN TUANKU",
+            "lat": 3.15935,
+            "lon": 101.69888
+          },
+          {
+            "stop_id": "MR10",
+            "stop_name": "CHOW KIT",
+            "lat": 3.167358,
+            "lon": 101.698379
+          },
+          {
+            "stop_id": "MR11",
+            "stop_name": "TITIWANGSA",
+            "lat": 3.173192,
+            "lon": 101.696022
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "KL Monorail Line",
+        "shape_id": "shp_MR_1",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "MR11",
+            "stop_name": "TITIWANGSA",
+            "lat": 3.173192,
+            "lon": 101.696022
+          },
+          {
+            "stop_id": "MR10",
+            "stop_name": "CHOW KIT",
+            "lat": 3.167358,
+            "lon": 101.698379
+          },
+          {
+            "stop_id": "MR9",
+            "stop_name": "MEDAN TUANKU",
+            "lat": 3.15935,
+            "lon": 101.69888
+          },
+          {
+            "stop_id": "MR8",
+            "stop_name": "BUKIT NANAS",
+            "lat": 3.156214,
+            "lon": 101.704809
+          },
+          {
+            "stop_id": "MR7",
+            "stop_name": "RAJA CHULAN",
+            "lat": 3.150878,
+            "lon": 101.710432
+          },
+          {
+            "stop_id": "MR6",
+            "stop_name": "BUKIT BINTANG ",
+            "lat": 3.146022,
+            "lon": 101.7115
+          },
+          {
+            "stop_id": "MR5",
+            "stop_name": "IMBI",
+            "lat": 3.14283,
+            "lon": 101.70945
+          },
+          {
+            "stop_id": "MR4",
+            "stop_name": "HANG TUAH",
+            "lat": 3.140511,
+            "lon": 101.706029
+          },
+          {
+            "stop_id": "MR3",
+            "stop_name": "MAHARAJALELA",
+            "lat": 3.138743,
+            "lon": 101.699268
+          },
+          {
+            "stop_id": "MR2",
+            "stop_name": "TUN SAMBANTHAN",
+            "lat": 3.13132,
+            "lon": 101.69085
+          },
+          {
+            "stop_id": "MR1",
+            "stop_name": "KL SENTRAL",
+            "lat": 3.132852,
+            "lon": 101.687817
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "BRT",
+    "route_short_name": "BRT",
+    "route_long_name": "BRT Sunway Line",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "BRT Sunway Line",
+        "shape_id": "shp_BRT_0",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "BRT1",
+            "stop_name": "SUNWAY-SETIA JAYA",
+            "lat": 3.0828,
+            "lon": 101.6123
+          },
+          {
+            "stop_id": "BRT2",
+            "stop_name": "MENTARI",
+            "lat": 3.0761,
+            "lon": 101.6101
+          },
+          {
+            "stop_id": "BRT3",
+            "stop_name": "SUNWAY LAGOON ",
+            "lat": 3.0706,
+            "lon": 101.6107
+          },
+          {
+            "stop_id": "BRT4",
+            "stop_name": "SUNMED",
+            "lat": 3.0656,
+            "lon": 101.6087
+          },
+          {
+            "stop_id": "BRT5",
+            "stop_name": "SunU-Monash",
+            "lat": 3.0654,
+            "lon": 101.6016
+          },
+          {
+            "stop_id": "BRT6",
+            "stop_name": "SOUTH QUAY-USJ 1",
+            "lat": 3.0617,
+            "lon": 101.5969
+          },
+          {
+            "stop_id": "BRT7",
+            "stop_name": "USJ7",
+            "lat": 3.0553,
+            "lon": 101.5919
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "BRT Sunway Line",
+        "shape_id": "shp_BRT_1",
+        "service_ids": [
+          "Sun",
+          "Sat",
+          "MonFri"
+        ],
+        "stops": [
+          {
+            "stop_id": "BRT7",
+            "stop_name": "USJ7",
+            "lat": 3.0553,
+            "lon": 101.5919
+          },
+          {
+            "stop_id": "BRT6",
+            "stop_name": "SOUTH QUAY-USJ 1",
+            "lat": 3.0617,
+            "lon": 101.5969
+          },
+          {
+            "stop_id": "BRT5",
+            "stop_name": "SunU-Monash",
+            "lat": 3.0654,
+            "lon": 101.6016
+          },
+          {
+            "stop_id": "BRT4",
+            "stop_name": "SUNMED",
+            "lat": 3.0656,
+            "lon": 101.6087
+          },
+          {
+            "stop_id": "BRT3",
+            "stop_name": "SUNWAY LAGOON ",
+            "lat": 3.0706,
+            "lon": 101.6107
+          },
+          {
+            "stop_id": "BRT2",
+            "stop_name": "MENTARI",
+            "lat": 3.0761,
+            "lon": 101.6101
+          },
+          {
+            "stop_id": "BRT1",
+            "stop_name": "SUNWAY-SETIA JAYA",
+            "lat": 3.0828,
+            "lon": 101.6123
+          }
+        ]
+      }
+    ]
+  }
+]

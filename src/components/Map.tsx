@@ -76,6 +76,10 @@ import MyBasTrgRoutes from "@/assets/trg/trg_routes_with_directions.json";
 import MyBasTrgSchedule from "@/../data/trg-schedule.json";
 import MyBasTrgDirections from "@/../data/trg-trips.json";
 
+import RapidRailShapes from "@/assets/rail/shapes_flipped.json";
+import RapidRailRoutesWithShapesID from "@/assets/rail/routes_with_shapes.json";
+import RapidRailRoutesWithStops from "@/assets/rail/routes_with_directions.json";
+
 import {
   Collapsible,
   CollapsibleContent,
@@ -953,6 +957,89 @@ function App() {
                     : "streets-v4"
             }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip`}
           /> */}
+          {provider === "rkl" && (
+            <>
+              {RapidRailRoutesWithShapesID.map((route) => (
+                <Polyline
+                  key={route.route_id}
+                  pathOptions={{
+                    color: "#" + route.route_color,
+                    weight: 6,
+                    opacity: 0.6,
+                  }}
+                  positions={
+                    RapidRailShapes.features
+                      .find(
+                        (pos) =>
+                          // route.shape_ids.includes(pos.properties.shape_id),
+                          route.shape_ids[0] === pos.properties.shape_id,
+                      )
+                      ?.geometry.coordinates.map(
+                        (coord) => [coord[0], coord[1]] as [number, number],
+                      ) ?? []
+                  }
+                >
+                  {RapidRailRoutesWithStops.find(
+                    (r) => r.route_id === route.route_id,
+                  )?.directions[0]?.stops.map((stop) => (
+                    <CircleMarker
+                      pane="overlayPane"
+                      key={stop.stop_id}
+                      radius={4}
+                      center={[stop.lat, stop.lon]}
+                      pathOptions={{
+                        color: "transparent",
+                        fillColor: "white",
+                        fillOpacity: 0.6,
+                      }}
+                    >
+                      <Popup
+                        className="pointer-events-none"
+                        maxWidth={500}
+                        offset={[0, 8]}
+                        closeButton={false}
+                      >
+                        <div className="border inline-flex gap-2 border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
+                          <span
+                            className={`inline-block rounded-md px-1 ${route.route_code === "PYL" && "text-black"}`}
+                            style={{
+                              backgroundColor: `#${route.route_color}`,
+                            }}
+                          >
+                            {route.route_code}
+                          </span>
+                          {stop.stop_name.trim()}
+                        </div>
+                      </Popup>
+                    </CircleMarker>
+                  ))}
+
+                  <Popup
+                    maxWidth={500}
+                    offset={[0, 2]}
+                    className="pointer-events-none"
+                    closeButton={false}
+                  >
+                    <div
+                      className={`border border-white dark:border-neutral-500  backdrop-blur-lg dark:text-white  text-black font-medium rounded-lg px-2 py-2 text-md text-left`}
+                    >
+                      <p className="inline-flex items-center gap-2">
+                        <span
+                          className={`inline-block rounded-md px-1 ${route.route_code === "PYL" && "text-black"}`}
+                          style={{
+                            backgroundColor: `#${route.route_color}`,
+                          }}
+                        >
+                          {route.route_code}
+                        </span>
+                        {route.route_name}
+                      </p>
+                    </div>
+                  </Popup>
+                </Polyline>
+              ))}
+            </>
+          )}
           <TileLayer
             maxZoom={18}
             attribution={

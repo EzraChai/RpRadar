@@ -15,6 +15,7 @@ with open(ROUTES_FILE, newline="", encoding="utf-8") as f:
             "route_id": row["route_id"],
             # "route_code": row["route_short_name"] if row["route_short_name"] else row["route_long_name"],
             "route_code": row["route_id"],
+            "route_color": row["route_color"] if row["route_color"] else None,
             "route_name": row["route_long_name"] if row["route_long_name"] else None,
             "shape_ids": set()
         }
@@ -37,6 +38,7 @@ output = [
     {
         "route_id": r["route_id"],
         "route_code": r["route_code"],
+        "route_color": r["route_color"],
         "route_name": r["route_name"],
         "shape_ids": sorted(r["shape_ids"])
     }

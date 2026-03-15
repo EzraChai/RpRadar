@@ -1,0 +1,51 @@
+[
+  {
+    "route_id": "AG",
+    "route_code": "AGL",
+    "route_color": "e57200",
+    "route_name": "LRT Ampang Line",
+    "shape_ids": ["shp_AG_0", "shp_AG_1"]
+  },
+  {
+    "route_id": "BRT",
+    "route_code": "BRT",
+    "route_color": "115740",
+    "route_name": "BRT Sunway Line",
+    "shape_ids": ["shp_BRT_0", "shp_BRT_1"]
+  },
+  {
+    "route_id": "KGL",
+    "route_code": "KGL",
+    "route_color": "047940",
+    "route_name": "MRT Kajang Line",
+    "shape_ids": ["shp_MRT_0", "shp_MRT_1"]
+  },
+  {
+    "route_id": "KJ",
+    "route_code": "KJL",
+    "route_color": "D50032",
+    "route_name": "LRT Kelana Jaya Line",
+    "shape_ids": ["shp_KJ_0", "shp_KJ_1"]
+  },
+  {
+    "route_id": "MR",
+    "route_code": "MRL",
+    "route_color": "84bd00",
+    "route_name": "KL Monorail Line",
+    "shape_ids": ["shp_MR_0", "shp_MR_1"]
+  },
+  {
+    "route_id": "PH",
+    "route_code": "SPL",
+    "route_color": "76232f",
+    "route_name": "LRT Sri Petaling Line",
+    "shape_ids": ["shp_PH_0", "shp_PH_1"]
+  },
+  {
+    "route_id": "PYL",
+    "route_code": "PYL",
+    "route_color": "FFCD00",
+    "route_name": "MRT Putrajaya Line",
+    "shape_ids": ["shp_PYL_0", "shp_PYL_1"]
+  }
+]
