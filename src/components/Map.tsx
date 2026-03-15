@@ -762,6 +762,7 @@ function App() {
           {positions.length &&
             route.directions[0].stops.map((stop, idx) => (
               <CircleMarker
+                pane="markerPane"
                 ref={(ref) => {
                   markerRefs.current[stop.stop_id] = ref;
                 }}
@@ -769,7 +770,7 @@ function App() {
                 radius={6}
                 center={[stop.lat, stop.lon]}
                 pathOptions={{
-                  color: darkenHex(color),
+                  color: color,
                   fillColor: "white",
                   fillOpacity: 1,
                 }}
