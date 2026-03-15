@@ -1306,8 +1306,7 @@ function VehiclesMarker({
           res = await fetch(`${URL}prasarana?category=rapid-bus-kl`);
           res2 = await fetch(`${URL}prasarana?category=rapid-bus-mrtfeeder`);
         } else if (provider === "ns") {
-          res = await fetch(`${URL}mybas-seremban-a`);
-          res2 = await fetch(`${URL}mybas-seremban-b`);
+          res = await fetch(`${URL}mybas-seremban`);
         } else if (provider === "mk") {
           res = await fetch(`${URL}mybas-melaka`);
         } else if (provider === "jb") {
