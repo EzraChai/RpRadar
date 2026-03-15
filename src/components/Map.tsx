@@ -592,6 +592,12 @@ function App() {
                     </Button>
                     {idx === 0 &&
                       BusSchedule &&
+                      BusSchedule.find(
+                        (s) =>
+                          s.r === route.route_id &&
+                          s.d === direction &&
+                          s.dt === getCurrentDate(),
+                      )?.t &&
                       (provider === "rp" ||
                         provider === "ns" ||
                         provider === "jb" ||
@@ -1153,7 +1159,6 @@ function App() {
                           );
                         }}
                       />
-                      <span className="sr-only">Toggle Rail Lines</span>
                     </div>
                   )}
                 </DialogContent>

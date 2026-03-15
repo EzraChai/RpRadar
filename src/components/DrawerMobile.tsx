@@ -371,45 +371,52 @@ export function DrawerMobile({
                             >
                               <p>{stop.stop_name}</p>
                             </Button>
-                            {idx === 0 && BusSchedule && (
-                              <Collapsible className="px-6 mb-4">
-                                <CollapsibleTrigger asChild>
-                                  <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
-                                    Next bus will depart at{" "}
-                                    {nextBusTime(
-                                      BusSchedule?.find(
+                            {idx === 0 &&
+                              BusSchedule &&
+                              BusSchedule.find(
+                                (s) =>
+                                  s.r === route.route_id &&
+                                  s.d === direction &&
+                                  s.dt === getCurrentDate(),
+                              )?.t && (
+                                <Collapsible className="px-6 mb-4">
+                                  <CollapsibleTrigger asChild>
+                                    <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
+                                      Next bus will depart at{" "}
+                                      {nextBusTime(
+                                        BusSchedule?.find(
+                                          (s) =>
+                                            s.r === route.route_id &&
+                                            s.d === direction &&
+                                            s.dt === getCurrentDate(),
+                                        )?.t || [],
+                                      )}
+                                    </Card>
+                                  </CollapsibleTrigger>
+                                  <CollapsibleContent>
+                                    <div className="mt-2">Scheduled</div>
+                                    <div className="grid grid-cols-6 self-center text-xs">
+                                      {BusSchedule?.find(
                                         (s) =>
                                           s.r === route.route_id &&
                                           s.d === direction &&
                                           s.dt === getCurrentDate(),
-                                      )?.t || [],
-                                    )}
-                                  </Card>
-                                </CollapsibleTrigger>
-                                <CollapsibleContent>
-                                  <div className="mt-2">Scheduled</div>
-                                  <div className="grid grid-cols-6 self-center text-xs">
-                                    {BusSchedule?.find(
-                                      (s) =>
-                                        s.r === route.route_id &&
-                                        s.d === direction &&
-                                        s.dt === getCurrentDate(),
-                                    )?.t.map((time, idx) => (
-                                      <div
-                                        key={idx}
-                                        className={`${
-                                          hasCurrentTimePassed(time)
-                                            ? "dark:text-neutral-500 text-neutral-400"
-                                            : "dark:text-white text-black"
-                                        } px-2`}
-                                      >
-                                        {time.substring(0, 5)}
-                                      </div>
-                                    ))}
-                                  </div>
-                                </CollapsibleContent>
-                              </Collapsible>
-                            )}
+                                      )?.t.map((time, idx) => (
+                                        <div
+                                          key={idx}
+                                          className={`${
+                                            hasCurrentTimePassed(time)
+                                              ? "dark:text-neutral-500 text-neutral-400"
+                                              : "dark:text-white text-black"
+                                          } px-2`}
+                                        >
+                                          {time.substring(0, 5)}
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </CollapsibleContent>
+                                </Collapsible>
+                              )}
                           </div>
                         </div>
                       ))}
