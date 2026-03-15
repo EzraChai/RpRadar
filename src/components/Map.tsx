@@ -18,7 +18,7 @@ import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
 import { bearing, lineString, point, nearestPointOnLine } from "@turf/turf";
-import { Minus, Plus, Settings, Star, X } from "lucide-react";
+import { Minus, Plus, Settings, Star, TramFront, X } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -110,11 +110,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import { Switch } from "./ui/switch";
 
 function App() {
   const [searchParams] = useSearchParams();
   const [provider, setProvider] = useState<string>(() => {
     return localStorage.getItem("provider") || "rp";
+  });
+  const [railVisible, setRailVisible] = useState(() => {
+    return localStorage.getItem("railVisible") === "true" || false;
   });
 
   const [route, setRoute] = useState<
@@ -942,7 +946,13 @@ function App() {
               route={route}
             />
           )}
-          {!isMobile && <AppSidebar setPositions={setPositions} />}
+          {!isMobile && (
+            <AppSidebar
+              setPositions={setPositions}
+              setRailVisible={setRailVisible}
+              railVisible={railVisible}
+            />
+          )}
           {/* <PMTileLayer /> */}
           {/* <TileLayer
             key={theme}
@@ -958,7 +968,7 @@ function App() {
                     : "streets-v4"
             }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip`}
           /> */}
-          {provider === "rkl" && (
+          {provider === "rkl" && railVisible && (
             <>
               {RapidRailRoutesWithShapesID.map((route) => (
                 <Polyline
@@ -1125,6 +1135,26 @@ function App() {
                       </SelectContent>
                     </Select>
                   </div>
+                  {provider === "rkl" && (
+                    <div className="flex items-center">
+                      <div className="flex-1">
+                        <h1 className="text-neutral-800 dark:text-neutral-100">
+                          Rails Visibility
+                        </h1>
+                      </div>
+                      <Switch
+                        className=" data-[state=checked]:bg-neutral-800!"
+                        checked={railVisible}
+                        onCheckedChange={(checked) => {
+                          setRailVisible(checked);
+                          localStorage.setItem(
+                            "railVisible",
+                            checked.toString(),
+                          );
+                        }}
+                      />
+                    </div>
+                  )}
                 </DialogContent>
               </Dialog>
             </Card>

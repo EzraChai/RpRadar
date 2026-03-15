@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useMap } from "react-leaflet";
 import { ModeToggle } from "./mode-toggle";
-import { Search, X } from "lucide-react";
+import { Search, X, TramFront } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardHeader, CardTitle } from "./ui/card";
 import {
@@ -54,8 +54,12 @@ const combinedNSRoutes = [...MYBasNSARoutes, ...MYBasNSBRoutes];
 
 export function AppSidebar({
   setPositions,
+  setRailVisible,
+  railVisible,
 }: {
   setPositions: Dispatch<SetStateAction<L.LatLngExpression[][]>>;
+  setRailVisible: Dispatch<SetStateAction<boolean>>;
+  railVisible: boolean;
 }) {
   const map = useMap();
   const [openSearch, setOpenSearch] = useState(false);
@@ -233,7 +237,36 @@ export function AppSidebar({
             </SidebarContent>
             <SidebarFooter>
               <div className="flex justify-end">
-                <ModeToggle />
+                <div className="flex gap-2">
+                  {provider === "rkl" && (
+                    <Button
+                      onClick={() => {
+                        setRailVisible((prev) => {
+                          const newValue = !prev;
+                          localStorage.setItem(
+                            "railVisible",
+                            newValue.toString(),
+                          );
+                          return newValue;
+                        });
+                      }}
+                      variant="ghost"
+                      className="z-1005"
+                      size="icon"
+                    >
+                      {railVisible ? (
+                        <TramFront />
+                      ) : (
+                        <span className="relative overflow-hidden">
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex bg-white w-0.5 -rotate-45 h-full" />
+                          <TramFront />
+                        </span>
+                      )}
+                      <span className="sr-only">Toggle Rails Visibility</span>
+                    </Button>
+                  )}
+                  <ModeToggle />
+                </div>
               </div>
               <SidebarMenuButton asChild>
                 <Select
