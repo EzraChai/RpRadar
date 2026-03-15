@@ -1864,9 +1864,11 @@ function VehiclesMarker({
                 icon={busIcon(
                   isOffRoute
                     ? v.position?.bearing || 0
-                    : bearing(point(start), point(end)) ||
+                    : provider !== "rkl" && provider !== "rp"
+                      ? bearing(point(start), point(end)) ||
                         v.position?.bearing ||
-                        0,
+                        0
+                      : v.position?.bearing || 0,
                   v.trip?.tripId,
                 )}
               >
