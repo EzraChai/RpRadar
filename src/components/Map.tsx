@@ -1300,56 +1300,32 @@ function VehiclesMarker({
         let res: Response | null = null;
         let res2: Response | null = null;
 
+        const URL =
+          "https://my-gtfs-api.juanzhe21230.workers.dev/api/vehicle-position/";
         if (provider === "rkl") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-kl",
-          );
-          res2 = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-mrtfeeder",
-          );
+          res = await fetch(`${URL}prasarana?category=rapid-bus-kl`);
+          res2 = await fetch(`${URL}prasarana?category=rapid-bus-mrtfeeder`);
         } else if (provider === "ns") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-seremban-a",
-          );
-          res2 = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-seremban-b",
-          );
+          res = await fetch(`${URL}mybas-seremban-a`);
+          res2 = await fetch(`${URL}mybas-seremban-b`);
         } else if (provider === "mk") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-melaka",
-          );
+          res = await fetch(`${URL}mybas-melaka`);
         } else if (provider === "jb") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-johor",
-          );
+          res = await fetch(`${URL}mybas-johor`);
         } else if (provider === "pk") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-ipoh",
-          );
+          res = await fetch(`${URL}mybas-ipoh`);
         } else if (provider === "alr") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-alor-setar",
-          );
+          res = await fetch(`${URL}mybas-alor-setar`);
         } else if (provider === "kgr") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-kangar",
-          );
+          res = await fetch(`${URL}mybas-kangar`);
         } else if (provider === "ktb") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-kota-bharu",
-          );
+          res = await fetch(`${URL}mybas-kota-bharu`);
         } else if (provider === "trg") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/mybas-kuala-terengganu",
-          );
+          res = await fetch(`${URL}mybas-kuala-terengganu`);
         } else if (provider === "rp") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-penang",
-          );
+          res = await fetch(`${URL}prasarana?category=rapid-bus-penang`);
         } else if (provider === "ktn") {
-          res = await fetch(
-            "https://api.data.gov.my/gtfs-realtime/vehicle-position/prasarana?category=rapid-bus-kuantan",
-          );
+          res = await fetch(`${URL}prasarana?category=rapid-bus-kuantan`);
         }
 
         setVehicles((prev) => {
