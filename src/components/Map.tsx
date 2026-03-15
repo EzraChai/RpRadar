@@ -18,7 +18,7 @@ import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
 import { bearing, lineString, point, nearestPointOnLine } from "@turf/turf";
-import { Minus, Plus, Settings, Star, TramFront, X } from "lucide-react";
+import { Minus, Plus, Settings, Star, X } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import { useIsMobile } from "@/hooks/use-mobile";
