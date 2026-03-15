@@ -972,9 +972,7 @@ function App() {
                   positions={
                     RapidRailShapes.features
                       .find(
-                        (pos) =>
-                          // route.shape_ids.includes(pos.properties.shape_id),
-                          route.shape_ids[0] === pos.properties.shape_id,
+                        (pos) => route.shape_ids[0] === pos.properties.shape_id,
                       )
                       ?.geometry.coordinates.map(
                         (coord) => [coord[0], coord[1]] as [number, number],
@@ -1003,7 +1001,7 @@ function App() {
                       >
                         <div className="border inline-flex gap-2 border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
                           <span
-                            className={`inline-block rounded-md px-1 ${route.route_code === "PYL" && "text-black"}`}
+                            className={`inline-block font-bold rounded-md px-1.5 ${route.route_code === "PYL" && "text-black"}`}
                             style={{
                               backgroundColor: `#${route.route_color}`,
                             }}
@@ -1015,29 +1013,6 @@ function App() {
                       </Popup>
                     </CircleMarker>
                   ))}
-
-                  <Popup
-                    maxWidth={500}
-                    offset={[0, 2]}
-                    className="pointer-events-none"
-                    closeButton={false}
-                  >
-                    <div
-                      className={`border border-white dark:border-neutral-500  backdrop-blur-lg dark:text-white  text-black font-medium rounded-lg px-2 py-2 text-md text-left`}
-                    >
-                      <p className="inline-flex items-center gap-2">
-                        <span
-                          className={`inline-block rounded-md px-1 ${route.route_code === "PYL" && "text-black"}`}
-                          style={{
-                            backgroundColor: `#${route.route_color}`,
-                          }}
-                        >
-                          {route.route_code}
-                        </span>
-                        {route.route_name}
-                      </p>
-                    </div>
-                  </Popup>
                 </Polyline>
               ))}
             </>
