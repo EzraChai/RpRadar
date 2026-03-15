@@ -1604,8 +1604,12 @@ function VehiclesMarker({
       const vehicleForThisRoute = Array.from(vehicles.values());
 
       vehicleForThisRoute.forEach((v) => {
+        if (MyBasAlrDirections.length === 0) {
+          return;
+        }
         let directions = MyBasAlrDirections.find(
-          (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
+          (d: any) =>
+            d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
         );
 
         if (directions !== undefined && route?.directions.length === 1) {
