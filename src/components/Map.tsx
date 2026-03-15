@@ -962,6 +962,7 @@ function App() {
               {RapidRailRoutesWithShapesID.map((route) => (
                 <Polyline
                   key={route.route_id}
+                  pane="overlayPane"
                   pathOptions={{
                     color: "#" + route.route_color,
                     weight: 6,
@@ -983,7 +984,7 @@ function App() {
                     (r) => r.route_id === route.route_id,
                   )?.directions[0]?.stops.map((stop) => (
                     <CircleMarker
-                      pane="overlayPane"
+                      pane="markerPane"
                       key={stop.stop_id}
                       radius={4}
                       center={[stop.lat, stop.lon]}
