@@ -226,7 +226,7 @@ function App() {
   const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
   const starredRoutes = useStarredRoutes();
   const [direction, setDirection] = useState(() => {
-    return provider === "jb" || provider === "jb" ? 1 : 0;
+    return provider === "jb" || provider === "mk" ? 1 : 0;
   });
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
   const { theme } = useTheme();
