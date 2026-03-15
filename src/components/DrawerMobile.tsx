@@ -299,13 +299,13 @@ export function DrawerMobile({
                   }
                 </DialogTitle>
                 <div>
-                  {route?.directions.length === 2 && (
+                  {route?.directions.length >= 2 && (
                     <Button
                       variant={"outline"}
                       className="bg-white w-full"
                       onClick={() =>
                         setDirection((prev) => {
-                          if (route?.directions.length == 2) {
+                          if (route?.directions.length >= 2) {
                             return prev === 1 ? 0 : 1;
                           }
                           return 0;

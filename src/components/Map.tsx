@@ -1139,7 +1139,7 @@ function App() {
                     <div className="flex items-center">
                       <div className="flex-1">
                         <h1 className="text-neutral-800 dark:text-neutral-100">
-                          Rails Visibility
+                          Show Rails
                         </h1>
                       </div>
                       <Switch
@@ -1153,6 +1153,7 @@ function App() {
                           );
                         }}
                       />
+                      <span className="sr-only">Toggle Rail Lines</span>
                     </div>
                   )}
                 </DialogContent>
