@@ -765,6 +765,7 @@ function App() {
       return (
         <>
           <Polyline
+            pane="overlayPane"
             ref={polylineRef}
             pathOptions={{ color: color, weight: 5 }}
             positions={positions}
