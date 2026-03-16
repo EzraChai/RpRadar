@@ -516,13 +516,15 @@ export function RouteCard({
   };
   index: number;
   length: number;
-  setSnap?: React.Dispatch<React.SetStateAction<string | number | null>>;
+  setSnap?: React.Dispatch<React.SetStateAction<number | string | null>>;
   setOpenSearch?: React.Dispatch<React.SetStateAction<boolean>>;
   provider: string;
 }) {
   return (
     <NavLink
       onClick={() => {
+        console.log("first");
+        console.log(setSnap);
         if (typeof setSnap === "function") {
           setSnap(SNAP_POINTS[0]);
         }

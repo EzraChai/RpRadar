@@ -325,7 +325,7 @@ export function DrawerMobile({
                     className={`mt-4 ml-2 overflow-y-auto overflow-x-clip scroll-hidden ${
                       snap === SNAP_POINTS[2] && "max-h-[81dvh] pb-12"
                     }
-                  ${snap === SNAP_POINTS[1] && "max-h-[36dvh] pb-16"}
+                  ${snap === SNAP_POINTS[1] && "max-h-[81dvh] pb-125"}
                   `}
                   >
                     {route?.directions
@@ -478,7 +478,7 @@ export function DrawerMobile({
                   <div
                     className={`mt-4 overflow-y-auto 
                       ${snap === SNAP_POINTS[2] && "max-h-[85dvh] pb-12"}
-                      ${snap === SNAP_POINTS[1] && "max-h-[35dvh] pb-12"}
+                      ${snap === SNAP_POINTS[1] && "max-h-[85dvh] pb-125"}
                        scroll-hidden`}
                   >
                     <div className="px-4">
@@ -521,7 +521,7 @@ export function DrawerMobile({
                         </>
                       )}
                     </div>
-                    <div className={`p-4 pt-3 `}>
+                    <div className={`p-4 pt-3`}>
                       {filteredRoutes.map((r, idx) => (
                         <RouteCard
                           provider={provider}
