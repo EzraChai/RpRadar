@@ -1380,7 +1380,7 @@ function VehiclesMarker({
       }
       setVehicles(new Map());
     };
-  }, [provider]); // re-run if provider changes
+  }, []); // re-run if provider changes
 
   let busIcon = null;
   if (provider === "rp") {
