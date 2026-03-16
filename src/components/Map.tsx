@@ -1293,8 +1293,12 @@ function VehiclesMarker({
   }>({ 0: [], 1: [] });
 
   const timerRef = useRef<number | null>(null);
+  const startedRef = useRef(false);
 
   useEffect(() => {
+    if (!provider || startedRef.current) return;
+    startedRef.current = true;
+
     async function loadData() {
       try {
         let res: Response | null = null;
@@ -1368,7 +1372,7 @@ function VehiclesMarker({
     }
 
     // initial load
-    if (provider) loadData();
+    loadData();
 
     timerRef.current = window.setInterval(loadData, 20000); // every 20 seconds
 
