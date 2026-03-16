@@ -102,9 +102,7 @@ export function AppSidebar({
         a.route_code.localeCompare(b.route_code),
       ) as unknown as RouteType[];
     } else if (provider === "sw") {
-      return MyBasSwRoutes.sort((a, b) =>
-        a.route_code.localeCompare(b.route_code),
-      ) as unknown as RouteType[];
+      return MyBasSwRoutes as unknown as RouteType[];
     } else {
       return RapidPenangRoutes as unknown as RouteType[];
     }
