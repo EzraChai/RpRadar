@@ -1368,7 +1368,7 @@ function VehiclesMarker({
     }
 
     // initial load
-    loadData();
+    if (provider) loadData();
 
     timerRef.current = window.setInterval(loadData, 20000); // every 20 seconds
 
@@ -1380,7 +1380,7 @@ function VehiclesMarker({
       }
       setVehicles(new Map());
     };
-  }, []); // re-run if provider changes
+  }, [provider]); // re-run if provider changes
 
   let busIcon = null;
   if (provider === "rp") {
