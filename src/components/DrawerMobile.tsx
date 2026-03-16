@@ -256,7 +256,7 @@ export function DrawerMobile({
       <Drawer.Portal>
         <Drawer.Content
           data-testid="content"
-          className="fixed z-1000 flex p-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] bottom-0 left-0 right-0 h-full outline-none max-h-[97%] -mx-px"
+          className="fixed z-1000 flex px-2 pt-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] bottom-0 left-0 right-0 h-full outline-none max-h-[97%] -mx-px"
         >
           <div className="max-w-md w-full mx-auto rounded-t-[10px]">
             <Drawer.Handle />
@@ -325,7 +325,7 @@ export function DrawerMobile({
                     className={`mt-4 ml-2 overflow-y-auto overflow-x-clip scroll-hidden ${
                       snap === SNAP_POINTS[2] && "max-h-[81dvh] pb-12"
                     }
-                  ${snap === SNAP_POINTS[1] && "max-h-[50dvh]"}
+                  ${snap === SNAP_POINTS[1] && "max-h-[36dvh] pb-16"}
                   `}
                   >
                     {route?.directions
@@ -475,7 +475,12 @@ export function DrawerMobile({
                       />
                     )}
                   </div>
-                  <div className="mt-4 overflow-y-auto max-h-[85dvh] pb-12 scroll-hidden">
+                  <div
+                    className={`mt-4 overflow-y-auto 
+                      ${snap === SNAP_POINTS[2] && "max-h-[85dvh] pb-12"}
+                      ${snap === SNAP_POINTS[1] && "max-h-[35dvh] pb-12"}
+                       scroll-hidden`}
+                  >
                     <div className="px-4">
                       {filteredRoutes.length === routes.length && (
                         <>
