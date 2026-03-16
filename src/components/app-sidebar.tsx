@@ -45,6 +45,7 @@ import MyBasAlrRoutes from "@/assets/alr/alr_routes_with_shapes.json";
 import MyBasKgrRoutes from "@/assets/kgr/kgr_routes_with_shapes.json";
 import MyBasKtbRoutes from "@/assets/ktb/ktb_routes_with_shapes.json";
 import MyBasTrgRoutes from "@/assets/trg/trg_routes_with_shapes.json";
+import MyBasSwRoutes from "@/assets/sw/sw_routes_with_shapes.json";
 
 import type { RouteType } from "@/hooks/types";
 import { SNAP_POINTS } from "./DrawerMobile";
@@ -98,6 +99,10 @@ export function AppSidebar({
       return MyBasKtbRoutes as unknown as RouteType[];
     } else if (provider === "trg") {
       return MyBasTrgRoutes.sort((a, b) =>
+        a.route_code.localeCompare(b.route_code),
+      ) as unknown as RouteType[];
+    } else if (provider === "sw") {
+      return MyBasSwRoutes.sort((a, b) =>
         a.route_code.localeCompare(b.route_code),
       ) as unknown as RouteType[];
     } else {
@@ -298,6 +303,7 @@ export function AppSidebar({
                     <SelectItem value="kgr">Kangar</SelectItem>
                     <SelectItem value="ktb">Kota Bharu</SelectItem>
                     <SelectItem value="trg">Kuala Terengganu</SelectItem>
+                    <SelectItem value="sw">Kuching</SelectItem>
                   </SelectContent>
                 </Select>
               </SidebarMenuButton>
@@ -387,6 +393,8 @@ function SearchSideBar({
     routes = MyBasKtbRoutes;
   } else if (provider === "trg") {
     routes = MyBasTrgRoutes;
+  } else if (provider === "sw") {
+    routes = MyBasSwRoutes;
   }
   const map = useMap();
   const [search, setSearch] = useState("");

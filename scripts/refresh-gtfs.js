@@ -20,6 +20,7 @@ const GTFS_KGR_URL = "https://api.data.gov.my/gtfs-static/mybas-kangar";
 const GTFS_KTB_URL = "https://api.data.gov.my/gtfs-static/mybas-kota-bharu";
 const GTFS_TRG_URL =
   "https://api.data.gov.my/gtfs-static/mybas-kuala-terengganu";
+const GTFS_SW_URL = "https://api.data.gov.my/gtfs-static/mybas-kuching";
 
 const OUTPUT_FILES = {
   rp: {
@@ -73,6 +74,10 @@ const OUTPUT_FILES = {
   trg: {
     trips: "data/trg-trips.json",
     schedule: "data/trg-schedule.json",
+  },
+  sw: {
+    trips: "data/sw-trips.json",
+    schedule: "data/sw-schedule.json",
   },
 };
 
@@ -411,6 +416,16 @@ refreshGTFS(
   GTFS_TRG_URL,
   OUTPUT_FILES.trg.trips,
   OUTPUT_FILES.trg.schedule,
+  7,
+).catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+
+refreshGTFS(
+  GTFS_SW_URL,
+  OUTPUT_FILES.sw.trips,
+  OUTPUT_FILES.sw.schedule,
   7,
 ).catch((err) => {
   console.error(err);

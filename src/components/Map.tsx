@@ -75,6 +75,10 @@ import MyBasTrgShapes from "@/assets/trg/trg_shapes_flipped.json";
 import MyBasTrgRoutes from "@/assets/trg/trg_routes_with_directions.json";
 import MyBasTrgSchedule from "@/../data/trg-schedule.json";
 import MyBasTrgDirections from "@/../data/trg-trips.json";
+import MyBasSwShapes from "@/assets/sw/sw_shapes_flipped.json";
+import MyBasSwRoutes from "@/assets/sw/sw_routes_with_directions.json";
+import MyBasSwSchedule from "@/../data/sw-schedule.json";
+import MyBasSwDirections from "@/../data/sw-trips.json";
 
 import RapidRailShapes from "@/assets/rail/shapes_flipped.json";
 import RapidRailRoutesWithShapesID from "@/assets/rail/routes_with_shapes.json";
@@ -228,6 +232,11 @@ function App() {
         );
         setBusSchedule(MyBasTrgSchedule as unknown as BusScheduleType);
         break;
+      case "sw":
+        setRoute(
+          MyBasSwRoutes.find((r) => r.route_id === searchParams.get("id")),
+        );
+        setBusSchedule(MyBasSwSchedule as unknown as BusScheduleType);
     }
   }, [provider, searchParams]);
 
@@ -393,6 +402,16 @@ function App() {
           ).length > 0
         ) {
           filteredShape = MyBasTrgShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          );
+        }
+      } else if (provider === "sw") {
+        if (
+          MyBasSwShapes.features.filter(
+            (feature) => feature.properties.shape_id === shapeId,
+          ).length > 0
+        ) {
+          filteredShape = MyBasSwShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         }
@@ -607,6 +626,7 @@ function App() {
                         provider === "kgr" ||
                         provider === "ktb" ||
                         provider === "trg" ||
+                        provider === "sw" ||
                         provider === "mk") && (
                         <Collapsible className="px-6 mb-4">
                           <CollapsibleTrigger asChild>
@@ -906,27 +926,31 @@ function App() {
           maxZoom={18}
           zoomControl={false}
           center={
-            provider === "rkl"
-              ? [3.139, 101.6869]
-              : provider === "ns"
-                ? [2.7297, 101.9381]
-                : provider === "mk"
-                  ? [2.1881, 102.2516]
-                  : provider === "jb"
-                    ? [1.4927, 103.7412]
-                    : provider === "pk"
-                      ? [4.5841, 101.083]
-                      : provider === "ktn"
-                        ? [3.8077, 103.326]
-                        : provider === "alr"
-                          ? [6.121, 100.3605]
-                          : provider === "kgr"
-                            ? [6.4414, 100.1986]
-                            : provider === "ktb"
-                              ? [6.1293, 102.2399]
-                              : provider === "trg"
-                                ? [5.3302, 103.1408]
-                                : [5.4164, 100.3327]
+            provider === "rp"
+              ? [5.4164, 100.3327]
+              : provider === "rkl"
+                ? [3.139, 101.6869]
+                : provider === "ns"
+                  ? [2.7297, 101.9381]
+                  : provider === "mk"
+                    ? [2.1881, 102.2516]
+                    : provider === "jb"
+                      ? [1.4927, 103.7412]
+                      : provider === "pk"
+                        ? [4.5841, 101.083]
+                        : provider === "ktn"
+                          ? [3.8077, 103.326]
+                          : provider === "alr"
+                            ? [6.121, 100.3605]
+                            : provider === "kgr"
+                              ? [6.4414, 100.1986]
+                              : provider === "ktb"
+                                ? [6.1293, 102.2399]
+                                : provider === "trg"
+                                  ? [5.3302, 103.1408]
+                                  : provider === "sw"
+                                    ? [1.55, 110.333]
+                                    : [5.4164, 100.3327]
           }
           zoom={
             provider === "rkl" ||
@@ -936,7 +960,8 @@ function App() {
             provider === "alr" ||
             provider === "ktn" ||
             provider === "ktb" ||
-            provider === "trg"
+            provider === "trg" ||
+            provider === "sw"
               ? 12.5
               : 13.5
           }
@@ -1139,6 +1164,7 @@ function App() {
                         <SelectItem value="kgr">Kangar</SelectItem>
                         <SelectItem value="ktb">Kota Bharu</SelectItem>
                         <SelectItem value="trg">Kuala Terengganu</SelectItem>
+                        <SelectItem value="sw">Kuching</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -1285,6 +1311,8 @@ function VehiclesMarker({
       setBusSchedule(MyBasKtbSchedule);
     } else if (userProvider === "trg") {
       setBusSchedule(MyBasTrgSchedule);
+    } else if (userProvider === "sw") {
+      setBusSchedule(MyBasSwSchedule);
     }
   }, []);
 
@@ -1325,6 +1353,8 @@ function VehiclesMarker({
           res = await fetch(`${URL}prasarana?category=rapid-bus-penang`);
         } else if (provider === "ktn") {
           res = await fetch(`${URL}prasarana?category=rapid-bus-kuantan`);
+        } else if (provider === "sw") {
+          res = await fetch(`${URL}mybas-kuching`);
         }
 
         setVehicles((prev) => {
@@ -1713,6 +1743,31 @@ function VehiclesMarker({
       vehicleForThisRoute.forEach((v) => {
         let directions = MyBasKtbDirections.find(
           (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
+        );
+
+        if (directions !== undefined && route?.directions.length === 1) {
+          setDirectionsLocation((prev) => ({
+            0: [...prev[0], v],
+            1: [...prev[1]],
+          }));
+        } else if (directions !== undefined) {
+          const dirNum = Number(directions.direction_id);
+          if (dirNum === 0 || dirNum === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirNum]: [...prev[dirNum], v],
+            }));
+          }
+        }
+      });
+    } else if (provider === "sw") {
+      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
+        (v) => v.trip?.routeId === route?.route_id,
+      );
+
+      vehicleForThisRoute.forEach((v) => {
+        let directions = MyBasSwDirections.find(
+          (d) => d.trip_id === v.trip?.tripId,
         );
 
         if (directions !== undefined && route?.directions.length === 1) {
