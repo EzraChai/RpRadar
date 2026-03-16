@@ -1293,11 +1293,9 @@ function VehiclesMarker({
   }>({ 0: [], 1: [] });
 
   const timerRef = useRef<number | null>(null);
-  const startedRef = useRef(false);
 
   useEffect(() => {
-    if (!provider || startedRef.current) return;
-    startedRef.current = true;
+    if (!provider) return;
 
     async function loadData() {
       try {
@@ -1347,7 +1345,7 @@ function VehiclesMarker({
           return updated;
         });
 
-        if (res) {
+        if (res?.ok) {
           const buffer = await res.arrayBuffer();
           const feed = transit_realtime.FeedMessage.decode(
             new Uint8Array(buffer),
@@ -1373,6 +1371,10 @@ function VehiclesMarker({
 
     // initial load
     loadData();
+
+    if (timerRef.current !== null) {
+      clearInterval(timerRef.current);
+    }
 
     timerRef.current = window.setInterval(loadData, 20000); // every 20 seconds
 
