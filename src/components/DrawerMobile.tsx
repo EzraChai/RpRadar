@@ -323,7 +323,7 @@ export function DrawerMobile({
                   )}
                   <div
                     className={`mt-4 ml-2 overflow-y-auto overflow-x-clip scroll-hidden ${
-                      snap === SNAP_POINTS[2] && "max-h-[78dvh]"
+                      snap === SNAP_POINTS[2] && "max-h-[81dvh] pb-12"
                     }
                   ${snap === SNAP_POINTS[1] && "max-h-[50dvh]"}
                   `}
@@ -433,7 +433,7 @@ export function DrawerMobile({
               <>
                 <Drawer.Title>
                   <div
-                    className={`flex flex-row gap-1 items-center  pt-2 px-4 `}
+                    className={`flex flex-row gap-1 items-center pt-2 px-4 `}
                   >
                     <img
                       className={`w-7 h-7 object-cover rounded-lg border border-white dark:border-neutral-500`}
@@ -453,7 +453,7 @@ export function DrawerMobile({
                   ref={list2Ref}
                   onTouchStart={handleTouchStart(list2Ref)}
                   onTouchMove={handleTouchMove}
-                  className="py-1 text-black overflow-y-auto overscroll-contain"
+                  className="pt-1 text-black overflow-y-auto overscroll-contain"
                 >
                   <div className="px-4 relative ">
                     <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
@@ -475,7 +475,7 @@ export function DrawerMobile({
                       />
                     )}
                   </div>
-                  <div className="mt-4 overflow-y-auto max-h-[84dvh] scroll-hidden">
+                  <div className="mt-4 overflow-y-auto max-h-[85dvh] pb-12 scroll-hidden">
                     <div className="px-4">
                       {filteredRoutes.length === routes.length && (
                         <>
