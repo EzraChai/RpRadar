@@ -1005,6 +1005,7 @@ function App() {
             />
           )}
           <VehiclesMarker
+            key={provider}
             positions={positions}
             direction={direction}
             route={route}
@@ -1300,7 +1301,6 @@ function VehiclesMarker({
     async function loadData() {
       try {
         let res: Response | null = null;
-
         const URL =
           "https://my-gtfs-api.juanzhe21230.workers.dev/api/vehicle-position/";
         if (provider === "rkl") {
