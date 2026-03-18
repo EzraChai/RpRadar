@@ -47,7 +47,7 @@ import MyBasSwSchedule from "@/../data/sw-schedule.json";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import type { BusScheduleType, RouteType } from "@/hooks/types";
 
-export const SNAP_POINTS = [0.26, 0.5, 1];
+const SNAP_POINTS = [0.26, 0.5, 1];
 
 export function DrawerMobile({
   markerRefs,

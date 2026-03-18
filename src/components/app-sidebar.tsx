@@ -48,7 +48,8 @@ import MyBasTrgRoutes from "@/assets/trg/trg_routes_with_shapes.json";
 import MyBasSwRoutes from "@/assets/sw/sw_routes_with_shapes.json";
 
 import type { RouteType } from "@/hooks/types";
-import { SNAP_POINTS } from "./DrawerMobile";
+
+const SNAP_POINTS = [0.26, 0.5, 1];
 
 const combinedSelangorKLRoutes = [...RapidKLRoutes, ...MRTFeederRoutes];
 const combinedNSRoutes = [...MYBasNSARoutes, ...MYBasNSBRoutes];
