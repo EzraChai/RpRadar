@@ -523,8 +523,6 @@ export function RouteCard({
   return (
     <NavLink
       onClick={() => {
-        console.log("first");
-        console.log(setSnap);
         if (typeof setSnap === "function") {
           setSnap(SNAP_POINTS[0]);
         }

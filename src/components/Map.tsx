@@ -1761,13 +1761,10 @@ function VehiclesMarker({
         }
       });
     } else if (provider === "sw") {
-      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
-        (v) => v.trip?.routeId === route?.route_id,
-      );
-
+      const vehicleForThisRoute = Array.from(vehicles.values());
       vehicleForThisRoute.forEach((v) => {
         let directions = MyBasSwDirections.find(
-          (d) => d.trip_id === v.trip?.tripId,
+          (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
         );
 
         if (directions !== undefined && route?.directions.length === 1) {
