@@ -1330,7 +1330,7 @@ function VehiclesMarker({
       try {
         let res: Response | null = null;
         const URL =
-          "https://my-gtfs-api.juanzhe21230.workers.dev/api/vehicle-position/";
+          "https://my-gtfs-api.wolfram-7b5.workers.dev/api/vehicle-position/";
         if (provider === "rkl") {
           res = await fetch(`${URL}prasarana?category=rapid-bus-kl`);
         } else if (provider === "ns") {
