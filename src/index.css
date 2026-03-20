@@ -216,8 +216,8 @@ body {
     linear-gradient(
       90deg,
       transparent 99px,
-      #ab4444 99px,
-      #ab4444 101px,
+      var(--graph-major-line) 99px,
+      var(--graph-major-line) 101px,
       transparent 101px
     ),
     /* 2. Major Grid Lines (Darker) */
