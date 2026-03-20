@@ -211,21 +211,16 @@ body {
 
 #map {
   background-color: var(--map-background); /* Off-white paper feel */
-  background-image: 
-    /* 1. The Red Vertical Margin Line */
-    linear-gradient(
-      90deg,
-      transparent 99px,
-      var(--graph-major-line) 99px,
-      var(--graph-major-line) 101px,
-      transparent 101px
-    ),
-    /* 2. Major Grid Lines (Darker) */
-    linear-gradient(var(--graph-major-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--graph-major-line) 1px, transparent 1px),
-    /* 3. Minor Grid Lines (Fainter) */
-    linear-gradient(var(--graph-minor-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--graph-minor-line) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, var(--graph-major-line), 1px, transparent 1px),
+    /* vertical fine grid */
+    linear-gradient(to bottom, var(--graph-major-line), 1px, transparent 1px),
+    /* horizontal fine grid */
+    linear-gradient(to right, var(--graph-major-line), 1px, transparent 1px),
+    /* vertical medium grid */
+    linear-gradient(to bottom, var(--graph-minor-line), 1px, transparent 1px),
+    /* horizontal medium grid */
+    linear-gradient(to right, var(--graph-minor-line), 1px, transparent 1px);
 
   /* Match the sizes: Minor lines at 20px, Major lines at 100px */
   background-size:
