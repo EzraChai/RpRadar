@@ -919,7 +919,7 @@ function App() {
 
   return (
     <>
-      <div className="w-full max-h-dvh overflow-hidden">
+      <div className="w-full max-h-dvh overflow-hidden flex justify-center items-center grid-style">
         <MapContainer
           id="map"
           preferCanvas={true}

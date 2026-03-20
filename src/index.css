@@ -49,6 +49,8 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.637 0.237 25.331);
+  --graph-major-line: #d6d6d6;
+  --graph-minor-line: #f0f0f0;
 }
 
 .dark {
@@ -84,6 +86,8 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.637 0.237 25.331);
+  --graph-major-line: #3f3f3f;
+  --graph-minor-line: #191b1b;
 }
 
 @theme inline {
@@ -206,7 +210,31 @@ body {
 }
 
 #map {
-  background-color: var(--map-background) !important;
+  background-color: var(--map-background); /* Off-white paper feel */
+  background-image: 
+    /* 1. The Red Vertical Margin Line */
+    linear-gradient(
+      90deg,
+      transparent 99px,
+      #ab4444 99px,
+      #ab4444 101px,
+      transparent 101px
+    ),
+    /* 2. Major Grid Lines (Darker) */
+    linear-gradient(var(--graph-major-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--graph-major-line) 1px, transparent 1px),
+    /* 3. Minor Grid Lines (Fainter) */
+    linear-gradient(var(--graph-minor-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--graph-minor-line) 1px, transparent 1px);
+
+  /* Match the sizes: Minor lines at 20px, Major lines at 100px */
+  background-size:
+    100% 100%,
+    200px 200px,
+    200px 200px,
+    25px 25px,
+    25px 25px;
+  /* background-color: var(--map-background) !important; */
 }
 
 .leaflet-control-locate {
@@ -269,11 +297,25 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
+.grid-style {
+  background-image:
+    linear-gradient(#e5e5e5 1px, transparent 1px),
+    linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+  background-size: 30px 30px;
+
+  /* This keeps the grid from moving if the content is long */
+  background-attachment: fixed;
+  /* padding: 20px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  line-height: 1.5; */
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply dark:bg-[2a2e2e] text-foreground;
   }
 }
