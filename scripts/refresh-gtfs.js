@@ -283,11 +283,15 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
 
   fs.mkdirSync("data", { recursive: true });
 
-  fs.writeFileSync(tripsFilePath, JSON.stringify(trips));
+  if (trips.length > 0) {
+    fs.writeFileSync(tripsFilePath, JSON.stringify(trips));
+    console.log(`Saved ${tripsFilePath}`);
+  }
 
-  fs.writeFileSync(scheduleFilePath, JSON.stringify(flattened));
-
-  console.log(`Saved ${scheduleFilePath}`);
+  if (flattened.length > 0) {
+    fs.writeFileSync(scheduleFilePath, JSON.stringify(flattened));
+    console.log(`Saved ${scheduleFilePath}`);
+  }
 }
 
 // Rapid Penang (next 7 days)
