@@ -1425,7 +1425,6 @@ function VehiclesMarker({
         className: "",
         html: `<img 
     src="${bearing < 0 || bearing > 180 ? "/rp-bus2.webp" : "/rp-bus.webp"}"
-    alt="Rapid Penang bus"
     style="
       width:100px;
       height:100px;
@@ -1444,7 +1443,6 @@ function VehiclesMarker({
           className: "",
           html: `<img 
     src="${bearing < 0 || bearing > 180 ? "/rkl-bus2.webp" : "/rkl-bus.webp"}"
-    alt="Rapid KL bus"
     style="
       width:100px;
       height:100px;
@@ -1461,7 +1459,6 @@ function VehiclesMarker({
           className: "",
           html: `<img 
     src="${bearing < 0 || bearing > 180 ? "/mrt-bus2.webp" : "/mrt-bus.webp"}"
-    alt="MRT Feeder bus"
     style="
       width:100px;
       height:100px;
@@ -1481,7 +1478,6 @@ function VehiclesMarker({
         className: "",
         html: `<img 
     src="${bearing < 0 || bearing > 180 ? "/basmy-bus2.webp" : "/basmy-bus.webp"}"
-    alt="BASMY bus"
     style="
       width:100px;
       height:100px;
