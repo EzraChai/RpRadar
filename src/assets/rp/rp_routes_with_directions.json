@@ -511,7 +511,7 @@
       {
         "direction_id": 1,
         "shape_id": "1000000756",
-        "route_long_name": "TLK.BAHANG-JETI",
+        "route_long_name": "TLK.BAHANG - JETI",
         "stops": [
           {
             "stop_id": "12001764",
@@ -1792,7 +1792,7 @@
       {
         "direction_id": 0,
         "shape_id": "1000000866",
-        "route_long_name": "AIRPORT-TELUK BAHANG",
+        "route_long_name": "AIRPORT - TELUK BAHANG",
         "stops": [
           {
             "stop_id": "12002211",
@@ -2495,7 +2495,7 @@
       {
         "direction_id": 1,
         "shape_id": "1000000867",
-        "route_long_name": "TLK.BAHANG- AIRPORT",
+        "route_long_name": "TLK.BAHANG - AIRPORT",
         "stops": [
           {
             "stop_id": "12001764",
@@ -3084,7 +3084,7 @@
       {
         "direction_id": 0,
         "shape_id": "1000000963",
-        "route_long_name": "KOMTAR-PULAU TIKUS-KOMTAR",
+        "route_long_name": "KOMTAR - PULAU TIKUS - KOMTAR",
         "stops": [
           {
             "stop_id": "12002988",
@@ -3337,7 +3337,7 @@
       {
         "direction_id": 0,
         "shape_id": "1000000870",
-        "route_long_name": "TG.BUNGAH-KOMTAR",
+        "route_long_name": "TG.BUNGAH - KOMTAR",
         "stops": [
           {
             "stop_id": "12001668",
@@ -3632,7 +3632,7 @@
       {
         "direction_id": 1,
         "shape_id": "1000000964",
-        "route_long_name": "KOMTAR-TANJUNG BUNGAH",
+        "route_long_name": "KOMTAR - TANJUNG BUNGAH",
         "stops": [
           {
             "stop_id": "12002988",
@@ -7196,7 +7196,7 @@
       {
         "direction_id": 1,
         "shape_id": "1000000983",
-        "route_long_name": "BUKIT BENDERA -JETI",
+        "route_long_name": "BUKIT BENDERA - JETI",
         "stops": [
           {
             "stop_id": "12000293",
@@ -7449,7 +7449,7 @@
       {
         "direction_id": 0,
         "shape_id": "1000000984",
-        "route_long_name": "JETI- BKT.BENDERA",
+        "route_long_name": "JETI - BKT.BENDERA",
         "stops": [
           {
             "stop_id": "12002114",
@@ -10187,7 +10187,7 @@
       {
         "direction_id": 0,
         "shape_id": "1000001008",
-        "route_long_name": "GURNEY- BKT.GEDUNG",
+        "route_long_name": "GURNEY - BKT.GEDUNG",
         "stops": [
           {
             "stop_id": "12000371",
@@ -10632,7 +10632,7 @@
       {
         "direction_id": 0,
         "shape_id": "1000001010",
-        "route_long_name": "HOSPITAL- AIRPORT",
+        "route_long_name": "HOSPITAL - AIRPORT",
         "stops": [
           {
             "stop_id": "12003627",
@@ -10933,7 +10933,7 @@
       {
         "direction_id": 1,
         "shape_id": "1000001007",
-        "route_long_name": "AIRPORT- HOSPITAL",
+        "route_long_name": "AIRPORT - HOSPITAL",
         "stops": [
           {
             "stop_id": "12002211",
@@ -21828,7 +21828,7 @@
       {
         "direction_id": 1,
         "shape_id": "1000000937",
-        "route_long_name": "PARIT BUNTAR-B'WORTH",
+        "route_long_name": "PARIT BUNTAR - B'WORTH",
         "stops": [
           {
             "stop_id": "12002162",
@@ -21925,7 +21925,7 @@
       {
         "direction_id": 0,
         "shape_id": "1000000938",
-        "route_long_name": "B'WORTH-PARIT BUNTAR",
+        "route_long_name": "B'WORTH - PARIT BUNTAR",
         "stops": [
           {
             "stop_id": "12002322",

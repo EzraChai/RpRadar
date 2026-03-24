@@ -2,25 +2,25 @@
   {
     "route_id": "30000001",
     "route_code": "101",
-    "route_name": "TLK.BAHANG-JETI",
+    "route_name": "TLK.BAHANG - JETI",
     "shape_ids": ["1000000756", "1000000962"]
   },
   {
     "route_id": "30000002",
     "route_code": "102",
-    "route_name": "TLK.BAHANG- AIRPORT",
+    "route_name": "TLK.BAHANG - AIRPORT",
     "shape_ids": ["1000000866", "1000000867"]
   },
   {
     "route_id": "30000003",
     "route_code": "103",
-    "route_name": "KOMTAR-PULAU TIKUS-KOMTAR",
+    "route_name": "KOMTAR - PULAU TIKUS - KOMTAR",
     "shape_ids": ["1000000963"]
   },
   {
     "route_id": "30000004",
     "route_code": "104",
-    "route_name": "KOMTAR-TANJUNG BUNGAH",
+    "route_name": "KOMTAR - TANJUNG BUNGAH",
     "shape_ids": ["1000000870", "1000000964"]
   },
   {
@@ -62,7 +62,7 @@
   {
     "route_id": "30000008",
     "route_code": "204",
-    "route_name": "BUKIT BENDERA -JETI",
+    "route_name": "BUKIT BENDERA - JETI",
     "shape_ids": ["1000000983", "1000000984"]
   },
   {
@@ -92,13 +92,13 @@
   {
     "route_id": "30000014",
     "route_code": "304",
-    "route_name": "GURNEY- BKT.GEDUNG",
+    "route_name": "GURNEY - BKT.GEDUNG",
     "shape_ids": ["1000001008", "1000001009"]
   },
   {
     "route_id": "30000016",
     "route_code": "306",
-    "route_name": "AIRPORT- HOSPITAL",
+    "route_name": "AIRPORT - HOSPITAL",
     "shape_ids": ["1000000035", "1000000953", "1000001007", "1000001010"]
   },
   {
@@ -273,7 +273,7 @@
   {
     "route_id": "30000045",
     "route_code": "EB80",
-    "route_name": "PARIT BUNTAR-B'WORTH",
+    "route_name": "PARIT BUNTAR - B'WORTH",
     "shape_ids": ["1000000937", "1000000938"]
   },
   {
