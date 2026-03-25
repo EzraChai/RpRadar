@@ -2,13 +2,13 @@
   {
     "route_id": "30000001",
     "route_code": "101",
-    "route_name": "TLK.BAHANG - JETI",
+    "route_name": "JETI - TELUK BAHANG",
     "shape_ids": ["1000000756", "1000000962"]
   },
   {
     "route_id": "30000002",
     "route_code": "102",
-    "route_name": "TLK.BAHANG - AIRPORT",
+    "route_name": "AIRPORT - TELUK BAHANG",
     "shape_ids": ["1000000866", "1000000867"]
   },
   {
@@ -26,7 +26,7 @@
   {
     "route_id": "30000048",
     "route_code": "11",
-    "route_name": "BATU LANCHANG - JETI",
+    "route_name": "JETI - BATU LANCHANG",
     "shape_ids": ["1000000971", "1000000972"]
   },
   {
@@ -38,14 +38,14 @@
   {
     "route_id": "30000050",
     "route_code": "13",
-    "route_name": "PAYA TERUBONG - LOTUS",
+    "route_name": "LOTUS - PAYA TERUBONG",
     "shape_ids": ["1000000097", "1000000874"]
   },
   {
     "route_id": "30000005",
     "route_code": "201",
     "route_name": "JETI - PAYA TERUBONG",
-    "shape_ids": ["1000000976", "1000000977", "1000001015"]
+    "shape_ids": ["1000001015"]
   },
   {
     "route_id": "30000006",
@@ -56,25 +56,25 @@
   {
     "route_id": "30000007",
     "route_code": "203",
-    "route_name": "AIR ITAM - JETI",
+    "route_name": "JETI - AIR ITAM",
     "shape_ids": ["1000000981", "1000000982", "1000001005"]
   },
   {
     "route_id": "30000008",
     "route_code": "204",
-    "route_name": "BUKIT BENDERA - JETI",
+    "route_name": "JETI - BUKIT BENDERA",
     "shape_ids": ["1000000983", "1000000984"]
   },
   {
     "route_id": "30000009",
     "route_code": "206",
-    "route_name": "TESCO - JETI",
+    "route_name": "JETI - TESCO",
     "shape_ids": ["1000000985", "1000000986"]
   },
   {
     "route_id": "30000010",
     "route_code": "301",
-    "route_name": "RELAU - JETI",
+    "route_name": "JETI - RELAU",
     "shape_ids": ["1000000886", "1000000994"]
   },
   {
@@ -86,25 +86,25 @@
   {
     "route_id": "30000013",
     "route_code": "303",
-    "route_name": "BKT.GEDUNG - JETI",
+    "route_name": "JETI - BUKIT GEDUNG",
     "shape_ids": ["1000000890", "1000000997"]
   },
   {
     "route_id": "30000014",
     "route_code": "304",
-    "route_name": "GURNEY - BKT.GEDUNG",
+    "route_name": "GURNEY - BUKIT GEDUNG",
     "shape_ids": ["1000001008", "1000001009"]
   },
   {
     "route_id": "30000016",
     "route_code": "306",
-    "route_name": "AIRPORT - HOSPITAL",
+    "route_name": "HOSPITAL - AIRPORT",
     "shape_ids": ["1000000035", "1000000953", "1000001007", "1000001010"]
   },
   {
     "route_id": "30000018",
     "route_code": "308",
-    "route_name": "GERTAK SANGGUL - SG.NIBONG",
+    "route_name": "SG.NIBONG - GERTAK SANGGUL",
     "shape_ids": ["1000000033", "1000000895"]
   },
   {
@@ -140,25 +140,25 @@
   {
     "route_id": "30000026",
     "route_code": "601",
-    "route_name": "KEPALA BATAS - P.SENTRAL",
+    "route_name": "PENANG SENTRAL - KEPALA BATAS",
     "shape_ids": ["1000000902", "1000000903"]
   },
   {
     "route_id": "30000027",
     "route_code": "603",
-    "route_name": "KUALA MUDA - PENANG SENTRAL",
+    "route_name": "PENANG SENTRAL - KUALA MUDA",
     "shape_ids": ["1000000904", "1000000905"]
   },
   {
     "route_id": "30000028",
     "route_code": "604",
-    "route_name": "DESA MURNI - P.SENTRAL",
+    "route_name": "PENANG SENTRAL - DESA MURNI",
     "shape_ids": ["1000000906", "1000000907"]
   },
   {
     "route_id": "30000031",
     "route_code": "605",
-    "route_name": "PEKAN DARAT - PENANG SENTRAL",
+    "route_name": "PENANG SENTRAL - PEKAN DARAT",
     "shape_ids": ["1000000908", "1000000909"]
   },
   {
@@ -170,7 +170,7 @@
   {
     "route_id": "30000034",
     "route_code": "610",
-    "route_name": "TASEK GELUGOR - KEPALA BATAS",
+    "route_name": "KEPALA BATAS - TASEK GELUGOR",
     "shape_ids": ["1000000912", "1000000913"]
   },
   {
@@ -182,19 +182,19 @@
   {
     "route_id": "30000036",
     "route_code": "701",
-    "route_name": "BM - P.SENTRAL",
+    "route_name": "PENANG SENTRAL - BM",
     "shape_ids": ["1000000916", "1000000917"]
   },
   {
     "route_id": "30000037",
     "route_code": "702",
-    "route_name": "BM - P.SENTRAL",
+    "route_name": "BM - PENANG SENTRAL",
     "shape_ids": ["1000000918", "1000000919"]
   },
   {
     "route_id": "30000038",
     "route_code": "703",
-    "route_name": "PG SENTRAL - SEBERANG JAYA",
+    "route_name": "PENANG SENTRAL - SEBERANG JAYA",
     "shape_ids": ["1000000920", "1000000921"]
   },
   {
@@ -206,19 +206,19 @@
   {
     "route_id": "30000041",
     "route_code": "709",
-    "route_name": "PG SENTRAL - MACANG BUBUK",
+    "route_name": "PENANG SENTRAL - MACANG BUBUK",
     "shape_ids": ["1000000928", "1000000929"]
   },
   {
     "route_id": "30000042",
     "route_code": "801",
-    "route_name": "NIBONG TEBAL - P.SENTRAL",
+    "route_name": "PENANG SENTRAL - NIBONG TEBAL",
     "shape_ids": ["1000000932", "1000000933"]
   },
   {
     "route_id": "30000043",
     "route_code": "802",
-    "route_name": "NIBONG TEBAL - BM",
+    "route_name": "BM - NIBONG TEBAL",
     "shape_ids": ["1000000934", "1000000935"]
   },
   {
