@@ -128,230 +128,227 @@ export function AppSidebar({
     );
   }, [starred, provider, routes]);
 
-  if (!isMobile)
-    return (
-      <>
-        <Sidebar
-          onMouseEnter={() => {
-            map.scrollWheelZoom.disable();
-            map.dragging.disable();
-            map.doubleClickZoom.disable();
-          }}
-          onMouseLeave={() => {
-            map.scrollWheelZoom.enable();
-            map.dragging.enable();
-            map.doubleClickZoom.enable();
-          }}
-          className=" overflow-hidden w-52 h-full z-1000 left-0 top-0 transform bottom-4 border border-l-0 border-y-0 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-none shadow-md "
-          side="left"
-          variant="floating"
-          collapsible="icon"
-        >
-          <div className="w-full flex flex-col flex-between">
-            <SidebarHeader className=" flex justify-between flex-row items-center w-full">
-              <div
-                className={`flex flex-row gap-1 items-center justify-center ${
+  if (isMobile) return <></>;
+
+  return (
+    <>
+      <Sidebar
+        onMouseEnter={() => {
+          map.scrollWheelZoom.disable();
+          map.dragging.disable();
+          map.doubleClickZoom.disable();
+        }}
+        onMouseLeave={() => {
+          map.scrollWheelZoom.enable();
+          map.dragging.enable();
+          map.doubleClickZoom.enable();
+        }}
+        className=" overflow-hidden w-52 h-full z-1000 left-0 top-0 transform bottom-4 border border-l-0 border-y-0 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-none shadow-md "
+        side="left"
+        variant="floating"
+        collapsible="icon"
+      >
+        <div className="w-full flex flex-col flex-between">
+          <SidebarHeader className=" flex justify-between flex-row items-center w-full">
+            <div
+              className={`flex flex-row gap-1 items-center justify-center ${
+                collapsed ? "hidden" : "block"
+              }`}
+            >
+              <img
+                className={`w-8 h-8 object-cover border border-white dark:border-neutral-500 rounded-lg ${
+                  collapsed ? "hidden" : "block"
+                }`}
+                src={RpRadarIcon}
+                alt="logo of RPRadar"
+              />
+
+              <h2
+                className={`font-bold font-serif text-lg whitespace-nowrap ${
                   collapsed ? "hidden" : "block"
                 }`}
               >
-                <img
-                  className={`w-8 h-8 object-cover border border-white dark:border-neutral-500 rounded-lg ${
-                    collapsed ? "hidden" : "block"
-                  }`}
-                  src={RpRadarIcon}
-                  alt="logo of RPRadar"
-                />
+                <span className="text-red-600 dark:text-red-500">Rp</span>
+                Radar
+              </h2>
+            </div>
 
-                <h2
-                  className={`font-bold font-serif text-lg whitespace-nowrap ${
-                    collapsed ? "hidden" : "block"
+            <SidebarTrigger
+              className="hover:cursor-pointer"
+              onClick={() => setCollapsed((prev) => !prev)}
+            />
+          </SidebarHeader>
+          <SidebarContent>
+            <SidebarMenuItem className="mt-1 pl-2">
+              <SidebarMenuButton
+                className={`hover:cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-700 `}
+                onClick={() => {
+                  setOpenSearch((prev) => !prev && true);
+                  setTimeout(() => {
+                    if (inputRef.current) {
+                      inputRef.current.focus(); // 👈 focus input when icon clicked
+                    }
+                  }, 0);
+                }}
+                asChild
+              >
+                <div
+                  className={`w-8 h-8 flex items-baseline ${
+                    openSearch
+                      ? "bg-neutral-50 dark:bg-neutral-700"
+                      : "bg-transparent"
                   }`}
                 >
-                  <span className="text-red-600 dark:text-red-500">Rp</span>
-                  Radar
-                </h2>
-              </div>
-
-              <SidebarTrigger
-                className="hover:cursor-pointer"
-                onClick={() => setCollapsed((prev) => !prev)}
-              />
-            </SidebarHeader>
-            <SidebarContent>
-              <SidebarMenuItem className="mt-1 pl-2">
-                <SidebarMenuButton
-                  className={`hover:cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-700 `}
-                  onClick={() => {
-                    setOpenSearch((prev) => !prev && true);
-                    setTimeout(() => {
-                      if (inputRef.current) {
-                        inputRef.current.focus(); // 👈 focus input when icon clicked
-                      }
-                    }, 0);
-                  }}
-                  asChild
-                >
-                  <div
-                    className={`w-8 h-8 flex items-baseline ${
-                      openSearch
-                        ? "bg-neutral-50 dark:bg-neutral-700"
-                        : "bg-transparent"
-                    }`}
-                  >
-                    <Search className={"w-4 h-4 text-black dark:text-white"} />
-                    <span className="text-lg">Search</span>
-                  </div>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-
-              {savedRoutes.length > 0 && (
-                <SidebarGroup>
-                  <div
-                    className={`mt-4 h-4 w-full text-neutral-500 dark:text-neutral-400 text-nowrap `}
-                  >
-                    <p className={`${collapsed ? "hidden" : "block"}`}>
-                      Saved Routes
-                    </p>
-                  </div>
-                  <div className="pt-2 flex flex-col gap-2">
-                    {savedRoutes.map((route) => (
-                      <Link
-                        key={route?.route_id}
-                        className=" flex items-center gap-2"
-                        to={`/?id=${route?.route_id}`}
-                        preventScrollReset
-                      >
-                        <Button
-                          variant={"ghost"}
-                          key={route?.route_id}
-                          className={`text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-9 h-5 py-1 px-1  ${provider === "rkl" && route?.route_code === route?.route_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"}  rounded-xl`}
-                        >
-                          <p className="text-black dark:text-white truncate">
-                            {route?.route_code}
-                          </p>
-                        </Button>
-                        <p className="dark:text-white text-black truncate ">
-                          {route?.route_name}
-                        </p>
-                      </Link>
-                    ))}
-                  </div>
-                </SidebarGroup>
-              )}
-            </SidebarContent>
-            <SidebarFooter>
-              <div className="flex justify-end">
-                <div className="flex gap-2">
-                  {provider === "rkl" && (
-                    <Button
-                      onClick={() => {
-                        setRailVisible((prev) => {
-                          const newValue = !prev;
-                          localStorage.setItem(
-                            "railVisible",
-                            newValue.toString(),
-                          );
-                          return newValue;
-                        });
-                      }}
-                      variant="ghost"
-                      className="z-1005"
-                      size="icon"
-                    >
-                      {railVisible ? (
-                        <TramFront />
-                      ) : (
-                        <span className="relative overflow-hidden">
-                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex bg-white w-0.5 -rotate-45 h-full" />
-                          <TramFront />
-                        </span>
-                      )}
-                      <span className="sr-only">Toggle Rails Visibility</span>
-                    </Button>
-                  )}
-                  <ModeToggle />
+                  <Search className={"w-4 h-4 text-black dark:text-white"} />
+                  <span className="text-lg">Search</span>
                 </div>
-              </div>
-              <SidebarMenuButton asChild>
-                <Select
-                  onValueChange={(value) => {
-                    setProvider(value);
-                    setPositions([]);
-                    localStorage.setItem("provider", value);
-                    window.history.replaceState(
-                      {},
-                      "",
-                      window.location.pathname,
-                    );
-                    window.location.reload();
-                  }}
-                  value={provider}
-                >
-                  <SelectTrigger className="w-full mb-2">
-                    <SelectValue placeholder="Select State" />
-                  </SelectTrigger>
-                  <SelectContent className="z-1002 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
-                    <SelectItem value="rp">Penang</SelectItem>
-                    <SelectItem value="rkl">Selangor/KL</SelectItem>
-                    <SelectItem value="ns">Seremban</SelectItem>
-                    <SelectItem value="mk">Melaka</SelectItem>
-                    <SelectItem value="jb">Johor Bahru</SelectItem>
-                    <SelectItem value="pk">Ipoh</SelectItem>
-                    {/* <SelectItem value="ktn">Kuantan</SelectItem> */}
-                    <SelectItem value="alr">Alor Setar</SelectItem>
-                    <SelectItem value="kgr">Kangar</SelectItem>
-                    <SelectItem value="ktb">Kota Bharu</SelectItem>
-                    <SelectItem value="trg">Kuala Terengganu</SelectItem>
-                    <SelectItem value="sw">Kuching</SelectItem>
-                  </SelectContent>
-                </Select>
               </SidebarMenuButton>
+            </SidebarMenuItem>
 
-              <div className="flex justify-center w-full h-4">
-                <p
-                  className={`whitespace-nowrap overflow-hidden text-xs text-neutral-400 ${
-                    collapsed ? "hidden " : "block "
-                  }`}
+            {savedRoutes.length > 0 && (
+              <SidebarGroup>
+                <div
+                  className={`mt-4 h-4 w-full text-neutral-500 dark:text-neutral-400 text-nowrap `}
                 >
-                  Made with ❤️ by
-                  <a
-                    className="ml-1 dark:text-neutral-300! text-neutral-500! hover:underline underline-offset-2"
-                    target="_blank"
-                    href="https://ezrachai-links.vercel.app/"
+                  <p className={`${collapsed ? "hidden" : "block"}`}>
+                    Saved Routes
+                  </p>
+                </div>
+                <div className="pt-2 flex flex-col gap-2">
+                  {savedRoutes.map((route) => (
+                    <Link
+                      key={route?.route_id}
+                      className=" flex items-center gap-2"
+                      to={`/?id=${route?.route_id}`}
+                      preventScrollReset
+                    >
+                      <Button
+                        variant={"ghost"}
+                        key={route?.route_id}
+                        className={`text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-9 h-5 py-1 px-1  ${provider === "rkl" && route?.route_code === route?.route_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"}  rounded-xl`}
+                      >
+                        <p className="text-black dark:text-white truncate">
+                          {route?.route_code}
+                        </p>
+                      </Button>
+                      <p className="dark:text-white text-black truncate ">
+                        {route?.route_name}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </SidebarGroup>
+            )}
+          </SidebarContent>
+          <SidebarFooter>
+            <div className="flex justify-end">
+              <div className="flex gap-2">
+                {provider === "rkl" && (
+                  <Button
+                    onClick={() => {
+                      setRailVisible((prev) => {
+                        const newValue = !prev;
+                        localStorage.setItem(
+                          "railVisible",
+                          newValue.toString(),
+                        );
+                        return newValue;
+                      });
+                    }}
+                    variant="ghost"
+                    className="z-1005"
+                    size="icon"
                   >
-                    ezrachai
-                  </a>
-                </p>
+                    {railVisible ? (
+                      <TramFront />
+                    ) : (
+                      <span className="relative overflow-hidden">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex bg-white w-0.5 -rotate-45 h-full" />
+                        <TramFront />
+                      </span>
+                    )}
+                    <span className="sr-only">Toggle Rails Visibility</span>
+                  </Button>
+                )}
+                <ModeToggle />
               </div>
-              <div className="flex justify-center w-full h-4">
-                <p
-                  className={`whitespace-nowrap overflow-hidden text-xs text-neutral-400 ${
-                    collapsed ? "hidden " : "block "
-                  }`}
+            </div>
+            <SidebarMenuButton asChild>
+              <Select
+                onValueChange={(value) => {
+                  setProvider(value);
+                  setPositions([]);
+                  localStorage.setItem("provider", value);
+                  window.history.replaceState({}, "", window.location.pathname);
+                  window.location.reload();
+                }}
+                value={provider}
+              >
+                <SelectTrigger
+                  className={`w-full mb-2 ${collapsed && "hidden"}`}
                 >
-                  Data provided by
-                  <a
-                    className="ml-1 dark:text-neutral-300! text-neutral-500! hover:underline underline-offset-2"
-                    target="_blank"
-                    href="https://data.gov.my/"
-                  >
-                    data.gov.my
-                  </a>
-                </p>
-              </div>
-            </SidebarFooter>
-          </div>
-        </Sidebar>
-        <SearchSideBar
-          collapsed={collapsed}
-          openSearch={openSearch}
-          setOpenSearch={setOpenSearch}
-          inputRef={inputRef}
-        />
-      </>
-    );
+                  <SelectValue placeholder="Select State" />
+                </SelectTrigger>
+                <SelectContent className="z-1002 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
+                  <SelectItem value="rp">Penang</SelectItem>
+                  <SelectItem value="rkl">Selangor/KL</SelectItem>
+                  <SelectItem value="ns">Seremban</SelectItem>
+                  <SelectItem value="mk">Melaka</SelectItem>
+                  <SelectItem value="jb">Johor Bahru</SelectItem>
+                  <SelectItem value="pk">Ipoh</SelectItem>
+                  {/* <SelectItem value="ktn">Kuantan</SelectItem> */}
+                  <SelectItem value="alr">Alor Setar</SelectItem>
+                  <SelectItem value="kgr">Kangar</SelectItem>
+                  <SelectItem value="ktb">Kota Bharu</SelectItem>
+                  <SelectItem value="trg">Kuala Terengganu</SelectItem>
+                  <SelectItem value="sw">Kuching</SelectItem>
+                </SelectContent>
+              </Select>
+            </SidebarMenuButton>
 
-  return <></>;
+            <div className="flex justify-center w-full h-4">
+              <p
+                className={`whitespace-nowrap overflow-hidden text-xs text-neutral-400 ${
+                  collapsed ? "hidden " : "block "
+                }`}
+              >
+                Made with ❤️ by
+                <a
+                  className="ml-1 dark:text-neutral-300! text-neutral-500! hover:underline underline-offset-2"
+                  target="_blank"
+                  href="https://ezrachai-links.vercel.app/"
+                >
+                  ezrachai
+                </a>
+              </p>
+            </div>
+            <div className="flex justify-center w-full h-4">
+              <p
+                className={`whitespace-nowrap overflow-hidden text-xs text-neutral-400 ${
+                  collapsed ? "hidden " : "block "
+                }`}
+              >
+                Data provided by
+                <a
+                  className="ml-1 dark:text-neutral-300! text-neutral-500! hover:underline underline-offset-2"
+                  target="_blank"
+                  href="https://data.gov.my/"
+                >
+                  data.gov.my
+                </a>
+              </p>
+            </div>
+          </SidebarFooter>
+        </div>
+      </Sidebar>
+      <SearchSideBar
+        collapsed={collapsed}
+        openSearch={openSearch}
+        setOpenSearch={setOpenSearch}
+        inputRef={inputRef}
+      />
+    </>
+  );
 }
 
 function SearchSideBar({
