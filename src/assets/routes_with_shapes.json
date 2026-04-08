@@ -1,65 +1,90 @@
 [
   {
     "route_id": "30395",
-    "route_code": "Q01",
+    "route_code": "30395",
     "route_color": "FF0000",
     "route_name": "SAUJANA PARKING - TAMAN MALIHAH",
-    "shape_ids": ["SHP_30395_0", "SHP_30395_1"]
-  },
-  {
-    "route_id": "30401",
-    "route_code": "Q05",
-    "route_color": "FF0000",
-    "route_name": "SAUJANA PARKING - SMKA MATANG 2",
-    "shape_ids": ["SHP_30401_0", "SHP_30401_1"]
-  },
-  {
-    "route_id": "30402",
-    "route_code": "Q06",
-    "route_color": "FF0000",
-    "route_name": "SAUJANA PARKING - KAMPUNG BENUK HOMESTAY",
-    "shape_ids": ["SHP_30402_0", "SHP_30402_1"]
-  },
-  {
-    "route_id": "30403",
-    "route_code": "Q07",
-    "route_color": "FF0000",
-    "route_name": "SAUJANA PARKING - SJK CHUNG HUA BATU KAWA",
-    "shape_ids": ["SHP_30403_0", "SHP_30403_1"]
-  },
-  {
-    "route_id": "30404",
-    "route_code": "Q08",
-    "route_color": "FF0000",
-    "route_name": "SAUJANA PARKING - TERMINAL BAS BAU",
-    "shape_ids": ["SHP_30404_0", "SHP_30404_1"]
-  },
-  {
-    "route_id": "30405",
-    "route_code": "Q09",
-    "route_color": "FF0000",
-    "route_name": "OPEN AIR MARKET - MUARA TEBAS",
-    "shape_ids": ["SHP_30405_0", "SHP_30405_1"]
+    "shape_ids": [
+      "SHP_30395_0",
+      "SHP_30395_1"
+    ]
   },
   {
     "route_id": "30399",
-    "route_code": "Q10",
+    "route_code": "30399",
     "route_color": "FF0000",
     "route_name": "OPEN AIR MARKET - TERMINAL BAS SERIAN",
-    "shape_ids": ["SHP_30399_0", "SHP_30399_1"]
+    "shape_ids": [
+      "SHP_30399_0",
+      "SHP_30399_1"
+    ]
+  },
+  {
+    "route_id": "30401",
+    "route_code": "30401",
+    "route_color": "FF0000",
+    "route_name": "SAUJANA PARKING - SMKA MATANG 2",
+    "shape_ids": [
+      "SHP_30401_0",
+      "SHP_30401_1"
+    ]
+  },
+  {
+    "route_id": "30402",
+    "route_code": "30402",
+    "route_color": "FF0000",
+    "route_name": "SAUJANA PARKING - KAMPUNG BENUK HOMESTAY",
+    "shape_ids": [
+      "SHP_30402_0",
+      "SHP_30402_1"
+    ]
+  },
+  {
+    "route_id": "30403",
+    "route_code": "30403",
+    "route_color": "FF0000",
+    "route_name": "SAUJANA PARKING - SJK CHUNG HUA BATU KAWA",
+    "shape_ids": [
+      "SHP_30403_0",
+      "SHP_30403_1"
+    ]
+  },
+  {
+    "route_id": "30404",
+    "route_code": "30404",
+    "route_color": "FF0000",
+    "route_name": "SAUJANA PARKING - TERMINAL BAS BAU",
+    "shape_ids": [
+      "SHP_30404_0",
+      "SHP_30404_1"
+    ]
+  },
+  {
+    "route_id": "30405",
+    "route_code": "30405",
+    "route_color": "FF0000",
+    "route_name": "OPEN AIR MARKET - MUARA TEBAS",
+    "shape_ids": [
+      "SHP_30405_0",
+      "SHP_30405_1"
+    ]
   },
   {
     "route_id": "30449",
-    "route_code": "Q11",
+    "route_code": "30449",
     "route_color": "FF0000",
     "route_name": "SAUJANA PARKING - ARANG ROAD",
-    "shape_ids": ["SHP_30449_0"]
+    "shape_ids": [
+      "SHP_30449_0"
+    ]
   },
   {
     "route_id": "30450",
-    "route_code": "Q12",
+    "route_code": "30450",
     "route_color": "FF0000",
     "route_name": "SAUJANA PARKING - TAMAN HUI SING",
-    "shape_ids": ["SHP_30450_0"]
+    "shape_ids": [
+      "SHP_30450_0"
+    ]
   }
 ]

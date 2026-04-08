@@ -1,14 +1,17 @@
 [
   {
     "route_id": "30395",
-    "route_short_name": "Q01",
+    "route_short_name": "30395",
     "route_long_name": "SAUJANA PARKING - TAMAN MALIHAH",
     "directions": [
       {
         "direction_id": 0,
         "route_long_name": "SAUJANA PARKING - TAMAN MALIHAH",
         "shape_id": "SHP_30395_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6521",
@@ -43,8 +46,8 @@
           {
             "stop_id": "6527",
             "stop_name": "OPP BANGUNAN MARZUKI",
-            "lat": 1.556814,
-            "lon": 110.322778
+            "lat": 1.5568129,
+            "lon": 110.3227775
           },
           {
             "stop_id": "6638",
@@ -73,8 +76,8 @@
           {
             "stop_id": "6523",
             "stop_name": "EMART MATANG",
-            "lat": 1.572653,
-            "lon": 110.302853
+            "lat": 1.5726523,
+            "lon": 110.3028535
           },
           {
             "stop_id": "6520",
@@ -98,9 +101,12 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "TAMAN MALIHAH - SAUJANA PARKING",
+        "route_long_name": "SAUJANA PARKING - TAMAN MALIHAH",
         "shape_id": "SHP_30395_1",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6518",
@@ -171,8 +177,8 @@
           {
             "stop_id": "6545",
             "stop_name": "TAMAN DAHLIA",
-            "lat": 1.567378,
-            "lon": 110.310244
+            "lat": 1.5673788,
+            "lon": 110.3102435
           },
           {
             "stop_id": "6544",
@@ -189,20 +195,20 @@
           {
             "stop_id": "6542",
             "stop_name": "TAMAN HUSSEIN",
-            "lat": 1.564244,
-            "lon": 110.321806
+            "lat": 1.5642441,
+            "lon": 110.3218053
           },
           {
             "stop_id": "6541",
             "stop_name": "BANGUNAN MARZUKI",
-            "lat": 1.556761,
-            "lon": 110.323217
+            "lat": 1.5567616,
+            "lon": 110.3232155
           },
           {
             "stop_id": "6535",
             "stop_name": "SEGO PRECINT 1",
-            "lat": 1.554325,
-            "lon": 110.332047
+            "lat": 1.554324,
+            "lon": 110.3320463
           },
           {
             "stop_id": "6534",
@@ -215,402 +221,6 @@
             "stop_name": "TERMINAL SAUJANA PARKING",
             "lat": 1.557719,
             "lon": 110.342517
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "route_id": "30396",
-    "route_short_name": "Q02",
-    "route_long_name": "SAUJANA PARKING - SMK MATANG JAYA",
-    "directions": [
-      {
-        "direction_id": 0,
-        "route_long_name": "SAUJANA PARKING - SMK MATANG JAYA",
-        "shape_id": "SHP_30396_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
-        "stops": [
-          {
-            "stop_id": "6521",
-            "stop_name": "TERMINAL SAUJANA PARKING",
-            "lat": 1.557719,
-            "lon": 110.342517
-          },
-          {
-            "stop_id": "6539",
-            "stop_name": "AMBANK SATOK",
-            "lat": 1.554839,
-            "lon": 110.338447
-          },
-          {
-            "stop_id": "6524",
-            "stop_name": "SATOK 1",
-            "lat": 1.553003,
-            "lon": 110.336086
-          },
-          {
-            "stop_id": "6525",
-            "stop_name": "SATOK 2",
-            "lat": 1.553211,
-            "lon": 110.333206
-          },
-          {
-            "stop_id": "6526",
-            "stop_name": "SATOK 3",
-            "lat": 1.553467,
-            "lon": 110.328956
-          },
-          {
-            "stop_id": "6527",
-            "stop_name": "OPP BANGUNAN MARZUKI",
-            "lat": 1.556814,
-            "lon": 110.322778
-          },
-          {
-            "stop_id": "6528",
-            "stop_name": "MAMI CENDOL",
-            "lat": 1.559517,
-            "lon": 110.318769
-          },
-          {
-            "stop_id": "6533",
-            "stop_name": "JALAN PERUPOK",
-            "lat": 1.556067,
-            "lon": 110.316078
-          },
-          {
-            "stop_id": "6530",
-            "stop_name": "PENDIDIKAN JALAN MATANG",
-            "lat": 1.564783,
-            "lon": 110.312733
-          },
-          {
-            "stop_id": "8250",
-            "stop_name": "TAMAN SRI PERKASA",
-            "lat": 1.568494,
-            "lon": 110.297822
-          },
-          {
-            "stop_id": "8251",
-            "stop_name": "TAMAN YEN YEN",
-            "lat": 1.571011,
-            "lon": 110.294225
-          },
-          {
-            "stop_id": "8252",
-            "stop_name": "TAMAN LEE LING",
-            "lat": 1.570531,
-            "lon": 110.301119
-          },
-          {
-            "stop_id": "6523",
-            "stop_name": "EMART MATANG",
-            "lat": 1.572653,
-            "lon": 110.302853
-          },
-          {
-            "stop_id": "8253",
-            "stop_name": "TAMAN MATANG JAYA",
-            "lat": 1.577483,
-            "lon": 110.298267
-          },
-          {
-            "stop_id": "8254",
-            "stop_name": "SMK MATANG JAYA",
-            "lat": 1.582022,
-            "lon": 110.308492
-          },
-          {
-            "stop_id": "6542",
-            "stop_name": "TAMAN HUSSEIN",
-            "lat": 1.564244,
-            "lon": 110.321806
-          },
-          {
-            "stop_id": "6541",
-            "stop_name": "BANGUNAN MARZUKI",
-            "lat": 1.556761,
-            "lon": 110.323217
-          },
-          {
-            "stop_id": "8255",
-            "stop_name": "SEGO PRESINT",
-            "lat": 1.554325,
-            "lon": 110.332047
-          },
-          {
-            "stop_id": "6534",
-            "stop_name": "COPAL SATOK",
-            "lat": 1.554181,
-            "lon": 110.335272
-          },
-          {
-            "stop_id": "7098",
-            "stop_name": "TERMINAL SAUJANA",
-            "lat": 1.557788,
-            "lon": 110.342466
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "route_id": "30397",
-    "route_short_name": "Q03",
-    "route_long_name": "SAUJANA PARKING - KING CENTRE",
-    "directions": [
-      {
-        "direction_id": 0,
-        "route_long_name": "SAUJANA PARKING - KING CENTRE",
-        "shape_id": "SHP_30397_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
-        "stops": [
-          {
-            "stop_id": "6521",
-            "stop_name": "TERMINAL SAUJANA PARKING",
-            "lat": 1.557719,
-            "lon": 110.342517
-          },
-          {
-            "stop_id": "6539",
-            "stop_name": "AMBANK SATOK",
-            "lat": 1.554839,
-            "lon": 110.338447
-          },
-          {
-            "stop_id": "6524",
-            "stop_name": "SATOK 1",
-            "lat": 1.553003,
-            "lon": 110.336086
-          },
-          {
-            "stop_id": "6525",
-            "stop_name": "SATOK 2",
-            "lat": 1.553211,
-            "lon": 110.333206
-          },
-          {
-            "stop_id": "7083",
-            "stop_name": "SATOK 3 (JLN RR BARAT 3)",
-            "lat": 1.551434,
-            "lon": 110.329822
-          },
-          {
-            "stop_id": "6577",
-            "stop_name": "JALAN POH KWONG",
-            "lat": 1.546728,
-            "lon": 110.323856
-          },
-          {
-            "stop_id": "6578",
-            "stop_name": "POH KWONG PARK",
-            "lat": 1.54075,
-            "lon": 110.328353
-          },
-          {
-            "stop_id": "6579",
-            "stop_name": "JALAN BATU KAWA RPR",
-            "lat": 1.515306,
-            "lon": 110.318142
-          },
-          {
-            "stop_id": "6580",
-            "stop_name": "OPPOSITE LAVIZO",
-            "lat": 1.519139,
-            "lon": 110.329281
-          },
-          {
-            "stop_id": "6581",
-            "stop_name": "SUNNY HILL",
-            "lat": 1.521283,
-            "lon": 110.3352
-          },
-          {
-            "stop_id": "6582",
-            "stop_name": "OPPOSITE TIMBERLAND",
-            "lat": 1.522656,
-            "lon": 110.338933
-          },
-          {
-            "stop_id": "6583",
-            "stop_name": "LEVEL UP ROCK ROAD - IB",
-            "lat": 1.5267416,
-            "lon": 110.341313
-          },
-          {
-            "stop_id": "7084",
-            "stop_name": "BOSCH-COURT MAMOTH",
-            "lat": 1.529452,
-            "lon": 110.341391
-          },
-          {
-            "stop_id": "7085",
-            "stop_name": "BAHTERANGKUT",
-            "lat": 1.531751,
-            "lon": 110.341839
-          },
-          {
-            "stop_id": "6585",
-            "stop_name": "OPP ROCK ROAD SEAFOOD - IB",
-            "lat": 1.5343815,
-            "lon": 110.3412533
-          },
-          {
-            "stop_id": "7086",
-            "stop_name": "JBALB (KCH)",
-            "lat": 1.535369,
-            "lon": 110.342533
-          },
-          {
-            "stop_id": "6586",
-            "stop_name": "TM BATU LINTANG",
-            "lat": 1.534631,
-            "lon": 110.345392
-          },
-          {
-            "stop_id": "6587",
-            "stop_name": "OPP KUCHING WATER BOARD",
-            "lat": 1.535392,
-            "lon": 110.348669
-          },
-          {
-            "stop_id": "6588",
-            "stop_name": "SHELL BATU LINTANG",
-            "lat": 1.540011,
-            "lon": 110.353414
-          },
-          {
-            "stop_id": "6589",
-            "stop_name": "THE SPRING KUCHING",
-            "lat": 1.536758,
-            "lon": 110.356328
-          },
-          {
-            "stop_id": "6590",
-            "stop_name": "BANGUNAN SULTAN ISKANDAR",
-            "lat": 1.5320537,
-            "lon": 110.3587649
-          },
-          {
-            "stop_id": "6547",
-            "stop_name": "TERMINAL KING CENTRE",
-            "lat": 1.529029,
-            "lon": 110.359371
-          },
-          {
-            "stop_id": "6548",
-            "stop_name": "JALAN TUN JUGAH 1",
-            "lat": 1.527889,
-            "lon": 110.357689
-          },
-          {
-            "stop_id": "6550",
-            "stop_name": "JALAN TUN JUGAH 2",
-            "lat": 1.525183,
-            "lon": 110.355856
-          },
-          {
-            "stop_id": "6551",
-            "stop_name": "JLN LAKSAMANA CHENG HO 1",
-            "lat": 1.522047,
-            "lon": 110.351708
-          },
-          {
-            "stop_id": "6552",
-            "stop_name": "JLN LAKSAMANA CHENG HO 2",
-            "lat": 1.522217,
-            "lon": 110.348328
-          },
-          {
-            "stop_id": "6554",
-            "stop_name": "JLN LAKSAMANA CHENG HO 3",
-            "lat": 1.522936,
-            "lon": 110.344206
-          },
-          {
-            "stop_id": "6684",
-            "stop_name": "JALAN RR (TMC)",
-            "lat": 1.521889,
-            "lon": 110.338108
-          },
-          {
-            "stop_id": "6699",
-            "stop_name": "JALAN DATUK TAWI SLI",
-            "lat": 1.514883,
-            "lon": 110.335928
-          },
-          {
-            "stop_id": "6558",
-            "stop_name": "BOULEVARD",
-            "lat": 1.507922,
-            "lon": 110.335478
-          },
-          {
-            "stop_id": "6559",
-            "stop_name": "JALAN DB MUSTAPHA",
-            "lat": 1.499489,
-            "lon": 110.333686
-          },
-          {
-            "stop_id": "6560",
-            "stop_name": "SRBCH BATU 4 1/2",
-            "lat": 1.502053,
-            "lon": 110.332778
-          },
-          {
-            "stop_id": "6561",
-            "stop_name": "OPP BEDDING & CO",
-            "lat": 1.505953,
-            "lon": 110.333433
-          },
-          {
-            "stop_id": "6562",
-            "stop_name": "EVERISE BATU 4",
-            "lat": 1.507883,
-            "lon": 110.333664
-          },
-          {
-            "stop_id": "6563",
-            "stop_name": "THE BANQUET RESIDENCES",
-            "lat": 1.514878,
-            "lon": 110.333564
-          },
-          {
-            "stop_id": "7099",
-            "stop_name": "OPP SUNNY HILL",
-            "lat": 1.521028,
-            "lon": 110.334747
-          },
-          {
-            "stop_id": "6566",
-            "stop_name": "JLN TAZA (OPP BELIA SUKAN)",
-            "lat": 1.539211,
-            "lon": 110.337172
-          },
-          {
-            "stop_id": "6568",
-            "stop_name": "JLN TAZA (OPP SGH)",
-            "lat": 1.543331,
-            "lon": 110.337356
-          },
-          {
-            "stop_id": "6570",
-            "stop_name": "JLN TAZA (KEK LAPIS WARISAN)",
-            "lat": 1.546672,
-            "lon": 110.337494
-          },
-          {
-            "stop_id": "6571",
-            "stop_name": "JLN TAZA (OPP BADARUDDIN)",
-            "lat": 1.550003,
-            "lon": 110.341269
-          },
-          {
-            "stop_id": "7098",
-            "stop_name": "TERMINAL SAUJANA",
-            "lat": 1.557788,
-            "lon": 110.342466
           }
         ]
       }
@@ -618,14 +228,17 @@
   },
   {
     "route_id": "30399",
-    "route_short_name": "Q10",
+    "route_short_name": "30399",
     "route_long_name": "OPEN AIR MARKET - TERMINAL BAS SERIAN",
     "directions": [
       {
         "direction_id": 0,
         "route_long_name": "OPEN AIR MARKET - TERMINAL BAS SERIAN",
         "shape_id": "SHP_30399_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6973",
@@ -636,8 +249,8 @@
           {
             "stop_id": "6591",
             "stop_name": "WATERFRONT 1",
-            "lat": 1.560269,
-            "lon": 110.344997
+            "lat": 1.5603835,
+            "lon": 110.3449161
           },
           {
             "stop_id": "6692",
@@ -791,7 +404,7 @@
           },
           {
             "stop_id": "7012",
-            "stop_name": "OPPOSITE UNACO SIBURAN",
+            "stop_name": "OPP UNACO SIBURAN",
             "lat": 1.345819,
             "lon": 110.408631
           },
@@ -809,7 +422,7 @@
           },
           {
             "stop_id": "7015",
-            "stop_name": "TAMAN HARMONI",
+            "stop_name": "TAMAN HARMONI - SIBURAN",
             "lat": 1.280747,
             "lon": 110.428658
           },
@@ -919,9 +532,12 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "TERMINAL BAS SERIAN - OPEN AIR MARKET",
+        "route_long_name": "OPEN AIR MARKET - TERMINAL BAS SERIAN",
         "shape_id": "SHP_30399_1",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "7032",
@@ -1087,7 +703,7 @@
           },
           {
             "stop_id": "7067",
-            "stop_name": "OPPOSITE BATU 16 KUCHING SERIAN",
+            "stop_name": "OPP BATU 16 KUCHING SERIAN",
             "lat": 1.374833,
             "lon": 110.384417
           },
@@ -1216,326 +832,18 @@
     ]
   },
   {
-    "route_id": "30400",
-    "route_short_name": "Q04",
-    "route_long_name": "OPEN AIR MARKET - BAKO",
-    "directions": [
-      {
-        "direction_id": 0,
-        "route_long_name": "OPEN AIR MARKET - BAKO",
-        "shape_id": "SHP_30400_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
-        "stops": [
-          {
-            "stop_id": "6973",
-            "stop_name": "OPEN AIR MARKET",
-            "lat": 1.558621,
-            "lon": 110.341297
-          },
-          {
-            "stop_id": "6591",
-            "stop_name": "WATERFRONT 1",
-            "lat": 1.560269,
-            "lon": 110.344997
-          },
-          {
-            "stop_id": "6592",
-            "stop_name": "WATERFRONT 2",
-            "lat": 1.557758,
-            "lon": 110.348589
-          },
-          {
-            "stop_id": "6593",
-            "stop_name": "WATERFRONT 3",
-            "lat": 1.558278,
-            "lon": 110.351192
-          },
-          {
-            "stop_id": "6595",
-            "stop_name": "JALAN ABELL",
-            "lat": 1.556958,
-            "lon": 110.355125
-          },
-          {
-            "stop_id": "6596",
-            "stop_name": "PADUNGAN 1 OB",
-            "lat": 1.552528,
-            "lon": 110.3616
-          },
-          {
-            "stop_id": "6597",
-            "stop_name": "PADUNGAN 2",
-            "lat": 1.552317,
-            "lon": 110.363881
-          },
-          {
-            "stop_id": "6598",
-            "stop_name": "PADUNGAN 3",
-            "lat": 1.550658,
-            "lon": 110.367503
-          },
-          {
-            "stop_id": "6779",
-            "stop_name": "PENDING 1 OB",
-            "lat": 1.54965,
-            "lon": 110.370433
-          },
-          {
-            "stop_id": "6780",
-            "stop_name": "PENDING 2 OB",
-            "lat": 1.549811,
-            "lon": 110.374383
-          },
-          {
-            "stop_id": "6781",
-            "stop_name": "PENDING 3 OB",
-            "lat": 1.548828,
-            "lon": 110.377108
-          },
-          {
-            "stop_id": "6782",
-            "stop_name": "PENDING 4 OB",
-            "lat": 1.549808,
-            "lon": 110.379289
-          },
-          {
-            "stop_id": "6603",
-            "stop_name": "DEMAK 1",
-            "lat": 1.580964,
-            "lon": 110.381178
-          },
-          {
-            "stop_id": "6604",
-            "stop_name": "DEMAK 2",
-            "lat": 1.581317,
-            "lon": 110.387108
-          },
-          {
-            "stop_id": "6605",
-            "stop_name": "PASAR DEMAK LAUT",
-            "lat": 1.586806,
-            "lon": 110.418003
-          },
-          {
-            "stop_id": "6606",
-            "stop_name": "BAKO 2",
-            "lat": 1.586867,
-            "lon": 110.425722
-          },
-          {
-            "stop_id": "6607",
-            "stop_name": "BAKO 3",
-            "lat": 1.588806,
-            "lon": 110.429178
-          },
-          {
-            "stop_id": "6608",
-            "stop_name": "BAKO 4",
-            "lat": 1.594389,
-            "lon": 110.438339
-          },
-          {
-            "stop_id": "6610",
-            "stop_name": "SMK BAKO",
-            "lat": 1.645253,
-            "lon": 110.448872
-          },
-          {
-            "stop_id": "6611",
-            "stop_name": "KAMPUNG BAKO 1",
-            "lat": 1.656953,
-            "lon": 110.439689
-          },
-          {
-            "stop_id": "6613",
-            "stop_name": "TERMINAL BAKO",
-            "lat": 1.6633,
-            "lon": 110.431564
-          }
-        ]
-      },
-      {
-        "direction_id": 1,
-        "route_long_name": "BAKO - OPEN AIR MARKET",
-        "shape_id": "SHP_30400_1",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
-        "stops": [
-          {
-            "stop_id": "6613",
-            "stop_name": "TERMINAL BAKO",
-            "lat": 1.6633,
-            "lon": 110.431564
-          },
-          {
-            "stop_id": "6791",
-            "stop_name": "JALAN KAMPUNG BAKO 2",
-            "lat": 1.659917,
-            "lon": 110.434189
-          },
-          {
-            "stop_id": "6792",
-            "stop_name": "JALAN KAMPUNG BAKO 3",
-            "lat": 1.658192,
-            "lon": 110.438494
-          },
-          {
-            "stop_id": "6793",
-            "stop_name": "JALAN KAMPUNG BAKO 4",
-            "lat": 1.6557,
-            "lon": 110.441425
-          },
-          {
-            "stop_id": "6794",
-            "stop_name": "JALAN KAMPUNG BAKO 5",
-            "lat": 1.646397,
-            "lon": 110.448197
-          },
-          {
-            "stop_id": "6619",
-            "stop_name": "JALAN BAKO 1",
-            "lat": 1.642556,
-            "lon": 110.45505
-          },
-          {
-            "stop_id": "6620",
-            "stop_name": "JALAN BAKO 2",
-            "lat": 1.621658,
-            "lon": 110.445103
-          },
-          {
-            "stop_id": "6621",
-            "stop_name": "JALAN BAKO 3",
-            "lat": 1.598425,
-            "lon": 110.441414
-          },
-          {
-            "stop_id": "6622",
-            "stop_name": "JALAN BAKO 4",
-            "lat": 1.593072,
-            "lon": 110.437147
-          },
-          {
-            "stop_id": "6614",
-            "stop_name": "PCC DEMAK",
-            "lat": 1.5913,
-            "lon": 110.434075
-          },
-          {
-            "stop_id": "6623",
-            "stop_name": "JALAN BAKO 5",
-            "lat": 1.587944,
-            "lon": 110.428233
-          },
-          {
-            "stop_id": "6624",
-            "stop_name": "JALAN BAKO 6",
-            "lat": 1.5866,
-            "lon": 110.425872
-          },
-          {
-            "stop_id": "7088",
-            "stop_name": "JALAN BAKO 7",
-            "lat": 1.586255,
-            "lon": 110.420988
-          },
-          {
-            "stop_id": "7089",
-            "stop_name": "JALAN BAKO 8",
-            "lat": 1.586704,
-            "lon": 110.416391
-          },
-          {
-            "stop_id": "6625",
-            "stop_name": "JALAN DEMAK 1",
-            "lat": 1.587308,
-            "lon": 110.410944
-          },
-          {
-            "stop_id": "6626",
-            "stop_name": "JALAN DEMAK 2",
-            "lat": 1.581064,
-            "lon": 110.387414
-          },
-          {
-            "stop_id": "6627",
-            "stop_name": "JALAN DEMAK 3",
-            "lat": 1.580722,
-            "lon": 110.382053
-          },
-          {
-            "stop_id": "6628",
-            "stop_name": "SMK TUN ABANG HJ OPENG",
-            "lat": 1.572478,
-            "lon": 110.362564
-          },
-          {
-            "stop_id": "6629",
-            "stop_name": "JALAN KWONG LEE BANK",
-            "lat": 1.554106,
-            "lon": 110.381253
-          },
-          {
-            "stop_id": "6630",
-            "stop_name": "JLN PENDING 1 IB",
-            "lat": 1.549517,
-            "lon": 110.379197
-          },
-          {
-            "stop_id": "6631",
-            "stop_name": "JLN PENDING 2 IB",
-            "lat": 1.548658,
-            "lon": 110.376061
-          },
-          {
-            "stop_id": "6632",
-            "stop_name": "JLN PENDING 3 IB",
-            "lat": 1.549706,
-            "lon": 110.374222
-          },
-          {
-            "stop_id": "6633",
-            "stop_name": "JLN PENDING 4 IB",
-            "lat": 1.549647,
-            "lon": 110.370869
-          },
-          {
-            "stop_id": "6634",
-            "stop_name": "JLN PADUNGAN 1 IB",
-            "lat": 1.550033,
-            "lon": 110.367514
-          },
-          {
-            "stop_id": "6635",
-            "stop_name": "JLN PADUNGAN 2 IB",
-            "lat": 1.552314,
-            "lon": 110.362097
-          },
-          {
-            "stop_id": "6636",
-            "stop_name": "RIVERSIDE MAJESTIC HOTEL",
-            "lat": 1.558186,
-            "lon": 110.351792
-          },
-          {
-            "stop_id": "6973",
-            "stop_name": "OPEN AIR MARKET",
-            "lat": 1.558621,
-            "lon": 110.341297
-          }
-        ]
-      }
-    ]
-  },
-  {
     "route_id": "30401",
-    "route_short_name": "Q05",
+    "route_short_name": "30401",
     "route_long_name": "SAUJANA PARKING - SMKA MATANG 2",
     "directions": [
       {
         "direction_id": 0,
         "route_long_name": "SAUJANA PARKING - SMKA MATANG 2",
         "shape_id": "SHP_30401_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6521",
@@ -1570,8 +878,8 @@
           {
             "stop_id": "6527",
             "stop_name": "OPP BANGUNAN MARZUKI",
-            "lat": 1.556814,
-            "lon": 110.322778
+            "lat": 1.5568129,
+            "lon": 110.3227775
           },
           {
             "stop_id": "6638",
@@ -1600,8 +908,8 @@
           {
             "stop_id": "6523",
             "stop_name": "EMART MATANG",
-            "lat": 1.572653,
-            "lon": 110.302853
+            "lat": 1.5726523,
+            "lon": 110.3028535
           },
           {
             "stop_id": "6520",
@@ -1643,9 +951,12 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SMKA MATANG 2 - SAUJANA PARKING",
+        "route_long_name": "SAUJANA PARKING - SMKA MATANG 2",
         "shape_id": "SHP_30401_1",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6645",
@@ -1656,8 +967,8 @@
           {
             "stop_id": "6646",
             "stop_name": "POLITEKNIK KCH",
-            "lat": 1.629342,
-            "lon": 110.195694
+            "lat": 1.6293417,
+            "lon": 110.1956947
           },
           {
             "stop_id": "6647",
@@ -1752,20 +1063,20 @@
           {
             "stop_id": "6542",
             "stop_name": "TAMAN HUSSEIN",
-            "lat": 1.564244,
-            "lon": 110.321806
+            "lat": 1.5642441,
+            "lon": 110.3218053
           },
           {
             "stop_id": "6541",
             "stop_name": "BANGUNAN MARZUKI",
-            "lat": 1.556761,
-            "lon": 110.323217
+            "lat": 1.5567616,
+            "lon": 110.3232155
           },
           {
             "stop_id": "6535",
             "stop_name": "SEGO PRECINT 1",
-            "lat": 1.554325,
-            "lon": 110.332047
+            "lat": 1.554324,
+            "lon": 110.3320463
           },
           {
             "stop_id": "6534",
@@ -1785,14 +1096,17 @@
   },
   {
     "route_id": "30402",
-    "route_short_name": "Q06",
+    "route_short_name": "30402",
     "route_long_name": "SAUJANA PARKING - KAMPUNG BENUK HOMESTAY",
     "directions": [
       {
         "direction_id": 0,
         "route_long_name": "SAUJANA PARKING - KAMPUNG BENUK HOMESTAY",
         "shape_id": "SHP_30402_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6521",
@@ -1948,9 +1262,12 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "KAMPUNG BENUK HOMESTAY - SAUJANA PARKING",
+        "route_long_name": "SAUJANA PARKING - KAMPUNG BENUK HOMESTAY",
         "shape_id": "SHP_30402_1",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6661",
@@ -2092,13 +1409,13 @@
           },
           {
             "stop_id": "6582",
-            "stop_name": "OPPOSITE TIMBERLAND",
+            "stop_name": "OPP TIMBERLAND",
             "lat": 1.522656,
             "lon": 110.338933
           },
           {
             "stop_id": "6583",
-            "stop_name": "LEVEL UP ROCK ROAD - IB",
+            "stop_name": "LEVEL UP ROCK ROAD",
             "lat": 1.5267416,
             "lon": 110.341313
           },
@@ -2150,14 +1467,17 @@
   },
   {
     "route_id": "30403",
-    "route_short_name": "Q07",
+    "route_short_name": "30403",
     "route_long_name": "SAUJANA PARKING - SJK CHUNG HUA BATU KAWA",
     "directions": [
       {
         "direction_id": 0,
         "route_long_name": "SAUJANA PARKING - SJK CHUNG HUA BATU KAWA",
         "shape_id": "SHP_30403_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6521",
@@ -2277,9 +1597,12 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SJK CHUNG HUA BATU KAWA - SAUJANA PARKING",
+        "route_long_name": "SAUJANA PARKING - SJK CHUNG HUA BATU KAWA",
         "shape_id": "SHP_30403_1",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6931",
@@ -2349,13 +1672,13 @@
           },
           {
             "stop_id": "6582",
-            "stop_name": "OPPOSITE TIMBERLAND",
+            "stop_name": "OPP TIMBERLAND",
             "lat": 1.522656,
             "lon": 110.338933
           },
           {
             "stop_id": "6583",
-            "stop_name": "LEVEL UP ROCK ROAD - IB",
+            "stop_name": "LEVEL UP ROCK ROAD",
             "lat": 1.5267416,
             "lon": 110.341313
           },
@@ -2407,14 +1730,17 @@
   },
   {
     "route_id": "30404",
-    "route_short_name": "Q08",
+    "route_short_name": "30404",
     "route_long_name": "SAUJANA PARKING - TERMINAL BAS BAU",
     "directions": [
       {
         "direction_id": 0,
         "route_long_name": "SAUJANA PARKING - TERMINAL BAS BAU",
         "shape_id": "SHP_30404_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6521",
@@ -2570,9 +1896,12 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "TERMINAL BAS BAU - SAUJANA PARKING",
+        "route_long_name": "SAUJANA PARKING - TERMINAL BAS BAU",
         "shape_id": "SHP_30404_1",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6729",
@@ -2726,13 +2055,13 @@
           },
           {
             "stop_id": "6582",
-            "stop_name": "OPPOSITE TIMBERLAND",
+            "stop_name": "OPP TIMBERLAND",
             "lat": 1.522656,
             "lon": 110.338933
           },
           {
             "stop_id": "6583",
-            "stop_name": "LEVEL UP ROCK ROAD - IB",
+            "stop_name": "LEVEL UP ROCK ROAD",
             "lat": 1.5267416,
             "lon": 110.341313
           },
@@ -2784,14 +2113,17 @@
   },
   {
     "route_id": "30405",
-    "route_short_name": "Q09",
+    "route_short_name": "30405",
     "route_long_name": "OPEN AIR MARKET - MUARA TEBAS",
     "directions": [
       {
         "direction_id": 0,
         "route_long_name": "OPEN AIR MARKET - MUARA TEBAS",
         "shape_id": "SHP_30405_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6973",
@@ -2802,8 +2134,8 @@
           {
             "stop_id": "6591",
             "stop_name": "WATERFRONT 1",
-            "lat": 1.560269,
-            "lon": 110.344997
+            "lat": 1.5603835,
+            "lon": 110.3449161
           },
           {
             "stop_id": "6592",
@@ -2953,9 +2285,12 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "MUARA TEBAS - OPEN AIR MARKET",
+        "route_long_name": "OPEN AIR MARKET - MUARA TEBAS",
         "shape_id": "SHP_30405_1",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6795",
@@ -3131,14 +2466,17 @@
   },
   {
     "route_id": "30449",
-    "route_short_name": "Q11",
+    "route_short_name": "30449",
     "route_long_name": "SAUJANA PARKING - ARANG ROAD",
     "directions": [
       {
         "direction_id": 0,
         "route_long_name": "SAUJANA PARKING - ARANG ROAD",
         "shape_id": "SHP_30449_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6521",
@@ -3278,14 +2616,17 @@
   },
   {
     "route_id": "30450",
-    "route_short_name": "Q12",
+    "route_short_name": "30450",
     "route_long_name": "SAUJANA PARKING - TAMAN HUI SING",
     "directions": [
       {
         "direction_id": 0,
         "route_long_name": "SAUJANA PARKING - TAMAN HUI SING",
         "shape_id": "SHP_30450_0",
-        "service_ids": ["WEEKEND", "WEEKDAY"],
+        "service_ids": [
+          "WEEKEND",
+          "WEEKDAY"
+        ],
         "stops": [
           {
             "stop_id": "6521",
