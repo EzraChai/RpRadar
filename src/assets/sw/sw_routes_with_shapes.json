@@ -7,28 +7,6 @@
     "shape_ids": ["SHP_30395_0", "SHP_30395_1"]
   },
   {
-    "route_id": "30396",
-    "route_code": "Q02",
-    "route_color": "FF0000",
-    "route_name": "SAUJANA PARKING - SMK MATANG JAYA",
-    "shape_ids": ["SHP_30396_0"]
-  },
-  {
-    "route_id": "30397",
-    "route_code": "Q03",
-    "route_color": "FF0000",
-    "route_name": "SAUJANA PARKING - KING CENTRE",
-    "shape_ids": ["SHP_30397_0"]
-  },
-
-  {
-    "route_id": "30400",
-    "route_code": "Q04",
-    "route_color": "FF0000",
-    "route_name": "OPEN AIR MARKET - BAKO",
-    "shape_ids": ["SHP_30400_0", "SHP_30400_1"]
-  },
-  {
     "route_id": "30401",
     "route_code": "Q05",
     "route_color": "FF0000",

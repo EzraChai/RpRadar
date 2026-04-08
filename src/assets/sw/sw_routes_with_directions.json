@@ -98,7 +98,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SAUJANA PARKING - TAMAN MALIHAH",
+        "route_long_name": "TAMAN MALIHAH - SAUJANA PARKING",
         "shape_id": "SHP_30395_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -919,7 +919,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "OPEN AIR MARKET - TERMINAL BAS SERIAN",
+        "route_long_name": "TERMINAL BAS SERIAN - OPEN AIR MARKET",
         "shape_id": "SHP_30399_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -1356,7 +1356,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "OPEN AIR MARKET - BAKO",
+        "route_long_name": "BAKO - OPEN AIR MARKET",
         "shape_id": "SHP_30400_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -1643,7 +1643,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SAUJANA PARKING - SMKA MATANG 2",
+        "route_long_name": "SMKA MATANG 2 - SAUJANA PARKING",
         "shape_id": "SHP_30401_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -1948,7 +1948,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SAUJANA PARKING - KAMPUNG BENUK HOMESTAY",
+        "route_long_name": "KAMPUNG BENUK HOMESTAY - SAUJANA PARKING",
         "shape_id": "SHP_30402_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -2277,7 +2277,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SAUJANA PARKING - SJK CHUNG HUA BATU KAWA",
+        "route_long_name": "SJK CHUNG HUA BATU KAWA - SAUJANA PARKING",
         "shape_id": "SHP_30403_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -2570,7 +2570,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "SAUJANA PARKING - TERMINAL BAS BAU",
+        "route_long_name": "TERMINAL BAS BAU - SAUJANA PARKING",
         "shape_id": "SHP_30404_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
@@ -2953,7 +2953,7 @@
       },
       {
         "direction_id": 1,
-        "route_long_name": "OPEN AIR MARKET - MUARA TEBAS",
+        "route_long_name": "MUARA TEBAS - OPEN AIR MARKET",
         "shape_id": "SHP_30405_1",
         "service_ids": ["WEEKEND", "WEEKDAY"],
         "stops": [
