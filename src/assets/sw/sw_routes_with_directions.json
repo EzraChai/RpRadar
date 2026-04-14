@@ -3458,5 +3458,1302 @@
         ]
       }
     ]
+  },
+  {
+    "route_id": "30452",
+    "route_short_name": "Q13",
+    "route_long_name": "OPEN AIR MARKET - SIBURAN",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "OPEN AIR MARKET - SIBURAN",
+        "shape_id": "SHP_30452_0",
+        "service_ids": ["WEEKDAY", "WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6973",
+            "stop_name": "OPEN AIR MARKET",
+            "lat": 1.558621,
+            "lon": 110.341297
+          },
+          {
+            "stop_id": "6591",
+            "stop_name": "WATERFRONT 1",
+            "lat": 1.5603835,
+            "lon": 110.3449161
+          },
+          {
+            "stop_id": "8408",
+            "stop_name": "JALAN TABUAN",
+            "lat": 1.5470933,
+            "lon": 110.3523517
+          },
+          {
+            "stop_id": "6589",
+            "stop_name": "THE SPRING KUCHING",
+            "lat": 1.536758,
+            "lon": 110.356328
+          },
+          {
+            "stop_id": "6590",
+            "stop_name": "BANGUNAN SULTAN ISKANDAR",
+            "lat": 1.5320537,
+            "lon": 110.3587649
+          },
+          {
+            "stop_id": "8406",
+            "stop_name": "KPDN SARAWAK",
+            "lat": 1.5277786,
+            "lon": 110.357621
+          },
+          {
+            "stop_id": "8407",
+            "stop_name": "MITA CAKE HOUSE JTJ",
+            "lat": 1.5250458,
+            "lon": 110.3558605
+          },
+          {
+            "stop_id": "6559",
+            "stop_name": "JALAN DB MUSTAPHA",
+            "lat": 1.499489,
+            "lon": 110.333686
+          },
+          {
+            "stop_id": "8283",
+            "stop_name": "JLN DATUK AMAR KALONG NINGKAN",
+            "lat": 1.4943,
+            "lon": 110.331308
+          },
+          {
+            "stop_id": "6702",
+            "stop_name": "FARLEY KCH",
+            "lat": 1.484703,
+            "lon": 110.331497
+          },
+          {
+            "stop_id": "8409",
+            "stop_name": "PASAR BATU 7 KCH",
+            "lat": 1.4707183,
+            "lon": 110.3305167
+          },
+          {
+            "stop_id": "8410",
+            "stop_name": "SMK SUNGAI TAPANG",
+            "lat": 1.4609083,
+            "lon": 110.3302517
+          },
+          {
+            "stop_id": "6706",
+            "stop_name": "OUM",
+            "lat": 1.439519,
+            "lon": 110.329206
+          },
+          {
+            "stop_id": "6707",
+            "stop_name": "JALAN PENRISSEN 2",
+            "lat": 1.432878,
+            "lon": 110.328536
+          },
+          {
+            "stop_id": "8411",
+            "stop_name": "TAMAN INLING",
+            "lat": 1.3986148,
+            "lon": 110.340595
+          },
+          {
+            "stop_id": "8412",
+            "stop_name": "RPR BATU 13",
+            "lat": 1.3945,
+            "lon": 110.349778
+          },
+          {
+            "stop_id": "8413",
+            "stop_name": "MEGA COACH",
+            "lat": 1.383845,
+            "lon": 110.3758383
+          },
+          {
+            "stop_id": "8414",
+            "stop_name": "BEISHI TRADING",
+            "lat": 1.37469,
+            "lon": 110.3852467
+          },
+          {
+            "stop_id": "8415",
+            "stop_name": "TAMAN BUTTERFLY",
+            "lat": 1.3726183,
+            "lon": 110.391245
+          },
+          {
+            "stop_id": "8416",
+            "stop_name": "OPP SMK SIBURAN",
+            "lat": 1.3693767,
+            "lon": 110.398575
+          },
+          {
+            "stop_id": "8417",
+            "stop_name": "PETRONAS SIBURAN",
+            "lat": 1.36398,
+            "lon": 110.4038
+          },
+          {
+            "stop_id": "8418",
+            "stop_name": "SJK CHUNG HUA SIBURAN",
+            "lat": 1.361595,
+            "lon": 110.4053967
+          },
+          {
+            "stop_id": "8419",
+            "stop_name": "RPR BATU GONG",
+            "lat": 1.3515057,
+            "lon": 110.4166943
+          },
+          {
+            "stop_id": "7011",
+            "stop_name": "KOMPLEKS SUKAN PADAWAN",
+            "lat": 1.354161,
+            "lon": 110.408792
+          },
+          {
+            "stop_id": "7012",
+            "stop_name": "OPP UNACO SIBURAN",
+            "lat": 1.345819,
+            "lon": 110.408631
+          },
+          {
+            "stop_id": "7062",
+            "stop_name": "UNACO SIBURAN",
+            "lat": 1.3454,
+            "lon": 110.408375
+          },
+          {
+            "stop_id": "7063",
+            "stop_name": "IPD PADAWAN",
+            "lat": 1.353803,
+            "lon": 110.408631
+          },
+          {
+            "stop_id": "8420",
+            "stop_name": "TERMINAL PASAR SIBURAN",
+            "lat": 1.3609281,
+            "lon": 110.4055592
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "SIBURAN - OPEN AIR MARKET",
+        "shape_id": "SHP_30452_1",
+        "service_ids": ["WEEKDAY", "WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "8420",
+            "stop_name": "TERMINAL PASAR SIBURAN",
+            "lat": 1.3609281,
+            "lon": 110.4055592
+          },
+          {
+            "stop_id": "7065",
+            "stop_name": "SMK SIBURAN",
+            "lat": 1.369183,
+            "lon": 110.398403
+          },
+          {
+            "stop_id": "7066",
+            "stop_name": "TAMAN DURAS",
+            "lat": 1.372306,
+            "lon": 110.392406
+          },
+          {
+            "stop_id": "7067",
+            "stop_name": "OPP BATU 16 KUCHING SERIAN",
+            "lat": 1.374833,
+            "lon": 110.384417
+          },
+          {
+            "stop_id": "8421",
+            "stop_name": "KPG SERATAU",
+            "lat": 1.3836733,
+            "lon": 110.375755
+          },
+          {
+            "stop_id": "8422",
+            "stop_name": "KPG SIDANU",
+            "lat": 1.3920283,
+            "lon": 110.3550517
+          },
+          {
+            "stop_id": "8423",
+            "stop_name": "TAMAN SENTUH",
+            "lat": 1.3940667,
+            "lon": 110.3503367
+          },
+          {
+            "stop_id": "8424",
+            "stop_name": "RPR BATU 12",
+            "lat": 1.3973217,
+            "lon": 110.3429017
+          },
+          {
+            "stop_id": "8425",
+            "stop_name": "OPP TAMAN INLING",
+            "lat": 1.3984619,
+            "lon": 110.3403777
+          },
+          {
+            "stop_id": "8426",
+            "stop_name": "PETRONAS BATU 12",
+            "lat": 1.40517,
+            "lon": 110.3367483
+          },
+          {
+            "stop_id": "6669",
+            "stop_name": "SJKCH BATU 10",
+            "lat": 1.424997,
+            "lon": 110.326161
+          },
+          {
+            "stop_id": "6670",
+            "stop_name": "MPP",
+            "lat": 1.427319,
+            "lon": 110.326336
+          },
+          {
+            "stop_id": "8427",
+            "stop_name": "BATU 9 - TMN SRI EMAS",
+            "lat": 1.4388217,
+            "lon": 110.3280633
+          },
+          {
+            "stop_id": "8428",
+            "stop_name": "KOLEJ KESIHATAN AWAM KUCHING",
+            "lat": 1.4613267,
+            "lon": 110.330245
+          },
+          {
+            "stop_id": "6674",
+            "stop_name": "KOTA SENTOSA",
+            "lat": 1.4680983,
+            "lon": 110.330165
+          },
+          {
+            "stop_id": "8431",
+            "stop_name": "BORNEO MUSEUM",
+            "lat": 1.47014,
+            "lon": 110.3283033
+          },
+          {
+            "stop_id": "6676",
+            "stop_name": "EVERWIN KOTA SENTOSA",
+            "lat": 1.476083,
+            "lon": 110.330283
+          },
+          {
+            "stop_id": "8432",
+            "stop_name": "OPP KUCHING SENTRAL",
+            "lat": 1.4822217,
+            "lon": 110.3310583
+          },
+          {
+            "stop_id": "6678",
+            "stop_name": "SK HARDWARE",
+            "lat": 1.491278,
+            "lon": 110.330506
+          },
+          {
+            "stop_id": "6679",
+            "stop_name": "SIMPANG SEMABA",
+            "lat": 1.494578,
+            "lon": 110.331142
+          },
+          {
+            "stop_id": "8433",
+            "stop_name": "EMPORIUM KUCHING",
+            "lat": 1.5154767,
+            "lon": 110.3528667
+          },
+          {
+            "stop_id": "8434",
+            "stop_name": "OPP MITA CAKE HOUSE JTJ",
+            "lat": 1.5254533,
+            "lon": 110.3556467
+          },
+          {
+            "stop_id": "7082",
+            "stop_name": "ST3",
+            "lat": 1.535861,
+            "lon": 110.356472
+          },
+          {
+            "stop_id": "8435",
+            "stop_name": "SIMPANG JALAN WESTWOOD",
+            "lat": 1.5433567,
+            "lon": 110.3543867
+          },
+          {
+            "stop_id": "6973",
+            "stop_name": "OPEN AIR MARKET",
+            "lat": 1.558621,
+            "lon": 110.341297
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30453",
+    "route_short_name": "Q14",
+    "route_long_name": "OPEN AIR MARKET - SUMMER MALL",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "OPEN AIR MARKET - SUMMER MALL",
+        "shape_id": "SHP_30453_0",
+        "service_ids": ["WEEKDAY", "WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6973",
+            "stop_name": "OPEN AIR MARKET",
+            "lat": 1.558621,
+            "lon": 110.341297
+          },
+          {
+            "stop_id": "6539",
+            "stop_name": "AMBANK SATOK",
+            "lat": 1.554839,
+            "lon": 110.338447
+          },
+          {
+            "stop_id": "6716",
+            "stop_name": "BALAI POLIS BADARUDDIN",
+            "lat": 1.550433,
+            "lon": 110.337872
+          },
+          {
+            "stop_id": "6717",
+            "stop_name": "OPP SJKCH NO 4",
+            "lat": 1.547797,
+            "lon": 110.337769
+          },
+          {
+            "stop_id": "8436",
+            "stop_name": "KOMPLEKS BELIA SUKAN",
+            "lat": 1.5394533,
+            "lon": 110.3373383
+          },
+          {
+            "stop_id": "8437",
+            "stop_name": "OPP FORDA",
+            "lat": 1.53643,
+            "lon": 110.337175
+          },
+          {
+            "stop_id": "8438",
+            "stop_name": "TRINITY HUB",
+            "lat": 1.514835,
+            "lon": 110.335875
+          },
+          {
+            "stop_id": "6558",
+            "stop_name": "BOULEVARD",
+            "lat": 1.507922,
+            "lon": 110.335478
+          },
+          {
+            "stop_id": "8439",
+            "stop_name": "KUCHING INTERNATIONAL AIRPORT",
+            "lat": 1.4872468,
+            "lon": 110.3408061
+          },
+          {
+            "stop_id": "8409",
+            "stop_name": "PASAR BATU 7 KCH",
+            "lat": 1.4707183,
+            "lon": 110.3305167
+          },
+          {
+            "stop_id": "8410",
+            "stop_name": "SMK SUNGAI TAPANG",
+            "lat": 1.4609083,
+            "lon": 110.3302517
+          },
+          {
+            "stop_id": "8440",
+            "stop_name": "OPP STATE VET DIAGNOSTIC LAB",
+            "lat": 1.4416517,
+            "lon": 110.3368267
+          },
+          {
+            "stop_id": "8441",
+            "stop_name": "TAMAN HILL VIEW 2",
+            "lat": 1.4408333,
+            "lon": 110.34457
+          },
+          {
+            "stop_id": "8442",
+            "stop_name": "TAMAN SURIA",
+            "lat": 1.440275,
+            "lon": 110.3538117
+          },
+          {
+            "stop_id": "8443",
+            "stop_name": "OPP KPG PANGKALAN KUAP",
+            "lat": 1.4396883,
+            "lon": 110.365145
+          },
+          {
+            "stop_id": "8444",
+            "stop_name": "SK JALAN MUARA TUANG",
+            "lat": 1.4455383,
+            "lon": 110.3849917
+          },
+          {
+            "stop_id": "8445",
+            "stop_name": "OPP SMK MUARA TUANG",
+            "lat": 1.4506617,
+            "lon": 110.3982783
+          },
+          {
+            "stop_id": "8446",
+            "stop_name": "ST FRANCIS CHURCH",
+            "lat": 1.4566783,
+            "lon": 110.4143
+          },
+          {
+            "stop_id": "8447",
+            "stop_name": "OPP UITM KAMPUS 2",
+            "lat": 1.4574133,
+            "lon": 110.4299683
+          },
+          {
+            "stop_id": "8448",
+            "stop_name": "UNIMAS KAMPUS TIMUR",
+            "lat": 1.457205,
+            "lon": 110.454745
+          },
+          {
+            "stop_id": "8449",
+            "stop_name": "TERMINAL SUMMER MALL",
+            "lat": 1.4541283,
+            "lon": 110.4586767
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "SUMMER MALL - OPEN AIR MARKET",
+        "shape_id": "SHP_30453_1",
+        "service_ids": ["WEEKDAY", "WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "8449",
+            "stop_name": "TERMINAL SUMMER MALL",
+            "lat": 1.4541283,
+            "lon": 110.4586767
+          },
+          {
+            "stop_id": "8450",
+            "stop_name": "DESA ILMU",
+            "lat": 1.455529,
+            "lon": 110.4499052
+          },
+          {
+            "stop_id": "8451",
+            "stop_name": "AIMAN MALL",
+            "lat": 1.45653,
+            "lon": 110.449165
+          },
+          {
+            "stop_id": "8452",
+            "stop_name": "SMK MUARA TUANG",
+            "lat": 1.4505533,
+            "lon": 110.397235
+          },
+          {
+            "stop_id": "8453",
+            "stop_name": "OPP SK JALAN MUARA TUANG",
+            "lat": 1.44511,
+            "lon": 110.3847517
+          },
+          {
+            "stop_id": "8454",
+            "stop_name": "KPG PANGKALAN KUAP",
+            "lat": 1.4396633,
+            "lon": 110.3657083
+          },
+          {
+            "stop_id": "8455",
+            "stop_name": "TAMAN HARMONI - KOTA SAMARAHAN",
+            "lat": 1.4405333,
+            "lon": 110.3544233
+          },
+          {
+            "stop_id": "8456",
+            "stop_name": "TAMAN MERPATI - KOTA SAMARAHAN",
+            "lat": 1.4405383,
+            "lon": 110.34296
+          },
+          {
+            "stop_id": "8457",
+            "stop_name": "SEKOLAH TUNAS BAKTI",
+            "lat": 1.4405233,
+            "lon": 110.3376717
+          },
+          {
+            "stop_id": "8428",
+            "stop_name": "KOLEJ KESIHATAN AWAM KUCHING",
+            "lat": 1.4613267,
+            "lon": 110.330245
+          },
+          {
+            "stop_id": "6674",
+            "stop_name": "KOTA SENTOSA",
+            "lat": 1.4680983,
+            "lon": 110.330165
+          },
+          {
+            "stop_id": "8458",
+            "stop_name": "OPP PASAR BATU 7 KCH",
+            "lat": 1.4705767,
+            "lon": 110.3304217
+          },
+          {
+            "stop_id": "8459",
+            "stop_name": "SARAWAK FORESTRY CORP",
+            "lat": 1.4726017,
+            "lon": 110.335865
+          },
+          {
+            "stop_id": "8473",
+            "stop_name": "KUCHING SENTRAL",
+            "lat": 1.4822135,
+            "lon": 110.3332703
+          },
+          {
+            "stop_id": "6678",
+            "stop_name": "SK HARDWARE",
+            "lat": 1.491278,
+            "lon": 110.330506
+          },
+          {
+            "stop_id": "6679",
+            "stop_name": "SIMPANG SEMABA",
+            "lat": 1.494578,
+            "lon": 110.331142
+          },
+          {
+            "stop_id": "6680",
+            "stop_name": "SJKCH BATU 4 1/2",
+            "lat": 1.502,
+            "lon": 110.332792
+          },
+          {
+            "stop_id": "6561",
+            "stop_name": "OPP BEDDING & CO",
+            "lat": 1.505953,
+            "lon": 110.333433
+          },
+          {
+            "stop_id": "8460",
+            "stop_name": "EVERRISE BATU 4",
+            "lat": 1.5079,
+            "lon": 110.3336983
+          },
+          {
+            "stop_id": "6563",
+            "stop_name": "THE BANQUET RESIDENCES",
+            "lat": 1.514878,
+            "lon": 110.333564
+          },
+          {
+            "stop_id": "6581",
+            "stop_name": "SUNNY HILL",
+            "lat": 1.521283,
+            "lon": 110.3352
+          },
+          {
+            "stop_id": "6566",
+            "stop_name": "OPP KOMPLEKS BELIA SUKAN",
+            "lat": 1.53895,
+            "lon": 110.3371167
+          },
+          {
+            "stop_id": "6568",
+            "stop_name": "JLN TAZA (OPP SGH)",
+            "lat": 1.543331,
+            "lon": 110.337356
+          },
+          {
+            "stop_id": "6570",
+            "stop_name": "KEK LAPIS WARISAN",
+            "lat": 1.546672,
+            "lon": 110.337494
+          },
+          {
+            "stop_id": "8461",
+            "stop_name": "OPP BALAI POLIS BADARUDDIN",
+            "lat": 1.5505,
+            "lon": 110.33761
+          },
+          {
+            "stop_id": "6973",
+            "stop_name": "OPEN AIR MARKET",
+            "lat": 1.558621,
+            "lon": 110.341297
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30454",
+    "route_short_name": "30454",
+    "route_long_name": "OPEN AIR MARKET - SUKMA",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "OPEN AIR MARKET - SUKMA",
+        "shape_id": "SHP_30454_0",
+        "service_ids": ["WEEKDAY", "WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6973",
+            "stop_name": "OPEN AIR MARKET",
+            "lat": 1.558621,
+            "lon": 110.341297
+          },
+          {
+            "stop_id": "6539",
+            "stop_name": "AMBANK SATOK",
+            "lat": 1.554839,
+            "lon": 110.338447
+          },
+          {
+            "stop_id": "8380",
+            "stop_name": "KFC SATOK",
+            "lat": 1.553032,
+            "lon": 110.3358477
+          },
+          {
+            "stop_id": "8381",
+            "stop_name": "MAXIS CENTRE",
+            "lat": 1.5532629,
+            "lon": 110.3332002
+          },
+          {
+            "stop_id": "8462",
+            "stop_name": "PERODUA ERAZOOM",
+            "lat": 1.5534674,
+            "lon": 110.3289563
+          },
+          {
+            "stop_id": "6527",
+            "stop_name": "OPP BANGUNAN MARZUKI",
+            "lat": 1.5568129,
+            "lon": 110.3227775
+          },
+          {
+            "stop_id": "6638",
+            "stop_name": "HERITAGE GARDEN",
+            "lat": 1.560731,
+            "lon": 110.321789
+          },
+          {
+            "stop_id": "6537",
+            "stop_name": "TAMAN SEJOLI",
+            "lat": 1.564611,
+            "lon": 110.3215
+          },
+          {
+            "stop_id": "8508",
+            "stop_name": "OPP WIJASA MEDIA",
+            "lat": 1.5696689,
+            "lon": 110.323191
+          },
+          {
+            "stop_id": "8509",
+            "stop_name": "OPP HAWA BBQ STEAMBOAT HOUSE",
+            "lat": 1.5766917,
+            "lon": 110.3318017
+          },
+          {
+            "stop_id": "8510",
+            "stop_name": "TAMAN TUNKU FASA 2",
+            "lat": 1.57535,
+            "lon": 110.3359133
+          },
+          {
+            "stop_id": "8511",
+            "stop_name": "SK ENCIK BUYONG",
+            "lat": 1.5704317,
+            "lon": 110.341625
+          },
+          {
+            "stop_id": "8512",
+            "stop_name": "KPG ASTANA LOT",
+            "lat": 1.5698617,
+            "lon": 110.34423
+          },
+          {
+            "stop_id": "8513",
+            "stop_name": "PUSTAKA NEGERI SARAWAK",
+            "lat": 1.5815983,
+            "lon": 110.3511417
+          },
+          {
+            "stop_id": "8514",
+            "stop_name": "KLINIK KESIHATAN PETRA JAYA",
+            "lat": 1.5909817,
+            "lon": 110.3401167
+          },
+          {
+            "stop_id": "8515",
+            "stop_name": "JKM SARAWAK",
+            "lat": 1.597635,
+            "lon": 110.3400167
+          },
+          {
+            "stop_id": "8516",
+            "stop_name": "SUKMA RIA",
+            "lat": 1.604125,
+            "lon": 110.3409233
+          },
+          {
+            "stop_id": "8517",
+            "stop_name": "BOMBA PETRA JAYA",
+            "lat": 1.5985717,
+            "lon": 110.3369633
+          },
+          {
+            "stop_id": "8518",
+            "stop_name": "SAMARIANG GOBIL",
+            "lat": 1.5966517,
+            "lon": 110.3345117
+          },
+          {
+            "stop_id": "8519",
+            "stop_name": "TADIKA SEDIDIK SEMARIANG",
+            "lat": 1.5900567,
+            "lon": 110.331205
+          },
+          {
+            "stop_id": "8520",
+            "stop_name": "OPP MCD SAMARIANG",
+            "lat": 1.5870967,
+            "lon": 110.331515
+          },
+          {
+            "stop_id": "8521",
+            "stop_name": "DBKU - BUKIT SIOL",
+            "lat": 1.5847533,
+            "lon": 110.3320367
+          },
+          {
+            "stop_id": "8522",
+            "stop_name": "OPP ECO MALL SAMARIANG",
+            "lat": 1.5816583,
+            "lon": 110.3325167
+          },
+          {
+            "stop_id": "8523",
+            "stop_name": "HAWA BBQ STEAMBOAT HOUSE",
+            "lat": 1.5765317,
+            "lon": 110.3316583
+          },
+          {
+            "stop_id": "8524",
+            "stop_name": "SURAU DARUL SAKINAH",
+            "lat": 1.5753017,
+            "lon": 110.329795
+          },
+          {
+            "stop_id": "8525",
+            "stop_name": "LORONG ASTANA 3",
+            "lat": 1.5728433,
+            "lon": 110.3270133
+          },
+          {
+            "stop_id": "6542",
+            "stop_name": "TAMAN HUSSEIN",
+            "lat": 1.5642441,
+            "lon": 110.3218053
+          },
+          {
+            "stop_id": "6541",
+            "stop_name": "BANGUNAN MARZUKI",
+            "lat": 1.5567616,
+            "lon": 110.3232155
+          },
+          {
+            "stop_id": "6535",
+            "stop_name": "SEGO PRECINT 1",
+            "lat": 1.554324,
+            "lon": 110.3320463
+          },
+          {
+            "stop_id": "6534",
+            "stop_name": "COPAL SATOK",
+            "lat": 1.554181,
+            "lon": 110.335272
+          },
+          {
+            "stop_id": "8507",
+            "stop_name": "OPEN AIR",
+            "lat": 1.559295,
+            "lon": 110.3424517
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30455",
+    "route_short_name": "Q15",
+    "route_long_name": "STUTONG BARU / KUCHING SENTRAL - SAUJANA PARKING",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "STUTONG BARU / KUCHING SENTRAL - SAUJANA PARKING",
+        "shape_id": "SHP_30455_0",
+        "service_ids": ["WEEKDAY", "WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "8474",
+            "stop_name": "KUCHING SENTRAL BUS TERMINAL",
+            "lat": 1.4817574,
+            "lon": 110.3326293
+          },
+          {
+            "stop_id": "8439",
+            "stop_name": "KUCHING INTERNATIONAL AIRPORT",
+            "lat": 1.4872468,
+            "lon": 110.3408061
+          },
+          {
+            "stop_id": "8476",
+            "stop_name": "OPP AEROVILLE",
+            "lat": 1.498412,
+            "lon": 110.3718493
+          },
+          {
+            "stop_id": "8477",
+            "stop_name": "JLN STAMPIN BARU",
+            "lat": 1.4907997,
+            "lon": 110.376739
+          },
+          {
+            "stop_id": "8478",
+            "stop_name": "LUNG ZAI STALL",
+            "lat": 1.4904537,
+            "lon": 110.3811033
+          },
+          {
+            "stop_id": "8479",
+            "stop_name": "JLN STAMPIN BARU 2",
+            "lat": 1.490558,
+            "lon": 110.3836391
+          },
+          {
+            "stop_id": "8480",
+            "stop_name": "JLN STAMPIN BARU 3",
+            "lat": 1.4937618,
+            "lon": 110.3846544
+          },
+          {
+            "stop_id": "8481",
+            "stop_name": "BR STORE STAMPIN BARU",
+            "lat": 1.4997285,
+            "lon": 110.3840986
+          },
+          {
+            "stop_id": "8482",
+            "stop_name": "JLN STAMPIN BARU 4",
+            "lat": 1.5007861,
+            "lon": 110.3802854
+          },
+          {
+            "stop_id": "8483",
+            "stop_name": "AEROVILLE",
+            "lat": 1.4981755,
+            "lon": 110.3718897
+          },
+          {
+            "stop_id": "8484",
+            "stop_name": "OPP LIONS NURSING HOME",
+            "lat": 1.5032933,
+            "lon": 110.373378
+          },
+          {
+            "stop_id": "8485",
+            "stop_name": "MBKS STUTONG COMMUNITY MARKET",
+            "lat": 1.5185803,
+            "lon": 110.3780594
+          },
+          {
+            "stop_id": "7071",
+            "stop_name": "TABUAN JAYA 1",
+            "lat": 1.524528,
+            "lon": 110.377972
+          },
+          {
+            "stop_id": "8486",
+            "stop_name": "OPP PETRONAS TABUAN JAYA",
+            "lat": 1.5258073,
+            "lon": 110.3759628
+          },
+          {
+            "stop_id": "8487",
+            "stop_name": "JLN FOOCHOW",
+            "lat": 1.5400684,
+            "lon": 110.373036
+          },
+          {
+            "stop_id": "8488",
+            "stop_name": "SHUNPIN ENGENEERING WORKS",
+            "lat": 1.5456008,
+            "lon": 110.3688721
+          },
+          {
+            "stop_id": "8489",
+            "stop_name": "OPP PUBLIC BANK PADUNGAN",
+            "lat": 1.5499766,
+            "lon": 110.3674963
+          },
+          {
+            "stop_id": "8490",
+            "stop_name": "SJKCH NO 3",
+            "lat": 1.5522845,
+            "lon": 110.362026
+          },
+          {
+            "stop_id": "8491",
+            "stop_name": "LOT 10 BOUTIQUE HOTEL",
+            "lat": 1.5517568,
+            "lon": 110.3574631
+          },
+          {
+            "stop_id": "8492",
+            "stop_name": "GRAND CONTINENTAL HOTEL",
+            "lat": 1.5528639,
+            "lon": 110.3541845
+          },
+          {
+            "stop_id": "8493",
+            "stop_name": "SAUJANA",
+            "lat": 1.5580409,
+            "lon": 110.3419718
+          },
+          {
+            "stop_id": "6591",
+            "stop_name": "WATERFRONT 1",
+            "lat": 1.5603835,
+            "lon": 110.3449161
+          },
+          {
+            "stop_id": "8494",
+            "stop_name": "CT2 HOTEL",
+            "lat": 1.5524936,
+            "lon": 110.3514679
+          },
+          {
+            "stop_id": "8495",
+            "stop_name": "KMC FLAT",
+            "lat": 1.5528006,
+            "lon": 110.3560122
+          },
+          {
+            "stop_id": "8391",
+            "stop_name": "OPP SJKCH NO 3",
+            "lat": 1.5525391,
+            "lon": 110.3615536
+          },
+          {
+            "stop_id": "8392",
+            "stop_name": "OPP MBKS",
+            "lat": 1.5523096,
+            "lon": 110.3640316
+          },
+          {
+            "stop_id": "8393",
+            "stop_name": "PUBLIC BANK PADUNGAN",
+            "lat": 1.5505433,
+            "lon": 110.367423
+          },
+          {
+            "stop_id": "8496",
+            "stop_name": "BIG PHARMACY TABUAN JAYA",
+            "lat": 1.5255193,
+            "lon": 110.3770039
+          },
+          {
+            "stop_id": "8497",
+            "stop_name": "OPP MBKS STUTONG COMMUNITY MARKET",
+            "lat": 1.5184531,
+            "lon": 110.3784242
+          },
+          {
+            "stop_id": "8498",
+            "stop_name": "LIONS NURSING HOME",
+            "lat": 1.5022495,
+            "lon": 110.3735387
+          },
+          {
+            "stop_id": "8499",
+            "stop_name": "JLN STAMPIN BARU B",
+            "lat": 1.4908096,
+            "lon": 110.3767749
+          },
+          {
+            "stop_id": "8500",
+            "stop_name": "LUNG ZAI STALL STAMPIN BARU B",
+            "lat": 1.4904222,
+            "lon": 110.3811165
+          },
+          {
+            "stop_id": "8501",
+            "stop_name": "JLN STAMPIN BARU 2 B",
+            "lat": 1.4905137,
+            "lon": 110.383563
+          },
+          {
+            "stop_id": "8502",
+            "stop_name": "JLN STAMPIN BARU 3 B",
+            "lat": 1.4937803,
+            "lon": 110.3846241
+          },
+          {
+            "stop_id": "8503",
+            "stop_name": "BR STORE STAMPIN BARU B",
+            "lat": 1.4997158,
+            "lon": 110.384134
+          },
+          {
+            "stop_id": "8504",
+            "stop_name": "JLN STAMPIN BARU 4 B",
+            "lat": 1.5007624,
+            "lon": 110.3803133
+          },
+          {
+            "stop_id": "8505",
+            "stop_name": "AEROVILLE B",
+            "lat": 1.4982149,
+            "lon": 110.3718929
+          },
+          {
+            "stop_id": "8506",
+            "stop_name": "KUCHING INTERNATIONAL AIRPORT B",
+            "lat": 1.4872862,
+            "lon": 110.3409101
+          },
+          {
+            "stop_id": "8475",
+            "stop_name": "KUCHING SENTRAL TERMINAL",
+            "lat": 1.481799,
+            "lon": 110.332511
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "30454",
+    "route_short_name": "30454",
+    "route_long_name": "OPEN AIR MARKET - SUKMA",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "OPEN AIR MARKET - SUKMA",
+        "shape_id": "SHP_30454_0",
+        "service_ids": ["WEEKDAY", "WEEKEND"],
+        "stops": [
+          {
+            "stop_id": "6973",
+            "stop_name": "OPEN AIR MARKET",
+            "lat": 1.558621,
+            "lon": 110.341297
+          },
+          {
+            "stop_id": "6539",
+            "stop_name": "AMBANK SATOK",
+            "lat": 1.554839,
+            "lon": 110.338447
+          },
+          {
+            "stop_id": "8380",
+            "stop_name": "KFC SATOK",
+            "lat": 1.553032,
+            "lon": 110.3358477
+          },
+          {
+            "stop_id": "8381",
+            "stop_name": "MAXIS CENTRE",
+            "lat": 1.5532629,
+            "lon": 110.3332002
+          },
+          {
+            "stop_id": "8462",
+            "stop_name": "PERODUA ERAZOOM",
+            "lat": 1.5534674,
+            "lon": 110.3289563
+          },
+          {
+            "stop_id": "6527",
+            "stop_name": "OPP BANGUNAN MARZUKI",
+            "lat": 1.5568129,
+            "lon": 110.3227775
+          },
+          {
+            "stop_id": "6638",
+            "stop_name": "HERITAGE GARDEN",
+            "lat": 1.560731,
+            "lon": 110.321789
+          },
+          {
+            "stop_id": "6537",
+            "stop_name": "TAMAN SEJOLI",
+            "lat": 1.564611,
+            "lon": 110.3215
+          },
+          {
+            "stop_id": "8508",
+            "stop_name": "OPP WIJASA MEDIA",
+            "lat": 1.5696689,
+            "lon": 110.323191
+          },
+          {
+            "stop_id": "8509",
+            "stop_name": "OPP HAWA BBQ STEAMBOAT HOUSE",
+            "lat": 1.5766917,
+            "lon": 110.3318017
+          },
+          {
+            "stop_id": "8510",
+            "stop_name": "TAMAN TUNKU FASA 2",
+            "lat": 1.57535,
+            "lon": 110.3359133
+          },
+          {
+            "stop_id": "8511",
+            "stop_name": "SK ENCIK BUYONG",
+            "lat": 1.5704317,
+            "lon": 110.341625
+          },
+          {
+            "stop_id": "8512",
+            "stop_name": "KPG ASTANA LOT",
+            "lat": 1.5698617,
+            "lon": 110.34423
+          },
+          {
+            "stop_id": "8513",
+            "stop_name": "PUSTAKA NEGERI SARAWAK",
+            "lat": 1.5815983,
+            "lon": 110.3511417
+          },
+          {
+            "stop_id": "8514",
+            "stop_name": "KLINIK KESIHATAN PETRA JAYA",
+            "lat": 1.5909817,
+            "lon": 110.3401167
+          },
+          {
+            "stop_id": "8515",
+            "stop_name": "JKM SARAWAK",
+            "lat": 1.597635,
+            "lon": 110.3400167
+          },
+          {
+            "stop_id": "8516",
+            "stop_name": "SUKMA RIA",
+            "lat": 1.604125,
+            "lon": 110.3409233
+          },
+          {
+            "stop_id": "8517",
+            "stop_name": "BOMBA PETRA JAYA",
+            "lat": 1.5985717,
+            "lon": 110.3369633
+          },
+          {
+            "stop_id": "8518",
+            "stop_name": "SAMARIANG GOBIL",
+            "lat": 1.5966517,
+            "lon": 110.3345117
+          },
+          {
+            "stop_id": "8519",
+            "stop_name": "TADIKA SEDIDIK SEMARIANG",
+            "lat": 1.5900567,
+            "lon": 110.331205
+          },
+          {
+            "stop_id": "8520",
+            "stop_name": "OPP MCD SAMARIANG",
+            "lat": 1.5870967,
+            "lon": 110.331515
+          },
+          {
+            "stop_id": "8521",
+            "stop_name": "DBKU - BUKIT SIOL",
+            "lat": 1.5847533,
+            "lon": 110.3320367
+          },
+          {
+            "stop_id": "8522",
+            "stop_name": "OPP ECO MALL SAMARIANG",
+            "lat": 1.5816583,
+            "lon": 110.3325167
+          },
+          {
+            "stop_id": "8523",
+            "stop_name": "HAWA BBQ STEAMBOAT HOUSE",
+            "lat": 1.5765317,
+            "lon": 110.3316583
+          },
+          {
+            "stop_id": "8524",
+            "stop_name": "SURAU DARUL SAKINAH",
+            "lat": 1.5753017,
+            "lon": 110.329795
+          },
+          {
+            "stop_id": "8525",
+            "stop_name": "LORONG ASTANA 3",
+            "lat": 1.5728433,
+            "lon": 110.3270133
+          },
+          {
+            "stop_id": "6542",
+            "stop_name": "TAMAN HUSSEIN",
+            "lat": 1.5642441,
+            "lon": 110.3218053
+          },
+          {
+            "stop_id": "6541",
+            "stop_name": "BANGUNAN MARZUKI",
+            "lat": 1.5567616,
+            "lon": 110.3232155
+          },
+          {
+            "stop_id": "6535",
+            "stop_name": "SEGO PRECINT 1",
+            "lat": 1.554324,
+            "lon": 110.3320463
+          },
+          {
+            "stop_id": "6534",
+            "stop_name": "COPAL SATOK",
+            "lat": 1.554181,
+            "lon": 110.335272
+          },
+          {
+            "stop_id": "8507",
+            "stop_name": "OPEN AIR",
+            "lat": 1.559295,
+            "lon": 110.3424517
+          }
+        ]
+      }
+    ]
   }
 ]
