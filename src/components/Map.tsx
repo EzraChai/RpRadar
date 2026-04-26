@@ -983,21 +983,6 @@ function App() {
               railVisible={railVisible}
             />
           )}
-          {/* <PMTileLayer /> */}
-          {/* <TileLayer
-            key={theme}
-            attribution='&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/">OSM</a>'
-            url={`https://api.maptiler.com/maps/${
-              theme === "dark"
-                ? "streets-v4-dark"
-                : theme === "light"
-                  ? "streets-v4"
-                  : typeof window !== "undefined" &&
-                      window.matchMedia("(prefers-color-scheme: dark)").matches
-                    ? "streets-v4-dark"
-                    : "streets-v4"
-            }/{z}/{x}/{y}{r}.png?key=MO1DtSBoGGc9Z8DDsmip`}
-          /> */}
 
           <TileLayer
             maxZoom={18}
@@ -1388,6 +1373,7 @@ function VehiclesMarker({
               const vehicle = entity.vehicle;
               const plate = vehicle?.vehicle?.licensePlate;
 
+              console.log("Vehicle", vehicle);
               if (!vehicle || !plate) return;
 
               updated.set(plate, vehicle);
