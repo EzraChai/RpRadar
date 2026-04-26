@@ -299,7 +299,7 @@ refreshGTFS(
   GTFS_RP_URL,
   OUTPUT_FILES.rp.trips,
   OUTPUT_FILES.rp.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -310,7 +310,7 @@ refreshGTFS(
   GTFS_RKL_URL,
   OUTPUT_FILES.rkl.trips,
   OUTPUT_FILES.rkl.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -320,7 +320,7 @@ refreshGTFS(
   GTFS_MRT_URL,
   OUTPUT_FILES.mrt.trips,
   OUTPUT_FILES.mrt.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -330,7 +330,7 @@ refreshGTFS(
   GTFS_NS_A_URL,
   OUTPUT_FILES.ns_a.trips,
   OUTPUT_FILES.ns_a.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -340,7 +340,7 @@ refreshGTFS(
   GTFS_NS_B_URL,
   OUTPUT_FILES.ns_b.trips,
   OUTPUT_FILES.ns_b.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -350,7 +350,7 @@ refreshGTFS(
   GTFS_MK_URL,
   OUTPUT_FILES.mk.trips,
   OUTPUT_FILES.mk.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -360,7 +360,7 @@ refreshGTFS(
   GTFS_JB_URL,
   OUTPUT_FILES.jb.trips,
   OUTPUT_FILES.jb.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -370,7 +370,7 @@ refreshGTFS(
   GTFS_PK_URL,
   OUTPUT_FILES.pk.trips,
   OUTPUT_FILES.pk.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -380,7 +380,7 @@ refreshGTFS(
   GTFS_RKTN_URL,
   OUTPUT_FILES.rktn.trips,
   OUTPUT_FILES.rktn.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -390,7 +390,7 @@ refreshGTFS(
   GTFS_ALR_URL,
   OUTPUT_FILES.alr.trips,
   OUTPUT_FILES.alr.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -400,7 +400,7 @@ refreshGTFS(
   GTFS_KGR_URL,
   OUTPUT_FILES.kgr.trips,
   OUTPUT_FILES.kgr.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -410,7 +410,7 @@ refreshGTFS(
   GTFS_KTB_URL,
   OUTPUT_FILES.ktb.trips,
   OUTPUT_FILES.ktb.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -420,7 +420,7 @@ refreshGTFS(
   GTFS_TRG_URL,
   OUTPUT_FILES.trg.trips,
   OUTPUT_FILES.trg.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -430,7 +430,7 @@ refreshGTFS(
   GTFS_SW_URL,
   OUTPUT_FILES.sw.trips,
   OUTPUT_FILES.sw.schedule,
-  7,
+  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
