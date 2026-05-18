@@ -7,8 +7,7 @@ import {
   Popup,
   Marker,
 } from "react-leaflet";
-import { divIcon, Polyline as LeafletPolyline } from "leaflet";
-import L from "leaflet";
+import L, { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import { Link, useSearchParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
@@ -115,6 +114,39 @@ import {
   SelectValue,
 } from "./ui/select";
 import { Switch } from "./ui/switch";
+
+function darkenHex(hex: string, percent = 10) {
+  hex = hex.replace("#", "");
+
+  const r = Number.parseInt(hex.substring(0, 2), 16);
+  const g = Number.parseInt(hex.substring(2, 4), 16);
+  const b = Number.parseInt(hex.substring(4, 6), 16);
+
+  const factor = 1 - percent / 100;
+
+  const newR = Math.max(0, Math.round(r * factor));
+  const newG = Math.max(0, Math.round(g * factor));
+  const newB = Math.max(0, Math.round(b * factor));
+
+  const toHex = (v: number) => v.toString(16).padStart(2, "0");
+
+  return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
+}
+function lighterHex(hex: string, percent = 10) {
+  hex = hex.replace("#", "");
+
+  const r = Number.parseInt(hex.substring(0, 2), 16);
+  const g = Number.parseInt(hex.substring(2, 4), 16);
+  const b = Number.parseInt(hex.substring(4, 6), 16);
+
+  const newR = Math.round(r + (255 - r) * (percent / 100));
+  const newG = Math.round(g + (255 - g) * (percent / 100));
+  const newB = Math.round(b + (255 - b) * (percent / 100));
+
+  const toHex = (v: number) => v.toString(16).padStart(2, "0");
+
+  return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
+}
 
 function App() {
   const [searchParams] = useSearchParams();
@@ -581,9 +613,9 @@ function App() {
                     ></div>
                     {/* Vertical line */}
                     {idx <
-                      route?.directions.filter(
+                      route?.directions.find(
                         (d) => d.direction_id === direction,
-                      )[0]?.stops.length -
+                      )?.stops.length -
                         1 && (
                       <div
                         className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-blue-500"}`}
@@ -731,7 +763,6 @@ function App() {
 
     useEffect(() => {
       if (!polylineRef.current) return;
-      // if (positions.length < 2) return;
 
       const bounds = polylineRef.current.getBounds();
       if (bounds.isValid()) {
@@ -743,38 +774,6 @@ function App() {
       }
     }, [positions]);
 
-    function darkenHex(hex: string, percent = 10) {
-      hex = hex.replace("#", "");
-
-      const r = parseInt(hex.substring(0, 2), 16);
-      const g = parseInt(hex.substring(2, 4), 16);
-      const b = parseInt(hex.substring(4, 6), 16);
-
-      const factor = 1 - percent / 100;
-
-      const newR = Math.max(0, Math.round(r * factor));
-      const newG = Math.max(0, Math.round(g * factor));
-      const newB = Math.max(0, Math.round(b * factor));
-
-      const toHex = (v: number) => v.toString(16).padStart(2, "0");
-
-      return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
-    }
-    function lighterHex(hex: string, percent = 10) {
-      hex = hex.replace("#", "");
-
-      const r = parseInt(hex.substring(0, 2), 16);
-      const g = parseInt(hex.substring(2, 4), 16);
-      const b = parseInt(hex.substring(4, 6), 16);
-
-      const newR = Math.round(r + (255 - r) * (percent / 100));
-      const newG = Math.round(g + (255 - g) * (percent / 100));
-      const newB = Math.round(b + (255 - b) * (percent / 100));
-
-      const toHex = (v: number) => v.toString(16).padStart(2, "0");
-
-      return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
-    }
     if (route?.directions.length === 0) return null;
     if (route?.directions.length === 1) {
       if (provider === "jb" || provider === "mk") {
@@ -918,293 +917,287 @@ function App() {
   }
 
   return (
-    <>
-      <div className="w-full max-h-dvh overflow-hidden flex justify-center items-center grid-style">
-        <MapContainer
-          id="map"
-          preferCanvas={true}
-          maxZoom={18}
-          zoomControl={false}
-          center={
-            provider === "rp"
-              ? [5.4164, 100.3327]
-              : provider === "rkl"
-                ? [3.139, 101.6869]
-                : provider === "ns"
-                  ? [2.7297, 101.9381]
-                  : provider === "mk"
-                    ? [2.1881, 102.2516]
-                    : provider === "jb"
-                      ? [1.4927, 103.7412]
-                      : provider === "pk"
-                        ? [4.5841, 101.083]
-                        : provider === "ktn"
-                          ? [3.8077, 103.326]
-                          : provider === "alr"
-                            ? [6.121, 100.3605]
-                            : provider === "kgr"
-                              ? [6.4414, 100.1986]
-                              : provider === "ktb"
-                                ? [6.1293, 102.2399]
-                                : provider === "trg"
-                                  ? [5.3302, 103.1408]
-                                  : provider === "sw"
-                                    ? [1.55, 110.333]
-                                    : [5.4164, 100.3327]
-          }
-          zoom={
-            provider === "rkl" ||
-            provider === "ns" ||
-            provider === "jb" ||
-            provider === "pk" ||
-            provider === "alr" ||
-            provider === "ktn" ||
-            provider === "ktb" ||
-            provider === "trg" ||
-            provider === "sw"
-              ? 12.5
-              : 13.5
-          }
-          scrollWheelZoom={true}
-          className="w-full h-dvh"
-        >
-          {isMobile && (
-            <DrawerMobile
-              markerRefs={markerRefs}
-              setDirection={setDirection}
-              direction={direction}
-              route={route}
-            />
-          )}
-          {!isMobile && (
-            <AppSidebar
-              setPositions={setPositions}
-              setRailVisible={setRailVisible}
-              railVisible={railVisible}
-            />
-          )}
-
-          <TileLayer
-            maxZoom={18}
-            attribution={
-              '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
-            }
-            key={theme}
-            url={`https://tiles.stadiamaps.com/tiles/${
-              theme === "dark"
-                ? "alidade_smooth_dark"
-                : theme === "light"
-                  ? "alidade_smooth"
-                  : typeof window !== "undefined" &&
-                      window.matchMedia("(prefers-color-scheme: dark)").matches
-                    ? "alidade_smooth_dark"
-                    : "alidade_smooth"
-            }/{z}/{x}/{y}{r}.png`}
-          />
-
-          {positions.length !== 0 && (
-            <FitBoundsToPolyline
-              color={
-                provider === "rkl" &&
-                route?.route_short_name === route?.directions[0].route_long_name
-                  ? "#28ab78"
-                  : provider !== "rkl" && provider !== "rp"
-                    ? "#e74e9f"
-                    : "blue"
-              }
-            />
-          )}
-          <VehiclesMarker
-            key={provider}
-            positions={positions}
+    <div className="w-full max-h-dvh overflow-hidden flex justify-center items-center grid-style">
+      <MapContainer
+        id="map"
+        preferCanvas={true}
+        maxZoom={18}
+        zoomControl={false}
+        center={
+          provider === "rp"
+            ? [5.4164, 100.3327]
+            : provider === "rkl"
+              ? [3.139, 101.6869]
+              : provider === "ns"
+                ? [2.7297, 101.9381]
+                : provider === "mk"
+                  ? [2.1881, 102.2516]
+                  : provider === "jb"
+                    ? [1.4927, 103.7412]
+                    : provider === "pk"
+                      ? [4.5841, 101.083]
+                      : provider === "ktn"
+                        ? [3.8077, 103.326]
+                        : provider === "alr"
+                          ? [6.121, 100.3605]
+                          : provider === "kgr"
+                            ? [6.4414, 100.1986]
+                            : provider === "ktb"
+                              ? [6.1293, 102.2399]
+                              : provider === "trg"
+                                ? [5.3302, 103.1408]
+                                : provider === "sw"
+                                  ? [1.55, 110.333]
+                                  : [5.4164, 100.3327]
+        }
+        zoom={
+          provider === "rkl" ||
+          provider === "ns" ||
+          provider === "jb" ||
+          provider === "pk" ||
+          provider === "alr" ||
+          provider === "ktn" ||
+          provider === "ktb" ||
+          provider === "trg" ||
+          provider === "sw"
+            ? 12.5
+            : 13.5
+        }
+        scrollWheelZoom={true}
+        className="w-full h-dvh"
+      >
+        {isMobile && (
+          <DrawerMobile
+            markerRefs={markerRefs}
+            setDirection={setDirection}
             direction={direction}
             route={route}
           />
-          {provider === "rkl" && railVisible && (
-            <>
-              {RapidRailRoutesWithShapesID.map((route) => (
-                <>
-                  <Polyline
-                    key={route.route_id}
-                    pathOptions={{
-                      color: "#" + route.route_color,
-                      weight: 6,
-                      opacity: 0.6,
-                    }}
-                    positions={
-                      RapidRailShapes.features
-                        .find(
-                          (pos) =>
-                            route.shape_ids[0] === pos.properties.shape_id,
-                        )
-                        ?.geometry.coordinates.map(
-                          (coord) => [coord[0], coord[1]] as [number, number],
-                        ) ?? []
-                    }
-                  />
-                  {RapidRailRoutesWithStops.find(
-                    (r) => r.route_id === route.route_id,
-                  )?.directions[0]?.stops.map((stop) => (
-                    <CircleMarker
-                      key={stop.stop_id}
-                      radius={4}
-                      center={[stop.lat, stop.lon]}
-                      pathOptions={{
-                        color: "transparent",
-                        fillColor: "white",
-                        fillOpacity: 0.6,
-                      }}
-                    >
-                      <Popup
-                        className="pointer-events-none"
-                        maxWidth={500}
-                        offset={[0, 8]}
-                        closeButton={false}
-                      >
-                        <div className="border inline-flex gap-2 border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
-                          <span
-                            className={`inline-block font-bold rounded-md px-1.5 ${route.route_code === "PYL" && "text-black"}`}
-                            style={{
-                              backgroundColor: `#${route.route_color}`,
-                            }}
-                          >
-                            {route.route_code}
-                          </span>
-                          {stop.stop_name.trim()}
-                        </div>
-                      </Popup>
-                    </CircleMarker>
-                  ))}
-                </>
-              ))}
-            </>
-          )}
+        )}
+        {!isMobile && (
+          <AppSidebar
+            setPositions={setPositions}
+            setRailVisible={setRailVisible}
+            railVisible={railVisible}
+          />
+        )}
 
-          <CustomZoomControls />
-          {isMobile && (
-            <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-24.75 mr-px right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
-              {/* <ModeToggle /> */}
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button
-                    style={{
-                      touchAction: "none",
-                    }}
-                    className="rounded-none"
-                    variant={"ghost"}
-                    onClick={(e) => {
-                      e.stopPropagation();
+        <TileLayer
+          maxZoom={18}
+          attribution={
+            '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+          }
+          key={theme}
+          url={`https://tiles.stadiamaps.com/tiles/${
+            theme === "dark"
+              ? "alidade_smooth_dark"
+              : theme === "light"
+                ? "alidade_smooth"
+                : typeof window !== "undefined" &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches
+                  ? "alidade_smooth_dark"
+                  : "alidade_smooth"
+          }/{z}/{x}/{y}{r}.png`}
+        />
+
+        {positions.length !== 0 && (
+          <FitBoundsToPolyline
+            color={
+              provider === "rkl" &&
+              route?.route_short_name === route?.directions[0].route_long_name
+                ? "#28ab78"
+                : provider !== "rkl" && provider !== "rp"
+                  ? "#e74e9f"
+                  : "blue"
+            }
+          />
+        )}
+        <VehiclesMarker
+          key={provider}
+          positions={positions}
+          direction={direction}
+          route={route}
+        />
+        {provider === "rkl" && railVisible && (
+          <>
+            {RapidRailRoutesWithShapesID.map((route) => (
+              <>
+                <Polyline
+                  key={route.route_id}
+                  pathOptions={{
+                    color: "#" + route.route_color,
+                    weight: 6,
+                    opacity: 0.6,
+                  }}
+                  positions={
+                    RapidRailShapes.features
+                      .find(
+                        (pos) => route.shape_ids[0] === pos.properties.shape_id,
+                      )
+                      ?.geometry.coordinates.map(
+                        (coord) => [coord[0], coord[1]] as [number, number],
+                      ) ?? []
+                  }
+                />
+                {RapidRailRoutesWithStops.find(
+                  (r) => r.route_id === route.route_id,
+                )?.directions[0]?.stops.map((stop) => (
+                  <CircleMarker
+                    key={stop.stop_id}
+                    radius={4}
+                    center={[stop.lat, stop.lon]}
+                    pathOptions={{
+                      color: "transparent",
+                      fillColor: "white",
+                      fillOpacity: 0.6,
                     }}
                   >
-                    <Settings className="text-sm" />
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="z-1003 backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/20 rounded-[10px] outline-none">
-                  <DialogHeader>
-                    <DialogTitle className="text-left">Settings</DialogTitle>
-                  </DialogHeader>
-                  <div className="flex items-center">
-                    <div className="flex-1">
-                      <h1 className="text-neutral-800 dark:text-neutral-100">
-                        Theme
-                      </h1>
-                    </div>
-                    <Button variant={"outline"} className="">
-                      <ModeToggle />
-                    </Button>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="flex-1">
-                      <h1 className="text-neutral-800 dark:text-neutral-100">
-                        Region
-                      </h1>
-                    </div>
-                    <Select
-                      onValueChange={(value) => {
-                        setProvider(value);
-                        setPositions([]);
-                        setBusSchedule(null);
-                        localStorage.setItem("provider", value);
-                        window.history.replaceState(
-                          {},
-                          "",
-                          window.location.pathname,
-                        );
-                        window.location.reload();
-                      }}
-                      value={provider}
+                    <Popup
+                      className="pointer-events-none"
+                      maxWidth={500}
+                      offset={[0, 8]}
+                      closeButton={false}
                     >
-                      <SelectTrigger className="bg-white">
-                        <SelectValue placeholder="Select State" />
-                      </SelectTrigger>
-                      <SelectContent className="z-1006 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
-                        <SelectItem value="rp">Penang</SelectItem>
-                        <SelectItem value="rkl">Selangor/KL</SelectItem>
-                        <SelectItem value="ns">Seremban</SelectItem>
-                        <SelectItem value="mk">Melaka</SelectItem>
-                        <SelectItem value="jb">Johor Bahru</SelectItem>
-                        <SelectItem value="pk">Ipoh</SelectItem>
-                        {/* <SelectItem value="ktn">Kuantan</SelectItem> */}
-                        <SelectItem value="alr">Alor Setar</SelectItem>
-                        <SelectItem value="kgr">Kangar</SelectItem>
-                        <SelectItem value="ktb">Kota Bharu</SelectItem>
-                        <SelectItem value="trg">Kuala Terengganu</SelectItem>
-                        <SelectItem value="sw">Kuching</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  {provider === "rkl" && (
-                    <div className="flex items-center">
-                      <div className="flex-1">
-                        <h1 className="text-neutral-800 dark:text-neutral-100">
-                          Show Rails
-                        </h1>
+                      <div className="border inline-flex gap-2 border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
+                        <span
+                          className={`inline-block font-bold rounded-md px-1.5 ${route.route_code === "PYL" && "text-black"}`}
+                          style={{
+                            backgroundColor: `#${route.route_color}`,
+                          }}
+                        >
+                          {route.route_code}
+                        </span>
+                        {stop.stop_name.trim()}
                       </div>
-                      <Switch
-                        className=" data-[state=checked]:bg-neutral-800!"
-                        checked={railVisible}
-                        onCheckedChange={(checked) => {
-                          setRailVisible(checked);
-                          localStorage.setItem(
-                            "railVisible",
-                            checked.toString(),
-                          );
-                        }}
-                      />
-                    </div>
-                  )}
-                </DialogContent>
-              </Dialog>
-            </Card>
-          )}
-          <UserLocation />
-          {!isMobile && route && <StopsCard />}
-          {!isMobile && route && (
-            <Card className="absolute z-500 pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
-              <div className="flex justify-between items-center gap-4">
-                <div
-                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
-                >
-                  {route?.route_short_name}
-                </div>
+                    </Popup>
+                  </CircleMarker>
+                ))}
+              </>
+            ))}
+          </>
+        )}
 
-                <div>
-                  <h4 className="font-semibold">
-                    {route.directions?.find((d) => d.direction_id === direction)
-                      ?.route_long_name || ""}
-                  </h4>
-                </div>
-                <div
-                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
+        <CustomZoomControls />
+        {isMobile && (
+          <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-24.75 mr-px right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+            {/* <ModeToggle /> */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  style={{
+                    touchAction: "none",
+                  }}
+                  className="rounded-none"
+                  variant={"ghost"}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
                 >
-                  {route?.route_short_name}
+                  <Settings className="text-sm" />
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="z-1003 backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/20 rounded-[10px] outline-none">
+                <DialogHeader>
+                  <DialogTitle className="text-left">Settings</DialogTitle>
+                </DialogHeader>
+                <div className="flex items-center">
+                  <div className="flex-1">
+                    <h1 className="text-neutral-800 dark:text-neutral-100">
+                      Theme
+                    </h1>
+                  </div>
+                  <Button variant={"outline"} className="">
+                    <ModeToggle />
+                  </Button>
                 </div>
+                <div className="flex items-center">
+                  <div className="flex-1">
+                    <h1 className="text-neutral-800 dark:text-neutral-100">
+                      Region
+                    </h1>
+                  </div>
+                  <Select
+                    onValueChange={(value) => {
+                      setProvider(value);
+                      setPositions([]);
+                      setBusSchedule(null);
+                      localStorage.setItem("provider", value);
+                      window.history.replaceState(
+                        {},
+                        "",
+                        window.location.pathname,
+                      );
+                      window.location.reload();
+                    }}
+                    value={provider}
+                  >
+                    <SelectTrigger className="bg-white">
+                      <SelectValue placeholder="Select State" />
+                    </SelectTrigger>
+                    <SelectContent className="z-1006 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
+                      <SelectItem value="rp">Penang</SelectItem>
+                      <SelectItem value="rkl">Selangor/KL</SelectItem>
+                      <SelectItem value="ns">Seremban</SelectItem>
+                      <SelectItem value="mk">Melaka</SelectItem>
+                      <SelectItem value="jb">Johor Bahru</SelectItem>
+                      <SelectItem value="pk">Ipoh</SelectItem>
+                      {/* <SelectItem value="ktn">Kuantan</SelectItem> */}
+                      <SelectItem value="alr">Alor Setar</SelectItem>
+                      <SelectItem value="kgr">Kangar</SelectItem>
+                      <SelectItem value="ktb">Kota Bharu</SelectItem>
+                      <SelectItem value="trg">Kuala Terengganu</SelectItem>
+                      <SelectItem value="sw">Kuching</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                {provider === "rkl" && (
+                  <div className="flex items-center">
+                    <div className="flex-1">
+                      <h1 className="text-neutral-800 dark:text-neutral-100">
+                        Show Rails
+                      </h1>
+                    </div>
+                    <Switch
+                      className=" data-[state=checked]:bg-neutral-800!"
+                      checked={railVisible}
+                      onCheckedChange={(checked) => {
+                        setRailVisible(checked);
+                        localStorage.setItem("railVisible", checked.toString());
+                      }}
+                    />
+                  </div>
+                )}
+              </DialogContent>
+            </Dialog>
+          </Card>
+        )}
+        <UserLocation />
+        {!isMobile && route && <StopsCard />}
+        {!isMobile && route && (
+          <Card className="absolute z-500 pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
+            <div className="flex justify-between items-center gap-4">
+              <div
+                className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
+              >
+                {route?.route_short_name}
               </div>
-            </Card>
-          )}
-        </MapContainer>
-      </div>
-    </>
+
+              <div>
+                <h4 className="font-semibold">
+                  {route.directions?.find((d) => d.direction_id === direction)
+                    ?.route_long_name || ""}
+                </h4>
+              </div>
+              <div
+                className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
+              >
+                {route?.route_short_name}
+              </div>
+            </div>
+          </Card>
+        )}
+      </MapContainer>
+    </div>
   );
 }
 

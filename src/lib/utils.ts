@@ -85,7 +85,7 @@ export function getCurrentDateEvenAfter12() {
   const [hh, mm] = timeFormatter
     .format(now)
     .split(":")
-    .map((v) => parseInt(v, 10));
+    .map((v) => Number.parseInt(v, 10));
   const totalMinutes = hh * 60 + mm;
   const dateToFormat =
     totalMinutes > 0 && totalMinutes < 120
@@ -93,7 +93,7 @@ export function getCurrentDateEvenAfter12() {
       : now;
 
   const parts = formatter.format(dateToFormat);
-  return parts.replace(/-/g, ""); // → "20250826"
+  return parts.replaceAll(/-/g, ""); // → "20250826"
 }
 
 export function getCurrentDate() {
@@ -105,5 +105,5 @@ export function getCurrentDate() {
   });
 
   const parts = formatter.format(new Date());
-  return parts.replace(/-/g, ""); // → "20250826"
+  return parts.replaceAll(/-/g, ""); // → "20250826"
 }
