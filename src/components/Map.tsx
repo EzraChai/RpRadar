@@ -613,9 +613,9 @@ function App() {
                     ></div>
                     {/* Vertical line */}
                     {idx <
-                      route?.directions.find(
+                      (route?.directions?.find(
                         (d) => d.direction_id === direction,
-                      )?.stops.length -
+                      )?.stops.length ?? 0) -
                         1 && (
                       <div
                         className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-blue-500"}`}
@@ -1492,12 +1492,30 @@ function VehiclesMarker({
           }));
         } else if (directions !== undefined) {
           const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum], v],
-            }));
+          if (dirNum !== 0 && dirNum !== 1) {
+            return;
           }
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [dirNum]: [...prev[dirNum], v],
+          }));
+        } else {
+          const directions = RapidPenangDirections.find(
+            (d) =>
+              d.trip_id.substring(6, d.trip_id.length) ===
+              v.trip?.tripId?.substring(6, v.trip?.tripId.length),
+          );
+          if (directions === undefined) {
+            return;
+          }
+          const dirNum = Number(directions.direction_id);
+          if (dirNum !== 0 && dirNum !== 1) {
+            return;
+          }
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [dirNum]: [...prev[dirNum], v],
+          }));
         }
       });
     } else if (provider === "rkl") {
