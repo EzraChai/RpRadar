@@ -1372,8 +1372,6 @@ function VehiclesMarker({
         dt_gps: string;
       }[];
 
-      console.log("Received buses:", parsedBuses);
-
       const buses: transit_realtime.IVehiclePosition[] = parsedBuses.map(
         (bus): transit_realtime.IVehiclePosition => ({
           trip: {
@@ -1478,7 +1476,6 @@ function VehiclesMarker({
 
             feed.entity.forEach((entity) => {
               const vehicle = entity.vehicle;
-              console.log("Received vehicle:", vehicle);
               const plate = vehicle?.vehicle?.licensePlate;
 
               if (!vehicle || !plate) return;
@@ -2115,12 +2112,6 @@ function VehiclesMarker({
                     )}
                     <p>
                       {(() => {
-                        const showDeparture =
-                          route?.route_short_name !==
-                          route?.directions[0].route_long_name;
-
-                        if (!showDeparture) return "";
-
                         const currentBus = BusSchedule.find(
                           (s) =>
                             s.r === route?.route_id &&
