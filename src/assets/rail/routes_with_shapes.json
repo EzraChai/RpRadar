@@ -1,7 +1,7 @@
 [
   {
     "route_id": "AG",
-    "route_code": "AGL",
+    "route_code": "AG",
     "route_color": "e57200",
     "route_name": "LRT Ampang Line",
     "shape_ids": ["shp_AG_0", "shp_AG_1"]
@@ -22,21 +22,21 @@
   },
   {
     "route_id": "KJ",
-    "route_code": "KJL",
+    "route_code": "KJ",
     "route_color": "D50032",
     "route_name": "LRT Kelana Jaya Line",
     "shape_ids": ["shp_KJ_0", "shp_KJ_1"]
   },
   {
     "route_id": "MR",
-    "route_code": "MRL",
+    "route_code": "MR",
     "route_color": "84bd00",
     "route_name": "KL Monorail Line",
     "shape_ids": ["shp_MR_0", "shp_MR_1"]
   },
   {
     "route_id": "PH",
-    "route_code": "SPL",
+    "route_code": "PH",
     "route_color": "76232f",
     "route_name": "LRT Sri Petaling Line",
     "shape_ids": ["shp_PH_0", "shp_PH_1"]
@@ -47,5 +47,12 @@
     "route_color": "FFCD00",
     "route_name": "MRT Putrajaya Line",
     "shape_ids": ["shp_PYL_0", "shp_PYL_1"]
+  },
+  {
+    "route_id": "SA",
+    "route_code": "SA",
+    "route_color": "87CEEB",
+    "route_name": "LRT Shah Alam Line",
+    "shape_ids": ["shp_SA_0", "shp_SA_1"]
   }
 ]

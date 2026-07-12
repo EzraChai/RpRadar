@@ -9,9 +9,9 @@
         "route_long_name": "LRT Ampang Line",
         "shape_id": "shp_AG_0",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -129,9 +129,9 @@
         "route_long_name": "LRT Ampang Line",
         "shape_id": "shp_AG_1",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -256,9 +256,9 @@
         "route_long_name": "LRT Kelana Jaya Line",
         "shape_id": "shp_KJ_0",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -323,7 +323,7 @@
           },
           {
             "stop_id": "KJ27",
-            "stop_name": "CGC GLENMARIE",
+            "stop_name": "GLENMARIE",
             "lat": 3.094732,
             "lon": 101.590622
           },
@@ -389,7 +389,7 @@
           },
           {
             "stop_id": "KJ16",
-            "stop_name": "BANK RAKYAT BANGSAR",
+            "stop_name": "BANGSAR - BANK RAKYAT",
             "lat": 3.127588,
             "lon": 101.679062
           },
@@ -490,9 +490,9 @@
         "route_long_name": "LRT Kelana Jaya Line",
         "shape_id": "shp_KJ_1",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -587,7 +587,7 @@
           },
           {
             "stop_id": "KJ16",
-            "stop_name": "BANK RAKYAT BANGSAR",
+            "stop_name": "BANGSAR - BANK RAKYAT",
             "lat": 3.127588,
             "lon": 101.679062
           },
@@ -653,7 +653,7 @@
           },
           {
             "stop_id": "KJ27",
-            "stop_name": "CGC GLENMARIE",
+            "stop_name": "GLENMARIE",
             "lat": 3.094732,
             "lon": 101.590622
           },
@@ -731,9 +731,9 @@
         "route_long_name": "LRT Sri Petaling Line",
         "shape_id": "shp_PH_0",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -917,9 +917,9 @@
         "route_long_name": "LRT Sri Petaling Line",
         "shape_id": "shp_PH_1",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -1110,9 +1110,9 @@
         "route_long_name": "MRT Kajang Line",
         "shape_id": "shp_MRT_0",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -1296,9 +1296,9 @@
         "route_long_name": "MRT Kajang Line",
         "shape_id": "shp_MRT_1",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -1489,9 +1489,9 @@
         "route_long_name": "MRT Putrajaya Line",
         "shape_id": "shp_PYL_0",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -1717,9 +1717,9 @@
         "route_long_name": "MRT Putrajaya Line",
         "shape_id": "shp_PYL_1",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -1952,9 +1952,9 @@
         "route_long_name": "KL Monorail Line",
         "shape_id": "shp_MR_0",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -2030,9 +2030,9 @@
         "route_long_name": "KL Monorail Line",
         "shape_id": "shp_MR_1",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -2115,9 +2115,9 @@
         "route_long_name": "BRT Sunway Line",
         "shape_id": "shp_BRT_0",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -2169,9 +2169,9 @@
         "route_long_name": "BRT Sunway Line",
         "shape_id": "shp_BRT_1",
         "service_ids": [
-          "Sun",
+          "MonFri",
           "Sat",
-          "MonFri"
+          "Sun"
         ],
         "stops": [
           {
@@ -2215,6 +2215,277 @@
             "stop_name": "SUNWAY-SETIA JAYA",
             "lat": 3.0828,
             "lon": 101.6123
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route_id": "SA",
+    "route_short_name": "SA",
+    "route_long_name": "LRT Shah Alam Line",
+    "directions": [
+      {
+        "direction_id": 0,
+        "route_long_name": "LRT Shah Alam Line",
+        "shape_id": "shp_SA_0",
+        "service_ids": [
+          "MonFri",
+          "Sat",
+          "Sun"
+        ],
+        "stops": [
+          {
+            "stop_id": "SA1",
+            "stop_name": "BANDAR UTAMA",
+            "lat": 3.144722,
+            "lon": 101.618611
+          },
+          {
+            "stop_id": "SA2",
+            "stop_name": "KAYU ARA",
+            "lat": 3.134722,
+            "lon": 101.616667
+          },
+          {
+            "stop_id": "SA3",
+            "stop_name": "BANDAR UTAMA 11",
+            "lat": 3.133333,
+            "lon": 101.604444
+          },
+          {
+            "stop_id": "SA5",
+            "stop_name": "DAMANSARA IDAMAN",
+            "lat": 3.122778,
+            "lon": 101.594167
+          },
+          {
+            "stop_id": "SA6",
+            "stop_name": "SUBANG",
+            "lat": 3.106111,
+            "lon": 101.591111
+          },
+          {
+            "stop_id": "SA7",
+            "stop_name": "GLENMARIE 2",
+            "lat": 3.095278,
+            "lon": 101.588611
+          },
+          {
+            "stop_id": "SA9",
+            "stop_name": "KERJAYA",
+            "lat": 3.082222,
+            "lon": 101.561944
+          },
+          {
+            "stop_id": "SA10",
+            "stop_name": "STADIUM SHAH ALAM",
+            "lat": 3.079722,
+            "lon": 101.548889
+          },
+          {
+            "stop_id": "SA12",
+            "stop_name": "DATO' MENTERI - SA SENTRAL",
+            "lat": 3.069722,
+            "lon": 101.521111
+          },
+          {
+            "stop_id": "SA14",
+            "stop_name": "UITM SHAH ALAM",
+            "lat": 3.0625,
+            "lon": 101.501111
+          },
+          {
+            "stop_id": "SA15",
+            "stop_name": "SEKSYEN 7",
+            "lat": 3.067222,
+            "lon": 101.486667
+          },
+          {
+            "stop_id": "SA17",
+            "stop_name": "BANDAR BARU KLANG",
+            "lat": 3.0625,
+            "lon": 101.465556
+          },
+          {
+            "stop_id": "SA18",
+            "stop_name": "PASAR KLANG",
+            "lat": 3.067778,
+            "lon": 101.450833
+          },
+          {
+            "stop_id": "SA19",
+            "stop_name": "JALAN MERU",
+            "lat": 3.058889,
+            "lon": 101.451944
+          },
+          {
+            "stop_id": "SA20",
+            "stop_name": "JAMBATAN KOTA",
+            "lat": 3.047222,
+            "lon": 101.4475
+          },
+          {
+            "stop_id": "SA21",
+            "stop_name": "TAMAN SELATAN",
+            "lat": 3.026667,
+            "lon": 101.442222
+          },
+          {
+            "stop_id": "SA22",
+            "stop_name": "SERI ANDALAS",
+            "lat": 3.015833,
+            "lon": 101.440556
+          },
+          {
+            "stop_id": "SA23",
+            "stop_name": "KLANG JAYA",
+            "lat": 3.005278,
+            "lon": 101.441667
+          },
+          {
+            "stop_id": "SA24",
+            "stop_name": "BANDAR BUKIT TINGGI",
+            "lat": 2.993056,
+            "lon": 101.445833
+          },
+          {
+            "stop_id": "SA26",
+            "stop_name": "JOHAN SETIA",
+            "lat": 2.976111,
+            "lon": 101.459167
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "route_long_name": "LRT Shah Alam Line",
+        "shape_id": "shp_SA_1",
+        "service_ids": [
+          "MonFri",
+          "Sat",
+          "Sun"
+        ],
+        "stops": [
+          {
+            "stop_id": "SA26",
+            "stop_name": "JOHAN SETIA",
+            "lat": 2.976111,
+            "lon": 101.459167
+          },
+          {
+            "stop_id": "SA24",
+            "stop_name": "BANDAR BUKIT TINGGI",
+            "lat": 2.993056,
+            "lon": 101.445833
+          },
+          {
+            "stop_id": "SA23",
+            "stop_name": "KLANG JAYA",
+            "lat": 3.005278,
+            "lon": 101.441667
+          },
+          {
+            "stop_id": "SA22",
+            "stop_name": "SERI ANDALAS",
+            "lat": 3.015833,
+            "lon": 101.440556
+          },
+          {
+            "stop_id": "SA21",
+            "stop_name": "TAMAN SELATAN",
+            "lat": 3.026667,
+            "lon": 101.442222
+          },
+          {
+            "stop_id": "SA20",
+            "stop_name": "JAMBATAN KOTA",
+            "lat": 3.047222,
+            "lon": 101.4475
+          },
+          {
+            "stop_id": "SA19",
+            "stop_name": "JALAN MERU",
+            "lat": 3.058889,
+            "lon": 101.451944
+          },
+          {
+            "stop_id": "SA18",
+            "stop_name": "PASAR KLANG",
+            "lat": 3.067778,
+            "lon": 101.450833
+          },
+          {
+            "stop_id": "SA17",
+            "stop_name": "BANDAR BARU KLANG",
+            "lat": 3.0625,
+            "lon": 101.465556
+          },
+          {
+            "stop_id": "SA15",
+            "stop_name": "SEKSYEN 7",
+            "lat": 3.067222,
+            "lon": 101.486667
+          },
+          {
+            "stop_id": "SA14",
+            "stop_name": "UITM SHAH ALAM",
+            "lat": 3.0625,
+            "lon": 101.501111
+          },
+          {
+            "stop_id": "SA12",
+            "stop_name": "DATO' MENTERI - SA SENTRAL",
+            "lat": 3.069722,
+            "lon": 101.521111
+          },
+          {
+            "stop_id": "SA10",
+            "stop_name": "STADIUM SHAH ALAM",
+            "lat": 3.079722,
+            "lon": 101.548889
+          },
+          {
+            "stop_id": "SA9",
+            "stop_name": "KERJAYA",
+            "lat": 3.082222,
+            "lon": 101.561944
+          },
+          {
+            "stop_id": "SA7",
+            "stop_name": "GLENMARIE 2",
+            "lat": 3.095278,
+            "lon": 101.588611
+          },
+          {
+            "stop_id": "SA6",
+            "stop_name": "SUBANG",
+            "lat": 3.106111,
+            "lon": 101.591111
+          },
+          {
+            "stop_id": "SA5",
+            "stop_name": "DAMANSARA IDAMAN",
+            "lat": 3.122778,
+            "lon": 101.594167
+          },
+          {
+            "stop_id": "SA3",
+            "stop_name": "BANDAR UTAMA 11",
+            "lat": 3.133333,
+            "lon": 101.604444
+          },
+          {
+            "stop_id": "SA2",
+            "stop_name": "KAYU ARA",
+            "lat": 3.134722,
+            "lon": 101.616667
+          },
+          {
+            "stop_id": "SA1",
+            "stop_name": "BANDAR UTAMA",
+            "lat": 3.144722,
+            "lon": 101.618611
           }
         ]
       }
