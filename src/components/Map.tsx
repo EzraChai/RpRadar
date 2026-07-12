@@ -2045,7 +2045,7 @@ function VehiclesMarker({
 
         // 50 meters threshold
         const MAX_SNAP_DISTANCE = 50;
-        const MAX_OFF_ROUTE_DISTANCE = 1000;
+        const MAX_OFF_ROUTE_DISTANCE = 200;
 
         let isOffRoute = false;
         if (snapped.properties.dist > MAX_OFF_ROUTE_DISTANCE) {
