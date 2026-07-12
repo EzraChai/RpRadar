@@ -548,7 +548,14 @@ function App() {
                   "text-yellow-500 "
                 }`}
               />
-              <Link to={"/"}>
+              <Link
+                onClick={() => {
+                  map.doubleClickZoom.enable();
+                  map.scrollWheelZoom.enable();
+                  map.dragging.enable();
+                }}
+                to={"/"}
+              >
                 <X className="w-5 h-5 text-black dark:text-white" />
               </Link>
             </div>
