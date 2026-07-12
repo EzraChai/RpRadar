@@ -114,6 +114,8 @@ import {
   SelectValue,
 } from "./ui/select";
 import { Switch } from "./ui/switch";
+import { socket } from "@/lib/socket";
+import { ungzip } from "pako";
 
 function darkenHex(hex: string, percent = 10) {
   hex = hex.replace("#", "");
@@ -1258,6 +1260,11 @@ function VehiclesMarker({
   const [vehicles, setVehicles] = useState<
     Map<string, transit_realtime.IVehiclePosition>
   >(new Map());
+  const [, setIsConnected] = useState(false);
+  const [, setTransport] = useState<string | null>(null);
+  const [intervalId, setIntervalId] = useState<ReturnType<
+    typeof setTimeout
+  > | null>(null);
 
   const [provider, setProvider] = useState<string | undefined>();
   const [BusSchedule, setBusSchedule] =
@@ -1302,16 +1309,123 @@ function VehiclesMarker({
   const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
-    if (!provider) return;
+    if (provider !== "rp" && provider !== "rkl") return;
+
+    if (socket.connected) {
+      onConnect();
+    }
+
+    function onConnect() {
+      setIsConnected(true);
+      setTransport(socket.io.engine.transport.name);
+
+      socket.io.engine.on("upgrade", (transport) => {
+        setTransport(transport.name);
+      });
+
+      socket.emit("onFts-reload", {
+        sid: "",
+        uid: "",
+        provider:
+          provider === "rp" ? "RPG" : provider === "rkl" ? "RKL" : "N/A",
+        route: "",
+      });
+      let intervalId = setInterval(() => {
+        socket.emit("onFts-reload", {
+          sid: "",
+          uid: "",
+          provider:
+            provider === "rp" ? "RPG" : provider === "rkl" ? "RKL" : "N/A",
+          route: "",
+        });
+      }, 5000);
+      setIntervalId(intervalId);
+    }
+
+    function onDisconnect() {
+      setIsConnected(false);
+      setTransport("N/A");
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    }
+
+    socket.on("connect", onConnect);
+    socket.on("disconnect", onDisconnect);
+
+    socket.on("onFts-client", (compressed: string) => {
+      const bytes = Uint8Array.from(atob(compressed), (c) => c.charCodeAt(0));
+
+      const json = ungzip(bytes, {
+        toText: true,
+      });
+
+      const parsedBuses = JSON.parse(json) as {
+        trip_no: string;
+        route: string;
+        bus_no: string;
+        latitude: number;
+        longitude: number;
+        dir: number;
+        angle: number;
+        speed: number;
+        dt_gps: string;
+      }[];
+
+      console.log("Received buses:", parsedBuses);
+
+      const buses: transit_realtime.IVehiclePosition[] = parsedBuses.map(
+        (bus): transit_realtime.IVehiclePosition => ({
+          trip: {
+            tripId: bus.trip_no,
+            routeId: bus.route,
+            directionId: bus.dir,
+          },
+          vehicle: {
+            id: bus.bus_no,
+            label: bus.bus_no,
+            licensePlate: bus.bus_no,
+          },
+          position: {
+            latitude: bus.latitude,
+            longitude: bus.longitude,
+            bearing: bus.angle,
+            speed: bus.speed,
+          },
+          timestamp: Math.floor(
+            new Date(bus.dt_gps + " +08:00").getTime() / 1000,
+          ),
+        }),
+      );
+
+      setVehicles((prev) => {
+        const updated = new Map(prev);
+        buses.forEach((bus: transit_realtime.IVehiclePosition) => {
+          const plate = bus.vehicle?.licensePlate;
+          if (!bus || !plate) return;
+          updated.set(plate, bus);
+        });
+        return updated;
+      });
+    });
+
+    return () => {
+      socket.off("connect", onConnect);
+      socket.off("disconnect", onDisconnect);
+    };
+  }, [provider]);
+
+  useEffect(() => {
+    if (!provider || provider === "rp" || provider === "rkl") return;
 
     async function loadData() {
       try {
         let res: Response | null = null;
         const URL =
           "https://my-gtfs-api.wolfram-7b5.workers.dev/api/vehicle-position/";
-        if (provider === "rkl") {
-          res = await fetch(`${URL}prasarana?category=rapid-bus-kl`);
-        } else if (provider === "ns") {
+        // if (provider === "rkl") {
+        // res = await fetch(`${URL}prasarana?category=rapid-bus-kl`);
+        if (provider === "ns") {
           res = await fetch(`${URL}mybas-seremban`);
         } else if (provider === "mk") {
           res = await fetch(`${URL}mybas-melaka`);
@@ -1327,8 +1441,8 @@ function VehiclesMarker({
           res = await fetch(`${URL}mybas-kota-bharu`);
         } else if (provider === "trg") {
           res = await fetch(`${URL}mybas-kuala-terengganu`);
-        } else if (provider === "rp") {
-          res = await fetch(`${URL}prasarana?category=rapid-bus-penang`);
+          // } else if (provider === "rp") {
+          // res = await fetch(`${URL}prasarana?category=rapid-bus-penang`);
         } else if (provider === "ktn") {
           res = await fetch(`${URL}prasarana?category=rapid-bus-kuantan`);
         } else if (provider === "sw") {
@@ -1364,9 +1478,9 @@ function VehiclesMarker({
 
             feed.entity.forEach((entity) => {
               const vehicle = entity.vehicle;
+              console.log("Received vehicle:", vehicle);
               const plate = vehicle?.vehicle?.licensePlate;
 
-              console.log("Vehicle", vehicle);
               if (!vehicle || !plate) return;
 
               updated.set(plate, vehicle);
@@ -1416,12 +1530,21 @@ function VehiclesMarker({
         iconAnchor: [50, 50],
       });
   } else if (provider === "rkl") {
-    busIcon = (bearing: number, tripId: string | null | undefined) => {
-      if (typeof tripId === "string" && tripId.charAt(0) === "w") {
+    busIcon = (
+      bearing: number,
+      tripId: string | null | undefined,
+      routeId: string | null | undefined,
+      routeShortName: string | null | undefined,
+    ) => {
+      if (
+        typeof tripId === "string" &&
+        tripId !== "" &&
+        routeId === routeShortName?.concat("0")
+      ) {
         return divIcon({
           className: "",
           html: `<img 
-    src="${bearing < 0 || bearing > 180 ? "/rkl-bus2.webp" : "/rkl-bus.webp"}"
+        src="${bearing < 0 || bearing > 180 ? "/mrt-bus2.webp" : "/mrt-bus.webp"}"
     style="
       width:100px;
       height:100px;
@@ -1437,7 +1560,7 @@ function VehiclesMarker({
         return divIcon({
           className: "",
           html: `<img 
-    src="${bearing < 0 || bearing > 180 ? "/mrt-bus2.webp" : "/mrt-bus.webp"}"
+    src="${bearing < 0 || bearing > 180 ? "/rkl-bus2.webp" : "/rkl-bus.webp"}"
     style="
       width:100px;
       height:100px;
@@ -1452,7 +1575,12 @@ function VehiclesMarker({
       }
     };
   } else if (provider !== "rp" && provider !== "rkl") {
-    busIcon = (bearing: number, _: string | null | undefined) =>
+    busIcon = (
+      bearing: number,
+      _: string | null | undefined,
+      __: string | null | undefined,
+      ___: string | null | undefined,
+    ) =>
       divIcon({
         className: "",
         html: `<img 
@@ -1522,10 +1650,26 @@ function VehiclesMarker({
       const vehicleForThisRoute = Array.from(vehicles.values()).filter(
         (v) =>
           v.trip?.routeId === route?.route_id ||
-          v.trip?.routeId === route?.route_short_name,
+          v.trip?.routeId === route?.route_short_name + "0",
       );
 
       vehicleForThisRoute.forEach((v) => {
+        const dir = Number(v.trip?.directionId);
+        if (dir > 0 && dir < 3) {
+          if (dir === 1) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [1]: [...prev[1], v],
+            }));
+          } else if (dir === 2) {
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [0]: [...prev[0], v],
+            }));
+          }
+          return;
+        }
+
         let directions = RapidKLDirections.find(
           (d) => d.trip_id === v.trip?.tripId,
         );
@@ -1554,8 +1698,17 @@ function VehiclesMarker({
       const vehicleForThisRoute = Array.from(vehicles.values()).filter(
         (v) => v.trip?.routeId === route?.route_id,
       );
+      console.log("Vehicle for this route:", vehicleForThisRoute);
 
       vehicleForThisRoute.forEach((v) => {
+        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
+          const directionId = v.trip.directionId;
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [directionId]: [...prev[directionId], v],
+          }));
+          return;
+        }
         let directions = MYBasNSADirections.find(
           (d) => d.trip_id === v.trip?.tripId,
         );
@@ -1579,6 +1732,7 @@ function VehiclesMarker({
             }));
           }
         }
+        console.log("Directions for vehicle:", directions, "Vehicle:", v);
       });
     } else if (provider === "mk") {
       const vehicleForThisRoute = Array.from(vehicles.values()).filter(
@@ -1586,6 +1740,14 @@ function VehiclesMarker({
       );
 
       vehicleForThisRoute.forEach((v) => {
+        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
+          const directionId = v.trip.directionId;
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [directionId]: [...prev[directionId], v],
+          }));
+          return;
+        }
         let directions = MyBasMkDirections.find(
           (d) => d.trip_id === v.trip?.tripId,
         );
@@ -1611,6 +1773,14 @@ function VehiclesMarker({
       );
 
       vehicleForThisRoute.forEach((v) => {
+        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
+          const directionId = v.trip.directionId;
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [directionId]: [...prev[directionId], v],
+          }));
+          return;
+        }
         let directions = MyBasJbDirections.find(
           (d) => d.trip_id === v.trip?.tripId,
         );
@@ -1636,6 +1806,14 @@ function VehiclesMarker({
       );
 
       vehicleForThisRoute.forEach((v) => {
+        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
+          const directionId = v.trip.directionId;
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [directionId]: [...prev[directionId], v],
+          }));
+          return;
+        }
         let directions = MyBasPkDirections.find(
           (d) => d.trip_id === v.trip?.tripId,
         );
@@ -1661,6 +1839,14 @@ function VehiclesMarker({
       );
 
       vehicleForThisRoute.forEach((v) => {
+        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
+          const directionId = v.trip.directionId;
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [directionId]: [...prev[directionId], v],
+          }));
+          return;
+        }
         let directions = MyBasKtnDirections.find(
           (d) => d.trip_id === v.trip?.tripId,
         );
@@ -1684,6 +1870,14 @@ function VehiclesMarker({
       const vehicleForThisRoute = Array.from(vehicles.values());
 
       vehicleForThisRoute.forEach((v) => {
+        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
+          const directionId = v.trip.directionId;
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [directionId]: [...prev[directionId], v],
+          }));
+          return;
+        }
         if (MyBasAlrDirections.length === 0) {
           return;
         }
@@ -1711,6 +1905,14 @@ function VehiclesMarker({
       const vehicleForThisRoute = Array.from(vehicles.values());
 
       vehicleForThisRoute.forEach((v) => {
+        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
+          const directionId = v.trip.directionId;
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [directionId]: [...prev[directionId], v],
+          }));
+          return;
+        }
         let directions = MyBasKgrDirections.find(
           (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
         );
@@ -1734,6 +1936,14 @@ function VehiclesMarker({
       const vehicleForThisRoute = Array.from(vehicles.values());
 
       vehicleForThisRoute.forEach((v) => {
+        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
+          const directionId = v.trip.directionId;
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [directionId]: [...prev[directionId], v],
+          }));
+          return;
+        }
         let directions = MyBasKtbDirections.find(
           (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
         );
@@ -1756,6 +1966,14 @@ function VehiclesMarker({
     } else if (provider === "sw") {
       const vehicleForThisRoute = Array.from(vehicles.values());
       vehicleForThisRoute.forEach((v) => {
+        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
+          const directionId = v.trip.directionId;
+          setDirectionsLocation((prev) => ({
+            ...prev,
+            [directionId]: [...prev[directionId], v],
+          }));
+          return;
+        }
         let directions = MyBasSwDirections.find(
           (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
         );
@@ -1872,6 +2090,8 @@ function VehiclesMarker({
                         0
                       : v.position?.bearing || 0,
                   v.trip?.tripId,
+                  v.trip?.routeId,
+                  route?.route_short_name,
                 )}
               >
                 <Popup
@@ -1896,9 +2116,8 @@ function VehiclesMarker({
                     <p>
                       {(() => {
                         const showDeparture =
-                          provider !== "rkl" &&
                           route?.route_short_name !==
-                            route?.directions[0].route_long_name;
+                          route?.directions[0].route_long_name;
 
                         if (!showDeparture) return "";
 
