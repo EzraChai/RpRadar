@@ -1,4 +1,4 @@
-import { Search, Star, X } from "lucide-react";
+import { DivideCircle, Search, Star, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Drawer } from "vaul";
 import { Input } from "./ui/input";
@@ -297,13 +297,13 @@ export function DrawerMobile({
                     </Link>
                   </div>
                 </div>
-                <DialogTitle className=" w-full p-2 font-bold text-xl">
+                <div className="w-full p-2 font-bold text-xl">
                   {
                     route?.directions.filter(
                       (d) => d.direction_id === direction,
                     )[0].route_long_name
                   }
-                </DialogTitle>
+                </div>
                 <div>
                   {route?.directions.length >= 2 && (
                     <Button
