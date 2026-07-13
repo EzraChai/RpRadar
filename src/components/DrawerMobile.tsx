@@ -1,9 +1,8 @@
-import { DivideCircle, Search, Star, X } from "lucide-react";
+import { Search, Star, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Drawer } from "vaul";
 import { Input } from "./ui/input";
 import { RouteCard } from "./app-sidebar";
-import { DialogTitle } from "@radix-ui/react-dialog";
 import { Link } from "react-router";
 import { Button } from "./ui/button";
 import type { CircleMarker } from "leaflet";
