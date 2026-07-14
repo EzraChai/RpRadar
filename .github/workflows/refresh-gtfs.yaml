@@ -15,19 +15,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Bun
+        uses: actions/setup-bun@v1
         with:
-          node-version: "latest"
-          cache: "npm"
-          cache-dependency-path: scripts/package-lock.json
+          bun-version: "latest"
 
       - name: Install dependencies
         working-directory: scripts
-        run: npm ci
+        run: bun ci
 
       - name: Refresh GTFS
-        run: node scripts/refresh-gtfs.js
+        run: bun scripts/refresh-gtfs.js
 
       - name: Commit changes
         run: |
