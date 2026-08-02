@@ -1156,6 +1156,7 @@ function App() {
                       <SelectItem value="ktb">Kota Bharu</SelectItem>
                       <SelectItem value="trg">Kuala Terengganu</SelectItem>
                       <SelectItem value="sw">Kuching</SelectItem>
+                      {/* <SelectItem value="ktmb">KTMB</SelectItem> */}
                     </SelectContent>
                   </Select>
                 </div>
