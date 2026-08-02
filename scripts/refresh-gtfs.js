@@ -373,7 +373,6 @@ refreshGTFS(
   14,
 ).catch((err) => {
   console.error(err);
-  process.exit(1);
 });
 
 refreshGTFS(
@@ -383,7 +382,6 @@ refreshGTFS(
   14,
 ).catch((err) => {
   console.error(err);
-  process.exit(1);
 });
 
 refreshGTFS(
@@ -393,7 +391,6 @@ refreshGTFS(
   14,
 ).catch((err) => {
   console.error(err);
-  process.exit(1);
 });
 
 refreshGTFS(
@@ -403,7 +400,6 @@ refreshGTFS(
   14,
 ).catch((err) => {
   console.error(err);
-  process.exit(1);
 });
 
 refreshGTFS(
@@ -413,7 +409,6 @@ refreshGTFS(
   14,
 ).catch((err) => {
   console.error(err);
-  process.exit(1);
 });
 
 refreshGTFS(
@@ -423,7 +418,6 @@ refreshGTFS(
   14,
 ).catch((err) => {
   console.error(err);
-  process.exit(1);
 });
 
 refreshGTFS(
@@ -433,5 +427,4 @@ refreshGTFS(
   14,
 ).catch((err) => {
   console.error(err);
-  process.exit(1);
 });
