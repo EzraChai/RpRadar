@@ -21,6 +21,7 @@ const GTFS_KTB_URL = "https://api.data.gov.my/gtfs-static/mybas-kota-bharu";
 const GTFS_TRG_URL =
   "https://api.data.gov.my/gtfs-static/mybas-kuala-terengganu";
 const GTFS_SW_URL = "https://api.data.gov.my/gtfs-static/mybas-kuching";
+const GTFS_KTMB_URL = "https://api.data.gov.my/gtfs-static/ktmb";
 
 const OUTPUT_FILES = {
   rp: {
@@ -78,6 +79,10 @@ const OUTPUT_FILES = {
   sw: {
     trips: "data/sw-trips.json",
     schedule: "data/sw-schedule.json",
+  },
+  ktmb: {
+    trips: "data/ktmb-trips.json",
+    schedule: "data/ktmb-schedule.json",
   },
 };
 
@@ -424,6 +429,15 @@ refreshGTFS(
   GTFS_SW_URL,
   OUTPUT_FILES.sw.trips,
   OUTPUT_FILES.sw.schedule,
+  14,
+).catch((err) => {
+  console.error(err);
+});
+
+refreshGTFS(
+  GTFS_KTMB_URL,
+  OUTPUT_FILES.ktmb.trips,
+  OUTPUT_FILES.ktmb.schedule,
   14,
 ).catch((err) => {
   console.error(err);

@@ -1337,6 +1337,7 @@ function VehiclesMarker({
           provider === "rp" ? "RPG" : provider === "rkl" ? "RKL" : "N/A",
         route: "",
       });
+
       let intervalId = setInterval(() => {
         socket.emit("onFts-reload", {
           sid: "",
@@ -1346,6 +1347,7 @@ function VehiclesMarker({
           route: "",
         });
       }, 5000);
+
       setIntervalId(intervalId);
     }
 
@@ -1452,6 +1454,8 @@ function VehiclesMarker({
           res = await fetch(`${URL}prasarana?category=rapid-bus-kuantan`);
         } else if (provider === "sw") {
           res = await fetch(`${URL}mybas-kuching`);
+        } else if (provider === "ktmb") {
+          res = await fetch(`${URL}ktmb`);
         }
 
         setVehicles((prev) => {
@@ -1478,6 +1482,8 @@ function VehiclesMarker({
             new Uint8Array(buffer),
           );
 
+          console.log(feed);
+
           setVehicles((prev) => {
             const updated = new Map(prev);
 
@@ -1488,6 +1494,8 @@ function VehiclesMarker({
               if (!vehicle || !plate) return;
 
               updated.set(plate, vehicle);
+
+              console.log(vehicle);
             });
 
             return updated;
@@ -1503,7 +1511,7 @@ function VehiclesMarker({
       clearInterval(timerRef.current);
     }
 
-    timerRef.current = window.setInterval(loadData, 20000); // every 20 seconds
+    timerRef.current = window.setInterval(loadData, 10000); // every 10 seconds
 
     // cleanup
     return () => {
