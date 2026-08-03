@@ -1168,7 +1168,7 @@ function App() {
                       </h1>
                     </div>
                     <Switch
-                      className=" data-[state=checked]:bg-neutral-800!"
+                      className="data-[state=checked]:bg-neutral-800!"
                       checked={railVisible}
                       onCheckedChange={(checked) => {
                         setRailVisible(checked);
@@ -1182,29 +1182,31 @@ function App() {
           </Card>
         )}
         <UserLocation />
-        {!isMobile && route && <StopsCard />}
         {!isMobile && route && (
-          <Card className="absolute z-500 pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
-            <div className="flex justify-between items-center gap-4">
-              <div
-                className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
-              >
-                {route?.route_short_name}
-              </div>
+          <>
+            <StopsCard />
+            <Card className="absolute z-500 pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
+              <div className="flex justify-between items-center gap-4">
+                <div
+                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
+                >
+                  {route?.route_short_name}
+                </div>
 
-              <div>
-                <h4 className="font-semibold">
-                  {route.directions?.find((d) => d.direction_id === direction)
-                    ?.route_long_name || ""}
-                </h4>
+                <div>
+                  <h4 className="font-semibold">
+                    {route.directions?.find((d) => d.direction_id === direction)
+                      ?.route_long_name || ""}
+                  </h4>
+                </div>
+                <div
+                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
+                >
+                  {route?.route_short_name}
+                </div>
               </div>
-              <div
-                className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
-              >
-                {route?.route_short_name}
-              </div>
-            </div>
-          </Card>
+            </Card>
+          </>
         )}
       </MapContainer>
     </div>
@@ -1268,8 +1270,6 @@ function VehiclesMarker({
   const [vehicles, setVehicles] = useState<
     Map<string, transit_realtime.IVehiclePosition>
   >(new Map());
-  const [, setIsConnected] = useState(false);
-  const [, setTransport] = useState<string | null>(null);
   const [intervalId, setIntervalId] = useState<ReturnType<
     typeof setTimeout
   > | null>(null);
@@ -1324,13 +1324,6 @@ function VehiclesMarker({
     }
 
     function onConnect() {
-      setIsConnected(true);
-      setTransport(socket.io.engine.transport.name);
-
-      socket.io.engine.on("upgrade", (transport) => {
-        setTransport(transport.name);
-      });
-
       socket.emit("onFts-reload", {
         sid: "",
         uid: "",
@@ -1353,8 +1346,6 @@ function VehiclesMarker({
     }
 
     function onDisconnect() {
-      setIsConnected(false);
-      setTransport("N/A");
       if (intervalId) {
         clearInterval(intervalId);
       }
@@ -1431,8 +1422,6 @@ function VehiclesMarker({
         let res: Response | null = null;
         const URL =
           "https://my-gtfs-api.wolfram-7b5.workers.dev/api/vehicle-position/";
-        // if (provider === "rkl") {
-        // res = await fetch(`${URL}prasarana?category=rapid-bus-kl`);
         if (provider === "ns") {
           res = await fetch(`${URL}mybas-seremban`);
         } else if (provider === "mk") {
@@ -1449,8 +1438,6 @@ function VehiclesMarker({
           res = await fetch(`${URL}mybas-kota-bharu`);
         } else if (provider === "trg") {
           res = await fetch(`${URL}mybas-kuala-terengganu`);
-          // } else if (provider === "rp") {
-          // res = await fetch(`${URL}prasarana?category=rapid-bus-penang`);
         } else if (provider === "ktn") {
           res = await fetch(`${URL}prasarana?category=rapid-bus-kuantan`);
         } else if (provider === "sw") {
