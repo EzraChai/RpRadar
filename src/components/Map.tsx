@@ -1470,8 +1470,6 @@ function VehiclesMarker({
             new Uint8Array(buffer),
           );
 
-          console.log(feed);
-
           setVehicles((prev) => {
             const updated = new Map(prev);
 
@@ -1482,8 +1480,6 @@ function VehiclesMarker({
               if (!vehicle || !plate) return;
 
               updated.set(plate, vehicle);
-
-              console.log(vehicle);
             });
 
             return updated;
