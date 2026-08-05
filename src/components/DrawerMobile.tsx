@@ -331,7 +331,7 @@ export function DrawerMobile({
                       .filter((d) => d.direction_id === direction)[0]
                       .stops.map((stop, idx) => (
                         <div
-                          key={idx}
+                          key={stop.stop_id}
                           className={`${
                             idx === 0 && "mt-2"
                           } flex relative w-full`}
@@ -408,7 +408,7 @@ export function DrawerMobile({
                                           s.dt === getCurrentDate(),
                                       )?.t.map((time, idx) => (
                                         <div
-                                          key={idx}
+                                          key={time + idx}
                                           className={`${
                                             hasCurrentTimePassed(time)
                                               ? "dark:text-neutral-500 text-neutral-400"
@@ -524,7 +524,7 @@ export function DrawerMobile({
                       {filteredRoutes.map((r, idx) => (
                         <RouteCard
                           provider={provider}
-                          key={idx}
+                          key={r.route_id}
                           setSnap={setSnap}
                           line={r}
                           length={filteredRoutes.length}
