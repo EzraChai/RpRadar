@@ -92,7 +92,7 @@ function parseTimeToSeconds(timeStr) {
   return h * 3600 + m * 60 + s;
 }
 
-function expandCalendar(service, maxDays = 7) {
+function expandCalendar(service, maxDays = 14) {
   const dates = [];
   if (!service) return dates;
 
@@ -273,7 +273,7 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
       (a, b) => parseTimeToSeconds(a.time) - parseTimeToSeconds(b.time),
     );
 
-    const dates = expandCalendar(services[service_id], 7);
+    const dates = expandCalendar(services[service_id], 14);
 
     for (const dt of dates) {
       flattened.push({
@@ -299,23 +299,19 @@ async function refreshGTFS(url, tripsFilePath, scheduleFilePath) {
   }
 }
 
-// Rapid Penang (next 7 days)
-refreshGTFS(
-  GTFS_RP_URL,
-  OUTPUT_FILES.rp.trips,
-  OUTPUT_FILES.rp.schedule,
-  14,
-).catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+// Rapid Penang
+refreshGTFS(GTFS_RP_URL, OUTPUT_FILES.rp.trips, OUTPUT_FILES.rp.schedule).catch(
+  (err) => {
+    console.error(err);
+    process.exit(1);
+  },
+);
 
-// Rapid KL (next 7 days)
+// Rapid KL
 refreshGTFS(
   GTFS_RKL_URL,
   OUTPUT_FILES.rkl.trips,
   OUTPUT_FILES.rkl.schedule,
-  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -325,7 +321,6 @@ refreshGTFS(
   GTFS_MRT_URL,
   OUTPUT_FILES.mrt.trips,
   OUTPUT_FILES.mrt.schedule,
-  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -335,7 +330,6 @@ refreshGTFS(
   GTFS_NS_A_URL,
   OUTPUT_FILES.ns_a.trips,
   OUTPUT_FILES.ns_a.schedule,
-  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
@@ -345,46 +339,35 @@ refreshGTFS(
   GTFS_NS_B_URL,
   OUTPUT_FILES.ns_b.trips,
   OUTPUT_FILES.ns_b.schedule,
-  14,
 ).catch((err) => {
   console.error(err);
   process.exit(1);
 });
 
-refreshGTFS(
-  GTFS_MK_URL,
-  OUTPUT_FILES.mk.trips,
-  OUTPUT_FILES.mk.schedule,
-  14,
-).catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+refreshGTFS(GTFS_MK_URL, OUTPUT_FILES.mk.trips, OUTPUT_FILES.mk.schedule).catch(
+  (err) => {
+    console.error(err);
+    process.exit(1);
+  },
+);
 
-refreshGTFS(
-  GTFS_JB_URL,
-  OUTPUT_FILES.jb.trips,
-  OUTPUT_FILES.jb.schedule,
-  14,
-).catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+refreshGTFS(GTFS_JB_URL, OUTPUT_FILES.jb.trips, OUTPUT_FILES.jb.schedule).catch(
+  (err) => {
+    console.error(err);
+    process.exit(1);
+  },
+);
 
-refreshGTFS(
-  GTFS_PK_URL,
-  OUTPUT_FILES.pk.trips,
-  OUTPUT_FILES.pk.schedule,
-  14,
-).catch((err) => {
-  console.error(err);
-});
+refreshGTFS(GTFS_PK_URL, OUTPUT_FILES.pk.trips, OUTPUT_FILES.pk.schedule).catch(
+  (err) => {
+    console.error(err);
+  },
+);
 
 refreshGTFS(
   GTFS_RKTN_URL,
   OUTPUT_FILES.rktn.trips,
   OUTPUT_FILES.rktn.schedule,
-  14,
 ).catch((err) => {
   console.error(err);
 });
@@ -393,7 +376,6 @@ refreshGTFS(
   GTFS_ALR_URL,
   OUTPUT_FILES.alr.trips,
   OUTPUT_FILES.alr.schedule,
-  14,
 ).catch((err) => {
   console.error(err);
 });
@@ -402,7 +384,6 @@ refreshGTFS(
   GTFS_KGR_URL,
   OUTPUT_FILES.kgr.trips,
   OUTPUT_FILES.kgr.schedule,
-  14,
 ).catch((err) => {
   console.error(err);
 });
@@ -411,7 +392,6 @@ refreshGTFS(
   GTFS_KTB_URL,
   OUTPUT_FILES.ktb.trips,
   OUTPUT_FILES.ktb.schedule,
-  14,
 ).catch((err) => {
   console.error(err);
 });
@@ -420,25 +400,20 @@ refreshGTFS(
   GTFS_TRG_URL,
   OUTPUT_FILES.trg.trips,
   OUTPUT_FILES.trg.schedule,
-  14,
 ).catch((err) => {
   console.error(err);
 });
 
-refreshGTFS(
-  GTFS_SW_URL,
-  OUTPUT_FILES.sw.trips,
-  OUTPUT_FILES.sw.schedule,
-  14,
-).catch((err) => {
-  console.error(err);
-});
+refreshGTFS(GTFS_SW_URL, OUTPUT_FILES.sw.trips, OUTPUT_FILES.sw.schedule).catch(
+  (err) => {
+    console.error(err);
+  },
+);
 
 refreshGTFS(
   GTFS_KTMB_URL,
   OUTPUT_FILES.ktmb.trips,
   OUTPUT_FILES.ktmb.schedule,
-  14,
 ).catch((err) => {
   console.error(err);
 });
