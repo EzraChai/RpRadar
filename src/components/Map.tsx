@@ -191,14 +191,14 @@ function App() {
 
       case "rkl":
         setRoute(
-          RapidKLRoutes.find((r) => r.route_id === searchParams.get("id"))
+          RapidKLRoutes.some((r) => r.route_id === searchParams.get("id"))
             ? RapidKLRoutes.find((r) => r.route_id === searchParams.get("id"))
             : MRTFeederRoutes.find(
                 (r) => r.route_id === searchParams.get("id"),
               ),
         );
         setBusSchedule(
-          RapidKLRoutes.find((r) => r.route_id === searchParams.get("id"))
+          RapidKLRoutes.some((r) => r.route_id === searchParams.get("id"))
             ? (RapidKLSchedule as unknown as BusScheduleType)
             : (MRTFeederSchedule as unknown as BusScheduleType),
         );
@@ -206,12 +206,12 @@ function App() {
 
       case "ns":
         setRoute(
-          MYBasNSARoutes.find((r) => r.route_id === searchParams.get("id"))
+          MYBasNSARoutes.some((r) => r.route_id === searchParams.get("id"))
             ? MYBasNSARoutes.find((r) => r.route_id === searchParams.get("id"))
             : MYBasNSBRoutes.find((r) => r.route_id === searchParams.get("id")),
         );
         setBusSchedule(
-          MYBasNSARoutes.find((r) => r.route_id === searchParams.get("id"))
+          MYBasNSARoutes.some((r) => r.route_id === searchParams.get("id"))
             ? (MYBasNSASchedule as unknown as BusScheduleType)
             : (MYBasNSBSchedule as unknown as BusScheduleType),
         );
@@ -325,17 +325,17 @@ function App() {
         );
       } else if (provider === "rkl") {
         if (
-          RapidKLShapes.features.filter(
+          RapidKLShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = RapidKLShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         } else if (
-          MRTFeederShapes.features.filter(
+          MRTFeederShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MRTFeederShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
@@ -343,17 +343,17 @@ function App() {
         }
       } else if (provider === "ns") {
         if (
-          MYBasNSAShapes.features.filter(
+          MYBasNSAShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MYBasNSAShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
           );
         } else if (
-          MYBasNSBShapes.features.filter(
+          MYBasNSBShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MYBasNSBShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
@@ -361,9 +361,9 @@ function App() {
         }
       } else if (provider === "mk") {
         if (
-          MyBasMkShapes.features.filter(
+          MyBasMkShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MyBasMkShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
@@ -371,9 +371,9 @@ function App() {
         }
       } else if (provider === "jb") {
         if (
-          MyBasJbShapes.features.filter(
+          MyBasJbShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MyBasJbShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
@@ -381,9 +381,9 @@ function App() {
         }
       } else if (provider === "pk") {
         if (
-          MyBasPkShapes.features.filter(
+          MyBasPkShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MyBasPkShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
@@ -391,9 +391,9 @@ function App() {
         }
       } else if (provider === "ktn") {
         if (
-          MyBasKtnShapes.features.filter(
+          MyBasKtnShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MyBasKtnShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
@@ -401,9 +401,9 @@ function App() {
         }
       } else if (provider === "alr") {
         if (
-          MyBasAlrShapes.features.filter(
+          MyBasAlrShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MyBasAlrShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
@@ -411,9 +411,9 @@ function App() {
         }
       } else if (provider === "kgr") {
         if (
-          MyBasKgrShapes.features.filter(
+          MyBasKgrShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MyBasKgrShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
@@ -421,9 +421,9 @@ function App() {
         }
       } else if (provider === "ktb") {
         if (
-          MyBasKtbShapes.features.filter(
+          MyBasKtbShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MyBasKtbShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
@@ -431,9 +431,9 @@ function App() {
         }
       } else if (provider === "trg") {
         if (
-          MyBasTrgShapes.features.filter(
+          MyBasTrgShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MyBasTrgShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
@@ -441,9 +441,9 @@ function App() {
         }
       } else if (provider === "sw") {
         if (
-          MyBasSwShapes.features.filter(
+          MyBasSwShapes.features.some(
             (feature) => feature.properties.shape_id === shapeId,
-          ).length > 0
+          )
         ) {
           filteredShape = MyBasSwShapes.features.filter(
             (feature) => feature.properties.shape_id === shapeId,
