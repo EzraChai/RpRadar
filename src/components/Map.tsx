@@ -1247,22 +1247,32 @@ function AnimatedVehicleMarker({
   position,
   icon,
   heading,
+  direction,
   children,
 }: {
   position: { lat: number; lng: number };
   icon: L.DivIcon;
   heading: number;
+  direction: number;
   children: ReactNode;
 }) {
   const markerRef = useRef<L.Marker | null>(null);
   const initialPositionRef = useRef(position);
   const previousHeadingRef = useRef(heading);
+  const previousPositionDirectionRef = useRef(direction);
+  const previousHeadingDirectionRef = useRef(direction);
 
   useEffect(() => {
     const marker = markerRef.current;
     if (!marker) return;
 
     const target = L.latLng(position.lat, position.lng);
+    if (previousPositionDirectionRef.current !== direction) {
+      previousPositionDirectionRef.current = direction;
+      marker.setLatLng(target);
+      return;
+    }
+
     const start = marker.getLatLng();
     if (start.equals(target)) return;
 
@@ -1291,7 +1301,7 @@ function AnimatedVehicleMarker({
 
     frameId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frameId);
-  }, [position.lat, position.lng]);
+  }, [direction, position.lat, position.lng]);
 
   useEffect(() => {
     const image = markerRef.current
@@ -1300,8 +1310,16 @@ function AnimatedVehicleMarker({
     if (!image) return;
 
     const normalizeHeading = (value: number) => ((value % 360) + 360) % 360;
-    const previousHeading = normalizeHeading(previousHeadingRef.current);
     const normalizedHeading = normalizeHeading(heading);
+    if (previousHeadingDirectionRef.current !== direction) {
+      previousHeadingDirectionRef.current = direction;
+      image.style.transition = "none";
+      image.style.transform = `rotate(${normalizedHeading}deg)`;
+      previousHeadingRef.current = normalizedHeading;
+      return;
+    }
+
+    const previousHeading = normalizeHeading(previousHeadingRef.current);
     const turn =
       (((normalizedHeading - previousHeading + 540) % 360) + 360) % 360 - 180;
     const targetHeading = previousHeading + turn;
@@ -1329,7 +1347,7 @@ function AnimatedVehicleMarker({
       cancelAnimationFrame(firstFrameId);
       cancelAnimationFrame(secondFrameId);
     };
-  }, [heading]);
+  }, [direction, heading]);
 
   return (
     <Marker
@@ -2172,7 +2190,6 @@ function VehiclesMarker({
           <div key={v.vehicle?.licensePlate ?? idx}>
             {v && (
               <AnimatedVehicleMarker
-                key={`${route?.route_id ?? ""}-${direction}`}
                 position={{
                   lat: isOffRoute
                     ? busPoint.geometry.coordinates[1] || 0
@@ -2182,6 +2199,7 @@ function VehiclesMarker({
                     : snapped.geometry.coordinates[0] || 0,
                 }}
                 heading={heading}
+                direction={direction}
                 icon={busIcon(
                   heading,
                   v.trip?.tripId,
