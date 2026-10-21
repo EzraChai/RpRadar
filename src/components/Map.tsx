@@ -2139,8 +2139,8 @@ function VehiclesMarker({
         );
         const snapped = nearestPointOnLine(line, busPoint, { units: "meters" });
 
-        // 50 meters threshold
-        const MAX_SNAP_DISTANCE = 50;
+        // Snap to the route only when the bus is within 5 meters.
+        const MAX_SNAP_DISTANCE = 5;
         const MAX_OFF_ROUTE_DISTANCE = 200;
 
         let isOffRoute = false;
@@ -2169,6 +2169,7 @@ function VehiclesMarker({
           <div key={v.vehicle?.licensePlate ?? idx}>
             {v && (
               <AnimatedVehicleMarker
+                key={`${route?.route_id ?? ""}-${direction}`}
                 position={{
                   lat: isOffRoute
                     ? busPoint.geometry.coordinates[1] || 0
