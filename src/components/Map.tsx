@@ -10,6 +10,7 @@ import {
 import L, { divIcon, Polyline as LeafletPolyline } from "leaflet";
 import { Link, useSearchParams } from "react-router";
 import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
 import type { LatLngExpression } from "leaflet";
 import { Button } from "./ui/button";
@@ -1242,6 +1243,102 @@ function UserLocation() {
   return null;
 }
 
+function AnimatedVehicleMarker({
+  position,
+  icon,
+  heading,
+  children,
+}: {
+  position: { lat: number; lng: number };
+  icon: L.DivIcon;
+  heading: number;
+  children: ReactNode;
+}) {
+  const markerRef = useRef<L.Marker | null>(null);
+  const initialPositionRef = useRef(position);
+  const previousHeadingRef = useRef(heading);
+
+  useEffect(() => {
+    const marker = markerRef.current;
+    if (!marker) return;
+
+    const target = L.latLng(position.lat, position.lng);
+    const start = marker.getLatLng();
+    if (start.equals(target)) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      marker.setLatLng(target);
+      return;
+    }
+
+    const duration = 900;
+    const startedAt = performance.now();
+    let frameId = 0;
+
+    const animate = (now: number) => {
+      const progress = Math.min((now - startedAt) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+      marker.setLatLng([
+        start.lat + (target.lat - start.lat) * easedProgress,
+        start.lng + (target.lng - start.lng) * easedProgress,
+      ]);
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(animate);
+      }
+    };
+
+    frameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frameId);
+  }, [position.lat, position.lng]);
+
+  useEffect(() => {
+    const image = markerRef.current
+      ?.getElement()
+      ?.querySelector("img") as HTMLImageElement | null;
+    if (!image) return;
+
+    const previousHeading = previousHeadingRef.current;
+    const turn = ((heading - previousHeading + 540) % 360) - 180;
+    const targetHeading = previousHeading + turn;
+
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      Math.abs(turn) < 0.01
+    ) {
+      image.style.transform = `rotate(${targetHeading}deg)`;
+      previousHeadingRef.current = targetHeading;
+      return;
+    }
+
+    image.style.transition = "transform 900ms cubic-bezier(0.16, 1, 0.3, 1)";
+    let secondFrameId = 0;
+    const firstFrameId = requestAnimationFrame(() => {
+      image.style.transform = `rotate(${previousHeading}deg)`;
+      secondFrameId = requestAnimationFrame(() => {
+        image.style.transform = `rotate(${targetHeading}deg)`;
+        previousHeadingRef.current = targetHeading;
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(firstFrameId);
+      cancelAnimationFrame(secondFrameId);
+    };
+  }, [heading]);
+
+  return (
+    <Marker
+      ref={markerRef}
+      position={initialPositionRef.current}
+      icon={icon}
+    >
+      {children}
+    </Marker>
+  );
+}
+
 function VehiclesMarker({
   direction,
   route,
@@ -2064,11 +2161,14 @@ function VehiclesMarker({
         if (idx2 >= coords.length - 1) idx2 = coords.length - 2;
         const start = coords[idx2];
         const end = coords[idx2 + 1];
+        const heading = isOffRoute
+          ? v.position?.bearing || 0
+          : bearing(point(start), point(end));
 
         return (
-          <div key={idx}>
+          <div key={v.vehicle?.licensePlate ?? idx}>
             {v && (
-              <Marker
+              <AnimatedVehicleMarker
                 position={{
                   lat: isOffRoute
                     ? busPoint.geometry.coordinates[1] || 0
@@ -2077,14 +2177,9 @@ function VehiclesMarker({
                     ? busPoint.geometry.coordinates[0] || 0
                     : snapped.geometry.coordinates[0] || 0,
                 }}
+                heading={heading}
                 icon={busIcon(
-                  isOffRoute
-                    ? v.position?.bearing || 0
-                    : provider !== "rkl" && provider !== "rp"
-                      ? bearing(point(start), point(end)) ||
-                        v.position?.bearing ||
-                        0
-                      : v.position?.bearing || 0,
+                  heading,
                   v.trip?.tripId,
                   v.trip?.routeId,
                   route?.route_short_name,
@@ -2158,7 +2253,7 @@ function VehiclesMarker({
                       )}
                   </div>
                 </Popup>
-              </Marker>
+              </AnimatedVehicleMarker>
             )}
           </div>
         );
