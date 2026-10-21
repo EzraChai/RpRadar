@@ -1299,16 +1299,19 @@ function AnimatedVehicleMarker({
       ?.querySelector("img") as HTMLImageElement | null;
     if (!image) return;
 
-    const previousHeading = previousHeadingRef.current;
-    const turn = ((heading - previousHeading + 540) % 360) - 180;
+    const normalizeHeading = (value: number) => ((value % 360) + 360) % 360;
+    const previousHeading = normalizeHeading(previousHeadingRef.current);
+    const normalizedHeading = normalizeHeading(heading);
+    const turn =
+      (((normalizedHeading - previousHeading + 540) % 360) + 360) % 360 - 180;
     const targetHeading = previousHeading + turn;
 
     if (
       window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
       Math.abs(turn) < 0.01
     ) {
-      image.style.transform = `rotate(${targetHeading}deg)`;
-      previousHeadingRef.current = targetHeading;
+      image.style.transform = `rotate(${normalizedHeading}deg)`;
+      previousHeadingRef.current = normalizedHeading;
       return;
     }
 
@@ -1318,7 +1321,7 @@ function AnimatedVehicleMarker({
       image.style.transform = `rotate(${previousHeading}deg)`;
       secondFrameId = requestAnimationFrame(() => {
         image.style.transform = `rotate(${targetHeading}deg)`;
-        previousHeadingRef.current = targetHeading;
+        previousHeadingRef.current = normalizeHeading(targetHeading);
       });
     });
 
