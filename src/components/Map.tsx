@@ -618,7 +618,7 @@ function App() {
                   {/* Bullet */}
                   <div className="flex w-3 flex-col items-center mr-1">
                     <div
-                      className={`w-3 h-3 absolute rounded-full ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-blue-600"} z-10`}
+                      className={`w-3 h-3 absolute rounded-full ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-[#78BFF5]"} z-10`}
                     ></div>
                     {/* Vertical line */}
                     {idx <
@@ -627,7 +627,7 @@ function App() {
                       )?.stops.length ?? 0) -
                         1 && (
                       <div
-                        className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-blue-500"}`}
+                        className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-[#87CEFA]"}`}
                       ></div>
                     )}
                   </div>
@@ -794,7 +794,7 @@ function App() {
         <>
           <Polyline
             ref={polylineRef}
-            pathOptions={{ color: color, weight: 5 }}
+            pathOptions={{ color: color, weight: 7 }}
             positions={positions}
           />
           {positions.length &&
@@ -841,7 +841,7 @@ function App() {
               provider !== "rkl" && provider !== "rp"
                 ? lighterHex(color, 40)
                 : color,
-            weight: 5,
+            weight: 7,
           }}
           positions={positions}
         />
@@ -1017,7 +1017,7 @@ function App() {
                 ? "#28ab78"
                 : provider !== "rkl" && provider !== "rp"
                   ? "#e74e9f"
-                  : "blue"
+                  : "#78BFF5"
             }
           />
         )}
@@ -1035,7 +1035,7 @@ function App() {
                   key={route.route_id}
                   pathOptions={{
                     color: "#" + route.route_color,
-                    weight: 6,
+                    weight: 7,
                     opacity: 0.6,
                   }}
                   positions={

@@ -342,7 +342,7 @@ export function DrawerMobile({
                             className={`flex flex-col items-center w-4 mr-2`}
                           >
                             <div
-                              className={`w-3 h-3 absolute rounded-full  ${provider === "rkl" && route?.directions[0].route_long_name === route?.route_short_name ? "bg-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-500" : "bg-blue-600"}  z-10`}
+                              className={`w-3 h-3 absolute rounded-full  ${provider === "rkl" && route?.directions[0].route_long_name === route?.route_short_name ? "bg-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-500" : "bg-[#78BFF5]"}  z-10`}
                             ></div>
                             {/* Vertical line */}
                             {idx <
@@ -351,7 +351,7 @@ export function DrawerMobile({
                               )[0].stops.length -
                                 1 && (
                               <div
-                                className={` h-full w-1 ${provider === "rkl" && route?.directions[0].route_long_name === route?.route_short_name ? "bg-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-500" : "bg-blue-500"}`}
+                                className={` h-full w-1 ${provider === "rkl" && route?.directions[0].route_long_name === route?.route_short_name ? "bg-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-500" : "bg-[#87CEFA]"}`}
                               ></div>
                             )}
                           </div>
