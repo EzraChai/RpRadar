@@ -281,17 +281,16 @@ function App() {
     return provider === "jb" || provider === "mk" ? 1 : 0;
   });
   const [positions, setPositions] = useState<LatLngExpression[][]>([]);
+  const [positionsDirection, setPositionsDirection] = useState(direction);
   const { theme } = useTheme();
   const isMobile = useIsMobile();
 
   useEffect(() => {
     if (searchParams.get("id") === null) {
-      if (provider === "jb" || provider === "mk") {
-        setDirection(1);
-      } else {
-        setDirection(0);
-      }
+      const defaultDirection = provider === "jb" || provider === "mk" ? 1 : 0;
+      setDirection(defaultDirection);
       setPositions([]);
+      setPositionsDirection(defaultDirection);
       return;
     }
     if (searchParams.get("id")) {
@@ -456,11 +455,13 @@ function App() {
           filteredShape[0].geometry
             .coordinates as unknown as LatLngExpression[][],
         );
+        setPositionsDirection(direction);
       }
     } else {
       if (isMobile) {
         setDirection(0);
         setPositions([]);
+        setPositionsDirection(0);
       }
     }
   }, [route?.directions, direction, isMobile, searchParams]);
@@ -1024,7 +1025,7 @@ function App() {
         )}
         <VehiclesMarker
           key={provider}
-          positions={positions}
+          positions={positionsDirection === direction ? positions : []}
           direction={direction}
           route={route}
         />
