@@ -1308,46 +1308,47 @@ function AnimatedVehicleMarker({
     const image = markerRef.current
       ?.getElement()
       ?.querySelector("img") as HTMLImageElement | null;
+
     if (!image) return;
 
-    const normalizeHeading = (value: number) => ((value % 360) + 360) % 360;
-    const normalizedHeading = normalizeHeading(heading);
+    const normalize = (value: number) => ((value % 360) + 360) % 360;
+
+    const targetHeading = normalize(heading);
+
+    // Direction changed: snap immediately without animation
     if (previousHeadingDirectionRef.current !== direction) {
       previousHeadingDirectionRef.current = direction;
+      previousHeadingRef.current = targetHeading;
+
       image.style.transition = "none";
-      image.style.transform = `rotate(${normalizedHeading}deg)`;
-      previousHeadingRef.current = normalizedHeading;
+      image.style.transform = `rotate(${targetHeading}deg)`;
+
       return;
     }
 
-    const previousHeading = normalizeHeading(previousHeadingRef.current);
-    const turn =
-      ((((normalizedHeading - previousHeading + 540) % 360) + 360) % 360) - 180;
-    const targetHeading = previousHeading + turn;
+    const previousHeading = normalize(previousHeadingRef.current);
 
-    if (
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      Math.abs(turn) < 0.01
-    ) {
-      image.style.transform = `rotate(${normalizedHeading}deg)`;
-      previousHeadingRef.current = normalizedHeading;
+    // Calculate shortest rotation (-180 to +180)
+    const delta = ((targetHeading - previousHeading + 540) % 360) - 180;
+
+    // Ignore insignificant changes
+    if (Math.abs(delta) < 0.5) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      image.style.transition = "none";
+      image.style.transform = `rotate(${targetHeading}deg)`;
+      previousHeadingRef.current = targetHeading;
       return;
     }
+
+    // Use relative rotation to prevent unnecessary 360-degree turns
+    const nextHeading = previousHeadingRef.current + delta;
 
     image.style.transition = "transform 900ms cubic-bezier(0.16, 1, 0.3, 1)";
-    let secondFrameId = 0;
-    const firstFrameId = requestAnimationFrame(() => {
-      image.style.transform = `rotate(${previousHeading}deg)`;
-      secondFrameId = requestAnimationFrame(() => {
-        image.style.transform = `rotate(${targetHeading}deg)`;
-        previousHeadingRef.current = normalizeHeading(targetHeading);
-      });
-    });
 
-    return () => {
-      cancelAnimationFrame(firstFrameId);
-      cancelAnimationFrame(secondFrameId);
-    };
+    image.style.transform = `rotate(${nextHeading}deg)`;
+
+    previousHeadingRef.current = nextHeading;
   }, [direction, heading]);
 
   return (
