@@ -1322,7 +1322,7 @@ function AnimatedVehicleMarker({
 
     const previousHeading = normalizeHeading(previousHeadingRef.current);
     const turn =
-      (((normalizedHeading - previousHeading + 540) % 360) + 360) % 360 - 180;
+      ((((normalizedHeading - previousHeading + 540) % 360) + 360) % 360) - 180;
     const targetHeading = previousHeading + turn;
 
     if (
@@ -1351,11 +1351,7 @@ function AnimatedVehicleMarker({
   }, [direction, heading]);
 
   return (
-    <Marker
-      ref={markerRef}
-      position={initialPositionRef.current}
-      icon={icon}
-    >
+    <Marker ref={markerRef} position={initialPositionRef.current} icon={icon}>
       {children}
     </Marker>
   );
@@ -1514,6 +1510,10 @@ function VehiclesMarker({
             new Date(bus.dt_gps + " +08:00").getTime() / 1000,
           ),
         }),
+      );
+      console.log(
+        "Received buses:",
+        buses.filter((bus) => bus.vehicle?.licensePlate === "PKX3214"),
       );
 
       setVehicles((prev) => {
@@ -1748,13 +1748,23 @@ function VehiclesMarker({
               d.trip_id.substring(6, d.trip_id.length) ===
               v.trip?.tripId?.substring(6, v.trip?.tripId.length),
           );
+
           if (directions === undefined) {
+            if (!v.trip) return;
+            const dirNum = Number(v.trip.directionId);
+            if (dirNum !== 0 && dirNum !== 1) return;
+            const dirIndex = dirNum as 0 | 1;
+            setDirectionsLocation((prev) => ({
+              ...prev,
+              [dirIndex]: [...prev[dirIndex], v],
+            }));
             return;
           }
           const dirNum = Number(directions.direction_id);
           if (dirNum !== 0 && dirNum !== 1) {
             return;
           }
+
           setDirectionsLocation((prev) => ({
             ...prev,
             [dirNum]: [...prev[dirNum], v],
