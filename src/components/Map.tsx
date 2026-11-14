@@ -1430,7 +1430,10 @@ function VehiclesMarker({
     if (provider !== "rp" && provider !== "rkl") return;
     if (!route?.route_short_name) return;
 
-    const routeId = route.route_short_name;
+    let routeId = route.route_short_name;
+    if (provider !== "rp") {
+      routeId = route.route_id;
+    }
 
     function avlToVehicle(bus: AvlVehicle): transit_realtime.IVehiclePosition {
       // dir "01" → 1, "02" → 0
