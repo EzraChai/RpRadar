@@ -25,16 +25,13 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { DrawerMobile } from "./DrawerMobile";
 import RapidPenangShapes from "@/assets/rp/rp_shapes_flipped.json";
 import RapidPenangRoutes from "@/assets/rp/rp_routes_with_directions.json";
-import RapidPenangDirections from "@/../data/rapid-penang-trips.json";
 import RapidPenangSchedule from "@/../data/rapid-penang-schedule.json";
 import RapidKLShapes from "@/assets/rkl/rkl_shapes_flipped.json";
 import RapidKLRoutes from "@/assets/rkl/rkl_routes_with_directions.json";
-import RapidKLDirections from "@/../data/rapid-kl-trips.json";
 import RapidKLSchedule from "@/../data/rapid-kl-schedule.json";
 import MRTFeederShapes from "@/assets/mrt/mrt_shapes_flipped.json";
 import MRTFeederRoutes from "@/assets/mrt/mrt_routes_with_directions.json";
 import MRTFeederSchedule from "@/../data/mrt-feeder-schedule.json";
-import MRTFeederDirections from "@/../data/mrt-feeder-trips.json";
 import MYBasNSAShapes from "@/assets/ns_a/ns_a_shapes_flipped.json";
 import MYBasNSARoutes from "@/assets/ns_a/ns_a_routes_with_directions.json";
 import MYBasNSASchedule from "@/../data/ns-a-schedule.json";
@@ -115,8 +112,8 @@ import {
   SelectValue,
 } from "./ui/select";
 import { Switch } from "./ui/switch";
-import { socket } from "@/lib/socket";
-import { ungzip } from "pako";
+import { pusher, AVL_API } from "@/lib/pusher";
+import type { AvlVehicle } from "@/lib/pusher";
 
 function darkenHex(hex: string, percent = 10) {
   hex = hex.replace("#", "");
@@ -1386,9 +1383,6 @@ function VehiclesMarker({
   const [vehicles, setVehicles] = useState<
     Map<string, transit_realtime.IVehiclePosition>
   >(new Map());
-  const [intervalId, setIntervalId] = useState<ReturnType<
-    typeof setTimeout
-  > | null>(null);
 
   const [provider, setProvider] = useState<string | undefined>();
   const [BusSchedule, setBusSchedule] =
@@ -1434,105 +1428,66 @@ function VehiclesMarker({
 
   useEffect(() => {
     if (provider !== "rp" && provider !== "rkl") return;
+    if (!route?.route_short_name) return;
 
-    if (socket.connected) {
-      onConnect();
+    const routeId = route.route_short_name;
+
+    function avlToVehicle(bus: AvlVehicle): transit_realtime.IVehiclePosition {
+      // dir "01" → 1, "02" → 0
+      const directionId = bus.dir === "01" ? 1 : 0;
+      return {
+        trip: {
+          tripId: bus.trip_no,
+          routeId: bus.route,
+          directionId,
+        },
+        vehicle: {
+          id: bus.bus_no,
+          label: bus.bus_no,
+          licensePlate: bus.bus_no,
+        },
+        position: {
+          latitude: bus.latitude,
+          longitude: bus.longitude,
+          bearing: bus.angle,
+          speed: bus.speed,
+        },
+        timestamp: Math.floor(
+          new Date(bus.dt_gps + " +08:00").getTime() / 1000,
+        ),
+      };
     }
 
-    function onConnect() {
-      socket.emit("onFts-reload", {
-        sid: "",
-        uid: "",
-        provider:
-          provider === "rp" ? "RPG" : provider === "rkl" ? "RKL" : "N/A",
-        route: "",
-      });
-
-      let intervalId = setInterval(() => {
-        socket.emit("onFts-reload", {
-          sid: "",
-          uid: "",
-          provider:
-            provider === "rp" ? "RPG" : provider === "rkl" ? "RKL" : "N/A",
-          route: "",
+    // 1. Fetch the latest snapshot from the REST API
+    fetch(`${AVL_API}/${routeId}`)
+      .then((res) => res.json())
+      .then((data: { vehicles: AvlVehicle[] }) => {
+        setVehicles((prev) => {
+          const updated = new Map(prev);
+          data.vehicles.forEach((bus) => {
+            updated.set(bus.bus_no, avlToVehicle(bus));
+          });
+          return updated;
         });
-      }, 5000);
+      })
+      .catch(() => {});
 
-      setIntervalId(intervalId);
-    }
+    // 2. Subscribe to the Pusher channel for live updates
+    const channel = pusher.subscribe(`avl.route.${routeId}`);
 
-    function onDisconnect() {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    }
-
-    socket.on("connect", onConnect);
-    socket.on("disconnect", onDisconnect);
-
-    socket.on("onFts-client", (compressed: string) => {
-      const bytes = Uint8Array.from(atob(compressed), (c) => c.charCodeAt(0));
-
-      const json = ungzip(bytes, {
-        toText: true,
-      });
-
-      const parsedBuses = JSON.parse(json) as {
-        trip_no: string;
-        route: string;
-        bus_no: string;
-        latitude: number;
-        longitude: number;
-        dir: number;
-        angle: number;
-        speed: number;
-        dt_gps: string;
-      }[];
-
-      const buses: transit_realtime.IVehiclePosition[] = parsedBuses.map(
-        (bus): transit_realtime.IVehiclePosition => ({
-          trip: {
-            tripId: bus.trip_no,
-            routeId: bus.route,
-            directionId: bus.dir,
-          },
-          vehicle: {
-            id: bus.bus_no,
-            label: bus.bus_no,
-            licensePlate: bus.bus_no,
-          },
-          position: {
-            latitude: bus.latitude,
-            longitude: bus.longitude,
-            bearing: bus.angle,
-            speed: bus.speed,
-          },
-          timestamp: Math.floor(
-            new Date(bus.dt_gps + " +08:00").getTime() / 1000,
-          ),
-        }),
-      );
-      console.log(
-        "Received buses:",
-        buses.filter((bus) => bus.vehicle?.licensePlate === "PKX3214"),
-      );
-
+    channel.bind("avl.data", (bus: AvlVehicle) => {
       setVehicles((prev) => {
         const updated = new Map(prev);
-        buses.forEach((bus: transit_realtime.IVehiclePosition) => {
-          const plate = bus.vehicle?.licensePlate;
-          if (!bus || !plate) return;
-          updated.set(plate, bus);
-        });
+        updated.set(bus.bus_no, avlToVehicle(bus));
         return updated;
       });
     });
 
     return () => {
-      socket.off("connect", onConnect);
-      socket.off("disconnect", onDisconnect);
+      pusher.unsubscribe(`avl.route.${routeId}`);
+      setVehicles(new Map());
     };
-  }, [provider]);
+  }, [provider, route?.route_short_name]);
 
   useEffect(() => {
     if (!provider || provider === "rp" || provider === "rkl") return;
@@ -1719,105 +1674,27 @@ function VehiclesMarker({
   useEffect(() => {
     setDirectionsLocation({ 0: [], 1: [] });
     if (provider === "rp") {
-      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
-        (v) =>
-          v.trip?.routeId === route?.route_short_name ||
-          (route?.route_short_name === "502" && "502." === v.trip?.routeId),
-      );
+      const vehicleForThisRoute = Array.from(vehicles.values());
 
       vehicleForThisRoute.forEach((v) => {
-        const directions = RapidPenangDirections.find(
-          (d) => d.trip_id === v.trip?.tripId,
-        );
-        if (directions === undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum !== 0 && dirNum !== 1) {
-            return;
-          }
+        const dirNum = Number(v.trip?.directionId);
+        if (dirNum === 0 || dirNum === 1) {
           setDirectionsLocation((prev) => ({
             ...prev,
-            [dirNum]: [...prev[dirNum], v],
-          }));
-        } else {
-          const directions = RapidPenangDirections.find(
-            (d) =>
-              d.trip_id.substring(6, d.trip_id.length) ===
-              v.trip?.tripId?.substring(6, v.trip?.tripId.length),
-          );
-
-          if (directions === undefined) {
-            if (!v.trip) return;
-            const dirNum = Number(v.trip.directionId);
-            if (dirNum !== 0 && dirNum !== 1) return;
-            const dirIndex = dirNum as 0 | 1;
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirIndex]: [...prev[dirIndex], v],
-            }));
-            return;
-          }
-          const dirNum = Number(directions.direction_id);
-          if (dirNum !== 0 && dirNum !== 1) {
-            return;
-          }
-
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [dirNum]: [...prev[dirNum], v],
+            [dirNum]: [...prev[dirNum as 0 | 1], v],
           }));
         }
       });
     } else if (provider === "rkl") {
-      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
-        (v) =>
-          v.trip?.routeId === route?.route_id ||
-          v.trip?.routeId === route?.route_short_name + "0",
-      );
+      const vehicleForThisRoute = Array.from(vehicles.values());
 
       vehicleForThisRoute.forEach((v) => {
-        const dir = Number(v.trip?.directionId);
-        if (dir > 0 && dir < 3) {
-          if (dir === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [1]: [...prev[1], v],
-            }));
-          } else if (dir === 2) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [0]: [...prev[0], v],
-            }));
-          }
-          return;
-        }
-
-        let directions = RapidKLDirections.find(
-          (d) => d.trip_id === v.trip?.tripId,
-        );
-        if (!directions) {
-          directions = MRTFeederDirections.find(
-            (d) => d.trip_id === v.trip?.tripId,
-          );
-        }
-
-        if (directions === undefined && route?.directions.length === 1) {
+        const dirNum = Number(v.trip?.directionId);
+        if (dirNum === 0 || dirNum === 1) {
           setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
+            ...prev,
+            [dirNum]: [...prev[dirNum as 0 | 1], v],
           }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum], v],
-            }));
-          }
         }
       });
     } else if (provider === "ns") {
@@ -2240,21 +2117,20 @@ function VehiclesMarker({
                     )}
                     <p>
                       {(() => {
-                        const currentBus = BusSchedule.find(
+                        const schedEntries = BusSchedule.filter(
                           (s) =>
                             s.r === route?.route_id &&
-                            s.d === direction &&
                             s.dt === getCurrentDateEvenAfter12(),
                         );
-                        if (!currentBus) return "";
-
-                        const idx = currentBus.trip_ids.findIndex(
-                          (id) => id === v.trip?.tripId,
-                        );
-
-                        return idx >= 0
-                          ? `Departure: ${currentBus.t[idx].substring(0, 5)}`
-                          : "";
+                        for (const entry of schedEntries) {
+                          const idx = entry.trip_ids.findIndex(
+                            (id) => id === v.trip?.tripId,
+                          );
+                          if (idx >= 0) {
+                            return `Departure: ${entry.t[idx].substring(0, 5)}`;
+                          }
+                        }
+                        return "";
                       })()}
                     </p>
                     {provider === "rp" &&
@@ -2265,20 +2141,18 @@ function VehiclesMarker({
                           {"Heading: "}
                           {findT310Heading(
                             (() => {
-                              const currentBus = BusSchedule.find(
+                              const schedEntries = BusSchedule.filter(
                                 (s) =>
                                   s.r === route?.route_id &&
-                                  s.d === direction &&
                                   s.dt === getCurrentDateEvenAfter12(),
                               );
-
-                              if (!currentBus) return "";
-
-                              const idx = currentBus.trip_ids.findIndex(
-                                (id) => id === v.trip?.tripId,
-                              );
-
-                              return idx >= 0 ? currentBus.t[idx] : "";
+                              for (const entry of schedEntries) {
+                                const idx = entry.trip_ids.findIndex(
+                                  (id) => id === v.trip?.tripId,
+                                );
+                                if (idx >= 0) return entry.t[idx];
+                              }
+                              return "";
                             })(),
                           )
                             ? "Queensbay Mall"
