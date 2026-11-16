@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useMap } from "react-leaflet";
 import { ModeToggle } from "./mode-toggle";
-import { Search, X, TramFront } from "lucide-react";
+import { Search, X, TramFront, TrafficCone } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardHeader, CardTitle } from "./ui/card";
 import {
@@ -58,10 +58,14 @@ export function AppSidebar({
   setPositions,
   setRailVisible,
   railVisible,
+  trafficVisible,
+  setTrafficVisible,
 }: {
   setPositions: Dispatch<SetStateAction<L.LatLngExpression[][]>>;
   setRailVisible: Dispatch<SetStateAction<boolean>>;
   railVisible: boolean;
+  trafficVisible?: boolean;
+  setTrafficVisible?: Dispatch<SetStateAction<boolean>>;
 }) {
   const map = useMap();
   const [openSearch, setOpenSearch] = useState(false);
@@ -243,6 +247,38 @@ export function AppSidebar({
           <SidebarFooter>
             <div className="flex justify-end">
               <div className="flex gap-2">
+                {setTrafficVisible && (
+                  <Button
+                    onClick={() => {
+                      setTrafficVisible((prev) => {
+                        const newValue = !prev;
+                        localStorage.setItem(
+                          "trafficVisible",
+                          newValue.toString(),
+                        );
+                        return newValue;
+                      });
+                    }}
+                    variant="ghost"
+                    className="z-1005"
+                    size="icon"
+                    title={
+                      trafficVisible
+                        ? "Hide traffic layer"
+                        : "Show traffic layer"
+                    }
+                  >
+                    {trafficVisible ? (
+                      <TrafficCone />
+                    ) : (
+                      <span className="relative overflow-hidden">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex bg-white w-0.5 -rotate-45 h-full" />
+                        <TrafficCone />
+                      </span>
+                    )}
+                    <span className="sr-only">Toggle Traffic Visibility</span>
+                  </Button>
+                )}
                 {provider === "rkl" && (
                   <Button
                     onClick={() => {

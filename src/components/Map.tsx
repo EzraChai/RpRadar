@@ -18,7 +18,7 @@ import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
 import { bearing, lineString, point, nearestPointOnLine } from "@turf/turf";
-import { Minus, Plus, Settings, Star, TrafficCone, X } from "lucide-react";
+import { Minus, Plus, Settings, Star, X } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -159,7 +159,8 @@ function App() {
   });
 
   const [trafficVisible, setTrafficVisible] = useState(() => {
-    return localStorage.getItem("trafficVisible") === "true" || false;
+    const saved = localStorage.getItem("trafficVisible");
+    return saved !== null ? saved === "true" : true;
   });
 
   const [route, setRoute] = useState<
@@ -182,14 +183,6 @@ function App() {
     | undefined
   >();
   const [BusSchedule, setBusSchedule] = useState<BusScheduleType | null>(null);
-
-  // Auto-enable traffic layer when a route is selected
-  useEffect(() => {
-    if (route && !trafficVisible) {
-      setTrafficVisible(true);
-      localStorage.setItem("trafficVisible", "true");
-    }
-  }, [route]);
 
   useEffect(() => {
     switch (provider) {
@@ -519,54 +512,6 @@ function App() {
           }}
         >
           <Minus />
-        </Button>
-      </Card>
-    );
-  }
-
-  function TrafficToggleButton({
-    trafficVisible,
-    setTrafficVisible,
-    isMobile,
-  }: {
-    trafficVisible: boolean;
-    setTrafficVisible: (v: boolean) => void;
-    isMobile: boolean;
-  }) {
-    const map = useMap();
-    return (
-      <Card
-        onMouseEnter={() => {
-          map.doubleClickZoom.disable();
-          map.scrollWheelZoom.disable();
-        }}
-        onMouseLeave={() => {
-          map.doubleClickZoom.disable();
-          map.scrollWheelZoom.enable();
-        }}
-        className={`absolute overflow-hidden p-0 gap-0 ${isMobile ? "top-48" : "top-36"} right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg rounded-2xl shadow-md text-lg font-semibold transition-colors ${
-          trafficVisible
-            ? "bg-red-500/20 dark:bg-red-600/20"
-            : "bg-white/50 dark:bg-white/10"
-        }`}
-      >
-        <Button
-          style={{ touchAction: "none" }}
-          className="rounded-none"
-          variant={"ghost"}
-          onClick={(e) => {
-            e.stopPropagation();
-            const next = !trafficVisible;
-            setTrafficVisible(next);
-            localStorage.setItem("trafficVisible", next.toString());
-          }}
-          title={trafficVisible ? "Hide traffic layer" : "Show traffic layer"}
-        >
-          <TrafficCone
-            className={
-              trafficVisible ? "text-white" : "text-black dark:text-white"
-            }
-          />
         </Button>
       </Card>
     );
@@ -1048,6 +993,8 @@ function App() {
             setPositions={setPositions}
             setRailVisible={setRailVisible}
             railVisible={railVisible}
+            trafficVisible={trafficVisible}
+            setTrafficVisible={setTrafficVisible}
           />
         )}
 
@@ -1149,105 +1096,113 @@ function App() {
         )}
 
         <CustomZoomControls />
-        <TrafficToggleButton
-          trafficVisible={trafficVisible}
-          setTrafficVisible={setTrafficVisible}
-          isMobile={isMobile}
-        />
-        {isMobile && (
-          <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-24.75 mr-px right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
-            {/* <ModeToggle /> */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
-                  style={{
-                    touchAction: "none",
-                  }}
-                  className="rounded-none"
-                  variant={"ghost"}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                  }}
-                >
-                  <Settings className="text-sm" />
+        <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-24.75 mr-px right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+          {/* <ModeToggle /> */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                style={{
+                  touchAction: "none",
+                }}
+                className="rounded-none"
+                variant={"ghost"}
+                onClick={(e) => {
+                  e.stopPropagation();
+                }}
+              >
+                <Settings className="text-sm" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="z-1003 backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/20 rounded-[10px] outline-none">
+              <DialogHeader>
+                <DialogTitle className="text-left">Settings</DialogTitle>
+              </DialogHeader>
+              <div className="flex items-center">
+                <div className="flex-1">
+                  <h1 className="text-neutral-800 dark:text-neutral-100">
+                    Theme
+                  </h1>
+                </div>
+                <Button variant={"outline"} className="">
+                  <ModeToggle />
                 </Button>
-              </DialogTrigger>
-              <DialogContent className="z-1003 backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/20 rounded-[10px] outline-none">
-                <DialogHeader>
-                  <DialogTitle className="text-left">Settings</DialogTitle>
-                </DialogHeader>
-                <div className="flex items-center">
-                  <div className="flex-1">
-                    <h1 className="text-neutral-800 dark:text-neutral-100">
-                      Theme
-                    </h1>
-                  </div>
-                  <Button variant={"outline"} className="">
-                    <ModeToggle />
-                  </Button>
+              </div>
+              <div className="flex items-center">
+                <div className="flex-1">
+                  <h1 className="text-neutral-800 dark:text-neutral-100">
+                    Region
+                  </h1>
                 </div>
+                <Select
+                  onValueChange={(value) => {
+                    setProvider(value);
+                    setPositions([]);
+                    setBusSchedule(null);
+                    localStorage.setItem("provider", value);
+                    window.history.replaceState(
+                      {},
+                      "",
+                      window.location.pathname,
+                    );
+                    window.location.reload();
+                  }}
+                  value={provider}
+                >
+                  <SelectTrigger className="bg-white">
+                    <SelectValue placeholder="Select State" />
+                  </SelectTrigger>
+                  <SelectContent className="z-1006 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
+                    <SelectItem value="rp">Penang</SelectItem>
+                    <SelectItem value="rkl">Selangor/KL</SelectItem>
+                    <SelectItem value="ns">Seremban</SelectItem>
+                    <SelectItem value="mk">Melaka</SelectItem>
+                    <SelectItem value="jb">Johor Bahru</SelectItem>
+                    <SelectItem value="pk">Ipoh</SelectItem>
+                    {/* <SelectItem value="ktn">Kuantan</SelectItem> */}
+                    <SelectItem value="alr">Alor Setar</SelectItem>
+                    <SelectItem value="kgr">Kangar</SelectItem>
+                    <SelectItem value="ktb">Kota Bharu</SelectItem>
+                    <SelectItem value="trg">Kuala Terengganu</SelectItem>
+                    <SelectItem value="sw">Kuching</SelectItem>
+                    {/* <SelectItem value="ktmb">KTMB</SelectItem> */}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="flex items-center">
+                <div className="flex-1">
+                  <h1 className="text-neutral-800 dark:text-neutral-100">
+                    Traffic Jam Indicator
+                  </h1>
+                </div>
+                <Switch
+                  className="data-[state=checked]:bg-neutral-800!"
+                  checked={trafficVisible}
+                  onCheckedChange={(checked) => {
+                    setTrafficVisible(checked);
+                    localStorage.setItem("trafficVisible", checked.toString());
+                  }}
+                />
+              </div>
+              {provider === "rkl" && (
                 <div className="flex items-center">
                   <div className="flex-1">
                     <h1 className="text-neutral-800 dark:text-neutral-100">
-                      Region
+                      Show Rails
                     </h1>
                   </div>
-                  <Select
-                    onValueChange={(value) => {
-                      setProvider(value);
-                      setPositions([]);
-                      setBusSchedule(null);
-                      localStorage.setItem("provider", value);
-                      window.history.replaceState(
-                        {},
-                        "",
-                        window.location.pathname,
-                      );
-                      window.location.reload();
+                  <Switch
+                    className="data-[state=checked]:bg-neutral-800!"
+                    checked={railVisible}
+                    onCheckedChange={(checked) => {
+                      setRailVisible(checked);
+                      localStorage.setItem("railVisible", checked.toString());
                     }}
-                    value={provider}
-                  >
-                    <SelectTrigger className="bg-white">
-                      <SelectValue placeholder="Select State" />
-                    </SelectTrigger>
-                    <SelectContent className="z-1006 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
-                      <SelectItem value="rp">Penang</SelectItem>
-                      <SelectItem value="rkl">Selangor/KL</SelectItem>
-                      <SelectItem value="ns">Seremban</SelectItem>
-                      <SelectItem value="mk">Melaka</SelectItem>
-                      <SelectItem value="jb">Johor Bahru</SelectItem>
-                      <SelectItem value="pk">Ipoh</SelectItem>
-                      {/* <SelectItem value="ktn">Kuantan</SelectItem> */}
-                      <SelectItem value="alr">Alor Setar</SelectItem>
-                      <SelectItem value="kgr">Kangar</SelectItem>
-                      <SelectItem value="ktb">Kota Bharu</SelectItem>
-                      <SelectItem value="trg">Kuala Terengganu</SelectItem>
-                      <SelectItem value="sw">Kuching</SelectItem>
-                      {/* <SelectItem value="ktmb">KTMB</SelectItem> */}
-                    </SelectContent>
-                  </Select>
+                  />
                 </div>
-                {provider === "rkl" && (
-                  <div className="flex items-center">
-                    <div className="flex-1">
-                      <h1 className="text-neutral-800 dark:text-neutral-100">
-                        Show Rails
-                      </h1>
-                    </div>
-                    <Switch
-                      className="data-[state=checked]:bg-neutral-800!"
-                      checked={railVisible}
-                      onCheckedChange={(checked) => {
-                        setRailVisible(checked);
-                        localStorage.setItem("railVisible", checked.toString());
-                      }}
-                    />
-                  </div>
-                )}
-              </DialogContent>
-            </Dialog>
-          </Card>
-        )}
+              )}
+            </DialogContent>
+          </Dialog>
+        </Card>
         <UserLocation />
         {!isMobile && route && (
           <>
@@ -1507,20 +1462,28 @@ function VehiclesMarker({
     function avlToVehicle(bus: AvlVehicle): transit_realtime.IVehiclePosition {
       // dir "01" → 1, "02" → 0
       let directionId: number;
-      console.log(bus.bus_no + " " + bus.trip_no + " " + bus.dir);
-      if (bus.dir === "01") {
+      // console.log(bus.bus_no + " " + bus.trip_no + " " + bus.dir);
+      if (
+        bus.route === "T310" ||
+        bus.route === "CAT" ||
+        bus.route === "103" ||
+        bus.route === "CT15"
+      ) {
+        directionId = 0;
+      } else if (bus.dir === "01") {
         directionId = 1;
       } else if (bus.dir === "02") {
         directionId = 0;
       } else {
-        console.warn(`Unrecognized direction: ${bus.dir}`);
-        console.log(bus.bus_no + " " + bus.trip_no);
+        // console.warn(`Unrecognized direction: ${bus.dir}`);
+        // console.log(bus.bus_no + " " + bus.trip_no);
         directionId =
           RapidPenangSchedule.find((b) => b.trip_ids.includes(bus.trip_no))
             ?.d ?? 0; // default to 0 if dir is not recognized
         // console.log(bus.bus_no + " " + directionId);
         // directionId = 0;
       }
+      console.log(bus.bus_no + " " + bus.trip_no + " " + directionId);
       return {
         trip: {
           tripId: bus.trip_no,
