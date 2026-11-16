@@ -9421,7 +9421,7 @@
     "route_short_name": "304",
     "directions": [
       {
-        "direction_id": 1,
+        "direction_id": 0,
         "shape_id": "1000001009",
         "route_long_name": "BUKIT GEDUNG - GURNEY",
         "stops": [
@@ -9878,7 +9878,7 @@
         ]
       },
       {
-        "direction_id": 0,
+        "direction_id": 1,
         "shape_id": "1000001008",
         "route_long_name": "GURNEY - BUKIT GEDUNG",
         "stops": [
