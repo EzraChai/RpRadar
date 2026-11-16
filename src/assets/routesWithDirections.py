@@ -68,8 +68,8 @@ for (route_id, direction_id, shape_id), trip_list in grouped.items():
     if route_id not in routes_index:
         route_entry = {
             "route_id": route_id,
-            "route_short_name": route_id,
-            "route_long_name": route_info.get("route_long_name"),
+            "route_short_name": route_info.get("route_short_name"),
+            # "route_long_name": route_info.get("route_long_name"),
             "directions": []
         }
 
@@ -77,9 +77,10 @@ for (route_id, direction_id, shape_id), trip_list in grouped.items():
         output.append(route_entry)
 
     if(direction_id == "1"):
+        # print(trips_by_id["shape_id" == shape_id])
         direction_entry = {
             "direction_id": 1,
-            "route_long_name": routes_index[route_id]["route_long_name"],
+            "route_long_name": trip.get("trip_headsign", ""),
             "shape_id": shape_id,
             "service_ids": service_ids,
             "stops": stops_list
@@ -89,7 +90,7 @@ for (route_id, direction_id, shape_id), trip_list in grouped.items():
     else:
         direction_entry = {
             "direction_id": 0,
-            "route_long_name": routes_index[route_id]["route_long_name"],
+            "route_long_name": trip.get("trip_headsign", ""),
             "shape_id": shape_id,
             "service_ids": service_ids,
             "stops": stops_list

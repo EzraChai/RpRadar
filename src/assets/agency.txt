@@ -1,2 +1,2 @@
-agency_id,agency_name,agency_url,agency_timezone,agency_phone,agency_lang
-ktmb,Keretapi Tanah Melayu,https://www.ktmb.com.my/,Asia/Kuala_Lumpur,60322671200,en
+agency_name,agency_url,agency_timezone,agency_phone,agency_lang,agency_id
+Rapid Penang,https://www.myrapid.com.my/,Asia/Kuala_Lumpur,+604 238 1212,en,rapidpg

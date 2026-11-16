@@ -536,7 +536,6 @@ function App() {
     isMobile: boolean;
   }) {
     const map = useMap();
-    if (!routeSelected) return null;
     return (
       <Card
         onMouseEnter={() => {
@@ -1510,20 +1509,20 @@ function VehiclesMarker({
 
     function avlToVehicle(bus: AvlVehicle): transit_realtime.IVehiclePosition {
       // dir "01" → 1, "02" → 0
-      // console.log(bus);
       let directionId: number;
+      console.log(bus.bus_no + " " + bus.trip_no + " " + bus.dir);
       if (bus.dir === "01") {
         directionId = 1;
       } else if (bus.dir === "02") {
         directionId = 0;
       } else {
         console.warn(`Unrecognized direction: ${bus.dir}`);
+        console.log(bus.bus_no + " " + bus.trip_no);
         directionId =
           RapidPenangSchedule.find((b) => b.trip_ids.includes(bus.trip_no))
-            ?.d ?? 0;
-        // directionId = 2;
-        console.log(bus.bus_no + " " + directionId);
-        // directionId = 0; // default to 0 if dir is not recognized
+            ?.d ?? 0; // default to 0 if dir is not recognized
+        // console.log(bus.bus_no + " " + directionId);
+        // directionId = 0;
       }
       return {
         trip: {
