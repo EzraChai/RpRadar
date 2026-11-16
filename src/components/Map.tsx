@@ -547,9 +547,9 @@ function App() {
           map.doubleClickZoom.disable();
           map.scrollWheelZoom.enable();
         }}
-        className={`absolute overflow-hidden p-0 gap-0 ${isMobile ? "top-44" : "top-36"} right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg rounded-2xl shadow-md text-lg font-semibold transition-colors ${
+        className={`absolute overflow-hidden p-0 gap-0 ${isMobile ? "top-48" : "top-36"} right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg rounded-2xl shadow-md text-lg font-semibold transition-colors ${
           trafficVisible
-            ? "bg-red-500/50 dark:bg-red-600/50"
+            ? "bg-red-500/20 dark:bg-red-600/20"
             : "bg-white/50 dark:bg-white/10"
         }`}
       >
