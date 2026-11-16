@@ -527,12 +527,10 @@ function App() {
   function TrafficToggleButton({
     trafficVisible,
     setTrafficVisible,
-    routeSelected,
     isMobile,
   }: {
     trafficVisible: boolean;
     setTrafficVisible: (v: boolean) => void;
-    routeSelected: boolean;
     isMobile: boolean;
   }) {
     const map = useMap();
@@ -1154,7 +1152,6 @@ function App() {
         <TrafficToggleButton
           trafficVisible={trafficVisible}
           setTrafficVisible={setTrafficVisible}
-          routeSelected={!!route}
           isMobile={isMobile}
         />
         {isMobile && (
