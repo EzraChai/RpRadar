@@ -1425,6 +1425,7 @@ function VehiclesMarker({
   }>({ 0: [], 1: [] });
 
   const timerRef = useRef<number | null>(null);
+  const fetchRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     if (provider !== "rp" && provider !== "rkl") return;
@@ -1462,18 +1463,23 @@ function VehiclesMarker({
     }
 
     // 1. Fetch the latest snapshot from the REST API
-    fetch(`${AVL_API}/${routeId}`)
-      .then((res) => res.json())
-      .then((data: { vehicles: AvlVehicle[] }) => {
-        setVehicles((prev) => {
-          const updated = new Map(prev);
-          data.vehicles.forEach((bus) => {
-            updated.set(bus.bus_no, avlToVehicle(bus));
+    function fetchAvl() {
+      fetch(`${AVL_API}/${routeId}`)
+        .then((res) => res.json())
+        .then((data: { vehicles: AvlVehicle[] }) => {
+          setVehicles((prev) => {
+            const updated = new Map(prev);
+            data.vehicles.forEach((bus) => {
+              updated.set(bus.bus_no, avlToVehicle(bus));
+            });
+            return updated;
           });
-          return updated;
-        });
-      })
-      .catch(() => {});
+        })
+        .catch(() => {});
+    }
+
+    fetchAvl();
+    fetchRef.current = fetchAvl;
 
     // 2. Subscribe to the Pusher channel for live updates
     const channel = pusher.subscribe(`avl.route.${routeId}`);
@@ -1486,8 +1492,17 @@ function VehiclesMarker({
       });
     });
 
+    function handleVisibilityChange() {
+      if (document.visibilityState === "visible") {
+        fetchRef.current?.();
+      }
+    }
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     return () => {
       pusher.unsubscribe(`avl.route.${routeId}`);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      fetchRef.current = null;
       setVehicles(new Map());
     };
   }, [provider, route?.route_short_name]);
@@ -1569,11 +1584,20 @@ function VehiclesMarker({
     // initial load
     loadData();
 
+    fetchRef.current = loadData;
+
     if (timerRef.current !== null) {
       clearInterval(timerRef.current);
     }
 
     timerRef.current = window.setInterval(loadData, 10000); // every 10 seconds
+
+    function handleVisibilityChange() {
+      if (document.visibilityState === "visible") {
+        fetchRef.current?.();
+      }
+    }
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     // cleanup
     return () => {
@@ -1581,6 +1605,8 @@ function VehiclesMarker({
         window.clearInterval(timerRef.current);
         timerRef.current = null;
       }
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      fetchRef.current = null;
       setVehicles(new Map());
     };
   }, [provider]); // re-run if provider changes
