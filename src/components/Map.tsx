@@ -1462,13 +1462,22 @@ function VehiclesMarker({
     function avlToVehicle(bus: AvlVehicle): transit_realtime.IVehiclePosition {
       // dir "01" → 1, "02" → 0
       let directionId: number;
-      // console.log(bus.bus_no + " " + bus.trip_no + " " + bus.dir);
+      console.log(bus);
+      console.log(bus.bus_no + " " + bus.trip_rev_kind);
+      if (bus.is_inside_endstop === "depot") {
+        return {};
+      }
       if (
         bus.route === "T310" ||
         bus.route === "CAT" ||
         bus.route === "103" ||
         bus.route === "CT15"
       ) {
+        if (
+          !RapidPenangSchedule.find((b) => b.trip_ids.includes(bus.trip_no))
+        ) {
+          return {};
+        }
         directionId = 0;
       } else if (bus.dir === "01") {
         directionId = 1;
@@ -1483,7 +1492,6 @@ function VehiclesMarker({
         // console.log(bus.bus_no + " " + directionId);
         // directionId = 0;
       }
-      console.log(bus.bus_no + " " + bus.trip_no + " " + directionId);
       return {
         trip: {
           tripId: bus.trip_no,
@@ -2145,9 +2153,12 @@ function VehiclesMarker({
         if (idx2 >= coords.length - 1) idx2 = coords.length - 2;
         const start = coords[idx2];
         const end = coords[idx2 + 1];
-        const heading = isOffRoute
-          ? v.position?.bearing || 0
-          : bearing(point(start), point(end));
+        const heading =
+          v.position?.bearing != null
+            ? v.position.bearing
+            : start && end
+              ? bearing(point(start), point(end))
+              : 0;
 
         return (
           <div key={v.vehicle?.licensePlate ?? idx}>
