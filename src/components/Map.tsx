@@ -1510,7 +1510,21 @@ function VehiclesMarker({
 
     function avlToVehicle(bus: AvlVehicle): transit_realtime.IVehiclePosition {
       // dir "01" → 1, "02" → 0
-      const directionId = bus.dir === "01" ? 1 : 0;
+      // console.log(bus);
+      let directionId: number;
+      if (bus.dir === "01") {
+        directionId = 1;
+      } else if (bus.dir === "02") {
+        directionId = 0;
+      } else {
+        console.warn(`Unrecognized direction: ${bus.dir}`);
+        directionId =
+          RapidPenangSchedule.find((b) => b.trip_ids.includes(bus.trip_no))
+            ?.d ?? 0;
+        // directionId = 2;
+        console.log(bus.bus_no + " " + directionId);
+        // directionId = 0; // default to 0 if dir is not recognized
+      }
       return {
         trip: {
           tripId: bus.trip_no,
