@@ -18,7 +18,7 @@ import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
 import { bearing, lineString, point, nearestPointOnLine } from "@turf/turf";
-import { Minus, Plus, Settings, Star, X } from "lucide-react";
+import { Minus, Plus, Settings, Star, TrafficCone, X } from "lucide-react";
 import { LocateControl } from "leaflet.locatecontrol";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -114,6 +114,7 @@ import {
 import { Switch } from "./ui/switch";
 import { pusher, AVL_API } from "@/lib/pusher";
 import type { AvlVehicle } from "@/lib/pusher";
+import { TrafficLayer } from "./TrafficLayer";
 
 function darkenHex(hex: string, percent = 10) {
   hex = hex.replace("#", "");
@@ -157,6 +158,10 @@ function App() {
     return localStorage.getItem("railVisible") === "true" || false;
   });
 
+  const [trafficVisible, setTrafficVisible] = useState(() => {
+    return localStorage.getItem("trafficVisible") === "true" || false;
+  });
+
   const [route, setRoute] = useState<
     | {
         route_id: string;
@@ -177,6 +182,14 @@ function App() {
     | undefined
   >();
   const [BusSchedule, setBusSchedule] = useState<BusScheduleType | null>(null);
+
+  // Auto-enable traffic layer when a route is selected
+  useEffect(() => {
+    if (route && !trafficVisible) {
+      setTrafficVisible(true);
+      localStorage.setItem("trafficVisible", "true");
+    }
+  }, [route]);
 
   useEffect(() => {
     switch (provider) {
@@ -506,6 +519,57 @@ function App() {
           }}
         >
           <Minus />
+        </Button>
+      </Card>
+    );
+  }
+
+  function TrafficToggleButton({
+    trafficVisible,
+    setTrafficVisible,
+    routeSelected,
+    isMobile,
+  }: {
+    trafficVisible: boolean;
+    setTrafficVisible: (v: boolean) => void;
+    routeSelected: boolean;
+    isMobile: boolean;
+  }) {
+    const map = useMap();
+    if (!routeSelected) return null;
+    return (
+      <Card
+        onMouseEnter={() => {
+          map.doubleClickZoom.disable();
+          map.scrollWheelZoom.disable();
+        }}
+        onMouseLeave={() => {
+          map.doubleClickZoom.disable();
+          map.scrollWheelZoom.enable();
+        }}
+        className={`absolute overflow-hidden p-0 gap-0 ${isMobile ? "top-44" : "top-36"} right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg rounded-2xl shadow-md text-lg font-semibold transition-colors ${
+          trafficVisible
+            ? "bg-red-500/50 dark:bg-red-600/50"
+            : "bg-white/50 dark:bg-white/10"
+        }`}
+      >
+        <Button
+          style={{ touchAction: "none" }}
+          className="rounded-none"
+          variant={"ghost"}
+          onClick={(e) => {
+            e.stopPropagation();
+            const next = !trafficVisible;
+            setTrafficVisible(next);
+            localStorage.setItem("trafficVisible", next.toString());
+          }}
+          title={trafficVisible ? "Hide traffic layer" : "Show traffic layer"}
+        >
+          <TrafficCone
+            className={
+              trafficVisible ? "text-white" : "text-black dark:text-white"
+            }
+          />
         </Button>
       </Card>
     );
@@ -1008,6 +1072,8 @@ function App() {
           }/{z}/{x}/{y}{r}.png`}
         />
 
+        <TrafficLayer visible={trafficVisible} positions={positions} />
+
         {positions.length !== 0 && (
           <FitBoundsToPolyline
             color={
@@ -1086,6 +1152,12 @@ function App() {
         )}
 
         <CustomZoomControls />
+        <TrafficToggleButton
+          trafficVisible={trafficVisible}
+          setTrafficVisible={setTrafficVisible}
+          routeSelected={!!route}
+          isMobile={isMobile}
+        />
         {isMobile && (
           <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-24.75 mr-px right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
             {/* <ModeToggle /> */}
