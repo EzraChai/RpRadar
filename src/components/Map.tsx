@@ -160,7 +160,7 @@ function App() {
 
   const [trafficVisible, setTrafficVisible] = useState(() => {
     const saved = localStorage.getItem("trafficVisible");
-    return saved !== null ? saved === "true" : true;
+    return saved !== null ? saved === "true" : false;
   });
 
   const [route, setRoute] = useState<
