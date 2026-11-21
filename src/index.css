@@ -207,10 +207,6 @@ body {
     25px 25px,
     25px 25px;
 }
-.maplibregl-ctrl-top-right {
-  top: 88px !important;
-  right: 7px !important;
-}
 
 .maplibregl-ctrl button.maplibregl-ctrl-geolocate {
   /* @apply backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/20 rounded-[10px] outline-none; */
@@ -229,6 +225,11 @@ body {
 
 .maplibregl-ctrl-group:not(:empty) {
   box-shadow: none !important;
+}
+
+.maplibregl-ctrl-top-right {
+  top: 88px !important;
+  right: 7px !important;
 }
 
 .maplibregl-ctrl-group {
