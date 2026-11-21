@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Polyline, useMap } from "react-leaflet";
-import type { LatLngExpression } from "leaflet";
+import { Polyline } from "./maplibre-adapter";
+import type { LatLngExpression } from "./maplibre-adapter";
 
 const TOMTOM_API_KEY = import.meta.env.VITE_TOMTOM_API_KEY as string;
 const REFRESH_INTERVAL_MS = 3 * 60 * 1000; // 3 minutes
@@ -23,14 +23,14 @@ const TRAFFIC_STYLES: Record<
   { color: string; weight: number; opacity: number }
 > = {
   moderate: {
-    color: "#eab308", // Vivid yellow for moderate traffic jam / slowdown
-    weight: 12,
-    opacity: 0.75,
+    color: "#FACC15", // Vivid yellow for moderate traffic jam / slowdown
+    weight: 8,
+    opacity: 0.85,
   },
   heavy: {
     color: "#e53e3e", // Red for heavy traffic jam / closure
-    weight: 12,
-    opacity: 0.75,
+    weight: 8,
+    opacity: 0.85,
   },
 };
 
@@ -140,14 +140,14 @@ function getRouteBbox(flatRoute: [number, number][], padding = 0.01): string {
 interface RouteSegment {
   p1: [number, number]; // [lon, lat]
   p2: [number, number]; // [lon, lat]
-  startDist: number;    // metres along route at p1
-  segLen: number;       // segment length in metres
+  startDist: number; // metres along route at p1
+  segLen: number; // segment length in metres
 }
 
 interface RouteSpatialIndex {
   grid: Map<string, RouteSegment[]>;
   coords: [number, number][]; // [ [lon, lat], ... ]
-  cumDist: number[];          // cumulative metres at each vertex
+  cumDist: number[]; // cumulative metres at each vertex
   totalLengthM: number;
 }
 
@@ -530,22 +530,12 @@ interface TrafficLayerProps {
  * 3. Cooperative yielding to ensure ZERO main-thread lag during UI renders.
  */
 export function TrafficLayer({ positions, visible }: TrafficLayerProps) {
-  const map = useMap();
   const [trafficSegments, setTrafficSegments] =
     useState<ClassifiedTrafficSegments>({ heavy: [], moderate: [] });
   const [loading, setLoading] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   const lastRouteKeyRef = useRef<string>("");
-
-  // Create dedicated pane so traffic polylines sit above tilePane (200) but below overlayPane (400)
-  useEffect(() => {
-    if (!map.getPane("trafficJamPane")) {
-      const pane = map.createPane("trafficJamPane");
-      pane.style.zIndex = "350";
-      pane.style.pointerEvents = "none";
-    }
-  }, [map]);
 
   const refresh = async (flat: [number, number][]) => {
     if (abortRef.current) abortRef.current.abort();
@@ -642,9 +632,7 @@ export function TrafficLayer({ positions, visible }: TrafficLayerProps) {
             opacity: TRAFFIC_STYLES.moderate.opacity,
             lineCap: "round",
             lineJoin: "round",
-            pane: "trafficJamPane",
           }}
-          pane="trafficJamPane"
         />
       ))}
 
@@ -659,9 +647,7 @@ export function TrafficLayer({ positions, visible }: TrafficLayerProps) {
             opacity: TRAFFIC_STYLES.heavy.opacity,
             lineCap: "round",
             lineJoin: "round",
-            pane: "trafficJamPane",
           }}
-          pane="trafficJamPane"
         />
       ))}
     </>

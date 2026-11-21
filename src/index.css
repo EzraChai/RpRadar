@@ -155,131 +155,105 @@ body {
   overscroll-behavior-y: contain; /* or none */
 }
 
-.leaflet-popup-content p {
+.maplibregl-popup-content p {
   margin: 0 !important;
   padding: 0 !important;
 }
-.leaflet-control-attribution {
+.maplibregl-ctrl-attrib {
   opacity: 50% !important;
-  margin-bottom: 8px !important;
-  margin-right: 10px !important;
+  margin: 0 10px 8px 0 !important;
   background: none !important;
   color: var(--foreground) !important;
 }
-
-.leaflet-control-attribution a {
+.maplibregl-ctrl-attrib a {
   color: var(--foreground) !important;
   text-decoration: underline !important;
 }
-
 .scrollable {
-  overscroll-behavior: contain !important; /* or none */
+  overscroll-behavior: contain !important;
 }
-
-.leaflet-container {
+.maplibregl-map {
   height: 100vh;
   width: 100%;
 }
-.leaflet-tooltip {
+.maplibregl-popup {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
 }
-.leaflet-tooltip::before,
-.leaflet-tooltip::after {
-  display: none !important; /* remove the little arrow */
+.maplibregl-popup-tip {
+  display: none !important;
 }
-
-.leaflet-popup-tip-container {
-  display: none !important; /* remove the little arrow */
-}
-
-.leaflet-popup .leaflet-zoom-animated {
-  left: 0 !important;
-  bottom: 0 !important;
-}
-
-.leaflet-popup-content-wrapper {
+.maplibregl-popup-content {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
   border-radius: 0 !important;
-  justify-content: first baseline !important;
 }
-
 #map {
-  background-color: var(--map-background); /* Off-white paper feel */
+  background-color: var(--map-background);
   background-image:
     linear-gradient(to right, var(--graph-major-line), 1px, transparent 1px),
-    /* vertical fine grid */
     linear-gradient(to bottom, var(--graph-major-line), 1px, transparent 1px),
-    /* horizontal fine grid */
     linear-gradient(to right, var(--graph-major-line), 1px, transparent 1px),
-    /* vertical medium grid */
     linear-gradient(to bottom, var(--graph-minor-line), 1px, transparent 1px),
-    /* horizontal medium grid */
     linear-gradient(to right, var(--graph-minor-line), 1px, transparent 1px);
-
-  /* Match the sizes: Minor lines at 20px, Major lines at 100px */
   background-size:
     100% 100%,
     200px 200px,
     200px 200px,
     25px 25px,
     25px 25px;
-  /* background-color: var(--map-background) !important; */
 }
-
-.leaflet-control-locate {
-  @apply border-0!;
-}
-
-.leaflet-bar a {
-  @apply border! cursor-auto! border-white! dark:border-neutral-500! inline-flex! w-full! h-full! px-1! py-0.5! justify-center! items-center! bg-white/50! dark:bg-white/10! backdrop-blur-lg! rounded-2xl! shadow-md! gap-2! whitespace-nowrap! text-sm! font-medium! transition-all! disabled:pointer-events-none! disabled:opacity-50! [&_svg]:pointer-events-none! [&_svg:not([class*='size-'])]:size-4! shrink-0! [&_svg]:shrink-0! outline-none! focus-visible:border-ring! focus-visible:ring-ring/50! focus-visible:ring-[3px]! aria-invalid:ring-destructive/20! dark:aria-invalid:!ring-destructive/40 aria-invalid:!border-destructive;
-  outline: none; /* remove focus outline */
-  -webkit-tap-highlight-color: transparent; /* remove mobile tap highlight */
-}
-.leaflet-top {
-  top: 136px !important;
+.maplibregl-ctrl-top-right {
+  top: 88px !important;
   right: 7px !important;
 }
-
 @media (width >= 64rem) {
-  .leaflet-top {
+  .maplibregl-ctrl-top-right {
     top: 88px !important;
     right: 7px !important;
   }
 }
-
-/* .leaflet-right {
-  right: 7px !important;
-} */
-
-.leaflet-control-locate a .leaflet-control-locate-location-arrow {
-  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-icon lucide-locate"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/></svg>') !important;
-  background-color: var(--foreground) !important;
+.maplibregl-ctrl button.maplibregl-ctrl-geolocate {
+  /* @apply backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/20 rounded-[10px] outline-none; */
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid white !important;
+  border-radius: 1rem !important;
+  background-color: rgb(255 255 255 / 50%) !important;
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%) !important;
 }
 
-.leaflet-control-locate.active a .leaflet-control-locate-location-arrow {
-  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="lightblue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-fixed-icon lucide-locate-fixed"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>') !important;
-  background-color: var(--foreground) !important;
+.maplibregl-ctrl-group:not(:empty) {
+  box-shadow: none !important;
 }
 
-.dark .leaflet-control-locate a .leaflet-control-locate-spinner {
-  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="white" d="M304 48a48 48 0 1 1-96 0 48 48 0 0 1 96 0zm-48 368a48 48 0 1 0 0 96 48 48 0 0 0 0-96zm208-208a48 48 0 1 0 0 96 48 48 0 0 0 0-96zM96 256a48 48 0 1 0-96 0 48 48 0 0 0 96 0zm13 99a48 48 0 1 0 0 96 48 48 0 0 0 0-96zm294 0a48 48 0 1 0 0 96 48 48 0 0 0 0-96zM109 61a48 48 0 1 0 0 96 48 48 0 0 0 0-96z"/></svg>') !important;
-  background-color: var(--foreground) !important;
+.maplibregl-ctrl-group {
+  background: none !important;
 }
 
-.dark .leaflet-control-locate a .leaflet-control-locate-location-arrow {
-  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-icon lucide-locate"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/></svg>') !important;
-  background-color: var(--foreground) !important;
+.dark .maplibregl-ctrl button.maplibregl-ctrl-geolocate {
+  border-color: #737373 !important;
+  background-color: rgb(255 255 255 / 10%) !important;
 }
-
-.dark .leaflet-control-locate.active a .leaflet-control-locate-location-arrow {
-  mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="lightblue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-locate-fixed-icon lucide-locate-fixed"><line x1="2" x2="5" y1="12" y2="12"/><line x1="19" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="5"/><line x1="12" x2="12" y1="19" y2="22"/><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/></svg>') !important;
-  background-color: var(--foreground) !important;
+.dark .maplibregl-ctrl button.maplibregl-ctrl-geolocate .maplibregl-ctrl-icon {
+  filter: invert(1);
+}
+.map-popup .maplibregl-popup-content {
+  padding: 0 !important;
+}
+.map-stop-marker {
+  display: block;
 }
 
 .scroll-hidden::-webkit-scrollbar {

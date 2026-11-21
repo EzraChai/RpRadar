@@ -1,25 +1,36 @@
 import {
   MapContainer,
   Polyline,
-  TileLayer,
   useMap,
   CircleMarker,
   Popup,
   Marker,
-} from "react-leaflet";
-import L, { divIcon, Polyline as LeafletPolyline } from "leaflet";
+  divIcon,
+  fitBoundsOf,
+} from "./maplibre-adapter";
 import { Link, useSearchParams } from "react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
-import type { LatLngExpression } from "leaflet";
+import type {
+  LatLngExpression,
+  CircleMarkerRef,
+  DivIcon,
+} from "./maplibre-adapter";
 import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
-import { bearing, lineString, point, nearestPointOnLine } from "@turf/turf";
+import {
+  along,
+  bearing,
+  distance,
+  length,
+  lineString,
+  point,
+  nearestPointOnLine,
+} from "@turf/turf";
 import { Minus, Plus, Settings, Star, X } from "lucide-react";
-import { LocateControl } from "leaflet.locatecontrol";
 import { useStarredRoutes } from "@/hooks/use-starred-routes";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { DrawerMobile } from "./DrawerMobile";
@@ -94,9 +105,9 @@ import {
   nextBusTime,
 } from "@/lib/utils";
 import { ModeToggle } from "./mode-toggle";
-import "leaflet/dist/leaflet.css";
-import "leaflet.locatecontrol/dist/L.Control.Locate.min.css";
+import "maplibre-gl/dist/maplibre-gl.css";
 import type { BusScheduleType } from "@/hooks/types";
+import { GeolocateControl } from "@vis.gl/react-maplibre";
 import {
   Dialog,
   DialogContent,
@@ -115,6 +126,8 @@ import { Switch } from "./ui/switch";
 import { pusher, AVL_API } from "@/lib/pusher";
 import type { AvlVehicle } from "@/lib/pusher";
 import { TrafficLayer } from "./TrafficLayer";
+
+type IVehiclePosition = transit_realtime.IVehiclePosition;
 
 function darkenHex(hex: string, percent = 10) {
   hex = hex.replace("#", "");
@@ -278,7 +291,7 @@ function App() {
     }
   }, [provider, searchParams]);
 
-  const markerRefs = useRef<{ [key: string]: L.CircleMarker | null }>({});
+  const markerRefs = useRef<{ [key: string]: CircleMarkerRef | null }>({});
   const starredRoutes = useStarredRoutes();
   const [direction, setDirection] = useState(() => {
     return provider === "jb" || provider === "mk" ? 1 : 0;
@@ -532,7 +545,7 @@ function App() {
             map.scrollWheelZoom.enable();
             map.dragging.enable();
           }}
-          className="absolute z-1000 py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-8 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
+          className="absolute z-1000 py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-10 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
         >
           <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
             <div
@@ -561,7 +574,7 @@ function App() {
                 }}
                 to={"/"}
               >
-                <X className="w-5 h-5 text-black dark:text-white" />
+                <X className="w-5 h-5 outline-none text-black dark:text-white" />
               </Link>
             </div>
           </div>
@@ -773,20 +786,6 @@ function App() {
 
   function FitBoundsToPolyline({ color }: { color: string }) {
     const map = useMap();
-    const polylineRef = useRef<LeafletPolyline | null>(null);
-
-    useEffect(() => {
-      if (!polylineRef.current) return;
-
-      const bounds = polylineRef.current.getBounds();
-      if (bounds.isValid()) {
-        map.flyToBounds(bounds, {
-          padding: [10, 10],
-          duration: 0.5, // seconds
-          easeLinearity: 0.25,
-        });
-      }
-    }, [positions]);
 
     if (route?.directions.length === 0) return null;
     if (route?.directions.length === 1) {
@@ -798,7 +797,6 @@ function App() {
       return (
         <>
           <Polyline
-            ref={polylineRef}
             pathOptions={{ color: color, weight: 7 }}
             positions={positions}
           />
@@ -840,7 +838,6 @@ function App() {
     return (
       <>
         <Polyline
-          ref={polylineRef}
           pathOptions={{
             color:
               provider !== "rkl" && provider !== "rp"
@@ -935,6 +932,7 @@ function App() {
       <MapContainer
         id="map"
         preferCanvas={true}
+        theme={theme}
         maxZoom={18}
         zoomControl={false}
         center={
@@ -997,24 +995,6 @@ function App() {
             setTrafficVisible={setTrafficVisible}
           />
         )}
-
-        <TileLayer
-          maxZoom={18}
-          attribution={
-            '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
-          }
-          key={theme}
-          url={`https://tiles.stadiamaps.com/tiles/${
-            theme === "dark"
-              ? "alidade_smooth_dark"
-              : theme === "light"
-                ? "alidade_smooth"
-                : typeof window !== "undefined" &&
-                    window.matchMedia("(prefers-color-scheme: dark)").matches
-                  ? "alidade_smooth_dark"
-                  : "alidade_smooth"
-          }/{z}/{x}/{y}{r}.png`}
-        />
 
         <TrafficLayer visible={trafficVisible} positions={positions} />
 
@@ -1096,11 +1076,12 @@ function App() {
         )}
 
         <CustomZoomControls />
-        <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-24.75 mr-px right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+        <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-36.5 mr-px right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
           {/* <ModeToggle /> */}
           <Dialog>
             <DialogTrigger asChild>
               <Button
+                size="icon"
                 style={{
                   touchAction: "none",
                 }}
@@ -1123,9 +1104,7 @@ function App() {
                     Theme
                   </h1>
                 </div>
-                <Button variant={"outline"} className="">
-                  <ModeToggle />
-                </Button>
+                <ModeToggle variant="outline" size="icon" />
               </div>
               <div className="flex items-center">
                 <div className="flex-1">
@@ -1204,6 +1183,11 @@ function App() {
           </Dialog>
         </Card>
         <UserLocation />
+        <FlyToRoute
+          positions={positions}
+          isMobile={isMobile}
+          routeId={searchParams.get("id")}
+        />
         {!isMobile && route && (
           <>
             <StopsCard />
@@ -1237,31 +1221,51 @@ function App() {
 
 export default App;
 
-function UserLocation() {
+function FlyToRoute({
+  positions,
+  isMobile,
+  routeId,
+}: {
+  positions: LatLngExpression[][];
+  isMobile: boolean;
+  routeId: string | null;
+}) {
   const map = useMap();
 
-  if (!map) return null;
-  if (!LocateControl) return null;
-  document.querySelector(".leaflet-control-locate")?.remove();
-  const lc = new LocateControl({
-    position: "topright",
-    showPopup: false,
-    locateOptions: {
-      enableHighAccuracy: true,
-      watch: true,
-    },
-    strings: {
-      title: "Current Position",
-    },
-  }).addTo(map);
+  useEffect(() => {
+    const bounds = fitBoundsOf(positions);
+    if (!bounds) return;
 
-  const button = lc.getContainer();
-  if (button) {
-    L.DomEvent.on(button, "click", L.DomEvent.stopPropagation);
-    L.DomEvent.on(button, "mousedown", L.DomEvent.stopPropagation); // optional
-  }
+    const nativeMap = map.native;
+    nativeMap.resize();
+    const viewportHeight = nativeMap.getContainer().clientHeight;
+    const padding = isMobile
+      ? {
+          top: 80,
+          right: 48,
+          bottom: Math.round(viewportHeight * 0.34),
+          left: 48,
+        }
+      : { top: 112, right: 400, bottom: 112, left: 240 };
+    nativeMap.fitBounds(bounds.toArray(), {
+      padding,
+      maxZoom: 17.5,
+      duration: 800,
+    });
+  }, [positions, isMobile, map, routeId]);
 
   return null;
+}
+
+function UserLocation() {
+  return (
+    <GeolocateControl
+      position="top-right"
+      positionOptions={{ enableHighAccuracy: true }}
+      trackUserLocation
+      showUserLocation
+    />
+  );
 }
 
 function AnimatedVehicleMarker({
@@ -1269,62 +1273,197 @@ function AnimatedVehicleMarker({
   icon,
   heading,
   direction,
+  routeLine,
+  routeProgress,
+  followsRoute,
+  routeOrientation,
   children,
 }: {
   position: { lat: number; lng: number };
-  icon: L.DivIcon;
+  icon: DivIcon;
   heading: number;
   direction: number;
+  routeLine: ReturnType<typeof lineString>;
+  routeProgress: number;
+  followsRoute: boolean;
+  routeOrientation: 1 | -1;
   children: ReactNode;
 }) {
-  const markerRef = useRef<L.Marker | null>(null);
-  const initialPositionRef = useRef(position);
+  const animationDuration = 1500;
+  const markerRef = useRef<{
+    getLatLng: () => { lat: number; lng: number };
+    setLatLng: (position: [number, number]) => void;
+    getElement: () => HTMLElement | undefined;
+  } | null>(null);
+  // Keep the adapter's declarative coordinates in sync with the imperative animation.
+  // Otherwise a React rerender can restore the marker's mount position.
+  const markerPositionRef = useRef(position);
   const previousHeadingRef = useRef(heading);
   const previousPositionDirectionRef = useRef(direction);
   const previousHeadingDirectionRef = useRef(direction);
+  const currentRouteProgressRef = useRef(routeProgress);
 
   useEffect(() => {
     const marker = markerRef.current;
     if (!marker) return;
 
-    const target = L.latLng(position.lat, position.lng);
+    const target = { lat: position.lat, lng: position.lng };
+    const normalizeHeading = (value: number) => ((value % 360) + 360) % 360;
+    const applyHeading = (value: number) => {
+      const image = marker
+        .getElement()
+        ?.querySelector("img") as HTMLImageElement | null;
+      if (!image) return;
+      const normalizedHeading = normalizeHeading(value);
+      image.style.transition = "none";
+      image.style.transform = `rotate(${normalizedHeading}deg)`;
+      previousHeadingRef.current = normalizedHeading;
+    };
+    const routeLength = length(routeLine, { units: "meters" });
+    const routeHeadingAt = (progress: number, travelSign: number) => {
+      if (routeLength === 0) return normalizeHeading(heading);
+      const lookAhead = 8;
+      let from = progress;
+      let to = Math.max(
+        0,
+        Math.min(routeLength, progress + travelSign * lookAhead),
+      );
+      if (from === to) {
+        from = Math.max(
+          0,
+          Math.min(routeLength, progress - travelSign * lookAhead),
+        );
+        to = progress;
+      }
+      const routeHeading = normalizeHeading(
+        bearing(
+          along(routeLine, from, { units: "meters" }),
+          along(routeLine, to, { units: "meters" }),
+        ),
+      );
+      return routeHeading;
+    };
+    const applyCurrentHeading = (travelSign = routeOrientation) => {
+      applyHeading(
+        followsRoute ? routeHeadingAt(routeProgress, travelSign) : heading,
+      );
+    };
     if (previousPositionDirectionRef.current !== direction) {
       previousPositionDirectionRef.current = direction;
-      marker.setLatLng(target);
+      currentRouteProgressRef.current = routeProgress;
+      markerPositionRef.current = target;
+      marker.setLatLng([target.lat, target.lng]);
+      applyCurrentHeading();
       return;
     }
 
     const start = marker.getLatLng();
-    if (start.equals(target)) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      marker.setLatLng(target);
+    if (!followsRoute) currentRouteProgressRef.current = routeProgress;
+    const startProgress = currentRouteProgressRef.current;
+    const movementSign = routeOrientation;
+    const isPositionNoise = followsRoute
+      ? Math.abs(routeProgress - startProgress) < 8
+      : distance(
+          point([start.lng, start.lat]),
+          point([target.lng, target.lat]),
+          { units: "meters" },
+        ) < 4;
+    if (isPositionNoise) {
+      if (followsRoute) applyCurrentHeading(movementSign);
+      return;
+    }
+    if (start.lat === target.lat && start.lng === target.lng) {
+      if (followsRoute) currentRouteProgressRef.current = routeProgress;
+      markerPositionRef.current = target;
+      if (followsRoute) applyCurrentHeading(movementSign);
       return;
     }
 
-    const duration = 900;
+    // GPS can project onto a distant segment where a route doubles back near a hub.
+    // Avoid animating that projection error as if the bus travelled the whole route.
+    const MAX_ROUTE_ANIMATION_DISTANCE_METERS = 500;
+    if (
+      followsRoute &&
+      Math.abs(routeProgress - startProgress) >
+        MAX_ROUTE_ANIMATION_DISTANCE_METERS
+    ) {
+      currentRouteProgressRef.current = routeProgress;
+      markerPositionRef.current = target;
+      marker.setLatLng([target.lat, target.lng]);
+      applyCurrentHeading(movementSign);
+      return;
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (followsRoute) currentRouteProgressRef.current = routeProgress;
+      markerPositionRef.current = target;
+      marker.setLatLng([target.lat, target.lng]);
+      applyCurrentHeading(movementSign);
+      return;
+    }
+
     const startedAt = performance.now();
     let frameId = 0;
 
     const animate = (now: number) => {
-      const progress = Math.min((now - startedAt) / duration, 1);
-      const easedProgress = 1 - Math.pow(1 - progress, 3);
-
-      marker.setLatLng([
-        start.lat + (target.lat - start.lat) * easedProgress,
-        start.lng + (target.lng - start.lng) * easedProgress,
-      ]);
+      const progress = Math.min((now - startedAt) / animationDuration, 1);
+      const easedProgress = progress * progress * (3 - 2 * progress);
+      let nextPosition = {
+        lat: start.lat + (target.lat - start.lat) * easedProgress,
+        lng: start.lng + (target.lng - start.lng) * easedProgress,
+      };
+      if (followsRoute) {
+        const currentProgress =
+          startProgress + (routeProgress - startProgress) * easedProgress;
+        currentRouteProgressRef.current = currentProgress;
+        const routePoint = along(routeLine, currentProgress, {
+          units: "meters",
+        });
+        const travelSign = movementSign;
+        nextPosition = {
+          lat: routePoint.geometry.coordinates[1],
+          lng: routePoint.geometry.coordinates[0],
+        };
+        const nextHeading = routeHeadingAt(currentProgress, travelSign);
+        const image = marker
+          .getElement()
+          ?.querySelector("img") as HTMLImageElement | null;
+        if (image) {
+          image.style.transition = "none";
+          image.style.transform = `rotate(${nextHeading}deg)`;
+        }
+        previousHeadingRef.current = nextHeading;
+      }
+      // Land exactly on the newest projected position; along() can differ by a
+      // few pixels at the route endpoint due to distance rounding.
+      if (progress === 1) nextPosition = target;
+      markerPositionRef.current = nextPosition;
+      marker.setLatLng([nextPosition.lat, nextPosition.lng]);
 
       if (progress < 1) {
         frameId = requestAnimationFrame(animate);
+      } else if (followsRoute) {
+        currentRouteProgressRef.current = routeProgress;
+        applyCurrentHeading(movementSign);
       }
     };
 
     frameId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frameId);
-  }, [direction, position.lat, position.lng]);
+  }, [
+    animationDuration,
+    direction,
+    followsRoute,
+    heading,
+    position.lat,
+    position.lng,
+    routeLine,
+    routeOrientation,
+    routeProgress,
+  ]);
 
   useEffect(() => {
+    if (followsRoute) return;
     const image = markerRef.current
       ?.getElement()
       ?.querySelector("img") as HTMLImageElement | null;
@@ -1352,7 +1491,12 @@ function AnimatedVehicleMarker({
     const delta = ((targetHeading - previousHeading + 540) % 360) - 180;
 
     // Ignore insignificant changes
-    if (Math.abs(delta) < 0.5) return;
+    if (Math.abs(delta) < 0.5) {
+      image.style.transition = "none";
+      image.style.transform = `rotate(${targetHeading}deg)`;
+      previousHeadingRef.current = targetHeading;
+      return;
+    }
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       image.style.transition = "none";
@@ -1364,15 +1508,15 @@ function AnimatedVehicleMarker({
     // Use relative rotation to prevent unnecessary 360-degree turns
     const nextHeading = previousHeadingRef.current + delta;
 
-    image.style.transition = "transform 900ms cubic-bezier(0.16, 1, 0.3, 1)";
+    image.style.transition = `transform ${animationDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
 
     image.style.transform = `rotate(${nextHeading}deg)`;
 
     previousHeadingRef.current = nextHeading;
-  }, [direction, heading]);
+  }, [animationDuration, direction, followsRoute, heading]);
 
   return (
-    <Marker ref={markerRef} position={initialPositionRef.current} icon={icon}>
+    <Marker ref={markerRef} position={markerPositionRef.current} icon={icon}>
       {children}
     </Marker>
   );
@@ -1403,9 +1547,9 @@ function VehiclesMarker({
       }
     | undefined;
 }) {
-  const [vehicles, setVehicles] = useState<
-    Map<string, transit_realtime.IVehiclePosition>
-  >(new Map());
+  const [vehicles, setVehicles] = useState<Map<string, IVehiclePosition>>(
+    new Map(),
+  );
 
   const [provider, setProvider] = useState<string | undefined>();
   const [BusSchedule, setBusSchedule] =
@@ -1443,9 +1587,11 @@ function VehiclesMarker({
   }, []);
 
   const [directionsLocation, setDirectionsLocation] = useState<{
-    0: transit_realtime.IVehiclePosition[];
-    1: transit_realtime.IVehiclePosition[];
+    0: IVehiclePosition[];
+    1: IVehiclePosition[];
   }>({ 0: [], 1: [] });
+  const routeSnapStateRef = useRef(new Map<string, boolean>());
+  const vehicleRouteProgressRef = useRef(new Map<string, number>());
 
   const timerRef = useRef<number | null>(null);
   const fetchRef = useRef<(() => void) | null>(null);
@@ -1455,42 +1601,46 @@ function VehiclesMarker({
     if (!route?.route_short_name) return;
 
     let routeId = route.route_short_name;
+    console.log("routeId", route.route_id);
     if (provider !== "rp") {
-      routeId = route.route_id;
+      if (route.route_id.valueOf().startsWith("3")) {
+        routeId = route.route_short_name + "0";
+      } else {
+        routeId = route.route_id;
+      }
     }
 
-    function avlToVehicle(bus: AvlVehicle): transit_realtime.IVehiclePosition {
-      // dir "01" → 1, "02" → 0
-      let directionId: number;
-      console.log(bus);
-      console.log(bus.bus_no + " " + bus.trip_rev_kind);
-      if (bus.is_inside_endstop === "depot") {
+    function avlToVehicle(bus: AvlVehicle): IVehiclePosition {
+      if (
+        bus.is_inside_endstop === "depot" ||
+        bus.is_inside_endstop === "end"
+      ) {
         return {};
       }
+
+      // dir "01" → 1, "02" → 0
+      let directionId: number;
+
       if (
         bus.route === "T310" ||
         bus.route === "CAT" ||
         bus.route === "103" ||
         bus.route === "CT15"
       ) {
-        if (
-          !RapidPenangSchedule.find((b) => b.trip_ids.includes(bus.trip_no))
-        ) {
-          return {};
-        }
+        // if (
+        //   !RapidPenangSchedule.find((b) => b.trip_ids.includes(bus.trip_no))
+        // ) {
+        //   return {};
+        // }
         directionId = 0;
       } else if (bus.dir === "01") {
         directionId = 1;
       } else if (bus.dir === "02") {
         directionId = 0;
       } else {
-        // console.warn(`Unrecognized direction: ${bus.dir}`);
-        // console.log(bus.bus_no + " " + bus.trip_no);
         directionId =
           RapidPenangSchedule.find((b) => b.trip_ids.includes(bus.trip_no))
             ?.d ?? 0; // default to 0 if dir is not recognized
-        // console.log(bus.bus_no + " " + directionId);
-        // directionId = 0;
       }
       return {
         trip: {
@@ -1621,6 +1771,7 @@ function VehiclesMarker({
 
             feed.entity.forEach((entity) => {
               const vehicle = entity.vehicle;
+              console.log(vehicle);
               const plate = vehicle?.vehicle?.licensePlate;
 
               if (!vehicle || !plate) return;
@@ -1674,7 +1825,6 @@ function VehiclesMarker({
     style="
       width:100px;
       height:100px;
-      transform: rotate(${bearing}deg);
       transform-origin: center center;
       display:block;
     "
@@ -1685,15 +1835,10 @@ function VehiclesMarker({
   } else if (provider === "rkl") {
     busIcon = (
       bearing: number,
-      tripId: string | null | undefined,
       routeId: string | null | undefined,
       routeShortName: string | null | undefined,
     ) => {
-      if (
-        typeof tripId === "string" &&
-        tripId !== "" &&
-        routeId === routeShortName?.concat("0")
-      ) {
+      if (routeId === routeShortName?.concat("0")) {
         return divIcon({
           className: "",
           html: `<img 
@@ -1701,7 +1846,6 @@ function VehiclesMarker({
     style="
       width:100px;
       height:100px;
-      transform: rotate(${bearing}deg);
       transform-origin: center center;
       display:block;
     "
@@ -1717,7 +1861,6 @@ function VehiclesMarker({
     style="
       width:100px;
       height:100px;
-      transform: rotate(${bearing}deg);
       transform-origin: center center;
       display:block;
     "
@@ -1741,7 +1884,6 @@ function VehiclesMarker({
     style="
       width:100px;
       height:100px;
-      transform: rotate(${bearing}deg);
       transform-origin: center center;
       display:block;
     "
@@ -1758,6 +1900,7 @@ function VehiclesMarker({
     if (provider === "rp") {
       const vehicleForThisRoute = Array.from(vehicles.values());
 
+      console.log("vehicleForThisRoute", vehicleForThisRoute);
       vehicleForThisRoute.forEach((v) => {
         const dirNum = Number(v.trip?.directionId);
         if (dirNum === 0 || dirNum === 1) {
@@ -1783,7 +1926,6 @@ function VehiclesMarker({
       const vehicleForThisRoute = Array.from(vehicles.values()).filter(
         (v) => v.trip?.routeId === route?.route_id,
       );
-      console.log("Vehicle for this route:", vehicleForThisRoute);
 
       vehicleForThisRoute.forEach((v) => {
         if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
@@ -1813,11 +1955,10 @@ function VehiclesMarker({
           if (dirNum === 0 || dirNum === 1) {
             setDirectionsLocation((prev) => ({
               ...prev,
-              [dirNum]: [...prev[dirNum], v],
+              [dirNum]: [...prev[dirNum as 0 | 1], v],
             }));
           }
         }
-        console.log("Directions for vehicle:", directions, "Vehicle:", v);
       });
     } else if (provider === "mk") {
       const vehicleForThisRoute = Array.from(vehicles.values()).filter(
@@ -1847,7 +1988,7 @@ function VehiclesMarker({
           if (dirNum === 0 || dirNum === 1) {
             setDirectionsLocation((prev) => ({
               ...prev,
-              [dirNum]: [...prev[dirNum], v],
+              [dirNum]: [...prev[dirNum as 0 | 1], v],
             }));
           }
         }
@@ -1880,7 +2021,7 @@ function VehiclesMarker({
           if (dirNum === 0 || dirNum === 1) {
             setDirectionsLocation((prev) => ({
               ...prev,
-              [dirNum]: [...prev[dirNum], v],
+              [dirNum]: [...prev[dirNum as 0 | 1], v],
             }));
           }
         }
@@ -1913,7 +2054,7 @@ function VehiclesMarker({
           if (dirNum === 0 || dirNum === 1) {
             setDirectionsLocation((prev) => ({
               ...prev,
-              [dirNum]: [...prev[dirNum], v],
+              [dirNum]: [...prev[dirNum as 0 | 1], v],
             }));
           }
         }
@@ -1946,7 +2087,7 @@ function VehiclesMarker({
           if (dirNum === 0 || dirNum === 1) {
             setDirectionsLocation((prev) => ({
               ...prev,
-              [dirNum]: [...prev[dirNum], v],
+              [dirNum]: [...prev[dirNum as 0 | 1], v],
             }));
           }
         }
@@ -1981,7 +2122,7 @@ function VehiclesMarker({
           if (dirNum === 0 || dirNum === 1) {
             setDirectionsLocation((prev) => ({
               ...prev,
-              [dirNum]: [...prev[dirNum], v],
+              [dirNum]: [...prev[dirNum as 0 | 1], v],
             }));
           }
         }
@@ -2012,7 +2153,7 @@ function VehiclesMarker({
           if (dirNum === 0 || dirNum === 1) {
             setDirectionsLocation((prev) => ({
               ...prev,
-              [dirNum]: [...prev[dirNum], v],
+              [dirNum]: [...prev[dirNum as 0 | 1], v],
             }));
           }
         }
@@ -2043,7 +2184,7 @@ function VehiclesMarker({
           if (dirNum === 0 || dirNum === 1) {
             setDirectionsLocation((prev) => ({
               ...prev,
-              [dirNum]: [...prev[dirNum], v],
+              [dirNum]: [...prev[dirNum as 0 | 1], v],
             }));
           }
         }
@@ -2051,14 +2192,6 @@ function VehiclesMarker({
     } else if (provider === "sw") {
       const vehicleForThisRoute = Array.from(vehicles.values());
       vehicleForThisRoute.forEach((v) => {
-        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
-          const directionId = v.trip.directionId;
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [directionId]: [...prev[directionId], v],
-          }));
-          return;
-        }
         let directions = MyBasSwDirections.find(
           (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
         );
@@ -2073,7 +2206,7 @@ function VehiclesMarker({
           if (dirNum === 0 || dirNum === 1) {
             setDirectionsLocation((prev) => ({
               ...prev,
-              [dirNum]: [...prev[dirNum], v],
+              [dirNum]: [...prev[dirNum as 0 | 1], v],
             }));
           }
         }
@@ -2096,7 +2229,7 @@ function VehiclesMarker({
           if (dirNum === 0 || dirNum === 1) {
             setDirectionsLocation((prev) => ({
               ...prev,
-              [dirNum]: [...prev[dirNum], v],
+              [dirNum]: [...prev[dirNum as 0 | 1], v],
             }));
           }
         }
@@ -2104,21 +2237,64 @@ function VehiclesMarker({
     }
   }, [route?.route_id, route?.directions.length, vehicles]);
 
-  if (directionsLocation[direction as 0 | 1].length === 0) return null;
-
   // convert positions (LatLngExpression[][]) to GeoJSON Positions [lon, lat]
-  const coordsForLine = positions
-    .map((pos) => {
-      const p = pos as unknown as [number, number];
-      // flip [lat, lon] -> [lon, lat] for Turf
-      return [p[1], p[0]] as [number, number];
-    })
-    .filter((p) => Number.isFinite(p[0]) && Number.isFinite(p[1]));
-  // Turf lineString requires two or more positions; if we don't have enough, skip rendering vehicles.
-  if (coordsForLine.length < 2) {
-    return null;
-  }
-  const line = lineString(coordsForLine);
+  const coordsForLine = useMemo(
+    () =>
+      positions
+        .map((pos) => {
+          const p = pos as unknown as [number, number];
+          // flip [lat, lon] -> [lon, lat] for Turf
+          return [p[1], p[0]] as [number, number];
+        })
+        .filter((p) => Number.isFinite(p[0]) && Number.isFinite(p[1])),
+    [positions],
+  );
+  // Turf lineString requires two or more positions.
+  const line = useMemo(
+    () => (coordsForLine.length >= 2 ? lineString(coordsForLine) : null),
+    [coordsForLine],
+  );
+  const routeLength = useMemo(
+    () => (line ? length(line, { units: "meters" }) : 0),
+    [line],
+  );
+  const routeOrientation = useMemo<1 | -1>(() => {
+    if (!line || coordsForLine.length < 2) return 1;
+    const selectedDirection =
+      route?.directions.find((item) => item.direction_id === direction) ??
+      route?.directions[0];
+    const stops = selectedDirection?.stops;
+    if (!stops || stops.length < 2) return 1;
+    let firstProgress = nearestPointOnLine(
+      line,
+      point([stops[0].lon, stops[0].lat]),
+      { units: "meters" },
+    ).properties.location;
+    const endpointsDistance = distance(
+      point(coordsForLine[0]),
+      point(coordsForLine[coordsForLine.length - 1]),
+      { units: "meters" },
+    );
+    if (endpointsDistance < 20 && firstProgress > routeLength - 100) {
+      firstProgress = 0;
+    }
+    for (const stop of stops.slice(1)) {
+      let stopProgress = nearestPointOnLine(
+        line,
+        point([stop.lon, stop.lat]),
+        { units: "meters" },
+      ).properties.location;
+      if (endpointsDistance < 20 && stopProgress > routeLength - 100) {
+        stopProgress = 0;
+      }
+      const stopProgressDelta = stopProgress - firstProgress;
+      if (Math.abs(stopProgressDelta) > 30) {
+        return stopProgressDelta > 0 ? 1 : -1;
+      }
+    }
+    return 1;
+  }, [coordsForLine, direction, line, route?.directions, routeLength]);
+  if (directionsLocation[direction as 0 | 1].length === 0 || !line) return null;
 
   return (
     <>
@@ -2129,18 +2305,122 @@ function VehiclesMarker({
             ? [v.position.longitude, v.position.latitude]
             : [0, 0],
         );
+        const hasLiveBearing =
+          (provider === "rp" || provider === "rkl") &&
+          typeof v.position?.bearing === "number" &&
+          Number.isFinite(v.position.bearing);
+        const isClosedRoute =
+          coordsForLine.length > 1 &&
+          distance(
+            point(coordsForLine[0]),
+            point(coordsForLine[coordsForLine.length - 1]),
+            { units: "meters" },
+          ) < 20;
         const snapped = nearestPointOnLine(line, busPoint, { units: "meters" });
+        if (hasLiveBearing && isClosedRoute) {
+          const routeCoordinates = line.geometry.coordinates;
+          const nearestDistance = snapped.properties.dist;
+          const routeLength = length(line, { units: "meters" });
+          let traversedDistance = 0;
+          let bestCandidate: {
+            point: typeof snapped;
+            progress: number;
+            distance: number;
+            score: number;
+            index: number;
+          } | null = null;
+          const angleDifference = (first: number, second: number) =>
+            Math.abs(((first - second + 540) % 360) - 180);
 
-        // Snap to the route only when the bus is within 5 meters.
-        const MAX_SNAP_DISTANCE = 5;
+          for (
+            let segmentIndex = 0;
+            segmentIndex < routeCoordinates.length - 1;
+            segmentIndex++
+          ) {
+            const segmentStart = routeCoordinates[segmentIndex];
+            const segmentEnd = routeCoordinates[segmentIndex + 1];
+            const segmentLength = distance(
+              point(segmentStart),
+              point(segmentEnd),
+              { units: "meters" },
+            );
+            if (segmentLength < 0.5) continue;
+
+            const segmentLine = lineString([segmentStart, segmentEnd]);
+            const candidate = nearestPointOnLine(segmentLine, busPoint, {
+              units: "meters",
+            });
+            const candidateProgress =
+              traversedDistance + candidate.properties.location;
+            if (candidate.properties.dist <= nearestDistance + 15) {
+              const tangentStart = along(
+                line,
+                Math.max(0, candidateProgress - 4),
+                { units: "meters" },
+              );
+              const tangentEnd = along(
+                line,
+                Math.min(routeLength, candidateProgress + 4),
+                { units: "meters" },
+              );
+              let candidateHeading = bearing(tangentStart, tangentEnd);
+              if (routeOrientation === -1) candidateHeading += 180;
+              const angleError = angleDifference(
+                candidateHeading,
+                v.position!.bearing!,
+              );
+              const score = angleError + candidate.properties.dist * 2;
+              if (!bestCandidate || score < bestCandidate.score) {
+                bestCandidate = {
+                  point: candidate,
+                  progress: candidateProgress,
+                  distance: candidate.properties.dist,
+                  score,
+                  index: segmentIndex,
+                };
+              }
+            }
+            traversedDistance += segmentLength;
+          }
+
+          if (bestCandidate) {
+            snapped.geometry = bestCandidate.point.geometry;
+            snapped.properties.location = bestCandidate.progress;
+            snapped.properties.index = bestCandidate.index;
+            snapped.properties.dist = bestCandidate.distance;
+          }
+        }
+
         const MAX_OFF_ROUTE_DISTANCE = 200;
-
-        let isOffRoute = false;
         if (snapped.properties.dist > MAX_OFF_ROUTE_DISTANCE) {
           return null;
-        } else if (snapped.properties.dist > MAX_SNAP_DISTANCE) {
-          isOffRoute = true;
         }
+        const busKey = `${route?.route_id}:${direction}:${v.vehicle?.licensePlate ?? idx}`;
+        let routeProgress = snapped.properties.location;
+        const selectedDirection =
+          route?.directions.find((item) => item.direction_id === direction) ??
+          route?.directions[0];
+        const firstStop = selectedDirection?.stops[0];
+        if (
+          isClosedRoute &&
+          firstStop &&
+          distance(busPoint, point([firstStop.lon, firstStop.lat]), {
+            units: "meters",
+          }) < 25 &&
+          (routeProgress < 100 || routeProgress > routeLength - 100)
+        ) {
+          const previousProgress = vehicleRouteProgressRef.current.get(busKey);
+          routeProgress =
+            previousProgress !== undefined && previousProgress > routeLength / 2
+              ? routeLength
+              : 0;
+        }
+        vehicleRouteProgressRef.current.set(busKey, routeProgress);
+        const wasSnappedToRoute =
+          routeSnapStateRef.current.get(busKey) ?? false;
+        const snapDistance = wasSnappedToRoute ? 25 : 10;
+        const isOffRoute = snapped.properties.dist > snapDistance;
+        routeSnapStateRef.current.set(busKey, !isOffRoute);
 
         const coords = line.geometry.coordinates;
         let idx2 = snapped.properties.index;
@@ -2153,12 +2433,14 @@ function VehiclesMarker({
         if (idx2 >= coords.length - 1) idx2 = coords.length - 2;
         const start = coords[idx2];
         const end = coords[idx2 + 1];
+        const routeHeading =
+          start && end ? bearing(point(start), point(end)) : 0;
         const heading =
-          v.position?.bearing != null
-            ? v.position.bearing
-            : start && end
-              ? bearing(point(start), point(end))
-              : 0;
+          isOffRoute && hasLiveBearing
+            ? v.position!.bearing!
+            : routeOrientation === 1
+              ? routeHeading
+              : (routeHeading + 180) % 360;
 
         return (
           <div key={v.vehicle?.licensePlate ?? idx}>
@@ -2174,6 +2456,10 @@ function VehiclesMarker({
                 }}
                 heading={heading}
                 direction={direction}
+                routeLine={line}
+                routeProgress={routeProgress}
+                followsRoute={!isOffRoute}
+                routeOrientation={routeOrientation}
                 icon={busIcon(
                   heading,
                   v.trip?.tripId,
@@ -2181,12 +2467,7 @@ function VehiclesMarker({
                   route?.route_short_name,
                 )}
               >
-                <Popup
-                  maxWidth={500}
-                  offset={[0, 8]}
-                  className="pointer-events-none"
-                  closeButton={false}
-                >
+                <Popup maxWidth={500} offset={[0, 8]} closeButton={false}>
                   <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
                     <p className="text-lg font-semibold">
                       {v.vehicle?.licensePlate}

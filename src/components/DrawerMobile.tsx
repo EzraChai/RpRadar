@@ -5,8 +5,8 @@ import { Input } from "./ui/input";
 import { RouteCard } from "./app-sidebar";
 import { Link } from "react-router";
 import { Button } from "./ui/button";
-import type { CircleMarker } from "leaflet";
-import { useMap } from "react-leaflet";
+import { useMap } from "./maplibre-adapter";
+import type { CircleMarkerRef } from "./maplibre-adapter";
 import RpRadarIcon from "@/assets/RpRadar.png";
 import { getCurrentDate, hasCurrentTimePassed, nextBusTime } from "@/lib/utils";
 import { Card } from "./ui/card";
@@ -55,7 +55,7 @@ export function DrawerMobile({
   setDirection,
 }: {
   markerRefs: React.RefObject<{
-    [key: string]: CircleMarker<unknown> | null;
+    [key: string]: CircleMarkerRef | null;
   }>;
   direction: number;
   setDirection: React.Dispatch<React.SetStateAction<number>>;
