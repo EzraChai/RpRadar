@@ -190,7 +190,10 @@ export function MapContainer({
             return [];
           }),
         })}
-        onLoad={() => setReady(true)}
+        onLoad={(event) => {
+          setReady(true);
+          event.target.touchZoomRotate.disableRotation();
+        }}
       >
         {ready && (
           <PopupSelectionContext.Provider
