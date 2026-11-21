@@ -154,6 +154,10 @@ export function MapContainer({
       );
       controls?.style.setProperty("top", "88px", "important");
       controls?.style.setProperty("right", "7px", "important");
+      const b = mapElement.querySelector<HTMLElement>(
+        ".maplibregl-ctrl .maplibregl-ctrl-group",
+      );
+      b?.style.setProperty("box-shadow", "none", "important");
     };
 
     positionTopRightControls();
