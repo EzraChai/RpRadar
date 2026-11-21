@@ -39,9 +39,20 @@ type MapFacade = {
   native: MapRef;
   zoomIn: () => void;
   zoomOut: () => void;
-  flyTo: (center: Point, zoom: number, options?: { duration?: number; [key: string]: unknown }) => void;
-  setView: (center: Point, zoom: number, options?: { [key: string]: unknown }) => void;
-  flyToBounds: (bounds: { toArray: () => [[number, number], [number, number]] }, options?: { padding?: Point; duration?: number; [key: string]: unknown }) => void;
+  flyTo: (
+    center: Point,
+    zoom: number,
+    options?: { duration?: number; [key: string]: unknown },
+  ) => void;
+  setView: (
+    center: Point,
+    zoom: number,
+    options?: { [key: string]: unknown },
+  ) => void;
+  flyToBounds: (
+    bounds: { toArray: () => [[number, number], [number, number]] },
+    options?: { padding?: Point; duration?: number; [key: string]: unknown },
+  ) => void;
   scrollWheelZoom: { enable: () => void; disable: () => void };
   doubleClickZoom: { enable: () => void; disable: () => void };
   dragging: { enable: () => void; disable: () => void };
@@ -52,7 +63,12 @@ function facade(native: MapRef): MapFacade {
     native,
     zoomIn: () => map.zoomIn(),
     zoomOut: () => map.zoomOut(),
-    flyTo: ([lat, lng], zoom, options) => map.flyTo({ center: [lng, lat], zoom, duration: options?.duration ? options.duration * 1000 : undefined }),
+    flyTo: ([lat, lng], zoom, options) =>
+      map.flyTo({
+        center: [lng, lat],
+        zoom,
+        duration: options?.duration ? options.duration * 1000 : undefined,
+      }),
     setView: ([lat, lng], zoom) => map.easeTo({ center: [lng, lat], zoom }),
     flyToBounds: (bounds, options) => {
       const coordinates = bounds.toArray();
@@ -62,9 +78,18 @@ function facade(native: MapRef): MapFacade {
         duration: options?.duration ? options.duration * 1000 : undefined,
       });
     },
-    scrollWheelZoom: { enable: () => map.scrollZoom.enable(), disable: () => map.scrollZoom.disable() },
-    doubleClickZoom: { enable: () => map.doubleClickZoom.enable(), disable: () => map.doubleClickZoom.disable() },
-    dragging: { enable: () => map.dragPan.enable(), disable: () => map.dragPan.disable() },
+    scrollWheelZoom: {
+      enable: () => map.scrollZoom.enable(),
+      disable: () => map.scrollZoom.disable(),
+    },
+    doubleClickZoom: {
+      enable: () => map.doubleClickZoom.enable(),
+      disable: () => map.doubleClickZoom.disable(),
+    },
+    dragging: {
+      enable: () => map.dragPan.enable(),
+      disable: () => map.dragPan.disable(),
+    },
   };
 }
 
@@ -98,40 +123,60 @@ export function MapContainer({
   const ref = useRef<MapRef>(null);
   const [ready, setReady] = useState(false);
   const [activePopupId, setActivePopupId] = useState<string | null>(null);
-  const flavor = theme === "dark" ||
-    (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ? "dark"
-    : "light";
+  const flavor =
+    theme === "dark" ||
+    (theme !== "light" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ? "dark"
+      : "light";
   const apiKey = import.meta.env.VITE_PROTOMAPS_API_KEY as string | undefined;
   const mapStyle = apiKey
     ? `https://api.protomaps.com/styles/v5/${flavor}/en.json?key=${encodeURIComponent(apiKey)}`
-    : { version: 8 as const, sources: {}, layers: [{ id: "background", type: "background" as const, paint: { "background-color": "#f5f5f4" } }] };
+    : {
+        version: 8 as const,
+        sources: {},
+        layers: [
+          {
+            id: "background",
+            type: "background" as const,
+            paint: { "background-color": "#f5f5f4" },
+          },
+        ],
+      };
   return (
     <div id={id} className={className}>
-    <MapLibreMap
-      ref={ref}
-      style={{ width: "100%", height: "100%" }}
-      initialViewState={{ longitude: center[1], latitude: center[0], zoom }}
-      maxZoom={maxZoom}
-      mapStyle={mapStyle}
-      transformStyle={(_, nextStyle) => ({
-        ...nextStyle,
-        sprite: undefined,
-        layers: nextStyle.layers.flatMap((layer) => {
-          if (layer.type !== "symbol" || !layer.layout || !("icon-image" in layer.layout)) {
-            return [layer];
-          }
-          return [];
-        }),
-      })}
-      onLoad={() => setReady(true)}
-    >
-      {ready && (
-        <PopupSelectionContext.Provider value={{ activeId: activePopupId, setActiveId: setActivePopupId }}>
-          {children}
-        </PopupSelectionContext.Provider>
-      )}
-    </MapLibreMap>
+      <MapLibreMap
+        ref={ref}
+        style={{ width: "100%", height: "100%" }}
+        initialViewState={{ longitude: center[1], latitude: center[0], zoom }}
+        maxZoom={maxZoom}
+        dragRotate={false}
+        touchPitch={false}
+        mapStyle={mapStyle}
+        transformStyle={(_, nextStyle) => ({
+          ...nextStyle,
+          sprite: undefined,
+          layers: nextStyle.layers.flatMap((layer) => {
+            if (
+              layer.type !== "symbol" ||
+              !layer.layout ||
+              !("icon-image" in layer.layout)
+            ) {
+              return [layer];
+            }
+            return [];
+          }),
+        })}
+        onLoad={() => setReady(true)}
+      >
+        {ready && (
+          <PopupSelectionContext.Provider
+            value={{ activeId: activePopupId, setActiveId: setActivePopupId }}
+          >
+            {children}
+          </PopupSelectionContext.Provider>
+        )}
+      </MapLibreMap>
     </div>
   );
 }
@@ -147,14 +192,32 @@ function asPosition(value: LatLngExpression): Position {
 }
 
 function isValidPosition(value: unknown): value is LatLngExpression {
-  if (!Array.isArray(value) && (!value || typeof value !== "object")) return false;
+  if (!Array.isArray(value) && (!value || typeof value !== "object"))
+    return false;
   const { lat, lng } = asPosition(value as LatLngExpression);
   return Number.isFinite(lat) && Number.isFinite(lng);
 }
 
-export function Polyline({ positions, pathOptions = {} }: { positions: LatLngExpression[][] | LatLngExpression[]; pathOptions?: { color?: string; weight?: number; opacity?: number; lineCap?: string; lineJoin?: string } }) {
+export function Polyline({
+  positions,
+  pathOptions = {},
+}: {
+  positions: LatLngExpression[][] | LatLngExpression[];
+  pathOptions?: {
+    color?: string;
+    weight?: number;
+    opacity?: number;
+    lineCap?: string;
+    lineJoin?: string;
+  };
+}) {
   const id = useId().replaceAll(":", "");
-  const paths = positions.length && Array.isArray(positions[0]) && typeof positions[0][0] === "number" ? [positions as LatLngExpression[]] : positions as LatLngExpression[][];
+  const paths =
+    positions.length &&
+    Array.isArray(positions[0]) &&
+    typeof positions[0][0] === "number"
+      ? [positions as LatLngExpression[]]
+      : (positions as LatLngExpression[][]);
   const features = paths
     .map((path) => path.filter(isValidPosition))
     .filter((path) => path.length > 1)
@@ -182,49 +245,121 @@ export function Polyline({ positions, pathOptions = {} }: { positions: LatLngExp
       "line-opacity": pathOptions.opacity ?? 1,
     },
   };
-  return <Source id={`line-source-${id}`} type="geojson" data={{ type: "FeatureCollection", features }}><Layer {...layer} /></Source>;
+  return (
+    <Source
+      id={`line-source-${id}`}
+      type="geojson"
+      data={{ type: "FeatureCollection", features }}
+    >
+      <Layer {...layer} />
+    </Source>
+  );
 }
 
-type PopupConfig = { children: ReactNode; maxWidth?: number; closeButton?: boolean; className?: string; offset?: [number, number] };
+type PopupConfig = {
+  children: ReactNode;
+  maxWidth?: number;
+  closeButton?: boolean;
+  className?: string;
+  offset?: [number, number];
+};
 export function Popup(props: PopupConfig) {
   return props.children;
 }
 
-export type CircleMarkerRef = { isPopupOpen: () => boolean; openPopup: () => void };
-export function CircleMarker({ center, radius = 6, pathOptions = {}, eventHandlers, children, ref }: {
-  center: Point; radius?: number; pathOptions?: { color?: string; fillColor?: string; fillOpacity?: number };
-  eventHandlers?: { click?: () => void }; children?: ReactNode; ref?: (marker: CircleMarkerRef | null) => void;
+export type CircleMarkerRef = {
+  isPopupOpen: () => boolean;
+  openPopup: () => void;
+};
+export function CircleMarker({
+  center,
+  radius = 6,
+  pathOptions = {},
+  eventHandlers,
+  children,
+  ref,
+}: {
+  center: Point;
+  radius?: number;
+  pathOptions?: { color?: string; fillColor?: string; fillOpacity?: number };
+  eventHandlers?: { click?: () => void };
+  children?: ReactNode;
+  ref?: (marker: CircleMarkerRef | null) => void;
 }) {
   const selection = useContext(PopupSelectionContext);
-  if (!selection) throw new Error("Map marker rendered outside the MapLibre map");
+  if (!selection)
+    throw new Error("Map marker rendered outside the MapLibre map");
   const id = useId();
   const open = selection.activeId === id;
   const child = Children.toArray(children).find(isValidElement);
   const config = child ? (child.props as PopupConfig) : null;
   useEffect(() => {
-    ref?.({ isPopupOpen: () => selection.activeId === id, openPopup: () => selection.setActiveId(id) });
+    ref?.({
+      isPopupOpen: () => selection.activeId === id,
+      openPopup: () => selection.setActiveId(id),
+    });
     return () => ref?.(null);
   }, [id, ref, selection]);
-  return <>
-    <MapLibreMarker latitude={center[0]} longitude={center[1]}>
-      <button
-        aria-label="Show bus stop name"
-        className="map-stop-marker"
-        onClick={(event) => {
-          event.stopPropagation();
-          eventHandlers?.click?.();
-          selection.setActiveId(id);
-        }}
-        style={{ width: radius * 2, height: radius * 2, borderRadius: "50%", border: `2px solid ${pathOptions.color ?? "#3388ff"}`, background: pathOptions.fillColor ?? "white", opacity: pathOptions.fillOpacity ?? 1, padding: 0, cursor: "pointer" }}
-      />
-    </MapLibreMarker>
-    {open && config && <MapLibrePopup latitude={center[0]} longitude={center[1]} anchor="bottom" offset={10} closeButton={config.closeButton ?? false} onClose={() => selection.setActiveId((activeId) => activeId === id ? null : activeId)} maxWidth={`${config.maxWidth ?? 500}px`} className="map-popup" style={{ zIndex: 200 }}>{config.children}</MapLibrePopup>}
-  </>;
+  return (
+    <>
+      <MapLibreMarker latitude={center[0]} longitude={center[1]}>
+        <button
+          aria-label="Show bus stop name"
+          className="map-stop-marker"
+          onClick={(event) => {
+            event.stopPropagation();
+            eventHandlers?.click?.();
+            selection.setActiveId(id);
+          }}
+          style={{
+            width: radius * 2,
+            height: radius * 2,
+            borderRadius: "50%",
+            border: `2px solid ${pathOptions.color ?? "#3388ff"}`,
+            background: pathOptions.fillColor ?? "white",
+            opacity: pathOptions.fillOpacity ?? 1,
+            padding: 0,
+            cursor: "pointer",
+          }}
+        />
+      </MapLibreMarker>
+      {open && config && (
+        <MapLibrePopup
+          latitude={center[0]}
+          longitude={center[1]}
+          anchor="bottom"
+          offset={10}
+          closeButton={config.closeButton ?? false}
+          onClose={() =>
+            selection.setActiveId((activeId) =>
+              activeId === id ? null : activeId,
+            )
+          }
+          maxWidth={`${config.maxWidth ?? 500}px`}
+          className="map-popup"
+          style={{ zIndex: 200 }}
+        >
+          {config.children}
+        </MapLibrePopup>
+      )}
+    </>
+  );
 }
 
-export function Marker({ position, icon, children, ref }: { position: Position; icon: { options?: { html?: string; className?: string } }; children?: ReactNode; ref?: React.Ref<unknown> }) {
+export function Marker({
+  position,
+  icon,
+  children,
+  ref,
+}: {
+  position: Position;
+  icon: { options?: { html?: string; className?: string } };
+  children?: ReactNode;
+  ref?: React.Ref<unknown>;
+}) {
   const selection = useContext(PopupSelectionContext);
-  if (!selection) throw new Error("Map marker rendered outside the MapLibre map");
+  if (!selection)
+    throw new Error("Map marker rendered outside the MapLibre map");
   const id = useId();
   const open = selection.activeId === id;
   const markerRef = useRef<import("maplibre-gl").Marker | null>(null);
@@ -240,34 +375,75 @@ export function Marker({ position, icon, children, ref }: { position: Position; 
         event.stopPropagation();
         selection.setActiveId(id);
       }}
-      style={{ border: 0, padding: 0, background: "transparent", cursor: "pointer" }}
+      style={{
+        border: 0,
+        padding: 0,
+        background: "transparent",
+        cursor: "pointer",
+      }}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
-  useEffect(() => { if (!ref) return; const proxy = {
-    getLatLng: () => ({ lat: markerRef.current?.getLngLat().lat ?? position.lat, lng: markerRef.current?.getLngLat().lng ?? position.lng }),
-    setLatLng: (p: Point | Position) => { const next = asPosition(p as LatLngExpression); markerRef.current?.setLngLat([next.lng, next.lat]); },
-    getElement: () => markerRef.current?.getElement(),
-    isPopupOpen: () => selection.activeId === id,
-    openPopup: () => selection.setActiveId(id),
-  };
-    if (typeof ref === "function") ref(proxy); else (ref as React.MutableRefObject<unknown>).current = proxy;
+  useEffect(() => {
+    if (!ref) return;
+    const proxy = {
+      getLatLng: () => ({
+        lat: markerRef.current?.getLngLat().lat ?? position.lat,
+        lng: markerRef.current?.getLngLat().lng ?? position.lng,
+      }),
+      setLatLng: (p: Point | Position) => {
+        const next = asPosition(p as LatLngExpression);
+        markerRef.current?.setLngLat([next.lng, next.lat]);
+      },
+      getElement: () => markerRef.current?.getElement(),
+      isPopupOpen: () => selection.activeId === id,
+      openPopup: () => selection.setActiveId(id),
+    };
+    if (typeof ref === "function") ref(proxy);
+    else (ref as React.MutableRefObject<unknown>).current = proxy;
   }, [id, position.lat, position.lng, ref, selection]);
-  return <>
-    <MapLibreMarker
-      ref={markerRef}
-      latitude={position.lat}
-      longitude={position.lng}
-      anchor="center"
-      style={{ zIndex: 100 }}
-    >
-      {markerChildren}
-    </MapLibreMarker>
-    {open && config && <MapLibrePopup latitude={position.lat} longitude={position.lng} anchor="bottom" offset={10} closeButton={config.closeButton ?? false} onClose={() => selection.setActiveId((activeId) => activeId === id ? null : activeId)} maxWidth={`${config.maxWidth ?? 500}px`} className="map-popup" style={{ zIndex: 200 }}>{config.children}</MapLibrePopup>}
-  </>;
+  return (
+    <>
+      <MapLibreMarker
+        ref={markerRef}
+        latitude={position.lat}
+        longitude={position.lng}
+        anchor="center"
+        style={{ zIndex: 100 }}
+      >
+        {markerChildren}
+      </MapLibreMarker>
+      {open && config && (
+        <MapLibrePopup
+          latitude={position.lat}
+          longitude={position.lng}
+          anchor="bottom"
+          offset={10}
+          closeButton={config.closeButton ?? false}
+          onClose={() =>
+            selection.setActiveId((activeId) =>
+              activeId === id ? null : activeId,
+            )
+          }
+          maxWidth={`${config.maxWidth ?? 500}px`}
+          className="map-popup"
+          style={{ zIndex: 200 }}
+        >
+          {config.children}
+        </MapLibrePopup>
+      )}
+    </>
+  );
 }
 
-export function divIcon(options: { html?: string; className?: string; iconSize?: [number, number]; iconAnchor?: [number, number] } = {}) {
+export function divIcon(
+  options: {
+    html?: string;
+    className?: string;
+    iconSize?: [number, number];
+    iconAnchor?: [number, number];
+  } = {},
+) {
   return { options };
 }
 
@@ -297,9 +473,17 @@ export function fitBoundsOf(positions: LatLngExpression[][]) {
   };
   visit(positions);
   if (!points.length) return null;
-  const minX = Math.min(...points.map((p) => p[0])); const maxX = Math.max(...points.map((p) => p[0]));
-  const minY = Math.min(...points.map((p) => p[1])); const maxY = Math.max(...points.map((p) => p[1]));
-  return { toArray: () => [[minX, minY], [maxX, maxY]] as [[number, number], [number, number]] };
+  const minX = Math.min(...points.map((p) => p[0]));
+  const maxX = Math.max(...points.map((p) => p[0]));
+  const minY = Math.min(...points.map((p) => p[1]));
+  const maxY = Math.max(...points.map((p) => p[1]));
+  return {
+    toArray: () =>
+      [
+        [minX, minY],
+        [maxX, maxY],
+      ] as [[number, number], [number, number]],
+  };
 }
 
 export type DivIcon = ReturnType<typeof divIcon>;
