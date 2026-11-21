@@ -143,6 +143,25 @@ export function MapContainer({
           },
         ],
       };
+  useEffect(() => {
+    if (!ready) return;
+    const mapElement = ref.current?.getMap().getContainer();
+    if (!mapElement) return;
+
+    const positionTopRightControls = () => {
+      const controls = mapElement.querySelector<HTMLElement>(
+        ".maplibregl-ctrl-top-right",
+      );
+      controls?.style.setProperty("top", "88px", "important");
+      controls?.style.setProperty("right", "7px", "important");
+    };
+
+    positionTopRightControls();
+    const observer = new MutationObserver(positionTopRightControls);
+    observer.observe(mapElement, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, [ready]);
+
   return (
     <div id={id} className={className}>
       <MapLibreMap
