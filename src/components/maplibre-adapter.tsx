@@ -114,6 +114,16 @@ export function MapContainer({
       initialViewState={{ longitude: center[1], latitude: center[0], zoom }}
       maxZoom={maxZoom}
       mapStyle={mapStyle}
+      transformStyle={(_, nextStyle) => ({
+        ...nextStyle,
+        sprite: undefined,
+        layers: nextStyle.layers.flatMap((layer) => {
+          if (layer.type !== "symbol" || !layer.layout || !("icon-image" in layer.layout)) {
+            return [layer];
+          }
+          return [];
+        }),
+      })}
       onLoad={() => setReady(true)}
     >
       {ready && (
