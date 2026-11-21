@@ -1601,7 +1601,6 @@ function VehiclesMarker({
     if (!route?.route_short_name) return;
 
     let routeId = route.route_short_name;
-    console.log("routeId", route.route_id);
     if (provider !== "rp") {
       if (route.route_id.valueOf().startsWith("3")) {
         routeId = route.route_short_name + "0";
@@ -1771,7 +1770,6 @@ function VehiclesMarker({
 
             feed.entity.forEach((entity) => {
               const vehicle = entity.vehicle;
-              console.log(vehicle);
               const plate = vehicle?.vehicle?.licensePlate;
 
               if (!vehicle || !plate) return;
@@ -1900,7 +1898,6 @@ function VehiclesMarker({
     if (provider === "rp") {
       const vehicleForThisRoute = Array.from(vehicles.values());
 
-      console.log("vehicleForThisRoute", vehicleForThisRoute);
       vehicleForThisRoute.forEach((v) => {
         const dirNum = Number(v.trip?.directionId);
         if (dirNum === 0 || dirNum === 1) {
@@ -2279,11 +2276,9 @@ function VehiclesMarker({
       firstProgress = 0;
     }
     for (const stop of stops.slice(1)) {
-      let stopProgress = nearestPointOnLine(
-        line,
-        point([stop.lon, stop.lat]),
-        { units: "meters" },
-      ).properties.location;
+      let stopProgress = nearestPointOnLine(line, point([stop.lon, stop.lat]), {
+        units: "meters",
+      }).properties.location;
       if (endpointsDistance < 20 && stopProgress > routeLength - 100) {
         stopProgress = 0;
       }
