@@ -2278,20 +2278,21 @@ function VehiclesMarker({
     if (endpointsDistance < 20 && firstProgress > routeLength - 100) {
       firstProgress = 0;
     }
-    const nextStop = nearestPointOnLine(
-      line,
-      point([stops[1].lon, stops[1].lat]),
-      { units: "meters" },
-    );
-    let nextProgress = nextStop.properties.totalDistance;
-    if (endpointsDistance < 20 && nextProgress > routeLength - 100) {
-      nextProgress = 0;
+    for (const stop of stops.slice(1)) {
+      let stopProgress = nearestPointOnLine(
+        line,
+        point([stop.lon, stop.lat]),
+        { units: "meters" },
+      ).properties.location;
+      if (endpointsDistance < 20 && stopProgress > routeLength - 100) {
+        stopProgress = 0;
+      }
+      const stopProgressDelta = stopProgress - firstProgress;
+      if (Math.abs(stopProgressDelta) > 30) {
+        return stopProgressDelta > 0 ? 1 : -1;
+      }
     }
-    const stopProgressDelta = nextProgress - firstProgress;
-    if (Math.abs(stopProgressDelta) > 30) {
-      return stopProgressDelta > 0 ? 1 : -1;
-    }
-    return direction === 0 ? 1 : -1;
+    return 1;
   }, [coordsForLine, direction, line, route?.directions, routeLength]);
   if (directionsLocation[direction as 0 | 1].length === 0 || !line) return null;
 
