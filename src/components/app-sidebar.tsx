@@ -8,7 +8,8 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { useMap } from "react-leaflet";
+import { useMap } from "./maplibre-adapter";
+import type { LatLngExpression } from "./maplibre-adapter";
 import { ModeToggle } from "./mode-toggle";
 import { Search, X, TramFront, TrafficCone } from "lucide-react";
 import { Button } from "./ui/button";
@@ -61,7 +62,7 @@ export function AppSidebar({
   trafficVisible,
   setTrafficVisible,
 }: {
-  setPositions: Dispatch<SetStateAction<L.LatLngExpression[][]>>;
+  setPositions: Dispatch<SetStateAction<LatLngExpression[][]>>;
   setRailVisible: Dispatch<SetStateAction<boolean>>;
   railVisible: boolean;
   trafficVisible?: boolean;
@@ -474,7 +475,7 @@ function SearchSideBar({
       <CardHeader className="px-2 flex justify-between items-center w-full">
         <CardTitle className="pl-4 text-2xl font-semibold">Search</CardTitle>
         <Button
-          className="rounded-full hover:bg-neutral-50 dark:hover:bg-neutral-700 cursor-pointer"
+          className="rounded-full outline-none hover:bg-neutral-50 dark:hover:bg-neutral-700 cursor-pointer"
           onClick={() => setOpenSearch(false)}
           size={"lg"}
           variant={"ghost"}

@@ -140,7 +140,7 @@
   {
     "route_id": "30000026",
     "route_code": "601",
-    "route_name": "P.SENTRAL - KEPALA BATAS",
+    "route_name": "PENANG SENTRAL - KEPALA BATAS",
     "shape_ids": ["1000000902", "1000000903"]
   },
   {
@@ -152,7 +152,7 @@
   {
     "route_id": "30000028",
     "route_code": "604",
-    "route_name": "P.SENTRAL - DESA MURNI",
+    "route_name": "PENANG SENTRAL - DESA MURNI",
     "shape_ids": ["1000000906", "1000000907"]
   },
   {
@@ -188,7 +188,7 @@
   {
     "route_id": "30000037",
     "route_code": "702",
-    "route_name": "P.SENTRAL - BM",
+    "route_name": "PENANG SENTRAL - BM",
     "shape_ids": ["1000000918", "1000000919"]
   },
   {
@@ -212,7 +212,7 @@
   {
     "route_id": "30000042",
     "route_code": "801",
-    "route_name": "P.SENTRAL - NIBONG TEBAL",
+    "route_name": "PENANG SENTRAL - NIBONG TEBAL",
     "shape_ids": ["1000000932", "1000000933"]
   },
   {

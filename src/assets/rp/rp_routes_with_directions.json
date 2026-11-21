@@ -15061,7 +15061,7 @@
     "directions": [
       {
         "direction_id": 1,
-        "route_long_name": "KEPALA BATAS - P.SENTRAL",
+        "route_long_name": "KEPALA BATAS - PENANG SENTRAL",
         "shape_id": "1000000903",
         "service_ids": ["26111201", "26111301", "26111303"],
         "stops": [
@@ -15357,7 +15357,7 @@
       },
       {
         "direction_id": 0,
-        "route_long_name": "P.SENTRAL - KEPALA BATAS",
+        "route_long_name": "PENANG SENTRAL - KEPALA BATAS",
         "shape_id": "1000000902",
         "service_ids": ["26111201", "26111301", "26111303"],
         "stops": [
@@ -16359,7 +16359,7 @@
     "directions": [
       {
         "direction_id": 1,
-        "route_long_name": "DESA MURNI - P.SENTRAL",
+        "route_long_name": "DESA MURNI - PENANG SENTRAL",
         "shape_id": "1000000907",
         "service_ids": ["26111201", "26111301", "26111303"],
         "stops": [
@@ -16589,7 +16589,7 @@
       },
       {
         "direction_id": 0,
-        "route_long_name": "P.SENTRAL - DESA MURNI",
+        "route_long_name": "PENANG SENTRAL - DESA MURNI",
         "shape_id": "1000000906",
         "service_ids": ["26111201", "26111301", "26111303"],
         "stops": [
@@ -18619,7 +18619,7 @@
     "directions": [
       {
         "direction_id": 1,
-        "route_long_name": "BM - P.SENTRAL",
+        "route_long_name": "BM - PENANG SENTRAL",
         "shape_id": "1000000917",
         "service_ids": ["26111201", "26111301", "26111303"],
         "stops": [
@@ -19007,7 +19007,7 @@
     "directions": [
       {
         "direction_id": 1,
-        "route_long_name": "BM - P.SENTRAL",
+        "route_long_name": "BM - PENANG SENTRAL",
         "shape_id": "1000000919",
         "service_ids": ["26111201", "26111301", "26111303"],
         "stops": [
@@ -19261,7 +19261,7 @@
       },
       {
         "direction_id": 0,
-        "route_long_name": "P.SENTRAL - BM",
+        "route_long_name": "PENANG SENTRAL - BM",
         "shape_id": "1000000918",
         "service_ids": ["26111201", "26111301", "26111303"],
         "stops": [
@@ -21267,7 +21267,7 @@
     "directions": [
       {
         "direction_id": 1,
-        "route_long_name": "NIBONG TEBAL - P.SENTRAL",
+        "route_long_name": "NIBONG TEBAL - PENANG SENTRAL",
         "shape_id": "1000000933",
         "service_ids": ["26111201", "26111301", "26111303"],
         "stops": [
@@ -21671,7 +21671,7 @@
       },
       {
         "direction_id": 0,
-        "route_long_name": "P.SENTRAL - NIBONG TEBAL",
+        "route_long_name": "PENANG SENTRAL - NIBONG TEBAL",
         "shape_id": "1000000932",
         "service_ids": ["26111201", "26111301", "26111303"],
         "stops": [
