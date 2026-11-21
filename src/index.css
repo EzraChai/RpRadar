@@ -223,16 +223,13 @@ body {
   box-shadow: none !important;
 }
 
-.maplibregl-ctrl-group:not(:empty) {
-  box-shadow: none !important;
-}
-
 .maplibregl-ctrl-top-right {
   top: 88px !important;
   right: 7px !important;
 }
 
 .maplibregl-ctrl-group {
+  box-shadow: none !important;
   background: none !important;
 }
 
