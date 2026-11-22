@@ -1302,7 +1302,6 @@ function AnimatedVehicleMarker({
     };
     const routeLength = length(routeLine, { units: "meters" });
     const routeHeadingAt = (progress: number, travelSign: number) => {
-      if (hasLiveBearing) return normalizeHeading(heading);
       if (routeLength === 0) return normalizeHeading(heading);
       const lookAhead = 8;
       let from = progress;
@@ -1317,13 +1316,12 @@ function AnimatedVehicleMarker({
         );
         to = progress;
       }
-      const routeHeading = normalizeHeading(
+      return normalizeHeading(
         bearing(
           along(routeLine, from, { units: "meters" }),
           along(routeLine, to, { units: "meters" }),
         ),
       );
-      return routeHeading;
     };
     const applyCurrentHeading = (travelSign = routeOrientation) => {
       applyHeading(
@@ -1967,7 +1965,10 @@ function VehiclesMarker({
             { units: "meters" },
           ) < 20;
         const snapped = nearestPointOnLine(line, busPoint, { units: "meters" });
-        if (hasLiveBearing && isClosedRoute) {
+        // Multiple parts of a route can share the same road in opposite
+        // directions. Use the live bearing to choose the matching segment for
+        // open routes too, so route progress does not jump to the reverse leg.
+        if (hasLiveBearing) {
           const routeCoordinates = line.geometry.coordinates;
           const nearestDistance = snapped.properties.pointDistance;
           const routeLength = length(line, { units: "meters" });

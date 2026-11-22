@@ -348,10 +348,16 @@ function subtractIntervals(
   return result.filter(([s, e]) => e - s >= MIN_SPAN_M);
 }
 
-function isHeavySeverity(mag: unknown, icon: unknown): boolean {
-  if (icon === 8 || icon === 9) return true; // Road closed
+function isJamIncident(icon: unknown): boolean {
+  return (
+    icon === 6 ||
+    (typeof icon === "string" && icon.toLowerCase() === "jam")
+  );
+}
+
+function isHeavySeverity(mag: unknown): boolean {
   if (typeof mag === "number") {
-    return mag >= 3; // 3 = major delay, 4 = road closure / indefinite
+    return mag >= 3; // 3 = major delay, 4 = indefinite
   }
   if (typeof mag === "string") {
     const lower = mag.toLowerCase();
@@ -368,7 +374,7 @@ interface ClassifiedTrafficSegments {
 }
 
 /**
- * Fetches real-time traffic jams and incidents with a SINGLE API call,
+ * Fetches real-time traffic jams with a SINGLE API call,
  * then maps and slices them along the route using a high-performance spatial index.
  * Yields to the browser event loop to guarantee zero main-thread render lag.
  */
@@ -421,9 +427,13 @@ async function fetchRouteTrafficSingleApi(
     const props = inc.properties ?? {};
     const mag = props.magnitudeOfDelay;
     const icon = props.iconCategory;
-    const isHeavy = isHeavySeverity(mag, icon);
+    // The endpoint also returns accidents, roadworks, and closures. Only draw
+    // incidents TomTom explicitly classifies as a traffic jam.
+    if (!isJamIncident(icon)) continue;
 
-    // Handle point incidents (accidents, stationary hazards)
+    const isHeavy = isHeavySeverity(mag);
+
+    // Handle point-shaped jam incidents.
     if (geom.type === "Point" && Array.isArray(geom.coordinates)) {
       const [lon, lat] = geom.coordinates;
       const proj = projectPointToRoute(index, lon, lat);
@@ -442,7 +452,7 @@ async function fetchRouteTrafficSingleApi(
       continue;
     }
 
-    // Handle line incidents (traffic jam corridors, closed stretches)
+    // Handle line-shaped traffic jams.
     const lines: [number, number][][] = [];
     if (geom.type === "LineString" && Array.isArray(geom.coordinates)) {
       lines.push(geom.coordinates);
@@ -524,7 +534,7 @@ interface TrafficLayerProps {
 }
 
 /**
- * TrafficLayer renders traffic jams strictly along the selected bus route with:
+ * TrafficLayer renders TomTom-classified jams strictly along the selected route with:
  * 1. Exactly ONE single API call (TomTom Incident Details).
  * 2. High-speed spatial indexing for instant O(1) point matching (~2ms total).
  * 3. Cooperative yielding to ensure ZERO main-thread lag during UI renders.
@@ -621,7 +631,7 @@ export function TrafficLayer({ positions, visible }: TrafficLayerProps) {
 
   return (
     <>
-      {/* Moderate traffic slowdown (yellow) rendered first */}
+      {/* Moderate traffic jams (yellow) rendered first */}
       {trafficSegments.moderate.map((coords, i) => (
         <Polyline
           key={`mod-${i}-${coords[0][0]}-${coords[0][1]}`}
@@ -636,7 +646,7 @@ export function TrafficLayer({ positions, visible }: TrafficLayerProps) {
         />
       ))}
 
-      {/* Heavy traffic jam / closure (red) rendered on top */}
+      {/* Heavy traffic jams (red) rendered on top */}
       {trafficSegments.heavy.map((coords, i) => (
         <Polyline
           key={`heavy-${i}-${coords[0][0]}-${coords[0][1]}`}
