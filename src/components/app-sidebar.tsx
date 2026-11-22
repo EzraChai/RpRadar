@@ -224,7 +224,7 @@ export function AppSidebar({
                     <Link
                       key={route?.route_id}
                       className=" flex items-center gap-2"
-                      to={`/?id=${route?.route_id}`}
+                      to={`/routes/${route?.route_id}`}
                       preventScrollReset
                     >
                       <Button
@@ -553,7 +553,7 @@ export function RouteCard({
         }
       }}
       className={"flex justify-center"}
-      to={`/?id=${line.route_id}`}
+      to={`/routes/${line.route_id}`}
       onPointerDownCapture={(e) => e.stopPropagation()}
     >
       <Button

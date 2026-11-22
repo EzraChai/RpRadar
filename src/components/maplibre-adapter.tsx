@@ -154,6 +154,7 @@ export function MapContainer({
       );
       controls?.style.setProperty("top", "88px", "important");
       controls?.style.setProperty("right", "7px", "important");
+      controls?.style.setProperty("z-index", "1000", "important");
       const b = mapElement.querySelector<HTMLElement>(
         ".maplibregl-ctrl .maplibregl-ctrl-group",
       );

@@ -8,7 +8,7 @@ import {
   divIcon,
   fitBoundsOf,
 } from "./maplibre-adapter";
-import { Link, useSearchParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
@@ -163,7 +163,7 @@ function lighterHex(hex: string, percent = 10) {
 }
 
 function App() {
-  const [searchParams] = useSearchParams();
+  const { id: routeId } = useParams();
   const [provider, setProvider] = useState<string>(() => {
     return localStorage.getItem("provider") || "rp";
   });
@@ -201,21 +201,21 @@ function App() {
     switch (provider) {
       case "rp":
         setRoute(
-          RapidPenangRoutes.find((r) => r.route_id === searchParams.get("id")),
+          RapidPenangRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(RapidPenangSchedule as unknown as BusScheduleType);
         break;
 
       case "rkl":
         setRoute(
-          RapidKLRoutes.some((r) => r.route_id === searchParams.get("id"))
-            ? RapidKLRoutes.find((r) => r.route_id === searchParams.get("id"))
+          RapidKLRoutes.some((r) => r.route_id === routeId)
+            ? RapidKLRoutes.find((r) => r.route_id === routeId)
             : MRTFeederRoutes.find(
-                (r) => r.route_id === searchParams.get("id"),
+                (r) => r.route_id === routeId,
               ),
         );
         setBusSchedule(
-          RapidKLRoutes.some((r) => r.route_id === searchParams.get("id"))
+          RapidKLRoutes.some((r) => r.route_id === routeId)
             ? (RapidKLSchedule as unknown as BusScheduleType)
             : (MRTFeederSchedule as unknown as BusScheduleType),
         );
@@ -223,12 +223,12 @@ function App() {
 
       case "ns":
         setRoute(
-          MYBasNSARoutes.some((r) => r.route_id === searchParams.get("id"))
-            ? MYBasNSARoutes.find((r) => r.route_id === searchParams.get("id"))
-            : MYBasNSBRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MYBasNSARoutes.some((r) => r.route_id === routeId)
+            ? MYBasNSARoutes.find((r) => r.route_id === routeId)
+            : MYBasNSBRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(
-          MYBasNSARoutes.some((r) => r.route_id === searchParams.get("id"))
+          MYBasNSARoutes.some((r) => r.route_id === routeId)
             ? (MYBasNSASchedule as unknown as BusScheduleType)
             : (MYBasNSBSchedule as unknown as BusScheduleType),
         );
@@ -236,60 +236,60 @@ function App() {
 
       case "mk":
         setRoute(
-          MyBasMkRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MyBasMkRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(MyBasMkSchedule as unknown as BusScheduleType);
         break;
 
       case "jb":
         setRoute(
-          MyBasJbRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MyBasJbRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(MyBasJbSchedule as unknown as BusScheduleType);
         break;
       case "pk":
         setRoute(
-          MyBasPkRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MyBasPkRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(MyBasPkSchedule as unknown as BusScheduleType);
         break;
       case "ktn":
         setRoute(
-          MyBasKtnRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MyBasKtnRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(MyBasKtnSchedule as unknown as BusScheduleType);
         break;
       case "alr":
         setRoute(
-          MyBasAlrRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MyBasAlrRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(MyBasAlrSchedule as unknown as BusScheduleType);
         break;
       case "kgr":
         setRoute(
-          MyBasKgrRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MyBasKgrRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(MyBasKgrSchedule as unknown as BusScheduleType);
         break;
       case "ktb":
         setRoute(
-          MyBasKtbRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MyBasKtbRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(MyBasKtbSchedule as unknown as BusScheduleType);
         break;
       case "trg":
         setRoute(
-          MyBasTrgRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MyBasTrgRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(MyBasTrgSchedule as unknown as BusScheduleType);
         break;
       case "sw":
         setRoute(
-          MyBasSwRoutes.find((r) => r.route_id === searchParams.get("id")),
+          MyBasSwRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(MyBasSwSchedule as unknown as BusScheduleType);
     }
-  }, [provider, searchParams]);
+  }, [provider, routeId]);
 
   const markerRefs = useRef<{ [key: string]: CircleMarkerRef | null }>({});
   const starredRoutes = useStarredRoutes();
@@ -302,14 +302,14 @@ function App() {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    if (searchParams.get("id") === null) {
+    if (!routeId) {
       const defaultDirection = provider === "jb" || provider === "mk" ? 1 : 0;
       setDirection(defaultDirection);
       setPositions([]);
       setPositionsDirection(defaultDirection);
       return;
     }
-    if (searchParams.get("id")) {
+    if (routeId) {
       const shapeId = route?.directions.find((d) => {
         if (provider === "mk") {
           const today = new Date().getDay();
@@ -480,7 +480,7 @@ function App() {
         setPositionsDirection(0);
       }
     }
-  }, [route?.directions, direction, isMobile, searchParams]);
+  }, [route?.directions, direction, isMobile, routeId]);
 
   function CustomZoomControls() {
     const map = useMap();
@@ -1186,7 +1186,7 @@ function App() {
         <FlyToRoute
           positions={positions}
           isMobile={isMobile}
-          routeId={searchParams.get("id")}
+            routeId={routeId ?? null}
         />
         {!isMobile && route && (
           <>

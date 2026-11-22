@@ -390,8 +390,7 @@ export function DrawerMobile({
                   </div>
                 </Drawer.Title>
                 <div
-                  className="min-h-0 flex-1 pt-1 text-black overflow-y-auto overscroll-y-contain touch-pan-y scroll-hidden"
-                  style={{ WebkitOverflowScrolling: "touch" }}
+                  className="min-h-0 flex-1 pt-1 text-black flex flex-col"
                 >
                   <div className="px-4 relative ">
                     <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
@@ -414,7 +413,8 @@ export function DrawerMobile({
                     )}
                   </div>
                   <div
-                    className="mt-4 pb-12 scroll-hidden"
+                    className="mt-4 min-h-0 flex-1 overflow-y-auto overflow-x-clip touch-pan-y scroll-hidden pb-12"
+                    style={{ WebkitOverflowScrolling: "touch" }}
                   >
                     <div className="px-4">
                       {filteredRoutes.length === routes.length && (
@@ -428,7 +428,7 @@ export function DrawerMobile({
                                 <Link
                                   key={route?.route_id}
                                   className=" flex items-center"
-                                  to={`/?id=${route?.route_id}`}
+                                  to={`/routes/${route?.route_id}`}
                                   preventScrollReset
                                   onClick={() => setSnap(SNAP_POINTS[0])}
                                 >
