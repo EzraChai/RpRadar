@@ -193,6 +193,7 @@ export function DrawerMobile({
       repositionInputs={false}
       open
       dismissible={false}
+      scrollLockTimeout={0}
       snapPoints={SNAP_POINTS}
       activeSnapPoint={snap}
       setActiveSnapPoint={setSnap}
@@ -207,8 +208,7 @@ export function DrawerMobile({
             <Drawer.Handle />
             {route ? (
               <div
-                className="min-h-0 flex-1 overflow-y-auto overflow-x-clip overscroll-y-contain touch-pan-y scroll-hidden"
-                style={{ WebkitOverflowScrolling: "touch" }}
+                className="min-h-0 flex-1 flex flex-col overflow-hidden"
               >
                 <div className="p-2 py-0 flex justify-between items-center">
                   <div
@@ -247,7 +247,7 @@ export function DrawerMobile({
                     )[0].route_long_name
                   }
                 </div>
-                <div>
+                <div className="min-h-0 flex-1 flex flex-col">
                   {route?.directions.length >= 2 && (
                     <Button
                       variant={"outline"}
@@ -265,7 +265,8 @@ export function DrawerMobile({
                     </Button>
                   )}
                   <div
-                    className="mt-4 ml-2 overflow-x-clip scroll-hidden pb-12"
+                    className="mt-4 ml-2 min-h-0 flex-1 overflow-y-auto overflow-x-clip touch-pan-y scroll-hidden pb-12"
+                    style={{ WebkitOverflowScrolling: "touch" }}
                   >
                     {route?.directions
                       .filter((d) => d.direction_id === direction)[0]
