@@ -429,6 +429,7 @@ export function DrawerMobile({
                                   className=" flex items-center"
                                   to={`/?id=${route?.route_id}`}
                                   preventScrollReset
+                                  onClick={() => setSnap(SNAP_POINTS[0])}
                                 >
                                   <Button
                                     className={`w-full dark:hover:bg-neutral-700 cursor-pointer overflow-hidden border-b dark:border-neutral-600 flex justify-between items-center rounded-none py-10 bg-neutral-50 dark:bg-neutral-900
