@@ -1,5 +1,5 @@
 import { Search, Star, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Drawer } from "vaul";
 import { Input } from "./ui/input";
 import { RouteCard } from "./app-sidebar";
@@ -172,60 +172,6 @@ export function DrawerMobile({
   }, [starred, provider, routes]);
 
   const [filteredRoutes, setFilteredRoutes] = useState(routes); // initial list
-  const activeScrollRef = useRef<HTMLDivElement>(null);
-  const list2Ref = useRef<HTMLDivElement>(null);
-  const list1Ref = useRef<HTMLDivElement>(null);
-
-  const touchStartY = useRef<number | null>(null);
-  const lastTouchY = useRef<number | null>(null);
-  const lastTouchTime = useRef<number | null>(null);
-
-  const handleTouchStart =
-    (ref: React.RefObject<HTMLDivElement | null>) => (e: React.TouchEvent) => {
-      activeScrollRef.current = ref.current;
-
-      const y = e.touches[0].clientY;
-      touchStartY.current = y;
-      lastTouchY.current = y;
-      lastTouchTime.current = performance.now();
-    };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!activeScrollRef.current || lastTouchY.current === null) return;
-
-    const currentY = e.touches[0].clientY;
-    const now = performance.now();
-
-    const dt = now - (lastTouchTime.current ?? now); // time in ms
-    const velocity = dt > 0 ? (currentY - lastTouchY.current) / dt : 0; // px/ms
-
-    lastTouchY.current = currentY;
-    lastTouchTime.current = now;
-
-    const scrollTop = activeScrollRef.current.scrollTop;
-    const scrollHeight = activeScrollRef.current.scrollHeight;
-    const clientHeight = activeScrollRef.current.clientHeight;
-
-    const atTop = scrollTop <= 0;
-    const atBottom = scrollTop + clientHeight >= scrollHeight;
-
-    // Snap based purely on velocity
-    const velocityThreshold = 2; // tweak this (px/ms)
-
-    if (atTop && velocity > velocityThreshold) {
-      // swipe down at top -> snap up
-      const currentIndex =
-        typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
-      if (currentIndex > 0) setSnap(SNAP_POINTS[currentIndex - 1]);
-    } else if (atBottom && velocity < -velocityThreshold) {
-      // swipe up at bottom -> snap down
-      const currentIndex =
-        typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : 0;
-      if (currentIndex < SNAP_POINTS.length - 1)
-        setSnap(SNAP_POINTS[currentIndex + 1]);
-    }
-  };
-
   useEffect(() => {
     const handler = setTimeout(() => {
       const term = search.trim().toLowerCase();
@@ -255,16 +201,14 @@ export function DrawerMobile({
       <Drawer.Portal>
         <Drawer.Content
           data-testid="content"
-          className="fixed z-1000 flex px-2 pt-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] bottom-0 left-0 right-0 h-full outline-none max-h-[97%] -mx-px"
+          className="fixed z-1000 flex overflow-hidden px-2 pt-2 flex-col backdrop-blur-lg border border-b-0 border-x-0 dark:border-neutral-500 bg-white/50 dark:bg-white/10 rounded-t-[10px] bottom-0 left-0 right-0 h-full outline-none max-h-[97%] -mx-px"
         >
-          <div className="max-w-md w-full mx-auto rounded-t-[10px]">
+          <div className="max-w-md w-full h-full min-h-0 mx-auto rounded-t-[10px] flex flex-col">
             <Drawer.Handle />
             {route ? (
               <div
-                ref={list1Ref}
-                onTouchStart={handleTouchStart(list1Ref)}
-                onTouchMove={handleTouchMove}
-                className="overflow-y-auto overscroll-contain "
+                className="min-h-0 flex-1 overflow-y-auto overflow-x-clip overscroll-y-contain touch-pan-y scroll-hidden"
+                style={{ WebkitOverflowScrolling: "touch" }}
               >
                 <div className="p-2 py-0 flex justify-between items-center">
                   <div
@@ -321,11 +265,7 @@ export function DrawerMobile({
                     </Button>
                   )}
                   <div
-                    className={`mt-4 ml-2 overflow-y-auto overflow-x-clip scroll-hidden ${
-                      snap === SNAP_POINTS[2] && "max-h-[81dvh] pb-12"
-                    }
-                  ${snap === SNAP_POINTS[1] && "max-h-[81dvh] pb-125"}
-                  `}
+                    className="mt-4 ml-2 overflow-x-clip scroll-hidden pb-12"
                   >
                     {route?.directions
                       .filter((d) => d.direction_id === direction)[0]
@@ -449,10 +389,8 @@ export function DrawerMobile({
                   </div>
                 </Drawer.Title>
                 <div
-                  ref={list2Ref}
-                  onTouchStart={handleTouchStart(list2Ref)}
-                  onTouchMove={handleTouchMove}
-                  className="pt-1 text-black overflow-y-auto overscroll-contain"
+                  className="min-h-0 flex-1 pt-1 text-black overflow-y-auto overscroll-y-contain touch-pan-y scroll-hidden"
+                  style={{ WebkitOverflowScrolling: "touch" }}
                 >
                   <div className="px-4 relative ">
                     <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
@@ -475,10 +413,7 @@ export function DrawerMobile({
                     )}
                   </div>
                   <div
-                    className={`mt-4 overflow-y-auto 
-                      ${snap === SNAP_POINTS[2] && "max-h-[85dvh] pb-12"}
-                      ${snap === SNAP_POINTS[1] && "max-h-[85dvh] pb-125"}
-                       scroll-hidden`}
+                    className="mt-4 pb-12 scroll-hidden"
                   >
                     <div className="px-4">
                       {filteredRoutes.length === routes.length && (
