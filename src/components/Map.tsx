@@ -1594,7 +1594,6 @@ function VehiclesMarker({
     }
 
     function avlToVehicle(bus: AvlVehicle): IVehiclePosition {
-      console.log(bus);
       if (
         bus.is_inside_endstop === "depot" ||
         bus.is_inside_endstop === "end"
@@ -1611,11 +1610,6 @@ function VehiclesMarker({
         bus.route === "103" ||
         bus.route === "CT15"
       ) {
-        // if (
-        //   !RapidPenangSchedule.find((b) => b.trip_ids.includes(bus.trip_no))
-        // ) {
-        //   return {};
-        // }
         directionId = 0;
       } else {
         // if (bus.dir === "01") {
