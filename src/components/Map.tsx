@@ -488,7 +488,7 @@ function App() {
           map.doubleClickZoom.disable();
           map.scrollWheelZoom.enable();
         }}
-        className="absolute overflow-hidden p-0 gap-0 top-4 right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
+        className="absolute overflow-hidden w-10 h-20 p-0 gap-0 top-4 right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
       >
         <Button
           style={{
@@ -1066,7 +1066,7 @@ function App() {
         )}
 
         <CustomZoomControls />
-        <Card className="absolute overflow-hidden p-0 w-10 flex justify-center items-center gap-0 top-36.5 mr-px right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+        <Card className="absolute overflow-hidden p-0 w-10 h-10 flex justify-center items-center gap-0 top-[150px] mr-px right-3.75 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
           {/* <ModeToggle /> */}
           <Dialog>
             <DialogTrigger asChild>
