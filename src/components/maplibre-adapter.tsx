@@ -378,11 +378,13 @@ export function Marker({
   icon,
   children,
   ref,
+  imperativePosition = false,
 }: {
   position: Position;
   icon: { options?: { html?: string; className?: string } };
   children?: ReactNode;
   ref?: React.Ref<unknown>;
+  imperativePosition?: boolean;
 }) {
   const selection = useContext(PopupSelectionContext);
   if (!selection)
@@ -390,6 +392,11 @@ export function Marker({
   const id = useId();
   const open = selection.activeId === id;
   const markerRef = useRef<import("maplibre-gl").Marker | null>(null);
+  const popupRef = useRef<React.ComponentRef<typeof MapLibrePopup> | null>(null);
+  const livePosition = markerRef.current?.getLngLat();
+  const popupPosition = livePosition
+    ? { lat: livePosition.lat, lng: livePosition.lng }
+    : position;
   const child = Children.toArray(children).find(isValidElement);
   const config = child ? (child.props as PopupConfig) : null;
   const html = icon?.options?.html ?? "";
@@ -421,6 +428,7 @@ export function Marker({
       setLatLng: (p: Point | Position) => {
         const next = asPosition(p as LatLngExpression);
         markerRef.current?.setLngLat([next.lng, next.lat]);
+        popupRef.current?.setLngLat([next.lng, next.lat]);
       },
       getElement: () => markerRef.current?.getElement(),
       isPopupOpen: () => selection.activeId === id,
@@ -433,8 +441,12 @@ export function Marker({
     <>
       <MapLibreMarker
         ref={markerRef}
-        latitude={position.lat}
-        longitude={position.lng}
+        latitude={
+          imperativePosition ? (livePosition?.lat ?? position.lat) : position.lat
+        }
+        longitude={
+          imperativePosition ? (livePosition?.lng ?? position.lng) : position.lng
+        }
         anchor="center"
         style={{ zIndex: 100 }}
       >
@@ -442,8 +454,9 @@ export function Marker({
       </MapLibreMarker>
       {open && config && (
         <MapLibrePopup
-          latitude={position.lat}
-          longitude={position.lng}
+          ref={popupRef}
+          latitude={popupPosition.lat}
+          longitude={popupPosition.lng}
           anchor="bottom"
           offset={10}
           closeButton={config.closeButton ?? false}

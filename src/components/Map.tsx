@@ -1517,7 +1517,12 @@ function AnimatedVehicleMarker({
   }, [animationDuration, direction, followsRoute, heading]);
 
   return (
-    <Marker ref={markerRef} position={markerPositionRef.current} icon={icon}>
+    <Marker
+      ref={markerRef}
+      position={markerPositionRef.current}
+      icon={icon}
+      imperativePosition
+    >
       {children}
     </Marker>
   );
