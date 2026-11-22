@@ -1819,11 +1819,7 @@ function VehiclesMarker({
         iconAnchor: [50, 50],
       });
   } else if (provider === "rkl") {
-    busIcon = (
-      bearing: number,
-      routeId: string | null | undefined,
-      routeShortName: string | null | undefined,
-    ) => {
+    busIcon = (bearing: number, routeId: string | null | undefined) => {
       if (routeId?.startsWith("3")) {
         return divIcon({
           className: "",
@@ -1857,11 +1853,7 @@ function VehiclesMarker({
       }
     };
   } else if (provider !== "rp" && provider !== "rkl") {
-    busIcon = (
-      bearing: number,
-      _: string | null | undefined,
-      __: string | null | undefined,
-    ) =>
+    busIcon = (bearing: number, _: string | null | undefined) =>
       divIcon({
         className: "",
         html: `<img 
@@ -2442,11 +2434,7 @@ function VehiclesMarker({
                 followsRoute={!isOffRoute}
                 routeOrientation={routeOrientation}
                 hasLiveBearing={hasLiveBearing}
-                icon={busIcon(
-                  heading,
-                  route?.route_id,
-                  route?.route_short_name,
-                )}
+                icon={busIcon(heading, route?.route_id)}
               >
                 <Popup maxWidth={500} offset={[0, 8]} closeButton={false}>
                   <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
