@@ -1128,7 +1128,7 @@ function App() {
                   }}
                   value={provider}
                 >
-                  <SelectTrigger className="bg-white">
+                  <SelectTrigger className="bg-white text-base">
                     <SelectValue placeholder="Select State" />
                   </SelectTrigger>
                   <SelectContent className="z-1006 border-0 backdrop-blur-lg bg-white/50 dark:bg-white/10">
