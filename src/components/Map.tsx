@@ -46,47 +46,36 @@ import MRTFeederSchedule from "@/../data/mrt-feeder-schedule.json";
 import MYBasNSAShapes from "@/assets/ns_a/ns_a_shapes_flipped.json";
 import MYBasNSARoutes from "@/assets/ns_a/ns_a_routes_with_directions.json";
 import MYBasNSASchedule from "@/../data/ns-a-schedule.json";
-import MYBasNSADirections from "@/../data/ns-a-trips.json";
 import MYBasNSBShapes from "@/assets/ns_b/ns_b_shapes_flipped.json";
 import MYBasNSBRoutes from "@/assets/ns_b/ns_b_routes_with_directions.json";
 import MYBasNSBSchedule from "@/../data/ns-b-schedule.json";
-import MYBasNSBDirections from "@/../data/ns-b-trips.json";
 import MyBasMkShapes from "@/assets/mk/mk_shapes_flipped.json";
 import MyBasMkRoutes from "@/assets/mk/mk_routes_with_directions.json";
 import MyBasMkSchedule from "@/../data/mk-schedule.json";
-import MyBasMkDirections from "@/../data/mk-trips.json";
 import MyBasJbShapes from "@/assets/jb/jb_shapes_flipped.json";
 import MyBasJbRoutes from "@/assets/jb/jb_routes_with_directions.json";
 import MyBasJbSchedule from "@/../data/jb-schedule.json";
-import MyBasJbDirections from "@/../data/jb-trips.json";
 import MyBasPkShapes from "@/assets/pk/pk_shapes_flipped.json";
 import MyBasPkRoutes from "@/assets/pk/pk_routes_with_directions.json";
 import MyBasPkSchedule from "@/../data/pk-schedule.json";
-import MyBasPkDirections from "@/../data/pk-trips.json";
 import MyBasKtnShapes from "@/assets/ktn/ktn_shapes_flipped.json";
 import MyBasKtnRoutes from "@/assets/ktn/ktn_routes_with_directions.json";
 import MyBasKtnSchedule from "@/../data/rapid-ktn-schedule.json";
-import MyBasKtnDirections from "@/../data/rapid-ktn-trips.json";
 import MyBasAlrShapes from "@/assets/alr/alr_shapes_flipped.json";
 import MyBasAlrRoutes from "@/assets/alr/alr_routes_with_directions.json";
 import MyBasAlrSchedule from "@/../data/alr-schedule.json";
-import MyBasAlrDirections from "@/../data/alr-trips.json";
 import MyBasKgrShapes from "@/assets/kgr/kgr_shapes_flipped.json";
 import MyBasKgrRoutes from "@/assets/kgr/kgr_routes_with_directions.json";
 import MyBasKgrSchedule from "@/../data/kgr-schedule.json";
-import MyBasKgrDirections from "@/../data/kgr-trips.json";
 import MyBasKtbShapes from "@/assets/ktb/ktb_shapes_flipped.json";
 import MyBasKtbRoutes from "@/assets/ktb/ktb_routes_with_directions.json";
 import MyBasKtbSchedule from "@/../data/ktb-schedule.json";
-import MyBasKtbDirections from "@/../data/ktb-trips.json";
 import MyBasTrgShapes from "@/assets/trg/trg_shapes_flipped.json";
 import MyBasTrgRoutes from "@/assets/trg/trg_routes_with_directions.json";
 import MyBasTrgSchedule from "@/../data/trg-schedule.json";
-import MyBasTrgDirections from "@/../data/trg-trips.json";
 import MyBasSwShapes from "@/assets/sw/sw_shapes_flipped.json";
 import MyBasSwRoutes from "@/assets/sw/sw_routes_with_directions.json";
 import MyBasSwSchedule from "@/../data/sw-schedule.json";
-import MyBasSwDirections from "@/../data/sw-trips.json";
 
 import RapidRailShapes from "@/assets/rail/shapes_flipped.json";
 import RapidRailRoutesWithShapesID from "@/assets/rail/routes_with_shapes.json";
@@ -126,6 +115,7 @@ import { Switch } from "./ui/switch";
 import { pusher, AVL_API } from "@/lib/pusher";
 import type { AvlVehicle } from "@/lib/pusher";
 import { TrafficLayer } from "./TrafficLayer";
+import { deriveVehicleDirectionBuckets } from "@/lib/vehicle-direction-buckets";
 
 type IVehiclePosition = transit_realtime.IVehiclePosition;
 
@@ -1574,10 +1564,16 @@ function VehiclesMarker({
     }
   }, []);
 
-  const [directionsLocation, setDirectionsLocation] = useState<{
-    0: IVehiclePosition[];
-    1: IVehiclePosition[];
-  }>({ 0: [], 1: [] });
+  const vehiclesByDirection = useMemo(
+    () =>
+      deriveVehicleDirectionBuckets({
+        vehicles: vehicles.values(),
+        provider,
+        routeId: route?.route_id,
+        routeDirectionCount: route?.directions.length,
+      }),
+    [provider, route?.directions.length, route?.route_id, vehicles],
+  );
   const routeSnapStateRef = useRef(new Map<string, boolean>());
   const vehicleRouteProgressRef = useRef(new Map<string, number>());
 
@@ -1598,6 +1594,7 @@ function VehiclesMarker({
     }
 
     function avlToVehicle(bus: AvlVehicle): IVehiclePosition {
+      console.log(bus);
       if (
         bus.is_inside_endstop === "depot" ||
         bus.is_inside_endstop === "end"
@@ -1606,7 +1603,7 @@ function VehiclesMarker({
       }
 
       // dir "01" → 1, "02" → 0
-      let directionId: number;
+      let directionId;
 
       if (
         bus.route === "T310" ||
@@ -1620,14 +1617,24 @@ function VehiclesMarker({
         //   return {};
         // }
         directionId = 0;
-      } else if (bus.dir === "01") {
-        directionId = 1;
-      } else if (bus.dir === "02") {
-        directionId = 0;
       } else {
-        directionId =
-          RapidPenangSchedule.find((b) => b.trip_ids.includes(bus.trip_no))
-            ?.d ?? 0; // default to 0 if dir is not recognized
+        // if (bus.dir === "01") {
+        //   directionId = 1;
+        // } else if (bus.dir === "02") {
+        //   directionId = 0;
+        // }
+        directionId = RapidPenangSchedule.find((b) =>
+          b.trip_ids.includes(bus.trip_no),
+        )?.d;
+        if (directionId === undefined) {
+          if (bus.dir === "01") {
+            directionId = 1;
+          } else if (bus.dir === "02") {
+            directionId = 0;
+          } else {
+            directionId = 0;
+          }
+        }
       }
       return {
         trip: {
@@ -1872,347 +1879,6 @@ function VehiclesMarker({
     busIcon = (_: number) => divIcon();
   }
 
-  useEffect(() => {
-    setDirectionsLocation({ 0: [], 1: [] });
-    if (provider === "rp") {
-      const vehicleForThisRoute = Array.from(vehicles.values());
-
-      vehicleForThisRoute.forEach((v) => {
-        const dirNum = Number(v.trip?.directionId);
-        if (dirNum === 0 || dirNum === 1) {
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [dirNum]: [...prev[dirNum as 0 | 1], v],
-          }));
-        }
-      });
-    } else if (provider === "rkl") {
-      const vehicleForThisRoute = Array.from(vehicles.values());
-
-      vehicleForThisRoute.forEach((v) => {
-        const dirNum = Number(v.trip?.directionId);
-        if (dirNum === 0 || dirNum === 1) {
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [dirNum]: [...prev[dirNum as 0 | 1], v],
-          }));
-        }
-      });
-    } else if (provider === "ns") {
-      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
-        (v) => v.trip?.routeId === route?.route_id,
-      );
-
-      vehicleForThisRoute.forEach((v) => {
-        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
-          const directionId = v.trip.directionId;
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [directionId]: [...prev[directionId], v],
-          }));
-          return;
-        }
-        let directions = MYBasNSADirections.find(
-          (d) => d.trip_id === v.trip?.tripId,
-        );
-        if (!directions) {
-          directions = MYBasNSBDirections.find(
-            (d) => d.trip_id === v.trip?.tripId,
-          );
-        }
-
-        if (directions === undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum as 0 | 1], v],
-            }));
-          }
-        }
-      });
-    } else if (provider === "mk") {
-      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
-        (v) => v.trip?.routeId === route?.route_id,
-      );
-
-      vehicleForThisRoute.forEach((v) => {
-        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
-          const directionId = v.trip.directionId;
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [directionId]: [...prev[directionId], v],
-          }));
-          return;
-        }
-        let directions = MyBasMkDirections.find(
-          (d) => d.trip_id === v.trip?.tripId,
-        );
-
-        if (directions === undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0]],
-            1: [...prev[1], v],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum as 0 | 1], v],
-            }));
-          }
-        }
-      });
-    } else if (provider === "jb") {
-      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
-        (v) => v.trip?.routeId === route?.route_id,
-      );
-
-      vehicleForThisRoute.forEach((v) => {
-        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
-          const directionId = v.trip.directionId;
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [directionId]: [...prev[directionId], v],
-          }));
-          return;
-        }
-        let directions = MyBasJbDirections.find(
-          (d) => d.trip_id === v.trip?.tripId,
-        );
-
-        if (directions === undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum as 0 | 1], v],
-            }));
-          }
-        }
-      });
-    } else if (provider === "pk") {
-      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
-        (v) => v.trip?.routeId === route?.route_id,
-      );
-
-      vehicleForThisRoute.forEach((v) => {
-        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
-          const directionId = v.trip.directionId;
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [directionId]: [...prev[directionId], v],
-          }));
-          return;
-        }
-        let directions = MyBasPkDirections.find(
-          (d) => d.trip_id === v.trip?.tripId,
-        );
-
-        if (directions === undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum as 0 | 1], v],
-            }));
-          }
-        }
-      });
-    } else if (provider === "ktn") {
-      const vehicleForThisRoute = Array.from(vehicles.values()).filter(
-        (v) => v.trip?.routeId === route?.route_id,
-      );
-
-      vehicleForThisRoute.forEach((v) => {
-        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
-          const directionId = v.trip.directionId;
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [directionId]: [...prev[directionId], v],
-          }));
-          return;
-        }
-        let directions = MyBasKtnDirections.find(
-          (d) => d.trip_id === v.trip?.tripId,
-        );
-
-        if (directions === undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum as 0 | 1], v],
-            }));
-          }
-        }
-      });
-    } else if (provider === "alr") {
-      const vehicleForThisRoute = Array.from(vehicles.values());
-
-      vehicleForThisRoute.forEach((v) => {
-        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
-          const directionId = v.trip.directionId;
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [directionId]: [...prev[directionId], v],
-          }));
-          return;
-        }
-        if (MyBasAlrDirections.length === 0) {
-          return;
-        }
-        let directions = MyBasAlrDirections.find(
-          (d: any) =>
-            d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
-        );
-
-        if (directions !== undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum as 0 | 1], v],
-            }));
-          }
-        }
-      });
-    } else if (provider === "kgr") {
-      const vehicleForThisRoute = Array.from(vehicles.values());
-
-      vehicleForThisRoute.forEach((v) => {
-        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
-          const directionId = v.trip.directionId;
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [directionId]: [...prev[directionId], v],
-          }));
-          return;
-        }
-        let directions = MyBasKgrDirections.find(
-          (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
-        );
-
-        if (directions !== undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum as 0 | 1], v],
-            }));
-          }
-        }
-      });
-    } else if (provider === "ktb") {
-      const vehicleForThisRoute = Array.from(vehicles.values());
-
-      vehicleForThisRoute.forEach((v) => {
-        if (v.trip?.directionId === 0 || v.trip?.directionId === 1) {
-          const directionId = v.trip.directionId;
-          setDirectionsLocation((prev) => ({
-            ...prev,
-            [directionId]: [...prev[directionId], v],
-          }));
-          return;
-        }
-        let directions = MyBasKtbDirections.find(
-          (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
-        );
-
-        if (directions !== undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum as 0 | 1], v],
-            }));
-          }
-        }
-      });
-    } else if (provider === "sw") {
-      const vehicleForThisRoute = Array.from(vehicles.values());
-      vehicleForThisRoute.forEach((v) => {
-        let directions = MyBasSwDirections.find(
-          (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
-        );
-
-        if (directions !== undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum as 0 | 1], v],
-            }));
-          }
-        }
-      });
-    } else if (provider === "trg") {
-      const vehicleForThisRoute = Array.from(vehicles.values());
-
-      vehicleForThisRoute.forEach((v) => {
-        let directions = MyBasTrgDirections.find(
-          (d) => d.route_id === route?.route_id && d.trip_id === v.trip?.tripId,
-        );
-
-        if (directions !== undefined && route?.directions.length === 1) {
-          setDirectionsLocation((prev) => ({
-            0: [...prev[0], v],
-            1: [...prev[1]],
-          }));
-        } else if (directions !== undefined) {
-          const dirNum = Number(directions.direction_id);
-          if (dirNum === 0 || dirNum === 1) {
-            setDirectionsLocation((prev) => ({
-              ...prev,
-              [dirNum]: [...prev[dirNum as 0 | 1], v],
-            }));
-          }
-        }
-      });
-    }
-  }, [route?.route_id, route?.directions.length, vehicles]);
-
   // convert positions (LatLngExpression[][]) to GeoJSON Positions [lon, lat]
   const coordsForLine = useMemo(
     () =>
@@ -2268,11 +1934,12 @@ function VehiclesMarker({
     }
     return 1;
   }, [coordsForLine, direction, line, route?.directions, routeLength]);
-  if (directionsLocation[direction as 0 | 1].length === 0 || !line) return null;
+  if (vehiclesByDirection[direction as 0 | 1].length === 0 || !line)
+    return null;
 
   return (
     <>
-      {directionsLocation[direction as 0 | 1].map((v, idx) => {
+      {vehiclesByDirection[direction as 0 | 1].map((v, idx) => {
         const busPoint = point(
           typeof v.position?.latitude === "number" &&
             typeof v.position?.longitude === "number"
