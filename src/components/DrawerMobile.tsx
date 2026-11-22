@@ -431,25 +431,29 @@ export function DrawerMobile({
                 <div
                   className="min-h-0 flex-1 pt-1 text-black flex flex-col"
                 >
-                  <div className="px-4 relative ">
-                    <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
-                    <Input
-                      onFocus={() => {
-                        if (snap === SNAP_POINTS[0]) setSnap(SNAP_POINTS[1]);
-                      }}
-                      className="mb-3 pl-10 pr-10 py-2 h-12 dark:text-white text-lg! bg-neutral-50 dark:bg-neutral-900!"
-                      placeholder="Search Routes"
-                      value={search}
-                      onChange={(e) => setSearch(e.target.value)}
-                    />
-                    {search.length !== 0 && (
-                      <X
-                        onClick={() => setSearch("")}
-                        className={`${
-                          search ? "text-gray-100" : "text-gray-500"
-                        } absolute right-8 top-1/2 -translate-y-1/2  w-4 h-4`}
+                  <div className="px-4">
+                    <div className="relative mb-3 h-12">
+                      <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+                      <Input
+                        onFocus={() => {
+                          if (snap === SNAP_POINTS[0]) setSnap(SNAP_POINTS[1]);
+                        }}
+                        className="h-full w-full pl-10 pr-10 py-2 dark:text-white text-lg! bg-neutral-50 dark:bg-neutral-900!"
+                        placeholder="Search Routes"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
                       />
-                    )}
+                      {search.length !== 0 && (
+                        <button
+                          type="button"
+                          aria-label="Clear route search"
+                          onClick={() => setSearch("")}
+                          className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center text-gray-500"
+                        >
+                          <X className="h-4 w-4" />
+                        </button>
+                      )}
+                    </div>
                   </div>
                   <div
                     className="mt-4 min-h-0 flex-1 overflow-y-auto overflow-x-clip overscroll-y-contain touch-pan-y scroll-hidden pb-12"
@@ -471,7 +475,7 @@ export function DrawerMobile({
                                 <Link
                                   key={route?.route_id}
                                   className=" flex items-center"
-                                  to={`/?id=${route?.route_id}`}
+                                  to={`/routes/${route?.route_id}`}
                                   preventScrollReset
                                   onClick={() => setSnap(SNAP_POINTS[0])}
                                 >

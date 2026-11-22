@@ -8,7 +8,7 @@ import {
   divIcon,
   fitBoundsOf,
 } from "./maplibre-adapter";
-import { Link, useSearchParams } from "react-router";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
@@ -163,8 +163,19 @@ function lighterHex(hex: string, percent = 10) {
 }
 
 function App() {
+  const navigate = useNavigate();
+  const { id: pathRouteId } = useParams();
   const [searchParams] = useSearchParams();
-  const routeId = searchParams.get("id");
+  const queryRouteId = searchParams.get("id");
+  const routeId = pathRouteId ?? queryRouteId;
+
+  useEffect(() => {
+    if (!pathRouteId && queryRouteId) {
+      navigate(`/routes/${encodeURIComponent(queryRouteId)}`, {
+        replace: true,
+      });
+    }
+  }, [navigate, pathRouteId, queryRouteId]);
   const [provider, setProvider] = useState<string>(() => {
     return localStorage.getItem("provider") || "rp";
   });
@@ -1602,6 +1613,7 @@ function VehiclesMarker({
     }
 
     function avlToVehicle(bus: AvlVehicle): IVehiclePosition {
+      // console.log(bus);
       if (
         bus.is_inside_endstop === "depot" ||
         bus.is_inside_endstop === "end"

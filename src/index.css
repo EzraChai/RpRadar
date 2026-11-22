@@ -242,6 +242,7 @@ body {
 }
 .map-popup .maplibregl-popup-content {
   padding: 0 !important;
+  pointer-events: none !important;
 }
 .map-stop-marker {
   display: block;
