@@ -119,6 +119,16 @@ import { deriveVehicleDirectionBuckets } from "@/lib/vehicle-direction-buckets";
 
 type IVehiclePosition = transit_realtime.IVehiclePosition;
 
+const rapidPenangDirectionByTripId = new Map<string, number>();
+for (const schedule of RapidPenangSchedule) {
+  for (const tripId of schedule.trip_ids) {
+    // Keep the first match, as Array.find did before this index existed.
+    if (!rapidPenangDirectionByTripId.has(tripId)) {
+      rapidPenangDirectionByTripId.set(tripId, schedule.d);
+    }
+  }
+}
+
 function darkenHex(hex: string, percent = 10) {
   hex = hex.replace("#", "");
 
@@ -1594,6 +1604,7 @@ function VehiclesMarker({
     }
 
     function avlToVehicle(bus: AvlVehicle): IVehiclePosition {
+      console.log(bus);
       if (
         bus.is_inside_endstop === "depot" ||
         bus.is_inside_endstop === "end"
@@ -1602,7 +1613,7 @@ function VehiclesMarker({
       }
 
       // dir "01" → 1, "02" → 0
-      let directionId;
+      let directionId: number;
 
       if (
         bus.route === "T310" ||
@@ -1610,17 +1621,22 @@ function VehiclesMarker({
         bus.route === "103" ||
         bus.route === "CT15"
       ) {
-        directionId = 0;
+        const scheduleDirectionId = rapidPenangDirectionByTripId.get(
+          bus.trip_no,
+        );
+        directionId = scheduleDirectionId ?? 1;
       } else {
         // if (bus.dir === "01") {
         //   directionId = 1;
         // } else if (bus.dir === "02") {
         //   directionId = 0;
         // }
-        directionId = RapidPenangSchedule.find((b) =>
-          b.trip_ids.includes(bus.trip_no),
-        )?.d;
-        if (directionId === undefined) {
+        const scheduleDirectionId = rapidPenangDirectionByTripId.get(
+          bus.trip_no,
+        );
+        if (scheduleDirectionId !== undefined) {
+          directionId = scheduleDirectionId;
+        } else {
           if (bus.dir === "01") {
             directionId = 1;
           } else if (bus.dir === "02") {
