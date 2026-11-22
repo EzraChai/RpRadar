@@ -201,9 +201,7 @@ function App() {
   useEffect(() => {
     switch (provider) {
       case "rp":
-        setRoute(
-          RapidPenangRoutes.find((r) => r.route_id === routeId),
-        );
+        setRoute(RapidPenangRoutes.find((r) => r.route_id === routeId));
         setBusSchedule(RapidPenangSchedule as unknown as BusScheduleType);
         break;
 
@@ -211,9 +209,7 @@ function App() {
         setRoute(
           RapidKLRoutes.some((r) => r.route_id === routeId)
             ? RapidKLRoutes.find((r) => r.route_id === routeId)
-            : MRTFeederRoutes.find(
-                (r) => r.route_id === routeId,
-              ),
+            : MRTFeederRoutes.find((r) => r.route_id === routeId),
         );
         setBusSchedule(
           RapidKLRoutes.some((r) => r.route_id === routeId)
@@ -236,58 +232,40 @@ function App() {
         break;
 
       case "mk":
-        setRoute(
-          MyBasMkRoutes.find((r) => r.route_id === routeId),
-        );
+        setRoute(MyBasMkRoutes.find((r) => r.route_id === routeId));
         setBusSchedule(MyBasMkSchedule as unknown as BusScheduleType);
         break;
 
       case "jb":
-        setRoute(
-          MyBasJbRoutes.find((r) => r.route_id === routeId),
-        );
+        setRoute(MyBasJbRoutes.find((r) => r.route_id === routeId));
         setBusSchedule(MyBasJbSchedule as unknown as BusScheduleType);
         break;
       case "pk":
-        setRoute(
-          MyBasPkRoutes.find((r) => r.route_id === routeId),
-        );
+        setRoute(MyBasPkRoutes.find((r) => r.route_id === routeId));
         setBusSchedule(MyBasPkSchedule as unknown as BusScheduleType);
         break;
       case "ktn":
-        setRoute(
-          MyBasKtnRoutes.find((r) => r.route_id === routeId),
-        );
+        setRoute(MyBasKtnRoutes.find((r) => r.route_id === routeId));
         setBusSchedule(MyBasKtnSchedule as unknown as BusScheduleType);
         break;
       case "alr":
-        setRoute(
-          MyBasAlrRoutes.find((r) => r.route_id === routeId),
-        );
+        setRoute(MyBasAlrRoutes.find((r) => r.route_id === routeId));
         setBusSchedule(MyBasAlrSchedule as unknown as BusScheduleType);
         break;
       case "kgr":
-        setRoute(
-          MyBasKgrRoutes.find((r) => r.route_id === routeId),
-        );
+        setRoute(MyBasKgrRoutes.find((r) => r.route_id === routeId));
         setBusSchedule(MyBasKgrSchedule as unknown as BusScheduleType);
         break;
       case "ktb":
-        setRoute(
-          MyBasKtbRoutes.find((r) => r.route_id === routeId),
-        );
+        setRoute(MyBasKtbRoutes.find((r) => r.route_id === routeId));
         setBusSchedule(MyBasKtbSchedule as unknown as BusScheduleType);
         break;
       case "trg":
-        setRoute(
-          MyBasTrgRoutes.find((r) => r.route_id === routeId),
-        );
+        setRoute(MyBasTrgRoutes.find((r) => r.route_id === routeId));
         setBusSchedule(MyBasTrgSchedule as unknown as BusScheduleType);
         break;
       case "sw":
-        setRoute(
-          MyBasSwRoutes.find((r) => r.route_id === routeId),
-        );
+        setRoute(MyBasSwRoutes.find((r) => r.route_id === routeId));
         setBusSchedule(MyBasSwSchedule as unknown as BusScheduleType);
     }
   }, [provider, routeId]);
@@ -1187,7 +1165,7 @@ function App() {
         <FlyToRoute
           positions={positions}
           isMobile={isMobile}
-            routeId={routeId ?? null}
+          routeId={routeId ?? null}
         />
         {!isMobile && route && (
           <>
@@ -1278,6 +1256,7 @@ function AnimatedVehicleMarker({
   routeProgress,
   followsRoute,
   routeOrientation,
+  hasLiveBearing,
   children,
 }: {
   position: { lat: number; lng: number };
@@ -1288,6 +1267,7 @@ function AnimatedVehicleMarker({
   routeProgress: number;
   followsRoute: boolean;
   routeOrientation: 1 | -1;
+  hasLiveBearing: boolean;
   children: ReactNode;
 }) {
   const animationDuration = 1500;
@@ -1322,6 +1302,7 @@ function AnimatedVehicleMarker({
     };
     const routeLength = length(routeLine, { units: "meters" });
     const routeHeadingAt = (progress: number, travelSign: number) => {
+      if (hasLiveBearing) return normalizeHeading(heading);
       if (routeLength === 0) return normalizeHeading(heading);
       const lookAhead = 8;
       let from = progress;
@@ -1461,6 +1442,7 @@ function AnimatedVehicleMarker({
     routeLine,
     routeOrientation,
     routeProgress,
+    hasLiveBearing,
   ]);
 
   useEffect(() => {
@@ -1842,7 +1824,7 @@ function VehiclesMarker({
       routeId: string | null | undefined,
       routeShortName: string | null | undefined,
     ) => {
-      if (routeId === routeShortName?.concat("0")) {
+      if (routeId?.startsWith("3")) {
         return divIcon({
           className: "",
           html: `<img 
@@ -1879,7 +1861,6 @@ function VehiclesMarker({
       bearing: number,
       _: string | null | undefined,
       __: string | null | undefined,
-      ___: string | null | undefined,
     ) =>
       divIcon({
         className: "",
@@ -2272,7 +2253,7 @@ function VehiclesMarker({
       line,
       point([stops[0].lon, stops[0].lat]),
       { units: "meters" },
-    ).properties.location;
+    ).properties.totalDistance;
     const endpointsDistance = distance(
       point(coordsForLine[0]),
       point(coordsForLine[coordsForLine.length - 1]),
@@ -2284,7 +2265,7 @@ function VehiclesMarker({
     for (const stop of stops.slice(1)) {
       let stopProgress = nearestPointOnLine(line, point([stop.lon, stop.lat]), {
         units: "meters",
-      }).properties.location;
+      }).properties.totalDistance;
       if (endpointsDistance < 20 && stopProgress > routeLength - 100) {
         stopProgress = 0;
       }
@@ -2320,7 +2301,7 @@ function VehiclesMarker({
         const snapped = nearestPointOnLine(line, busPoint, { units: "meters" });
         if (hasLiveBearing && isClosedRoute) {
           const routeCoordinates = line.geometry.coordinates;
-          const nearestDistance = snapped.properties.dist;
+          const nearestDistance = snapped.properties.pointDistance;
           const routeLength = length(line, { units: "meters" });
           let traversedDistance = 0;
           let bestCandidate: {
@@ -2352,8 +2333,8 @@ function VehiclesMarker({
               units: "meters",
             });
             const candidateProgress =
-              traversedDistance + candidate.properties.location;
-            if (candidate.properties.dist <= nearestDistance + 15) {
+              traversedDistance + candidate.properties.totalDistance;
+            if (candidate.properties.pointDistance <= nearestDistance + 15) {
               const tangentStart = along(
                 line,
                 Math.max(0, candidateProgress - 4),
@@ -2370,12 +2351,13 @@ function VehiclesMarker({
                 candidateHeading,
                 v.position!.bearing!,
               );
-              const score = angleError + candidate.properties.dist * 2;
+              const score =
+                angleError * 4 + candidate.properties.pointDistance * 0.5;
               if (!bestCandidate || score < bestCandidate.score) {
                 bestCandidate = {
                   point: candidate,
                   progress: candidateProgress,
-                  distance: candidate.properties.dist,
+                  distance: candidate.properties.pointDistance,
                   score,
                   index: segmentIndex,
                 };
@@ -2386,18 +2368,18 @@ function VehiclesMarker({
 
           if (bestCandidate) {
             snapped.geometry = bestCandidate.point.geometry;
-            snapped.properties.location = bestCandidate.progress;
-            snapped.properties.index = bestCandidate.index;
-            snapped.properties.dist = bestCandidate.distance;
+            snapped.properties.totalDistance = bestCandidate.progress;
+            snapped.properties.segmentIndex = bestCandidate.index;
+            snapped.properties.pointDistance = bestCandidate.distance;
           }
         }
 
         const MAX_OFF_ROUTE_DISTANCE = 200;
-        if (snapped.properties.dist > MAX_OFF_ROUTE_DISTANCE) {
+        if (snapped.properties.pointDistance > MAX_OFF_ROUTE_DISTANCE) {
           return null;
         }
         const busKey = `${route?.route_id}:${direction}:${v.vehicle?.licensePlate ?? idx}`;
-        let routeProgress = snapped.properties.location;
+        let routeProgress = snapped.properties.totalDistance;
         const selectedDirection =
           route?.directions.find((item) => item.direction_id === direction) ??
           route?.directions[0];
@@ -2420,11 +2402,11 @@ function VehiclesMarker({
         const wasSnappedToRoute =
           routeSnapStateRef.current.get(busKey) ?? false;
         const snapDistance = wasSnappedToRoute ? 25 : 10;
-        const isOffRoute = snapped.properties.dist > snapDistance;
+        const isOffRoute = snapped.properties.pointDistance > snapDistance;
         routeSnapStateRef.current.set(busKey, !isOffRoute);
 
         const coords = line.geometry.coordinates;
-        let idx2 = snapped.properties.index;
+        let idx2 = snapped.properties.segmentIndex;
 
         // Safety check
         if (idx2 >= coords.length - 1) {
@@ -2436,13 +2418,11 @@ function VehiclesMarker({
         const end = coords[idx2 + 1];
         const routeHeading =
           start && end ? bearing(point(start), point(end)) : 0;
-        const heading =
-          isOffRoute && hasLiveBearing
-            ? v.position!.bearing!
-            : routeOrientation === 1
-              ? routeHeading
-              : (routeHeading + 180) % 360;
-
+        const heading = hasLiveBearing
+          ? v.position!.bearing!
+          : routeOrientation === 1
+            ? routeHeading
+            : (routeHeading + 180) % 360;
         return (
           <div key={v.vehicle?.licensePlate ?? idx}>
             {v && (
@@ -2461,10 +2441,10 @@ function VehiclesMarker({
                 routeProgress={routeProgress}
                 followsRoute={!isOffRoute}
                 routeOrientation={routeOrientation}
+                hasLiveBearing={hasLiveBearing}
                 icon={busIcon(
                   heading,
-                  v.trip?.tripId,
-                  v.trip?.routeId,
+                  route?.route_id,
                   route?.route_short_name,
                 )}
               >

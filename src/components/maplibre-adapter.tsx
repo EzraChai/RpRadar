@@ -364,7 +364,7 @@ export function CircleMarker({
           }
           maxWidth={`${config.maxWidth ?? 500}px`}
           className="map-popup"
-          style={{ zIndex: 200 }}
+          style={{ zIndex: 200, pointerEvents: "none" }}
         >
           {config.children}
         </MapLibrePopup>
@@ -392,7 +392,9 @@ export function Marker({
   const id = useId();
   const open = selection.activeId === id;
   const markerRef = useRef<import("maplibre-gl").Marker | null>(null);
-  const popupRef = useRef<React.ComponentRef<typeof MapLibrePopup> | null>(null);
+  const popupRef = useRef<React.ComponentRef<typeof MapLibrePopup> | null>(
+    null,
+  );
   const livePosition = markerRef.current?.getLngLat();
   const popupPosition = livePosition
     ? { lat: livePosition.lat, lng: livePosition.lng }
@@ -442,10 +444,14 @@ export function Marker({
       <MapLibreMarker
         ref={markerRef}
         latitude={
-          imperativePosition ? (livePosition?.lat ?? position.lat) : position.lat
+          imperativePosition
+            ? (livePosition?.lat ?? position.lat)
+            : position.lat
         }
         longitude={
-          imperativePosition ? (livePosition?.lng ?? position.lng) : position.lng
+          imperativePosition
+            ? (livePosition?.lng ?? position.lng)
+            : position.lng
         }
         anchor="center"
         style={{ zIndex: 100 }}
@@ -467,7 +473,7 @@ export function Marker({
           }
           maxWidth={`${config.maxWidth ?? 500}px`}
           className="map-popup"
-          style={{ zIndex: 200 }}
+          style={{ zIndex: 200, pointerEvents: "none" }}
         >
           {config.children}
         </MapLibrePopup>
