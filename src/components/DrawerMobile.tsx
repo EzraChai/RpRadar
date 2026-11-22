@@ -1,5 +1,5 @@
 import { Search, Star, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Drawer } from "vaul";
 import { Input } from "./ui/input";
 import { RouteCard } from "./app-sidebar";
@@ -79,6 +79,9 @@ export function DrawerMobile({
 }) {
   const [snap, setSnap] = useState<number | string | null>(SNAP_POINTS[0]);
   const [search, setSearch] = useState("");
+  const touchStartYRef = useRef<number | null>(null);
+  const touchSnapTriggeredRef = useRef(false);
+  const isAndroid = /Android/i.test(navigator.userAgent);
   const [provider] = useState<string>(() => {
     return localStorage.getItem("provider") || "rp";
   });
@@ -154,6 +157,38 @@ export function DrawerMobile({
   const [savedRoutes, setSavedRoutes] = useState<(RouteType | undefined)[]>([]);
 
   const { starred, toggle } = useStarredRoutes();
+
+  const handleListTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (!isAndroid) return;
+    touchStartYRef.current = event.touches[0]?.clientY ?? null;
+    touchSnapTriggeredRef.current = false;
+  };
+
+  const handleListTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (
+      !isAndroid ||
+      touchStartYRef.current === null ||
+      touchSnapTriggeredRef.current ||
+      event.currentTarget.scrollTop > 0
+    ) {
+      return;
+    }
+
+    const pullDistance = event.touches[0].clientY - touchStartYRef.current;
+    if (pullDistance < 64) return;
+
+    const snapIndex =
+      typeof snap === "number" ? SNAP_POINTS.indexOf(snap) : -1;
+    if (snapIndex <= 0) return;
+
+    touchSnapTriggeredRef.current = true;
+    setSnap(SNAP_POINTS[snapIndex - 1]);
+  };
+
+  const resetListTouch = () => {
+    touchStartYRef.current = null;
+    touchSnapTriggeredRef.current = false;
+  };
 
   useEffect(() => {
     if (!routes) {
@@ -265,8 +300,12 @@ export function DrawerMobile({
                     </Button>
                   )}
                   <div
-                    className="mt-4 ml-2 min-h-0 flex-1 overflow-y-auto overflow-x-clip touch-pan-y scroll-hidden pb-12"
+                    className="mt-4 ml-2 min-h-0 flex-1 overflow-y-auto overflow-x-clip overscroll-y-contain touch-pan-y scroll-hidden pb-12"
                     style={{ WebkitOverflowScrolling: "touch" }}
+                    onTouchStart={handleListTouchStart}
+                    onTouchMove={handleListTouchMove}
+                    onTouchEnd={resetListTouch}
+                    onTouchCancel={resetListTouch}
                   >
                     {route?.directions
                       .filter((d) => d.direction_id === direction)[0]
@@ -413,8 +452,12 @@ export function DrawerMobile({
                     )}
                   </div>
                   <div
-                    className="mt-4 min-h-0 flex-1 overflow-y-auto overflow-x-clip touch-pan-y scroll-hidden pb-12"
+                    className="mt-4 min-h-0 flex-1 overflow-y-auto overflow-x-clip overscroll-y-contain touch-pan-y scroll-hidden pb-12"
                     style={{ WebkitOverflowScrolling: "touch" }}
+                    onTouchStart={handleListTouchStart}
+                    onTouchMove={handleListTouchMove}
+                    onTouchEnd={resetListTouch}
+                    onTouchCancel={resetListTouch}
                   >
                     <div className="px-4">
                       {filteredRoutes.length === routes.length && (
@@ -428,7 +471,7 @@ export function DrawerMobile({
                                 <Link
                                   key={route?.route_id}
                                   className=" flex items-center"
-                                  to={`/routes/${route?.route_id}`}
+                                  to={`/?id=${route?.route_id}`}
                                   preventScrollReset
                                   onClick={() => setSnap(SNAP_POINTS[0])}
                                 >

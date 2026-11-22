@@ -8,7 +8,7 @@ import {
   divIcon,
   fitBoundsOf,
 } from "./maplibre-adapter";
-import { Link, useParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
@@ -163,7 +163,8 @@ function lighterHex(hex: string, percent = 10) {
 }
 
 function App() {
-  const { id: routeId } = useParams();
+  const [searchParams] = useSearchParams();
+  const routeId = searchParams.get("id");
   const [provider, setProvider] = useState<string>(() => {
     return localStorage.getItem("provider") || "rp";
   });
