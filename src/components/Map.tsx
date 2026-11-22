@@ -1604,7 +1604,6 @@ function VehiclesMarker({
     }
 
     function avlToVehicle(bus: AvlVehicle): IVehiclePosition {
-      console.log(bus);
       if (
         bus.is_inside_endstop === "depot" ||
         bus.is_inside_endstop === "end"
