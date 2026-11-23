@@ -10,7 +10,7 @@ import {
 } from "./maplibre-adapter";
 import { Link, useParams, useSearchParams } from "react-router";
 import { memo, useEffect, useMemo, useRef, useState } from "react";
-import type { ReactNode, RefObject } from "react";
+import type { ReactNode } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
 import type {
   LatLngExpression,
@@ -22,7 +22,6 @@ import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
 import {
-  along,
   bearing,
   distance,
   length,
@@ -116,7 +115,7 @@ import { pusher, AVL_API } from "@/lib/pusher";
 import type { AvlVehicle } from "@/lib/pusher";
 import { TrafficLayer } from "./TrafficLayer";
 import { deriveVehicleDirectionBuckets } from "@/lib/vehicle-direction-buckets";
-import type { Feature, LineString, Point } from "geojson";
+import type { Feature, LineString } from "geojson";
 
 type IVehiclePosition = transit_realtime.IVehiclePosition;
 
@@ -1310,13 +1309,13 @@ const ICON_CACHE: Record<string, { left: DivIcon; right: DivIcon }> = {
   rkl: {
     left: divIcon({
       className: "",
-      html: `<img src="/rkl-bus2.webp" style="width:100px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      html: `<img src="/rkl-bus2.webp" style="width:37px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
       iconSize: [24, 24],
       iconAnchor: [50, 50],
     }),
     right: divIcon({
       className: "",
-      html: `<img src="/rkl-bus.webp" style="width:100px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      html: `<img src="/rkl-bus.webp" style="width:37px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
       iconSize: [24, 24],
       iconAnchor: [50, 50],
     }),
