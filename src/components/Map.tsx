@@ -9,8 +9,8 @@ import {
   fitBoundsOf,
 } from "./maplibre-adapter";
 import { Link, useParams, useSearchParams } from "react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
-import type { ReactNode } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
+import type { ReactNode, RefObject } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
 import type {
   LatLngExpression,
@@ -116,6 +116,7 @@ import { pusher, AVL_API } from "@/lib/pusher";
 import type { AvlVehicle } from "@/lib/pusher";
 import { TrafficLayer } from "./TrafficLayer";
 import { deriveVehicleDirectionBuckets } from "@/lib/vehicle-direction-buckets";
+import type { Feature, LineString, Point } from "geojson";
 
 type IVehiclePosition = transit_realtime.IVehiclePosition;
 
@@ -1249,27 +1250,222 @@ function UserLocation() {
   );
 }
 
+type PrecomputedSegment = {
+  index: number;
+  line: Feature<LineString>;
+  startDist: number;
+  endDist: number;
+  startCoord: [number, number];
+  endCoord: [number, number];
+  bearing: number;
+};
+
+type RouteDirection = {
+  direction_id: number;
+  shape_id: string;
+  route_long_name: string;
+  stops: {
+    stop_id: string;
+    stop_name: string;
+    lat: number;
+    lon: number;
+  }[];
+};
+
+type RouteInfo = {
+  route_id: string;
+  route_short_name: string;
+  directions: RouteDirection[];
+};
+
+const ICON_CACHE: Record<string, { left: DivIcon; right: DivIcon }> = {
+  rp: {
+    left: divIcon({
+      className: "",
+      html: `<img src="/rp-bus2.webp" style="width:37px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      iconSize: [24, 24],
+      iconAnchor: [50, 50],
+    }),
+    right: divIcon({
+      className: "",
+      html: `<img src="/rp-bus.webp" style="width:37px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      iconSize: [24, 24],
+      iconAnchor: [50, 50],
+    }),
+  },
+  mrt: {
+    left: divIcon({
+      className: "",
+      html: `<img src="/mrt-bus2.webp" style="width:100px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      iconSize: [24, 24],
+      iconAnchor: [50, 50],
+    }),
+    right: divIcon({
+      className: "",
+      html: `<img src="/mrt-bus.webp" style="width:100px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      iconSize: [24, 24],
+      iconAnchor: [50, 50],
+    }),
+  },
+  rkl: {
+    left: divIcon({
+      className: "",
+      html: `<img src="/rkl-bus2.webp" style="width:100px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      iconSize: [24, 24],
+      iconAnchor: [50, 50],
+    }),
+    right: divIcon({
+      className: "",
+      html: `<img src="/rkl-bus.webp" style="width:100px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      iconSize: [24, 24],
+      iconAnchor: [50, 50],
+    }),
+  },
+  basmy: {
+    left: divIcon({
+      className: "",
+      html: `<img src="/basmy-bus2.webp" style="width:100px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      iconSize: [24, 24],
+      iconAnchor: [50, 50],
+    }),
+    right: divIcon({
+      className: "",
+      html: `<img src="/basmy-bus.webp" style="width:100px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      iconSize: [24, 24],
+      iconAnchor: [50, 50],
+    }),
+  },
+};
+
+function getCachedBusIcon(
+  provider: string | undefined,
+  bearingDeg: number,
+  routeId?: string,
+): DivIcon {
+  const side = bearingDeg < 0 || bearingDeg > 180 ? "left" : "right";
+  if (provider === "rp") return ICON_CACHE.rp[side];
+  if (provider === "rkl") {
+    return routeId?.startsWith("3")
+      ? ICON_CACHE.mrt[side]
+      : ICON_CACHE.rkl[side];
+  }
+  return ICON_CACHE.basmy[side];
+}
+
+function normalizeHeading(value: number): number {
+  return ((value % 360) + 360) % 360;
+}
+
+function angleDifference(first: number, second: number): number {
+  return Math.abs(((first - second + 540) % 360) - 180);
+}
+
+function samplePointAtDistance(
+  segments: PrecomputedSegment[],
+  routeLength: number,
+  targetDist: number,
+  fallbackLat: number,
+  fallbackLng: number,
+): { lat: number; lng: number } {
+  if (segments.length === 0 || routeLength <= 0) {
+    return { lat: fallbackLat, lng: fallbackLng };
+  }
+
+  const clamped = Math.max(0, Math.min(routeLength, targetDist));
+  let low = 0;
+  let high = segments.length - 1;
+
+  while (low < high) {
+    const mid = (low + high) >>> 1;
+    if (segments[mid].endDist < clamped) {
+      low = mid + 1;
+    } else {
+      high = mid;
+    }
+  }
+
+  const seg = segments[low];
+  const segSpan = seg.endDist - seg.startDist;
+  const t =
+    segSpan > 0
+      ? Math.max(0, Math.min(1, (clamped - seg.startDist) / segSpan))
+      : 0;
+
+  return {
+    lng: seg.startCoord[0] + (seg.endCoord[0] - seg.startCoord[0]) * t,
+    lat: seg.startCoord[1] + (seg.endCoord[1] - seg.startCoord[1]) * t,
+  };
+}
+
+function sampleHeadingAtDistance(
+  segments: PrecomputedSegment[],
+  routeLength: number,
+  progress: number,
+  travelSign: 1 | -1,
+  fallbackHeading: number,
+): number {
+  if (segments.length === 0 || routeLength <= 0) {
+    return normalizeHeading(fallbackHeading);
+  }
+
+  const lookAhead = 8;
+  let from = progress;
+  let to = Math.max(
+    0,
+    Math.min(routeLength, progress + travelSign * lookAhead),
+  );
+  if (from === to) {
+    from = Math.max(
+      0,
+      Math.min(routeLength, progress - travelSign * lookAhead),
+    );
+    to = progress;
+  }
+
+  const p1 = samplePointAtDistance(segments, routeLength, from, 0, 0);
+  const p2 = samplePointAtDistance(segments, routeLength, to, 0, 0);
+  if (p1.lat === p2.lat && p1.lng === p2.lng) {
+    return normalizeHeading(fallbackHeading);
+  }
+
+  // Fast equirectangular bearing (no Turf object allocation)
+  const rad = Math.PI / 180;
+  const dLon = (p2.lng - p1.lng) * rad;
+  const lat1 = p1.lat * rad;
+  const lat2 = p2.lat * rad;
+  const y = Math.sin(dLon) * Math.cos(lat2);
+  const x =
+    Math.cos(lat1) * Math.sin(lat2) -
+    Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLon);
+  return normalizeHeading(Math.atan2(y, x) / rad);
+}
+
+const prefersReducedMotionQuery =
+  typeof window !== "undefined"
+    ? window.matchMedia("(prefers-reduced-motion: reduce)")
+    : null;
+
 function AnimatedVehicleMarker({
   position,
   icon,
   heading,
   direction,
-  routeLine,
+  routeLength,
+  precomputedSegments,
   routeProgress,
   followsRoute,
   routeOrientation,
-  hasLiveBearing,
   children,
 }: {
   position: { lat: number; lng: number };
   icon: DivIcon;
   heading: number;
   direction: number;
-  routeLine: ReturnType<typeof lineString>;
+  routeLength: number;
+  precomputedSegments: PrecomputedSegment[];
   routeProgress: number;
   followsRoute: boolean;
   routeOrientation: 1 | -1;
-  hasLiveBearing: boolean;
   children: ReactNode;
 }) {
   const animationDuration = 1500;
@@ -1278,10 +1474,10 @@ function AnimatedVehicleMarker({
     setLatLng: (position: [number, number]) => void;
     getElement: () => HTMLElement | undefined;
   } | null>(null);
-  // Keep the adapter's declarative coordinates in sync with the imperative animation.
-  // Otherwise a React rerender can restore the marker's mount position.
+
   const markerPositionRef = useRef(position);
-  const previousHeadingRef = useRef(heading);
+  const cachedImgRef = useRef<HTMLImageElement | null>(null);
+  const previousHeadingRef = useRef(normalizeHeading(heading));
   const previousPositionDirectionRef = useRef(direction);
   const previousHeadingDirectionRef = useRef(direction);
   const currentRouteProgressRef = useRef(routeProgress);
@@ -1290,46 +1486,42 @@ function AnimatedVehicleMarker({
     const marker = markerRef.current;
     if (!marker) return;
 
-    const target = { lat: position.lat, lng: position.lng };
-    const normalizeHeading = (value: number) => ((value % 360) + 360) % 360;
-    const applyHeading = (value: number) => {
-      const image = marker
-        .getElement()
-        ?.querySelector("img") as HTMLImageElement | null;
-      if (!image) return;
-      const normalizedHeading = normalizeHeading(value);
-      image.style.transition = "none";
-      image.style.transform = `rotate(${normalizedHeading}deg)`;
-      previousHeadingRef.current = normalizedHeading;
-    };
-    const routeLength = length(routeLine, { units: "meters" });
-    const routeHeadingAt = (progress: number, travelSign: number) => {
-      if (routeLength === 0) return normalizeHeading(heading);
-      const lookAhead = 8;
-      let from = progress;
-      let to = Math.max(
-        0,
-        Math.min(routeLength, progress + travelSign * lookAhead),
-      );
-      if (from === to) {
-        from = Math.max(
-          0,
-          Math.min(routeLength, progress - travelSign * lookAhead),
-        );
-        to = progress;
+    const getImageElement = (): HTMLImageElement | null => {
+      if (cachedImgRef.current && cachedImgRef.current.isConnected) {
+        return cachedImgRef.current;
       }
-      return normalizeHeading(
-        bearing(
-          along(routeLine, from, { units: "meters" }),
-          along(routeLine, to, { units: "meters" }),
-        ),
-      );
+      const img =
+        (marker
+          .getElement()
+          ?.querySelector("img") as HTMLImageElement | null) ?? null;
+      cachedImgRef.current = img;
+      return img;
     };
-    const applyCurrentHeading = (travelSign = routeOrientation) => {
+
+    const applyHeading = (value: number) => {
+      const image = getImageElement();
+      if (!image) return;
+      const normalized = normalizeHeading(value);
+      image.style.transition = "none";
+      image.style.transform = `rotate(${normalized}deg)`;
+      previousHeadingRef.current = normalized;
+    };
+
+    const target = { lat: position.lat, lng: position.lng };
+    const applyCurrentHeading = () => {
       applyHeading(
-        followsRoute ? routeHeadingAt(routeProgress, travelSign) : heading,
+        followsRoute
+          ? sampleHeadingAtDistance(
+              precomputedSegments,
+              routeLength,
+              routeProgress,
+              routeOrientation,
+              heading,
+            )
+          : heading,
       );
     };
+
     if (previousPositionDirectionRef.current !== direction) {
       previousPositionDirectionRef.current = direction;
       currentRouteProgressRef.current = routeProgress;
@@ -1342,7 +1534,7 @@ function AnimatedVehicleMarker({
     const start = marker.getLatLng();
     if (!followsRoute) currentRouteProgressRef.current = routeProgress;
     const startProgress = currentRouteProgressRef.current;
-    const movementSign = routeOrientation;
+
     const isPositionNoise = followsRoute
       ? Math.abs(routeProgress - startProgress) < 8
       : distance(
@@ -1350,37 +1542,30 @@ function AnimatedVehicleMarker({
           point([target.lng, target.lat]),
           { units: "meters" },
         ) < 4;
+
     if (isPositionNoise) {
-      if (followsRoute) applyCurrentHeading(movementSign);
+      if (followsRoute) applyCurrentHeading();
       return;
     }
+
     if (start.lat === target.lat && start.lng === target.lng) {
       if (followsRoute) currentRouteProgressRef.current = routeProgress;
       markerPositionRef.current = target;
-      if (followsRoute) applyCurrentHeading(movementSign);
+      if (followsRoute) applyCurrentHeading();
       return;
     }
 
-    // GPS can project onto a distant segment where a route doubles back near a hub.
-    // Avoid animating that projection error as if the bus travelled the whole route.
     const MAX_ROUTE_ANIMATION_DISTANCE_METERS = 500;
     if (
-      followsRoute &&
-      Math.abs(routeProgress - startProgress) >
-        MAX_ROUTE_ANIMATION_DISTANCE_METERS
+      (followsRoute &&
+        Math.abs(routeProgress - startProgress) >
+          MAX_ROUTE_ANIMATION_DISTANCE_METERS) ||
+      prefersReducedMotionQuery?.matches
     ) {
-      currentRouteProgressRef.current = routeProgress;
-      markerPositionRef.current = target;
-      marker.setLatLng([target.lat, target.lng]);
-      applyCurrentHeading(movementSign);
-      return;
-    }
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       if (followsRoute) currentRouteProgressRef.current = routeProgress;
       markerPositionRef.current = target;
       marker.setLatLng([target.lat, target.lng]);
-      applyCurrentHeading(movementSign);
+      applyCurrentHeading();
       return;
     }
 
@@ -1390,34 +1575,34 @@ function AnimatedVehicleMarker({
     const animate = (now: number) => {
       const progress = Math.min((now - startedAt) / animationDuration, 1);
       const easedProgress = progress * progress * (3 - 2 * progress);
+
       let nextPosition = {
         lat: start.lat + (target.lat - start.lat) * easedProgress,
         lng: start.lng + (target.lng - start.lng) * easedProgress,
       };
+
       if (followsRoute) {
         const currentProgress =
           startProgress + (routeProgress - startProgress) * easedProgress;
         currentRouteProgressRef.current = currentProgress;
-        const routePoint = along(routeLine, currentProgress, {
-          units: "meters",
-        });
-        const travelSign = movementSign;
-        nextPosition = {
-          lat: routePoint.geometry.coordinates[1],
-          lng: routePoint.geometry.coordinates[0],
-        };
-        const nextHeading = routeHeadingAt(currentProgress, travelSign);
-        const image = marker
-          .getElement()
-          ?.querySelector("img") as HTMLImageElement | null;
-        if (image) {
-          image.style.transition = "none";
-          image.style.transform = `rotate(${nextHeading}deg)`;
-        }
-        previousHeadingRef.current = nextHeading;
+
+        nextPosition = samplePointAtDistance(
+          precomputedSegments,
+          routeLength,
+          currentProgress,
+          nextPosition.lat,
+          nextPosition.lng,
+        );
+        const nextHeading = sampleHeadingAtDistance(
+          precomputedSegments,
+          routeLength,
+          currentProgress,
+          routeOrientation,
+          heading,
+        );
+        applyHeading(nextHeading);
       }
-      // Land exactly on the newest projected position; along() can differ by a
-      // few pixels at the route endpoint due to distance rounding.
+
       if (progress === 1) nextPosition = target;
       markerPositionRef.current = nextPosition;
       marker.setLatLng([nextPosition.lat, nextPosition.lng]);
@@ -1426,7 +1611,7 @@ function AnimatedVehicleMarker({
         frameId = requestAnimationFrame(animate);
       } else if (followsRoute) {
         currentRouteProgressRef.current = routeProgress;
-        applyCurrentHeading(movementSign);
+        applyCurrentHeading();
       }
     };
 
@@ -1439,62 +1624,46 @@ function AnimatedVehicleMarker({
     heading,
     position.lat,
     position.lng,
-    routeLine,
+    precomputedSegments,
+    routeLength,
     routeOrientation,
     routeProgress,
-    hasLiveBearing,
   ]);
 
   useEffect(() => {
     if (followsRoute) return;
-    const image = markerRef.current
-      ?.getElement()
-      ?.querySelector("img") as HTMLImageElement | null;
-
+    const image =
+      cachedImgRef.current && cachedImgRef.current.isConnected
+        ? cachedImgRef.current
+        : ((markerRef.current
+            ?.getElement()
+            ?.querySelector("img") as HTMLImageElement | null) ?? null);
     if (!image) return;
+    cachedImgRef.current = image;
 
-    const normalize = (value: number) => ((value % 360) + 360) % 360;
+    const targetHeading = normalizeHeading(heading);
 
-    const targetHeading = normalize(heading);
-
-    // Direction changed: snap immediately without animation
     if (previousHeadingDirectionRef.current !== direction) {
       previousHeadingDirectionRef.current = direction;
       previousHeadingRef.current = targetHeading;
-
       image.style.transition = "none";
       image.style.transform = `rotate(${targetHeading}deg)`;
-
       return;
     }
 
-    const previousHeading = normalize(previousHeadingRef.current);
-
-    // Calculate shortest rotation (-180 to +180)
+    const previousHeading = normalizeHeading(previousHeadingRef.current);
     const delta = ((targetHeading - previousHeading + 540) % 360) - 180;
 
-    // Ignore insignificant changes
-    if (Math.abs(delta) < 0.5) {
+    if (Math.abs(delta) < 0.5 || prefersReducedMotionQuery?.matches) {
       image.style.transition = "none";
       image.style.transform = `rotate(${targetHeading}deg)`;
       previousHeadingRef.current = targetHeading;
       return;
     }
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      image.style.transition = "none";
-      image.style.transform = `rotate(${targetHeading}deg)`;
-      previousHeadingRef.current = targetHeading;
-      return;
-    }
-
-    // Use relative rotation to prevent unnecessary 360-degree turns
     const nextHeading = previousHeadingRef.current + delta;
-
     image.style.transition = `transform ${animationDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
-
     image.style.transform = `rotate(${nextHeading}deg)`;
-
     previousHeadingRef.current = nextHeading;
   }, [animationDuration, direction, followsRoute, heading]);
 
@@ -1510,35 +1679,188 @@ function AnimatedVehicleMarker({
   );
 }
 
-function VehiclesMarker({
+const SingleVehicleItem = memo(function SingleVehicleItem({
+  vehicle,
+  busKey,
+  provider,
+  route,
+  direction,
+  line,
+  routeLength,
+  routeOrientation,
+  isClosedRoute,
+  firstStopPoint,
+  precomputedSegments,
+  departureTime,
+  routeSnapState,
+  vehicleRouteProgress,
+}: {
+  vehicle: IVehiclePosition;
+  busKey: string;
+  provider: string | undefined;
+  route: RouteInfo | undefined;
+  direction: number;
+  line: Feature<LineString>;
+  routeLength: number;
+  routeOrientation: 1 | -1;
+  isClosedRoute: boolean;
+  firstStopPoint: Feature<GeoJSON.Point> | null;
+  precomputedSegments: PrecomputedSegment[];
+  departureTime: string;
+  routeSnapState: Map<string, boolean>;
+  vehicleRouteProgress: Map<string, number>;
+}) {
+  const lat = vehicle.position?.latitude;
+  const lng = vehicle.position?.longitude;
+  if (typeof lat !== "number" || typeof lng !== "number") return null;
+
+  const busPoint = point([lng, lat]);
+  const hasLiveBearing =
+    (provider === "rp" || provider === "rkl") &&
+    typeof vehicle.position?.bearing === "number" &&
+    Number.isFinite(vehicle.position.bearing);
+
+  const snapped = nearestPointOnLine(line, busPoint, { units: "meters" });
+
+  if (hasLiveBearing && precomputedSegments.length > 0) {
+    const nearestDistance = snapped.properties.pointDistance;
+    let bestCandidate: {
+      point: typeof snapped;
+      progress: number;
+      distance: number;
+      score: number;
+      index: number;
+    } | null = null;
+
+    for (const seg of precomputedSegments) {
+      const candidate = nearestPointOnLine(seg.line, busPoint, {
+        units: "meters",
+      });
+      if (candidate.properties.pointDistance <= nearestDistance + 15) {
+        const candidateProgress =
+          seg.startDist + candidate.properties.totalDistance;
+        const angleError = angleDifference(
+          seg.bearing,
+          vehicle.position!.bearing!,
+        );
+        const score = angleError * 4 + candidate.properties.pointDistance * 0.5;
+        if (!bestCandidate || score < bestCandidate.score) {
+          bestCandidate = {
+            point: candidate,
+            progress: candidateProgress,
+            distance: candidate.properties.pointDistance,
+            score,
+            index: seg.index,
+          };
+        }
+      }
+    }
+
+    if (bestCandidate) {
+      snapped.geometry = bestCandidate.point.geometry;
+      snapped.properties.totalDistance = bestCandidate.progress;
+      snapped.properties.segmentIndex = bestCandidate.index;
+      snapped.properties.pointDistance = bestCandidate.distance;
+    }
+  }
+
+  const MAX_OFF_ROUTE_DISTANCE = 200;
+  if (snapped.properties.pointDistance > MAX_OFF_ROUTE_DISTANCE) {
+    return null;
+  }
+
+  let routeProgress = snapped.properties.totalDistance;
+  if (
+    isClosedRoute &&
+    firstStopPoint &&
+    distance(busPoint, firstStopPoint, { units: "meters" }) < 25 &&
+    (routeProgress < 100 || routeProgress > routeLength - 100)
+  ) {
+    const previousProgress = vehicleRouteProgress.get(busKey);
+    routeProgress =
+      previousProgress !== undefined && previousProgress > routeLength / 2
+        ? routeLength
+        : 0;
+  }
+  vehicleRouteProgress.set(busKey, routeProgress);
+
+  const wasSnappedToRoute = routeSnapState.get(busKey) ?? false;
+  const snapDistance = wasSnappedToRoute ? 25 : 10;
+  const isOffRoute = snapped.properties.pointDistance > snapDistance;
+  routeSnapState.set(busKey, !isOffRoute);
+
+  const coords = line.geometry.coordinates;
+  const segIdx = Math.min(snapped.properties.segmentIndex, coords.length - 2);
+  const start = coords[segIdx];
+  const end = coords[segIdx + 1];
+  const routeHeading = start && end ? bearing(point(start), point(end)) : 0;
+  const heading = hasLiveBearing
+    ? vehicle.position!.bearing!
+    : routeOrientation === 1
+      ? routeHeading
+      : (routeHeading + 180) % 360;
+
+  const icon = getCachedBusIcon(provider, heading, route?.route_id);
+  const markerPosition = {
+    lat: isOffRoute ? lat : snapped.geometry.coordinates[1] || 0,
+    lng: isOffRoute ? lng : snapped.geometry.coordinates[0] || 0,
+  };
+
+  return (
+    <AnimatedVehicleMarker
+      position={markerPosition}
+      heading={heading}
+      direction={direction}
+      routeLength={routeLength}
+      precomputedSegments={precomputedSegments}
+      routeProgress={routeProgress}
+      followsRoute={!isOffRoute}
+      routeOrientation={routeOrientation}
+      icon={icon}
+    >
+      <Popup maxWidth={500} offset={[0, 8]} closeButton={false}>
+        <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
+          <p className="text-lg font-semibold">
+            {vehicle.vehicle?.licensePlate}
+          </p>
+          <p className="mt-4">
+            Route:{" "}
+            {provider === "rp"
+              ? vehicle.trip?.routeId?.replace(".", "")
+              : route?.route_short_name}
+          </p>
+          {(provider === "rp" || provider === "rkl") && (
+            <p>Speed: {vehicle.position?.speed?.toFixed(0)}km/h</p>
+          )}
+          {departureTime && <p>Departure: {departureTime.substring(0, 5)}</p>}
+          {provider === "rp" &&
+            vehicle.trip?.routeId === "T310" &&
+            lat >= 5.353 && (
+              <p>
+                {"Heading: "}
+                {findT310Heading(departureTime)
+                  ? "Queensbay Mall"
+                  : "Padang Kawad"}
+              </p>
+            )}
+        </div>
+      </Popup>
+    </AnimatedVehicleMarker>
+  );
+});
+
+export function VehiclesMarker({
   direction,
   route,
   positions,
 }: {
   direction: number;
   positions: LatLngExpression[][];
-  route:
-    | {
-        route_id: string;
-        route_short_name: string;
-        directions: {
-          direction_id: number;
-          shape_id: string;
-          route_long_name: string;
-          stops: {
-            stop_id: string;
-            stop_name: string;
-            lat: number;
-            lon: number;
-          }[];
-        }[];
-      }
-    | undefined;
+  route: RouteInfo | undefined;
 }) {
   const [vehicles, setVehicles] = useState<Map<string, IVehiclePosition>>(
-    new Map(),
+    () => new Map(),
   );
-
   const [provider, setProvider] = useState<string | undefined>();
   const [BusSchedule, setBusSchedule] =
     useState<BusScheduleType>(RapidPenangSchedule);
@@ -1548,11 +1870,15 @@ function VehiclesMarker({
     setProvider(userProvider || "rp");
 
     if (userProvider === "rkl") {
-      const combinedSchedule = [...RapidKLSchedule, ...MRTFeederSchedule];
-      setBusSchedule(combinedSchedule as unknown as BusScheduleType);
+      setBusSchedule([
+        ...RapidKLSchedule,
+        ...MRTFeederSchedule,
+      ] as unknown as BusScheduleType);
     } else if (userProvider === "ns") {
-      const combinedSchedule = [...MYBasNSASchedule, ...MYBasNSBSchedule];
-      setBusSchedule(combinedSchedule as unknown as BusScheduleType);
+      setBusSchedule([
+        ...MYBasNSASchedule,
+        ...MYBasNSBSchedule,
+      ] as unknown as BusScheduleType);
     } else if (userProvider === "mk") {
       setBusSchedule(MyBasMkSchedule);
     } else if (userProvider === "jb") {
@@ -1584,9 +1910,9 @@ function VehiclesMarker({
       }),
     [provider, route?.directions.length, route?.route_id, vehicles],
   );
-  const routeSnapStateRef = useRef(new Map<string, boolean>());
-  const vehicleRouteProgressRef = useRef(new Map<string, number>());
 
+  const routeSnapStateRef = useRef(new Map());
+  const vehicleRouteProgressRef = useRef(new Map());
   const timerRef = useRef<number | null>(null);
   const fetchRef = useRef<(() => void) | null>(null);
 
@@ -1596,15 +1922,12 @@ function VehiclesMarker({
 
     let routeId = route.route_short_name;
     if (provider !== "rp") {
-      if (route.route_id.valueOf().startsWith("3")) {
-        routeId = route.route_short_name + "0";
-      } else {
-        routeId = route.route_id;
-      }
+      routeId = route.route_id.valueOf().startsWith("3")
+        ? route.route_short_name + "0"
+        : route.route_id;
     }
 
     function avlToVehicle(bus: AvlVehicle): IVehiclePosition {
-      // console.log(bus);
       if (
         bus.is_inside_endstop === "depot" ||
         bus.is_inside_endstop === "end"
@@ -1612,40 +1935,27 @@ function VehiclesMarker({
         return {};
       }
 
-      // dir "01" → 1, "02" → 0
       let directionId: number;
-
       if (
         bus.route === "T310" ||
         bus.route === "CAT" ||
         bus.route === "103" ||
         bus.route === "CT15"
       ) {
-        const scheduleDirectionId = rapidPenangDirectionByTripId.get(
-          bus.trip_no,
-        );
-        directionId = scheduleDirectionId ?? 1;
+        directionId = rapidPenangDirectionByTripId.get(bus.trip_no) ?? 1;
       } else {
-        // if (bus.dir === "01") {
-        //   directionId = 1;
-        // } else if (bus.dir === "02") {
-        //   directionId = 0;
-        // }
         const scheduleDirectionId = rapidPenangDirectionByTripId.get(
           bus.trip_no,
         );
         if (scheduleDirectionId !== undefined) {
           directionId = scheduleDirectionId;
+        } else if (bus.dir === "01") {
+          directionId = 1;
         } else {
-          if (bus.dir === "01") {
-            directionId = 1;
-          } else if (bus.dir === "02") {
-            directionId = 0;
-          } else {
-            directionId = 0;
-          }
+          directionId = 0;
         }
       }
+
       return {
         trip: {
           tripId: bus.trip_no,
@@ -1669,16 +1979,15 @@ function VehiclesMarker({
       };
     }
 
-    // 1. Fetch the latest snapshot from the REST API
     function fetchAvl() {
       fetch(`${AVL_API}/${routeId}`)
         .then((res) => res.json())
         .then((data: { vehicles: AvlVehicle[] }) => {
           setVehicles((prev) => {
             const updated = new Map(prev);
-            data.vehicles.forEach((bus) => {
+            for (const bus of data.vehicles) {
               updated.set(bus.bus_no, avlToVehicle(bus));
-            });
+            }
             return updated;
           });
         })
@@ -1688,13 +1997,22 @@ function VehiclesMarker({
     fetchAvl();
     fetchRef.current = fetchAvl;
 
-    // 2. Subscribe to the Pusher channel for live updates
     const channel = pusher.subscribe(`avl.route.${routeId}`);
-
     channel.bind("avl.data", (bus: AvlVehicle) => {
       setVehicles((prev) => {
+        const existing = prev.get(bus.bus_no);
+        const nextVehicle = avlToVehicle(bus);
+        if (
+          existing &&
+          existing.position?.latitude === nextVehicle.position?.latitude &&
+          existing.position?.longitude === nextVehicle.position?.longitude &&
+          existing.position?.bearing === nextVehicle.position?.bearing &&
+          existing.trip?.tripId === nextVehicle.trip?.tripId
+        ) {
+          return prev;
+        }
         const updated = new Map(prev);
-        updated.set(bus.bus_no, avlToVehicle(bus));
+        updated.set(bus.bus_no, nextVehicle);
         return updated;
       });
     });
@@ -1712,39 +2030,38 @@ function VehiclesMarker({
       fetchRef.current = null;
       setVehicles(new Map());
     };
-  }, [provider, route?.route_short_name]);
+  }, [provider, route?.route_id, route?.route_short_name]);
 
   useEffect(() => {
     if (!provider || provider === "rp" || provider === "rkl") return;
 
+    const PROVIDER_ENDPOINTS: Record<string, string> = {
+      ns: "mybas-seremban",
+      mk: "mybas-melaka",
+      jb: "mybas-johor",
+      pk: "mybas-ipoh",
+      alr: "mybas-alor-setar",
+      kgr: "mybas-kangar",
+      ktb: "mybas-kota-bharu",
+      trg: "mybas-kuala-terengganu",
+      ktn: "prasarana?category=rapid-bus-kuantan",
+      sw: "mybas-kuching",
+      ktmb: "ktmb",
+    };
+
     async function loadData() {
+      const endpoint = provider ? PROVIDER_ENDPOINTS[provider] : undefined;
+      if (!endpoint) return;
+
       try {
-        let res: Response | null = null;
-        const URL =
-          "https://my-gtfs-api.wolfram-7b5.workers.dev/api/vehicle-position/";
-        if (provider === "ns") {
-          res = await fetch(`${URL}mybas-seremban`);
-        } else if (provider === "mk") {
-          res = await fetch(`${URL}mybas-melaka`);
-        } else if (provider === "jb") {
-          res = await fetch(`${URL}mybas-johor`);
-        } else if (provider === "pk") {
-          res = await fetch(`${URL}mybas-ipoh`);
-        } else if (provider === "alr") {
-          res = await fetch(`${URL}mybas-alor-setar`);
-        } else if (provider === "kgr") {
-          res = await fetch(`${URL}mybas-kangar`);
-        } else if (provider === "ktb") {
-          res = await fetch(`${URL}mybas-kota-bharu`);
-        } else if (provider === "trg") {
-          res = await fetch(`${URL}mybas-kuala-terengganu`);
-        } else if (provider === "ktn") {
-          res = await fetch(`${URL}prasarana?category=rapid-bus-kuantan`);
-        } else if (provider === "sw") {
-          res = await fetch(`${URL}mybas-kuching`);
-        } else if (provider === "ktmb") {
-          res = await fetch(`${URL}ktmb`);
-        }
+        const res = await fetch(
+          `https://my-gtfs-api.wolfram-7b5.workers.dev/api/vehicle-position/${endpoint}`,
+        );
+        const feed = res.ok
+          ? transit_realtime.FeedMessage.decode(
+              new Uint8Array(await res.arrayBuffer()),
+            )
+          : null;
 
         setVehicles((prev) => {
           const now = Date.now();
@@ -1761,43 +2078,30 @@ function VehiclesMarker({
             }
           }
 
-          return updated;
-        });
-
-        if (res?.ok) {
-          const buffer = await res.arrayBuffer();
-          const feed = transit_realtime.FeedMessage.decode(
-            new Uint8Array(buffer),
-          );
-
-          setVehicles((prev) => {
-            const updated = new Map(prev);
-
-            feed.entity.forEach((entity) => {
+          if (feed) {
+            for (const entity of feed.entity) {
               const vehicle = entity.vehicle;
               const plate = vehicle?.vehicle?.licensePlate;
+              if (vehicle && plate) {
+                updated.set(plate, vehicle);
+              }
+            }
+          }
 
-              if (!vehicle || !plate) return;
-
-              updated.set(plate, vehicle);
-            });
-
-            return updated;
-          });
-        }
-      } catch (err) {}
+          return updated;
+        });
+      } catch {
+        // ignore network errors
+      }
     }
 
-    // initial load
     loadData();
-
     fetchRef.current = loadData;
 
     if (timerRef.current !== null) {
       clearInterval(timerRef.current);
     }
-
-    timerRef.current = window.setInterval(loadData, 10000); // every 10 seconds
+    timerRef.current = window.setInterval(loadData, 10000);
 
     function handleVisibilityChange() {
       if (document.visibilityState === "visible") {
@@ -1806,7 +2110,6 @@ function VehiclesMarker({
     }
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
-    // cleanup
     return () => {
       if (timerRef.current !== null) {
         window.clearInterval(timerRef.current);
@@ -1816,125 +2119,72 @@ function VehiclesMarker({
       fetchRef.current = null;
       setVehicles(new Map());
     };
-  }, [provider]); // re-run if provider changes
+  }, [provider]);
 
-  let busIcon = null;
-  if (provider === "rp") {
-    busIcon = (bearing: number, _: string | null | undefined) =>
-      divIcon({
-        className: "",
-        html: `<img 
-    src="${bearing < 0 || bearing > 180 ? "/rp-bus2.webp" : "/rp-bus.webp"}"
-    style="
-      width:37px;
-      height:100px;
-      transform-origin: center center;
-      display:block;
-    "
-  />`,
-        iconSize: [24, 24],
-        iconAnchor: [50, 50],
-      });
-  } else if (provider === "rkl") {
-    busIcon = (bearing: number, routeId: string | null | undefined) => {
-      if (routeId?.startsWith("3")) {
-        return divIcon({
-          className: "",
-          html: `<img 
-        src="${bearing < 0 || bearing > 180 ? "/mrt-bus2.webp" : "/mrt-bus.webp"}"
-    style="
-      width:100px;
-      height:100px;
-      transform-origin: center center;
-      display:block;
-    "
-  />`,
-          iconSize: [24, 24],
-          iconAnchor: [50, 50],
-        });
-      } else {
-        return divIcon({
-          className: "",
-          html: `<img 
-    src="${bearing < 0 || bearing > 180 ? "/rkl-bus2.webp" : "/rkl-bus.webp"}"
-    style="
-      width:100px;
-      height:100px;
-      transform-origin: center center;
-      display:block;
-    "
-  />`,
-          iconSize: [24, 24],
-          iconAnchor: [50, 50],
-        });
-      }
-    };
-  } else if (provider !== "rp" && provider !== "rkl") {
-    busIcon = (bearing: number, _: string | null | undefined) =>
-      divIcon({
-        className: "",
-        html: `<img 
-    src="${bearing < 0 || bearing > 180 ? "/basmy-bus2.webp" : "/basmy-bus.webp"}"
-    style="
-      width:100px;
-      height:100px;
-      transform-origin: center center;
-      display:block;
-    "
-  />`,
-        iconSize: [24, 24],
-        iconAnchor: [50, 50],
-      });
-  } else {
-    busIcon = (_: number) => divIcon();
-  }
-
-  // convert positions (LatLngExpression[][]) to GeoJSON Positions [lon, lat]
   const coordsForLine = useMemo(
     () =>
       positions
         .map((pos) => {
           const p = pos as unknown as [number, number];
-          // flip [lat, lon] -> [lon, lat] for Turf
           return [p[1], p[0]] as [number, number];
         })
         .filter((p) => Number.isFinite(p[0]) && Number.isFinite(p[1])),
     [positions],
   );
-  // Turf lineString requires two or more positions.
+
   const line = useMemo(
     () => (coordsForLine.length >= 2 ? lineString(coordsForLine) : null),
     [coordsForLine],
   );
+
   const routeLength = useMemo(
     () => (line ? length(line, { units: "meters" }) : 0),
     [line],
   );
+
+  const isClosedRoute = useMemo(() => {
+    if (coordsForLine.length <= 1) return false;
+    return (
+      distance(
+        point(coordsForLine[0]),
+        point(coordsForLine[coordsForLine.length - 1]),
+        { units: "meters" },
+      ) < 20
+    );
+  }, [coordsForLine]);
+
+  const selectedDirection = useMemo(
+    () =>
+      route?.directions.find((item) => item.direction_id === direction) ??
+      route?.directions[0],
+    [direction, route?.directions],
+  );
+
+  const firstStopPoint = useMemo(() => {
+    const firstStop = selectedDirection?.stops[0];
+    return firstStop ? point([firstStop.lon, firstStop.lat]) : null;
+  }, [selectedDirection]);
+
   const routeOrientation = useMemo<1 | -1>(() => {
     if (!line || coordsForLine.length < 2) return 1;
-    const selectedDirection =
-      route?.directions.find((item) => item.direction_id === direction) ??
-      route?.directions[0];
     const stops = selectedDirection?.stops;
     if (!stops || stops.length < 2) return 1;
+
     let firstProgress = nearestPointOnLine(
       line,
       point([stops[0].lon, stops[0].lat]),
       { units: "meters" },
     ).properties.totalDistance;
-    const endpointsDistance = distance(
-      point(coordsForLine[0]),
-      point(coordsForLine[coordsForLine.length - 1]),
-      { units: "meters" },
-    );
-    if (endpointsDistance < 20 && firstProgress > routeLength - 100) {
+
+    if (isClosedRoute && firstProgress > routeLength - 100) {
       firstProgress = 0;
     }
+
     for (const stop of stops.slice(1)) {
       let stopProgress = nearestPointOnLine(line, point([stop.lon, stop.lat]), {
         units: "meters",
       }).properties.totalDistance;
-      if (endpointsDistance < 20 && stopProgress > routeLength - 100) {
+      if (isClosedRoute && stopProgress > routeLength - 100) {
         stopProgress = 0;
       }
       const stopProgressDelta = stopProgress - firstProgress;
@@ -1943,242 +2193,89 @@ function VehiclesMarker({
       }
     }
     return 1;
-  }, [coordsForLine, direction, line, route?.directions, routeLength]);
-  if (vehiclesByDirection[direction as 0 | 1].length === 0 || !line)
-    return null;
+  }, [
+    coordsForLine.length,
+    isClosedRoute,
+    line,
+    routeLength,
+    selectedDirection,
+  ]);
+
+  const precomputedSegments = useMemo<PrecomputedSegment[]>(() => {
+    if (!line) return [];
+    const coords = line.geometry.coordinates;
+    const segments: PrecomputedSegment[] = [];
+    let traversed = 0;
+
+    for (let i = 0; i < coords.length - 1; i++) {
+      const start = coords[i] as [number, number];
+      const end = coords[i + 1] as [number, number];
+      const segLength = distance(point(start), point(end), { units: "meters" });
+      if (segLength < 0.5) continue;
+
+      const rawBearing = bearing(point(start), point(end));
+      segments.push({
+        index: i,
+        line: lineString([start, end]),
+        startDist: traversed,
+        endDist: traversed + segLength,
+        startCoord: start,
+        endCoord: end,
+        bearing:
+          routeOrientation === -1 ? (rawBearing + 180) % 360 : rawBearing,
+      });
+      traversed += segLength;
+    }
+
+    return segments;
+  }, [line, routeOrientation]);
+
+  const tripDepartureMap = useMemo(() => {
+    const map = new Map<string, string>();
+    if (!route?.route_id) return map;
+    const today = getCurrentDateEvenAfter12();
+
+    for (const entry of BusSchedule) {
+      if (entry.r !== route.route_id || entry.dt !== today) continue;
+      entry.trip_ids.forEach((id, idx) => {
+        if (entry.t[idx]) {
+          map.set(id, entry.t[idx]);
+        }
+      });
+    }
+    return map;
+  }, [BusSchedule, route?.route_id]);
+
+  const activeVehicles = vehiclesByDirection[direction as 0 | 1];
+  if (activeVehicles.length === 0 || !line) return null;
 
   return (
     <>
-      {vehiclesByDirection[direction as 0 | 1].map((v, idx) => {
-        const busPoint = point(
-          typeof v.position?.latitude === "number" &&
-            typeof v.position?.longitude === "number"
-            ? [v.position.longitude, v.position.latitude]
-            : [0, 0],
-        );
-        const hasLiveBearing =
-          (provider === "rp" || provider === "rkl") &&
-          typeof v.position?.bearing === "number" &&
-          Number.isFinite(v.position.bearing);
-        const isClosedRoute =
-          coordsForLine.length > 1 &&
-          distance(
-            point(coordsForLine[0]),
-            point(coordsForLine[coordsForLine.length - 1]),
-            { units: "meters" },
-          ) < 20;
-        const snapped = nearestPointOnLine(line, busPoint, { units: "meters" });
-        // Multiple parts of a route can share the same road in opposite
-        // directions. Use the live bearing to choose the matching segment for
-        // open routes too, so route progress does not jump to the reverse leg.
-        if (hasLiveBearing) {
-          const routeCoordinates = line.geometry.coordinates;
-          const nearestDistance = snapped.properties.pointDistance;
-          const routeLength = length(line, { units: "meters" });
-          let traversedDistance = 0;
-          let bestCandidate: {
-            point: typeof snapped;
-            progress: number;
-            distance: number;
-            score: number;
-            index: number;
-          } | null = null;
-          const angleDifference = (first: number, second: number) =>
-            Math.abs(((first - second + 540) % 360) - 180);
+      {activeVehicles.map((v, idx) => {
+        const plate = v.vehicle?.licensePlate ?? String(idx);
+        const busKey = `${route?.route_id}:${direction}:${plate}`;
+        const departureTime = v.trip?.tripId
+          ? (tripDepartureMap.get(v.trip.tripId) ?? "")
+          : "";
 
-          for (
-            let segmentIndex = 0;
-            segmentIndex < routeCoordinates.length - 1;
-            segmentIndex++
-          ) {
-            const segmentStart = routeCoordinates[segmentIndex];
-            const segmentEnd = routeCoordinates[segmentIndex + 1];
-            const segmentLength = distance(
-              point(segmentStart),
-              point(segmentEnd),
-              { units: "meters" },
-            );
-            if (segmentLength < 0.5) continue;
-
-            const segmentLine = lineString([segmentStart, segmentEnd]);
-            const candidate = nearestPointOnLine(segmentLine, busPoint, {
-              units: "meters",
-            });
-            const candidateProgress =
-              traversedDistance + candidate.properties.totalDistance;
-            if (candidate.properties.pointDistance <= nearestDistance + 15) {
-              const tangentStart = along(
-                line,
-                Math.max(0, candidateProgress - 4),
-                { units: "meters" },
-              );
-              const tangentEnd = along(
-                line,
-                Math.min(routeLength, candidateProgress + 4),
-                { units: "meters" },
-              );
-              let candidateHeading = bearing(tangentStart, tangentEnd);
-              if (routeOrientation === -1) candidateHeading += 180;
-              const angleError = angleDifference(
-                candidateHeading,
-                v.position!.bearing!,
-              );
-              const score =
-                angleError * 4 + candidate.properties.pointDistance * 0.5;
-              if (!bestCandidate || score < bestCandidate.score) {
-                bestCandidate = {
-                  point: candidate,
-                  progress: candidateProgress,
-                  distance: candidate.properties.pointDistance,
-                  score,
-                  index: segmentIndex,
-                };
-              }
-            }
-            traversedDistance += segmentLength;
-          }
-
-          if (bestCandidate) {
-            snapped.geometry = bestCandidate.point.geometry;
-            snapped.properties.totalDistance = bestCandidate.progress;
-            snapped.properties.segmentIndex = bestCandidate.index;
-            snapped.properties.pointDistance = bestCandidate.distance;
-          }
-        }
-
-        const MAX_OFF_ROUTE_DISTANCE = 200;
-        if (snapped.properties.pointDistance > MAX_OFF_ROUTE_DISTANCE) {
-          return null;
-        }
-        const busKey = `${route?.route_id}:${direction}:${v.vehicle?.licensePlate ?? idx}`;
-        let routeProgress = snapped.properties.totalDistance;
-        const selectedDirection =
-          route?.directions.find((item) => item.direction_id === direction) ??
-          route?.directions[0];
-        const firstStop = selectedDirection?.stops[0];
-        if (
-          isClosedRoute &&
-          firstStop &&
-          distance(busPoint, point([firstStop.lon, firstStop.lat]), {
-            units: "meters",
-          }) < 25 &&
-          (routeProgress < 100 || routeProgress > routeLength - 100)
-        ) {
-          const previousProgress = vehicleRouteProgressRef.current.get(busKey);
-          routeProgress =
-            previousProgress !== undefined && previousProgress > routeLength / 2
-              ? routeLength
-              : 0;
-        }
-        vehicleRouteProgressRef.current.set(busKey, routeProgress);
-        const wasSnappedToRoute =
-          routeSnapStateRef.current.get(busKey) ?? false;
-        const snapDistance = wasSnappedToRoute ? 25 : 10;
-        const isOffRoute = snapped.properties.pointDistance > snapDistance;
-        routeSnapStateRef.current.set(busKey, !isOffRoute);
-
-        const coords = line.geometry.coordinates;
-        let idx2 = snapped.properties.segmentIndex;
-
-        // Safety check
-        if (idx2 >= coords.length - 1) {
-          idx2 = coords.length - 2;
-        }
-        // Pick next point to calculate bearing
-        if (idx2 >= coords.length - 1) idx2 = coords.length - 2;
-        const start = coords[idx2];
-        const end = coords[idx2 + 1];
-        const routeHeading =
-          start && end ? bearing(point(start), point(end)) : 0;
-        const heading = hasLiveBearing
-          ? v.position!.bearing!
-          : routeOrientation === 1
-            ? routeHeading
-            : (routeHeading + 180) % 360;
         return (
-          <div key={v.vehicle?.licensePlate ?? idx}>
-            {v && (
-              <AnimatedVehicleMarker
-                position={{
-                  lat: isOffRoute
-                    ? busPoint.geometry.coordinates[1] || 0
-                    : snapped.geometry.coordinates[1] || 0,
-                  lng: isOffRoute
-                    ? busPoint.geometry.coordinates[0] || 0
-                    : snapped.geometry.coordinates[0] || 0,
-                }}
-                heading={heading}
-                direction={direction}
-                routeLine={line}
-                routeProgress={routeProgress}
-                followsRoute={!isOffRoute}
-                routeOrientation={routeOrientation}
-                hasLiveBearing={hasLiveBearing}
-                icon={busIcon(heading, route?.route_id)}
-              >
-                <Popup maxWidth={500} offset={[0, 8]} closeButton={false}>
-                  <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-left">
-                    <p className="text-lg font-semibold">
-                      {v.vehicle?.licensePlate}
-                    </p>
-                    <p className="mt-4">
-                      Route:{" "}
-                      {provider === "rp"
-                        ? v.trip?.routeId?.replace(".", "")
-                        : route?.route_short_name}
-                    </p>
-                    {(provider === "rp" || provider === "rkl") && (
-                      <p>Speed: {v.position?.speed?.toFixed(0)}km/h</p>
-                    )}
-                    <p>
-                      {(() => {
-                        const schedEntries = BusSchedule.filter(
-                          (s) =>
-                            s.r === route?.route_id &&
-                            s.dt === getCurrentDateEvenAfter12(),
-                        );
-                        for (const entry of schedEntries) {
-                          const idx = entry.trip_ids.findIndex(
-                            (id) => id === v.trip?.tripId,
-                          );
-                          if (idx >= 0) {
-                            return `Departure: ${entry.t[idx].substring(0, 5)}`;
-                          }
-                        }
-                        return "";
-                      })()}
-                    </p>
-                    {provider === "rp" &&
-                      v.trip?.routeId === "T310" &&
-                      typeof v.position?.latitude === "number" &&
-                      v.position.latitude >= 5.353 && (
-                        <p>
-                          {"Heading: "}
-                          {findT310Heading(
-                            (() => {
-                              const schedEntries = BusSchedule.filter(
-                                (s) =>
-                                  s.r === route?.route_id &&
-                                  s.dt === getCurrentDateEvenAfter12(),
-                              );
-                              for (const entry of schedEntries) {
-                                const idx = entry.trip_ids.findIndex(
-                                  (id) => id === v.trip?.tripId,
-                                );
-                                if (idx >= 0) return entry.t[idx];
-                              }
-                              return "";
-                            })(),
-                          )
-                            ? "Queensbay Mall"
-                            : "Padang Kawad"}
-                        </p>
-                      )}
-                  </div>
-                </Popup>
-              </AnimatedVehicleMarker>
-            )}
-          </div>
+          <SingleVehicleItem
+            key={plate}
+            vehicle={v}
+            busKey={busKey}
+            provider={provider}
+            route={route}
+            direction={direction}
+            line={line}
+            routeLength={routeLength}
+            routeOrientation={routeOrientation}
+            isClosedRoute={isClosedRoute}
+            firstStopPoint={firstStopPoint}
+            precomputedSegments={precomputedSegments}
+            departureTime={departureTime}
+            routeSnapState={routeSnapStateRef.current}
+            vehicleRouteProgress={vehicleRouteProgressRef.current}
+          />
         );
       })}
     </>
