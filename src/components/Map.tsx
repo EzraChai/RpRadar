@@ -8,7 +8,7 @@ import {
   divIcon,
   fitBoundsOf,
 } from "./maplibre-adapter";
-import { Link, useNavigate, useParams, useSearchParams } from "react-router";
+import { Link, useParams, useSearchParams } from "react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { transit_realtime } from "gtfs-realtime-bindings";
@@ -163,19 +163,10 @@ function lighterHex(hex: string, percent = 10) {
 }
 
 function App() {
-  const navigate = useNavigate();
   const { id: pathRouteId } = useParams();
   const [searchParams] = useSearchParams();
   const queryRouteId = searchParams.get("id");
   const routeId = pathRouteId ?? queryRouteId;
-
-  useEffect(() => {
-    if (!pathRouteId && queryRouteId) {
-      navigate(`/routes/${encodeURIComponent(queryRouteId)}`, {
-        replace: true,
-      });
-    }
-  }, [navigate, pathRouteId, queryRouteId]);
   const [provider, setProvider] = useState<string>(() => {
     return localStorage.getItem("provider") || "rp";
   });
@@ -494,7 +485,7 @@ function App() {
           style={{
             touchAction: "none",
           }}
-          className="rounded-none"
+          className="flex h-1/2 w-full items-center justify-center rounded-none p-0"
           variant={"ghost"}
           onClick={(e) => {
             e.stopPropagation();
@@ -507,7 +498,7 @@ function App() {
           style={{
             touchAction: "none",
           }}
-          className="rounded-none"
+          className="flex h-1/2 w-full items-center justify-center rounded-none p-0"
           variant={"ghost"}
           onClick={(e) => {
             e.stopPropagation();

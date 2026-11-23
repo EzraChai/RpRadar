@@ -475,7 +475,7 @@ export function DrawerMobile({
                                 <Link
                                   key={route?.route_id}
                                   className=" flex items-center"
-                                  to={`/routes/${route?.route_id}`}
+                                  to={`/routes/${encodeURIComponent(route?.route_id ?? "")}`}
                                   preventScrollReset
                                   onClick={() => setSnap(SNAP_POINTS[0])}
                                 >
