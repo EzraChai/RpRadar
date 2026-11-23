@@ -1826,7 +1826,7 @@ function VehiclesMarker({
         html: `<img 
     src="${bearing < 0 || bearing > 180 ? "/rp-bus2.webp" : "/rp-bus.webp"}"
     style="
-      width:40px;
+      width:37px;
       height:100px;
       transform-origin: center center;
       display:block;
