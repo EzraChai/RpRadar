@@ -167,6 +167,7 @@ function App() {
   const [searchParams] = useSearchParams();
   const queryRouteId = searchParams.get("id");
   const routeId = pathRouteId ?? queryRouteId;
+  const highlightStopId = searchParams.get("stopId") ?? undefined;
   const [provider, setProvider] = useState<string>(() => {
     return localStorage.getItem("provider") || "rp";
   });
@@ -463,6 +464,56 @@ function App() {
     }
   }, [route?.directions, direction, isMobile, routeId]);
 
+  // Ensure direction matches the highlighted stop if arriving via stop search
+  useEffect(() => {
+    if (!highlightStopId || !route) return;
+    const dirWithStop = route.directions.find((d) =>
+      d.stops.some((s) => s.stop_id === highlightStopId),
+    );
+    if (dirWithStop && dirWithStop.direction_id !== direction) {
+      setDirection(dirWithStop.direction_id);
+    }
+  }, [route, highlightStopId, direction]);
+
+  /**
+   * Flies the map to the highlighted stop (from stop-name search) and opens
+   * its popup once the markers have been rendered.
+   */
+  function HighlightStop() {
+    const map = useMap();
+    useEffect(() => {
+      if (!highlightStopId || !route) return;
+
+      const currentDir = route.directions.find((d) => d.direction_id === direction);
+      const stopObj = currentDir?.stops.find((s) => s.stop_id === highlightStopId);
+
+      if (stopObj) {
+        map.flyTo([stopObj.lat, stopObj.lon], 16, { animate: true });
+      }
+
+      const openMarkerPopup = () => {
+        const marker = markerRefs.current[highlightStopId];
+        if (marker) {
+          if (!marker.isPopupOpen()) {
+            marker.openPopup();
+          }
+          return true;
+        }
+        return false;
+      };
+
+      if (!openMarkerPopup()) {
+        const timer = setTimeout(openMarkerPopup, 300);
+        const timer2 = setTimeout(openMarkerPopup, 800);
+        return () => {
+          clearTimeout(timer);
+          clearTimeout(timer2);
+        };
+      }
+    }, [map, highlightStopId, route, direction, positions]);
+    return null;
+  }
+
   function CustomZoomControls() {
     const map = useMap();
 
@@ -612,153 +663,159 @@ function App() {
               ?.stops.map((stop, idx) => (
                 <div
                   key={idx}
-                  className={`${idx === 0 && "mt-2"} flex relative w-full `}
+                  className={`${idx === 0 && "mt-2"} flex relative w-full`}
                 >
-                  {/* Bullet */}
-                  <div className="flex w-3 flex-col items-center mr-1">
-                    <div
-                      className={`w-3 h-3 absolute rounded-full ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-[#78BFF5]"} z-10`}
-                    ></div>
-                    {/* Vertical line */}
-                    {idx <
-                      (route?.directions?.find(
-                        (d) => d.direction_id === direction,
-                      )?.stops.length ?? 0) -
-                        1 && (
+                    {/* Bullet */}
+                    <div className="flex w-3 flex-col items-center mr-1">
                       <div
-                        className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-[#87CEFA]"}`}
+                        className={`w-3 h-3 absolute rounded-full ${
+                          provider === "rkl" && route.directions[0].route_long_name === route.route_short_name
+                            ? "bg-[#219166]"
+                            : provider !== "rkl" && provider !== "rp"
+                              ? "bg-pink-400"
+                              : "bg-[#78BFF5]"
+                        } z-10`}
                       ></div>
-                    )}
-                  </div>
-                  {/* Stop Name */}
-                  <div className="w-full">
-                    <Button
-                      variant={"ghost"}
-                      onClick={() => {
-                        const marker = markerRefs.current[stop.stop_id];
-                        if (marker) {
-                          if (!marker.isPopupOpen()) {
-                            marker.openPopup();
-                          }
-                          map.flyTo([stop.lat, stop.lon], 16, {
-                            animate: true,
-                          });
-                        }
-                      }}
-                      className="cursor-pointer m-2 !hover:bg-transparent  text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
-                    >
-                      <p>{stop.stop_name.trim()}</p>
-                    </Button>
-                    {idx === 0 &&
-                      BusSchedule &&
-                      BusSchedule.find(
-                        (s) =>
-                          s.r === route.route_id &&
-                          s.d === direction &&
-                          s.dt === getCurrentDate(),
-                      )?.t &&
-                      (provider === "rp" ||
-                        provider === "ns" ||
-                        provider === "jb" ||
-                        provider === "ktn" ||
-                        provider === "alr" ||
-                        provider === "pk" ||
-                        provider === "kgr" ||
-                        provider === "ktb" ||
-                        provider === "trg" ||
-                        provider === "sw" ||
-                        provider === "mk") && (
-                        <Collapsible className="px-6 mb-4">
-                          <CollapsibleTrigger asChild>
-                            <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
-                              Next bus will depart at{" "}
-                              {nextBusTime(
-                                BusSchedule.find(
-                                  (s) =>
-                                    s.r === route.route_id &&
-                                    s.d === direction &&
-                                    s.dt === getCurrentDate(),
-                                )?.t || [],
-                              )}
-                            </Card>
-                          </CollapsibleTrigger>
-                          <CollapsibleContent>
-                            <div className="mt-2">Scheduled</div>
-                            <div className="grid grid-cols-6 self-center ">
-                              {BusSchedule.find(
-                                (s) =>
-                                  s.r === route.route_id &&
-                                  s.d === direction &&
-                                  s.dt === getCurrentDate(),
-                              )?.t.map((time, idx) => (
-                                <div
-                                  key={idx}
-                                  className={`${
-                                    hasCurrentTimePassed(time)
-                                      ? "dark:text-neutral-500 text-neutral-400"
-                                      : "dark:text-white text-black"
-                                  } px-2`}
-                                >
-                                  {time.substring(0, 5)}
-                                </div>
-                              ))}
-                            </div>
-                          </CollapsibleContent>
-                        </Collapsible>
+                      {/* Vertical line */}
+                      {idx <
+                        (route?.directions?.find(
+                          (d) => d.direction_id === direction,
+                        )?.stops.length ?? 0) -
+                          1 && (
+                        <div
+                          className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-[#87CEFA]"}`}
+                        ></div>
                       )}
-                    {idx === 0 &&
-                      BusSchedule &&
-                      provider === "rkl" &&
-                      BusSchedule.length > 0 &&
-                      nextBusTime(
+                    </div>
+                    {/* Stop Name */}
+                    <div className="w-full">
+                      <Button
+                        variant={"ghost"}
+                        onClick={() => {
+                          const marker = markerRefs.current[stop.stop_id];
+                          if (marker) {
+                            if (!marker.isPopupOpen()) {
+                              marker.openPopup();
+                            }
+                            map.flyTo([stop.lat, stop.lon], 16, {
+                              animate: true,
+                            });
+                          }
+                        }}
+                        className="cursor-pointer m-2 !hover:bg-transparent text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
+                      >
+                        <p>{stop.stop_name.trim()}</p>
+                      </Button>
+                      {idx === 0 &&
+                        BusSchedule &&
                         BusSchedule.find(
                           (s) =>
                             s.r === route.route_id &&
                             s.d === direction &&
                             s.dt === getCurrentDate(),
-                        )?.t || [],
-                      ) && (
-                        <Collapsible className="px-6 mb-4">
-                          <CollapsibleTrigger asChild>
-                            <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
-                              Next bus will depart at{" "}
-                              {nextBusTime(
-                                BusSchedule.find(
+                        )?.t &&
+                        (provider === "rp" ||
+                          provider === "ns" ||
+                          provider === "jb" ||
+                          provider === "ktn" ||
+                          provider === "alr" ||
+                          provider === "pk" ||
+                          provider === "kgr" ||
+                          provider === "ktb" ||
+                          provider === "trg" ||
+                          provider === "sw" ||
+                          provider === "mk") && (
+                          <Collapsible className="px-6 mb-4">
+                            <CollapsibleTrigger asChild>
+                              <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
+                                Next bus will depart at{" "}
+                                {nextBusTime(
+                                  BusSchedule.find(
+                                    (s) =>
+                                      s.r === route.route_id &&
+                                      s.d === direction &&
+                                      s.dt === getCurrentDate(),
+                                  )?.t || [],
+                                )}
+                              </Card>
+                            </CollapsibleTrigger>
+                            <CollapsibleContent>
+                              <div className="mt-2">Scheduled</div>
+                              <div className="grid grid-cols-6 self-center ">
+                                {BusSchedule.find(
                                   (s) =>
                                     s.r === route.route_id &&
                                     s.d === direction &&
                                     s.dt === getCurrentDate(),
-                                )?.t || [],
-                              )}
-                            </Card>
-                          </CollapsibleTrigger>
-                          <CollapsibleContent>
-                            <div className="mt-2">Scheduled</div>
-                            <div className="grid grid-cols-6 self-center ">
-                              {BusSchedule.find(
-                                (s) =>
-                                  s.r === route.route_id &&
-                                  s.d === direction &&
-                                  s.dt === getCurrentDate(),
-                              )?.t.map((time, idx) => (
-                                <div
-                                  key={idx}
-                                  className={`${
-                                    hasCurrentTimePassed(time)
-                                      ? "dark:text-neutral-500 text-neutral-400"
-                                      : "dark:text-white text-black"
-                                  } px-2`}
-                                >
-                                  {time.substring(0, 5)}
-                                </div>
-                              ))}
-                            </div>
-                          </CollapsibleContent>
-                        </Collapsible>
-                      )}
+                                )?.t.map((time, idx) => (
+                                  <div
+                                    key={idx}
+                                    className={`${
+                                      hasCurrentTimePassed(time)
+                                        ? "dark:text-neutral-500 text-neutral-400"
+                                        : "dark:text-white text-black"
+                                    } px-2`}
+                                  >
+                                    {time.substring(0, 5)}
+                                  </div>
+                                ))}
+                              </div>
+                            </CollapsibleContent>
+                          </Collapsible>
+                        )}
+                      {idx === 0 &&
+                        BusSchedule &&
+                        provider === "rkl" &&
+                        BusSchedule.length > 0 &&
+                        nextBusTime(
+                          BusSchedule.find(
+                            (s) =>
+                              s.r === route.route_id &&
+                              s.d === direction &&
+                              s.dt === getCurrentDate(),
+                          )?.t || [],
+                        ) && (
+                          <Collapsible className="px-6 mb-4">
+                            <CollapsibleTrigger asChild>
+                              <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
+                                Next bus will depart at{" "}
+                                {nextBusTime(
+                                  BusSchedule.find(
+                                    (s) =>
+                                      s.r === route.route_id &&
+                                      s.d === direction &&
+                                      s.dt === getCurrentDate(),
+                                  )?.t || [],
+                                )}
+                              </Card>
+                            </CollapsibleTrigger>
+                            <CollapsibleContent>
+                              <div className="mt-2">Scheduled</div>
+                              <div className="grid grid-cols-6 self-center ">
+                                {BusSchedule.find(
+                                  (s) =>
+                                    s.r === route.route_id &&
+                                    s.d === direction &&
+                                    s.dt === getCurrentDate(),
+                                )?.t.map((time, idx) => (
+                                  <div
+                                    key={idx}
+                                    className={`${
+                                      hasCurrentTimePassed(time)
+                                        ? "dark:text-neutral-500 text-neutral-400"
+                                        : "dark:text-white text-black"
+                                    } px-2`}
+                                  >
+                                    {time.substring(0, 5)}
+                                  </div>
+                                ))}
+                              </div>
+                            </CollapsibleContent>
+                          </Collapsible>
+                        )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
           </div>
         </Card>
       );
@@ -991,6 +1048,7 @@ function App() {
             }
           />
         )}
+        {highlightStopId && <HighlightStop />}
         <VehiclesMarker
           key={provider}
           positions={positionsDirection === direction ? positions : []}
@@ -1023,12 +1081,12 @@ function App() {
                 )?.directions[0]?.stops.map((stop) => (
                   <CircleMarker
                     key={stop.stop_id}
-                    radius={4}
+                    radius={6}
                     center={[stop.lat, stop.lon]}
                     pathOptions={{
-                      color: "transparent",
                       fillColor: "white",
-                      fillOpacity: 0.6,
+                      color: "#" + route.route_color,
+                      fillOpacity: 0.8,
                     }}
                   >
                     <Popup
@@ -1168,6 +1226,7 @@ function App() {
           positions={positions}
           isMobile={isMobile}
           routeId={routeId ?? null}
+          highlightStopId={highlightStopId}
         />
         {!isMobile && route && (
           <>
@@ -1206,14 +1265,17 @@ function FlyToRoute({
   positions,
   isMobile,
   routeId,
+  highlightStopId,
 }: {
   positions: LatLngExpression[][];
   isMobile: boolean;
   routeId: string | null;
+  highlightStopId?: string;
 }) {
   const map = useMap();
 
   useEffect(() => {
+    if (highlightStopId) return;
     const bounds = fitBoundsOf(positions);
     if (!bounds) return;
 
@@ -1356,7 +1418,7 @@ function normalizeHeading(value: number): number {
 }
 
 function normalizeSignedBearing(value: number): number {
-  return ((value + 180) % 360 + 360) % 360 - 180;
+  return ((((value + 180) % 360) + 360) % 360) - 180;
 }
 
 function angleDifference(first: number, second: number): number {

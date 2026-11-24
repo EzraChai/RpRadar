@@ -49,6 +49,7 @@ import MyBasTrgRoutes from "@/assets/trg/trg_routes_with_shapes.json";
 import MyBasSwRoutes from "@/assets/sw/sw_routes_with_shapes.json";
 
 import type { RouteType } from "@/hooks/types";
+import { useStopSearch } from "@/hooks/use-stop-search";
 
 const SNAP_POINTS = [0.26, 0.5, 1];
 
@@ -414,8 +415,12 @@ function SearchSideBar({
   } else if (provider === "sw") {
     routes = MyBasSwRoutes;
   }
+
   const map = useMap();
   const [search, setSearch] = useState("");
+  const [searchMode, setSearchMode] = useState<"routes" | "stops">("routes");
+
+  // ----- Route search -----
   const [filteredRoutes, setFilteredRoutes] = useState(() => {
     if (!routes) return [];
     if (
@@ -428,13 +433,11 @@ function SearchSideBar({
       return routes as any;
     }
     return [];
-  }); // initial list
+  });
 
   useEffect(() => {
     const handler = setTimeout(() => {
       const term = search.trim().toLowerCase();
-
-      // derive a safe list to filter from (supports FeatureCollection or plain array)
       const list =
         routes &&
         Array.isArray((routes as any).features) &&
@@ -443,18 +446,44 @@ function SearchSideBar({
           : Array.isArray(routes)
             ? (routes as any)
             : [];
-
       const results = list.filter(
         (bus: any) =>
           bus.route_code.toLowerCase().includes(term) ||
           bus.route_name.toLowerCase().includes(term),
       );
-
       setFilteredRoutes(results);
-    }, 300); // wait 300ms after user stops typing
-
-    return () => clearTimeout(handler); //
+    }, 300);
+    return () => clearTimeout(handler);
   }, [search, routes]);
+
+  // ----- Stop search -----
+  const allStops = useStopSearch(provider);
+  const [filteredStops, setFilteredStops] = useState<typeof allStops>([]);
+  const [totalStopMatches, setTotalStopMatches] = useState(0);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      const term = search.trim().toLowerCase();
+      if (!term) {
+        setFilteredStops([]);
+        setTotalStopMatches(0);
+        return;
+      }
+      const matches = allStops.filter((s) =>
+        s.stop_name.toLowerCase().includes(term),
+      );
+      setTotalStopMatches(matches.length);
+      setFilteredStops(matches.slice(0, 30));
+    }, 200);
+    return () => clearTimeout(handler);
+  }, [search, allStops]);
+
+  // Reset search when switching modes
+  const handleModeChange = (mode: "routes" | "stops") => {
+    setSearchMode(mode);
+    setSearch("");
+  };
+
   return (
     <Card
       hidden={!openSearch}
@@ -483,40 +512,158 @@ function SearchSideBar({
           <X />
         </Button>
       </CardHeader>
+
+      {/* Mode toggle */}
+      <div className="px-4 mb-3 flex gap-2">
+        <Button
+          variant={searchMode === "routes" ? "outline" : "ghost"}
+          size="sm"
+          className="flex-1 gap-1 cursor-pointer"
+          onClick={() => handleModeChange("routes")}
+        >
+          Routes
+        </Button>
+        <Button
+          variant={searchMode === "stops" ? "outline" : "ghost"}
+          size="sm"
+          className="flex-1 gap-1 cursor-pointer"
+          onClick={() => handleModeChange("stops")}
+        >
+          Stops
+        </Button>
+      </div>
+
       <div className="px-4 relative w-full">
         <Search className="absolute left-8 top-1/2 -translate-y-1/2 text-gray-500 w-4 h-4" />
         <Input
           ref={inputRef}
           className="pl-10 pr-2 py-2 h-12 text-lg! bg-neutral-50 dark:bg-neutral-900!"
-          placeholder="Search Routes"
+          placeholder={
+            searchMode === "routes" ? "Search Routes" : "Search Stops"
+          }
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
 
-      <div className="px-4 h-screen overflow-x-clip overflow-y-auto">
-        {filteredRoutes.map(
-          (
-            line: {
-              route_id: any;
-              route_code?: string;
-              route_name?: string;
-              shape_ids?: string[];
-            },
-            index: number,
-          ) => (
-            <RouteCard
-              key={line.route_id}
-              index={index}
-              length={filteredRoutes.length}
-              line={line}
-              setOpenSearch={setOpenSearch}
-              provider={provider}
-            />
-          ),
+      <div className="px-4 h-screen overflow-x-clip overflow-y-auto mt-3 pb-24">
+        {searchMode === "routes" ? (
+          filteredRoutes.map(
+            (
+              line: {
+                route_id: any;
+                route_code?: string;
+                route_name?: string;
+                shape_ids?: string[];
+              },
+              index: number,
+            ) => (
+              <RouteCard
+                key={line.route_id}
+                index={index}
+                length={filteredRoutes.length}
+                line={line}
+                setOpenSearch={setOpenSearch}
+                provider={provider}
+              />
+            ),
+          )
+        ) : search.trim().length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-12 px-4 text-center">
+            <p className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+              Search by stop name
+            </p>
+            <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-1">
+              Type a name to find stops and their bus routes
+            </p>
+          </div>
+        ) : filteredStops.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-12 px-4 text-center">
+            <p className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+              No stops found
+            </p>
+            <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-1">
+              Check for typos or try a different stop name
+            </p>
+          </div>
+        ) : (
+          <>
+            {filteredStops.map((stop, index) => (
+              <StopCard
+                key={stop.stop_id}
+                stop={stop}
+                index={index}
+                length={filteredStops.length}
+                setOpenSearch={setOpenSearch}
+                provider={provider}
+              />
+            ))}
+            {totalStopMatches > filteredStops.length && (
+              <p className="py-3 text-center text-xs text-neutral-400 dark:text-neutral-500">
+                Showing first {filteredStops.length} of {totalStopMatches}{" "}
+                stops. Type more to narrow down.
+              </p>
+            )}
+          </>
         )}
       </div>
     </Card>
+  );
+}
+
+export function StopCard({
+  stop,
+  index,
+  length,
+  setSnap,
+  setOpenSearch,
+  provider,
+}: {
+  stop: import("@/hooks/use-stop-search").StopResult;
+  index: number;
+  length: number;
+  setSnap?: React.Dispatch<React.SetStateAction<number | string | null>>;
+  setOpenSearch?: React.Dispatch<React.SetStateAction<boolean>>;
+  provider: string;
+}) {
+  return (
+    <div
+      className={`w-full bg-neutral-50 dark:bg-neutral-900 border-b dark:border-neutral-600 px-4 py-3
+        ${index === 0 && "rounded-t-3xl"}
+        ${index === length - 1 && "rounded-b-3xl mb-4 border-b-0"}`}
+    >
+      <div className="flex items-center gap-2 mb-2">
+        <p className="text-sm font-medium dark:text-neutral-50 text-neutral-900 leading-tight">
+          {stop.stop_name}
+        </p>
+      </div>
+      <div className="flex flex-wrap gap-1.5">
+        {stop.routes.map((route) => (
+          <NavLink
+            key={route.route_id}
+            to={`/routes/${encodeURIComponent(route.route_id)}?stopId=${encodeURIComponent(stop.stop_id)}`}
+            onPointerDownCapture={(e) => e.stopPropagation()}
+            onClick={() => {
+              if (document.activeElement instanceof HTMLElement) {
+                document.activeElement.blur();
+              }
+              if (typeof setSnap === "function") setSnap(SNAP_POINTS[0]);
+              if (typeof setOpenSearch === "function")
+                setTimeout(() => setOpenSearch(false), 50);
+            }}
+          >
+            <div
+              title={route.route_name}
+              className={`min-w-10 px-1.5 h-6 font-semibold flex justify-center items-center text-xs border-2
+                ${route.route_code === route.route_name ? "border-[#28ab78]" : provider !== "rp" && provider !== "rkl" ? "border-pink-400" : "border-red-500"}
+                rounded-lg text-black dark:text-white hover:opacity-70 transition-opacity cursor-pointer`}
+            >
+              {route.route_code}
+            </div>
+          </NavLink>
+        ))}
+      </div>
+    </div>
   );
 }
 
