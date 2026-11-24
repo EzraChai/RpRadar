@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { Polyline } from "./maplibre-adapter";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Layer, Source } from "@vis.gl/react-maplibre";
 import type { LatLngExpression } from "./maplibre-adapter";
 
 const TOMTOM_API_KEY = import.meta.env.VITE_TOMTOM_API_KEY as string;
@@ -533,6 +533,35 @@ interface TrafficLayerProps {
   visible: boolean;
 }
 
+const EMPTY_SEGMENTS: ClassifiedTrafficSegments = { heavy: [], moderate: [] };
+
+const TRAFFIC_GEOJSON_SOURCE_ID = "route-traffic-segments";
+const TRAFFIC_LAYER_ID = "route-traffic-lines";
+// One GeoJSON source + one line layer with data-driven paint replaces the
+// previous one-source-per-segment layout, cutting WebGL draw calls and
+// uniform/state switches to a single batched pass per frame.
+const TRAFFIC_LAYER = {
+  id: TRAFFIC_LAYER_ID,
+  type: "line" as const,
+  layout: {
+    "line-cap": "round" as const,
+    "line-join": "round" as const,
+  },
+  paint: {
+    "line-color": [
+      "match",
+      ["get", "severity"],
+      "heavy",
+      TRAFFIC_STYLES.heavy.color,
+      TRAFFIC_STYLES.moderate.color,
+    ] as unknown as string,
+    "line-width": TRAFFIC_STYLES.heavy.weight,
+    "line-opacity": TRAFFIC_STYLES.moderate.opacity,
+  },
+};
+
+const EMPTY_FEATURE_COLLECTION = { type: "FeatureCollection" as const, features: [] as never[] };
+
 /**
  * TrafficLayer renders TomTom-classified jams strictly along the selected route with:
  * 1. Exactly ONE single API call (TomTom Incident Details).
@@ -541,8 +570,7 @@ interface TrafficLayerProps {
  */
 export function TrafficLayer({ positions, visible }: TrafficLayerProps) {
   const [trafficSegments, setTrafficSegments] =
-    useState<ClassifiedTrafficSegments>({ heavy: [], moderate: [] });
-  const [loading, setLoading] = useState(false);
+    useState<ClassifiedTrafficSegments>(EMPTY_SEGMENTS);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   const lastRouteKeyRef = useRef<string>("");
@@ -552,7 +580,6 @@ export function TrafficLayer({ positions, visible }: TrafficLayerProps) {
     abortRef.current = new AbortController();
     const signal = abortRef.current.signal;
 
-    setLoading(true);
     try {
       const result = await fetchRouteTrafficSingleApi(flat, signal);
       if (signal.aborted) return;
@@ -560,10 +587,6 @@ export function TrafficLayer({ positions, visible }: TrafficLayerProps) {
     } catch (err) {
       if (signal.aborted) return;
       console.error("[TrafficLayer] Error fetching traffic data:", err);
-    } finally {
-      if (!signal.aborted) {
-        setLoading(false);
-      }
     }
   };
 
@@ -574,20 +597,33 @@ export function TrafficLayer({ positions, visible }: TrafficLayerProps) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
       }
-      setTrafficSegments({ heavy: [], moderate: [] });
+      abortRef.current?.abort();
+      setTrafficSegments(EMPTY_SEGMENTS);
       lastRouteKeyRef.current = "";
       return;
     }
 
     if (positions.length === 0) {
-      setTrafficSegments({ heavy: [], moderate: [] });
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      // Abort the in-flight request so a stale response for the previous
+      // route can never be committed to state.
+      abortRef.current?.abort();
+      setTrafficSegments(EMPTY_SEGMENTS);
       lastRouteKeyRef.current = "";
       return;
     }
 
     const flat = flattenRoute(positions);
     if (flat.length < 2) {
-      setTrafficSegments({ heavy: [], moderate: [] });
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+      abortRef.current?.abort();
+      setTrafficSegments(EMPTY_SEGMENTS);
       lastRouteKeyRef.current = "";
       return;
     }
@@ -615,51 +651,48 @@ export function TrafficLayer({ positions, visible }: TrafficLayerProps) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
       }
-      if (abortRef.current) abortRef.current.abort();
+      abortRef.current?.abort();
     };
   }, [visible, positions]);
 
-  void loading;
+  // Stable FeatureCollection identity: react-maplibre's source diffing
+  // short-circuits on reference equality, so identical polling payloads
+  // never trigger a setData re-parse or symbol collision recalculation.
+  const trafficData = useMemo(() => {
+    if (
+      trafficSegments.heavy.length === 0 &&
+      trafficSegments.moderate.length === 0
+    ) {
+      return EMPTY_FEATURE_COLLECTION;
+    }
+    const features = [
+      ...trafficSegments.moderate.map((coords) => ({
+        type: "Feature" as const,
+        properties: { severity: "moderate" as const },
+        geometry: {
+          type: "LineString" as const,
+          coordinates: coords.map(([lat, lng]) => [lng, lat]),
+        },
+      })),
+      ...trafficSegments.heavy.map((coords) => ({
+        type: "Feature" as const,
+        properties: { severity: "heavy" as const },
+        geometry: {
+          type: "LineString" as const,
+          coordinates: coords.map(([lat, lng]) => [lng, lat]),
+        },
+      })),
+    ];
+    return { type: "FeatureCollection" as const, features };
+  }, [trafficSegments]);
 
-  if (
-    !visible ||
-    (trafficSegments.heavy.length === 0 &&
-      trafficSegments.moderate.length === 0)
-  ) {
+  if (!visible || trafficData.features.length === 0) {
     return null;
   }
 
   return (
-    <>
-      {/* Moderate traffic jams (yellow) rendered first */}
-      {trafficSegments.moderate.map((coords, i) => (
-        <Polyline
-          key={`mod-${i}-${coords[0][0]}-${coords[0][1]}`}
-          positions={coords}
-          pathOptions={{
-            color: TRAFFIC_STYLES.moderate.color,
-            weight: TRAFFIC_STYLES.moderate.weight,
-            opacity: TRAFFIC_STYLES.moderate.opacity,
-            lineCap: "round",
-            lineJoin: "round",
-          }}
-        />
-      ))}
-
-      {/* Heavy traffic jams (red) rendered on top */}
-      {trafficSegments.heavy.map((coords, i) => (
-        <Polyline
-          key={`heavy-${i}-${coords[0][0]}-${coords[0][1]}`}
-          positions={coords}
-          pathOptions={{
-            color: TRAFFIC_STYLES.heavy.color,
-            weight: TRAFFIC_STYLES.heavy.weight,
-            opacity: TRAFFIC_STYLES.heavy.opacity,
-            lineCap: "round",
-            lineJoin: "round",
-          }}
-        />
-      ))}
-    </>
+    <Source id={TRAFFIC_GEOJSON_SOURCE_ID} type="geojson" data={trafficData}>
+      <Layer {...TRAFFIC_LAYER} />
+    </Source>
   );
 }
