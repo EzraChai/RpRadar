@@ -1,6 +1,4 @@
-@layer ui-sdk;
 @import "tailwindcss";
-@import "@ui-sdk/core/web.css" layer(components);
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
