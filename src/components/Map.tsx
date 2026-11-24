@@ -1355,6 +1355,10 @@ function normalizeHeading(value: number): number {
   return ((value % 360) + 360) % 360;
 }
 
+function normalizeSignedBearing(value: number): number {
+  return ((value + 180) % 360 + 360) % 360 - 180;
+}
+
 function angleDifference(first: number, second: number): number {
   return Math.abs(((first - second + 540) % 360) - 180);
 }
@@ -1453,6 +1457,7 @@ function AnimatedVehicleMarker({
   precomputedSegments,
   routeProgress,
   followsRoute,
+  useRouteHeading,
   routeOrientation,
   children,
 }: {
@@ -1464,6 +1469,7 @@ function AnimatedVehicleMarker({
   precomputedSegments: PrecomputedSegment[];
   routeProgress: number;
   followsRoute: boolean;
+  useRouteHeading: boolean;
   routeOrientation: 1 | -1;
   children: ReactNode;
 }) {
@@ -1509,7 +1515,7 @@ function AnimatedVehicleMarker({
     const target = { lat: position.lat, lng: position.lng };
     const applyCurrentHeading = () => {
       applyHeading(
-        followsRoute
+        followsRoute && useRouteHeading
           ? sampleHeadingAtDistance(
               precomputedSegments,
               routeLength,
@@ -1592,13 +1598,15 @@ function AnimatedVehicleMarker({
           nextPosition.lat,
           nextPosition.lng,
         );
-        const nextHeading = sampleHeadingAtDistance(
-          precomputedSegments,
-          routeLength,
-          currentProgress,
-          routeOrientation,
-          heading,
-        );
+        const nextHeading = useRouteHeading
+          ? sampleHeadingAtDistance(
+              precomputedSegments,
+              routeLength,
+              currentProgress,
+              routeOrientation,
+              heading,
+            )
+          : heading;
         applyHeading(nextHeading);
       }
 
@@ -1621,6 +1629,7 @@ function AnimatedVehicleMarker({
     direction,
     followsRoute,
     heading,
+    useRouteHeading,
     position.lat,
     position.lng,
     precomputedSegments,
@@ -1794,7 +1803,7 @@ const SingleVehicleItem = memo(function SingleVehicleItem({
   const end = coords[segIdx + 1];
   const routeHeading = start && end ? bearing(point(start), point(end)) : 0;
   const heading = hasLiveBearing
-    ? vehicle.position!.bearing!
+    ? normalizeSignedBearing(vehicle.position!.bearing!)
     : routeOrientation === 1
       ? routeHeading
       : (routeHeading + 180) % 360;
@@ -1814,6 +1823,7 @@ const SingleVehicleItem = memo(function SingleVehicleItem({
       precomputedSegments={precomputedSegments}
       routeProgress={routeProgress}
       followsRoute={!isOffRoute}
+      useRouteHeading={!hasLiveBearing}
       routeOrientation={routeOrientation}
       icon={icon}
     >
