@@ -223,6 +223,10 @@ body {
   box-shadow: none !important;
 }
 
+.maplibregl-ctrl-attrib {
+  @apply dark:text-neutral-300!;
+}
+
 .maplibregl-ctrl-top-right {
   top: 88px !important;
   right: 6px !important;

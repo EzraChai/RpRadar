@@ -437,7 +437,7 @@ export function Marker({
       openPopup: () => selection.setActiveId(id),
     };
     if (typeof ref === "function") ref(proxy);
-    else (ref as React.MutableRefObject<unknown>).current = proxy;
+    else (ref as React.RefObject<unknown>).current = proxy;
   }, [id, position.lat, position.lng, ref, selection]);
   return (
     <>
