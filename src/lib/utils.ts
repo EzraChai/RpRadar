@@ -42,7 +42,10 @@ export function hasCurrentTimePassed(time: string): boolean {
   return false;
 }
 
-export function nextBusTime(times: string[] | undefined) {
+export function nextBusTime(
+  times: string[] | undefined,
+  _: number,
+): string | null {
   if (times === undefined || times.length === 0) {
     return null;
   }
