@@ -1141,10 +1141,6 @@ function StopsCard({
                       map.flyTo([stop.lat, stop.lon], 16, {
                         animate: true,
                       });
-
-                      const params = new URLSearchParams(searchParams);
-                      params.set("stopId", stop.stop_id);
-                      setSearchParams(params, { replace: true });
                     }
                   }}
                   className="cursor-pointer m-2 !hover:bg-transparent text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
@@ -1278,14 +1274,6 @@ function FitBoundsToPolyline({
   setDirection: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const map = useMap();
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const handleStopClick = (stop: RouteDirection["stops"][number]) => {
-    map.setView([stop.lat, stop.lon], 16, { animate: true });
-    const params = new URLSearchParams(searchParams);
-    params.set("stopId", stop.stop_id);
-    setSearchParams(params, { replace: true });
-  };
 
   // Single-direction routes: normalize direction once after mount instead of
   // during render.
@@ -1318,7 +1306,8 @@ function FitBoundsToPolyline({
                 fillOpacity: 1,
               }}
               eventHandlers={{
-                click: () => handleStopClick(stop),
+                click: () =>
+                  map.setView([stop.lat, stop.lon], 16, { animate: true }),
               }}
             >
               <Popup
@@ -1370,7 +1359,8 @@ function FitBoundsToPolyline({
               fillOpacity: 1,
             }}
             eventHandlers={{
-              click: () => handleStopClick(stop),
+              click: () =>
+                map.setView([stop.lat, stop.lon], 16, { animate: true }),
             }}
           >
             <Popup

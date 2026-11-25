@@ -422,9 +422,6 @@ export function DrawerMobile({
                                   map.flyTo([stop.lat, stop.lon], 16, {
                                     animate: true,
                                   });
-                                  const params = new URLSearchParams(searchParams);
-                                  params.set("stopId", stop.stop_id);
-                                  setSearchParams(params, { replace: true });
                                   setSnap(SNAP_POINTS[0]);
                                 }
                               }}
