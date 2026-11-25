@@ -303,7 +303,6 @@ export function Polyline({
       pathOptions.lineJoin,
     ],
   );
-  console.log(id);
   return (
     <Source id={`line-source-${id}`} type="geojson" data={data}>
       <Layer {...layer} />
