@@ -4,7 +4,7 @@ import { Drawer } from "vaul";
 import { Input } from "./ui/input";
 import { RouteCard, StopCard } from "./app-sidebar";
 import { useStopSearch } from "@/hooks/use-stop-search";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { Button } from "./ui/button";
 import { useMap } from "./maplibre-adapter";
 import type { CircleMarkerRef } from "./maplibre-adapter";
@@ -79,6 +79,8 @@ export function DrawerMobile({
     | undefined;
 }) {
   const [snap, setSnap] = useState<number | string | null>(SNAP_POINTS[0]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [pendingDirectionChange, setPendingDirectionChange] = useState(false);
   const [search, setSearch] = useState("");
   const touchStartYRef = useRef<number | null>(null);
   const touchSnapTriggeredRef = useRef(false);
@@ -86,6 +88,13 @@ export function DrawerMobile({
   const [provider] = useState<string>(() => {
     return localStorage.getItem("provider") || "rp";
   });
+
+  useEffect(() => {
+    if (!pendingDirectionChange || searchParams.has("stopId")) return;
+
+    setDirection((prev) => (prev === 1 ? 0 : 1));
+    setPendingDirectionChange(false);
+  }, [pendingDirectionChange, searchParams, setDirection]);
 
   const [BusSchedule] = useState<BusScheduleType>(() => {
     if (provider === "rkl") {
@@ -291,7 +300,7 @@ export function DrawerMobile({
               <div className="min-h-0 flex-1 flex flex-col overflow-hidden">
                 <div className="p-2 py-0 flex justify-between items-center">
                   <div
-                    className={`border-2 font-semibold ${provider === "rkl" && route?.directions[0].route_long_name === route?.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-lg px-2`}
+                    className={`border-2 font-semibold ${provider === "rkl" && route?.directions[0].route_long_name === route?.route_short_name ? "border-[#28ab78]" : route.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-lg px-2`}
                   >
                     {route?.route_short_name}
                   </div>
@@ -331,14 +340,26 @@ export function DrawerMobile({
                     <Button
                       variant={"outline"}
                       className="bg-white w-full"
-                      onClick={() =>
-                        setDirection((prev) => {
-                          if (route?.directions.length >= 2) {
-                            return prev === 1 ? 0 : 1;
+                      onClick={() => {
+                        Object.values(markerRefs.current).forEach((marker) => {
+                          if (marker?.isPopupOpen()) {
+                            marker.closePopup();
                           }
-                          return 0;
-                        })
-                      }
+                        });
+                        if (searchParams.has("stopId")) {
+                          const params = new URLSearchParams(searchParams);
+                          params.delete("stopId");
+                          setSearchParams(params, { replace: true });
+                          setPendingDirectionChange(true);
+                        } else {
+                          setDirection((prev) => {
+                            if (route?.directions.length >= 2) {
+                              return prev === 1 ? 0 : 1;
+                            }
+                            return 0;
+                          });
+                        }
+                      }}
                     >
                       Change Direction
                     </Button>
@@ -401,6 +422,9 @@ export function DrawerMobile({
                                   map.flyTo([stop.lat, stop.lon], 16, {
                                     animate: true,
                                   });
+                                  const params = new URLSearchParams(searchParams);
+                                  params.set("stopId", stop.stop_id);
+                                  setSearchParams(params, { replace: true });
                                   setSnap(SNAP_POINTS[0]);
                                 }
                               }}
@@ -567,7 +591,7 @@ export function DrawerMobile({
                                         {route?.route_name}
                                       </p>
                                       <div
-                                        className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${provider === "rkl" && route?.route_code === route?.route_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-lg text-black dark:text-white`}
+                                        className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${provider === "rkl" && route?.route_code === route?.route_name ? "border-[#28ab78]" : route?.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-lg text-black dark:text-white`}
                                       >
                                         {route?.route_code}
                                       </div>

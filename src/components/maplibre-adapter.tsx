@@ -324,6 +324,7 @@ export function Popup(props: PopupConfig) {
 export type CircleMarkerRef = {
   isPopupOpen: () => boolean;
   openPopup: () => void;
+  closePopup: () => void;
 };
 export function CircleMarker({
   center,
@@ -351,6 +352,7 @@ export function CircleMarker({
     ref?.({
       isPopupOpen: () => selection.activeId === id,
       openPopup: () => selection.setActiveId(id),
+      closePopup: () => selection.setActiveId(null),
     });
     return () => ref?.(null);
   }, [id, ref, selection]);

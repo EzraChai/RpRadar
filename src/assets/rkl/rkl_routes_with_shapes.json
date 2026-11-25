@@ -730,5 +730,11 @@
     "route_code": "T851",
     "route_name": "KL Sentral ~ Parlimen",
     "shape_ids": ["T851002"]
+  },
+  {
+    "route_id": "B1000",
+    "route_code": "SUNWAY LINE",
+    "route_name": "BRT USJ 7 - BRT Setia Jaya",
+    "shape_ids": ["shp_BRT_0", "shp_BRT_1"]
   }
 ]

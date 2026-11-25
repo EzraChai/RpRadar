@@ -573,9 +573,11 @@ function App() {
               provider === "rkl" &&
               route?.route_short_name === route?.directions[0].route_long_name
                 ? "#28ab78"
-                : provider !== "rkl" && provider !== "rp"
-                  ? "#e74e9f"
-                  : "#78BFF5"
+                : route?.route_id === "B1000"
+                  ? "#115740"
+                  : provider !== "rkl" && provider !== "rp"
+                    ? "#e74e9f"
+                    : "#78BFF5"
             }
           />
         )}
@@ -729,7 +731,7 @@ function App() {
             <Card className="absolute z-500 pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
               <div className="flex justify-between items-center gap-4">
                 <div
-                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
+                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : route.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
                 >
                   {route?.route_short_name}
                 </div>
@@ -741,7 +743,7 @@ function App() {
                   </h4>
                 </div>
                 <div
-                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
+                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : route.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
                 >
                   {route?.route_short_name}
                 </div>
@@ -986,6 +988,8 @@ function StopsCard({
   BusSchedule: BusScheduleType | null;
   markerRefs: React.RefObject<{ [key: string]: CircleMarkerRef | null }>;
 }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [pendingDirectionChange, setPendingDirectionChange] = useState(false);
   const map = useMap();
   const starredRoutes = useStarredRoutes();
   const [currentTime, setCurrentTime] = useState(Date.now());
@@ -997,6 +1001,13 @@ function StopsCard({
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (!pendingDirectionChange || searchParams.has("stopId")) return;
+
+    setDirection((prev) => (prev === 1 ? 0 : 1));
+    setPendingDirectionChange(false);
+  }, [pendingDirectionChange, searchParams, setDirection]);
   if (route)
     return (
       <Card
@@ -1014,7 +1025,7 @@ function StopsCard({
       >
         <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
           <div
-            className={`px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-[#e74e9f]" : "border-red-500"} rounded-lg text-black dark:text-white`}
+            className={`px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : route.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rkl" && provider !== "rp" ? "border-[#e74e9f]" : "border-red-500"} rounded-lg text-black dark:text-white`}
           >
             {route?.route_short_name}
           </div>
@@ -1058,11 +1069,23 @@ function StopsCard({
             <Button
               variant={"outline"}
               className="bg-white w-full"
-              onClick={() =>
-                setDirection((prev) => {
-                  return prev === 1 ? 0 : 1;
-                })
-              }
+              onClick={() => {
+                Object.values(markerRefs.current).forEach((marker) => {
+                  if (marker?.isPopupOpen()) {
+                    marker.closePopup();
+                  }
+                });
+                if (searchParams.has("stopId")) {
+                  const params = new URLSearchParams(searchParams);
+                  params.delete("stopId");
+                  setSearchParams(params, { replace: true });
+                  setPendingDirectionChange(true);
+                } else {
+                  setDirection((prev) => {
+                    return prev === 1 ? 0 : 1;
+                  });
+                }
+              }}
             >
               Change Direction
             </Button>
@@ -1087,9 +1110,11 @@ function StopsCard({
                     route.directions[0].route_long_name ===
                       route.route_short_name
                       ? "bg-[#219166]"
-                      : provider !== "rkl" && provider !== "rp"
-                        ? "bg-pink-400"
-                        : "bg-[#78BFF5]"
+                      : route.route_id === "B1000"
+                        ? "bg-[#115740]"
+                        : provider !== "rkl" && provider !== "rp"
+                          ? "bg-pink-400"
+                          : "bg-[#78BFF5]"
                   } z-10`}
                 ></div>
                 {/* Vertical line */}
@@ -1098,7 +1123,7 @@ function StopsCard({
                     ?.stops.length ?? 0) -
                     1 && (
                   <div
-                    className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-[#87CEFA]"}`}
+                    className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : route.route_id === "B1000" ? "bg-[#115740]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-[#87CEFA]"}`}
                   ></div>
                 )}
               </div>
@@ -1112,9 +1137,14 @@ function StopsCard({
                       if (!marker.isPopupOpen()) {
                         marker.openPopup();
                       }
+
                       map.flyTo([stop.lat, stop.lon], 16, {
                         animate: true,
                       });
+
+                      const params = new URLSearchParams(searchParams);
+                      params.set("stopId", stop.stop_id);
+                      setSearchParams(params, { replace: true });
                     }
                   }}
                   className="cursor-pointer m-2 !hover:bg-transparent text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
@@ -1248,6 +1278,14 @@ function FitBoundsToPolyline({
   setDirection: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const map = useMap();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleStopClick = (stop: RouteDirection["stops"][number]) => {
+    map.setView([stop.lat, stop.lon], 16, { animate: true });
+    const params = new URLSearchParams(searchParams);
+    params.set("stopId", stop.stop_id);
+    setSearchParams(params, { replace: true });
+  };
 
   // Single-direction routes: normalize direction once after mount instead of
   // during render.
@@ -1280,8 +1318,7 @@ function FitBoundsToPolyline({
                 fillOpacity: 1,
               }}
               eventHandlers={{
-                click: () =>
-                  map.setView([stop.lat, stop.lon], 16, { animate: true }),
+                click: () => handleStopClick(stop),
               }}
             >
               <Popup
@@ -1333,8 +1370,7 @@ function FitBoundsToPolyline({
               fillOpacity: 1,
             }}
             eventHandlers={{
-              click: () =>
-                map.setView([stop.lat, stop.lon], 16, { animate: true }),
+              click: () => handleStopClick(stop),
             }}
           >
             <Popup
@@ -2189,6 +2225,9 @@ export function VehiclesMarker({
           setVehicles((prev) => {
             const updated = new Map(prev);
             for (const bus of data.vehicles) {
+              if (bus.region === "rkl" && bus.route === "B1000" && !bus.dir) {
+                continue;
+              }
               updated.set(bus.bus_no, avlToVehicle(bus));
             }
             return updated;
@@ -2202,6 +2241,9 @@ export function VehiclesMarker({
 
     const channel = pusher.subscribe(`avl.route.${routeId}`);
     channel.bind("avl.data", (bus: AvlVehicle) => {
+      if (bus.region === "rkl" && bus.route === "B1000" && !bus.dir) {
+        return;
+      }
       setVehicles((prev) => {
         const existing = prev.get(bus.bus_no);
         const nextVehicle = avlToVehicle(bus);

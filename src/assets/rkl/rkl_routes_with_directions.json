@@ -36513,5 +36513,109 @@
         ]
       }
     ]
+  },
+  {
+    "route_id": "B1000",
+    "route_short_name": "SUNWAY LINE",
+    "directions": [
+      {
+        "direction_id": 0,
+        "shape_id": "shp_BRT_0",
+        "route_long_name": "BRT USJ 7 - BRT Setia Jaya",
+        "stops": [
+          {
+            "stop_id": "BRT1",
+            "stop_name": "SUNWAY-SETIA JAYA",
+            "lat": 3.0828,
+            "lon": 101.6123
+          },
+          {
+            "stop_id": "BRT2",
+            "stop_name": "MENTARI",
+            "lat": 3.0761,
+            "lon": 101.6101
+          },
+          {
+            "stop_id": "BRT3",
+            "stop_name": "SUNWAY LAGOON ",
+            "lat": 3.0706,
+            "lon": 101.6107
+          },
+          {
+            "stop_id": "BRT4",
+            "stop_name": "SUNMED",
+            "lat": 3.0656,
+            "lon": 101.6087
+          },
+          {
+            "stop_id": "BRT5",
+            "stop_name": "SunU-Monash",
+            "lat": 3.0654,
+            "lon": 101.6016
+          },
+          {
+            "stop_id": "BRT6",
+            "stop_name": "SOUTH QUAY-USJ 1",
+            "lat": 3.0617,
+            "lon": 101.5969
+          },
+          {
+            "stop_id": "BRT7",
+            "stop_name": "USJ7",
+            "lat": 3.0553,
+            "lon": 101.5919
+          }
+        ]
+      },
+      {
+        "direction_id": 1,
+        "shape_id": "shp_BRT_1",
+        "route_long_name": "BRT Setia Jaya - BRT USJ 7",
+        "stops": [
+          {
+            "stop_id": "BRT7",
+            "stop_name": "USJ7",
+            "lat": 3.0553,
+            "lon": 101.5919
+          },
+          {
+            "stop_id": "BRT6",
+            "stop_name": "SOUTH QUAY-USJ 1",
+            "lat": 3.0617,
+            "lon": 101.5969
+          },
+          {
+            "stop_id": "BRT5",
+            "stop_name": "SunU-Monash",
+            "lat": 3.0654,
+            "lon": 101.6016
+          },
+          {
+            "stop_id": "BRT4",
+            "stop_name": "SUNMED",
+            "lat": 3.0656,
+            "lon": 101.6087
+          },
+          {
+            "stop_id": "BRT3",
+            "stop_name": "SUNWAY LAGOON ",
+            "lat": 3.0706,
+            "lon": 101.6107
+          },
+          {
+            "stop_id": "BRT2",
+            "stop_name": "MENTARI",
+            "lat": 3.0761,
+            "lon": 101.6101
+          },
+          {
+            "stop_id": "BRT1",
+            "stop_name": "SUNWAY-SETIA JAYA",
+            "lat": 3.0828,
+            "lon": 101.6123
+          }
+        ]
+      }
+    ]
   }
 ]

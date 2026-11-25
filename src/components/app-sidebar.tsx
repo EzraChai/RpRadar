@@ -231,7 +231,7 @@ export function AppSidebar({
                       <Button
                         variant={"ghost"}
                         key={route?.route_id}
-                        className={`text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-9 h-5 py-1 px-1  ${provider === "rkl" && route?.route_code === route?.route_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"}  rounded-xl`}
+                        className={`text-[10px] cursor-pointer flex justify-center items-center font-bold border-[1.7px] w-9 h-5 py-1 px-1  ${provider === "rkl" && route?.route_code === route?.route_name ? "border-[#28ab78]" : route?.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"}  rounded-xl`}
                       >
                         <p className="text-black dark:text-white truncate">
                           {route?.route_code}
@@ -655,7 +655,7 @@ export function StopCard({
             <div
               title={route.route_name}
               className={`min-w-10 px-1.5 h-6 font-semibold flex justify-center items-center text-xs border-2
-                ${route.route_code === route.route_name ? "border-[#28ab78]" : provider !== "rp" && provider !== "rkl" ? "border-pink-400" : "border-red-500"}
+                ${route.route_code === route.route_name ? "border-[#28ab78]" : route.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rp" && provider !== "rkl" ? "border-pink-400" : "border-red-500"}
                 rounded-lg text-black dark:text-white hover:opacity-70 transition-opacity cursor-pointer`}
             >
               {route.route_code}
@@ -713,7 +713,7 @@ export function RouteCard({
           {line.route_name ?? ""}
         </p>
         <div
-          className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${line.route_code === line.route_name ? "border-[#28ab78]" : provider !== "rp" && provider !== "rkl" ? "border-pink-400" : "border-red-500"} rounded-lg text-black dark:text-white`}
+          className={`min-w-12 px-1 h-6 font-semibold flex justify-center items-center text-sm border-2 ${line.route_code === line.route_name ? "border-[#28ab78]" : line.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rp" && provider !== "rkl" ? "border-pink-400" : "border-red-500"} rounded-lg text-black dark:text-white`}
         >
           {line.route_code ?? ""}
         </div>
