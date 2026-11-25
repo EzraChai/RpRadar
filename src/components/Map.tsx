@@ -1976,10 +1976,10 @@ const SingleVehicleItem = memo(function SingleVehicleItem({
   const liveBearing = hasLiveBearing
     ? normalizeHeading(vehicle.position!.bearing!)
     : null;
-  // Use Rapid Penang's live bearing to resolve which direction the bus is
-  // travelling on a route whose shape may be shared by both directions.
+  // Use the live bearing to resolve which direction the bus is travelling on
+  // a route whose shape may be shared by both directions.
   const vehicleRouteOrientation: 1 | -1 =
-    provider === "rp" && liveBearing !== null
+    (provider === "rp" || provider === "rkl") && liveBearing !== null
       ? angleDifference(routeHeading, liveBearing) <=
         angleDifference((routeHeading + 180) % 360, liveBearing)
         ? 1
@@ -2006,9 +2006,9 @@ const SingleVehicleItem = memo(function SingleVehicleItem({
       precomputedSegments={precomputedSegments}
       routeProgress={routeProgress}
       followsRoute={!isOffRoute}
-      // Rapid Penang's live bearing can lag behind the bus at turns. Keep its
-      // marker aligned to the matched route segment while it moves along it.
-      useRouteHeading={provider === "rp" || !hasLiveBearing}
+      // Live bearings can lag at turns. Keep Rapid KL and Penang markers
+      // aligned to the matched route segment while they move along it.
+      useRouteHeading={provider === "rp" || provider === "rkl" || !hasLiveBearing}
       routeOrientation={vehicleRouteOrientation}
       icon={icon}
     >
