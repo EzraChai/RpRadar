@@ -1498,7 +1498,7 @@ function getCachedBusIcon(
   bearingDeg: number,
   routeId?: string,
 ): DivIcon {
-  const side = bearingDeg < 0 || bearingDeg > 180 ? "left" : "right";
+  const side = bearingDeg <= 0 || bearingDeg > 180 ? "left" : "right";
   if (provider === "rp") return ICON_CACHE.rp[side];
   if (provider === "rkl") {
     return routeId?.startsWith("3")
@@ -2008,7 +2008,9 @@ const SingleVehicleItem = memo(function SingleVehicleItem({
       followsRoute={!isOffRoute}
       // Live bearings can lag at turns. Keep Rapid KL and Penang markers
       // aligned to the matched route segment while they move along it.
-      useRouteHeading={provider === "rp" || provider === "rkl" || !hasLiveBearing}
+      useRouteHeading={
+        provider === "rp" || provider === "rkl" || !hasLiveBearing
+      }
       routeOrientation={vehicleRouteOrientation}
       icon={icon}
     >
@@ -2122,7 +2124,6 @@ export function VehiclesMarker({
     }
 
     function avlToVehicle(bus: AvlVehicle): IVehiclePosition {
-      console.log(bus);
       if (
         bus.is_inside_endstop === "depot" ||
         bus.is_inside_endstop === "end"
