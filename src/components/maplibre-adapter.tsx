@@ -13,6 +13,7 @@ import {
   Children,
   createContext,
   isValidElement,
+  useCallback,
   useContext,
   useEffect,
   useId,
@@ -100,6 +101,18 @@ export function useMap() {
   return useMemo(() => facade(ref), [ref]);
 }
 
+const FALLBACK_MAP_STYLE = {
+  version: 8 as const,
+  sources: {},
+  layers: [
+    {
+      id: "background",
+      type: "background" as const,
+      paint: { "background-color": "#f5f5f4" },
+    },
+  ],
+};
+
 export function MapContainer({
   center,
   zoom,
@@ -130,19 +143,35 @@ export function MapContainer({
       ? "dark"
       : "light";
   const apiKey = import.meta.env.VITE_PROTOMAPS_API_KEY as string | undefined;
-  const mapStyle = apiKey
-    ? `https://api.protomaps.com/styles/v5/${flavor}/en.json?key=${encodeURIComponent(apiKey)}`
-    : {
-        version: 8 as const,
-        sources: {},
-        layers: [
-          {
-            id: "background",
-            type: "background" as const,
-            paint: { "background-color": "#f5f5f4" },
-          },
-        ],
-      };
+  // Stable identity across re-renders: react-maplibre compares mapStyle by
+  // reference, so a fresh object/string per render would trigger setStyle.
+  const mapStyle = useMemo(() => {
+    return apiKey
+      ? `https://api.protomaps.com/styles/v5/${flavor}/en.json?key=${encodeURIComponent(apiKey)}`
+      : FALLBACK_MAP_STYLE;
+  }, [apiKey, flavor]);
+  const transformStyle = useCallback<
+    NonNullable<React.ComponentProps<typeof MapLibreMap>["transformStyle"]>
+  >((_, nextStyle) => {
+    return {
+      ...nextStyle,
+      sprite: undefined,
+      layers: nextStyle.layers.flatMap((layer) => {
+        if (
+          layer.type !== "symbol" ||
+          !layer.layout ||
+          !("icon-image" in layer.layout)
+        ) {
+          return [layer];
+        }
+        return [];
+      }),
+    };
+  }, []);
+  const popupSelection = useMemo(
+    () => ({ activeId: activePopupId, setActiveId: setActivePopupId }),
+    [activePopupId, setActivePopupId],
+  );
   useEffect(() => {
     if (!ready) return;
     const mapElement = ref.current?.getMap().getContainer();
@@ -177,29 +206,14 @@ export function MapContainer({
         dragRotate={false}
         touchPitch={false}
         mapStyle={mapStyle}
-        transformStyle={(_, nextStyle) => ({
-          ...nextStyle,
-          sprite: undefined,
-          layers: nextStyle.layers.flatMap((layer) => {
-            if (
-              layer.type !== "symbol" ||
-              !layer.layout ||
-              !("icon-image" in layer.layout)
-            ) {
-              return [layer];
-            }
-            return [];
-          }),
-        })}
+        transformStyle={transformStyle}
         onLoad={(event) => {
           setReady(true);
           event.target.touchZoomRotate.disableRotation();
         }}
       >
         {ready && (
-          <PopupSelectionContext.Provider
-            value={{ activeId: activePopupId, setActiveId: setActivePopupId }}
-          >
+          <PopupSelectionContext.Provider value={popupSelection}>
             {children}
           </PopupSelectionContext.Provider>
         )}
@@ -239,45 +253,58 @@ export function Polyline({
   };
 }) {
   const id = useId().replaceAll(":", "");
-  const paths =
-    positions.length &&
-    Array.isArray(positions[0]) &&
-    typeof positions[0][0] === "number"
-      ? [positions as LatLngExpression[]]
-      : (positions as LatLngExpression[][]);
-  const features = paths
-    .map((path) => path.filter(isValidPosition))
-    .filter((path) => path.length > 1)
-    .map((path) => ({
-      type: "Feature" as const,
-      properties: {},
-      geometry: {
-        type: "LineString" as const,
-        coordinates: path.map((point) => {
-          const p = asPosition(point);
-          return [p.lng, p.lat];
-        }),
+  // Memoized data/layer keep a stable identity across re-renders. The
+  // react-maplibre Source/Layer diffing then short-circuits on reference
+  // equality instead of deep-walking the geometry, and identical payloads
+  // never reach source.setData (no worker re-parse, no repaint).
+  const data = useMemo(() => {
+    const paths =
+      positions.length &&
+      Array.isArray(positions[0]) &&
+      typeof positions[0][0] === "number"
+        ? [positions as LatLngExpression[]]
+        : (positions as LatLngExpression[][]);
+    const features = paths
+      .map((path) => path.filter(isValidPosition))
+      .filter((path) => path.length > 1)
+      .map((path) => ({
+        type: "Feature" as const,
+        properties: {},
+        geometry: {
+          type: "LineString" as const,
+          coordinates: path.map((point) => {
+            const p = asPosition(point);
+            return [p.lng, p.lat];
+          }),
+        },
+      }));
+    return { type: "FeatureCollection" as const, features };
+  }, [positions]);
+  const layer = useMemo(
+    () => ({
+      id: `line-${id}`,
+      type: "line" as const,
+      layout: {
+        "line-cap": (pathOptions.lineCap as "round") ?? "round",
+        "line-join": (pathOptions.lineJoin as "round") ?? "round",
       },
-    }));
-  const layer = {
-    id: `line-${id}`,
-    type: "line" as const,
-    layout: {
-      "line-cap": (pathOptions.lineCap as "round") ?? "round",
-      "line-join": (pathOptions.lineJoin as "round") ?? "round",
-    },
-    paint: {
-      "line-color": pathOptions.color ?? "#3388ff",
-      "line-width": pathOptions.weight ?? 3,
-      "line-opacity": pathOptions.opacity ?? 1,
-    },
-  };
+      paint: {
+        "line-color": pathOptions.color ?? "#3388ff",
+        "line-width": pathOptions.weight ?? 3,
+        "line-opacity": pathOptions.opacity ?? 1,
+      },
+    }),
+    [
+      id,
+      pathOptions.color,
+      pathOptions.weight,
+      pathOptions.opacity,
+      pathOptions.lineCap,
+      pathOptions.lineJoin,
+    ],
+  );
   return (
-    <Source
-      id={`line-source-${id}`}
-      type="geojson"
-      data={{ type: "FeatureCollection", features }}
-    >
+    <Source id={`line-source-${id}`} type="geojson" data={data}>
       <Layer {...layer} />
     </Source>
   );
@@ -364,7 +391,7 @@ export function CircleMarker({
           }
           maxWidth={`${config.maxWidth ?? 500}px`}
           className="map-popup"
-          style={{ zIndex: 200, pointerEvents: "none" }}
+          style={POPUP_ELEMENT_STYLE}
         >
           {config.children}
         </MapLibrePopup>
@@ -372,6 +399,9 @@ export function CircleMarker({
     </>
   );
 }
+
+const MARKER_ELEMENT_STYLE = { zIndex: 100 } as const;
+const POPUP_ELEMENT_STYLE = { zIndex: 200, pointerEvents: "none" } as const;
 
 export function Marker({
   position,
@@ -395,6 +425,8 @@ export function Marker({
   const popupRef = useRef<React.ComponentRef<typeof MapLibrePopup> | null>(
     null,
   );
+  const positionRef = useRef(position);
+  positionRef.current = position;
   const livePosition = markerRef.current?.getLngLat();
   const popupPosition = livePosition
     ? { lat: livePosition.lat, lng: livePosition.lng }
@@ -424,8 +456,8 @@ export function Marker({
     if (!ref) return;
     const proxy = {
       getLatLng: () => ({
-        lat: markerRef.current?.getLngLat().lat ?? position.lat,
-        lng: markerRef.current?.getLngLat().lng ?? position.lng,
+        lat: markerRef.current?.getLngLat().lat ?? positionRef.current.lat,
+        lng: markerRef.current?.getLngLat().lng ?? positionRef.current.lng,
       }),
       setLatLng: (p: Point | Position) => {
         const next = asPosition(p as LatLngExpression);
@@ -438,7 +470,7 @@ export function Marker({
     };
     if (typeof ref === "function") ref(proxy);
     else (ref as React.RefObject<unknown>).current = proxy;
-  }, [id, position.lat, position.lng, ref, selection]);
+  }, [id, ref, selection]);
   return (
     <>
       <MapLibreMarker
@@ -454,7 +486,7 @@ export function Marker({
             : position.lng
         }
         anchor="center"
-        style={{ zIndex: 100 }}
+        style={MARKER_ELEMENT_STYLE}
       >
         {markerChildren}
       </MapLibreMarker>
@@ -473,7 +505,7 @@ export function Marker({
           }
           maxWidth={`${config.maxWidth ?? 500}px`}
           className="map-popup"
-          style={{ zIndex: 200, pointerEvents: "none" }}
+          style={POPUP_ELEMENT_STYLE}
         >
           {config.children}
         </MapLibrePopup>

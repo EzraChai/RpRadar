@@ -21,6 +21,7 @@ import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
 import { AppSidebar } from "./app-sidebar";
 import { useTheme } from "./theme-provider";
+import { GeolocateControl, Layer, Source } from "@vis.gl/react-maplibre";
 import {
   bearing,
   distance,
@@ -95,7 +96,6 @@ import {
 import { ModeToggle } from "./mode-toggle";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { BusScheduleType } from "@/hooks/types";
-import { GeolocateControl } from "@vis.gl/react-maplibre";
 import {
   Dialog,
   DialogContent,
@@ -274,7 +274,6 @@ function App() {
   }, [provider, routeId]);
 
   const markerRefs = useRef<{ [key: string]: CircleMarkerRef | null }>({});
-  const starredRoutes = useStarredRoutes();
   const [direction, setDirection] = useState(() => {
     return provider === "jb" || provider === "mk" ? 1 : 0;
   });
@@ -475,495 +474,18 @@ function App() {
     }
   }, [route, highlightStopId, direction]);
 
-  /**
-   * Flies the map to the highlighted stop (from stop-name search) and opens
-   * its popup once the markers have been rendered.
-   */
-  function HighlightStop() {
-    const map = useMap();
-    useEffect(() => {
-      if (!highlightStopId || !route) return;
-
-      const currentDir = route.directions.find((d) => d.direction_id === direction);
-      const stopObj = currentDir?.stops.find((s) => s.stop_id === highlightStopId);
-
-      if (stopObj) {
-        map.flyTo([stopObj.lat, stopObj.lon], 16, { animate: true });
-      }
-
-      const openMarkerPopup = () => {
-        const marker = markerRefs.current[highlightStopId];
-        if (marker) {
-          if (!marker.isPopupOpen()) {
-            marker.openPopup();
-          }
-          return true;
-        }
-        return false;
-      };
-
-      if (!openMarkerPopup()) {
-        const timer = setTimeout(openMarkerPopup, 300);
-        const timer2 = setTimeout(openMarkerPopup, 800);
-        return () => {
-          clearTimeout(timer);
-          clearTimeout(timer2);
-        };
-      }
-    }, [map, highlightStopId, route, direction, positions]);
-    return null;
-  }
-
-  function CustomZoomControls() {
-    const map = useMap();
-
-    const zoomIn = () => map.zoomIn();
-    const zoomOut = () => map.zoomOut();
-
-    return (
-      <Card
-        onMouseEnter={() => {
-          map.doubleClickZoom.disable();
-          map.scrollWheelZoom.disable();
-        }}
-        onMouseLeave={() => {
-          map.doubleClickZoom.disable();
-          map.scrollWheelZoom.enable();
-        }}
-        className="absolute overflow-hidden w-10 h-20 p-0 gap-0 top-4 right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
-      >
-        <Button
-          style={{
-            touchAction: "none",
-          }}
-          className="flex h-1/2 w-full items-center justify-center rounded-none p-0"
-          variant={"ghost"}
-          onClick={(e) => {
-            e.stopPropagation();
-            zoomIn();
-          }}
-        >
-          <Plus />
-        </Button>
-        <Button
-          style={{
-            touchAction: "none",
-          }}
-          className="flex h-1/2 w-full items-center justify-center rounded-none p-0"
-          variant={"ghost"}
-          onClick={(e) => {
-            e.stopPropagation();
-            zoomOut();
-          }}
-        >
-          <Minus />
-        </Button>
-      </Card>
-    );
-  }
-
-  const StopsCard = () => {
-    const map = useMap();
-    if (route)
-      return (
-        <Card
-          onMouseEnter={() => {
-            map.doubleClickZoom.disable();
-            map.scrollWheelZoom.disable();
-            map.dragging.disable();
-          }}
-          onMouseLeave={() => {
-            map.doubleClickZoom.enable();
-            map.scrollWheelZoom.enable();
-            map.dragging.enable();
-          }}
-          className="absolute z-1000 py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-10 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
-        >
-          <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
-            <div
-              className={`px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-[#e74e9f]" : "border-red-500"} rounded-lg text-black dark:text-white`}
-            >
-              {route?.route_short_name}
-            </div>
-            <div className="flex items-center gap-3">
-              <Star
-                fill={
-                  starredRoutes.starred.includes(route.route_id || "")
-                    ? "oklch(79.5% 0.184 86.047)"
-                    : "none"
-                }
-                onClick={() => starredRoutes.toggle(route.route_id || "")}
-                className={`w-4 h-4 cursor-pointer ${
-                  starredRoutes.starred.includes(route.route_id || "") &&
-                  "text-yellow-500 "
-                }`}
-              />
-              <Link
-                onClick={() => {
-                  map.doubleClickZoom.enable();
-                  map.scrollWheelZoom.enable();
-                  map.dragging.enable();
-                }}
-                to={"/"}
-              >
-                <X className="w-5 h-5 outline-none text-black dark:text-white" />
-              </Link>
-            </div>
-          </div>
-
-          <CardTitle className="space-y-2 px-6 pb-6">
-            <div className="flex justify-between items-center gap-2">
-              <h4 className="font-semibold text-balance text-xl">
-                {
-                  route?.directions.find((d) => d.direction_id === direction)
-                    ?.route_long_name
-                }
-              </h4>
-            </div>
-
-            {route?.directions.length >= 2 && (
-              <Button
-                variant={"outline"}
-                className="bg-white w-full"
-                onClick={() =>
-                  setDirection((prev) => {
-                    return prev === 1 ? 0 : 1;
-                  })
-                }
-              >
-                Change Direction
-              </Button>
-            )}
-          </CardTitle>
-
-          <div className="mt-2 ml-2 overflow-y-auto h-full overflow-x-clip ">
-            {route?.directions
-              .find((d) => {
-                if (provider === "mk") {
-                  const today = new Date().getDay();
-                  if (today !== 5 && today !== 6 && today !== 0) {
-                    return (
-                      (d.direction_id === direction &&
-                        d.service_ids?.includes("ALLDAY")) ||
-                      (d.direction_id === direction &&
-                        d.service_ids?.includes("MONTHURS"))
-                    );
-                  } else {
-                    return (
-                      (d.direction_id === direction &&
-                        d.service_ids?.includes("ALLDAY")) ||
-                      (d.direction_id === direction &&
-                        d.service_ids?.includes("FRISUN"))
-                    );
-                  }
-                } else {
-                  return d.direction_id === direction;
-                }
-              })
-              ?.stops.map((stop, idx) => (
-                <div
-                  key={idx}
-                  className={`${idx === 0 && "mt-2"} flex relative w-full`}
-                >
-                    {/* Bullet */}
-                    <div className="flex w-3 flex-col items-center mr-1">
-                      <div
-                        className={`w-3 h-3 absolute rounded-full ${
-                          provider === "rkl" && route.directions[0].route_long_name === route.route_short_name
-                            ? "bg-[#219166]"
-                            : provider !== "rkl" && provider !== "rp"
-                              ? "bg-pink-400"
-                              : "bg-[#78BFF5]"
-                        } z-10`}
-                      ></div>
-                      {/* Vertical line */}
-                      {idx <
-                        (route?.directions?.find(
-                          (d) => d.direction_id === direction,
-                        )?.stops.length ?? 0) -
-                          1 && (
-                        <div
-                          className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-[#87CEFA]"}`}
-                        ></div>
-                      )}
-                    </div>
-                    {/* Stop Name */}
-                    <div className="w-full">
-                      <Button
-                        variant={"ghost"}
-                        onClick={() => {
-                          const marker = markerRefs.current[stop.stop_id];
-                          if (marker) {
-                            if (!marker.isPopupOpen()) {
-                              marker.openPopup();
-                            }
-                            map.flyTo([stop.lat, stop.lon], 16, {
-                              animate: true,
-                            });
-                          }
-                        }}
-                        className="cursor-pointer m-2 !hover:bg-transparent text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
-                      >
-                        <p>{stop.stop_name.trim()}</p>
-                      </Button>
-                      {idx === 0 &&
-                        BusSchedule &&
-                        BusSchedule.find(
-                          (s) =>
-                            s.r === route.route_id &&
-                            s.d === direction &&
-                            s.dt === getCurrentDate(),
-                        )?.t &&
-                        (provider === "rp" ||
-                          provider === "ns" ||
-                          provider === "jb" ||
-                          provider === "ktn" ||
-                          provider === "alr" ||
-                          provider === "pk" ||
-                          provider === "kgr" ||
-                          provider === "ktb" ||
-                          provider === "trg" ||
-                          provider === "sw" ||
-                          provider === "mk") && (
-                          <Collapsible className="px-6 mb-4">
-                            <CollapsibleTrigger asChild>
-                              <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
-                                Next bus will depart at{" "}
-                                {nextBusTime(
-                                  BusSchedule.find(
-                                    (s) =>
-                                      s.r === route.route_id &&
-                                      s.d === direction &&
-                                      s.dt === getCurrentDate(),
-                                  )?.t || [],
-                                )}
-                              </Card>
-                            </CollapsibleTrigger>
-                            <CollapsibleContent>
-                              <div className="mt-2">Scheduled</div>
-                              <div className="grid grid-cols-6 self-center ">
-                                {BusSchedule.find(
-                                  (s) =>
-                                    s.r === route.route_id &&
-                                    s.d === direction &&
-                                    s.dt === getCurrentDate(),
-                                )?.t.map((time, idx) => (
-                                  <div
-                                    key={idx}
-                                    className={`${
-                                      hasCurrentTimePassed(time)
-                                        ? "dark:text-neutral-500 text-neutral-400"
-                                        : "dark:text-white text-black"
-                                    } px-2`}
-                                  >
-                                    {time.substring(0, 5)}
-                                  </div>
-                                ))}
-                              </div>
-                            </CollapsibleContent>
-                          </Collapsible>
-                        )}
-                      {idx === 0 &&
-                        BusSchedule &&
-                        provider === "rkl" &&
-                        BusSchedule.length > 0 &&
-                        nextBusTime(
-                          BusSchedule.find(
-                            (s) =>
-                              s.r === route.route_id &&
-                              s.d === direction &&
-                              s.dt === getCurrentDate(),
-                          )?.t || [],
-                        ) && (
-                          <Collapsible className="px-6 mb-4">
-                            <CollapsibleTrigger asChild>
-                              <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
-                                Next bus will depart at{" "}
-                                {nextBusTime(
-                                  BusSchedule.find(
-                                    (s) =>
-                                      s.r === route.route_id &&
-                                      s.d === direction &&
-                                      s.dt === getCurrentDate(),
-                                  )?.t || [],
-                                )}
-                              </Card>
-                            </CollapsibleTrigger>
-                            <CollapsibleContent>
-                              <div className="mt-2">Scheduled</div>
-                              <div className="grid grid-cols-6 self-center ">
-                                {BusSchedule.find(
-                                  (s) =>
-                                    s.r === route.route_id &&
-                                    s.d === direction &&
-                                    s.dt === getCurrentDate(),
-                                )?.t.map((time, idx) => (
-                                  <div
-                                    key={idx}
-                                    className={`${
-                                      hasCurrentTimePassed(time)
-                                        ? "dark:text-neutral-500 text-neutral-400"
-                                        : "dark:text-white text-black"
-                                    } px-2`}
-                                  >
-                                    {time.substring(0, 5)}
-                                  </div>
-                                ))}
-                              </div>
-                            </CollapsibleContent>
-                          </Collapsible>
-                        )}
-                    </div>
-                  </div>
-                ))}
-          </div>
-        </Card>
-      );
-    return null;
-  };
-
-  function FitBoundsToPolyline({ color }: { color: string }) {
-    const map = useMap();
-
-    if (route?.directions.length === 0) return null;
-    if (route?.directions.length === 1) {
-      if (provider === "jb" || provider === "mk") {
-        setDirection(1);
-      } else {
-        setDirection(0);
-      }
-      return (
-        <>
-          <Polyline
-            pathOptions={{ color: color, weight: 7 }}
-            positions={positions}
-          />
-          {positions.length &&
-            route.directions[0].stops.map((stop, idx) => (
-              <CircleMarker
-                ref={(ref) => {
-                  markerRefs.current[stop.stop_id] = ref;
-                }}
-                key={idx}
-                radius={6}
-                center={[stop.lat, stop.lon]}
-                pathOptions={{
-                  color: color,
-                  fillColor: "white",
-                  fillOpacity: 1,
-                }}
-                eventHandlers={{
-                  click: () =>
-                    map.setView([stop.lat, stop.lon], 16, { animate: true }),
-                }}
-              >
-                <Popup
-                  className="pointer-events-none"
-                  maxWidth={500}
-                  offset={[0, 8]}
-                  closeButton={false}
-                >
-                  <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
-                    {stop.stop_name.trim()}
-                  </div>
-                </Popup>
-              </CircleMarker>
-            ))}
-        </>
-      );
+  // Drop stop-marker refs that belong to previously selected routes so
+  // stale CircleMarkerRef proxies (and their context closures) are not
+  // retained across route switches.
+  useEffect(() => {
+    const keep = new Set<string>();
+    for (const d of route?.directions ?? []) {
+      for (const s of d.stops) keep.add(s.stop_id);
     }
-
-    return (
-      <>
-        <Polyline
-          pathOptions={{
-            color:
-              provider !== "rkl" && provider !== "rp"
-                ? lighterHex(color, 40)
-                : color,
-            weight: 7,
-          }}
-          positions={positions}
-        />
-        {route?.directions.find((d) => {
-          if (provider === "mk") {
-            const today = new Date().getDay();
-            if (today !== 5 && today !== 6 && today !== 0) {
-              return (
-                (d.direction_id === direction &&
-                  d.service_ids?.includes("ALLDAY")) ||
-                (d.direction_id === direction &&
-                  d.service_ids?.includes("MONTHURS"))
-              );
-            } else {
-              return (
-                (d.direction_id === direction &&
-                  d.service_ids?.includes("ALLDAY")) ||
-                (d.direction_id === direction &&
-                  d.service_ids?.includes("FRISUN"))
-              );
-            }
-          } else {
-            return d.direction_id === direction;
-          }
-        })?.stops.length &&
-          positions.length &&
-          route.directions
-            .find((d) => {
-              if (provider === "mk") {
-                const today = new Date().getDay();
-                if (today !== 5 && today !== 6 && today !== 0) {
-                  return (
-                    (d.direction_id === direction &&
-                      d.service_ids?.includes("ALLDAY")) ||
-                    (d.direction_id === direction &&
-                      d.service_ids?.includes("MONTHURS"))
-                  );
-                } else {
-                  return (
-                    (d.direction_id === direction &&
-                      d.service_ids?.includes("ALLDAY")) ||
-                    (d.direction_id === direction &&
-                      d.service_ids?.includes("FRISUN"))
-                  );
-                }
-              } else {
-                return d.direction_id === direction;
-              }
-            })
-            ?.stops.map((stop, idx) => (
-              <CircleMarker
-                ref={(ref) => {
-                  markerRefs.current[stop.stop_id] = ref;
-                }}
-                key={idx}
-                radius={6}
-                center={[stop.lat, stop.lon]}
-                pathOptions={{
-                  color: darkenHex(color),
-                  fillColor: "white",
-                  fillOpacity: 1,
-                }}
-                eventHandlers={{
-                  click: () =>
-                    map.setView([stop.lat, stop.lon], 16, { animate: true }),
-                }}
-              >
-                <Popup
-                  className="pointer-events-none"
-                  maxWidth={500}
-                  offset={[0, 8]}
-                  closeButton={false}
-                >
-                  <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
-                    {stop.stop_name.trim()}
-                  </div>
-                </Popup>
-              </CircleMarker>
-            ))}
-      </>
-    );
-  }
+    for (const key of Object.keys(markerRefs.current)) {
+      if (!keep.has(key)) delete markerRefs.current[key];
+    }
+  }, [route, markerRefs]);
 
   return (
     <div className="w-full max-h-dvh overflow-hidden flex justify-center items-center grid-style">
@@ -1036,8 +558,17 @@ function App() {
 
         <TrafficLayer visible={trafficVisible} positions={positions} />
 
+        {/* Keep rail geometry beneath the selected bus route and vehicles. */}
+        {provider === "rkl" && railVisible && <RailLinesLayer />}
+
         {positions.length !== 0 && (
           <FitBoundsToPolyline
+            route={route}
+            provider={provider}
+            direction={direction}
+            positions={positions}
+            markerRefs={markerRefs}
+            setDirection={setDirection}
             color={
               provider === "rkl" &&
               route?.route_short_name === route?.directions[0].route_long_name
@@ -1048,7 +579,15 @@ function App() {
             }
           />
         )}
-        {highlightStopId && <HighlightStop />}
+        {highlightStopId && (
+          <HighlightStop
+            highlightStopId={highlightStopId}
+            route={route}
+            direction={direction}
+            positions={positions}
+            markerRefs={markerRefs}
+          />
+        )}
         <VehiclesMarker
           key={provider}
           positions={positionsDirection === direction ? positions : []}
@@ -1058,58 +597,7 @@ function App() {
         {provider === "rkl" && railVisible && (
           <>
             {RapidRailRoutesWithShapesID.map((route) => (
-              <>
-                <Polyline
-                  key={route.route_id}
-                  pathOptions={{
-                    color: "#" + route.route_color,
-                    weight: 7,
-                    opacity: 0.6,
-                  }}
-                  positions={
-                    RapidRailShapes.features
-                      .find(
-                        (pos) => route.shape_ids[0] === pos.properties.shape_id,
-                      )
-                      ?.geometry.coordinates.map(
-                        (coord) => [coord[0], coord[1]] as [number, number],
-                      ) ?? []
-                  }
-                />
-                {RapidRailRoutesWithStops.find(
-                  (r) => r.route_id === route.route_id,
-                )?.directions[0]?.stops.map((stop) => (
-                  <CircleMarker
-                    key={stop.stop_id}
-                    radius={6}
-                    center={[stop.lat, stop.lon]}
-                    pathOptions={{
-                      fillColor: "white",
-                      color: "#" + route.route_color,
-                      fillOpacity: 0.8,
-                    }}
-                  >
-                    <Popup
-                      className="pointer-events-none"
-                      maxWidth={500}
-                      offset={[0, 8]}
-                      closeButton={false}
-                    >
-                      <div className="border inline-flex gap-2 border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
-                        <span
-                          className={`inline-block font-bold rounded-md px-1.5 ${route.route_code === "PYL" && "text-black"}`}
-                          style={{
-                            backgroundColor: `#${route.route_color}`,
-                          }}
-                        >
-                          {route.route_code}
-                        </span>
-                        {stop.stop_name.trim()}
-                      </div>
-                    </Popup>
-                  </CircleMarker>
-                ))}
-              </>
+              <RailStopsMarkers key={route.route_id} route={route} />
             ))}
           </>
         )}
@@ -1230,7 +718,14 @@ function App() {
         />
         {!isMobile && route && (
           <>
-            <StopsCard />
+            <StopsCard
+              route={route}
+              provider={provider}
+              direction={direction}
+              setDirection={setDirection}
+              BusSchedule={BusSchedule}
+              markerRefs={markerRefs}
+            />
             <Card className="absolute z-500 pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
               <div className="flex justify-between items-center gap-4">
                 <div
@@ -1260,6 +755,603 @@ function App() {
 }
 
 export default App;
+
+type RailRoute = (typeof RapidRailRoutesWithShapesID)[number];
+
+// All rail lines share ONE GeoJSON source and ONE line layer with a
+// data-driven color. Computed once at module scope so the data identity is
+// stable for the lifetime of the app (no setData re-parses ever).
+const RAIL_LINES_DATA = {
+  type: "FeatureCollection" as const,
+  features: RapidRailRoutesWithShapesID.flatMap((route) => {
+    return route.shape_ids.flatMap((shapeId) => {
+      const shape = RapidRailShapes.features.find(
+        (feature) => shapeId === feature.properties.shape_id,
+      );
+      // These exported shapes store [latitude, longitude], while GeoJSON and
+      // MapLibre require [longitude, latitude].
+      const coordinates =
+        shape?.geometry.coordinates.map(
+          ([lat, lon]) => [lon, lat] as [number, number],
+        ) ?? [];
+      if (coordinates.length < 2) return [];
+      return [
+        {
+          type: "Feature" as const,
+          properties: { color: "#" + route.route_color },
+          geometry: { type: "LineString" as const, coordinates },
+        },
+      ];
+    });
+  }),
+};
+
+function RailLinesLayer() {
+  return (
+    <Source id="rapid-rail-lines" type="geojson" data={RAIL_LINES_DATA}>
+      <Layer
+        id="rapid-rail-line-layer"
+        type="line"
+        layout={{ "line-cap": "round", "line-join": "round" }}
+        paint={{
+          "line-color": ["get", "color"] as unknown as string,
+          "line-width": 7,
+          "line-opacity": 0.5,
+        }}
+      />
+    </Source>
+  );
+}
+
+function RailStopsMarkers({ route }: { route: RailRoute }) {
+  return (
+    <>
+      {RapidRailRoutesWithStops.find(
+        (r) => r.route_id === route.route_id,
+      )?.directions[0]?.stops.map((stop) => (
+        <CircleMarker
+          key={stop.stop_id}
+          radius={6}
+          center={[stop.lat, stop.lon]}
+          pathOptions={{
+            fillColor: "white",
+            color: "#" + route.route_color,
+            fillOpacity: 0.8,
+          }}
+        >
+          <Popup
+            className="pointer-events-none"
+            maxWidth={500}
+            offset={[0, 8]}
+            closeButton={false}
+          >
+            <div className="border inline-flex gap-2 border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
+              <span
+                className={`inline-block font-bold rounded-md px-1.5 ${route.route_code === "PYL" && "text-black"}`}
+                style={{
+                  backgroundColor: `#${route.route_color}`,
+                }}
+              >
+                {route.route_code}
+              </span>
+              {stop.stop_name.trim()}
+            </div>
+          </Popup>
+        </CircleMarker>
+      ))}
+    </>
+  );
+}
+
+function matchActiveDirection(
+  directions: RouteDirection[],
+  provider: string,
+  direction: number,
+) {
+  return directions.find((d) => {
+    if (provider === "mk") {
+      const today = new Date().getDay();
+      if (today !== 5 && today !== 6 && today !== 0) {
+        return (
+          (d.direction_id === direction && d.service_ids?.includes("ALLDAY")) ||
+          (d.direction_id === direction && d.service_ids?.includes("MONTHURS"))
+        );
+      } else {
+        return (
+          (d.direction_id === direction && d.service_ids?.includes("ALLDAY")) ||
+          (d.direction_id === direction && d.service_ids?.includes("FRISUN"))
+        );
+      }
+    } else {
+      return d.direction_id === direction;
+    }
+  });
+}
+
+/**
+ * Flies the map to the highlighted stop (from stop-name search) and opens
+ * its popup once the markers have been rendered.
+ */
+function HighlightStop({
+  highlightStopId,
+  route,
+  direction,
+  positions,
+  markerRefs,
+}: {
+  highlightStopId: string;
+  route: RouteInfo | undefined;
+  direction: number;
+  positions: LatLngExpression[][];
+  markerRefs: React.RefObject<{ [key: string]: CircleMarkerRef | null }>;
+}) {
+  const map = useMap();
+  useEffect(() => {
+    if (!highlightStopId || !route) return;
+
+    const currentDir = route.directions.find(
+      (d) => d.direction_id === direction,
+    );
+    const stopObj = currentDir?.stops.find(
+      (s) => s.stop_id === highlightStopId,
+    );
+
+    if (stopObj) {
+      map.flyTo([stopObj.lat, stopObj.lon], 16, { animate: true });
+    }
+
+    const openMarkerPopup = () => {
+      const marker = markerRefs.current[highlightStopId];
+      if (marker) {
+        if (!marker.isPopupOpen()) {
+          marker.openPopup();
+        }
+        return true;
+      }
+      return false;
+    };
+
+    if (!openMarkerPopup()) {
+      const timer = setTimeout(openMarkerPopup, 300);
+      const timer2 = setTimeout(openMarkerPopup, 800);
+      return () => {
+        clearTimeout(timer);
+        clearTimeout(timer2);
+      };
+    }
+  }, [map, highlightStopId, route, direction, positions, markerRefs]);
+  return null;
+}
+
+function CustomZoomControls() {
+  const map = useMap();
+
+  const zoomIn = () => map.zoomIn();
+  const zoomOut = () => map.zoomOut();
+
+  return (
+    <Card
+      onMouseEnter={() => {
+        map.doubleClickZoom.disable();
+        map.scrollWheelZoom.disable();
+      }}
+      onMouseLeave={() => {
+        map.doubleClickZoom.enable();
+        map.scrollWheelZoom.enable();
+      }}
+      className="absolute overflow-hidden w-10 h-20 p-0 gap-0 top-4 right-4 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
+    >
+      <Button
+        style={{
+          touchAction: "none",
+        }}
+        className="flex h-1/2 w-full items-center justify-center rounded-none p-0"
+        variant={"ghost"}
+        onClick={(e) => {
+          e.stopPropagation();
+          zoomIn();
+        }}
+      >
+        <Plus />
+      </Button>
+      <Button
+        style={{
+          touchAction: "none",
+        }}
+        className="flex h-1/2 w-full items-center justify-center rounded-none p-0"
+        variant={"ghost"}
+        onClick={(e) => {
+          e.stopPropagation();
+          zoomOut();
+        }}
+      >
+        <Minus />
+      </Button>
+    </Card>
+  );
+}
+
+function StopsCard({
+  route,
+  provider,
+  direction,
+  setDirection,
+  BusSchedule,
+  markerRefs,
+}: {
+  route: RouteInfo;
+  provider: string;
+  direction: number;
+  setDirection: React.Dispatch<React.SetStateAction<number>>;
+  BusSchedule: BusScheduleType | null;
+  markerRefs: React.RefObject<{ [key: string]: CircleMarkerRef | null }>;
+}) {
+  const map = useMap();
+  const starredRoutes = useStarredRoutes();
+  const [currentTime, setCurrentTime] = useState(Date.now());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(Date.now());
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
+  if (route)
+    return (
+      <Card
+        onMouseEnter={() => {
+          map.doubleClickZoom.disable();
+          map.scrollWheelZoom.disable();
+          map.dragging.disable();
+        }}
+        onMouseLeave={() => {
+          map.doubleClickZoom.enable();
+          map.scrollWheelZoom.enable();
+          map.dragging.enable();
+        }}
+        className="absolute z-1000 py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-10 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
+      >
+        <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
+          <div
+            className={`px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : provider !== "rkl" && provider !== "rp" ? "border-[#e74e9f]" : "border-red-500"} rounded-lg text-black dark:text-white`}
+          >
+            {route?.route_short_name}
+          </div>
+          <div className="flex items-center gap-3">
+            <Star
+              fill={
+                starredRoutes.starred.includes(route.route_id || "")
+                  ? "oklch(79.5% 0.184 86.047)"
+                  : "none"
+              }
+              onClick={() => starredRoutes.toggle(route.route_id || "")}
+              className={`w-4 h-4 cursor-pointer ${
+                starredRoutes.starred.includes(route.route_id || "") &&
+                "text-yellow-500 "
+              }`}
+            />
+            <Link
+              onClick={() => {
+                map.doubleClickZoom.enable();
+                map.scrollWheelZoom.enable();
+                map.dragging.enable();
+              }}
+              to={"/"}
+            >
+              <X className="w-5 h-5 outline-none text-black dark:text-white" />
+            </Link>
+          </div>
+        </div>
+
+        <CardTitle className="space-y-2 px-6 pb-6">
+          <div className="flex justify-between items-center gap-2">
+            <h4 className="font-semibold text-balance text-xl">
+              {
+                matchActiveDirection(route.directions, provider, direction)
+                  ?.route_long_name
+              }
+            </h4>
+          </div>
+
+          {route?.directions.length >= 2 && (
+            <Button
+              variant={"outline"}
+              className="bg-white w-full"
+              onClick={() =>
+                setDirection((prev) => {
+                  return prev === 1 ? 0 : 1;
+                })
+              }
+            >
+              Change Direction
+            </Button>
+          )}
+        </CardTitle>
+
+        <div className="mt-2 ml-2 overflow-y-auto h-full overflow-x-clip ">
+          {matchActiveDirection(
+            route.directions,
+            provider,
+            direction,
+          )?.stops.map((stop, idx) => (
+            <div
+              key={stop.stop_id + idx}
+              className={`${idx === 0 && "mt-2"} flex relative w-full`}
+            >
+              {/* Bullet */}
+              <div className="flex w-3 flex-col items-center mr-1">
+                <div
+                  className={`w-3 h-3 absolute rounded-full ${
+                    provider === "rkl" &&
+                    route.directions[0].route_long_name ===
+                      route.route_short_name
+                      ? "bg-[#219166]"
+                      : provider !== "rkl" && provider !== "rp"
+                        ? "bg-pink-400"
+                        : "bg-[#78BFF5]"
+                  } z-10`}
+                ></div>
+                {/* Vertical line */}
+                {idx <
+                  (matchActiveDirection(route.directions, provider, direction)
+                    ?.stops.length ?? 0) -
+                    1 && (
+                  <div
+                    className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-[#87CEFA]"}`}
+                  ></div>
+                )}
+              </div>
+              {/* Stop Name */}
+              <div className="w-full">
+                <Button
+                  variant={"ghost"}
+                  onClick={() => {
+                    const marker = markerRefs.current[stop.stop_id];
+                    if (marker) {
+                      if (!marker.isPopupOpen()) {
+                        marker.openPopup();
+                      }
+                      map.flyTo([stop.lat, stop.lon], 16, {
+                        animate: true,
+                      });
+                    }
+                  }}
+                  className="cursor-pointer m-2 !hover:bg-transparent text-sm font-medium rounded-none mx-1 -mt-4 justify-start w-full text-left whitespace-normal wrap-break-words"
+                >
+                  <p>{stop.stop_name.trim()}</p>
+                </Button>
+                {idx === 0 &&
+                  BusSchedule &&
+                  BusSchedule.find(
+                    (s) =>
+                      s.r === route.route_id &&
+                      s.d === direction &&
+                      s.dt === getCurrentDate(),
+                  )?.t &&
+                  provider !== "rkl" && (
+                    <Collapsible className="px-6 mb-4">
+                      <CollapsibleTrigger asChild>
+                        <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
+                          Next bus will depart at{" "}
+                          {nextBusTime(
+                            BusSchedule.find(
+                              (s) =>
+                                s.r === route.route_id &&
+                                s.d === direction &&
+                                s.dt === getCurrentDate(),
+                            )?.t || [],
+                            currentTime,
+                          )}
+                        </Card>
+                      </CollapsibleTrigger>
+                      <CollapsibleContent>
+                        <div className="mt-2">Scheduled</div>
+                        <div className="grid grid-cols-6 self-center ">
+                          {BusSchedule.find(
+                            (s) =>
+                              s.r === route.route_id &&
+                              s.d === direction &&
+                              s.dt === getCurrentDate(),
+                          )?.t.map((time, idx) => (
+                            <div
+                              key={idx}
+                              className={`${
+                                hasCurrentTimePassed(time)
+                                  ? "dark:text-neutral-500 text-neutral-400"
+                                  : "dark:text-white text-black"
+                              } px-2`}
+                            >
+                              {time.substring(0, 5)}
+                            </div>
+                          ))}
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
+                  )}
+                {idx === 0 &&
+                  BusSchedule &&
+                  provider === "rkl" &&
+                  BusSchedule.length > 0 &&
+                  nextBusTime(
+                    BusSchedule.find(
+                      (s) =>
+                        s.r === route.route_id &&
+                        s.d === direction &&
+                        s.dt === getCurrentDate(),
+                    )?.t || [],
+                    currentTime,
+                  ) && (
+                    <Collapsible className="px-6 mb-4">
+                      <CollapsibleTrigger asChild>
+                        <Card className="hover:cursor-ns-resize w-full p-0 flex bg-transparent justify-center items-center h-12">
+                          Next bus will depart at{" "}
+                          {nextBusTime(
+                            BusSchedule.find(
+                              (s) =>
+                                s.r === route.route_id &&
+                                s.d === direction &&
+                                s.dt === getCurrentDate(),
+                            )?.t || [],
+                            currentTime,
+                          )}
+                        </Card>
+                      </CollapsibleTrigger>
+                      <CollapsibleContent>
+                        <div className="mt-2">Scheduled</div>
+                        <div className="grid grid-cols-6 self-center ">
+                          {BusSchedule.find(
+                            (s) =>
+                              s.r === route.route_id &&
+                              s.d === direction &&
+                              s.dt === getCurrentDate(),
+                          )?.t.map((time, idx) => (
+                            <div
+                              key={idx}
+                              className={`${
+                                hasCurrentTimePassed(time)
+                                  ? "dark:text-neutral-500 text-neutral-400"
+                                  : "dark:text-white text-black"
+                              } px-2`}
+                            >
+                              {time.substring(0, 5)}
+                            </div>
+                          ))}
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
+                  )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Card>
+    );
+  return null;
+}
+
+function FitBoundsToPolyline({
+  route,
+  provider,
+  direction,
+  positions,
+  color,
+  markerRefs,
+  setDirection,
+}: {
+  route: RouteInfo | undefined;
+  provider: string;
+  direction: number;
+  positions: LatLngExpression[][];
+  color: string;
+  markerRefs: React.RefObject<{ [key: string]: CircleMarkerRef | null }>;
+  setDirection: React.Dispatch<React.SetStateAction<number>>;
+}) {
+  const map = useMap();
+
+  // Single-direction routes: normalize direction once after mount instead of
+  // during render.
+  useEffect(() => {
+    if (route?.directions.length === 1) {
+      setDirection(provider === "jb" || provider === "mk" ? 1 : 0);
+    }
+  }, [route, provider, setDirection]);
+
+  if (route?.directions.length === 0) return null;
+  if (route?.directions.length === 1) {
+    return (
+      <>
+        <Polyline
+          pathOptions={{ color: color, weight: 7 }}
+          positions={positions}
+        />
+        {positions.length &&
+          route.directions[0].stops.map((stop, idx) => (
+            <CircleMarker
+              ref={(ref) => {
+                markerRefs.current[stop.stop_id] = ref;
+              }}
+              key={idx}
+              radius={6}
+              center={[stop.lat, stop.lon]}
+              pathOptions={{
+                color: color,
+                fillColor: "white",
+                fillOpacity: 1,
+              }}
+              eventHandlers={{
+                click: () =>
+                  map.setView([stop.lat, stop.lon], 16, { animate: true }),
+              }}
+            >
+              <Popup
+                className="pointer-events-none"
+                maxWidth={500}
+                offset={[0, 8]}
+                closeButton={false}
+              >
+                <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
+                  {stop.stop_name.trim()}
+                </div>
+              </Popup>
+            </CircleMarker>
+          ))}
+      </>
+    );
+  }
+
+  return (
+    <>
+      <Polyline
+        pathOptions={{
+          color:
+            provider !== "rkl" && provider !== "rp"
+              ? lighterHex(color, 40)
+              : color,
+          weight: 7,
+        }}
+        positions={positions}
+      />
+      {matchActiveDirection(route?.directions ?? [], provider, direction)?.stops
+        .length &&
+        positions.length &&
+        matchActiveDirection(
+          route?.directions ?? [],
+          provider,
+          direction,
+        )?.stops.map((stop, idx) => (
+          <CircleMarker
+            ref={(ref) => {
+              markerRefs.current[stop.stop_id] = ref;
+            }}
+            key={idx}
+            radius={6}
+            center={[stop.lat, stop.lon]}
+            pathOptions={{
+              color: darkenHex(color),
+              fillColor: "white",
+              fillOpacity: 1,
+            }}
+            eventHandlers={{
+              click: () =>
+                map.setView([stop.lat, stop.lon], 16, { animate: true }),
+            }}
+          >
+            <Popup
+              className="pointer-events-none"
+              maxWidth={500}
+              offset={[0, 8]}
+              closeButton={false}
+            >
+              <div className="border border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
+                {stop.stop_name.trim()}
+              </div>
+            </Popup>
+          </CircleMarker>
+        ))}
+    </>
+  );
+}
 
 function FlyToRoute({
   positions,
@@ -1318,6 +1410,8 @@ type PrecomputedSegment = {
   endDist: number;
   startCoord: [number, number];
   endCoord: [number, number];
+  midCoord: [number, number];
+  segLen: number;
   bearing: number;
 };
 
@@ -1325,6 +1419,7 @@ type RouteDirection = {
   direction_id: number;
   shape_id: string;
   route_long_name: string;
+  service_ids?: string[];
   stops: {
     stop_id: string;
     stop_name: string;
@@ -1343,13 +1438,13 @@ const ICON_CACHE: Record<string, { left: DivIcon; right: DivIcon }> = {
   rp: {
     left: divIcon({
       className: "",
-      html: `<img src="/rp-bus2.webp" style="width:37px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      html: `<img src="/rp-bus2.webp" style="width:37px;height:91px;transform-origin:center center;display:block;will-change:transform;" />`,
       iconSize: [24, 24],
       iconAnchor: [50, 50],
     }),
     right: divIcon({
       className: "",
-      html: `<img src="/rp-bus.webp" style="width:37px;height:100px;transform-origin:center center;display:block;will-change:transform;" />`,
+      html: `<img src="/rp-bus.webp" style="width:37px;height:91px;transform-origin:center center;display:block;will-change:transform;" />`,
       iconSize: [24, 24],
       iconAnchor: [50, 50],
     }),
@@ -1569,7 +1664,11 @@ function AnimatedVehicleMarker({
       const image = getImageElement();
       if (!image) return;
       const normalized = normalizeHeading(value);
-      image.style.transition = "none";
+      // Only write the transition reset once: writing it every animation
+      // frame re-invalidates the element style needlessly.
+      if (image.style.transition !== "none") {
+        image.style.transition = "none";
+      }
       image.style.transform = `rotate(${normalized}deg)`;
       previousHeadingRef.current = normalized;
     };
@@ -1794,6 +1893,12 @@ const SingleVehicleItem = memo(function SingleVehicleItem({
 
   if (hasLiveBearing && precomputedSegments.length > 0) {
     const nearestDistance = snapped.properties.pointDistance;
+    const threshold = nearestDistance + 15;
+    // Cheap equirectangular lower bound on the bus-to-segment distance lets
+    // us skip distant segments before paying for nearestPointOnLine.
+    const rad = Math.PI / 180;
+    const kx = Math.cos(lat * rad) * 111320;
+    const ky = 110574;
     let bestCandidate: {
       point: typeof snapped;
       progress: number;
@@ -1803,6 +1908,10 @@ const SingleVehicleItem = memo(function SingleVehicleItem({
     } | null = null;
 
     for (const seg of precomputedSegments) {
+      const dx = (seg.midCoord[0] - lng) * kx;
+      const dy = (seg.midCoord[1] - lat) * ky;
+      if (Math.hypot(dx, dy) - seg.segLen > threshold) continue;
+
       const candidate = nearestPointOnLine(seg.line, busPoint, {
         units: "meters",
       });
@@ -1864,9 +1973,21 @@ const SingleVehicleItem = memo(function SingleVehicleItem({
   const start = coords[segIdx];
   const end = coords[segIdx + 1];
   const routeHeading = start && end ? bearing(point(start), point(end)) : 0;
+  const liveBearing = hasLiveBearing
+    ? normalizeHeading(vehicle.position!.bearing!)
+    : null;
+  // Use the live bearing to resolve which direction the bus is travelling on
+  // a route whose shape may be shared by both directions.
+  const vehicleRouteOrientation: 1 | -1 =
+    (provider === "rp" || provider === "rkl") && liveBearing !== null
+      ? angleDifference(routeHeading, liveBearing) <=
+        angleDifference((routeHeading + 180) % 360, liveBearing)
+        ? 1
+        : -1
+      : routeOrientation;
   const heading = hasLiveBearing
     ? normalizeSignedBearing(vehicle.position!.bearing!)
-    : routeOrientation === 1
+    : vehicleRouteOrientation === 1
       ? routeHeading
       : (routeHeading + 180) % 360;
 
@@ -1885,8 +2006,10 @@ const SingleVehicleItem = memo(function SingleVehicleItem({
       precomputedSegments={precomputedSegments}
       routeProgress={routeProgress}
       followsRoute={!isOffRoute}
-      useRouteHeading={!hasLiveBearing}
-      routeOrientation={routeOrientation}
+      // Live bearings can lag at turns. Keep Rapid KL and Penang markers
+      // aligned to the matched route segment while they move along it.
+      useRouteHeading={provider === "rp" || provider === "rkl" || !hasLiveBearing}
+      routeOrientation={vehicleRouteOrientation}
       icon={icon}
     >
       <Popup maxWidth={500} offset={[0, 8]} closeButton={false}>
@@ -1999,6 +2122,7 @@ export function VehiclesMarker({
     }
 
     function avlToVehicle(bus: AvlVehicle): IVehiclePosition {
+      console.log(bus);
       if (
         bus.is_inside_endstop === "depot" ||
         bus.is_inside_endstop === "end"
@@ -2050,10 +2174,17 @@ export function VehiclesMarker({
       };
     }
 
+    // Abort in-flight requests when the route changes so a stale response
+    // can never repopulate vehicles for the newly selected route.
+    const abortController = new AbortController();
+
     function fetchAvl() {
-      fetch(`${AVL_API}/${routeId}`)
+      fetch(`${AVL_API}/${routeId}`, {
+        signal: abortController.signal,
+      })
         .then((res) => res.json())
         .then((data: { vehicles: AvlVehicle[] }) => {
+          if (abortController.signal.aborted) return;
           setVehicles((prev) => {
             const updated = new Map(prev);
             for (const bus of data.vehicles) {
@@ -2096,6 +2227,7 @@ export function VehiclesMarker({
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
+      abortController.abort();
       pusher.unsubscribe(`avl.route.${routeId}`);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
       fetchRef.current = null;
@@ -2120,6 +2252,10 @@ export function VehiclesMarker({
       ktmb: "ktmb",
     };
 
+    // Abort the polling fetch on provider change/unmount so stale vehicle
+    // data is never committed after the effect has been cleaned up.
+    const abortController = new AbortController();
+
     async function loadData() {
       const endpoint = provider ? PROVIDER_ENDPOINTS[provider] : undefined;
       if (!endpoint) return;
@@ -2127,12 +2263,14 @@ export function VehiclesMarker({
       try {
         const res = await fetch(
           `https://my-gtfs-api.wolfram-7b5.workers.dev/api/vehicle-position/${endpoint}`,
+          { signal: abortController.signal },
         );
         const feed = res.ok
           ? transit_realtime.FeedMessage.decode(
               new Uint8Array(await res.arrayBuffer()),
             )
           : null;
+        if (abortController.signal.aborted) return;
 
         setVehicles((prev) => {
           const now = Date.now();
@@ -2182,6 +2320,7 @@ export function VehiclesMarker({
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
+      abortController.abort();
       if (timerRef.current !== null) {
         window.clearInterval(timerRef.current);
         timerRef.current = null;
@@ -2191,6 +2330,18 @@ export function VehiclesMarker({
       setVehicles(new Map());
     };
   }, [provider]);
+
+  // Prune snap/progress bookkeeping for vehicles of previously selected
+  // routes so these maps cannot grow unbounded across route switches.
+  useEffect(() => {
+    const prefix = `${route?.route_id}:`;
+    for (const key of routeSnapStateRef.current.keys()) {
+      if (!key.startsWith(prefix)) routeSnapStateRef.current.delete(key);
+    }
+    for (const key of vehicleRouteProgressRef.current.keys()) {
+      if (!key.startsWith(prefix)) vehicleRouteProgressRef.current.delete(key);
+    }
+  }, [route?.route_id]);
 
   const coordsForLine = useMemo(
     () =>
@@ -2292,6 +2443,8 @@ export function VehiclesMarker({
         endDist: traversed + segLength,
         startCoord: start,
         endCoord: end,
+        midCoord: [(start[0] + end[0]) / 2, (start[1] + end[1]) / 2],
+        segLen: segLength,
         bearing:
           routeOrientation === -1 ? (rawBearing + 180) % 360 : rawBearing,
       });
