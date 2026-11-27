@@ -2196,6 +2196,7 @@ export function VehiclesMarker({
     }
 
     function avlToVehicle(bus: AvlVehicle): IVehiclePosition {
+      // console.log(bus);
       if (
         bus.is_inside_endstop === "depot" ||
         bus.is_inside_endstop === "end"
@@ -2217,6 +2218,10 @@ export function VehiclesMarker({
         );
         if (scheduleDirectionId !== undefined) {
           directionId = scheduleDirectionId;
+
+          if (bus.route === "304") {
+            directionId = directionId === 1 ? 0 : 1;
+          }
         } else if (bus.dir === "01") {
           directionId = 1;
         } else {
