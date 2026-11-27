@@ -605,7 +605,10 @@ function App() {
         )}
 
         <CustomZoomControls />
-        <Card className="absolute overflow-hidden p-0 w-10 h-10 flex justify-center items-center gap-0 top-37.5 mr-px right-3.75 z-1000 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold">
+        <Card
+          className="absolute overflow-hidden p-0 w-10 h-10 flex justify-center items-center gap-0 mr-px right-3.75 z-[1000] border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 rounded-2xl shadow-md text-lg font-semibold"
+          style={{ top: "calc(env(safe-area-inset-top, 0px) + 150px)" }}
+        >
           {/* <ModeToggle /> */}
           <Dialog>
             <DialogTrigger asChild>
