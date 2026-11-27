@@ -199,6 +199,7 @@ export function MapContainer({
   return (
     <div id={id} className={className}>
       <MapLibreMap
+        attributionControl={false}
         ref={ref}
         style={{ width: "100%", height: "100%" }}
         initialViewState={{ longitude: center[1], latitude: center[0], zoom }}

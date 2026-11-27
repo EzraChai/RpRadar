@@ -159,16 +159,7 @@ body {
   margin: 0 !important;
   padding: 0 !important;
 }
-.maplibregl-ctrl-attrib {
-  opacity: 50% !important;
-  margin: 0 10px 8px 0 !important;
-  background: none !important;
-  color: var(--foreground) !important;
-}
-.maplibregl-ctrl-attrib a {
-  color: var(--foreground) !important;
-  text-decoration: underline !important;
-}
+
 .scrollable {
   overscroll-behavior: contain !important;
 }
@@ -221,10 +212,6 @@ body {
   background-color: rgb(255 255 255 / 50%) !important;
   backdrop-filter: blur(16px);
   box-shadow: none !important;
-}
-
-.maplibregl-ctrl-attrib {
-  @apply dark:text-neutral-300!;
 }
 
 .maplibregl-ctrl-top-right {

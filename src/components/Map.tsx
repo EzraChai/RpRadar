@@ -1021,7 +1021,7 @@ function StopsCard({
           map.scrollWheelZoom.enable();
           map.dragging.enable();
         }}
-        className="absolute z-1000 py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-10 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
+        className="absolute z-1000 py-0 overflow-hidden gap-0 w-1/5 scroll-smooth bottom-4 backdrop-blur-lg border-white dark:border-neutral-500 bg-white/50 dark:bg-white/10 right-4  shadow-md h-1/2 "
       >
         <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
           <div
