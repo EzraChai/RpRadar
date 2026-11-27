@@ -185,18 +185,21 @@ body {
 }
 #map {
   background-color: var(--map-background);
-  background-image:
-    linear-gradient(to right, var(--graph-major-line), 1px, transparent 1px),
+  background-image: linear-gradient(
+      to right,
+      var(--graph-major-line),
+      1px,
+      transparent 1px
+    ),
     linear-gradient(to bottom, var(--graph-major-line), 1px, transparent 1px),
     linear-gradient(to right, var(--graph-major-line), 1px, transparent 1px),
     linear-gradient(to bottom, var(--graph-minor-line), 1px, transparent 1px),
     linear-gradient(to right, var(--graph-minor-line), 1px, transparent 1px);
-  background-size:
-    100% 100%,
-    200px 200px,
-    200px 200px,
-    25px 25px,
-    25px 25px;
+  background-size: 100% 100%, 200px 200px, 200px 200px, 25px 25px, 25px 25px;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
 }
 
 .maplibregl-ctrl button.maplibregl-ctrl-geolocate {
@@ -250,8 +253,7 @@ body {
 }
 
 .grid-style {
-  background-image:
-    linear-gradient(#e5e5e5 1px, transparent 1px),
+  background-image: linear-gradient(#e5e5e5 1px, transparent 1px),
     linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
   background-size: 30px 30px;
 

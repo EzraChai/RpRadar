@@ -116,6 +116,7 @@ import type { AvlVehicle } from "@/lib/pusher";
 import { TrafficLayer } from "./TrafficLayer";
 import { deriveVehicleDirectionBuckets } from "@/lib/vehicle-direction-buckets";
 import type { Feature, LineString } from "geojson";
+import { ImmersiveMap } from "./ImmersiveMap";
 
 type IVehiclePosition = transit_realtime.IVehiclePosition;
 
@@ -489,6 +490,7 @@ function App() {
 
   return (
     <div className="w-full max-h-dvh overflow-hidden flex justify-center items-center grid-style">
+      <ImmersiveMap />
       <MapContainer
         id="map"
         preferCanvas={true}
@@ -499,28 +501,28 @@ function App() {
           provider === "rp"
             ? [5.4164, 100.3327]
             : provider === "rkl"
-              ? [3.139, 101.6869]
-              : provider === "ns"
-                ? [2.7297, 101.9381]
-                : provider === "mk"
-                  ? [2.1881, 102.2516]
-                  : provider === "jb"
-                    ? [1.4927, 103.7412]
-                    : provider === "pk"
-                      ? [4.5841, 101.083]
-                      : provider === "ktn"
-                        ? [3.8077, 103.326]
-                        : provider === "alr"
-                          ? [6.121, 100.3605]
-                          : provider === "kgr"
-                            ? [6.4414, 100.1986]
-                            : provider === "ktb"
-                              ? [6.1293, 102.2399]
-                              : provider === "trg"
-                                ? [5.3302, 103.1408]
-                                : provider === "sw"
-                                  ? [1.55, 110.333]
-                                  : [5.4164, 100.3327]
+            ? [3.139, 101.6869]
+            : provider === "ns"
+            ? [2.7297, 101.9381]
+            : provider === "mk"
+            ? [2.1881, 102.2516]
+            : provider === "jb"
+            ? [1.4927, 103.7412]
+            : provider === "pk"
+            ? [4.5841, 101.083]
+            : provider === "ktn"
+            ? [3.8077, 103.326]
+            : provider === "alr"
+            ? [6.121, 100.3605]
+            : provider === "kgr"
+            ? [6.4414, 100.1986]
+            : provider === "ktb"
+            ? [6.1293, 102.2399]
+            : provider === "trg"
+            ? [5.3302, 103.1408]
+            : provider === "sw"
+            ? [1.55, 110.333]
+            : [5.4164, 100.3327]
         }
         zoom={
           provider === "rkl" ||
@@ -574,10 +576,10 @@ function App() {
               route?.route_short_name === route?.directions[0].route_long_name
                 ? "#28ab78"
                 : route?.route_id === "B1000"
-                  ? "#115740"
-                  : provider !== "rkl" && provider !== "rp"
-                    ? "#e74e9f"
-                    : "#78BFF5"
+                ? "#115740"
+                : provider !== "rkl" && provider !== "rp"
+                ? "#e74e9f"
+                : "#78BFF5"
             }
           />
         )}
@@ -731,7 +733,17 @@ function App() {
             <Card className="absolute z-500 pointer-events-none top-4 left-1/2 -translate-x-1/2 border-white dark:border-neutral-500 backdrop-blur-lg bg-white/50 dark:bg-white/10 px-2 py-2 rounded-2xl shadow-md text-lg font-semibold">
               <div className="flex justify-between items-center gap-4">
                 <div
-                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : route.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
+                  className={`text-2xl font-bold border-2 p-2 ${
+                    provider === "rkl" &&
+                    route.directions[0].route_long_name ===
+                      route.route_short_name
+                      ? "border-[#28ab78]"
+                      : route.route_id === "B1000"
+                      ? "bg-[#115740] border-none"
+                      : provider !== "rkl" && provider !== "rp"
+                      ? "border-pink-500"
+                      : "border-red-500"
+                  } rounded-xl`}
                 >
                   {route?.route_short_name}
                 </div>
@@ -743,7 +755,17 @@ function App() {
                   </h4>
                 </div>
                 <div
-                  className={`text-2xl font-bold border-2 p-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : route.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rkl" && provider !== "rp" ? "border-pink-500" : "border-red-500"} rounded-xl`}
+                  className={`text-2xl font-bold border-2 p-2 ${
+                    provider === "rkl" &&
+                    route.directions[0].route_long_name ===
+                      route.route_short_name
+                      ? "border-[#28ab78]"
+                      : route.route_id === "B1000"
+                      ? "bg-[#115740] border-none"
+                      : provider !== "rkl" && provider !== "rp"
+                      ? "border-pink-500"
+                      : "border-red-500"
+                  } rounded-xl`}
                 >
                   {route?.route_short_name}
                 </div>
@@ -829,7 +851,9 @@ function RailStopsMarkers({ route }: { route: RailRoute }) {
           >
             <div className="border inline-flex gap-2 border-white dark:border-neutral-500 bg-white/50 dark:bg-white/20 backdrop-blur-lg dark:text-white text-black font-medium rounded-lg px-2 py-2 text-md text-center">
               <span
-                className={`inline-block font-bold rounded-md px-1.5 ${route.route_code === "PYL" && "text-black"}`}
+                className={`inline-block font-bold rounded-md px-1.5 ${
+                  route.route_code === "PYL" && "text-black"
+                }`}
                 style={{
                   backgroundColor: `#${route.route_color}`,
                 }}
@@ -1025,7 +1049,16 @@ function StopsCard({
       >
         <div className="flex justify-between w-full items-center px-6 pt-6 pb-1">
           <div
-            className={`px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "border-[#28ab78]" : route.route_id === "B1000" ? "bg-[#115740] border-none" : provider !== "rkl" && provider !== "rp" ? "border-[#e74e9f]" : "border-red-500"} rounded-lg text-black dark:text-white`}
+            className={`px-2 h-6 font-semibold flex justify-center items-center text-sm border-2 ${
+              provider === "rkl" &&
+              route.directions[0].route_long_name === route.route_short_name
+                ? "border-[#28ab78]"
+                : route.route_id === "B1000"
+                ? "bg-[#115740] border-none"
+                : provider !== "rkl" && provider !== "rp"
+                ? "border-[#e74e9f]"
+                : "border-red-500"
+            } rounded-lg text-black dark:text-white`}
           >
             {route?.route_short_name}
           </div>
@@ -1111,10 +1144,10 @@ function StopsCard({
                       route.route_short_name
                       ? "bg-[#219166]"
                       : route.route_id === "B1000"
-                        ? "bg-[#115740]"
-                        : provider !== "rkl" && provider !== "rp"
-                          ? "bg-pink-400"
-                          : "bg-[#78BFF5]"
+                      ? "bg-[#115740]"
+                      : provider !== "rkl" && provider !== "rp"
+                      ? "bg-pink-400"
+                      : "bg-[#78BFF5]"
                   } z-10`}
                 ></div>
                 {/* Vertical line */}
@@ -1123,7 +1156,17 @@ function StopsCard({
                     ?.stops.length ?? 0) -
                     1 && (
                   <div
-                    className={`h-full w-1 ${provider === "rkl" && route.directions[0].route_long_name === route.route_short_name ? "bg-[#219166]" : route.route_id === "B1000" ? "bg-[#115740]" : provider !== "rkl" && provider !== "rp" ? "bg-pink-400" : "bg-[#87CEFA]"}`}
+                    className={`h-full w-1 ${
+                      provider === "rkl" &&
+                      route.directions[0].route_long_name ===
+                        route.route_short_name
+                        ? "bg-[#219166]"
+                        : route.route_id === "B1000"
+                        ? "bg-[#115740]"
+                        : provider !== "rkl" && provider !== "rp"
+                        ? "bg-pink-400"
+                        : "bg-[#87CEFA]"
+                    }`}
                   ></div>
                 )}
               </div>
@@ -1425,6 +1468,7 @@ function UserLocation() {
       positionOptions={{ enableHighAccuracy: true }}
       trackUserLocation
       showUserLocation
+      showAccuracyCircle
     />
   );
 }
@@ -1830,9 +1874,9 @@ function AnimatedVehicleMarker({
     const image =
       cachedImgRef.current && cachedImgRef.current.isConnected
         ? cachedImgRef.current
-        : ((markerRef.current
+        : (markerRef.current
             ?.getElement()
-            ?.querySelector("img") as HTMLImageElement | null) ?? null);
+            ?.querySelector("img") as HTMLImageElement | null) ?? null;
     if (!image) return;
     cachedImgRef.current = image;
 
@@ -2014,8 +2058,8 @@ const SingleVehicleItem = memo(function SingleVehicleItem({
   const heading = hasLiveBearing
     ? normalizeSignedBearing(vehicle.position!.bearing!)
     : vehicleRouteOrientation === 1
-      ? routeHeading
-      : (routeHeading + 180) % 360;
+    ? routeHeading
+    : (routeHeading + 180) % 360;
 
   const icon = getCachedBusIcon(provider, heading, route?.route_id);
   const markerPosition = {
@@ -2512,7 +2556,7 @@ export function VehiclesMarker({
         const plate = v.vehicle?.licensePlate ?? String(idx);
         const busKey = `${route?.route_id}:${direction}:${plate}`;
         const departureTime = v.trip?.tripId
-          ? (tripDepartureMap.get(v.trip.tripId) ?? "")
+          ? tripDepartureMap.get(v.trip.tripId) ?? ""
           : "";
 
         return (
