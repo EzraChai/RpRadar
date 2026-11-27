@@ -223,11 +223,6 @@ body {
   box-shadow: none !important;
 }
 
-.maplibregl-ctrl-top-right {
-  top: calc(12px + env(safe-area-inset-top, 0px)) !important;
-  right: 6px !important;
-}
-
 .maplibregl-ctrl-group {
   box-shadow: none !important;
   background: none !important;

@@ -147,7 +147,9 @@ export function MapContainer({
   // reference, so a fresh object/string per render would trigger setStyle.
   const mapStyle = useMemo(() => {
     return apiKey
-      ? `https://api.protomaps.com/styles/v5/${flavor}/en.json?key=${encodeURIComponent(apiKey)}`
+      ? `https://api.protomaps.com/styles/v5/${flavor}/en.json?key=${encodeURIComponent(
+          apiKey,
+        )}`
       : FALLBACK_MAP_STYLE;
   }, [apiKey, flavor]);
   const transformStyle = useCallback<
@@ -479,14 +481,10 @@ export function Marker({
       <MapLibreMarker
         ref={markerRef}
         latitude={
-          imperativePosition
-            ? (livePosition?.lat ?? position.lat)
-            : position.lat
+          imperativePosition ? livePosition?.lat ?? position.lat : position.lat
         }
         longitude={
-          imperativePosition
-            ? (livePosition?.lng ?? position.lng)
-            : position.lng
+          imperativePosition ? livePosition?.lng ?? position.lng : position.lng
         }
         anchor="center"
         style={MARKER_ELEMENT_STYLE}
