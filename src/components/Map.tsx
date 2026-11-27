@@ -116,7 +116,6 @@ import type { AvlVehicle } from "@/lib/pusher";
 import { TrafficLayer } from "./TrafficLayer";
 import { deriveVehicleDirectionBuckets } from "@/lib/vehicle-direction-buckets";
 import type { Feature, LineString } from "geojson";
-import { ImmersiveMap } from "./ImmersiveMap";
 
 type IVehiclePosition = transit_realtime.IVehiclePosition;
 
@@ -490,7 +489,6 @@ function App() {
 
   return (
     <div className="w-full max-h-dvh overflow-hidden flex justify-center items-center grid-style">
-      <ImmersiveMap />
       <MapContainer
         id="map"
         preferCanvas={true}
